@@ -1,0 +1,7 @@
+.tmp_*
+.project
+*.kpf
+nginx.*
+.DS_Store
+*.swp
+Thumbs.db
