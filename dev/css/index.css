@@ -2,10 +2,13 @@
 /* GENERAL MARKUP */
 /******************/
 * {margin:0;padding:0;}
-body {background:url("../images/body_bg.png") repeat-x top left #f2f2f2;font-family:Arial,Helvetica,sans-serif;}
+body {background:url("../images/body_bg.png") repeat-x top left #f2f2f2;font-family:Arial,Helvetica,sans-serif;font-size:13px;}
 body > #top-line {position:absolute;top:0;left:0;width:100%;height:1px;background-color:#676767;z-index:0;}
 
 .wl-bold {font-weight:bold;}
+.wl-push {clear:both;}
+.wl-hidden {margin:0;visibility:hidden;}
+.wl-regular-link {color:#2683bc;text-decoration:none;}
 
 /* Main container*/
 .wl-page-container {background-color:#fff;width:916px;min-height:320px;position:relative;z-index:1;padding:0 22px;padding-bottom:20px;}
@@ -49,8 +52,22 @@ body > #top-line {position:absolute;top:0;left:0;width:100%;height:1px;backgroun
 /************/
 #widgetlibrary_carousel {background:url("../images/carousel_bg.png") repeat-x bottom left #f0f0f0;width:730px;height:368px;}
 #widgetlibrary_carousel #carousel_state1 {width:730px;height:318px;background:url("../images/carousel_state1_bg.jpg") no-repeat top left transparent;border-radius:5px;-webkit-border-radius:5px;-moz-border-radius:5px;}
-#widgetlibrary_carousel .carousel_choice a {color:#6E6E6E;display:block;text-decoration:none;}
+#widgetlibrary_carousel .carousel_choice a {color:#6E6E6E;display:block;text-decoration:none;font-size:16px;}
 #widgetlibrary_carousel .carousel_choice {display:block;float:left;height:50px;line-height:50px;text-align:center;width:243px;}
 #widgetlibrary_carousel .carousel_choice_arrow {background:url("../images/carousel_arrow_down.png") no-repeat scroll center top transparent;height:50px;width:243px;position:absolute;}
 #widgetlibrary_carousel h1 {color:#e4e3e3;display:block;font-size:24px;font-weight:normal;margin-left:auto;margin-right:auto;padding-top:20px;text-align:center;width:600px;text-shadow:0px 1px 1px #333;}
 #widgetlibrary_carousel h2 {color:#434343;display:block;font-size:14px;font-weight:normal;margin-left:auto;margin-right:auto;padding-top:155px;text-align:center;text-shadow:0 0 1px #bbb;width:430px;}
+
+
+/****************/
+/* MOST POPULAR */
+/****************/
+#widgetlibrary_mostpopular {background:url("../images/mostpopular_bg.png") repeat-x top left #fefefe;width:710px;border-radius:5px;-webkit-border-radius:5px;-moz-border-radius:5px;box-shadow:0 0 12px -4px #888 inset;-moz-box-shadow:0 0 12px -4px #888 inset;-webkit-box-shadow:0 0 12px -4px #888 inset;margin-top:20px;padding:15px 10px 10px;}
+#widgetlibrary_mostpopular h1 {color:#333;font-size:14px;font-weight:normal;margin:0 0 7px 10px;}
+#widgetlibrary_mostpopular .mostpopular_item {width:148px;height:78px;background-color:#fff;margin:0 3px 3px 0;float:left;border-radius:4px;-moz-border-radius:4px;-webkit-border-radius:4px;box-shadow:0 1px 1px #bbb;-moz-box-shadow:0 1px 1px #bbb;-webkit-box-shadow:0 1px 1px #bbb;padding:15px 13px 11px;font-size:11px;color:#666;}
+#widgetlibrary_mostpopular .mostpopular_item_icon {height:50px;width:50px;float:left;padding-right:10px;}
+#widgetlibrary_mostpopular .mostpopular_item a.mostpopular_item_widgetname {font-size:12px;display:block;}
+#widgetlibrary_mostpopular .mostpopular_item .rating_container {clear:both;padding-top:10px;}
+#widgetlibrary_mostpopular .mostpopular_item .rating_icon {background:url("../images/rating_icon.png") no-repeat scroll left -14px transparent;width:15px;height:15px;float:left;}
+#widgetlibrary_mostpopular .mostpopular_item .rating_icon.filled {background:url("../images/rating_icon.png") no-repeat left top transparent;}
+#widgetlibrary_mostpopular .mostpopular_item .rating_number_of_ratings {margin-left:7px;}
