@@ -9,6 +9,9 @@ gem 'sqlite3'
 # Use jQuery instead of Prototype
 gem 'jquery-rails', '>= 1.0.12'
 
+# Use SASS for awesome stylesheets
+gem "sass"
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
