@@ -10,6 +10,8 @@ body > #top-line {position:absolute;top:0;left:0;width:100%;height:1px;backgroun
 .wl-push {clear:both;}
 .wl-hidden {margin:0;visibility:hidden;}
 .wl-regular-link {color:#2683bc;text-decoration:none;}
+.wl-regular-link:hover {text-decoration:underline;}
+.wl-split-line {background-color:none;border:medium none;border-top:1px dotted #d4d4d4;height:1px;margin:8px 0;}
 
 /* Main container*/
 .wl-page-container {background-color:#fff;width:916px;min-height:320px;position:relative;z-index:1;padding:0 22px;padding-bottom:20px;}
@@ -26,6 +28,18 @@ body > #top-line {position:absolute;top:0;left:0;width:100%;height:1px;backgroun
 .wl-button.wl-overlay-button:hover {background:url("../images/button_overlay_hover.png") repeat-x scroll left top transparent;}
 .wl-button.wl-overlay-button[disabled] {color:#ccc;}
 .wl-button.wl-overlay-button[disabled]:hover {background:url("../images/button_overlay_default.png") repeat-x scroll left top transparent;cursor:auto;}
+
+
+/**********/
+/* FOOTER */
+/**********/
+#footer_container{width:950px;padding:15px 5px 5px;margin-bottom:20px;color:#454a4f;font-size:11px;background:url("../images/footer_shadow.png") no-repeat scroll center top transparent;}
+#footer_container #footer_logo{background:url("../images/footer_logo.png") no-repeat scroll 0 3px transparent;width:43px;height:28px;float:left;margin-right:15px;float:left;}
+#footer_container #footer_menu {float:right;margin-top:12px;}
+#footer_container #footer_menu a {margin-left:40px;}
+#footer_container #footer_misc a, #footer_container #footer_locale a:first-child {margin-right:40px;}
+#footer_container #footer_locale {float:right;}
+
 
 /************************/
 /* USER ACTIONS TOP BAR */
