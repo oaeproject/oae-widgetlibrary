@@ -1,7 +1,4 @@
-.tmp_*
-.project
-*.kpf
-nginx.*
-.DS_Store
-*.swp
-Thumbs.db
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/
