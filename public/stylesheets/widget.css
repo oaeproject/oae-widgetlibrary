@@ -1,0 +1,36 @@
+.wl-content-container#widget_container {
+  background: url("../images/library_bg.png") repeat-x scroll center top transparent;
+  padding-top: 20px; }
+
+#widget_container #widget_download {
+  width: 120px;
+  text-align: center;
+  float: left; }
+
+#widget_container #widget_download .wl-header-button {
+  margin-right: 0;
+  margin-top: 15px;
+  padding: 0 15px;
+  color: #2683bc; }
+
+#widget_container #widget_description {
+  width: 400px;
+  overflow: hidden;
+  padding-left: 20px;
+  color: #666; }
+
+#widget_container #widget_description h1 {
+  color: #666;
+  font-size: 23px;
+  margin: 0; }
+
+#widget_container #widget_description h1 #widget_version {
+  font-size: 14px;
+  font-weight: normal; }
+
+#widget_container #widget_description p {
+  font-size: 13px; }
+
+#widget_container #widget_description ul {
+  list-style: inside;
+  margin: 10px 0; }

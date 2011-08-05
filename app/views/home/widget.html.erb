@@ -1,0 +1,24 @@
+<% content_for :head do %>
+    <%= stylesheet_link_tag "widget" %>
+<% end %>
+
+<div class="wl-content-container" id="widget_container">
+    <div id="widget_download">
+        <img src="../images/widget_small_preview.jpg" alt="<%= @widget %> preview">
+        <a target="_blank" class="wl-button wl-header-button" href="#">Download</a>
+    </div>
+    <div id="widget_description">
+        <h1 class="wl-bold">Activity Plus <span id="widget_version">v3.0</span></h1>
+        by <a href="#" title="James Johnson" class="wl-regular-link">James Johnson</a>
+        <p>A+ adds additional functionality to an already popular Sakai widget. Just few taps and your activity chart is ready. You can save it for later or email immediately.</p>
+        <ul>
+            <li>supports rotation,</li>
+            <li>add new slices (up to 12),</li>
+            <li>move slices on a chart in slice settings,</li>
+            <li>change slice size,</li>
+            <li>rotate whole chart, just swipe your finger next to chart border,</li>
+            <li>skew and scale chart in real time,</li>
+            <li>save for later, in chart settings, chart is saved with date and chart name.</li>
+        </ul>
+    </div>
+</div>

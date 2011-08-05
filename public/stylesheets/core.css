@@ -192,6 +192,9 @@ h1 {
   padding-top: 5px; }
 
 /* Buttons */
+a.wl-button {
+  text-decoration: none; }
+
 .wl-button {
   border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -242,6 +245,38 @@ h1 {
 .wl-button.wl-large-button:hover {
   background: url("../images/button_large_hover.png") repeat-x scroll left top transparent;
   color: #999; }
+
+/* Header buttons */
+.wl-button.wl-header-button {
+  background: #fff;
+  box-shadow: 0 0 4px -2px #a8a8a8 inset;
+  -webkit-box-shadow: 0 0 4px -2px #a8a8a8 inset;
+  -moz-box-shadow: 0 0 4px -2px #a8a8a8 inset;
+  border: 1px solid #e0e3e5; }
+
+.wl-button.wl-header-button:hover {
+  background: url("../images/button_header_hover.png") repeat-x scroll left -1px transparent;
+  border: 1px solid #E0E3E5;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none; }
+
+.wl-button.wl-header-button[disabled] {
+  background: #fff;
+  cursor: auto;
+  color: #ccc; }
+
+.wl-button.wl-header-button[disabled]:hover {
+  background: #fff;
+  box-shadow: 0 0 6px -2px #a8a8a8 inset;
+  -moz-box-shadow: 0 0 6px -2px #a8a8a8 inset;
+  -webkit-box-shadow: 0 0 6px -2px #a8a8a8 inset;
+  border: 1px solid #e0e3e5; }
+
+a.wl-button.wl-header-button {
+  height: 24px;
+  line-height: 24px;
+  display: inline-block; }
 
 /**********/
 /* FOOTER */
