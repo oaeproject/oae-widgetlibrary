@@ -1,6 +1,6 @@
 SakaiWidgetlibrary::Application.routes.draw do
 
-  match 'library' => 'home#library'
+  match 'library' => 'library#index'
   root :to => "home#index"
 
   # The priority is based upon order of creation:
