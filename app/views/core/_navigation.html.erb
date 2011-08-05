@@ -1,9 +1,9 @@
 <div id="widgetlibrary_navigation">
     <input id="search_widgets" type="text" placeholder="Search Widget name / Category / Type..."/>
     <ul class="wl-bold">
-        <li class="navigation_item <% if @location == "index" %>selected<% end %>"><a href="/" title="Home">Home</a></li>
-        <li class="navigation_item <% if @location == "library" %>selected<% end %>"><a href="/library" title="Browse">Browse</a></li>
-        <li class="navigation_item <% if @location == "developer" %>selected<% end %>"><a href="#" title="Developer">Developer</a></li>
-        <li class="navigation_item <% if @location == "submit" %>selected<% end %>"><a href="#" title="Submit">Submit</a></li>
+        <li class="navigation_item <% if params[:action] == "index" %>selected<% end %>"><a href="/" title="Home">Home</a></li>
+        <li class="navigation_item <% if params[:action] == "library" %>selected<% end %>"><a href="/library" title="Browse">Browse</a></li>
+        <li class="navigation_item <% if params[:action] == "developer" %>selected<% end %>"><a href="#" title="Developer">Developer</a></li>
+        <li class="navigation_item <% if params[:action] == "submit" %>selected<% end %>"><a href="#" title="Submit">Submit</a></li>
     </ul>
 </div>
