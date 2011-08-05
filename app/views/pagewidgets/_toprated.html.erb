@@ -1,59 +1,7 @@
 <div id="widgetlibrary_toprated" class="wl-inset-shadow-container wl-content-145">
     <h1>Top Rated</h1>
-    <div class="wl-widget-item">
-        <img src="images/default_widget_icon.png" alt="Facebook" class="wl-widget-item-icon"/>
-        <a href="#" title="Facebook" class="wl-regular-link wl-bold wl-widget-item_widgetname">Facebook</a>
-        <div class="wl-rating-container">
-            <div class="wl-rating-icon filled"></div>
-            <div class="wl-rating-icon filled"></div>
-            <div class="wl-rating-icon filled"></div>
-            <div class="wl-rating-icon filled"></div>
-            <div class="wl-rating-icon filled"></div>
-        </div>
-    </div>
-    <div class="wl-widget-item">
-        <img src="images/default_widget_icon.png" alt="Twitter" class="wl-widget-item-icon"/>
-        <a href="#" title="Twitter" class="wl-regular-link wl-bold wl-widget-item_widgetname">Twitter</a>
-        <div class="wl-rating-container">
-            <div class="wl-rating-icon filled"></div>
-            <div class="wl-rating-icon filled"></div>
-            <div class="wl-rating-icon filled"></div>
-            <div class="wl-rating-icon filled"></div>
-            <div class="wl-rating-icon"></div>
-        </div>
-    </div>
-    <div class="wl-widget-item">
-        <img src="images/default_widget_icon.png" alt="Yahoo Weather" class="wl-widget-item-icon"/>
-        <a href="#" title="Yahoo Weather" class="wl-regular-link wl-bold wl-widget-item_widgetname">Yahoo Weather</a>
-        <div class="wl-rating-container">
-            <div class="wl-rating-icon filled"></div>
-            <div class="wl-rating-icon filled"></div>
-            <div class="wl-rating-icon filled"></div>
-            <div class="wl-rating-icon filled"></div>
-            <div class="wl-rating-icon"></div>
-        </div>
-    </div>
-    <div class="wl-widget-item">
-        <img src="images/default_widget_icon.png" alt="Last.FM" class="wl-widget-item-icon"/>
-        <a href="#" title="Last.FM" class="wl-regular-link wl-bold wl-widget-item_widgetname">Last.FM</a>
-        <div class="wl-rating-container">
-            <div class="wl-rating-icon filled"></div>
-            <div class="wl-rating-icon filled"></div>
-            <div class="wl-rating-icon filled"></div>
-            <div class="wl-rating-icon"></div>
-            <div class="wl-rating-icon"></div>
-        </div>
-    </div>
-    <div class="wl-widget-item">
-        <img src="images/default_widget_icon.png" alt="Youtube" class="wl-widget-item-icon"/>
-        <a href="#" title="Youtube" class="wl-regular-link wl-bold wl-widget-item_widgetname">Youtube</a>
-        <div class="wl-rating-container">
-            <div class="wl-rating-icon filled"></div>
-            <div class="wl-rating-icon filled"></div>
-            <div class="wl-rating-icon"></div>
-            <div class="wl-rating-icon"></div>
-            <div class="wl-rating-icon"></div>
-        </div>
-    </div>
+    <% 5.times do %>
+        <%= render :partial => "core/widget_small", :locals => {:include_rating => true, :include_author => false, :include_number_of_ratings => false, :include_date_of_adding => false, :include_description => false, :include_users => false} %>
+    <% end %>
     <hr class="wl-push wl-hidden">
 </div>
