@@ -1,6 +1,14 @@
+/***********/
+/* IMPORTS */
+/***********/
 .wl-content-container#widget_container {
   background: url("../images/library_bg.png") repeat-x scroll center top transparent;
   padding-top: 20px; }
+  .wl-content-container#widget_container h1 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #666;
+    margin-left: 0; }
 
 #widget_container #widget_download {
   width: 120px;
@@ -16,7 +24,9 @@
   width: 400px;
   overflow: hidden;
   padding-left: 20px;
-  color: #666; }
+  color: #666;
+  float: left;
+  font-size: 11px; }
   #widget_container #widget_description h1 {
     color: #666;
     font-size: 23px;
@@ -28,4 +38,52 @@
     margin: 10px 0; }
   #widget_container #widget_description ul {
     list-style: inside;
-    margin: 10px 0; }
+    margin: 10px 0;
+    font-size: 11px; }
+
+#widget_container #widget_details {
+  float: right;
+  height: 100px;
+  width: 300px; }
+  #widget_container #widget_details .wl-rating-container {
+    display: inline-block;
+    float: left;
+    padding-top: 3px; }
+    #widget_container #widget_details .wl-rating-container .wl-rating-icon {
+      background: url("../images/rating_icon_large.png") no-repeat scroll left -21px transparent !important;
+      width: 23px;
+      height: 21px; }
+    #widget_container #widget_details .wl-rating-container .wl-rating-icon.filled {
+      background: url("../images/rating_icon_large.png") no-repeat left top transparent !important; }
+  #widget_container #widget_details #widget_average_rating {
+    display: block;
+    float: left;
+    margin-left: 7px;
+    margin-top: 6px;
+    font-size: 12px; }
+  #widget_container #widget_details ul {
+    list-style: none;
+    color: #666;
+    font-size: 12px; }
+    #widget_container #widget_details ul li {
+      clear: both;
+      padding: 2px 0; }
+    #widget_container #widget_details ul li div:first-child {
+      float: left;
+      width: 100px; }
+  #widget_container #widget_details .wl-split-line {
+    margin: 15px 0; }
+
+#widget_container #widgetdetails_container .widgetdetail_tab {
+  border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  -webkit-border-radius: 5px 5px 0 0;
+  background: url("../images/tab_bg.png") repeat-x scroll left top transparent;
+  float: left;
+  height: 29px;
+  line-height: 29px;
+  margin-right: 3px;
+  padding: 0 15px;
+  color: #2683bc; }
+#widget_container #widgetdetails_container .widgetdetail_tab.selected {
+  color: #666; }

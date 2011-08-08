@@ -1,9 +1,12 @@
+/***********/
+/* IMPORTS */
+/***********/
 /* Index */
 .wl-content-container#index_container {
   background: url("../images/container_bg.png") no-repeat scroll center top transparent;
   border-radius: 12px 12px 0 0;
-  -webkit-border-radius: 12px 12px 0 0;
-  -moz-border-radius: 12px 12px 0 0; }
+  -moz-border-radius: 12px 12px 0 0;
+  -webkit-border-radius: 12px 12px 0 0; }
 
 /************/
 /* CAROUSEL */
@@ -16,9 +19,9 @@
     width: 730px;
     height: 318px;
     background: url("../images/carousel_state1_bg.jpg") no-repeat top left transparent;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px; }
+    border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px; }
   #widgetlibrary_carousel .carousel_choice {
     display: block;
     float: left;
@@ -105,9 +108,9 @@
 #widgetlibrary_submitwidget {
   float: right;
   background: url("../images/submit_widget_bg.jpg") repeat-x top left transparent;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
+  border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
   float: right;
   height: 217px;
   margin-top: 20px;

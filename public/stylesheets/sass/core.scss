@@ -1,16 +1,23 @@
+@import "border-radius";
+@import "box-shadow";
+
+
 /******************/
 /* GENERAL MARKUP */
 /******************/
 * {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 html {
-  font: 13px/1.231 Arial, Helvetica, sans-serif; }
+  font: 13px/1.231 Arial, Helvetica, sans-serif;
+}
 
 body {
   background: url("../images/body_bg.png") repeat-x top left #f2f2f2;
-  font-size: 13px; }
+  font-size: 13px;
+}
 
 body > #top-line {
   position: absolute;
@@ -19,7 +26,8 @@ body > #top-line {
   width: 100%;
   height: 1px;
   background-color: #676767;
-  z-index: 0; }
+  z-index: 0;
+}
 
 h1 {
   color: #333;
@@ -29,37 +37,45 @@ h1 {
 }
 
 .wl-bold {
-  font-weight: bold; }
+  font-weight: bold;
+}
 
 .wl-push {
-  clear: both; }
+  clear: both;
+}
 
 .wl-hidden {
   margin: 0;
   visibility: hidden;
   border: none;
   clear: both;
-  height: 0; }
+  height: 0;
+}
 
 .wl-left {
-  float: left; }
+  float: left
+}
 
 .wl-right {
-  float: right; }
+  float: right;
+}
 
 .wl-regular-link {
   color: #2683bc;
-  text-decoration: none; }
+  text-decoration: none
+}
 
 .wl-regular-link:hover {
-  text-decoration: underline; }
+  text-decoration: underline;
+}
 
 .wl-split-line {
   background-color: none;
   border: medium none;
   border-top: 1px dotted #d4d4d4;
   height: 1px;
-  margin: 8px 0; }
+  margin: 8px 0;
+}
 
 /* Main container*/
 .wl-page-container {
@@ -118,12 +134,8 @@ h1 {
 /* Inset Shadow containers*/
 .wl-inset-shadow-container {
   background: url("../images/inset_shadow_container_bg.png") repeat-x top left #fefefe;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  box-shadow: 0 0 12px -4px #888888 inset;
-  -moz-box-shadow: 0 0 12px -4px #888888 inset;
-  -webkit-box-shadow: 0 0 12px -4px #888888 inset;
+  @include border-radius($topLeft: 5px, $topRight: 5px, $bottomRight: 5px, $bottomLeft: 5px);
+  @include box-shadow($h-shadow: 0, $v-shadow: 0, $blur: 12px, $spread: -4px, $color: #888, $outerinner: inset);
   margin-top: 20px;
   padding: 8px 10px 10px; }
 
@@ -150,12 +162,8 @@ h1 {
   background-color: #fff;
   margin: 0 3px 3px 0;
   float: left;
-  border-radius: 4px;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  box-shadow: 0 1px 1px #bbb;
-  -moz-box-shadow: 0 1px 1px #bbb;
-  -webkit-box-shadow: 0 1px 1px #bbb;
+  @include border-radius($topLeft: 4px, $topRight: 4px, $bottomRight: 4px, $bottomLeft: 4px);
+  @include box-shadow($h-shadow: 0, $v-shadow: 1px, $blur: 1px, $spread: 0, $color: #bbb, $outerinner: "");
   padding: 15px 13px 11px;
   font-size: 11px;
   color: #666; }
@@ -170,9 +178,7 @@ h1 {
 	  width: 220px;
 	  height: auto;
 	  background: none;
-	  box-shadow: none;
-	  -webkit-box-shadow: none;
-	  -moz-box-shadow: none;
+	  @include box-shadow($h-shadow: "", $v-shadow: "", $blur: "", $spread: "", $color: "", $outerinner: "");
 	  padding: 0 5px;
 	}
 }
@@ -202,9 +208,7 @@ a.wl-button {
 }
 
 .wl-button {
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
+  @include border-radius($topLeft: 5px, $topRight: 5px, $bottomRight: 5px, $bottomLeft: 5px);
   color: #666;
   height: 27px;
   padding: 0 12px;
@@ -224,7 +228,7 @@ a.wl-button {
   font-weight: bold;
   height: 24px;
   margin-left: 15px;
-  box-shadow: 0 1px 1px 0 #999;
+  @include box-shadow($h-shadow: 0, $v-shadow: 1px, $blur: 1px, $spread: 0, $color: #999, $outerinner: "");
   text-shadow: 0 2px 3px #fff;
   color: #2683bc;
 	&:hover {
@@ -246,7 +250,7 @@ a.wl-button {
   padding: 0 7px;
   border: 1px solid #e0e3e5;
   color: #2683bc;
-  box-shadow: 0 1px 1px 0 #999;
+  @include box-shadow($h-shadow: 0, $v-shadow: 1px, $blur: 1px, $spread: 0, $color: #999, $outerinner: "");
   text-shadow: 0 2px 3px #fff;
   font-size: 13px;
 	&:hover {
@@ -258,35 +262,32 @@ a.wl-button {
 /* Header buttons */
 .wl-button.wl-header-button {
   background: #fff;
-  box-shadow: 0 0 4px -2px #a8a8a8 inset;
-  -webkit-box-shadow: 0 0 4px -2px #a8a8a8 inset;
-  -moz-box-shadow: 0 0 4px -2px #a8a8a8 inset;
+  @include box-shadow($h-shadow: 0, $v-shadow: 0, $blur: 4px, $spread: -2px, $color: #a8a8a8, $outerinner: inset);
   border: 1px solid #e0e3e5;
 	&:hover {
 	  background: url("../images/button_header_hover.png") repeat-x scroll left -1px transparent;
 	  border: 1px solid #E0E3E5;
-	  box-shadow: none;
-	  -moz-box-shadow: none;
-	  -webkit-box-shadow: none;
+	  @include box-shadow($h-shadow: "", $v-shadow: "", $blur: "", $spread: "", $color: "", $outerinner: "");
 	}
 }
 
 .wl-button.wl-header-button[disabled] {
   background: #fff;
   cursor: auto;
-  color: #ccc; }
+  color: #ccc;
+}
 
 .wl-button.wl-header-button[disabled]:hover {
   background: #fff;
-  box-shadow: 0 0 6px -2px #a8a8a8 inset;
-  -moz-box-shadow: 0 0 6px -2px #a8a8a8 inset;
-  -webkit-box-shadow: 0 0 6px -2px #a8a8a8 inset;
-  border: 1px solid #e0e3e5; }
+  @include box-shadow($h-shadow: 0, $v-shadow: 0, $blur: 6px, $spread: -2px, $color: #a8a8a8, $outerinner: inset);
+  border: 1px solid #e0e3e5;
+}
 
 a.wl-button.wl-header-button {
   height: 24px;
   line-height: 24px;
-  display: inline-block; }
+  display: inline-block;
+}
 
 /**********/
 /* FOOTER */
@@ -337,9 +338,7 @@ a.wl-button.wl-header-button {
 	  position: absolute;
 	  right: 0;
 	  padding: 9px 10px 8px;
-	  border-radius: 0 0 5px 5px;
-	  -webkit-border-radius: 0 0 5px 5px;
-	  -moz-border-radius: 0 0 5px 5px;
+	  @include border-radius($topLeft: 0, $topRight: 0, $bottomRight: 5px, $bottomLeft: 5px);
 	  margin-right: 24px;
 		ul {
 		  list-style-type: none;
@@ -404,9 +403,7 @@ a.wl-button.wl-header-button {
 	#search_widgets {
 	  background: url("../images/search_icon.png") no-repeat scroll 6px center white;
 	  border: 1px solid #D6D4D4;
-	  border-radius: 4px;
-	  -moz-border-radius: 4px;
-	  -webkit-border-radius: 4px;
+	  @include border-radius($topLeft: 4px, $topRight: 4px, $bottomRight: 4px, $bottomLeft: 4px);
 	  float: right;
 	  height: 24px;
 	  margin: 6px 8px 0 0;
