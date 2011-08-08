@@ -5,25 +5,8 @@
         <a href="#" title="Facebook" class="wl-regular-link wl-bold wl-widget-item_widgetname">Facebook</a>
         added 3 August
     </div>
-    <div class="wl-widget-item">
-        <img src="images/default_widget_icon.png" alt="Twitter" class="wl-widget-item-icon"/>
-        <a href="#" title="Twitter" class="wl-regular-link wl-bold wl-widget-item_widgetname">Twitter</a>
-        added 1 August
-    </div>
-    <div class="wl-widget-item">
-        <img src="images/default_widget_icon.png" alt="Yahoo Weather" class="wl-widget-item-icon"/>
-        <a href="#" title="Yahoo Weather" class="wl-regular-link wl-bold wl-widget-item_widgetname">Yahoo Weather</a>
-        added 25 July
-    </div>
-    <div class="wl-widget-item">
-        <img src="images/default_widget_icon.png" alt="Last.FM" class="wl-widget-item-icon"/>
-        <a href="#" title="Last.FM" class="wl-regular-link wl-bold wl-widget-item_widgetname">Last.FM</a>
-        added 22 July
-    </div>
-    <div class="wl-widget-item">
-        <img src="images/default_widget_icon.png" alt="Youtube" class="wl-widget-item-icon"/>
-        <a href="#" title="Youtube" class="wl-regular-link wl-bold wl-widget-item_widgetname">Youtube</a>
-        added 11 July
-    </div>
+    <% 5.times do %>
+        <%= render :partial => "core/widget_small", :locals => {:include_rating => false, :include_author => false, :include_number_of_ratings => false, :include_date_of_adding => true, :include_description => false, :include_users => false} %>
+    <% end %>
     <hr class="wl-push wl-hidden">
 </div>
