@@ -102,6 +102,27 @@
     }
 }
 
+.wl-rating-container {
+    padding-top:5px;
+    .wl-rating-icon {
+        background: url("../images/rating_icon_grey.png") no-repeat scroll left -16px transparent;
+        margin-right:2px;
+    }
+    .wl-rating-icon.filled {
+        background: url("../images/rating_icon_grey.png") no-repeat scroll left top transparent;
+    }
+}
+
+.widget_review{
+    clear:both;
+    padding-top: 12px;
+    font-size:11px;
+    p {
+        margin-top: 4px;
+        line-height: 15px;
+    }
+}
+
 #widget_container #widgetdetails_container {
     margin-top: 20px;
     #widgetdetails_tabs {
@@ -124,6 +145,7 @@
         color:#666;
         height:30px;
         background: url("../images/tab_selected_bg.png") repeat-x scroll left top transparent;
+        cursor:default;
     }
     #widgetdetails_tabcontent_container {
         border-top: 1px solid #bebdbd;
@@ -169,28 +191,75 @@
             float: right;
             width: 290px;
             color:#333;
-            .widgetdetails_newestreviews_review{
-                clear:both;
-                padding-top: 8px;
-                font-size:11px;
-            }
-            p {
-                margin-top: 4px;
-                line-height: 15px;
-            }
-            .wl-rating-container {
-                padding-top:5px;
-                .wl-rating-icon {
-                    background: url("../images/rating_icon_grey.png") no-repeat scroll left -16px transparent;
-                    margin-right:2px;
-                }
-                .wl-rating-icon.filled {
-                    background: url("../images/rating_icon_grey.png") no-repeat scroll left top transparent;
-                }
-            }
             a.wl-button {
                 margin-top: 30px;
                 color:#2683BC;
+            }
+        }
+        #widgetdetails_reviews_all {
+            width:520px;
+            float:left;
+        }
+        #widgetdetails_reviews_review_widget {
+            float: right;
+            min-height: 200px;
+            width: 290px;
+            margin-right:20px;
+            font-size:12px;
+            color:#666;
+            h1 {
+                font-weight:normal;
+            }
+            textarea {
+                border: 1px solid #BEBDBD;
+                height: 156px;
+                padding: 7px;
+                resize: none;
+                width: 96%;
+            }
+            span {
+                display: inline-block;
+                margin-left: 7px;
+                padding-top: 1px;
+            }
+            .wl-rating-container {
+                padding-top:10px;
+            }
+            a.wl-button {
+                margin-top: 15px;
+                color: #2683BC;
+            }
+        }
+    }
+    #widgetdetails_uploadedversions {
+        font-size:12px;
+        color:#666;
+        #widgetdetails_uploadedversions_headerline {
+            margin: 8px 0;
+        }
+        .wl-split-line {
+            margin: 18px 0;
+        }
+        .widgetdetails_uploadedversions_versiondescription {
+            width:550px;
+            .widgetdetails_uploadeversions_dateuuploaded {
+                font-size:11px;
+            }
+            .widgetdetails_uploadedversions_mainfeatures {
+                margin-top: 10px;
+            }
+            p{
+                margin: 4px 0;
+            }
+        }
+        .widgetdetails_uploadedversions_versionlanguage {
+            float: right;
+            width: 250px;
+            p:first-child {
+                margin-top: 23px;
+            }
+            p {
+                margin-top: 7px;
             }
         }
     }
