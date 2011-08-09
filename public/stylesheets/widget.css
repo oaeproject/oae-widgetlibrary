@@ -79,14 +79,6 @@
   #widget_container #widget_details .wl-split-line {
     margin: 15px 0; }
 
-.wl-rating-container {
-  padding-top: 5px; }
-  .wl-rating-container .wl-rating-icon {
-    background: url("../images/rating_icon_grey.png") no-repeat scroll left -16px transparent;
-    margin-right: 2px; }
-  .wl-rating-container .wl-rating-icon.filled {
-    background: url("../images/rating_icon_grey.png") no-repeat scroll left top transparent; }
-
 .widget_review {
   clear: both;
   padding-top: 12px;
@@ -97,6 +89,13 @@
 
 #widget_container #widgetdetails_container {
   margin-top: 20px; }
+  #widget_container #widgetdetails_container .wl-rating-container {
+    padding-top: 5px; }
+    #widget_container #widgetdetails_container .wl-rating-container .wl-rating-icon {
+      background: url("../images/rating_icon_grey.png") no-repeat scroll left -16px transparent;
+      margin-right: 2px; }
+    #widget_container #widgetdetails_container .wl-rating-container .wl-rating-icon.filled {
+      background: url("../images/rating_icon_grey.png") no-repeat scroll left top transparent; }
   #widget_container #widgetdetails_container #widgetdetails_tabs {
     display: inline-block; }
   #widget_container #widgetdetails_container .widgetdetail_tab {

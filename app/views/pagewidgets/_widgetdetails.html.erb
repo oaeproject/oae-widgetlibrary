@@ -1,11 +1,11 @@
 <div id="widgetdetails_container">
     <div id="widgetdetails_tabs">
-        <div class="widgetdetail_tab">Screenshots</div>
+        <div class="widgetdetail_tab selected">Screenshots</div>
         <div class="widgetdetail_tab">Reviews</div>
-        <div class="widgetdetail_tab selected">Uploaded versions</div>
+        <div class="widgetdetail_tab">Uploaded versions</div>
     </div>
     <div id="widgetdetails_tabcontent_container">
-        <div id="widgetdetails_screenshots" class="widgetdetails_tabcontent_content" style="display:none;">
+        <div id="widgetdetails_screenshots" class="widgetdetails_tabcontent_content">
             <div id="widgetdetails_newestreviews">
                 <h1>Latest reviews</h1>
                 <% 3.times do %>
@@ -55,7 +55,7 @@
             </div>
         </div>
 
-        <div id="widgetdetails_uploadedversions" class="widgetdetails_tabcontent_content">
+        <div id="widgetdetails_uploadedversions" class="widgetdetails_tabcontent_content" style="display:none;">
             <h1>Versions</h1>
             <hr class="wl-split-line" id="widgetdetails_uploadedversions_headerline"/>
 

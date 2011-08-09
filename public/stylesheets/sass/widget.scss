@@ -102,17 +102,6 @@
     }
 }
 
-.wl-rating-container {
-    padding-top:5px;
-    .wl-rating-icon {
-        background: url("../images/rating_icon_grey.png") no-repeat scroll left -16px transparent;
-        margin-right:2px;
-    }
-    .wl-rating-icon.filled {
-        background: url("../images/rating_icon_grey.png") no-repeat scroll left top transparent;
-    }
-}
-
 .widget_review{
     clear:both;
     padding-top: 12px;
@@ -125,6 +114,16 @@
 
 #widget_container #widgetdetails_container {
     margin-top: 20px;
+    .wl-rating-container {
+        padding-top:5px;
+        .wl-rating-icon {
+            background: url("../images/rating_icon_grey.png") no-repeat scroll left -16px transparent;
+            margin-right:2px;
+        }
+        .wl-rating-icon.filled {
+            background: url("../images/rating_icon_grey.png") no-repeat scroll left top transparent;
+        }
+    }
     #widgetdetails_tabs {
         display:inline-block;
     }
