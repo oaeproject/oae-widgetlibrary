@@ -12,6 +12,9 @@ gem 'jquery-rails', '>= 1.0.12'
 # Use SASS for awesome stylesheets
 gem "sass"
 
+# Use Paperclip for image dependency management
+gem "paperclip", "~> 2.3"
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
