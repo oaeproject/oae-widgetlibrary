@@ -1,0 +1,28 @@
+<div class="wl-widget-item">
+    <img src="../images/default_widget_icon.png" alt="Facebook" class="wl-widget-item-icon"/>
+    <a href="#" title="Yahoo Weather" class="wl-regular-link wl-bold wl-widget-item_widgetname">Yahoo Weather</a>
+    <% if include_date_of_adding %>
+        added 3 August
+        <% end %>
+    <% if include_author %>
+        by <a href="#" title="by Bert Pareyn" class="wl-regular-link">Bert Pareyn</a>
+    <% end %>
+    <% if include_rating %>
+        <div class="wl-rating-container">
+            <div class="wl-rating-icon filled"></div>
+            <div class="wl-rating-icon filled"></div>
+            <div class="wl-rating-icon filled"></div>
+            <div class="wl-rating-icon filled"></div>
+            <div class="wl-rating-icon"></div>
+            <% if include_number_of_ratings %>
+                <a href="#" title="42 Ratings" class="wl-regular-link wl-number-of-ratings">42 Ratings</a>
+            <% end %>
+        </div>
+    <% end %>
+    <% if include_users %>
+        <a href="#" title="65 users" class="wl-regular-link wl-number-of-users">65 users</a>
+    <% end %>
+    <% if include_description %>
+        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Curabitur blandit tempus porttitor. Maecenas faucibus...</p>
+    <% end %>
+</div>
