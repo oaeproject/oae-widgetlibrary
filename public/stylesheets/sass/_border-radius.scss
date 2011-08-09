@@ -1,0 +1,8 @@
+// A SASS Stylesheet, using SASS's scss format
+// border-radius mixin
+// usage: @include border-radius($topLeft: 5px, $topRight: 5px, $bottomRight: 5px, $bottomLeft: 5px);
+@mixin border-radius($topLeft, $topRight, $bottomRight, $bottomLeft) {
+    border-radius: $topLeft $topRight $bottomRight $bottomLeft;
+    -moz-border-radius: $topLeft $topRight $bottomRight $bottomLeft;
+    -webkit-border-radius: $topLeft $topRight $bottomRight $bottomLeft;
+}

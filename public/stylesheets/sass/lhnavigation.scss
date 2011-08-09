@@ -1,0 +1,28 @@
+#lhnavigation_container {
+	h1 {
+	  color: #666;
+	  font-size: 16px;
+	}
+	ul {
+	  list-style: none;
+	  margin: 0;
+	  padding: 0;
+		li a {
+		  display: block;
+		  text-decoration: none;
+		  padding: 5px 0 7px;
+		  font-size: 13px;
+		  color: #333;
+		}
+		li.selected {
+		  background: url("../images/lhnav_selected_item_bg.png") repeat-x scroll left top transparent;
+			a {
+			  color: #fff;
+			}
+		}
+		li div {
+		  padding: 3px 12px 2px 28px;
+		  font-size: 14px;
+		}
+	}
+}

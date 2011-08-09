@@ -1,0 +1,22 @@
+/* Library */
+.wl-content-container#library_container {
+  background: url("../images/library_bg.png") repeat-x scroll center top transparent;
+  padding-top: 0; }
+
+.wl-page-container {
+  padding: 0 22px 0; }
+
+#library_widgets {
+  border-left: 1px solid #c4c4c4;
+  box-shadow: -4px 4px 7px -4px #888888;
+  -moz-box-shadow: -4px 4px 7px -4px #888888;
+  -webkit-box-shadow: -4px 4px 7px -4px #888888;
+  position: relative; }
+
+.wl-widget-item .wl-rating-container {
+  clear: both; }
+
+.wl-widget-item p {
+  clear: both;
+  margin-top: 10px;
+  font-size: 12px; }
