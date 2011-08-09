@@ -10,13 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110809002224) do
+ActiveRecord::Schema.define(:version => 20110809002507) do
 
   create_table "ratings", :force => true do |t|
     t.text     "review"
     t.integer  "stars"
     t.integer  "widget_id"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "states", :force => true do |t|
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
