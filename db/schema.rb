@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110809005019) do
+ActiveRecord::Schema.define(:version => 20110809010207) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -52,6 +52,16 @@ ActiveRecord::Schema.define(:version => 20110809005019) do
     t.integer  "stars"
     t.integer  "widget_id"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "screenshots", :force => true do |t|
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.string   "image_file_size"
+    t.string   "image_updated_at"
+    t.integer  "widget_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
