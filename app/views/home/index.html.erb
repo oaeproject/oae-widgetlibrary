@@ -1,1 +1,35 @@
-<h1>Welcome to the widget store!</h1>
+<% content_for :head do %>
+    <%= stylesheet_link_tag "index" %>
+<% end %>
+
+<div class="wl-content-container" id="index_container">
+    <div class="wl-content-165 wl-right">
+        <%= render :partial => "pagewidgets/recentlyadded" %>
+        <%= render :partial => "pagewidgets/toprated" %>
+        <%= render :partial => "pagewidgets/submitwidget" %>
+    </div>
+
+    <div class="wl-content-730 wl-left">
+        <div id="widgetlibrary_carousel">
+            <div id="carousel_state1">
+                <h1>Over <strong>200</strong> ways to customise and enhance collaborative academic learning experiences</h1>
+                <h2>A 'Widget' is an app which can be used as a 'bolt on' to the installed Sakai Open Academic Environment to add additional functionality, expanding the value of the platfrom for tutors and students alike.</h2>
+            </div>
+            <div class="carousel_choice">
+                <div class="carousel_choice_arrow"></div>
+                <a href="#" title="What is a Widget?">What is a Widget?</a>
+            </div>
+            <div class="carousel_choice">
+                <div class="carousel_choice_arrow" style="display:none;"></div>
+                <a href="#" title="Create the unexpected">Create the unexpected</a>
+            </div>
+            <div class="carousel_choice">
+                <div class="carousel_choice_arrow" style="display:none;"></div>
+                <a href="#" title="Submit a Widget">Submit a Widget</a>
+            </div>
+        </div>
+
+        <%= render :partial => "pagewidgets/mostpopular"%>
+    </div>
+    <hr class="wl-push wl-hidden"/>
+</div>

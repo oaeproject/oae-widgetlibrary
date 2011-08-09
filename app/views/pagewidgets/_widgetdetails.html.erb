@@ -1,0 +1,101 @@
+<div id="widgetdetails_container">
+    <div id="widgetdetails_tabs">
+        <div class="widgetdetail_tab selected">Screenshots</div>
+        <div class="widgetdetail_tab">Reviews</div>
+        <div class="widgetdetail_tab">Uploaded versions</div>
+    </div>
+    <div id="widgetdetails_tabcontent_container">
+        <div id="widgetdetails_screenshots" class="widgetdetails_tabcontent_content">
+            <div id="widgetdetails_newestreviews">
+                <h1>Latest reviews</h1>
+                <% 3.times do %>
+                    <%= render :partial => "core/review" %>
+                <% end %>
+                <hr class="wl-push wl-hidden"/>
+                <a target="_blank" class="wl-button wl-header-button" href="#">Write a review</a>
+            </div>
+
+            <div id="widgetdetails_screenshot_container">
+                <img src="../images/widget_screenshot1.png" alt="Activity Plus Screenshot" id="widgetdetails_main_screenshot"/>
+                <div id="widgetdetails_screenshots_thumbs">
+                    <div class="widgetdetails_screenshots_thumb">
+                        <img src="../images/widget_screenshot_small1.png" alt="Activity Plus Screenshot" class="selected"/>
+                        <div></div>
+                    </div>
+                    <div class="widgetdetails_screenshots_thumb">
+                        <img src="../images/widget_screenshot_small2.png" alt="Activity Plus Screenshot"/>
+                        <div></div>
+                    </div>
+                    <div class="widgetdetails_screenshots_thumb">
+                        <img src="../images/widget_screenshot_small3.png" alt="Activity Plus Screenshot"/>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="widgetdetails_reviews" class="widgetdetails_tabcontent_content" style="display:none;">
+            <div id="widgetdetails_reviews_review_widget">
+                <h1>Review this widget</h1>
+                <textarea></textarea>
+                <div class="wl-rating-container">
+                    <div class="wl-rating-icon"></div>
+                    <div class="wl-rating-icon"></div>
+                    <div class="wl-rating-icon"></div>
+                    <div class="wl-rating-icon"></div>
+                    <div class="wl-rating-icon"></div>
+                    <span>Rate this widget</span>
+                </div>
+                <a target="_blank" class="wl-button wl-header-button" href="#">Post review</a>
+            </div>
+            <div id="widgetdetails_reviews_all">
+                <% 4.times do %>
+                    <%= render :partial => "core/review" %>
+                <% end %>
+            </div>
+        </div>
+
+        <div id="widgetdetails_uploadedversions" class="widgetdetails_tabcontent_content" style="display:none;">
+            <h1>Versions</h1>
+            <hr class="wl-split-line" id="widgetdetails_uploadedversions_headerline"/>
+
+            <div class="widgetdetails_uploadedversions_versionlanguage">
+                <p>Languages:</p>
+                <p>English, French (Fully translated)</p>
+            </div>
+
+            <div class="widgetdetails_uploadedversions_versiondescription">
+                <a href="#" title="Activity Plus v3.0" class="wl-regular-link wl-bold">Activity Plus v3.0</a> <span class="widgetdetails_uploadeversions_dateuuploaded"> - uploaded 10.07.2011</span>
+                <p class="widgetdetails_uploadedversions_mainfeatures">Main feautures:</p>
+                <p>Donec sed odio dui. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+            </div>
+
+            <hr class="wl-split-line"/>
+
+            <div class="widgetdetails_uploadedversions_versionlanguage">
+                <p>Languages:</p>
+                <p>English, French (Partially translated)</p>
+            </div>
+
+            <div class="widgetdetails_uploadedversions_versiondescription">
+                <a href="#" title="Activity Plus v2.0" class="wl-regular-link wl-bold">Activity Plus v2.0</a> <span class="widgetdetails_uploadeversions_dateuuploaded"> - uploaded 24.06.2011</span>
+                <p class="widgetdetails_uploadedversions_mainfeatures">Main feautures:</p>
+                <p>Donec sed odio dui. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+            </div>
+
+            <hr class="wl-split-line"/>
+
+            <div class="widgetdetails_uploadedversions_versionlanguage">
+                <p>Languages:</p>
+                <p>English</p>
+            </div>
+
+            <div class="widgetdetails_uploadedversions_versiondescription">
+                <a href="#" title="Activity Plus v1.0" class="wl-regular-link wl-bold">Activity Plus v1.0</a> <span class="widgetdetails_uploadeversions_dateuuploaded"> - uploaded 24.12.2010</span>
+                <p class="widgetdetails_uploadedversions_mainfeatures">Main feautures:</p>
+                <p>Donec sed odio dui. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+            </div>
+        </div>
+    </div>
+    <hr class="wl-push wl-hidden">
+</div>

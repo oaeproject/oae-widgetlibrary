@@ -1,0 +1,265 @@
+@import "border-radius";
+
+#widgetlibrary_relatedwidgets {
+    margin-top:40px;
+}
+
+.wl-widget-item {
+    width: 140px;
+    .wl-rating-container {
+        clear:both;
+    }
+}
+
+.wl-content-container#widget_container {
+  background: url("../images/library_bg.png") repeat-x scroll center top transparent;
+  padding: 20px 25px 0;
+  h1 {
+    font-size:14px;
+    font-weight:bold;
+    color:#666;
+    margin-left: 0;
+  }
+}
+
+#widget_container #widget_download {
+  width: 120px;
+  text-align: center;
+  float: left; 
+    .wl-header-button {
+      margin-right: 0;
+      margin-top: 15px;
+      padding: 0 15px;
+      color: #2683bc;
+    }
+}
+
+#widget_container #widget_description {
+  width: 400px;
+  overflow: hidden;
+  padding-left: 20px;
+  color: #666;
+  float:left;
+  font-size: 11px;
+    h1 {
+      color: #666;
+      font-size: 23px;
+      margin: 0;
+        #widget_version {
+          font-size: 13px;
+        }
+    }
+    p {
+      font-size: 13px;
+      margin: 10px 0;
+    }
+    ul {
+      list-style: inside;
+      margin: 10px 0;
+      font-size: 11px;
+    }
+}
+
+#widget_container #widget_details {
+    float:right;
+    height:100px;
+    width:300px;
+      .wl-rating-container {
+         display: inline-block;
+         float: left;
+         padding-top:3px;
+        .wl-rating-icon {
+          background: url("../images/rating_icon_large.png") no-repeat scroll left -21px transparent !important;
+          width: 23px;
+          height: 21px;
+        }
+        .wl-rating-icon.filled {
+         background: url("../images/rating_icon_large.png") no-repeat left top transparent !important;
+        }
+    }
+    #widget_average_rating {
+        display: block;
+        float: left;
+        margin-left: 7px;
+        margin-top: 6px;
+        font-size: 12px;
+    }
+    ul {
+        list-style:none;
+        color:#666;
+        font-size: 12px;
+        li {
+            clear:both;
+            padding: 2px 0;
+        }
+        li div:first-child {
+            float:left;
+            width:100px;
+        }
+    }
+    .wl-split-line {
+        margin: 15px 0;
+    }
+}
+
+.widget_review{
+    clear:both;
+    padding-top: 12px;
+    font-size:11px;
+    p {
+        margin-top: 4px;
+        line-height: 15px;
+    }
+}
+
+#widget_container #widgetdetails_container {
+    margin-top: 20px;
+    .wl-rating-container {
+        padding-top:5px;
+        .wl-rating-icon {
+            background: url("../images/rating_icon_grey.png") no-repeat scroll left -16px transparent;
+            margin-right:2px;
+        }
+        .wl-rating-icon.filled {
+            background: url("../images/rating_icon_grey.png") no-repeat scroll left top transparent;
+        }
+    }
+    #widgetdetails_tabs {
+        display:inline-block;
+    }
+    .widgetdetail_tab {
+        cursor: pointer;
+        border: 1px solid #bebdbd;
+        border-bottom:0;
+        @include border-radius($topLeft: 5px, $topRight: 5px, $bottomRight: 0, $bottomLeft: 0);
+        background: url("../images/tab_bg.png") repeat-x scroll left top transparent;
+        float: left;
+        height: 29px;
+        line-height: 29px;
+        margin-right: 3px;
+        padding: 0 15px;
+        color:#2683bc;
+    }
+    .widgetdetail_tab.selected {
+        color:#666;
+        height:30px;
+        background: url("../images/tab_selected_bg.png") repeat-x scroll left top transparent;
+        cursor:default;
+    }
+    #widgetdetails_tabcontent_container {
+        border-top: 1px solid #bebdbd;
+        margin-top: -4px;
+    }
+    .widgetdetails_tabcontent_content {
+        margin-top:20px;
+        #widgetdetails_screenshot_container {
+            float:left;
+        }
+        #widgetdetails_main_screenshot {
+            border: 1px solid #BEBDBD;
+            height: 298px;
+            width: 538px;
+        }
+        #widgetdetails_screenshots_thumbs {
+            clear: both;
+            display: block;
+            margin-top: 5px;
+            img {
+                width:98px;
+                height:48px;
+                border: 1px solid #BEBDBD;
+                cursor:pointer;
+            }
+            .widgetdetails_screenshots_thumb {
+                width:100px;
+                height:60px;
+                float:left;
+                margin-right:7px;
+            }
+            img.selected {
+                cursor:default;
+            }
+            img.selected + div {
+                background-color:#00c2ff;
+                height:7px;
+                width:100px;
+                position:absolute;
+            }
+        }
+        #widgetdetails_newestreviews {
+            float: right;
+            width: 290px;
+            color:#333;
+            a.wl-button {
+                margin-top: 30px;
+                color:#2683BC;
+            }
+        }
+        #widgetdetails_reviews_all {
+            width:520px;
+            float:left;
+        }
+        #widgetdetails_reviews_review_widget {
+            float: right;
+            min-height: 200px;
+            width: 290px;
+            margin-right:20px;
+            font-size:12px;
+            color:#666;
+            h1 {
+                font-weight:normal;
+            }
+            textarea {
+                border: 1px solid #BEBDBD;
+                height: 156px;
+                padding: 7px;
+                resize: none;
+                width: 96%;
+            }
+            span {
+                display: inline-block;
+                margin-left: 7px;
+                padding-top: 1px;
+            }
+            .wl-rating-container {
+                padding-top:10px;
+            }
+            a.wl-button {
+                margin-top: 15px;
+                color: #2683BC;
+            }
+        }
+    }
+    #widgetdetails_uploadedversions {
+        font-size:12px;
+        color:#666;
+        #widgetdetails_uploadedversions_headerline {
+            margin: 8px 0;
+        }
+        .wl-split-line {
+            margin: 18px 0;
+        }
+        .widgetdetails_uploadedversions_versiondescription {
+            width:550px;
+            .widgetdetails_uploadeversions_dateuuploaded {
+                font-size:11px;
+            }
+            .widgetdetails_uploadedversions_mainfeatures {
+                margin-top: 10px;
+            }
+            p{
+                margin: 4px 0;
+            }
+        }
+        .widgetdetails_uploadedversions_versionlanguage {
+            float: right;
+            width: 250px;
+            p:first-child {
+                margin-top: 23px;
+            }
+            p {
+                margin-top: 7px;
+            }
+        }
+    }
+}

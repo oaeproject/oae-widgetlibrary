@@ -1,0 +1,12 @@
+<% content_for :head do %>
+    <%= stylesheet_link_tag "widget" %>
+<% end %>
+
+<div class="wl-content-container" id="widget_container">
+    <%= render :partial => "pagewidgets/widgetdescription" %>
+    
+    <%= render :partial => "pagewidgets/widgetdetails" %>
+    
+    <%= render :partial => "pagewidgets/relatedwidgets" %>
+    <hr class="wl-hidden wl-push"/>
+</div>
