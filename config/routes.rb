@@ -1,6 +1,8 @@
 SakaiWidgetlibrary::Application.routes.draw do
 
+  match 'browse' => 'browse#index'
   root :to => "home#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

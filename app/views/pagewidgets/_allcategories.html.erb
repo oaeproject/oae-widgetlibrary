@@ -1,0 +1,11 @@
+<% content_for :head do %>
+    <%= stylesheet_link_tag "allcategories" %>
+<% end %>
+
+<div id="allcategories_sorty_by">
+    Sort by <a href="#" title="Sort by" class="wl-regular-link"><span id="allcategories_sort_method">Most Popular</span> <span id="allcategories_sort_down_arrow">&#9660</span></a>
+</div>
+<h1>All categories 1-20 of 22</h1>
+<% 16.times do %>
+    <%= render :partial => "core/widget_small", :locals => {:include_rating => true, :include_author => true, :include_number_of_ratings => true, :include_date_of_adding => false, :include_description => false, :include_users => false} %>
+<% end %>

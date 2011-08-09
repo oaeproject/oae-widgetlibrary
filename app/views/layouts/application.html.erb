@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sakai OAE Widget Store</title>
-  <%= stylesheet_link_tag "core" %>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
+    <title>Sakai OAE Widget Store</title>
+    <%= stylesheet_link_tag "core" %>
+    <%= javascript_include_tag :defaults %>
+    <%= csrf_meta_tag %>
+    <%= yield :head %>
 </head>
 <body>
 
-<%= yield %>
+<%= render :partial => "core/useractions" %>
+
+<div class="wl-page-container wl-centered">
+    <div class="wl-container-shadow-left"></div>
+    <div class="wl-container-shadow-right"></div>
+    <%= render :partial => "core/header" %>
+    <%= render :partial => "core/navigation" %>
+
+    <%= yield %>
+</div>
+
+<%= render :partial => "core/footer" %>
 
 </body>
 </html>

@@ -1,0 +1,9 @@
+<div id="widgetlibrary_navigation">
+    <input id="search_widgets" type="text" placeholder="Search Widget name / Category / Type..."/>
+    <ul class="wl-bold">
+        <li class="navigation_item <% if params[:controller].eql?("home")%>selected<% end %>"><a href="/" title="Home">Home</a></li>
+        <li class="navigation_item <% if params[:controller].eql?("browse") %>selected<% end %>"><a href="/browse" title="Browse">Browse</a></li>
+        <li class="navigation_item <% if params[:controller].eql?("developer") %>selected<% end %>"><a href="#" title="Developer">Developer</a></li>
+        <li class="navigation_item <% if params[:controller].eql?("submit") %>selected<% end %>"><a href="#" title="Submit">Submit</a></li>
+    </ul>
+</div>
