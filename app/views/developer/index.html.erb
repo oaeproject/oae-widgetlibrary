@@ -49,7 +49,7 @@
     <div id="developer_widgetsbydeveloper" class="wl-inset-shadow-container">
         <h1>Widgets by this developer</h1>
         <% 5.times do %>
-            <%= render :partial => "core/widget_small", :locals => {:include_rating => true, :include_author => true, :include_number_of_ratings => true, :include_date_of_adding => false, :include_description => false, :include_users => false} %>
+            <%= render :partial => "core/widget", :locals => {:display => {:rating => true, :author => true, :num_ratings => true}} %>
         <% end %>
         <hr class="wl-push wl-hidden">
     </div>

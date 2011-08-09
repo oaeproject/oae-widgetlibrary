@@ -1,6 +1,6 @@
 SakaiWidgetlibrary::Application.routes.draw do
 
-  match 'browse/:id' => 'widget#index'
+  match 'widget/:widget_title' => 'widget#show'
   match 'browse' => 'browse#index'
   match 'register' => 'register#index'
   match 'developer' => 'developer#index'

@@ -1,0 +1,7 @@
+<div id="widgetlibrary_toprated" class="wl-inset-shadow-container wl-content-145">
+    <h1>Top Rated</h1>
+    <% 5.times do %>
+        <%= render :partial => "core/widget", :locals => {:display => {:rating => true}} %>
+    <% end %>
+    <hr class="wl-push wl-hidden">
+</div>

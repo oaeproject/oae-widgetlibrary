@@ -1,9 +1,9 @@
 <div id="widgetlibrary_navigation">
     <input id="search_widgets" type="text" placeholder="Search Widget name / Category / Type..."/>
     <ul class="wl-bold">
-        <li class="navigation_item <% if params[:controller].eql?("home")%>selected<% end %>"><a href="/" title="Home">Home</a></li>
-        <li class="navigation_item <% if params[:controller].eql?("browse") || params[:controller].eql?("widget") %>selected<% end %>"><a href="/browse" title="Browse">Browse</a></li>
-        <li class="navigation_item <% if params[:controller].eql?("developer") %>selected<% end %>"><a href="/developer" title="Developer">Developer</a></li>
-        <li class="navigation_item <% if params[:controller].eql?("submit") %>selected<% end %>"><a href="#" title="Submit">Submit</a></li>
+        <li class="navigation_item<% if params[:controller].eql?("home")%> selected<% end %>"><%= link_to "Home", root_path, :title => "Home" %></li>
+        <li class="navigation_item<% if params[:controller].eql?("browse") || params[:controller].eql?("widget") %> selected<% end %>"><%= link_to "Browse", browse_path, :title => "Browse" %></li>
+        <li class="navigation_item<% if params[:controller].eql?("developer") %> selected<% end %>"><%= link_to "Developer", developer_path, :title => "Developer" %></li>
+        <li class="navigation_item<% if params[:controller].eql?("submit") %> selected<% end %>"><%= link_to "Submit", "#", :title => "Submit" %></li>
     </ul>
 </div>
