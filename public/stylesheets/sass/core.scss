@@ -10,7 +10,7 @@
   padding: 0;
 }
 
-html {
+html, textarea {
   font: 13px/1.231 Arial, Helvetica, sans-serif;
 }
 
@@ -75,6 +75,10 @@ h1 {
   border-top: 1px dotted #d4d4d4;
   height: 1px;
   margin: 8px 0;
+}
+
+.wl-split-line.full-line {
+  border-top: 1px solid #d4d4d4;
 }
 
 /* Main container*/
@@ -337,7 +341,7 @@ a.wl-button.wl-header-button {
 	  background-color: #333;
 	  position: absolute;
 	  right: 0;
-	  padding: 9px 10px 8px;
+	  padding: 0 10px 0;
 	  @include border-radius($topLeft: 0, $topRight: 0, $bottomRight: 5px, $bottomLeft: 5px);
 	  margin-right: 24px;
 		ul {
@@ -345,9 +349,21 @@ a.wl-button.wl-header-button {
 		  color: #ccc;
 		  font-size: 11px;
 			li {
-		  	display: inline-block;
-		  	margin: 0 15px; 
+			display:inline-block;
+			margin-right: 2px;
+		  	  a {
+		        padding: 9px 22px;
+		        color: #ccc;
+		        text-decoration: none;
+		        display:block;
+		      }
 			}
+			li.selected {
+              background: url("../images/navigation_item_selected.png") repeat-x top left transparent;
+              a {
+                  color: #FFF;
+              }
+            }
 		}
 		#useractions_arrow_down {
 		  background: url("../images/arrow_down.png") no-repeat top left transparent;
@@ -412,14 +428,15 @@ a.wl-button.wl-header-button {
 	  color: #666;
 	  font-size: 12px;
 	}
-	input#search_widgets::-webkit-input-placeholder {
-	  color: #7c7b7b;
-	  font-style: italic;
-	  font-size: 11px;
-	}
-	input#search_widgets:-moz-placeholder {
-	  color: #7c7b7b;
-	  font-style: italic;
-	  font-size: 11px;
-	}
+}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: #7c7b7b;
+  font-style: italic;
+  font-size: 11px;
+}
+input:-moz-placeholder, textarea:-moz-placeholder {
+  color: #7c7b7b;
+  font-style: italic;
+  font-size: 11px;
 }

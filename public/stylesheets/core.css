@@ -5,7 +5,7 @@
   margin: 0;
   padding: 0; }
 
-html {
+html, textarea {
   font: 13px/1.231 Arial, Helvetica, sans-serif; }
 
 body {
@@ -59,6 +59,9 @@ h1 {
   border-top: 1px dotted #d4d4d4;
   height: 1px;
   margin: 8px 0; }
+
+.wl-split-line.full-line {
+  border-top: 1px solid #d4d4d4; }
 
 /* Main container*/
 .wl-page-container {
@@ -311,7 +314,7 @@ a.wl-button.wl-header-button {
     background-color: #333;
     position: absolute;
     right: 0;
-    padding: 9px 10px 8px;
+    padding: 0 10px 0;
     border-radius: 0 0 5px 5px;
     -moz-border-radius: 0 0 5px 5px;
     -webkit-border-radius: 0 0 5px 5px;
@@ -322,7 +325,16 @@ a.wl-button.wl-header-button {
       font-size: 11px; }
       #widgetlibrary_useractions #useractions_container ul li {
         display: inline-block;
-        margin: 0 15px; }
+        margin-right: 2px; }
+        #widgetlibrary_useractions #useractions_container ul li a {
+          padding: 9px 22px;
+          color: #ccc;
+          text-decoration: none;
+          display: block; }
+      #widgetlibrary_useractions #useractions_container ul li.selected {
+        background: url("../images/navigation_item_selected.png") repeat-x top left transparent; }
+        #widgetlibrary_useractions #useractions_container ul li.selected a {
+          color: #FFF; }
     #widgetlibrary_useractions #useractions_container #useractions_arrow_down {
       background: url("../images/arrow_down.png") no-repeat top left transparent;
       width: 10px;
@@ -378,11 +390,13 @@ a.wl-button.wl-header-button {
     width: 232px;
     color: #666;
     font-size: 12px; }
-  #widgetlibrary_navigation input#search_widgets::-webkit-input-placeholder {
-    color: #7c7b7b;
-    font-style: italic;
-    font-size: 11px; }
-  #widgetlibrary_navigation input#search_widgets:-moz-placeholder {
-    color: #7c7b7b;
-    font-style: italic;
-    font-size: 11px; }
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: #7c7b7b;
+  font-style: italic;
+  font-size: 11px; }
+
+input:-moz-placeholder, textarea:-moz-placeholder {
+  color: #7c7b7b;
+  font-style: italic;
+  font-size: 11px; }
