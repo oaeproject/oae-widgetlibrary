@@ -1,0 +1,30 @@
+<div class="wl-widget-item">
+    <img src="../images/default_widget_icon.png" alt="Facebook" class="wl-widget-item-icon"/>
+    <a href="/widget/name_of_widget" title="Yahoo Weather" class="wl-regular-link wl-bold wl-widget-item_widgetname">Yahoo Weather</a>
+    <% if !display.blank? %>
+      <% if display[:added] %>
+          <span>added 3 August</span>
+          <% end %>
+      <% if display[:author] %>
+          <span>by <a href="#" title="by Bert Pareyn" class="wl-regular-link">Bert Pareyn</a></span>
+      <% end %>
+      <% if display[:rating] %>
+          <div class="wl-rating-container">
+              <div class="wl-rating-icon filled"></div>
+              <div class="wl-rating-icon filled"></div>
+              <div class="wl-rating-icon filled"></div>
+              <div class="wl-rating-icon filled"></div>
+              <div class="wl-rating-icon"></div>
+              <% if display[:num_ratings] %>
+                  <a href="#" title="42 Ratings" class="wl-regular-link wl-number-of-ratings">42 Ratings</a>
+              <% end %>
+          </div>
+      <% end %>
+      <% if display[:users] %>
+          <a href="#" title="65 users" class="wl-regular-link wl-number-of-users">65 users</a>
+      <% end %>
+      <% if display[:desc] %>
+          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Curabitur blandit tempus porttitor. Maecenas faucibus...</p>
+      <% end %>
+    <% end %>
+</div>
