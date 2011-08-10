@@ -18,14 +18,7 @@
 </div>
 <div id="widget_details">
     <div>
-        <div class="wl-rating-container">
-            <div class="wl-rating-icon filled"></div>
-            <div class="wl-rating-icon filled"></div>
-            <div class="wl-rating-icon filled"></div>
-            <div class="wl-rating-icon"></div>
-            <div class="wl-rating-icon"></div>
-        </div>
-        <a href="#" title="Average rating (13)" class="wl-regular-link" id="widget_average_rating">Average rating (13)</a>
+        <%= render :partial => "pagewidgets/rating", :locals => {:display => {:avg_rating => true}} %>
         <hr class="wl-push wl-hidden"/>
     </div>
     <hr class="wl-split-line wl-push"/>
