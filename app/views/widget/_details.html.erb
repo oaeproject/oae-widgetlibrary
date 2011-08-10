@@ -38,14 +38,7 @@
             <div id="widgetdetails_reviews_review_widget">
                 <h1>Review this widget</h1>
                 <textarea></textarea>
-                <div class="wl-rating-container">
-                    <div class="wl-rating-icon"></div>
-                    <div class="wl-rating-icon"></div>
-                    <div class="wl-rating-icon"></div>
-                    <div class="wl-rating-icon"></div>
-                    <div class="wl-rating-icon"></div>
-                    <span>Rate this widget</span>
-                </div>
+                <%= render :partial => "pagewidgets/rating", :locals => {:display => {:rate_widget => true}} %>
                 <a target="_blank" class="wl-button wl-header-button" href="#">Post review</a>
             </div>
             <div id="widgetdetails_reviews_all">

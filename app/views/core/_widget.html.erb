@@ -9,16 +9,7 @@
           <span>by <a href="#" title="by Bert Pareyn" class="wl-regular-link">Bert Pareyn</a></span>
       <% end %>
       <% if display[:rating] %>
-          <div class="wl-rating-container">
-              <div class="wl-rating-icon filled"></div>
-              <div class="wl-rating-icon filled"></div>
-              <div class="wl-rating-icon filled"></div>
-              <div class="wl-rating-icon filled"></div>
-              <div class="wl-rating-icon"></div>
-              <% if display[:num_ratings] %>
-                  <a href="#" title="42 Ratings" class="wl-regular-link wl-number-of-ratings">42 Ratings</a>
-              <% end %>
-          </div>
+          <%= render :partial => "pagewidgets/rating", :locals => {:display => {:num_ratings => display[:num_ratings]}} %>
       <% end %>
       <% if display[:users] %>
           <a href="#" title="65 users" class="wl-regular-link wl-number-of-users">65 users</a>
