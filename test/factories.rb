@@ -1,9 +1,20 @@
+include ActionDispatch::TestProcess
+
 Factory.define :category do |f|
   f.sequence(:title) { |n| "Category #{n}" }
 end
 
+class Icon
+  attr_accessor :image_file_name
+  attr_accessor :image_file_size
+  has_attached_file :image, :styles => { :thumb => ["50x50!", :png], :medium => ["100x100!", :png], :large => ["800x800", :png]},
+    :url  => "/test_can_be_deleted/:attachment/:id/:style/:filename",
+    :path => ":rails_root/public/test_can_be_deleted/:attachment/:id/:style/:filename"
+end
+
 Factory.define :icon do |f|
   f.association :widget
+  f.image { fixture_file_upload('test.png', 'image/png') }
 end
 
 Factory.define :language do |f|
@@ -18,8 +29,17 @@ Factory.define :rating do |f|
   f.association :widget
 end
 
+class Screenshot
+  attr_accessor :image_file_name
+  attr_accessor :image_file_size
+  has_attached_file :image, :styles => { :thumb => ["100x57!", :png], :medium => ["540x310!"], :large => ["800x800", :png]},
+    :url  => "/test_can_be_deleted/:attachment/:id/:style/:filename",
+    :path => ":rails_root/public/test_can_be_deleted/:attachment/:id/:style/:filename"
+end
+
 Factory.define :screenshot do |f|
   f.association :widget
+  f.image { fixture_file_upload('test.png', 'image/png') }
 end
 
 Factory.define :state do |f|

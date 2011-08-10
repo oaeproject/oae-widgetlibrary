@@ -23,7 +23,7 @@ gem 'capistrano'
 # Allow for multi-stage deploys with Capistrano
 gem 'capistrano-ext'
 
-group :test do
+group :test, :development do
   # Use factory_girl as a fixtures replacement
   gem "factory_girl_rails"
 end

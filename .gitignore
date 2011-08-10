@@ -4,3 +4,5 @@ log/*.log
 tmp/
 .tmp*
 .project
+*.swp
+test_can_be_deleted/
