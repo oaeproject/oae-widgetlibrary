@@ -98,23 +98,3 @@
 #widgetlibrary_toprated .wl-widget-item-icon {
   height: 40px;
   width: 40px; }
-
-/*****************/
-/* SUBMIT WIDGET */
-/*****************/
-#widgetlibrary_submitwidget {
-  float: right;
-  background: url("../images/submit_widget_bg.jpg") repeat-x top left transparent;
-  border-radius: 5px 5px 5px 5px;
-  -moz-border-radius: 5px 5px 5px 5px;
-  -webkit-border-radius: 5px 5px 5px 5px;
-  float: right;
-  height: 217px;
-  margin-top: 20px;
-  width: 165px; }
-  #widgetlibrary_submitwidget #widgetlibrary_submitwidget_description {
-    color: #666;
-    font-size: 12px;
-    line-height: 13px;
-    margin: 117px auto 15px;
-    padding: 0 13px; }

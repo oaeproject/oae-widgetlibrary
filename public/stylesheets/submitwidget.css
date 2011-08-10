@@ -1,0 +1,15 @@
+#submitwidget {
+  display: inline-block;
+  background: url("../images/submit_widget_bg.jpg") repeat-x top left transparent;
+  border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  height: 217px;
+  margin-top: 20px;
+  width: 165px; }
+  #submitwidget #submitwidget_description {
+    color: #666;
+    font-size: 12px;
+    line-height: 13px;
+    margin: 117px auto 15px;
+    padding: 0 13px; }

@@ -1,5 +1,3 @@
-@import "mixins";
-
 /* Library */
 .wl-content-container#library_container {
   background: url("../images/library_bg.png") repeat-x scroll center top transparent;
@@ -10,7 +8,9 @@
 
 #library_widgets {
   border-left: 1px solid #c4c4c4;
-  @include box-shadow($h-shadow: -4px, $v-shadow: 4px, $blur: 7px, $spread: -4px, $color: #888, $outerinner: "");
+  box-shadow: -4px 4px 7px -4px #888888;
+  -moz-box-shadow: -4px 4px 7px -4px #888888;
+  -webkit-box-shadow: -4px 4px 7px -4px #888888;
   position: relative; }
 
 .wl-widget-item .wl-rating-container {

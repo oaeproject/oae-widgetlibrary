@@ -1,7 +1,10 @@
 <div class="wl-widget-item">
+    <% if !display.blank? %>
+    <% if display[:status] %>
+        <div class="widget_review_status widget_approved"></div>
+    <% end %>
     <img src="../images/default_widget_icon.png" alt="Facebook" class="wl-widget-item-icon"/>
     <a href="/widget/name_of_widget" title="Yahoo Weather" class="wl-regular-link wl-bold wl-widget-item_widgetname">Yahoo Weather</a>
-    <% if !display.blank? %>
       <% if display[:added] %>
           <span>added 3 August</span>
           <% end %>

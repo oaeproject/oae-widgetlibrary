@@ -3,6 +3,7 @@
     <ul class="wl-bold">
         <li class="navigation_item<% if params[:controller].eql?("home")%> selected<% end %>"><%= link_to "Home", root_path, :title => "Home" %></li>
         <li class="navigation_item<% if params[:controller].eql?("browse") || params[:controller].eql?("widget") %> selected<% end %>"><%= link_to "Browse", browse_path, :title => "Browse" %></li>
+        <li class="navigation_item<% if params[:controller].eql?("mywidgets")%> selected<% end %>"><%= link_to "My Widgets", mywidgets_path, :title => "My Widgets" %></li>
         <li class="navigation_item<% if params[:controller].eql?("developer") %> selected<% end %>"><%= link_to "Developer", developer_path, :title => "Developer" %></li>
         <li class="navigation_item<% if params[:controller].eql?("submit") %> selected<% end %>"><%= link_to "Submit", "#", :title => "Submit" %></li>
     </ul>

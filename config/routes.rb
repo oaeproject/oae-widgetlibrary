@@ -4,6 +4,7 @@ SakaiWidgetlibrary::Application.routes.draw do
   match 'browse' => 'browse#index'
   match 'register' => 'register#index'
   match 'developer' => 'developer#index'
+  match 'mywidgets' => 'mywidgets#index'
   root :to => "home#index"
 
   # The priority is based upon order of creation:
