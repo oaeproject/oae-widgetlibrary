@@ -2,7 +2,7 @@
     <%= stylesheet_link_tag "lhnavigation" %>
 <% end %>
 
-<div id="lhnavigation_container">
+<nav id="lhnavigation_container">
     <% if display && display[:nav_context].eql?("browse") %>
         <h1 class="wl-bold">Browse Widgets</h1>
         <hr class="wl-split-line"/>
@@ -16,8 +16,6 @@
             <li><div><a href="#" title="Graphing">Graphing</a></div></li>
             <li><div><a href="#" title="Utilities">Utilities</a></div></li>
             <li><div><a href="#" title="Other">Other</a></div></li>
-            <hr class="wl-split-line"/>
-            <li><div><a href="#" title="Collections">Collections</a></div></li>
         </ul>
     <% else %>
         <h1 class="wl-bold">My Widgets</h1>
@@ -29,4 +27,4 @@
             <li><div><a href="#" title="Declined">Declined (1)</a></div></li>
         </ul>
     <% end %>
-</div>
+</nav>
