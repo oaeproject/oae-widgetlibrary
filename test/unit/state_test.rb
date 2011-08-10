@@ -2,7 +2,8 @@ require 'test_helper'
 
 class StateTest < ActiveSupport::TestCase
   # Replace this with your real tests.
-  test "the truth" do
-    assert true
+  test "state factory" do
+    state = Factory.create(:state)
+    assert state != nil
   end
 end
