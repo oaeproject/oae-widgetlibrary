@@ -3,20 +3,30 @@
 <% end %>
 
 <div id="lhnavigation_container">
-    <h1 class="wl-bold">Browse Widgets</h1>
-    <hr class="wl-split-line"/>
-
-    <ul>
-        <li class="selected wl-bold"><div><a href="#" title="All categories">All categories</a></div></li>
-        <li><div><a href="#" title="Games">Games</a></div></li>
-        <li><div><a href="#" title="Quizzes">Quizzes</a></div></li>
-        <li><div><a href="#" title="Feeds, News + Blogging">Feeds, News + Blogging</a></div></li>
-        <li><div><a href="#" title="Social + Communication">Social + Communication</a></div></li>
-        <li><div><a href="#" title="Video + images">Video + images</a></div></li>
-        <li><div><a href="#" title="Graphing">Graphing</a></div></li>
-        <li><div><a href="#" title="Utilities">Utilities</a></div></li>
-        <li><div><a href="#" title="Other">Other</a></div></li>
+    <% if display && display[:nav_context].eql?("browse") %>
+        <h1 class="wl-bold">Browse Widgets</h1>
         <hr class="wl-split-line"/>
-        <li><div><a href="#" title="Collections">Collections</a></div></li>
-    </ul>
+        <ul>
+            <li class="selected wl-bold"><div><a href="#" title="All categories">All categories</a></div></li>
+            <li><div><a href="#" title="Games">Games</a></div></li>
+            <li><div><a href="#" title="Quizzes">Quizzes</a></div></li>
+            <li><div><a href="#" title="Feeds, News + Blogging">Feeds, News + Blogging</a></div></li>
+            <li><div><a href="#" title="Social + Communication">Social + Communication</a></div></li>
+            <li><div><a href="#" title="Video + images">Video + images</a></div></li>
+            <li><div><a href="#" title="Graphing">Graphing</a></div></li>
+            <li><div><a href="#" title="Utilities">Utilities</a></div></li>
+            <li><div><a href="#" title="Other">Other</a></div></li>
+            <hr class="wl-split-line"/>
+            <li><div><a href="#" title="Collections">Collections</a></div></li>
+        </ul>
+    <% else %>
+        <h1 class="wl-bold">My Widgets</h1>
+        <hr class="wl-split-line"/>
+        <ul>
+            <li class="selected wl-bold"><div><a href="#" title="All categories">All categories</a></div></li>
+            <li><div><a href="#" title="Accepted">Accepted (10)</a></div></li>
+            <li><div><a href="#" title="Pending">Pending (4)</a></div></li>
+            <li><div><a href="#" title="Declined">Declined (1)</a></div></li>
+        </ul>
+    <% end %>
 </div>

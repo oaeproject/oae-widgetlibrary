@@ -1,7 +1,10 @@
 <div class="wl-widget-item">
+    <% if !display.blank? %>
+    <% if display[:status] %>
+        <div class="widget_review_status widget_approved"></div>
+    <% end %>
     <img src="../images/default_widget_icon.png" alt="Facebook" class="wl-widget-item-icon"/>
     <a href="/widget/name_of_widget" title="Yahoo Weather" class="wl-regular-link wl-bold wl-widget-item_widgetname">Yahoo Weather</a>
-    <% if !display.blank? %>
       <% if display[:added] %>
           <span>added 3 August</span>
           <% end %>
@@ -9,16 +12,7 @@
           <span>by <a href="#" title="by Bert Pareyn" class="wl-regular-link">Bert Pareyn</a></span>
       <% end %>
       <% if display[:rating] %>
-          <div class="wl-rating-container">
-              <div class="wl-rating-icon filled"></div>
-              <div class="wl-rating-icon filled"></div>
-              <div class="wl-rating-icon filled"></div>
-              <div class="wl-rating-icon filled"></div>
-              <div class="wl-rating-icon"></div>
-              <% if display[:num_ratings] %>
-                  <a href="#" title="42 Ratings" class="wl-regular-link wl-number-of-ratings">42 Ratings</a>
-              <% end %>
-          </div>
+          <%= render :partial => "pagewidgets/rating", :locals => {:display => {:num_ratings => display[:num_ratings]}} %>
       <% end %>
       <% if display[:users] %>
           <a href="#" title="65 users" class="wl-regular-link wl-number-of-users">65 users</a>
