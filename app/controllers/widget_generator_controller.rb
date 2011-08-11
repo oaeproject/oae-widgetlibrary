@@ -21,7 +21,7 @@ class WidgetGeneratorController < ApplicationController
     t = Tempfile.new("#{myappname}")
     zos = Zip::ZipOutputStream.open(t.path)
     prefix = "#{tempdir}/"
-    Find.find("#{tempdir}/#{myappname}") { |path| 
+    Find.find("#{tempdir}/#{myappname}") do |path| 
       zippath = path.slice(prefix.length...path.length)
       if zippath != myappname then
         if !File.directory?(path) then
@@ -31,7 +31,7 @@ class WidgetGeneratorController < ApplicationController
           end
         end
       end
-    }
+    end
     zos.close
     send_file t.path, :type => 'application/zip', :disposition => 'attachment', :filename => "#{myappname}.zip"   
     t.close

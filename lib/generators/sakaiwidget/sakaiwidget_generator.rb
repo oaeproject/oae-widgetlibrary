@@ -9,7 +9,7 @@ class SakaiwidgetGenerator < Rails::Generators::NamedBase
     @personalportal = @_initializer[2][:personalportal]
     @createdir = @_initializer[2][:destination_root]    
 
-    if @appstyle == "skeleton" then
+    if @appstyle.eql? "skeleton" then
       empty_directory "#{@createdir}"
       empty_directory "#{@createdir}/#{file_name}"
       empty_directory "#{@createdir}/#{file_name}/bundles"
@@ -21,7 +21,7 @@ class SakaiwidgetGenerator < Rails::Generators::NamedBase
       template "_template/config.json", "#{@createdir}/#{file_name}/config.json"
       copy_file "_template/README.txt", "#{@createdir}/#{file_name}/README.txt"
       template "_template/WIDGET_ID.html", "#{@createdir}/#{file_name}/#{file_name}.html"
-    elsif @appstyle == "helloworld" then
+    elsif @appstyle.eql? "helloworld" then
       empty_directory "#{@createdir}"
       empty_directory "#{@createdir}/#{file_name}"
       empty_directory "#{@createdir}/#{file_name}/bundles"
