@@ -15,6 +15,13 @@ gem "sass"
 # Use Paperclip for image dependency management
 gem "paperclip", "~> 2.3"
 
+# Use rubyzip for serving zipped up widget files
+gem "rubyzip"
+
+# Use guid for generating random directory names in the tmp folder to 
+# use at the root dir for the widget generator.
+gem 'guid'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
