@@ -57,7 +57,7 @@ var addBinding = function(){
         toggleLoginButtons(true);
         doLogin();
         return false;
-    })
+    });
 
     $(dropdownMenu).live("hover", function(ev){
         if(ev.type == "mouseenter"){
