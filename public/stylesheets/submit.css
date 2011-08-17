@@ -7,6 +7,12 @@
   #submit_container h2 {
     margin-top: 15px;
     margin-bottom: 20px; }
+  #submit_container h2.second_column {
+    border-bottom: medium none;
+    clear: none;
+    left: 480px;
+    margin-top: 0;
+    position: absolute; }
   #submit_container h3 {
     color: #666; }
   #submit_container h4 {
