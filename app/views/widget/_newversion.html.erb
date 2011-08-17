@@ -1,0 +1,33 @@
+<div id="newversion_container" class="wl-dialog wl-dialog-container">
+    <div class="wl-dialog-close jqmClose"></div>
+    <h1 class="wl-dialog-header">Submit new version</h1>
+    <p>You can either, select a new file, then upload.</p>
+    <div class="form_section_container">
+        <p>Upload a 'zip' file:</p>
+        <input type="text"/><button type="button" class="wl-button wl-header-button">Browse</button>
+        <p>OR enter URL to the source code repository</p>
+        <input type="text"/>
+    </div>
+    <p>Second optional step:</p>
+    <div class="form_section_container">
+        <p>Upload a backend feed bundle 'zip' file:</p>
+        <input type="text"/><button type="button" class="wl-button wl-header-button">Browse</button>
+        <p>OR enter URL to the backend feed bundle source code repository</p>
+        <input type="text"/>
+    </div>
+</div>
+
+<script>
+    /**
+     * Initialize the modal dialog
+     */
+    var initializeJQM = function(){
+        $("#newversion_container").jqm({
+            modal: true,
+            overlay: 20,
+            toTop: true
+        });
+        $("#newversion_container").jqmShow();
+    };
+    $(document).ready(initializeJQM);
+</script>
