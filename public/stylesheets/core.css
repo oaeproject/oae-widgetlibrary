@@ -320,7 +320,7 @@ a.wl-button.wl-header-button {
   box-shadow: 0 0 10px #000;
   -moz-box-shadow: 0 0 10px #000;
   -webkit-box-shadow: 0 0 10px #000;
-  color: #424242;
+  color: #333;
   font-size: 12px; }
   .wl-dialog-container .wl-dialog-close {
     background: url("../images/dialog_close.png") no-repeat top left transparent;
@@ -331,6 +331,8 @@ a.wl-button.wl-header-button {
     margin: -2px -15px 0 0; }
   .wl-dialog-container .wl-dialog-close:hover {
     background: url("../images/dialog_close.png") no-repeat left -19px transparent; }
+  .wl-dialog-container .dialog_actions {
+    float: right; }
   .wl-dialog-container h1.wl-dialog-header {
     border-bottom: 1px dotted #d4d4d4;
     color: #666;
@@ -341,13 +343,16 @@ a.wl-button.wl-header-button {
     margin-left: 0; }
 
 .form_section_container {
-  background: url("../images/form_bg.png") repeat-x scroll left top transparent;
+  background: url("../images/form_bg.png") repeat-x scroll left top #e3e3e2;
   border: 1px solid #E2E2E2;
   border-radius: 5px 5px 5px 5px;
-  height: 80px;
-  margin-top: 10px;
-  padding: 20px 15px 0;
-  width: 452px; }
+  margin: 10px 0;
+  padding: 15px; }
+  .form_section_container p {
+    margin: 7px 0; }
+  .form_section_container input {
+    margin-right: 10px;
+    width: 300px; }
 
 /* Link buttons */
 .wl-link-button {
@@ -489,7 +494,7 @@ textarea {
   -moz-border-radius: 2px 2px 2px 2px;
   -webkit-border-radius: 2px 2px 2px 2px; }
   .wl-dropdown-menu-content-container input {
-    width: 97%;
+    width: 94%;
     margin: 5px 0 9px; }
 
 .wl-dropdown-container {

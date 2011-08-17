@@ -341,7 +341,7 @@ a.wl-button.wl-header-button {
     -moz-border-radius:5px;border-radius:5px;
     padding:7px 20px 12px;
     box-shadow:0 0 10px #000;-moz-box-shadow:0 0 10px #000;-webkit-box-shadow:0 0 10px #000;
-    color:#424242;
+    color:#333;
     font-size:12px;
     .wl-dialog-close {
         background:url("../images/dialog_close.png") no-repeat top left transparent;
@@ -354,6 +354,9 @@ a.wl-button.wl-header-button {
     .wl-dialog-close:hover {
         background:url("../images/dialog_close.png") no-repeat left -19px transparent;
     }
+    .dialog_actions {
+        float:right;
+    }
     h1.wl-dialog-header {
         border-bottom:1px dotted #d4d4d4;
         color:#666;
@@ -365,13 +368,18 @@ a.wl-button.wl-header-button {
     }
 }
 .form_section_container{
-    background: url("../images/form_bg.png") repeat-x scroll left top transparent;
+    background: url("../images/form_bg.png") repeat-x scroll left top #e3e3e2;
     border: 1px solid #E2E2E2;
     border-radius: 5px 5px 5px 5px;
-    height: 80px;
-    margin-top: 10px;
-    padding: 20px 15px 0;
-    width: 452px;
+    margin: 10px 0;
+    padding: 15px;
+    p {
+        margin: 7px 0;
+    }
+    input {
+        margin-right: 10px;
+        width: 300px;
+    }
 }
 
 /* Link buttons */
@@ -515,7 +523,7 @@ textarea {
     color:#666;
     @include border-radius($topLeft: 2px, $topRight: 2px, $bottomRight: 2px, $bottomLeft: 2px);
     input {
-        width:97%;
+        width:94%;
         margin: 5px 0 9px;
     }
 }
