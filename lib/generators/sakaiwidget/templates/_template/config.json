@@ -1,0 +1,16 @@
+{
+    "id":                 "<%= @file_name %>",
+    "name":               "<%= @file_name %>",
+    "description":        "<%= @appdesc %>",
+    "type":               "contrib",
+    "enabled":            true,
+    "hasSettings":        false,
+    "url":                "/devwidgets/<%= @file_name %>/<%= @file_name %>.html",
+    "img":                "/devwidgets/<%= @file_name %>/images/<%= @file_name %>.png",
+    "i18n": {
+        "default":        "/devwidgets/<%= @file_name %>/bundles/default.properties"
+    },
+    "personalportal":     "<%= @personalportal %>",
+    "sakaidocs":          false,
+    "showinsakaigoodies": "<%= @showinsakaigoodies %>"
+}

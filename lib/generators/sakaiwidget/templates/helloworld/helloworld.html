@@ -1,0 +1,33 @@
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="/devwidgets/<%= @file_name %>/css/<%= @file_name %>.css" />
+
+<div class="<%= @file_name %>_widget">
+    <!-- WIDGET CONTENT CONTAINER -->
+    <div class="s3d-widget-content">
+        <!-- MAIN VIEW -->
+        <div id="<%= @file_name %>_main" style="display:none;">
+            <p>__MSG__HELLO_WORLD__, <span id="<%= @file_name %>_username"></span></p>
+        </div>
+        <!-- SETTINGS VIEW -->
+        <div id="<%= @file_name %>_settings" style="display:none;">
+            <form id="<%= @file_name %>_settings_form" action="#">
+                <p>__MSG__COLOR_TO_USE__:
+                    <select id="<%= @file_name %>_color">
+                        <option value="#000000">__MSG__BLACK__</option>
+                        <option value="#FF0000">__MSG__RED__</option>
+                        <option value="#00FF00">__MSG__GREEN__</option>
+                        <option value="#0000FF">__MSG__BLUE__</option>
+                    </select>
+                </p>
+                <p><button type="submit">__MSG__SAVE__</button></p>
+            </form>
+        </div>
+    </div>
+    <!-- WIDGET FOOTER WITH NO OPTIONS -->
+    <div class="s3d-widget-no-options">
+        <div class="s3d-widget-no-options-inner"></div>
+    </div>
+</div>
+
+<!-- JAVASCRIPT -->
+<script type="text/javascript" src="/devwidgets/<%= @file_name %>/javascript/<%= @file_name %>.js"></script>

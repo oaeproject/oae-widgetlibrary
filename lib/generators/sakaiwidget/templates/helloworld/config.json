@@ -1,0 +1,18 @@
+{
+    "description":        "<%= @appdesc %>",
+    "enabled":            true,
+    "groupdashboard":     false,
+    "grouppages":         false,
+    "hasSettings":        true,
+    "i18n": {
+        "default":        "/devwidgets/<%= @file_name %>/bundles/default.properties"
+    },
+    "id":                 "<%= @file_name %>",
+    "name":               "<%= @file_name %>",
+    "personalportal":     <%= @personalportal %>,
+    "showinsakaigoodies": <%= @showinsakaigoodies %>,
+    "type":               "contrib",
+    "url":                "/devwidgets/<%= @file_name %>/<%= @file_name %>.html",
+    "userdashboard":      false,
+    "userpages":          false
+}
