@@ -421,11 +421,73 @@ a.wl-button.wl-header-button {
 	  @include border-radius($topLeft: 4px, $topRight: 4px, $bottomRight: 4px, $bottomLeft: 4px);
 	  float: right;
 	  height: 24px;
-	  margin: 6px 8px 0 0;
 	  padding: 0 10px 0 30px;
 	  width: 232px;
 	  color: #666;
 	  font-size: 12px;
+	}
+	#search_widgets_search_results {
+        margin-top:5px;
+        position: absolute;
+        width: 274px;
+        margin-left:635px;
+        z-index: 10000;
+        @include border-radius($topLeft: 0, $topRight: 0, $bottomRight: 5px, $bottomLeft: 5px);
+        #search_widgets_results_container{
+            @include box-shadow($h-shadow: 0, $v-shadow: 8px, $blur: 15px, $spread: -2px, $color: #555, $outerinner: "");
+            background: url("../images/search_bg.png") repeat-x scroll left bottom #F3F3F3;
+            padding:12px 3px 5px;
+            margin-top: 22px;
+            border: 1px solid #D6D4D4;
+            border-bottom: none;
+        }
+        #search_widgets_results_bottom_container {
+            @include box-shadow($h-shadow: 0, $v-shadow: 8px, $blur: 15px, $spread: -2px, $color: #555, $outerinner: "");
+            background-color:#F3F3F3;
+            border: 1px solid #D6D4D4;
+            border-top: none;
+            height:32px;
+            padding:4px 3px 0 12px;
+            @include border-radius($topLeft: 0, $topRight: 0, $bottomRight: 5px, $bottomLeft: 5px);
+        }
+        #search_widgets_results_container ul {
+            margin:5px 0 15px;
+            list-style:none;
+        }
+        #search_widgets_results_container ul li {
+            padding:2px 12px;
+            font-size:11px;
+        }
+        #search_widgets_results_container ul li.selected {
+            background-color:#D3EDF5;
+        }
+        #search_widgets_results_container ul li a{
+            text-decoration:none;
+            color:#2683BC;
+            font-size: 11px;
+            padding: 0;
+            width:auto;
+            margin-top:2px;
+        }
+        .wl-button {
+            float:right;
+            height: 17px;
+            padding-top: 6px;
+        }
+        #search_widgets_results_bottom_content {
+            display: block;
+            padding-top: 7px;
+            color: #636363;
+        }
+        .search_widgets_widgeticon {
+            width:16px;
+            height:16px;
+            margin-right: 12px;
+            float:left;
+        }
+        .wl-split-line {
+            margin: 3px 12px;
+        }
 	}
 }
 
