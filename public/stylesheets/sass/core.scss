@@ -292,6 +292,12 @@ a.wl-button.wl-header-button {
   display: inline-block;
 }
 
+/* Link buttons */
+.wl-link-button {margin:0;padding:0;background: none repeat scroll 0 0 transparent;border: medium none;color:#2683bc;font-family: Arial,Helvetica,sans-serif;font-size:13px;display: inline-block;text-align:left;font-size:11px;}
+.wl-link-button:hover {cursor:pointer;text-decoration:none;color:#999;}
+.wl-link-button::-moz-focus-inner {padding:0;margin:0;border:0;}
+
+
 /**********/
 /* FOOTER */
 /**********/
@@ -345,12 +351,11 @@ a.wl-button.wl-header-button {
 	  margin-right: 24px;
 		ul {
 		  list-style-type: none;
-		  color: #ccc;
 		  font-size: 11px;
 			li {
 			display:inline-block;
 			margin-right: 2px;
-		  	  a {
+		  	  > a {
 		        padding: 9px 22px;
 		        color: #ccc;
 		        text-decoration: none;
@@ -371,7 +376,59 @@ a.wl-button.wl-header-button {
 		  float: right;
 		  margin: 2px 0 0 9px;
 		}
+		#useractions_login_fields {
+		    width:200px;
+		    @include border-radius($topLeft: 0, $topRight: 0, $bottomRight: 5px, $bottomLeft: 5px);
+            margin-left: -113px;
+            margin-top: 0;
+            position: absolute;
+            z-index: 11000;
+            #useractions_login_button_login {
+                float:right;
+            }
+            #useractions_login_fields_password {
+                margin-bottom: 14px;
+            }
+            .wl-split-line {
+                margin: 15px 0;
+            }
+            #useractions_login_button_signing_in {
+                float: right;
+            }
+		}
 	}
+}
+
+
+/******************/
+/* DROPDOWN LISTS */
+/******************/
+.wl-dropdown-menu:hover, .wl-dropdown-menu.opened {
+    background: url("../images/navigation_item_selected.png") repeat-x scroll left top transparent;
+    > a {
+        color:#fff !important;
+    }
+}
+.wl-dropdown-menu-content-container {
+    margin:0;
+    padding: 10px 7px;
+    display:block;
+    background-color: #F3F3F3;
+    color:#666;
+    @include border-radius($topLeft: 2px, $topRight: 2px, $bottomRight: 2px, $bottomLeft: 2px);
+    input {
+        width:97%;
+        margin: 5px 0 9px;
+    }
+}
+.wl-dropdown-container {
+    background:url("../images/dropdown_list_bg.png") repeat-x scroll left top #0c4e79;
+    @include box-shadow($h-shadow: 0, $v-shadow: 10px, $blur: 10px, $spread: -3px, $color: #333, $outerinner: "");
+    position:absolute;
+    z-index:999;
+    min-width:140px;
+    padding:5px;
+    cursor:auto;
 }
 
 
