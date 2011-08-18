@@ -41,6 +41,10 @@ GEM
     cocaine (0.1.0)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    factory_girl (2.0.3)
+    factory_girl_rails (1.1.0)
+      factory_girl (~> 2.0.0)
+      railties (>= 3.0.0)
     highline (1.6.2)
     i18n (0.5.0)
     jquery-rails (1.0.12)
@@ -100,6 +104,7 @@ PLATFORMS
 DEPENDENCIES
   capistrano
   capistrano-ext
+  factory_girl_rails
   jquery-rails (>= 1.0.12)
   paperclip (~> 2.3)
   rails (= 3.0.9)
