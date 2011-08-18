@@ -20,6 +20,22 @@
     color:#666;
     margin-left: 0;
   }
+  h1.widget_declined_header, h1.widget_accepted_header{
+      font-size: 16px;
+      margin: 4px 0 20px;
+      font-weight:normal;
+      padding-left: 30px;
+      width:650px;
+  }
+  h1.widget_accepted_header {
+      background:url("../images/tick_icon_small.png") no-repeat left top transparent;
+  }
+  h1.widget_declined_header {
+      background:url("../images/exclamation_icon_small.png") no-repeat left top transparent;
+  }
+  > .wl-split-line {
+      margin-bottom: 25px;
+  }
 }
 
 #widget_container #widget_download {
@@ -131,7 +147,7 @@
         cursor: pointer;
         border: 1px solid #bebdbd;
         border-bottom:0;
-        @include border-radius($topLeft: 5px, $topRight: 5px, $bottomRight: 0, $bottomLeft: 0);
+        @include border-radius($topLeft: 3px, $topRight: 3px, $bottomRight: 0, $bottomLeft: 0);
         background: url("../images/tab_bg.png") repeat-x scroll left top transparent;
         float: left;
         height: 29px;

@@ -5,8 +5,8 @@ SakaiWidgetlibrary::Application.routes.draw do
   match 'register' => 'register#index'
   match 'developer' => 'developer#index'
   match 'mywidgets' => 'mywidgets#index'
+  match 'submit' => 'submit#index'
   match 'zippedwidget' => 'widget_generator#zippedwidget'
-
   root :to => "home#index"
 
   # The priority is based upon order of creation:
