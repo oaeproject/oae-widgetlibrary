@@ -1,10 +1,26 @@
 <nav id="widgetlibrary_navigation">
-    <input id="search_widgets" type="text" placeholder="Search Widget name / Category / Type..."/>
+    <div id="search_widgets_search_results">
+        <input id="search_widgets" type="text" placeholder="Search Widget name / Category / Type..."/>
+        <div id="search_widgets_results" style="display:none;">
+            <div id="search_widgets_results_container">
+                <ul>
+                    <% 9.times do %>
+                        <%= render :partial => "core/searchresult" %>
+                    <% end %>
+                </ul>
+            </div>
+            <div id="search_widgets_results_bottom_container">
+                <a href="/browse" class="wl-button wl-overlay-button">View all results</a>
+                <span id="search_widgets_results_bottom_content">9 results</span>
+            </div>
+        </div>
+    </div>
+
     <ul class="wl-bold">
         <li class="navigation_item<% if params[:controller].eql?("home")%> selected<% end %>"><%= link_to "Home", root_path, :title => "Home" %></li>
         <li class="navigation_item<% if params[:controller].eql?("browse") || params[:controller].eql?("widget") %> selected<% end %>"><%= link_to "Browse", browse_path, :title => "Browse" %></li>
         <li class="navigation_item<% if params[:controller].eql?("mywidgets")%> selected<% end %>"><%= link_to "My Widgets", mywidgets_path, :title => "My Widgets" %></li>
         <li class="navigation_item<% if params[:controller].eql?("developer") || params[:controller].eql?("developerdetails") %> selected<% end %>"><%= link_to "Developer", developer_path, :title => "Developer" %></li>
-        <li class="navigation_item<% if params[:controller].eql?("submit") %> selected<% end %>"><%= link_to "Submit", "#", :title => "Submit" %></li>
+        <li class="navigation_item<% if params[:controller].eql?("submit") %> selected<% end %>"><%= link_to "Submit", "/submit", :title => "Submit" %></li>
     </ul>
 </nav>
