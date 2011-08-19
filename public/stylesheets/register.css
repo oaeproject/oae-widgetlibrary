@@ -58,10 +58,6 @@ h2 {
 .register_column1 label, .register_column2 label, .register_column3 label {
   font-size: 12px;
   color: #666; }
-.register_column1 select, .register_column2 select, .register_column3 select {
-  margin-top: 5px;
-  margin-bottom: 7px;
-  border: 1px solid #d4d4d4; }
 
 .register_column2, .register_column3 {
   margin-left: 25px;

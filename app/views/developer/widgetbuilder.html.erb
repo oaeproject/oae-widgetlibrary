@@ -1,0 +1,46 @@
+<% content_for :head do %>
+    <%= stylesheet_link_tag "widgetsdk" %>
+<% end %>
+
+<div class="wl-content-container" id="widgetsdk_container">
+    <div class="wl-content-710 wl-right wl-padding-15-0 wl-padding-0-10 " id="widgetsdk_content">
+        <h1>Widget template builder</h1>
+        <p>If you’re stuck on how tostart with the creation of your widget we have a couple of options to help you on your way:</p>
+        <div class="wl-widget-item first">
+            <h1>Widget creator</h1>
+            <p>Fill out the ‘name’ and a basic description of your widget below, selection one of the pre-defined categories and we’ll send you a skeleton framework of a widget with the correct structure into which you can add your code.</p>
+            <div class="widgetsdk_split_container">
+                <h1>Widget name</h1>
+                <input type="text" placeholder="(e.g. Grapher 202...)"/>
+            </div>
+            <div class="widgetsdk_split_container last">
+                <h1>Select a category</h1>
+                <label for="category">Category:</label>
+                <select name="category" id="widgetbuilder_category_dropdown">
+                    <option value="">Games</option>
+                    <option value="">Quizzes</option>
+                    <option value="">Feeds, News  Blogging</option>
+                    <option value="">Social  Communication</option>
+                    <option value="">Video  images</option>
+                    <option value="">Graphing</option>
+                    <option value="" selected="selected">Utilities</option>
+                    <option value="">Other</option>
+                </select>
+            </div>
+            <h1 class="wl-push">Add a description</h1>
+            <textarea placeholder="(e.g. Graph creation widget...)" id="widgetbuilder_description"></textarea>
+            <h1>Options</h1>
+            <div id="widgetbuilder_options">
+                <input type="radio" name="widgetbuilder_skeletontype" id="widgetbuild_skeleton" checked/><label for="widgetbuild_skeleton">Create a skeleton framework (no code, just the correct file structure)</label>
+                <input type="radio" name="widgetbuilder_skeletontype" id="widgetbuild_example"/><label for="widgetbuild_example">Create an example framework (code and the correct file structure)</label>
+            </div>
+            <hr class="wl-split-line"/>
+            <button type="button" class="wl-button wl-overlay-button" id="widgetbuilder_create">Create skeleton Widget</button>
+         </div>
+    </div>
+
+    <div class="wl-content-185 wl-left wl-padding-15-0">
+        <%= render :partial => "pagewidgets/lhnavigation", :locals => {:display => {:nav_context => params[:controller]}} %>
+    </div>
+    <hr class="wl-push wl-hidden"/>
+</div

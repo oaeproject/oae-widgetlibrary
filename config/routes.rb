@@ -5,6 +5,7 @@ SakaiWidgetlibrary::Application.routes.draw do
   match 'register' => 'register#index'
   match 'developer' => 'developer#index'
   match 'developer/developwidget' => 'developer#developwidget'
+  match 'developer/widgetbuilder' => 'developer#widgetbuilder'
   match 'developer/:developer_name' => 'developerdetails#index'
   match 'mywidgets' => 'mywidgets#index'
   match 'submit' => 'submit#index'

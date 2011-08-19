@@ -4,18 +4,19 @@
     padding: 0 22px 0;
 }
 
-#developwidget_container.wl-content-container {
+#widgetsdk_container.wl-content-container {
     background: url("../images/library_bg.png") repeat-x scroll center top transparent;
     padding-top: 0;
     color: #666;
     font-size:14px;
-    #developwidget_content {
+    #widgetsdk_content {
         h1, .wl-widget-item h2 {
             border-bottom: 1px solid #E2E2E2;
             color: #666666;
             font-size: 20px;
             padding-bottom: 5px;
             margin-bottom:17px;
+            margin-top: 10px;
         }
         p {
             margin-bottom:10px;
@@ -24,6 +25,7 @@
             width: auto;
             height: auto;
             margin-top: 5px;
+            font-size:13px;
             h2 {
                 border-bottom: medium none;
                 font-size: 18px;
@@ -42,16 +44,54 @@
                 overflow: auto;
                 padding-left: 15px;
             }
+            #widgetbuilder_category_dropdown {
+                margin-left: 25px;
+            }
+            #widgetbuilder_description {
+                width: 450px;
+                height: 70px;
+                margin-bottom:10px;
+            }
+            #widgetbuilder_options {
+                input {
+                    float: left;
+                    margin: 3px 7px 0 0;
+                }
+                label {
+                    display:block;
+                    font-size: 14px;
+                    margin-bottom: 7px;
+                }
+                + .wl-split-line {
+                    margin: 20px 0 15px;
+                }
+            }
         }
         .wl-widget-item.first {
             margin-top: 20px;
         }
+        .widgetsdk_split_container {
+            width:330px;
+            float:left;
+            padding-bottom: 15px;
+            input {
+                width: 96%;
+            }
+        }
+        .widgetsdk_split_container.last {
+            margin-left:20px;
+        }
     }
 }
 
-#developwidget_content {
+#widgetsdk_content {
     @include box-shadow($h-shadow: -4px, $v-shadow: 4px, $blur: 7px, $spread: -4px, $color: #888, $outerinner: "");
     position: relative;
     border-left: 1px solid #c4c4c4;
     min-height:515px;
+}
+
+#widgetbuilder_create {
+    float:right;
+    margin-bottom: 10px;
 }
