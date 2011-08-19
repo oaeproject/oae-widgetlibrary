@@ -202,6 +202,9 @@ a.wl-button {
   margin-right: 5px;
   border: none; }
 
+.wl-button.blue {
+  color: #2683bc; }
+
 /* Overlay buttons */
 .wl-button.wl-overlay-button {
   background: url("../images/button_overlay_default.png") repeat-x scroll left top transparent;
