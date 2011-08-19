@@ -1,11 +1,11 @@
 SakaiWidgetlibrary::Application.routes.draw do
 
-  match 'widget/:widget_title' => 'widget#show'
+  match 'widget/:widget_title' => 'widget#show', :as => :widget
   match 'browse' => 'browse#index'
   match 'register' => 'register#index'
   match 'developer' => 'developer#index'
   match 'developer/developwidget' => 'developer#developwidget'
-  match 'developer/:developer_name' => 'developerdetails#index'
+  match 'developer/:developer_name' => 'developerdetails#index', :as => :developer_page
   match 'mywidgets' => 'mywidgets#index'
   match 'zippedwidget' => 'widget_generator#zippedwidget'
 

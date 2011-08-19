@@ -2,14 +2,14 @@
     <% if !display.blank? && display[:status] %>
         <div class="widget_review_status widget_approved"></div>
     <% end %>
-    <a href="/widget/name_of_widget" title="Yahoo Weather" class="wl-regular-link wl-bold wl-widget-item_widgetname">Yahoo Weather</a>
     <%= image_tag "/images/default_widget_icon.png", :class => "wl-widget-item-icon" %>
+    <%= link_to "Yahoo Weather", widget_path({:widget_title => "yahoo_weather"}), :title => "Yahoo Weather", :class => "wl-regular-link wl-bold wl-widget-item_widgetname" %>
     <% if !display.blank? %>
       <% if display[:added] %>
           <span>added 3 August</span>
           <% end %>
       <% if display[:author] %>
-          <span>by <a href="/developer/name_of_developer" title="by Bert Pareyn" class="wl-regular-link">Bert Pareyn</a></span>
+          <span>by <%= link_to "Bert Pareyn", developer_page_path({:developer_name => "bp323"}), :title => "by Bert Pareyn", :class => "wl-regular-link" %></span>
       <% end %>
       <% if display[:rating] %>
           <%= render :partial => "pagewidgets/rating", :locals => {:display => {:num_ratings => display[:num_ratings]}} %>
