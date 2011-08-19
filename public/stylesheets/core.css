@@ -25,7 +25,7 @@ h1 {
   color: #333;
   font-size: 14px;
   font-weight: normal;
-  margin: 0 0 9px 10px; }
+  margin: 0 0 9px 0; }
 
 .wl-bold {
   font-weight: bold; }
@@ -201,6 +201,9 @@ a.wl-button {
   text-align: center;
   margin-right: 5px;
   border: none; }
+
+.wl-button.blue {
+  color: #2683bc; }
 
 /* Overlay buttons */
 .wl-button.wl-overlay-button {

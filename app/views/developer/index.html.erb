@@ -1,43 +1,61 @@
 <% content_for :head do %>
     <%= stylesheet_link_tag "developer" %>
-<% end %> 
+<% end %>
 
 <div class="wl-content-container" id="developer_container">
-    <div id="developer_description_container">
-        <img src="../images/james_johnson.jpg" alt="James Johnson"/>
-        <div id="developer_description">
-            <h1>James Johnson</h1>
-            <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum. </p>
-            <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum.</p>
-            <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum.</p>
-            <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum.</p>
-
-            <div id="developer_details">
-                <h2>Details:</h2>
-                <hr class="wl-split-line wl-push">
-                <div class="developer_details_left">Location:</div><div class="developer_details_right">United Kingdom</div>
-                <hr class="wl-split-line wl-push">
-                <div class="developer_details_left">Occupation:</div><div class="developer_details_right">Student/Freelance</div>
-                <hr class="wl-split-line wl-push">
-                <div class="developer_details_left">Homepage:</div><div class="developer_details_right"><a href="http://www.example.org" title="example.org" target="_blank" class="wl-regular-link">http://www.example.org</a></div>
-                <hr class="wl-split-line wl-push">
-                <div class="developer_details_left">User since:</div><div class="developer_details_right">March 5, 2007</div>
-                <hr class="wl-split-line wl-push">
-                <div class="developer_details_left">No. of Widgets Developed:</div><div class="developer_details_right">7 Sakai Widgets</div>
-                <hr class="wl-split-line wl-push">
-                <div class="developer_details_left">Average rating for their Widgets:</div><div class="developer_details_right">
-                    <%= render :partial => "pagewidgets/rating" %>
-                </div>
-                <hr class="wl-split-line wl-push">
-            </div>
-        </div>
+    <div id="developer_artwork"></div>
+    <div id="developer_videocontent" class="wl-inset-shadow-container">
+        <div id="developer_videocontent_container"></div>
+        <h1>Getting started</h1>
     </div>
-    <hr class="wl-push wl-hidden">
-    <div id="developer_widgetsbydeveloper" class="wl-inset-shadow-container">
-        <h1>Widgets by this developer</h1>
-        <% 5.times do %>
-            <%= render :partial => "core/widget", :locals => {:display => {:rating => true, :author => true, :num_ratings => true}} %>
-        <% end %>
-        <hr class="wl-push wl-hidden">
+    <div id="developer_introduction">
+        <h1>Start developing Sakai OAE Widgets:</h1>
+        <h2>Design. Develop. Inspire</h2>
+        <p>A ‘Widget is’ an app which can be used as a ‘bolt on’ to the installed Sakai Open Academic Environment to add aditional functionality, expanding the value of the platform for tutors and students alike. A ‘Widget is’ an app which can be used as a ‘bolt on’ to the installed Sakai Open Academic Environment to add aditional functionality, expanding the value of the platform for tutors and students alike.</p>
+        <button type="button" class="wl-button wl-header-button">Visit the Widget SDK</button>
+    </div>
+    <hr class="wl-hidden wl-push"/>
+    <div id="developer_wheretobegin_container">
+        <h1>Where to begin...</h1>
+        <div class="wl-widget-item">
+            <h1>Developing a Widget</h1>
+            <img src="../images/developer_wgt_icon.png" alt="Developing a Widget"/>
+            <p>Detailed instructions for developing your own widgets.</p>
+            <a href="/developer/developwidget" title="How to do it" class="wl-regular-link wl-bold">How to do it</a>
+        </div>
+        <div class="wl-widget-item">
+            <h1>Examples</h1>
+            <img src="../images/developer_examples_icon.png" alt="Examples"/>
+            <p>Sample code and examples of widgets for various categories.</p>
+            <a href="#" title="View the examples" class="wl-regular-link wl-bold">View the examples</a>
+        </div>
+        <div class="wl-widget-item">
+            <h1>Widget builder</h1>
+            <img src="../images/developer_widgetbuilder_icon.png" alt="Widget builder"/>
+            <p>Fill out a simple form and create a skeleton widget framework.</p>
+            <a href="#" title="Get started" class="wl-regular-link wl-bold">Get started</a>
+        </div>
+        <div class="wl-widget-item last">
+            <h1>FAQs</h1>
+            <img src="../images/developer_faq_icon.png" alt="FAQs"/>
+            <p>The most frequently asked questions answered here.</p>
+            <a href="#" title="View the questions" class="wl-regular-link wl-bold">View the questions</a>
+        </div>
+        <div class="developer_threecolumn first">
+            <h1>Code best practices</h1>
+            <p>Follow these simple few rules and you will be creating your own widgets for others to use on their Sakai platform.</p>
+            <a href="#" class="wl-regular-link wl-bold" title="View the examples">View the examples</a>
+        </div>
+        <div class="developer_threecolumn">
+            <h1>Design style guide</h1>
+            <p>Follow these simple few rules and you will be creating your own widgets for others to use on their Sakai platform.</p>
+            <a href="#" class="wl-regular-link wl-bold" title="Colours, styles... all here">Colours, styles... all here</a>
+        </div>
+        <div class="developer_threecolumn last">
+            <h1>UI and API documentation</h1>
+            <p>Follow these simple few rules and you will be creating your own widgets for others to use on their Sakai platform.</p>
+            <a href="#" class="wl-regular-link wl-bold" title="View documentation">View documentation</a>
+        </div>
+        <hr class="wl-hidden wl-push"/>
     </div>
 </div>
