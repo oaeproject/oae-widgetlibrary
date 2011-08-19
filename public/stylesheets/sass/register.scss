@@ -26,7 +26,8 @@ h1 {
 }
 
 h2 {
-    border-bottom: 1px solid #e3e3e3;
+    clear:both;
+    border-bottom: 1px solid #D4D4D4;
     color: #666;
     font-size: 14px;
     font-weight: normal;
@@ -62,6 +63,14 @@ h2 {
 
 .account_inputfields input, .account_labels label {
     display:block;
+    margin-top: 5px;
+}
+
+.register_column1, .register_column2, .register_column3{
+    label {
+        font-size:12px;
+        color:#666;
+    }
 }
 
 .register_column2, .register_column3 {
@@ -93,10 +102,7 @@ h2 {
         height:105px;
     }
     textarea {
-        resize:none;
         width:97%;
-        border:1px solid #dbdada;
-        padding:5px;
     }
 }
 
@@ -113,16 +119,8 @@ h2 {
         line-height:30px;
     }
     input, select {
-        height:16px;
-        margin-bottom:7px;
+
         width:230px;
-    }
-    label {
-        font-size:12px;
-        color:#666;
-    }
-    select {
-        margin-top:5px;
     }
 }
 

@@ -1,0 +1,116 @@
+<% content_for :head do %>
+    <%= stylesheet_link_tag "register" %>
+    <%= stylesheet_link_tag "submit" %>
+<% end %>
+
+<div class="wl-content-container" id="submit_container">
+    <div id="submit_container_artwork"></div>
+    <form>
+        <h1>Submit a widget</h1>
+        <h2 class="second_column">Or, enter 'url' to the source code repository</h2>
+        <h2>01. Select created Widget to upload</h2>
+        <div class="submit_container_split">
+            <input type="text"/><button class="wl-button wl-header-button">Browse for file</button>
+            <p><span class="submit_descriptive_text">Optional step:</span>Upload a backend feed bundle source code repository</p>
+            <input type="text"/><button class="wl-button wl-header-button">Browse for file</button>
+        </div>
+        <div class="submit_container_split">
+            <input type="text" id="widget_source_url" placeholder="http://www...."/>
+            <p>Or, enter 'url' to the backend feed bundle source code repository</p>
+            <input type="text" id="bundle_source_url" placeholder="http://www...."/>
+        </div>
+
+        <hr class="wl-push wl-hidden"/>
+        <h2>02. Add basic info about the Widget</h2>
+            <div class="register_column1">
+                <h2>Icon</h2>
+                <img src="../images/widget_default_image.jpg" alt="Widget Icon"/>
+                <a class="wl-button wl-header-button" href="#">Select image</a>
+            </div>
+
+            <div class="register_column2">
+                <h2>Basic information</h2>
+                <input id="submit_widgetname" type="text" placeholder="Widget name"/>
+                <textarea id="register_basic" placeholder="Brief summary of the widget"></textarea>
+                <textarea id="register_summary" placeholder="Enter a functional breakdown of the widget"></textarea>
+            </div>
+
+            <div class="register_column3">
+                <h2>Details</h2>
+                <div id="register_details_labels">
+                    <label for="location">Category:</label>
+                    <label for="occupation">Developer(s):</label>
+                    <label for="homepage">Languages:</label>
+                </div>
+                <div id="submitdetails_input">
+                    <select name="category">
+                        <option value="">Games</option>
+                        <option value="">Quizzes</option>
+                        <option value="">Feeds, News + Blogging</option>
+                        <option value="">Social + Communication</option>
+                        <option value="">Video + images</option>
+                        <option value="">Graphing</option>
+                        <option value="" selected="selected">Utilities</option>
+                        <option value="">Other
+                    </select>
+                    <button type="button" class="wl-button wl-link-button">Add another</button>
+                    <input type="text" placeholder="Separate names with 'commas'"/>
+                    <select name="language">
+                        <option value="zh_CN">中文</option>
+                        <option value="nl_NL">Nederlands</option>
+                        <option value="en_GB" selected="selected">English (United Kingdom)</option>
+                        <option value="en_US">English (United States)</option>
+                        <option value="ja_JP">日本語</option>
+                        <option value="hu_HU">Magyar</option>
+                        <option value="ko_KR">한국어</option>
+                        <option value="lu_GB">i18n debug</option>
+                    </select>
+                    <button type="button" class="wl-button wl-link-button">Add another</button>
+                </div>
+            </div>
+
+
+        <hr class="wl-split-line wl-push">
+        <h2>03. Add screenshots to the Widget overview</h2>
+        <div id="submit_screenshot_container">
+            <img id="submit_main_screenshot" alt="Activity Plus Screenshot" src="../images/submit_defaultscreenshot_large.jpg">
+            <div id="submit_screenshots_thumbs">
+                <div class="submit_screenshots_thumb">
+                    <img class="selected" alt="Widget Screenshot" src="../images/submit_defaultscreenshot_small.jpg">
+                    <div></div>
+                </div>
+                <div class="submit_screenshots_thumb">
+                    <img alt="Widget Screenshot" src="../images/submit_defaultscreenshot_small.jpg">
+                    <div></div>
+                </div>
+                <div class="submit_screenshots_thumb">
+                    <img alt="Widget Screenshot" src="../images/submit_defaultscreenshot_small.jpg">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <div id="submit_screenshot_uploadfields">
+            <h3>Upload new screenshots</h3>
+            <p><span class="submit_descriptive_text">Use the buttons below to select screenshots for your widget to upload. These will be dynamically resized to the thumbnail size.</span></p>
+            <h4>Screenshot 01:</h4>
+            <button class="wl-button wl-header-button">Select image</button>
+            <input type="text"/>
+
+            <h4>Screenshot 02:</h4>
+            <button class="wl-button wl-header-button">Select image</button>
+            <input type="text"/>
+
+            <h4>Screenshot 03:</h4>
+            <button class="wl-button wl-header-button">Select image</button>
+            <input type="text"/>
+        </div>
+
+
+        <hr class="wl-split-line wl-push">
+        <div id="submit_widget_buttons">
+            <button class="wl-link-button wl-bold" type="button">Cancel</button>
+            <button class="wl-button wl-overlay-button">Save and Upload Widget</button>
+        </div>
+        <hr class="wl-push wl-hidden"/>
+    </form>
+</div>

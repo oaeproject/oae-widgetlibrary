@@ -3,4 +3,6 @@ class DeveloperController < ApplicationController
   end
   def developwidget
   end
+  def widgetbuilder
+  end
 end
