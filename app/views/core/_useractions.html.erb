@@ -2,9 +2,29 @@
 <div id="widgetlibrary_useractions" class="wl-centered">
     <div id="useractions_container">
         <ul>
-            <li><a href="#" title="Hi Guest">Hi Guest</a></li>|
+            <li><a href="javascript:;" title="Hi Guest">Hi Guest</a></li>|
             <li <% if params[:controller].eql?("register")%>class="selected"<% end %>><a href="/register" title="Register">Register</a></li>|
-            <li><a href="Sign In" title="Sign In"><div id="useractions_arrow_down"></div>Sign In</a></li>
+            <li class="wl-dropdown-menu"><a href="javascript:;" title="Sign In"><div id="useractions_arrow_down"></div>Sign In</a>
+                <div class="wl-dropdown-container" id="useractions_login_fields" style="display:none;">
+                    <form method="POST" id="useractions_login_form">
+                        <div class="wl-dropdown-menu-content-container" id="useractions_login_fields_container">
+                            <div style="display:none;" id="useractions_login_error">
+                                <div id="useractions_login_error_icon"></div>
+                                <span>Invalid Username or Password</span>
+                            </div>
+                            <label for="useractions_login_fields_username">Username</label>
+                            <input type="text" class="login-container-textfield" name="useractions_login_username" id="useractions_login_fields_username" maxlength="255" alt="Username">
+                            <label for="useractions_login_fields_password">Password</label>
+                            <input type="password" class="login-container-textfield" name="useractions_login_password" id="useractions_login_fields_password" maxlength="255" alt="Password">
+                            Forgotten your <a href="javascript:;" class="wl-regular-link" title="Forgotten your Username or Password?">Username or Password?</a>
+                             <hr class="wl-split-line wl-push">
+                            <button id="useractions_login_button_login" class="wl-button wl-overlay-button" type="submit">Sign in</button>
+                            <span style="display:none;" id="useractions_login_button_signing_in">Signing In ...</span>
+                            <hr class="wl-push wl-hidden">
+                        </div>
+                    </form>
+                </div>
+            </li>
         </ul>
     </div>
 </div>

@@ -17,7 +17,7 @@
             <li><div><a href="#" title="Utilities">Utilities</a></div></li>
             <li><div><a href="#" title="Other">Other</a></div></li>
         </ul>
-    <% else %>
+    <% elsif display[:nav_context].eql?("mywidgets") %>
         <h1 class="wl-bold">My Widgets</h1>
         <hr class="wl-split-line"/>
         <ul>
@@ -25,6 +25,25 @@
             <li><div><a href="#" title="Accepted">Accepted (10)</a></div></li>
             <li><div><a href="#" title="Pending">Pending (4)</a></div></li>
             <li><div><a href="#" title="Declined">Declined (1)</a></div></li>
+        </ul>
+    <% elsif display[:nav_context].eql?("developer") %>
+        <h1 class="wl-bold">Sakai OAE Widget SDK</h1>
+        <ul>
+            <li <% if params[:action].eql?("developwidget")%>class="selected"<% end %>><div><a href="/developer/developwidget" title="How to develop a widget">How to develop a widget</a></div></li>
+
+            <ul class="subnav">
+                <li><div><a href="#" title="Learn the basics, 'Hello World' tutorial">Learn the basics, 'Hello World' tutorial</a><hr class="wl-split-line"/></div></li>
+                <li><div><a href="#" title="Coding standards">Coding standards</a><hr class="wl-split-line"/></div></li>
+                <li><div><a href="#" title="Quick development environment setup">Quick development environment setup</a><hr class="wl-split-line"/></div></li>
+                <li><div><a href="#" title="Full development environment setup">Full development environment setup</a><hr class="wl-split-line"/></div></li>
+                <li <% if params[:action].eql?("widgetbuilder")%>class="selected"<% end %>><div><a href="/developer/widgetbuilder" title="Widget template builder">Widget template builder</a></div></li>
+            </ul>
+
+            <li><div><a href="#" title="Examples">Examples</a></div></li>
+            <li><div><a href="#" title="Widget design and style guide">Widget design and style guide</a></div></li>
+            <li><div><a href="#" title="Back-end feed and UI API documentation">Back-end feed and UI API documentation</a></div></li>
+            <li><div><a href="#" title="FAQs">FAQs</a></div></li>
+            <li><div><a href="#" title="Getting help">Getting help</a></div></li>
         </ul>
     <% end %>
 </nav>

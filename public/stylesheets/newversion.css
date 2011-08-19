@@ -1,0 +1,11 @@
+#newversion_improvements_container {
+  background: url("../images/widget_declined_bg.png") repeat-x top left #fae8b2;
+  padding: 20px;
+  margin: 25px 0 15px;
+  color: #666;
+  font-size: 12px;
+  border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px 5px 5px 5px; }
+  #newversion_improvements_container p {
+    margin-top: 12px; }

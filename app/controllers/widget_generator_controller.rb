@@ -10,9 +10,9 @@ class WidgetGeneratorController < ApplicationController
   def zippedwidget
     # The six variables below are the parameters that should be changed for
     # passing in to the widget generator.
-    appstyle = "skeleton"
-    myappname = "websakaiwidget"
-    appdesc = "This is my widget from the Sakai OAE Widget Builder."
+    appstyle = params[:widgetbuilder_skeletontype]
+    myappname = params[:widgetbuilder_title]
+    appdesc = params[:widgetbuilder_description]
     tempdir = "#{Dir::tmpdir}/#{Guid.new}"
     showinsakaigoodies = "true"
     personalportal = "true"
