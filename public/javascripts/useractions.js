@@ -13,7 +13,7 @@ var loginSubmitButton = "#useractions_login_button_login";
 var loginForm = "#useractions_login_form";
 
 // Classes
-var formHasFocus = "form_has_focus"
+var formHasFocus = "form_has_focus";
 
 var formOpened = false;
 
@@ -60,10 +60,10 @@ var addBinding = function(){
     });
 
     $(dropdownMenu).live("hover", function(ev){
-        if(ev.type == "mouseenter"){
+        if (ev.type === "mouseenter"){
             $(this).children(loginFieldsContainer).show();
             $(this).addClass("opened");
-        }else {
+        } else {
             if (!$(this).hasClass(formHasFocus) && !formOpened){
                 $(this).children(loginFieldsContainer).hide();
                 $(this).removeClass("opened");
