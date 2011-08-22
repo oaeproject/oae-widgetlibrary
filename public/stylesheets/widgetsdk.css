@@ -102,3 +102,112 @@
   color: #666666;
   font-size: 13px;
   text-align: center; }
+
+#widgetsdk_container .style_fontsize {
+  background: url("../images/blue_circle_35x35.png") no-repeat scroll left top transparent;
+  color: #FFFFFF;
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  height: 24px;
+  padding-top: 11px;
+  text-align: center;
+  width: 35px;
+  float: left;
+  margin-right: 10px; }
+#widgetsdk_container .style_container {
+  display: block;
+  height: 50px;
+  margin-top: 10px; }
+#widgetsdk_container #typography_headerstyling h1.heading1, #widgetsdk_container #typography_headerstyling h2, #widgetsdk_container #typography_headerstyling h3, #widgetsdk_container #typography_headerstyling h4, #widgetsdk_container #typography_headerstyling h5, #widgetsdk_container #typography_headerstyling h6 {
+  height: 40px;
+  margin-bottom: 0 !important;
+  margin-top: 0 !important; }
+#widgetsdk_container #typography_headerstyling h1.header1 {
+  font-weight: normal;
+  font-size: 24px;
+  color: #666;
+  border: none; }
+#widgetsdk_container #typography_headerstyling h2.header2 {
+  font-weight: normal;
+  font-size: 20px;
+  color: #666;
+  border: none; }
+#widgetsdk_container #typography_headerstyling h3.header3 {
+  font-weight: normal;
+  font-size: 18px;
+  color: #666;
+  border: none; }
+#widgetsdk_container #typography_headerstyling h4.header4 {
+  font-weight: bold;
+  font-size: 14px;
+  color: #666;
+  border: none; }
+#widgetsdk_container #typography_headerstyling h5.header5 {
+  font-weight: bold;
+  font-size: 12px;
+  color: #666;
+  border: none; }
+#widgetsdk_container #typography_headerstyling h6.header6 {
+  font-weight: bold;
+  font-size: 11px;
+  color: #666;
+  border: none; }
+#widgetsdk_container #typography_headerstyling span.header_style {
+  margin-left: 300px;
+  margin-top: -43px;
+  position: absolute; }
+#widgetsdk_container #typography_headerstyling span.header_color {
+  margin-left: 450px;
+  margin-top: -43px;
+  position: absolute; }
+#widgetsdk_container #typography_headerstyling span {
+  margin-left: 45px;
+  margin-top: -20px;
+  position: absolute; }
+#widgetsdk_container #typography_bodystyling span.header_style {
+  margin-left: 300px;
+  margin-top: -25px;
+  position: absolute; }
+#widgetsdk_container #typography_bodystyling span.header_color {
+  margin-left: 450px;
+  margin-top: -25px;
+  position: absolute; }
+#widgetsdk_container #typography_bodystyling p.statementtext {
+  color: #333333;
+  font-size: 14px !important; }
+#widgetsdk_container #typography_bodystyling p.mainbodytext {
+  color: #333333;
+  font-size: 12px !important; }
+#widgetsdk_container #typography_bodystyling p.systemmessagetext {
+  color: #999999;
+  font-size: 12px !important;
+  font-style: italic; }
+#widgetsdk_container #typography_bodystyling p.rhcmodulestext {
+  color: #666666;
+  font-size: 11px !important; }
+#widgetsdk_container #typography_linkstyling #typography_linkstyling_greycontainer {
+  background-color: #f6f5f5; }
+#widgetsdk_container #typography_linkstyling #typography_linkstyling_blackcontainer {
+  background: url("../images/navigation_item_bg.png") repeat-x scroll left top #222222; }
+#widgetsdk_container #typography_linkstyling .typography_linkstyling_container {
+  float: left;
+  height: 45px;
+  margin-top: 5px;
+  padding: 5px 10px;
+  width: 205px; }
+  #widgetsdk_container #typography_linkstyling .typography_linkstyling_container span {
+    display: block; }
+    #widgetsdk_container #typography_linkstyling .typography_linkstyling_container span + span {
+      margin-top: 10px; }
+  #widgetsdk_container #typography_linkstyling .typography_linkstyling_container .linkstyle_linkonwhite, #widgetsdk_container #typography_linkstyling .typography_linkstyling_container .linkstyle_hoveronwhite, #widgetsdk_container #typography_linkstyling .typography_linkstyling_container .linkstyle_linkongrey, #widgetsdk_container #typography_linkstyling .typography_linkstyling_container .linkstyle_hoverongrey {
+    color: #2683BC;
+    display: block; }
+  #widgetsdk_container #typography_linkstyling .typography_linkstyling_container .linkstyle_hoveronwhite, #widgetsdk_container #typography_linkstyling .typography_linkstyling_container .linkstyle_hoverongrey {
+    text-decoration: underline; }
+  #widgetsdk_container #typography_linkstyling .typography_linkstyling_container .linkstyle_linkondark, #widgetsdk_container #typography_linkstyling .typography_linkstyling_container .linkstyle_hoverondark {
+    color: #00c6ff; }
+  #widgetsdk_container #typography_linkstyling .typography_linkstyling_container .linkstyle_hoverondark {
+    margin-top: 10px;
+    text-decoration: underline;
+    color: #fff; }

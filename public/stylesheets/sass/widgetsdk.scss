@@ -136,3 +136,147 @@
         text-align: center;
     }
 }
+
+#widgetsdk_container {
+    .style_fontsize {
+        background: url("../images/blue_circle_35x35.png") no-repeat scroll left top transparent;
+        color: #FFFFFF;
+        display: block;
+        font-size: 12px;
+        font-weight: bold;
+        height: 24px;
+        padding-top: 11px;
+        text-align: center;
+        width: 35px;
+        float: left;
+        margin-right: 10px;
+    }
+    .style_container {
+        display: block;
+        height: 50px;
+        margin-top: 10px;
+    }
+    #typography_headerstyling {
+        h1.heading1, h2, h3, h4, h5, h6 {
+            height: 40px;
+            margin-bottom: 0 !important;
+            margin-top: 0 !important;
+        }
+        h1.header1 {
+            font-weight:normal;
+            font-size:24px;
+            color:#666;
+            border: none;
+        }
+        h2.header2 {
+            font-weight:normal;
+            font-size:20px;
+            color:#666;
+            border: none;
+        }
+        h3.header3 {
+            font-weight:normal;
+            font-size:18px;
+            color:#666;
+            border: none;
+        }
+        h4.header4 {
+            font-weight:bold;
+            font-size:14px;
+            color:#666;
+            border: none;
+        }
+        h5.header5 {
+            font-weight:bold;
+            font-size:12px;
+            color:#666;
+            border: none;
+        }
+        h6.header6 {
+            font-weight:bold;
+            font-size:11px;
+            color:#666;
+            border: none;
+        }
+        span.header_style {
+            margin-left: 300px;
+            margin-top: -43px;
+            position: absolute;
+        }
+        span.header_color {
+            margin-left: 450px;
+            margin-top: -43px;
+            position: absolute;
+        }
+        span {
+            margin-left: 45px;
+            margin-top: -20px;
+            position: absolute;
+        }
+    }
+    #typography_bodystyling {
+        span.header_style {
+            margin-left: 300px;
+            margin-top: -25px;
+            position: absolute;
+        }
+        span.header_color {
+            margin-left: 450px;
+            margin-top: -25px;
+            position: absolute;
+        }
+        p.statementtext {
+            color: #333333;
+            font-size: 14px !important;
+        }
+        p.mainbodytext {
+            color: #333333;
+            font-size: 12px !important;
+        }
+        p.systemmessagetext {
+            color: #999999;
+            font-size: 12px !important;
+            font-style: italic;
+        }
+        p.rhcmodulestext {
+            color: #666666;
+            font-size: 11px !important;
+        }
+    }
+    #typography_linkstyling {
+        #typography_linkstyling_greycontainer {
+            background-color: #f6f5f5;
+        }
+        #typography_linkstyling_blackcontainer {
+            background: url("../images/navigation_item_bg.png") repeat-x scroll left top #222;
+        }
+        .typography_linkstyling_container {
+            float: left;
+            height: 45px;
+            margin-top: 5px;
+            padding: 5px 10px;
+            width: 205px;
+            span {
+                display:block;
+                + span {
+                    margin-top: 10px;
+                }
+            }
+            .linkstyle_linkonwhite, .linkstyle_hoveronwhite, .linkstyle_linkongrey,.linkstyle_hoverongrey {
+                color: #2683BC;
+                display: block;
+            }
+            .linkstyle_hoveronwhite, .linkstyle_hoverongrey {
+                text-decoration: underline;
+            }
+            .linkstyle_linkondark, .linkstyle_hoverondark {
+                color:#00c6ff;
+            }
+            .linkstyle_hoverondark {
+                margin-top: 10px;
+                text-decoration: underline;
+                color:#fff;
+            }
+        }
+    }
+}

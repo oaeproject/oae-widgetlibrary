@@ -7,4 +7,6 @@ class DeveloperController < ApplicationController
   end
   def widgetdesignandstyle
   end
+  def typography
+  end
 end
