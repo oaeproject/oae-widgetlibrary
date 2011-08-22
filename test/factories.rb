@@ -4,19 +4,6 @@ Factory.define :category do |f|
   f.sequence(:title) { |n| "Category #{n}" }
 end
 
-class Icon
-  attr_accessor :image_file_name
-  attr_accessor :image_file_size
-  has_attached_file :image, :styles => { :thumb => ["50x50!", :png], :medium => ["100x100!", :png], :large => ["800x800", :png]},
-    :url  => "/test_can_be_deleted/:attachment/:id/:style/:filename",
-    :path => ":rails_root/public/test_can_be_deleted/:attachment/:id/:style/:filename"
-end
-
-Factory.define :icon do |f|
-  f.association :widget
-  f.image { fixture_file_upload('test.png', 'image/png') }
-end
-
 Factory.define :language do |f|
   f.title "English (US)"
   f.code "en"
@@ -29,22 +16,22 @@ Factory.define :rating do |f|
   f.association :widget
 end
 
-class Screenshot
-  attr_accessor :image_file_name
-  attr_accessor :image_file_size
-  has_attached_file :image, :styles => { :thumb => ["100x57!", :png], :medium => ["540x310!"], :large => ["800x800", :png]},
-    :url  => "/test_can_be_deleted/:attachment/:id/:style/:filename",
-    :path => ":rails_root/public/test_can_be_deleted/:attachment/:id/:style/:filename"
-end
-
 Factory.define :screenshot do |f|
   f.association :widget
-  f.image { fixture_file_upload('test.png', 'image/png') }
+  f.image fixture_file_upload(Rails.root.to_s + '/test/fixtures/test.png', 'image/png')
 end
 
 Factory.define :state do |f|
   f.title "accepted"
   f.after_create { |s| Factory(:widget, :state => s) }
+end
+
+Factory.define :user do |f|
+  f.username "user1"
+  f.first_name "User"
+  f.last_name "One"
+  f.email "user1@example.com"
+  f.avatar fixture_file_upload(Rails.root.to_s + '/test/fixtures/test.png', 'image/png')
 end
 
 Factory.define :widget do |f|
@@ -53,6 +40,8 @@ Factory.define :widget do |f|
   f.features "warmth, fuzziness"
   f.average_rating 5.0
   f.association :state
+  f.icon fixture_file_upload(Rails.root.to_s + '/test/fixtures/test.png', 'image/png')
+  f.code fixture_file_upload(Rails.root.to_s + '/test/fixtures/test.png.zip', 'application/zip')
   f.after_create { |w| Factory(:rating, :widget => w) }
   f.after_create { |w| Factory(:screenshot, :widget => w) }
 end

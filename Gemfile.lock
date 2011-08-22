@@ -130,7 +130,9 @@ DEPENDENCIES
   cancan
   capistrano
   capistrano-ext
+  devise
   factory_girl_rails
+  guid
   jquery-rails (>= 1.0.12)
   paperclip (~> 2.3)
   rails (= 3.0.9)
