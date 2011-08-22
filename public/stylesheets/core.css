@@ -451,7 +451,7 @@ textarea {
       #widgetlibrary_useractions #useractions_container ul li {
         display: inline-block;
         margin-right: 2px; }
-        #widgetlibrary_useractions #useractions_container ul li > a {
+        #widgetlibrary_useractions #useractions_container ul li > span, #widgetlibrary_useractions #useractions_container ul li > a {
           padding: 9px 22px;
           color: #ccc;
           text-decoration: none;
@@ -460,6 +460,8 @@ textarea {
         background: url("../images/navigation_item_selected.png") repeat-x top left transparent; }
         #widgetlibrary_useractions #useractions_container ul li.selected a {
           color: #FFF; }
+    #widgetlibrary_useractions #useractions_container input[type=submit] {
+      float: right; }
     #widgetlibrary_useractions #useractions_container #useractions_arrow_down {
       background: url("../images/arrow_down.png") no-repeat top left transparent;
       width: 10px;
@@ -475,6 +477,8 @@ textarea {
       margin-top: 0;
       position: absolute;
       z-index: 11000; }
+      #widgetlibrary_useractions #useractions_container #useractions_login_fields #useractions_login_error {
+        color: red; }
       #widgetlibrary_useractions #useractions_container #useractions_login_fields #useractions_login_button_login {
         float: right; }
       #widgetlibrary_useractions #useractions_container #useractions_login_fields #useractions_login_fields_password {
@@ -501,7 +505,7 @@ textarea {
   border-radius: 2px 2px 2px 2px;
   -moz-border-radius: 2px 2px 2px 2px;
   -webkit-border-radius: 2px 2px 2px 2px; }
-  .wl-dropdown-menu-content-container input {
+  .wl-dropdown-menu-content-container input[type=text], .wl-dropdown-menu-content-container input[type=password] {
     width: 94%;
     margin: 5px 0 9px; }
 

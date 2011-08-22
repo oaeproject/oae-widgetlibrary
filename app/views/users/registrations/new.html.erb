@@ -1,0 +1,71 @@
+<% content_for :head do %>
+    <%= stylesheet_link_tag "register" %>
+<% end %>
+
+<div class="wl-content-container" id="register_container">
+    <h1>Register as a developer and submit your own widgets to Sakai</h1>
+    <div class="wl-inset-shadow-container">
+        <h1>Create new account</h1>
+        <%= devise_error_messages! %>
+        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true } ) do |f| %>
+            <div class="account_labels">
+                <%= f.label :first_name %>
+                <%= f.label :last_name %>
+                <%= f.label :email %>
+            </div>
+            <div class="account_inputfields">
+                <%= f.text_field :first_name %>
+                <%= f.text_field :last_name %>
+                <%= f.email_field :email %>
+            </div>
+            <div class="account_labels">
+                <%= f.label :username %>
+                <%= f.label :password %>
+                <%= f.label :password_confirmation, "Re-Type Password" %>
+            </div>
+            <div class="account_inputfields">
+                <%= f.text_field :username %>
+                <%= f.password_field :password %>
+                <%= f.password_field :password_confirmation %>
+            </div>
+            <a target="_blank" class="wl-button wl-header-button" href="#">Check if username is available</a>
+            <hr class="wl-push wl-hidden"/>
+            <hr class="wl-split-line full-line wl-push register_form_splitter"/>
+
+            <h1>Some information about you</h1>
+            <div class="register_column1">
+                <h2>Image</h2>
+                <img src="../images/register_default_image.jpg" alt="User image"/>
+                <%= f.file_field :avatar, :class => "wl-button wl-header-button" %>
+            </div>
+
+            <div class="register_column2">
+                <h2>Introductory text</h2>
+                <%= f.text_area :info, :placeholder => "Enter some basic intro text...", :id => "register_basic" %>
+                <%= f.text_area :summary, :placeholder => "Enter a quick summary of yourself...", :id => "register_summary" %>
+            </div>
+
+            <div class="register_column3">
+                <h2>Details</h2>
+                <div id="register_details_labels">
+                    <%= f.label :location %>
+                    <%= f.label :occupation %>
+                    <%= f.label :homepage %>
+                </div>
+                <div>
+                    <%= f.select :location, country_options %>
+                    <%= f.text_field :occupation %>
+                    <%= f.text_field :homepage %>
+                    <input type="text" id="occupation" name="occupation" placeholder="(Student/Developer/...)"/>
+                    <input type="text" id="homepage" name="homepage" placeholder="http://www.example.org"/>
+                </div>
+            </div>
+
+            <hr class="wl-push wl-hidden"/>
+            <hr class="wl-split-line full-line wl-push register_form_splitter"/>
+            <div class="register_column1"></div><div id="captcha"></div>
+            <button class="wl-button wl-large-button" type="submit" id="create_account_button">Create account</button>
+        <% end %>
+        <hr class="wl-push wl-hidden"/>
+    </div>
+</div>

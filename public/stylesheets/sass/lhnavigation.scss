@@ -1,13 +1,13 @@
 #lhnavigation_container {
-	h1 {
-	  color: #666;
-	  font-size: 16px;
-	  margin-left: 12px;
-	}
-	ul {
-	  list-style: none;
-	  margin: 0;
-	  padding: 0;
+    h1 {
+      color: #666;
+      font-size: 16px;
+      margin-left: 12px;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
       li a {
           display: block;
           text-decoration: none;
@@ -20,10 +20,10 @@
           font-weight: bold;
           a {
               color: #fff;
-    	  }
-    	  .wl-split-line {
-    	      visibility: hidden;
-    	  }
+          }
+          .wl-split-line {
+              visibility: hidden;
+          }
       }
       li div {
           padding: 3px 12px 2px 15px;
