@@ -9,4 +9,6 @@ class DeveloperController < ApplicationController
   end
   def typography
   end
+  def colorpalette
+  end
 end

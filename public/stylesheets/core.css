@@ -236,7 +236,7 @@ a.wl-button {
 .wl-button.wl-link-button {
   color: #2683bc !important;
   line-height: 24px;
-  padding: 0 7px; }
+  padding: 0 14px; }
 
 /* Overlay buttons */
 .wl-button.wl-overlay-button {
