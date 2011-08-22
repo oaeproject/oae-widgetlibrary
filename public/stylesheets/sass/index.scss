@@ -14,56 +14,56 @@
   background: url("../images/carousel_bg.png") repeat-x bottom left #f0f0f0;
   width: 730px;
   height: 368px; 
-	#carousel_state1 {
-	  width: 730px;
-	  height: 318px;
-	  background: url("../images/carousel_state1_bg.jpg") no-repeat top left transparent;
-	  @include border-radius($topLeft: 5px, $topRight: 5px, $bottomRight: 5px, $bottomLeft: 5px);
-	}
-	.carousel_choice {
-	  display: block;
-	  float: left;
-	  height: 50px;
-	  line-height: 50px;
-	  text-align: center;
-	  width: 243px;
-		a {
-		  color: #6E6E6E;
-		  display: block;
-		  text-decoration: none;
-		  font-size: 16px;
-		}
-	}
-	.carousel_choice_arrow {
-	  background: url("../images/carousel_arrow_down.png") no-repeat scroll center top transparent;
-	  height: 50px;
-	  width: 243px;
-	  position: absolute;
-	}
-	h1 {
-	  color: #e4e3e3;
-	  display: block;
-	  font-size: 24px;
-	  font-weight: normal;
-	  margin-left: auto;
-	  margin-right: auto;
-	  padding-top: 20px;
-	  text-align: center;
-	  width: 600px;
-	  text-shadow: 0px 1px 1px #333;
-	}
-	h2 {
-	  color: #434343;
-	  display: block;
-	  font-size: 14px;
-	  font-weight: normal;
-	  margin-left: auto;
-	  margin-right: auto;
-	  padding-top: 155px;
-	  text-align: center;
-	  text-shadow: 0 0 1px #bbb;
-	  width: 430px;
-	}
+    #carousel_state1 {
+      width: 730px;
+      height: 318px;
+      background: url("../images/carousel_state1_bg.jpg") no-repeat top left transparent;
+      @include border-radius($topLeft: 5px, $topRight: 5px, $bottomRight: 5px, $bottomLeft: 5px);
+    }
+    .carousel_choice {
+      display: block;
+      float: left;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      width: 243px;
+        a {
+          color: #6E6E6E;
+          display: block;
+          text-decoration: none;
+          font-size: 16px;
+        }
+    }
+    .carousel_choice_arrow {
+      background: url("../images/carousel_arrow_down.png") no-repeat scroll center top transparent;
+      height: 50px;
+      width: 243px;
+      position: absolute;
+    }
+    h1 {
+      color: #e4e3e3;
+      display: block;
+      font-size: 24px;
+      font-weight: normal;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 20px;
+      text-align: center;
+      width: 600px;
+      text-shadow: 0px 1px 1px #333;
+    }
+    h2 {
+      color: #434343;
+      display: block;
+      font-size: 14px;
+      font-weight: normal;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 155px;
+      text-align: center;
+      text-shadow: 0 0 1px #bbb;
+      width: 430px;
+    }
 }
 
 /****************/
@@ -83,17 +83,17 @@
 /* RECENTLY ADDED */
 /******************/
 #widgetlibrary_recentlyadded {
-	margin-top:0;
-	.wl-widget-item {
-	  width: 130px;
-	  height: 40px;
-	  background-color: #fff;
-	  padding: 8px;
-	}
-	.wl-widget-item-icon {
-	  height: 40px;
-	  width: 40px;
-	}
+    margin-top:0;
+    .wl-widget-item {
+      width: 130px;
+      height: 40px;
+      background-color: #fff;
+      padding: 8px;
+    }
+    .wl-widget-item-icon {
+      height: 40px;
+      width: 40px;
+    }
 }
 
 /*************/
