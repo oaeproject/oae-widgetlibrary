@@ -66,10 +66,13 @@ h2 {
     margin-top: 5px;
 }
 
-.register_column1, .register_column2, .register_column3{
+.register_column1, .register_column2, .register_column3 {
     label {
         font-size:12px;
         color:#666;
+    }
+    input {
+        margin-top:5px;
     }
 }
 

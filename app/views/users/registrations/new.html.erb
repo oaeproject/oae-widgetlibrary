@@ -35,7 +35,7 @@
             <h1>Some information about you</h1>
             <div class="register_column1">
                 <h2>Image</h2>
-                <img src="../images/register_default_image.jpg" alt="User image"/>
+                <%= image_tag "/images/register_default_image.jpg", :alt => "User image" %>
                 <%= f.file_field :avatar, :class => "wl-button wl-header-button" %>
             </div>
 
@@ -54,10 +54,8 @@
                 </div>
                 <div>
                     <%= f.select :location, country_options %>
-                    <%= f.text_field :occupation %>
-                    <%= f.text_field :homepage %>
-                    <input type="text" id="occupation" name="occupation" placeholder="(Student/Developer/...)"/>
-                    <input type="text" id="homepage" name="homepage" placeholder="http://www.example.org"/>
+                    <%= f.text_field :occupation, :id => "occupation", :placeholder => "(Student/Developer/...)" %>
+                    <%= f.text_field :homepage, :id => "homepage", :placeholder => "http://www.example.org"  %>
                 </div>
             </div>
 

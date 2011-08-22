@@ -58,6 +58,8 @@ h2 {
 .register_column1 label, .register_column2 label, .register_column3 label {
   font-size: 12px;
   color: #666; }
+.register_column1 input, .register_column2 input, .register_column3 input {
+  margin-top: 5px; }
 
 .register_column2, .register_column3 {
   margin-left: 25px;
