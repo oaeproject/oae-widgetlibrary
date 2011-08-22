@@ -16,7 +16,7 @@
   #widgetsdk_container.wl-content-container #widgetsdk_content p {
     margin-bottom: 10px; }
   #widgetsdk_container.wl-content-container #widgetsdk_content .wl-widget-item {
-    width: auto;
+    width: 96%;
     height: auto;
     margin-top: 5px;
     font-size: 13px; }

@@ -5,4 +5,6 @@ class DeveloperController < ApplicationController
   end
   def widgetbuilder
   end
+  def widgetdesignandstyle
+  end
 end
