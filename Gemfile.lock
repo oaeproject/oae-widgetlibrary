@@ -49,6 +49,10 @@ GEM
       warden (~> 1.0.3)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    factory_girl (2.0.3)
+    factory_girl_rails (1.1.0)
+      factory_girl (~> 2.0.0)
+      railties (>= 3.0.0)
     guid (0.1.1)
     highline (1.6.2)
     i18n (0.5.0)
@@ -126,8 +130,7 @@ DEPENDENCIES
   cancan
   capistrano
   capistrano-ext
-  devise
-  guid
+  factory_girl_rails
   jquery-rails (>= 1.0.12)
   paperclip (~> 2.3)
   rails (= 3.0.9)

@@ -5,3 +5,5 @@ tmp/
 .tmp*
 .project
 public/system
+*.swp
+test_can_be_deleted/
