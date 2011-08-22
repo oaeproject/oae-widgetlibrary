@@ -12,13 +12,36 @@
   background: url("../images/carousel_bg.png") repeat-x bottom left #f0f0f0;
   width: 730px;
   height: 368px; }
-  #widgetlibrary_carousel #carousel_state1 {
+  #widgetlibrary_carousel .widgetlibrary_homecarousel_pane {
     width: 730px;
-    height: 318px;
-    background: url("../images/carousel_state1_bg.jpg") no-repeat top left transparent;
-    border-radius: 5px 5px 5px 5px;
-    -moz-border-radius: 5px 5px 5px 5px;
-    -webkit-border-radius: 5px 5px 5px 5px; }
+    height: 318px; }
+    #widgetlibrary_carousel .widgetlibrary_homecarousel_pane > div {
+      height: 318px;
+      border-radius: 5px 5px 5px 5px;
+      -moz-border-radius: 5px 5px 5px 5px;
+      -webkit-border-radius: 5px 5px 5px 5px; }
+  #widgetlibrary_carousel #carousel_state1 {
+    background: url("../images/carousel_state1_bg.jpg") no-repeat top left transparent; }
+    #widgetlibrary_carousel #carousel_state1 h2 {
+      padding-top: 155px; }
+  #widgetlibrary_carousel #carousel_state2 {
+    background: url("../images/carousel_state2_bg.jpg") no-repeat top left transparent; }
+    #widgetlibrary_carousel #carousel_state2 h2 {
+      padding-top: 15px; }
+  #widgetlibrary_carousel #carousel_state3 {
+    background: url("../images/carousel_state3_bg.jpg") no-repeat top left transparent; }
+    #widgetlibrary_carousel #carousel_state3 h1 {
+      margin-top: 0;
+      padding-top: 0; }
+    #widgetlibrary_carousel #carousel_state3 h1.size-30 {
+      font-size: 30px;
+      padding-top: 20px;
+      margin-bottom: 0; }
+    #widgetlibrary_carousel #carousel_state3 h2 {
+      padding-top: 120px;
+      width: 500px; }
+    #widgetlibrary_carousel #carousel_state3 .wl-link-button {
+      margin-top: 15px; }
   #widgetlibrary_carousel .carousel_choice {
     display: block;
     float: left;
@@ -54,7 +77,6 @@
     font-weight: normal;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 155px;
     text-align: center;
     text-shadow: 0 0 1px #bbb;
     width: 430px; }
