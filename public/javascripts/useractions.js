@@ -11,6 +11,7 @@ var loginFieldsContainerInput = "#useractions_login_fields input";
 var signingInLabel = "#useractions_login_button_signing_in";
 var loginSubmitButton = "#useractions_login_button_login";
 var loginForm = "#useractions_login_form";
+var useractions_login_error = "#useractions_login_error";
 
 // Classes
 var formHasFocus = "form_has_focus";
@@ -36,15 +37,6 @@ var toggleLoginButtons = function(doLogin){
     }
 };
 
-/**
- * Log the user into the widget library
- */
-var doLogin = function(){
-    // Toggle login buttons if error occurs while logging in
-    // toggleLoginButtons(success);
-};
-
-
 ////////////////////
 // INITIALIZATION //
 ////////////////////
@@ -54,9 +46,18 @@ var doLogin = function(){
  */
 var addBinding = function(){
     $(loginForm).live("submit", function(){
+        $(useractions_login_error).hide();
         toggleLoginButtons(true);
-        doLogin();
-        return false;
+    });
+
+    $(loginForm).live('ajax:success', function() {
+        $(useractions_login_error).hide();
+        document.location = document.location;
+    });
+
+    $(loginForm).live('ajax:error', function() {
+        $(useractions_login_error).show();
+        toggleLoginButtons(false);
     });
 
     $(dropdownMenu).live("hover", function(ev){
