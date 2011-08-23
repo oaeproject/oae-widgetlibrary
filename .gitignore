@@ -5,5 +5,7 @@ tmp/
 .tmp*
 .project
 public/system
+public/system/avatars
+public/stylesheets/*.css
 *.swp
 test_can_be_deleted/
