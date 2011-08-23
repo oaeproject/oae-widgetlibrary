@@ -2,60 +2,54 @@
     <%= stylesheet_link_tag "widgetsdk" %>
 <% end %>
 
-<div class="wl-content-container" id="widgetsdk_container">
-    <div class="wl-content-710 wl-right wl-padding-15-0 wl-padding-0-10 " id="widgetsdk_content">
-        <h1>How to develop a widget</h1>
-        <p>This section of the Widget SDK is to help you quickly get started with developing Sakai OAE widgets. Sakai OAE widgets are built using frontend web technologies including HTML, CSS and JavaScript. It is assumed that you have a grasp on these technologies throughout this documentation.</p>
-        <p>The best way to get started is with the <a href="#" title="Hello World Tutorial" class="wl-regular-link">Hello World Tutorial</a>. It will guide you through <a href="#" title="setting up your development environment" class="wl-regular-link">setting up your development environment</a> if you need to do so.</p>
-        <p>After the <a href="#" title="Hello World Tutorial" class="wl-regular-link">Hello World Tutorial</a> you may want to check out widget <a href="#" title="Coding Standards" class="wl-regular-link">Coding Standards</a>. These cover basic guidelines you should follow when building Sakai OAE widgets for efficient, secure and maintainable code.</p>
+    <h1>How to develop a widget</h1>
+    <p>This section of the Widget SDK is to help you quickly get started with developing Sakai OAE widgets. Sakai OAE widgets are built using frontend web technologies including HTML, CSS and JavaScript. It is assumed that you have a grasp on these technologies throughout this documentation.</p>
+    <p>The best way to get started is with the <a href="#" title="Hello World Tutorial" class="wl-regular-link">Hello World Tutorial</a>. It will guide you through <a href="#" title="setting up your development environment" class="wl-regular-link">setting up your development environment</a> if you need to do so.</p>
+    <p>After the <a href="#" title="Hello World Tutorial" class="wl-regular-link">Hello World Tutorial</a> you may want to check out widget <a href="#" title="Coding Standards" class="wl-regular-link">Coding Standards</a>. These cover basic guidelines you should follow when building Sakai OAE widgets for efficient, secure and maintainable code.</p>
 
-        <div class="wl-widget-item first">
-            <%= image_tag "/images/developer_basics_icon.png", :alt => "Learn the basics", :class => "descriptive_icon" %>
-            <div class="descriptive_text">
-                <h2>Learn the basics - Hello world tutorial</h2>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam quis risus eget urna mollis ornare vel eu leo. Sed posuere consectetur est at lobortis.</p>
-                <button type="button" class="wl-button wl-header-button blue">Lets begin</button>
-            </div>
-        </div>
-
-        <div class="wl-widget-item">
-            <%= image_tag "/images/developer_codingstandards_icon.png", :alt => "Coding standards", :class => "descriptive_icon" %>
-            <div class="descriptive_text">
-                <h2>Coding standards</h2>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam quis risus eget urna mollis ornare vel eu leo. Sed posuere consectetur est at lobortis.</p>
-                <button type="button" class="wl-button wl-header-button blue">View</button>
-            </div>
-        </div>
-
-        <div class="wl-widget-item">
-            <%= image_tag "/images/developer_quickdev_icon.png", :alt => "Quick dev set up", :class => "descriptive_icon" %>
-            <div class="descriptive_text">
-                <h2>Quick development environment set up</h2>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam quis risus eget urna mollis ornare vel eu leo. Sed posuere consectetur est at lobortis.</p>
-                <button type="button" class="wl-button wl-header-button blue">View</button>
-            </div>
-        </div>
-
-        <div class="wl-widget-item">
-            <%= image_tag "/images/developer_fulldev_icon.png", :alt => "Full dev set up", :class => "descriptive_icon" %>
-            <div class="descriptive_text">
-                <h2>Full development environment set up</h2>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam quis risus eget urna mollis ornare vel eu leo. Sed posuere consectetur est at lobortis.</p>
-                <button type="button" class="wl-button wl-header-button blue">View</button>
-            </div>
-        </div>
-
-        <div class="wl-widget-item">
-            <%= image_tag "/images/tick_icon_large72x72.png", :alt => "Widget template builder", :class => "descriptive_icon" %>
-            <div class="descriptive_text">
-                <h2>Widget template builder</h2>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam quis risus eget urna mollis ornare vel eu leo. Sed posuere consectetur est at lobortis.</p>
-                <button type="button" class="wl-button wl-header-button blue">Lets go</button>
-            </div>
+    <div class="wl-widget-item first">
+        <%= image_tag "/images/developer_basics_icon.png", :alt => "Learn the basics", :class => "descriptive_icon" %>
+        <div class="descriptive_text">
+            <h2>Learn the basics - Hello world tutorial</h2>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam quis risus eget urna mollis ornare vel eu leo. Sed posuere consectetur est at lobortis.</p>
+            <button type="button" class="wl-button wl-header-button blue">Lets begin</button>
         </div>
     </div>
-    <div class="wl-content-185 wl-left wl-padding-15-0">
-        <%= render :partial => "pagewidgets/lhnavigation", :locals => {:display => {:nav_context => params[:controller]}} %>
+
+    <div class="wl-widget-item">
+        <%= image_tag "/images/developer_codingstandards_icon.png", :alt => "Coding standards", :class => "descriptive_icon" %>
+        <div class="descriptive_text">
+            <h2>Coding standards</h2>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam quis risus eget urna mollis ornare vel eu leo. Sed posuere consectetur est at lobortis.</p>
+            <button type="button" class="wl-button wl-header-button blue">View</button>
+        </div>
+    </div>
+
+    <div class="wl-widget-item">
+        <%= image_tag "/images/developer_quickdev_icon.png", :alt => "Quick dev set up", :class => "descriptive_icon" %>
+        <div class="descriptive_text">
+            <h2>Quick development environment set up</h2>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam quis risus eget urna mollis ornare vel eu leo. Sed posuere consectetur est at lobortis.</p>
+            <button type="button" class="wl-button wl-header-button blue">View</button>
+        </div>
+    </div>
+
+    <div class="wl-widget-item">
+        <%= image_tag "/images/developer_fulldev_icon.png", :alt => "Full dev set up", :class => "descriptive_icon" %>
+        <div class="descriptive_text">
+            <h2>Full development environment set up</h2>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam quis risus eget urna mollis ornare vel eu leo. Sed posuere consectetur est at lobortis.</p>
+            <button type="button" class="wl-button wl-header-button blue">View</button>
+        </div>
+    </div>
+
+    <div class="wl-widget-item">
+        <%= image_tag "/images/tick_icon_large72x72.png", :alt => "Widget template builder", :class => "descriptive_icon" %>
+        <div class="descriptive_text">
+            <h2>Widget template builder</h2>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam quis risus eget urna mollis ornare vel eu leo. Sed posuere consectetur est at lobortis.</p>
+            <button type="button" class="wl-button wl-header-button blue">Lets go</button>
+        </div>
     </div>
     <hr class="wl-push wl-hidden"/>
 </div>

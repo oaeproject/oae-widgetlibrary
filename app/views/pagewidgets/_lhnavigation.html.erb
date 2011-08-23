@@ -1,7 +1,3 @@
-<% content_for :head do %>
-    <%= stylesheet_link_tag "lhnavigation" %>
-<% end %>
-
 <nav id="lhnavigation_container">
     <% if display && display[:nav_context].eql?("browse") %>
         <h1 class="wl-bold">Browse Widgets</h1>
@@ -26,6 +22,7 @@
             <li><div><a href="#" title="Pending">Pending (4)</a></div></li>
             <li><div><a href="#" title="Declined">Declined (1)</a></div></li>
         </ul>
+        <%= render :partial => "pagewidgets/submitwidget" %>
     <% elsif display[:nav_context].eql?("developer") %>
         <h1 class="wl-bold">Sakai OAE Widget SDK</h1>
         <ul>

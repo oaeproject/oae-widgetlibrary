@@ -96,6 +96,14 @@ select {
   margin-top: 25px;
   padding-top: 20px; }
 
+.wl-content-right-container {
+  box-shadow: -4px 4px 7px -4px #888888;
+  -moz-box-shadow: -4px 4px 7px -4px #888888;
+  -webkit-box-shadow: -4px 4px 7px -4px #888888;
+  position: relative;
+  border-left: 1px solid #c4c4c4;
+  min-height: 515px; }
+
 .wl-padding-15-0 {
   padding-top: 15px;
   padding-bottom: 15px; }
