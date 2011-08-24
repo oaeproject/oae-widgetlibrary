@@ -350,4 +350,36 @@
             }
         }
     }
+    #widgetexamples02 {
+        h2 {
+            border-bottom: 1px dotted #E2E2E2;
+            color: #666;
+            font-size: 17px;
+            font-weight: normal;
+            margin-bottom: 17px;
+            margin-top: 10px;
+            padding-bottom: 5px;
+        }
+        h2.halfpage_float {
+            font-size: 15px;
+            display:inline;
+            float:left;
+            width: 325px;
+            margin-top:25px;
+        }
+        h2.halfpage_float.first {
+            margin-right: 20px;
+        }
+        #dashboard_widgets_screenshot {
+            float: left;
+            margin-right: 15px;
+        }
+        #dashboard_1_description {
+            margin: 10px 0 0 345px;
+            width: 250px;
+        }
+        img {
+            margin: 10px 0;
+        }
+    }
 }
