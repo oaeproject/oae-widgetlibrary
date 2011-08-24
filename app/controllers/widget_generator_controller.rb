@@ -17,11 +17,17 @@ class WidgetGeneratorController < ApplicationController
     showinsakaigoodies = "true"
     personalportal = "true"
 
-    Rails::Generators.invoke 'sakaiwidget', ["#{myappname}"], :behavior => :invoke, :destination_root => tempdir, :appstyle => appstyle, :appdesc => appdesc, :showinsakaigoodies => showinsakaigoodies, :personalportal => personalportal
-    t = Tempfile.new("#{myappname}")
+    # This is a bit of a leaky abstraction really. But we're doing the same thing
+    # the generator does (humanize.downcase), but *also* replacing the spaces
+    # because we don't want those in our tool ID's. We using this below to make
+    # the temp directory for the zip file as well.
+    filename = myappname.humanize.downcase.gsub(' ','_')
+
+    Rails::Generators.invoke 'sakaiwidget', ["#{filename}"], :behavior => :invoke, :destination_root => tempdir, :appstyle => appstyle, :appdesc => appdesc, :showinsakaigoodies => showinsakaigoodies, :personalportal => personalportal, :apptitle => myappname
+    t = Tempfile.new("#{filename}")
     zos = Zip::ZipOutputStream.open(t.path)
     prefix = "#{tempdir}/"
-    Find.find("#{tempdir}/#{myappname}") do |path| 
+    Find.find("#{tempdir}/#{filename}") do |path| 
       zippath = path.slice(prefix.length...path.length)
       if zippath != myappname then
         if !File.directory?(path) then
