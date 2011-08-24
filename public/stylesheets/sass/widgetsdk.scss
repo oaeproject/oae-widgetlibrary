@@ -270,4 +270,84 @@
             }
         }
     }
+    #iconography_styling {
+        h1 {
+            margin-top: 30px;
+        }
+        h1.first {
+            margin-top:10px;
+        }
+        #iconography_container {
+            background-color: #F8F8FA;
+            padding: 20px;
+        }
+        .wl-button {
+            margin: 0 15px 10px 0;
+        }
+        .widget-narrow-column {
+            width: 170px;
+            float: left;
+            span {
+                display: block;
+            }
+            h3 {
+                font-weight:normal;
+            }
+            ul {
+                list-style: none;
+                margin-top: 10px;
+                li {
+                    line-height: 30px;
+                    img.person_icon{
+                        width: 26px;
+                        margin-right: 5px;
+                    }
+                }
+                img {
+                    float:left;
+                    width: 20px;
+                    height: 20px;
+                    margin: 4px 10px 0 0;
+                }
+            }
+            a {
+                display:block;
+            }
+            .widget-narrow-column-subcolumn {
+                width:75px;
+                float:left;
+                margin-top: 7px;
+                span {
+                    font-size:12px;
+                    margin-top:5px;
+                }
+                img {
+                    margin:0 auto;
+                }
+                span {
+                    display:block;
+                }
+                img.large {
+                    width:50px;
+                    height:50px;
+                }
+                img.small {
+                    width:35px;
+                    height:35px;
+                }
+            }
+        }
+        #iconography_entity_details {
+            font-size: 11px;
+            margin-top: 5px;
+            > span {
+                color: #424242;
+                display: inline-block;
+                margin-left: 10px;
+            }
+            > span.first {
+                margin-left: 0;
+            }
+        }
+    }
 }

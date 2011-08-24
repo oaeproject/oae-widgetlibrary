@@ -16,6 +16,7 @@ SakaiWidgetlibrary::Application.routes.draw do
   match 'developer/widgetdesignandstyle' => 'developer#widgetdesignandstyle'
   match 'developer/widgetdesignandstyle/typography' => 'developer#typography'
   match 'developer/widgetdesignandstyle/colorpalette' => 'developer#colorpalette'
+  match 'developer/widgetdesignandstyle/iconography' => 'developer#iconography'
   match '/developer/:developer_name' => 'developerdetails#index', :as => :developer_page
   match '/mywidgets' => 'mywidgets#index', :as => :mywidgets
   match 'submit' => 'submit#index'

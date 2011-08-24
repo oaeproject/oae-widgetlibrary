@@ -147,6 +147,78 @@ select {
 .wl-content-730 {
   width: 730px; }
 
+.wl-icon {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+/* Icons */
+.wl-button {    
+    .wl-icon {
+        float:right;
+        margin: -3px 0 0 7px;
+    }
+}
+
+.wl-button.wl-nopadding-button {
+    padding: 0 3px !important;
+}
+
+.wl-icon {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+.wl-message-icon {
+    background: url("../images/button_message_icon_20x20.png") no-repeat top left transparent;
+}
+
+.wl-share-icon {
+    background: url("../images/button_share_icon_20x20.png") no-repeat top left transparent;
+}
+
+.wl-requestconnection-icon {
+    background: url("../images/button_requestconnection_icon_20x20.png") no-repeat top left transparent;
+}
+
+.wl-cogwheel-icon {
+    background: url("../images/button_cogwheel_icon_20x20.png") no-repeat top left transparent;
+    float: left !important;
+    margin-left: 0 !important;
+}
+
+.wl-save-icon {
+    background: url("../images/button_save_icon_20x20.png") no-repeat top left transparent;
+}
+
+.wl-saved-icon {
+    background: url("../images/button_saved_icon_20x20.png") no-repeat top left transparent;
+}
+
+.wl-download-icon {
+    background: url("../images/button_download_icon_20x20.png") no-repeat top left transparent;
+}
+
+.wl-connectionrequestsent-icon {
+    background: url("../images/button_connectionrequestsent_icon_20x20.png") no-repeat top left transparent;
+}
+
+.wl-acceptconnectionrequest-icon {
+    background: url("../images/button_acceptconnectionrequest_icon_20x20.png") no-repeat top left transparent;
+}
+
+.wl-connected-label {
+    display: inline-block;
+    line-height: 21px;
+    margin-left: 15px;
+    img {
+        float: left;
+        margin-right: 3px;
+    }
+}
+
 /* Inset Shadow containers*/
 .wl-inset-shadow-container {
   background: url("../images/inset_shadow_container_bg.png") repeat-x top left #fefefe;
