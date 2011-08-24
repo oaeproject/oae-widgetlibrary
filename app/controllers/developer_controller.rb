@@ -16,6 +16,9 @@ class DeveloperController < ApplicationController
   def colorpalette
     render :layout => 'lhnavcontent'
   end
+  def widgetexamples01
+    render :layout => 'lhnavcontent'
+  end
   def widgetexamples02
     render :layout => 'lhnavcontent'
   end
