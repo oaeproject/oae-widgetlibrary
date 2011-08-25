@@ -8,7 +8,7 @@
         "default":        "/devwidgets/<%= @file_name %>/bundles/default.properties"
     },
     "id":                 "<%= @file_name %>",
-    "name":               "<%= @file_name %>",
+    "name":               "<%= @apptitle %>",
     "personalportal":     <%= @personalportal %>,
     "showinsakaigoodies": <%= @showinsakaigoodies %>,
     "type":               "contrib",

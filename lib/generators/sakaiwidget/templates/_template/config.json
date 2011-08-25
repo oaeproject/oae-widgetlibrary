@@ -1,6 +1,6 @@
 {
     "id":                 "<%= @file_name %>",
-    "name":               "<%= @file_name %>",
+    "name":               "<%= @apptitle %>",
     "description":        "<%= @appdesc %>",
     "type":               "contrib",
     "enabled":            true,
