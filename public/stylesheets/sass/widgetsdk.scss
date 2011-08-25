@@ -361,11 +361,13 @@
             padding-bottom: 5px;
         }
         h2.halfpage_float {
-            font-size: 15px;
             display:inline;
             float:left;
             width: 325px;
             margin-top:25px;
+        }
+        h2.halfpage_float {
+            font-size: 15px;
         }
         h2.halfpage_float.first {
             margin-right: 20px;
@@ -393,6 +395,41 @@
         h2.halfpage_float.first {
             margin-right: 20px;
             width: 385px;
+        }
+    }
+    #interactionmodels {
+        img {
+            margin-bottom: 25px;
+        }
+        h4 {
+            margin-bottom:12px;
+        }
+        h4.halfpage_float {
+            display:inline;
+            float:left;
+            width: 325px;
+        }
+        h4.halfpage_float.first {
+            width: 250px;
+        }
+        #interactionmodels_systemmessages {
+            margin-left: -25px;
+            margin-top: 160px;
+            position: absolute;
+        }
+        #interactionmodels_userlibrary, #interactionmodels_basicmessagedropdown {
+            width: 220px;
+            + h4 {
+                width: auto;
+            }
+        }
+        #interactionmodels_uploadfile {
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #fafafa;
+            input {
+                margin-right: 12px;
+            }
         }
     }
 }

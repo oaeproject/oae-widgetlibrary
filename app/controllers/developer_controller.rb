@@ -25,4 +25,7 @@ class DeveloperController < ApplicationController
   def iconography
     render :layout => 'lhnavcontent'
   end
+  def interactionmodels
+    render :layout => 'lhnavcontent'
+  end
 end
