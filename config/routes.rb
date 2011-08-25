@@ -18,6 +18,7 @@ SakaiWidgetlibrary::Application.routes.draw do
   match '/developer/widgetdesignandstyle/colorpalette' => 'developer#colorpalette'
   match '/developer/widgetdesignandstyle/widgetexamples01' => 'developer#widgetexamples01'
   match '/developer/widgetdesignandstyle/widgetexamples02' => 'developer#widgetexamples02'
+  match '/developer/widgetdesignandstyle/forms' => 'developer#forms'
   match '/developer/widgetdesignandstyle/navigationalitems' => 'developer#navigationalitems'
   match '/developer/widgetdesignandstyle/iconography' => 'developer#iconography'
   match '/developer/widgetdesignandstyle/interactionmodels' => 'developer#interactionmodels'

@@ -22,6 +22,9 @@ class DeveloperController < ApplicationController
   def widgetexamples02
     render :layout => 'lhnavcontent'
   end
+  def forms
+    render :layout => 'lhnavcontent'
+  end
   def navigationalitems
     render :layout => 'lhnavcontent'
   end
