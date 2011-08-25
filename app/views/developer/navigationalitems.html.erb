@@ -1,0 +1,275 @@
+<% content_for :head do %>
+    <%= stylesheet_link_tag "widgetsdk" %>
+<% end %>
+
+<div id="navigationalitems">
+    <h1>Navigation, Button usage and Link language</h1>
+    <div class="wl-widget-item first">
+        <h2 class="first">Header - in page buttons</h2>
+        <div class="navigationalitems_fourthwidthcontainer">
+            <h4>Default</h4>
+            <button type="button" class="wl-button wl-inpage-button">Delete</button>
+            <button type="button" class="wl-button wl-inpage-button">Edit page</button>
+            <button type="button" class="wl-button wl-inpage-button">Add page</button>
+            <button type="button" class="wl-button wl-inpage-button">Page Revisions</button>
+            <button type="button" class="wl-button wl-inpage-button">&#9668; All messages</button>
+        </div>
+        <div class="navigationalitems_fourthwidthcontainer">
+            <h4>Hover</h4>
+            <button type="button" class="wl-button wl-inpage-button hover">Delete</button>
+            <button type="button" class="wl-button wl-inpage-button hover">Edit page</button>
+            <button type="button" class="wl-button wl-inpage-button hover">Add page</button>
+            <button type="button" class="wl-button wl-inpage-button hover">Page Revisions</button>
+            <button type="button" class="wl-button wl-inpage-button hover">&#9668; All messages</button>
+        </div>
+        <div class="navigationalitems_fourthwidthcontainer">
+            <h4>Inactive</h4>
+            <button type="button" class="wl-button wl-inpage-button" disabled>Delete</button>
+        </div>
+        <div class="navigationalitems_fourthwidthcontainer">
+            <h3>Usage:</h3>
+            <span>To be used within the in-page header when creating a full page widget.</span>
+        </div>
+        <hr class="wl-push wl-hidden"/>
+        <div class="navigationalitems_codesnippit_container">
+            <div class="navigationalitems_codesnippit_header"><h4>Code to create these buttons</h4></div>
+            <ul>
+                <li>background: none repeat scroll 0 0 #FFFFFF;</li>
+                <li>border: 1px solid #E0E3E5;</li>
+                <li>box-shadow: 0 0 4px -2px #A8A8A8 inset;</li>
+                <li>border-radius: 5px;</li>
+                <li>color: #666666;</li>
+                <li>cursor: pointer;</li>
+                <li>font-size: 10px;</li>
+                <li>font-weight: bold;</li>
+                <li>height: 23px;</li>
+                <li>padding: 0 5px;</li>
+                <li>text-align: center;</li>
+            </ul>
+        </div>
+
+        <h2>Small page level buttons</h2>
+        <div class="navigationalitems_fourthwidthcontainer">
+            <h4>Default</h4>
+            <button type="button" class="wl-button wl-header-button">Save changes</button>
+        </div>
+        <div class="navigationalitems_fourthwidthcontainer">
+            <h4>Hover</h4>
+            <button type="button" class="wl-button wl-header-button hover">Save changes</button>
+        </div>
+        <div class="navigationalitems_fourthwidthcontainer">
+            &nbsp;
+        </div>
+        <div class="navigationalitems_fourthwidthcontainer">
+            <h3>Usage:</h3>
+            <span>To be used within small widgets.</span>
+        </div>
+        <hr class="wl-push wl-hidden"/>
+        <div class="navigationalitems_codesnippit_container">
+            <div class="navigationalitems_codesnippit_header"><h4>Code to create these buttons</h4></div>
+            <ul>
+                <li>background: none repeat scroll 0 0 #FFFFFF;</li>
+                <li>border: 1px solid #E0E3E5;</li>
+                <li>border-radius: 5px;</li>
+                <li>box-shadow: 0 0 4px -2px #A8A8A8 inset;</li>
+                <li>color: #666;</li>
+                <li>cursor: pointer;</li>
+                <li>font-size: 11px;</li>
+                <li>font-weight: bold;</li>
+                <li>height: 27px;</li>
+                <li>margin-right: 5px;</li>
+                <li>padding: 0 12px;</li>
+                <li>text-align: center;</li>
+            </ul>
+        </div>
+        <div class="navigationalitems_fourthwidthcontainer">
+            <button type="button" class="wl-link-button wl-dropdown-button wl-bold"><div></div>Show more</button>
+            <button type="button" class="wl-link-button wl-bold">Cancel</button>
+        </div>
+        <div class="navigationalitems_fourthwidthcontainer">
+            <button type="button" class="wl-link-button wl-dropdown-button wl-bold hover"><div></div>Show more</button>
+            <button type="button" class="wl-link-button wl-bold hover">Cancel</button>
+        </div>
+        <hr class="wl-push wl-hidden"/>
+
+        <h2>Small primary page level buttons</h2>
+        <div class="navigationalitems_fourthwidthcontainer">
+            <h4>Default</h4>
+            <button type="button" class="wl-overlay-button wl-button">Save changes</button>
+            <button type="button" class="wl-overlay-button wl-button">Done, add content</button>
+            <button type="button" class="wl-overlay-button wl-button">Compose message</button>
+        </div>
+        <div class="navigationalitems_fourthwidthcontainer">
+            <h4>Hover</h4>
+            <button type="button" class="wl-overlay-button wl-button hover">Save changes</button>
+            <button type="button" class="wl-overlay-button wl-button hover">Done, add content</button>
+            <button type="button" class="wl-overlay-button wl-button hover">Compose message</button>
+        </div>
+        <div class="navigationalitems_fourthwidthcontainer">
+            <h4>Inactive</h4>
+            <button type="button" class="wl-overlay-button wl-button" disabled>Save changes</button>
+            <button type="button" class="wl-overlay-button wl-button" disabled>Done, add content</button>
+        </div>
+        <div class="navigationalitems_fourthwidthcontainer">
+            <h3>Usage:</h3>
+            <span>To be used within widgets as the primary call to action.</span>
+        </div>
+        <hr class="wl-push wl-hidden"/>
+        <div class="navigationalitems_codesnippit_container">
+            <div class="navigationalitems_codesnippit_header"><h4>Code to create these buttons</h4></div>
+            <ul>
+                <li>border-radius: 5px;</li>
+                <li>border: 1px solid #E0E3E5;</li>
+                <li>box-shadow: 0 1px 1px 0 #999999;</li>
+                <li>color: #2683bc;</li>
+                <li>cursor: pointer;</li>
+                <li>font-size: 11px;</li>
+                <li>font-weight: bold;</li>
+                <li>height: 24px;</li>
+                <li>margin:0 15px;</li>
+                <li>padding: 0 12px;</li>
+                <li>text-align: center;</li>
+                <li>text-shadow: 0 2px 3px #FFF;</li>
+            </ul>
+        </div>
+        <div class="navigationalitems_fourthwidthcontainer">
+            <a href="javascript:;" title="Cancel" class="wl-regular-link wl-bold">Cancel</a>
+        </div>
+        <div class="navigationalitems_fourthwidthcontainer">
+            <a href="javascript:;" title="Cancel" class="wl-regular-link wl-bold hover">Cancel</a>
+        </div>
+        <hr class="wl-push wl-hidden"/>
+
+        <h2>Large primary page level buttons (also to be used in overlays)</h2>
+        <div class="navigationalitems_fourthwidthcontainer">
+            <h4>Default</h4>
+            <button class="wl-button wl-large-button">Create account</button>
+        </div>
+        <div class="navigationalitems_fourthwidthcontainer">
+            <h4>Hover</h4>
+            <button class="wl-button wl-large-button hover">Create account</button>
+        </div>
+        <div class="navigationalitems_fourthwidthcontainer">
+            &nbsp;
+        </div>
+        <div class="navigationalitems_fourthwidthcontainer">
+            <h3>Usage:</h3>
+            <span>To be used within widgets as the primary call to action.</span>
+        </div>
+        <hr class="wl-push wl-hidden"/>
+        <div class="navigationalitems_codesnippit_container">
+            <div class="navigationalitems_codesnippit_header"><h4>Code to create these buttons</h4></div>
+            <ul>
+                <li>border-radius: 5px;</li>
+                <li>border: 1px solid #E0E3E5;</li>
+                <li>box-shadow: 0 1px 1px 0 #999999;</li>
+                <li>color: #2683bc;</li>
+                <li>cursor: pointer;</li>
+                <li>font-size: 13px;</li>
+                <li>font-weight: bold;</li>
+                <li>height: 31px;</li>
+                <li>margin: 5px 0;</li>
+                <li>padding: 0 12px;</li>
+                <li>text-align: center;</li>
+                <li>text-shadow: 0 2px 3px #FFF;</li>
+            </ul>
+        </div>
+
+        <h2>Pagination</h2>
+        <div id="pagination_container">
+            <div class="wl-push pagination_container">
+                <div class="pagination_title">Page:</div>
+                <button type="button" class="wl-button wl-link-button wl-left page-button">1</button>
+                <button type="button" class="wl-button wl-inpage-button wl-left page-button blue">2</button>
+                <button type="button" class="wl-button wl-inpage-button wl-left page-button blue">3</button>
+                <button type="button" class="wl-button wl-inpage-button wl-left page-button blue">4</button>
+                <button type="button" class="wl-button wl-inpage-button wl-left page-button blue">5</button>
+                <button type="button" class="wl-button wl-inpage-button wl-left page-button blue">Next &#9658;</button>
+                <button type="button" class="wl-button wl-inpage-button wl-left page-button blue">Last &#9658;&#124;</button>
+                <h4>Working version</h4>
+            </div>
+            <div class="wl-push pagination_container">
+                <div class="pagination_title">&nbsp;</div>
+                <button type="button" class="wl-button wl-link-button wl-left page-button">1</button>
+                <button type="button" class="wl-button wl-link-button wl-left page-button blue">2</button>
+                <button type="button" class="wl-button wl-link-button wl-left page-button blue">3</button>
+                <button type="button" class="wl-button wl-link-button wl-left page-button blue">4</button>
+                <button type="button" class="wl-button wl-link-button wl-left page-button blue">5</button>
+                <h4>Selected page</h4>
+            </div>
+            <div class="wl-push pagination_container">
+                <div class="pagination_title">Page:</div>
+                <button type="button" class="wl-button wl-inpage-button wl-left page-button blue">1</button>
+                <button type="button" class="wl-button wl-inpage-button wl-left page-button blue">2</button>
+                <button type="button" class="wl-button wl-inpage-button wl-left page-button blue">3</button>
+                <button type="button" class="wl-button wl-inpage-button wl-left page-button blue">4</button>
+                <button type="button" class="wl-button wl-inpage-button wl-left page-button blue">5</button>
+                <button type="button" class="wl-button wl-inpage-button wl-left page-button blue">Next &#9658;</button>
+                <button type="button" class="wl-button wl-inpage-button wl-left page-button blue">Last &#9658;&#124;</button>
+                <h4>Default state</h4>
+            </div>
+            <div class="wl-push pagination_container">
+                <div class="pagination_title">Page:</div>
+                <button type="button" class="wl-button wl-inpage-button wl-left page-button hover blue">1</button>
+                <button type="button" class="wl-button wl-inpage-button wl-left page-button hover blue">2</button>
+                <button type="button" class="wl-button wl-inpage-button wl-left page-button hover blue">3</button>
+                <button type="button" class="wl-button wl-inpage-button wl-left page-button hover blue">4</button>
+                <button type="button" class="wl-button wl-inpage-button wl-left page-button hover blue">5</button>
+                <button type="button" class="wl-button wl-inpage-button wl-left page-button hover blue">Next &#9658;</button>
+                <button type="button" class="wl-button wl-inpage-button wl-left page-button hover blue">Last &#9658;&#124;</button>
+                <h4>Default state</h4>
+            </div>
+        </div>
+        <div class="navigationalitems_fourthwidthcontainer">
+            <h3>Usage:</h3>
+            <span>When there are multiple pages within a full page widget (e.g. search results)</span>
+        </div>
+        <hr class="wl-push wl-hidden"/>
+        <div class="navigationalitems_codesnippit_container">
+            <div class="navigationalitems_codesnippit_header"><h4>Code to create these buttons</h4></div>
+            <ul>
+                <li>background: none repeat scroll 0 0 #FFFFFF;</li>
+                <li>border: 1px solid #E0E3E5;</li>
+                <li>box-shadow: 0 0 4px -2px #A8A8A8 inset;</li>
+                <li>border-radius: 5px;</li>
+                <li>color: #666666;</li>
+                <li>cursor: pointer;</li>
+                <li>font-size: 10px;</li>
+                <li>font-weight: bold;</li>
+                <li>height: 23px;</li>
+                <li>padding: 0 5px;</li>
+                <li>text-align: center;</li>
+            </ul>
+        </div>
+
+        <h2>In page tabs</h2>
+        <div id="inpagetabs_container">
+            <div class="wl-inpage-tabs">
+                <div class="wl-inpage-tab selected">Screenshots</div>
+                <div class="wl-inpage-tab hover">Reviews</div>
+                <div class="wl-inpage-tab">Uploaded versions</div>
+            </div>
+            <div class="wl-inpage-tab-content"></div>
+            <h4 class="tab_description">Selected state</h4>
+            <h4 class="tab_description second">Hover state</h4>
+            <h4 class="tab_description">Unselected state</h4>
+        </div>
+        <div class="navigationalitems_fourthwidthcontainer">
+            <h3>Usage:</h3>
+            <span>To separate information within the main content area of a widget.</span>
+        </div>
+        <hr class="wl-push wl-hidden"/>
+
+        <h2>In RHC module tabs</h2>
+        <div id="rhcinpagetabs_container">
+            <img src="/../images/widgetexample_interaction_9.png" alt="Tabs Example"/>
+            <h4 class="tab_description first">Selected state</h4>
+            <h4 class="tab_description second">Hover state</h4>
+            <h4 class="tab_description">Unselected state</h4>
+        </div>
+        <div class="navigationalitems_fourthwidthcontainer">
+            <h3>Usage:</h3>
+            <span>To separate information within the content area of a ‘right hand column widget’</span>
+        </div>
+    </div>
+</div>

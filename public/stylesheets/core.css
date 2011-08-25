@@ -207,6 +207,35 @@ select {
   .wl-rating-container .wl-number-of-ratings {
     margin-left: 7px; }
 
+/* Tabs */
+.wl-inpage-tabs {
+  display: inline-block; }
+
+.wl-inpage-tab {
+  cursor: pointer;
+  border: 1px solid #bebdbd;
+  border-bottom: 0;
+  border-radius: 3px 3px 0 0;
+  -moz-border-radius: 3px 3px 0 0;
+  -webkit-border-radius: 3px 3px 0 0;
+  background: url("../images/tab_bg.png") repeat-x scroll left top transparent;
+  float: left;
+  height: 29px;
+  line-height: 29px;
+  margin-right: 3px;
+  padding: 0 15px;
+  color: #2683bc; }
+
+.wl-inpage-tab.selected {
+  color: #666;
+  height: 30px;
+  background: url("../images/tab_selected_bg.png") repeat-x scroll left top transparent;
+  cursor: default; }
+
+.wl-inpage-tab-content {
+  border-top: 1px solid #bebdbd;
+  margin-top: -4px; }
+
 /* Small widget representation */
 .wl-widget-item, .wl-widget-item-container {
   background-color: #fff;
@@ -271,7 +300,7 @@ a.wl-button {
   border: none; }
 
 .wl-button.blue {
-  color: #2683bc; }
+  color: #2683bc !important; }
 
 /* Link buttons */
 .wl-link-button {
@@ -301,6 +330,19 @@ a.wl-button {
   line-height: 24px;
   padding: 0 14px; }
 
+/* Dropdown button */
+.wl-dropdown-button {
+  color: #666  !important; }
+  .wl-dropdown-button:hover > div {
+    background: url("../images/dropdownarrow_icon_hover.png") no-repeat top left transparent;
+    color: #666 !important; }
+  .wl-dropdown-button > div {
+    width: 16px;
+    height: 16px;
+    margin-left: 7px;
+    float: right;
+    background: url("../images/dropdownarrow_icon.png") no-repeat top left transparent; }
+
 /* Overlay buttons */
 .wl-button.wl-overlay-button {
   background: url("../images/button_overlay_default.png") repeat-x scroll left top transparent;
@@ -315,7 +357,8 @@ a.wl-button {
   text-shadow: 0 2px 3px #fff;
   color: #2683bc; }
   .wl-button.wl-overlay-button:hover {
-    background: url("../images/button_overlay_hover.png") repeat-x scroll left top transparent; }
+    background: url("../images/button_overlay_hover.png") repeat-x scroll left top transparent;
+    color: #999; }
 
 .wl-button.wl-overlay-button[disabled] {
   color: #ccc; }
@@ -339,6 +382,26 @@ a.wl-button {
   .wl-button.wl-large-button:hover {
     background: url("../images/button_large_hover.png") repeat-x scroll left top transparent;
     color: #999; }
+
+/* Small in-page button*/
+.wl-button.wl-inpage-button {
+  background: none repeat scroll 0 0 #FFFFFF;
+  border: 1px solid #E0E3E5;
+  box-shadow: 0 0 4px -2px #a8a8a8 inset;
+  -moz-box-shadow: 0 0 4px -2px #a8a8a8 inset;
+  -webkit-box-shadow: 0 0 4px -2px #a8a8a8 inset;
+  font-size: 10px;
+  font-weight: bold;
+  height: 23px;
+  padding: 0 5px; }
+
+.wl-inpage-button:hover {
+  background: url("../images/button_inpage_hover.png") repeat-x left top #e9edf0;
+  color: #999; }
+
+.wl-inpage-button[disabled]:hover {
+  background: none repeat scroll 0 0 #FFFFFF;
+  color: #999; }
 
 /* Header buttons */
 .wl-button.wl-header-button {

@@ -140,32 +140,6 @@
             background: url("../images/rating_icon_grey.png") no-repeat scroll left top transparent;
         }
     }
-    #widgetdetails_tabs {
-        display:inline-block;
-    }
-    .widgetdetail_tab {
-        cursor: pointer;
-        border: 1px solid #bebdbd;
-        border-bottom:0;
-        @include border-radius($topLeft: 3px, $topRight: 3px, $bottomRight: 0, $bottomLeft: 0);
-        background: url("../images/tab_bg.png") repeat-x scroll left top transparent;
-        float: left;
-        height: 29px;
-        line-height: 29px;
-        margin-right: 3px;
-        padding: 0 15px;
-        color:#2683bc;
-    }
-    .widgetdetail_tab.selected {
-        color:#666;
-        height:30px;
-        background: url("../images/tab_selected_bg.png") repeat-x scroll left top transparent;
-        cursor:default;
-    }
-    #widgetdetails_tabcontent_container {
-        border-top: 1px solid #bebdbd;
-        margin-top: -4px;
-    }
     .widgetdetails_tabcontent_content {
         margin-top:20px;
         #widgetdetails_screenshot_container {

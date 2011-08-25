@@ -432,4 +432,137 @@
             }
         }
     }
+    #navigationalitems {
+        h2 {
+            border-bottom: 1px solid #E2E2E2;
+            font-size: 17px;
+            font-weight: bold;
+            margin-bottom: 17px;
+            margin-top: 25px;
+        }
+        h2.first {
+            margin-top: 10px;
+        }
+        button {
+            display: block;
+            margin: 5px 0;
+        }
+        .wl-inpage-button.hover {
+            background: url("../images/button_inpage_hover.png") repeat-x left top #e9edf0;
+            color: #999;
+        }
+        .wl-header-button.hover {
+            background: url("../images/button_header_hover.png") repeat-x scroll left -1px transparent;
+            border: 1px solid #E0E3E5;
+            @include box-shadow($h-shadow: "", $v-shadow: "", $blur: "", $spread: "", $color: "", $outerinner: "");
+        }
+        .wl-inpage-button[disabled] {
+            color:#bdbdbd;
+        }
+        .wl-link-button.hover {
+            color: #999;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .wl-overlay-button {
+            margin-bottom: 10px;
+        }
+        .wl-overlay-button.hover {
+            background: url("../images/button_overlay_hover.png") repeat-x scroll left top transparent;
+            color:#999;
+        }
+        .wl-dropdown-button.hover {
+            > div {
+                background: url("../images/dropdownarrow_icon_hover.png") no-repeat top left transparent;
+                color: #666 !important;
+            }
+        }
+        .wl-regular-link.hover {
+            text-decoration: underline;
+        }
+        .wl-large-button.hover {
+            background: url("../images/button_large_hover.png") repeat-x scroll left top transparent;
+            color: #999;
+        }
+        #inpagetabs_container, #rhcinpagetabs_container {
+            float: left;
+            padding-right: 160px;
+            width: 350px;
+            .tab_description {
+                float: left;
+                margin-left: 5px;
+                margin-top: 17px;
+                width: 104px;
+            }
+            .tab_description.second {
+                width: 93px;
+            }
+        }
+        #rhcinpagetabs_container {
+            .tab_description {
+                margin-left: 0;
+                width: 104px;
+            }
+            .tab_description.first {
+                width: 97px;
+            }
+            .tab_description.second {
+                width: 145px;
+            }
+        }
+        .wl-inpage-tab.hover {
+            text-decoration: underline;
+        }
+        #pagination_container {
+            float: left;
+            width: 510px;
+        }
+        .pagination_container {
+            line-height: 35px;
+            h4 {
+                display: inline-block;
+                margin-left: 10px;
+            }
+            .pagination_title {
+                float:left;
+                width:60px;
+            }
+            .page-button {
+                margin-right: 4px;
+                padding:0 9px;
+                font-weight: normal;
+            }
+            .page-button.wl-link-button {
+                padding: 0 13px;
+                color: #999 !important;
+            }
+        }
+        .navigationalitems_fourthwidthcontainer {
+            width: 170px;
+            float:left;
+            h3 {
+                font-weight: normal;
+            }
+        }
+        .navigationalitems_codesnippit_container{
+            border: 1px solid #c7cfd5;
+            padding-bottom: 15px;
+            background: url("../images/codesnippet_bg.png") repeat-x left top #f1f5f9;
+            margin: 15px 0;
+            ul {
+                list-style: none;
+                margin: 15px 0 0 15px;
+                li {
+                    margin: 3px 0;
+                }
+            }
+            .navigationalitems_codesnippit_header {
+                background: url("../images/codesnippet_bg.png") repeat-x left -30px #f1f5f9;
+                border-bottom: 1px solid #c7cfd5;
+                height: 30px;
+                line-height: 30px;
+                padding-left: 15px;
+            }
+        }
+    }
 }
