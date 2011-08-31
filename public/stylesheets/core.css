@@ -233,6 +233,11 @@ a.wl-button {
   margin: 0;
   border: 0; }
 
+.wl-button.wl-link-button {
+  color: #2683bc !important;
+  line-height: 24px;
+  padding: 0 7px; }
+
 /* Overlay buttons */
 .wl-button.wl-overlay-button {
   background: url("../images/button_overlay_default.png") repeat-x scroll left top transparent;
