@@ -1,5 +1,7 @@
 <% content_for :head do %>
     <%= stylesheet_link_tag "index" %>
+    <%= javascript_include_tag "jquery.slides" %>
+    <%= javascript_include_tag "homecarousel" %>
 <% end %>
 
 <div class="wl-content-container" id="index_container">
@@ -11,23 +13,40 @@
 
     <div class="wl-content-730 wl-left">
         <div id="widgetlibrary_carousel">
-            <div id="carousel_state1">
-                <h1>Over <strong>200</strong> ways to customise and enhance collaborative academic learning experiences</h1>
-                <h2>A 'Widget' is an app which can be used as a 'bolt on' to the installed Sakai Open Academic Environment to add additional functionality, expanding the value of the platfrom for tutors and students alike.</h2>
-            </div>
-            <div class="carousel_choice">
-                <div class="carousel_choice_arrow"></div>
-                <a href="#" title="What is a Widget?">What is a Widget?</a>
-            </div>
-            <div class="carousel_choice">
-                <div class="carousel_choice_arrow" style="display:none;"></div>
-                <a href="#" title="Create the unexpected">Create the unexpected</a>
-            </div>
-            <div class="carousel_choice">
-                <div class="carousel_choice_arrow" style="display:none;"></div>
-                <a href="#" title="Submit a Widget">Submit a Widget</a>
+            <div id="widgetlibrary_homecarousel" style="visibility:hidden;">
+                <div class="slides_container">
+                    <div id="carousel_state1" class="widgetlibrary_homecarousel_pane">
+                        <h1>Over <strong>200</strong> ways to customise and enhance collaborative academic learning experiences</h1>
+                        <h2>A 'Widget' is an app which can be used as a 'bolt on' to the installed Sakai Open Academic Environment to add additional functionality, expanding the value of the platform for tutors and students alike.</h2>
+                    </div>
+                    <div id="carousel_state2" class="widgetlibrary_homecarousel_pane">
+                        <h1>By adding custom widgets to Sakai OAE, you’ll be enriching the learning experience for students and staff alike.</h1>
+                        <h2>A handful of the Universities benefiting from Sakai OAE:</h2>
+                    </div>
+                    <div id="carousel_state3" class="widgetlibrary_homecarousel_pane">
+                        <h1 class="size-30">Design. Code. Submit.</h1>
+                        <h1>Submitting your new widget couldn’t be simpler</h1>
+                        <h2>Once you’ve uploaded your widget, we will evaluate its suitability and code, and get back to you within a few days with a “yes’  or some suggested improvements.<a href="/submit" class="wl-link-button wl-button wl-overlay-button">Submit new widget</a></h2>
+                    </div>
+                </div>
+                <ul class="pagination">
+                    <li class="carousel_choice" class="current">
+                        <div class="carousel_choice_arrow" id="carousel_choice_arrow_1" style="display:none;"></div>
+                        <a href="#0" title="What is a Widget?" data-carousel-index="1" class="widgetlibrary_homecarousel_navitem">What is a Widget?</a>
+                    </li>
+                    <li class="carousel_choice">
+                        <div class="carousel_choice_arrow" id="carousel_choice_arrow_2" style="display:none;"></div>
+                        <a href="#1" title="Create the unexpected" data-carousel-index="2" class="widgetlibrary_homecarousel_navitem">Create the unexpected</a>
+                    </li>
+                    <li class="carousel_choice">
+                        <div class="carousel_choice_arrow" id="carousel_choice_arrow_3" style="display:none;"></div>
+                        <a href="#2" title="Submit a Widget" data-carousel-index="3" class="widgetlibrary_homecarousel_navitem">Submit a Widget</a>
+                    </li>
+                </ul>
             </div>
         </div>
+
+        <hr class="wl-push wl-hidden"/>
 
         <%= render :partial => "mostpopular"%>
     </div>
