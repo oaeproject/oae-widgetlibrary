@@ -14,13 +14,15 @@
   background: url("../images/carousel_bg.png") repeat-x bottom left #f0f0f0;
   width: 730px;
   height: 368px;
-  .widgetlibrary_homecarousel_pane{
+  .slides_container {
       width: 730px;
 	  height: 318px;
-	  > div {
-	      height: 318px;
-      	  @include border-radius($topLeft: 5px, $topRight: 5px, $bottomRight: 5px, $bottomLeft: 5px);
-      }
+  }
+  .widgetlibrary_homecarousel_pane{
+      display: block;
+      width: 730px;
+      height: 318px;
+ 	  @include border-radius($topLeft: 5px, $topRight: 5px, $bottomRight: 5px, $bottomLeft: 5px);
   }
   #carousel_state1 {
       background: url("../images/carousel_state1_bg.jpg") no-repeat top left transparent;
