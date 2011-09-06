@@ -7,7 +7,7 @@
     <%= csrf_meta_tag %>
     <%= yield :head %>
 </head>
-<body>
+<body class="<%= "#{params[:controller].gsub("/", "_")} #{params[:action]}" %>">
 
 <%= render :partial => "core/useractions" %>
 

@@ -1,34 +1,39 @@
-#mywidgets_status {
-    width:666px;
-    padding:20px;
-    p {
-        font-size: 16px;
-        line-height: 18px;
-    }
-    #mywidgets_approved {
-        background: image-url("tick_icon_large.png") no-repeat scroll left top transparent;
-        h1 {
-            background: image-url("congratulations_text.png") no-repeat scroll left top transparent;
+.mywidgets {
+    #mywidgets_status {
+        width:666px;
+        padding:20px;
+        p {
+            font-size: 16px;
+            line-height: 18px;
+        }
+        #mywidgets_approved {
+            background: image-url("tick_icon_large.png") no-repeat scroll left top transparent;
+            h1 {
+                background: image-url("congratulations_text.png") no-repeat scroll left top transparent;
+            }
+        }
+        #mywidgets_declined {
+            background: image-url("exclamation_icon_large.png") no-repeat scroll left top transparent;
+            h1 {
+                background: image-url("oops_text.png") no-repeat scroll left top transparent;
+            }
+        }
+        #mywidgets_status_icon{
+            height: 41px;
+            padding-top: 8px;
+            h1 {
+                display: block;
+                height: 24px;
+                width: 280px;
+                margin-left: 45px;
+            }
         }
     }
-    #mywidgets_declined {
-        background: image-url("exclamation_icon_large.png") no-repeat scroll left top transparent;
-        h1 {
-            background: image-url("oops_text.png") no-repeat scroll left top transparent;
-        }
+    .wl-widget-item {
+        width:148px;
     }
-    #mywidgets_status_icon{
-        height: 41px;
-        padding-top: 8px;
-        h1 {
-            display: block;
-            height: 24px;
-            width: 280px;
-            margin-left: 45px;
-        }
-    }
-}
 
-#submitwidget {
-    margin-left: 10px;
+    #submitwidget {
+        margin-left: 10px;
+    }
 }

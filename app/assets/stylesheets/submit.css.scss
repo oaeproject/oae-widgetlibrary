@@ -1,9 +1,11 @@
-#submit_container {
-    background: image-url("library_bg.png") repeat-x scroll center top transparent;
-    padding: 20px;
-    color: #333333;
-    font-size: 12px;
-    margin-top:20px;
+.submit {
+    #submit_container {
+        background: image-url("library_bg.png") repeat-x scroll center top transparent;
+        padding: 20px;
+        color: #333333;
+        font-size: 12px;
+        margin-top:20px;
+    }
     h2 {
          margin-top: 15px;
          margin-bottom: 20px;
