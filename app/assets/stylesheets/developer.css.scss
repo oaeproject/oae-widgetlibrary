@@ -1,13 +1,13 @@
-@import "mixins";
+@import "mixins.css.scss";
 
 .wl-content-container#developer_container {
-    background: url("../images/container_bg.png") no-repeat scroll center top transparent;
+    background: image-url("container_bg.png") no-repeat scroll center top transparent;
     @include border-radius($topLeft: 12px, $topRight: 12px, $bottomRight: 0, $bottomLeft: 0);
     padding:25px 15px 20px;
 }
 
 #developer_artwork {
-    background: url("../images/developer_artwork.png") no-repeat scroll center top transparent;
+    background: image-url("developer_artwork.png") no-repeat scroll center top transparent;
     height: 229px;
     margin-left: 440px;
     margin-top: -34px;
@@ -50,7 +50,7 @@
     float:right;
     #developer_videocontent_container {
         @include border-radius($topLeft: 2px, $topRight: 2px, $bottomRight: 2px, $bottomLeft: 2px);
-        background: url("../images/developer_dummy_image.jpg") no-repeat top left transparent;
+        background: image-url("developer_dummy_image.jpg") no-repeat top left transparent;
         width:269px;
         height:152px;
     }
@@ -64,7 +64,7 @@
 
 #developer_wheretobegin_container {
     @include border-radius($topLeft: 5px, $topRight: 5px, $bottomRight: 0, $bottomLeft: 0);
-    background: url("../images/library_shorter_bg.png") repeat-x scroll center top transparent;
+    background: image-url("library_shorter_bg.png") repeat-x scroll center top transparent;
     margin-top: 25px;
     padding: 15px;
     .wl-widget-item {

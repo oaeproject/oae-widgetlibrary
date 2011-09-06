@@ -1,16 +1,10 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.9'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem 'rails', '3.1.0'
 gem 'sqlite3'
-# Use jQuery instead of Prototype
-gem 'jquery-rails', '>= 1.0.12'
 
-# Use SASS for awesome stylesheets
-gem "sass"
+# Use jQuery instead of Prototype
+gem 'jquery-rails'
 
 # Use Paperclip for image dependency management
 gem "paperclip", "~> 2.3"
@@ -21,9 +15,6 @@ gem "rubyzip"
 # Use guid for generating random directory names in the tmp folder to 
 # use at the root dir for the widget generator.
 gem 'guid'
-
-# Use unicorn as the web server
-# gem 'unicorn'
 
 # Deploy with Capistrano
 gem 'capistrano'
@@ -47,16 +38,9 @@ group :development do
   gem 'ruby-debug19', :require => 'ruby-debug'
 end
 
-
-# Bundle the extra gems:
-# gem 'bj'
-# gem 'nokogiri'
-# gem 'sqlite3-ruby', :require => 'sqlite3'
-# gem 'aws-s3', :require => 'aws/s3'
-
-# Bundle gems for the local environment. Make sure to
-# put test-only gems in this group so their generators
-# and rake tasks are available in development mode:
-# group :development, :test do
-#   gem 'webrat'
-# end
+# Assets for Rails 3.1
+group :assets do
+  gem 'sass-rails', "  ~> 3.1.0"
+  gem 'uglifier'
+  gem 'yui-compressor'
+end

@@ -1,3 +1,5 @@
+//= require jquery.slides
+
 var homeCarouselContainer = "#widgetlibrary_carousel";
 var homeCarousel = "#widgetlibrary_homecarousel";
 var carouselChoice = ".carousel_choice";

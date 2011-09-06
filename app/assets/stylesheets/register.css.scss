@@ -1,14 +1,14 @@
-@import "mixins";
+@import "mixins.css.scss";
 
 #register_container {
-    background: url("../images/container_bg.png") no-repeat scroll center top transparent;
+    background: image-url("container_bg.png") no-repeat scroll center top transparent;
     @include border-radius($topLeft: 12px, $topRight: 12px, $bottomRight: 0, $bottomLeft: 0);
     padding-left: 20px;
     padding-right: 20px;
 }
 
 #register_container .wl-inset-shadow-container {
-     background: url("../images/inset_shadow_container_opacity_bg.png") repeat-x scroll left top transparent;
+     background: image-url("inset_shadow_container_opacity_bg.png") repeat-x scroll left top transparent;
      padding:8px 18px 20px;
 }
 
@@ -122,13 +122,12 @@ h2 {
         line-height:30px;
     }
     input, select {
-
         width:230px;
     }
 }
 
 #captcha {
-    background:url("../images/recaptcha_example.jpg") no-repeat top left transparent;
+    background:image-url("recaptcha_example.jpg") no-repeat top left transparent;
     border:1px solid #dbdada;
     width:353px;
     height:97px;

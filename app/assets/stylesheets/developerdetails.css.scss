@@ -1,5 +1,5 @@
 #developer_container.wl-content-container {
-    background: url("../images/library_bg.png") repeat-x scroll center top transparent;
+    background: image-url("library_bg.png") repeat-x scroll center top transparent;
 }
 
 .wl-widget-item .wl-rating-container {
@@ -57,12 +57,12 @@
                 margin-top: -3px;
                 padding-top: 0;
               .wl-rating-icon {
-                background: url("../images/rating_icon_large.png") no-repeat scroll left -21px transparent !important;
+                background: image-url("rating_icon_large.png") no-repeat scroll left -21px transparent !important;
                 width: 23px;
                 height: 21px;
               }
               .wl-rating-icon.filled {
-               background: url("../images/rating_icon_large.png") no-repeat left top transparent !important;
+               background: image-url("rating_icon_large.png") no-repeat left top transparent !important;
               }
           }
         }

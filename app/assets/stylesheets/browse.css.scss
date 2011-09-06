@@ -1,8 +1,8 @@
-@import "mixins";
+@import "mixins.css.scss";
 
 /* Library */
 .wl-content-container#library_container {
-  background: url("../images/library_bg.png") repeat-x scroll center top transparent;
+  background: image-url("library_bg.png") repeat-x scroll center top transparent;
   padding-top: 0;
 }
 

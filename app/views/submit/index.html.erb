@@ -1,8 +1,3 @@
-<% content_for :head do %>
-    <%= stylesheet_link_tag "register" %>
-    <%= stylesheet_link_tag "submit" %>
-<% end %>
-
 <div class="wl-content-container" id="submit_container">
     <div id="submit_container_artwork"></div>
     <form>
@@ -24,7 +19,7 @@
         <h2>02. Add basic info about the Widget</h2>
             <div class="register_column1">
                 <h2>Icon</h2>
-                <img src="../images/widget_default_image.jpg" alt="Widget Icon"/>
+                <%= image_tag "widget_default_image.jpg", :alt => "Widget Icon" %>
                 <a class="wl-button wl-header-button" href="#">Select image</a>
             </div>
 
@@ -73,18 +68,18 @@
         <hr class="wl-split-line wl-push">
         <h2>03. Add screenshots to the Widget overview</h2>
         <div id="submit_screenshot_container">
-            <img id="submit_main_screenshot" alt="Activity Plus Screenshot" src="../images/submit_defaultscreenshot_large.jpg">
+            <%= image_tag "submit_defaultscreenshot_large.jpg", :alt => "Activity Plus Screenshot", :id => "submit_main_screenshot" %>
             <div id="submit_screenshots_thumbs">
                 <div class="submit_screenshots_thumb">
-                    <img class="selected" alt="Widget Screenshot" src="../images/submit_defaultscreenshot_small.jpg">
+                    <%= image_tag "submit_defaultscreenshot_small.jpg", :alt => "Widget Screenshot", :class =>"selected" %>
                     <div></div>
                 </div>
                 <div class="submit_screenshots_thumb">
-                    <img alt="Widget Screenshot" src="../images/submit_defaultscreenshot_small.jpg">
+                    <%= image_tag "submit_defaultscreenshot_small.jpg", :alt => "Widget Screenshot" %>
                     <div></div>
                 </div>
                 <div class="submit_screenshots_thumb">
-                    <img alt="Widget Screenshot" src="../images/submit_defaultscreenshot_small.jpg">
+                    <%= image_tag "submit_defaultscreenshot_small.jpg", :alt => "Widget Screenshot" %>
                     <div></div>
                 </div>
             </div>

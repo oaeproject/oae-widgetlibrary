@@ -1,5 +1,5 @@
 #submit_container {
-    background: url("../images/library_bg.png") repeat-x scroll center top transparent;
+    background: image-url("library_bg.png") repeat-x scroll center top transparent;
     padding: 20px;
     color: #333333;
     font-size: 12px;
@@ -37,7 +37,7 @@
         color:#2683BC;
     }
     #submit_container_artwork {
-        background: url("../images/submit_widget_artwork.png") repeat-x scroll center top transparent;
+        background: image-url("submit_widget_artwork.png") repeat-x scroll center top transparent;
         height: 96px;
         margin-top: -20px;
         position: absolute;

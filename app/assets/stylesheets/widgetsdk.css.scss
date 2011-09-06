@@ -1,11 +1,11 @@
-@import "mixins";
+@import "mixins.css.scss";
 
 .wl-page-container {
     padding: 0 22px 0;
 }
 
 #widgetsdk_container.wl-content-container {
-    background: url("../images/library_bg.png") repeat-x scroll center top transparent;
+    background: image-url("library_bg.png") repeat-x scroll center top transparent;
     padding-top: 0;
     color: #666;
     font-size:14px;
@@ -119,7 +119,7 @@
             float: left;
         }
         p {
-            background: url("../images/tick_icon_small.png") no-repeat scroll left top transparent;
+            background: image-url("tick_icon_small.png") no-repeat scroll left top transparent;
             display: inline-block;
             line-height: 19px;
             margin-top: 25px;

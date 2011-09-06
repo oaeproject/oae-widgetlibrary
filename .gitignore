@@ -5,5 +5,7 @@ tmp/
 .tmp*
 .project
 public/system
+public/assets
 *.swp
 test_can_be_deleted/
+.sass-cache/

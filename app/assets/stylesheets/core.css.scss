@@ -1,4 +1,4 @@
-@import "mixins";
+@import "mixins.css.scss";
 
 
 /******************/
@@ -14,7 +14,7 @@ html, textarea {
 }
 
 body {
-  background: url("../images/body_bg.png") repeat-x top left #f2f2f2;
+  background: image-url("body_bg.png") repeat-x top left #f2f2f2;
   font-size: 13px;
 }
 
@@ -96,7 +96,7 @@ select {
   padding: 0 22px;
   padding-bottom: 20px;
     .wl-container-shadow-left, .wl-container-shadow-right {
-      background: url("../images/container_shadow_left.png") no-repeat scroll 0 0 transparent;
+      background: image-url("container_shadow_left.png") no-repeat scroll 0 0 transparent;
       height: 346px;
       margin-left: -32px;
       position: absolute;
@@ -104,7 +104,7 @@ select {
       margin-top: -5px;
     }
     .wl-container-shadow-right {
-      background: url("../images/container_shadow_right.png") no-repeat scroll 0 0 transparent;
+      background: image-url("container_shadow_right.png") no-repeat scroll 0 0 transparent;
       float: right;
       margin-left: 938px;
     }
@@ -142,7 +142,7 @@ select {
 
 /* Inset Shadow containers*/
 .wl-inset-shadow-container {
-  background: url("../images/inset_shadow_container_bg.png") repeat-x top left #fefefe;
+  background: image-url("inset_shadow_container_bg.png") repeat-x top left #fefefe;
   @include border-radius($topLeft: 5px, $topRight: 5px, $bottomRight: 5px, $bottomLeft: 5px);
   @include box-shadow($h-shadow: 0, $v-shadow: 0, $blur: 12px, $spread: -4px, $color: #888, $outerinner: inset);
   margin-top: 20px;
@@ -153,13 +153,13 @@ select {
 .wl-rating-container {
   padding-top: 10px;
     .wl-rating-icon {
-      background: url("../images/rating_icon.png") no-repeat scroll left -14px transparent;
+      background: image-url("rating_icon.png") no-repeat scroll left -14px transparent;
       width: 15px;
       height: 15px;
       float: left;
     }
     .wl-rating-icon.filled {
-      background: url("../images/rating_icon.png") no-repeat left top transparent;
+      background: image-url("rating_icon.png") no-repeat left top transparent;
     }
     .wl-number-of-ratings {
       margin-left: 7px;
@@ -267,7 +267,7 @@ a.wl-button {
 
 /* Overlay buttons */
 .wl-button.wl-overlay-button {
-  background: url("../images/button_overlay_default.png") repeat-x scroll left top transparent;
+  background: image-url("button_overlay_default.png") repeat-x scroll left top transparent;
   border: 1px solid #E0E3E5;
   font-size: 11px;
   font-weight: bold;
@@ -277,7 +277,7 @@ a.wl-button {
   text-shadow: 0 2px 3px #fff;
   color: #2683bc;
     &:hover {
-      background: url("../images/button_overlay_hover.png") repeat-x scroll left top transparent;
+      background: image-url("button_overlay_hover.png") repeat-x scroll left top transparent;
     }
 }
 
@@ -285,12 +285,12 @@ a.wl-button {
   color: #ccc; }
 
 .wl-button.wl-overlay-button[disabled]:hover {
-  background: url("../images/button_overlay_default.png") repeat-x scroll left top transparent;
+  background: image-url("button_overlay_default.png") repeat-x scroll left top transparent;
   cursor: auto; }
 
 /* Large in-page buttons */
 .wl-button.wl-large-button {
-  background: url("../images/button_large_default.png") repeat-x scroll left top transparent;
+  background: image-url("button_large_default.png") repeat-x scroll left top transparent;
   height: 31px;
   padding: 0 7px;
   border: 1px solid #e0e3e5;
@@ -299,7 +299,7 @@ a.wl-button {
   text-shadow: 0 2px 3px #fff;
   font-size: 13px;
     &:hover {
-      background: url("../images/button_large_hover.png") repeat-x scroll left top transparent;
+      background: image-url("button_large_hover.png") repeat-x scroll left top transparent;
       color: #999;
     }
 }
@@ -310,7 +310,7 @@ a.wl-button {
   @include box-shadow($h-shadow: 0, $v-shadow: 0, $blur: 4px, $spread: -2px, $color: #a8a8a8, $outerinner: inset);
   border: 1px solid #e0e3e5;
     &:hover {
-      background: url("../images/button_header_hover.png") repeat-x scroll left -1px transparent;
+      background: image-url("button_header_hover.png") repeat-x scroll left -1px transparent;
       border: 1px solid #E0E3E5;
       @include box-shadow($h-shadow: "", $v-shadow: "", $blur: "", $spread: "", $color: "", $outerinner: "");
     }
@@ -360,7 +360,7 @@ a.wl-button.wl-header-button {
     color:#333;
     font-size:12px;
     .wl-dialog-close {
-        background:url("../images/dialog_close.png") no-repeat top left transparent;
+        background:image-url("dialog_close.png") no-repeat top left transparent;
         width:19px;
         height:17px;
         float:right;
@@ -368,7 +368,7 @@ a.wl-button.wl-header-button {
         margin:-2px -15px 0 0;
     }
     .wl-dialog-close:hover {
-        background:url("../images/dialog_close.png") no-repeat left -19px transparent;
+        background:image-url("dialog_close.png") no-repeat left -19px transparent;
     }
     .dialog_actions {
         float:right;
@@ -384,7 +384,7 @@ a.wl-button.wl-header-button {
     }
 }
 .form_section_container{
-    background: url("../images/form_bg.png") repeat-x scroll left top #e3e3e2;
+    background: image-url("form_bg.png") repeat-x scroll left top #e3e3e2;
     border: 1px solid #E2E2E2;
     border-radius: 5px 5px 5px 5px;
     margin: 10px 0;
@@ -429,11 +429,11 @@ textarea {
   margin-bottom: 20px;
   color: #454a4f;
   font-size: 11px;
-  background: url("../images/footer_shadow.png") no-repeat scroll center top transparent;
+  background: image-url("footer_shadow.png") no-repeat scroll center top transparent;
   position: relative;
   z-index: 2;
     #footer_logo {
-      background: url("../images/footer_logo.png") no-repeat scroll 0 3px transparent;
+      background: image-url("footer_logo.png") no-repeat scroll 0 3px transparent;
       width: 43px;
       height: 28px;
       float: left;
@@ -485,7 +485,7 @@ textarea {
               }
             }
             li.selected {
-              background: url("../images/navigation_item_selected.png") repeat-x top left transparent;
+              background: image-url("navigation_item_selected.png") repeat-x top left transparent;
               a {
                   color: #FFF;
               }
@@ -495,7 +495,7 @@ textarea {
             float:right;
         }
         #useractions_arrow_down {
-          background: url("../images/arrow_down.png") no-repeat top left transparent;
+          background: image-url("arrow_down.png") no-repeat top left transparent;
           width: 10px;
           height: 10px;
           float: right;
@@ -532,7 +532,7 @@ textarea {
 /* DROPDOWN LISTS */
 /******************/
 .wl-dropdown-menu:hover, .wl-dropdown-menu.opened {
-    background: url("../images/navigation_item_selected.png") repeat-x scroll left top transparent;
+    background: image-url("navigation_item_selected.png") repeat-x scroll left top transparent;
     > a {
         color:#fff !important;
     }
@@ -550,7 +550,7 @@ textarea {
     }
 }
 .wl-dropdown-container {
-    background:url("../images/dropdown_list_bg.png") repeat-x scroll left top #0c4e79;
+    background:image-url("dropdown_list_bg.png") repeat-x scroll left top #0c4e79;
     @include box-shadow($h-shadow: 0, $v-shadow: 10px, $blur: 10px, $spread: -3px, $color: #333, $outerinner: "");
     position:absolute;
     z-index:999;
@@ -564,7 +564,7 @@ textarea {
 /* HEADER BRANDING */
 /*******************/
 #widgetlibrary_header_branding {
-  background: url("../images/header_branding.png") no-repeat bottom left transparent;
+  background: image-url("header_branding.png") no-repeat bottom left transparent;
   height: 60px;
   width: 100%; }
 
@@ -573,7 +573,7 @@ textarea {
 /* NAVIGATION */
 /**************/
 #widgetlibrary_navigation {
-  background: url("../images/navigation_bg.png") repeat-x top left transparent;
+  background: image-url("navigation_bg.png") repeat-x top left transparent;
   height: 36px;
   width: 100%;
   margin-top: 7px;
@@ -588,7 +588,7 @@ textarea {
           width: 95px;
         }
         li.navigation_item, li.navigation_item.selected {
-          background: url("../images/navigation_item_bg.png") repeat-x top left transparent;
+          background: image-url("navigation_item_bg.png") repeat-x top left transparent;
           height: 36px;
           list-style-type: none;
           display: inline-block;
@@ -597,11 +597,11 @@ textarea {
           float: left;
         }
         li.navigation_item.selected, li.navigation_item:hover {
-          background: url("../images/navigation_item_selected.png") repeat-x top left transparent;
+          background: image-url("navigation_item_selected.png") repeat-x top left transparent;
         }
     }
     #search_widgets {
-      background: url("../images/search_icon.png") no-repeat scroll 6px center white;
+      background: image-url("search_icon.png") no-repeat scroll 6px center white;
       border: 1px solid #D6D4D4;
       @include border-radius($topLeft: 4px, $topRight: 4px, $bottomRight: 4px, $bottomLeft: 4px);
       float: right;
@@ -620,7 +620,7 @@ textarea {
         @include border-radius($topLeft: 0, $topRight: 0, $bottomRight: 5px, $bottomLeft: 5px);
         #search_widgets_results_container{
             @include box-shadow($h-shadow: 0, $v-shadow: 8px, $blur: 15px, $spread: -2px, $color: #555, $outerinner: "");
-            background: url("../images/search_bg.png") repeat-x scroll left bottom #F3F3F3;
+            background: image-url("search_bg.png") repeat-x scroll left bottom #F3F3F3;
             padding:12px 3px 5px;
             margin-top: 22px;
             border: 1px solid #D6D4D4;

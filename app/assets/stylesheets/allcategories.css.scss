@@ -8,7 +8,7 @@
 }
 
 .widget_review_status {
-    background: url("../images/tick_icon_small.png") no-repeat scroll left top transparent;
+    background: image-url("tick_icon_small.png") no-repeat scroll left top transparent;
     height: 17px;
     margin-left: -6px;
     margin-top: -7px;
@@ -17,13 +17,13 @@
 }
 
 .widget_review_status.widget_approved {
-    background: url("../images/tick_icon_small.png") no-repeat scroll left top transparent;
+    background: image-url("tick_icon_small.png") no-repeat scroll left top transparent;
 }
 
 .widget_review_status.widget_declined {
-    background: url("../images/exclamation_icon_small.png") no-repeat scroll left top transparent;
+    background: image-url("exclamation_icon_small.png") no-repeat scroll left top transparent;
 }
 
 .widget_review_status.widget_pending {
-    background: url("../images/pending_icon_small.png") no-repeat scroll left top transparent;
+    background: image-url("pending_icon_small.png") no-repeat scroll left top transparent;
 }

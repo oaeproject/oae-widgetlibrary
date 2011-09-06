@@ -1,7 +1,5 @@
 <% content_for :head do %>
-    <%= stylesheet_link_tag "index" %>
-    <%= javascript_include_tag "jquery.slides" %>
-    <%= javascript_include_tag "homecarousel" %>
+    <%= javascript_include_tag params[:controller] %>
 <% end %>
 
 <div class="wl-content-container" id="index_container">

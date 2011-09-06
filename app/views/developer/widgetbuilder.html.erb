@@ -1,5 +1,4 @@
 <% content_for :head do %>
-    <%= stylesheet_link_tag "widgetsdk" %>
     <%= javascript_include_tag "widgetbuilder" %>
 <% end %>
 
@@ -52,7 +51,7 @@
     <div class="wl-dialog-close jqmClose"></div>
     <h1 class="wl-dialog-header">Widget construction in progress</h1>
     <div id="widgetbuilder_loader" class="wl-inset-shadow-container">
-        <img src="../images/progress_bar.gif" alt="Progress bar"/>
+        <%= image_tag "progress_bar.gif", :alt => "Progress bar" %>
     </div>
     <div class="dialog_actions">
         <button class="wl-link-button jqmClose" type="button">Cancel</button>
