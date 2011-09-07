@@ -29,10 +29,16 @@
             }
         }
     }
+    .wl-page-container {
+        padding: 0 22px;
+    }
+    .wl-content-container {
+        padding-top: 0;
+        background: image-url("library_bg.png") repeat-x scroll center top transparent;
+    }
     .wl-widget-item {
         width:148px;
     }
-
     #submitwidget {
         margin-left: 10px;
     }

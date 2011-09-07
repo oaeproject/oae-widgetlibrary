@@ -1,10 +1,6 @@
-<div class="wl-content-container" id="library_container">
-    <div class="wl-content-710 wl-right wl-padding-15-0 wl-padding-0-10 " id="library_widgets">
-        <%= render :partial => "featured" %>
-        <%= render :partial => "pagewidgets/allcategories" %>
-    </div>
-    <div class="wl-content-185 wl-left wl-padding-15-0">
-        <%= render :partial => "pagewidgets/lhnavigation", :locals => {:display => {:nav_context => params[:controller]}} %>
-    </div>
+<div id="browse">
+    <%= render :partial => "featured" %>
+    <%= render :partial => "pagewidgets/allcategories" %>
+
     <hr class="wl-push wl-hidden"/>
 </div>

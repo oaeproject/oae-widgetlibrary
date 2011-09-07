@@ -2,25 +2,21 @@
 
 .browse {
     /* Library */
-    .wl-content-container#library_container {
+    .wl-content-container {
       background: image-url("library_bg.png") repeat-x scroll center top transparent;
       padding-top: 0;
     }
-
     .wl-page-container {
       padding: 0 22px 0;
     }
-
     #library_widgets {
       border-left: 1px solid #c4c4c4;
       @include box-shadow($h-shadow: -4px, $v-shadow: 4px, $blur: 7px, $spread: -4px, $color: #888, $outerinner: "");
       position: relative;
     }
-
     .wl-widget-item .wl-rating-container {
       clear: both;
     }
-
     .wl-widget-item {
       width: 148px;
       p {
@@ -29,7 +25,6 @@
         font-size: 12px;
       }
     }
-
     .wl-widget-item-container .wl-widget-item {
         width: 220px;
     }
