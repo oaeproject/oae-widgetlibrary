@@ -117,6 +117,13 @@ select {
   margin-top: 25px;
   padding-top: 20px; }
 
+.wl-content-right-container {
+    @include box-shadow($h-shadow: -4px, $v-shadow: 4px, $blur: 7px, $spread: -4px, $color: #888, $outerinner: "");
+    position: relative;
+    border-left: 1px solid #c4c4c4;
+    min-height:515px;
+}
+
 .wl-padding-15-0 {
   padding-top: 15px;
   padding-bottom: 15px; }
@@ -139,6 +146,78 @@ select {
 
 .wl-content-730 {
   width: 730px; }
+
+.wl-icon {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+/* Icons */
+.wl-button {    
+    .wl-icon {
+        float:right;
+        margin: -3px 0 0 7px;
+    }
+}
+
+.wl-button.wl-nopadding-button {
+    padding: 0 3px !important;
+}
+
+.wl-icon {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+.wl-message-icon {
+    background: image-url("button_message_icon_20x20.png") no-repeat top left transparent;
+}
+
+.wl-share-icon {
+    background: image-url("button_share_icon_20x20.png") no-repeat top left transparent;
+}
+
+.wl-requestconnection-icon {
+    background: image-url("button_requestconnection_icon_20x20.png") no-repeat top left transparent;
+}
+
+.wl-cogwheel-icon {
+    background: image-url("button_cogwheel_icon_20x20.png") no-repeat top left transparent;
+    float: left !important;
+    margin-left: 0 !important;
+}
+
+.wl-save-icon {
+    background: image-url("button_save_icon_20x20.png") no-repeat top left transparent;
+}
+
+.wl-saved-icon {
+    background: image-url("button_saved_icon_20x20.png") no-repeat top left transparent;
+}
+
+.wl-download-icon {
+    background: image-url("button_download_icon_20x20.png") no-repeat top left transparent;
+}
+
+.wl-connectionrequestsent-icon {
+    background: image-url("button_connectionrequestsent_icon_20x20.png") no-repeat top left transparent;
+}
+
+.wl-acceptconnectionrequest-icon {
+    background: image-url("button_acceptconnectionrequest_icon_20x20.png") no-repeat top left transparent;
+}
+
+.wl-connected-label {
+    display: inline-block;
+    line-height: 21px;
+    margin-left: 15px;
+    img {
+        float: left;
+        margin-right: 3px;
+    }
+}
 
 /* Inset Shadow containers*/
 .wl-inset-shadow-container {
@@ -164,6 +243,34 @@ select {
     .wl-number-of-ratings {
       margin-left: 7px;
     }
+}
+
+/* Tabs */
+.wl-inpage-tabs {
+    display:inline-block;
+}
+.wl-inpage-tab {
+    cursor: pointer;
+    border: 1px solid #bebdbd;
+    border-bottom:0;
+    @include border-radius($topLeft: 3px, $topRight: 3px, $bottomRight: 0, $bottomLeft: 0);
+    background: image-url("tab_bg.png") repeat-x scroll left top transparent;
+    float: left;
+    height: 29px;
+    line-height: 29px;
+    margin-right: 3px;
+    padding: 0 15px;
+    color:#2683bc;
+}
+.wl-inpage-tab.selected {
+    color:#666;
+    height:30px;
+    background: image-url("tab_selected_bg.png") repeat-x scroll left top transparent;
+    cursor:default;
+}
+.wl-inpage-tab-content {
+    border-top: 1px solid #bebdbd;
+    margin-top: -5px;
 }
 
 /* Small widget representation */
@@ -230,7 +337,7 @@ a.wl-button {
 }
 
 .wl-button.blue {
-    color: #2683bc;
+    color: #2683bc !important;
 }
 
 /* Link buttons */
@@ -262,7 +369,25 @@ a.wl-button {
 .wl-button.wl-link-button {
     color: #2683bc !important;
     line-height: 24px;
-    padding: 0 7px;
+    padding: 0 14px;
+}
+
+/* Dropdown button */
+.wl-dropdown-button {
+    color: #666  !important;
+    &:hover {
+        > div {
+            background: image-url("dropdownarrow_icon_hover.png") no-repeat top left transparent;
+            color: #666 !important;
+        }
+    }
+     > div {
+         width: 16px;
+         height: 16px;
+         margin-left: 7px;
+         float: right;
+         background: image-url("dropdownarrow_icon.png") no-repeat top left transparent;
+     }
 }
 
 /* Overlay buttons */
@@ -278,6 +403,7 @@ a.wl-button {
   color: #2683bc;
     &:hover {
       background: image-url("button_overlay_hover.png") repeat-x scroll left top transparent;
+      color: #999;
     }
 }
 
@@ -302,6 +428,27 @@ a.wl-button {
       background: image-url("button_large_hover.png") repeat-x scroll left top transparent;
       color: #999;
     }
+}
+
+/* Small in-page button*/
+.wl-button.wl-inpage-button {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #E0E3E5;
+    @include box-shadow($h-shadow: 0, $v-shadow: 0, $blur: 4px, $spread: -2px, $color: #a8a8a8, $outerinner: inset);
+    font-size: 10px;
+    font-weight: bold;
+    height: 23px;
+    padding: 0 5px;
+}
+
+.wl-inpage-button:hover {
+    background: image-url("button_inpage_hover.png") repeat-x left top #e9edf0;
+    color: #999;
+}
+
+.wl-inpage-button[disabled]:hover {
+    background: none repeat scroll 0 0 #FFFFFF;
+    color: #999;
 }
 
 /* Header buttons */

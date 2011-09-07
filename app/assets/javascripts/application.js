@@ -5,3 +5,5 @@
 //= require_self
 //= require navigation
 //= require useractions
+//= require widgetbuilder
+//= require newversion

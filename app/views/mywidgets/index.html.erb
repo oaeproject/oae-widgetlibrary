@@ -1,21 +1,15 @@
-<div class="wl-content-container" id="library_container">
-    <div class="wl-content-710 wl-right wl-padding-15-0 wl-padding-0-10 " id="library_widgets">
-        <div class="wl-widget-item-container" id="mywidgets_status">
-            <div id="mywidgets_approved">
-                <div id="mywidgets_status_icon"><h1></h1></div>
-                <p>Your widgets have been approved for publication on the Sakai OAE platform. Good stuff! We invite you to <a href="#" title="Submit a new widget" class="wl-regular-link">submit a new widget</a> to the Sakai OAE platform.</p>
-            </div>
-
-            <div id="mywidgets_declined" style="display:none;">
-                <div id="mywidgets_status_icon"><h1></h1></div>
-                <p>One or more of your submitted widgets has been declined for publication on the Sakai OAE platform. Please review the <a href="#" title="Suggested improvements" class="wl-regular-link">Suggested improvements</a> and resubmit to our approval process.</p>
-            </div>
+<div id="mywidgets">
+    <div class="wl-widget-item-container" id="mywidgets_status">
+        <div id="mywidgets_approved">
+            <div id="mywidgets_status_icon"><h1></h1></div>
+            <p>Your widgets have been approved for publication on the Sakai OAE platform. Good stuff! We invite you to <a href="#" title="Submit a new widget" class="wl-regular-link">submit a new widget</a> to the Sakai OAE platform.</p>
         </div>
-        <%= render :partial => "pagewidgets/allcategories" %>
+
+        <div id="mywidgets_declined" style="display:none;">
+            <div id="mywidgets_status_icon"><h1></h1></div>
+            <p>One or more of your submitted widgets has been declined for publication on the Sakai OAE platform. Please review the <a href="#" title="Suggested improvements" class="wl-regular-link">Suggested improvements</a> and resubmit to our approval process.</p>
+        </div>
     </div>
-    <div class="wl-content-185 wl-left wl-padding-15-0">
-        <%= render :partial => "pagewidgets/lhnavigation", :locals => {:display => {:nav_context => params[:controller]}} %>
-        <%= render :partial => "pagewidgets/submitwidget" %>
-    </div>
-    <hr class="wl-push wl-hidden"/>
+    <%= render :partial => "pagewidgets/allcategories" %>
 </div>
+<hr class="wl-push wl-hidden"/>

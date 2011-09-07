@@ -1,74 +1,64 @@
-<% content_for :head do %>
-    <%= javascript_include_tag "widgetbuilder" %>
-<% end %>
-
-<div class="wl-content-container" id="widgetsdk_container">
-    <div class="wl-content-710 wl-right wl-padding-15-0 wl-padding-0-10 " id="widgetsdk_content">
-        <h1>Widget template builder</h1>
-        <p>If you’re stuck on how tostart with the creation of your widget we have a couple of options to help you on your way:</p>
-        <%= form_tag("/zippedwidget", :method => "post", :id => "widgetbuilder_form") do %>
-            <div class="wl-widget-item first">
-                <h1>Widget creator</h1>
-                <p>Fill out the ‘name’ and a basic description of your widget below, selection one of the pre-defined categories and we’ll send you a skeleton framework of a widget with the correct structure into which you can add your code.</p>
-                <div class="widgetsdk_split_container">
-                    <h1>Widget name</h1>
-                    <input type="text" placeholder="(e.g. Grapher 202...)" id="widgetbuilder_title" name="widgetbuilder_title"/>
-                </div>
-                <div class="widgetsdk_split_container last">
-                    <h1>Select a category</h1>
-                    <label for="widgetbuilder_category">Category:</label>
-                    <select name="widgetbuilder_category" id="widgetbuilder_category_dropdown">
-                        <option value="">Games</option>
-                        <option value="">Quizzes</option>
-                        <option value="">Feeds, News  Blogging</option>
-                        <option value="">Social  Communication</option>
-                        <option value="">Video  images</option>
-                        <option value="">Graphing</option>
-                        <option value="" selected="selected">Utilities</option>
-                        <option value="">Other</option>
-                    </select>
-                </div>
-                <h1 class="wl-push">Add a description</h1>
-                <textarea placeholder="(e.g. Graph creation widget...)" id="widgetbuilder_description" name="widgetbuilder_description"></textarea>
-                <h1>Options</h1>
-                <div id="widgetbuilder_options">
-                    <input type="radio" name="widgetbuilder_skeletontype" id="widgetbuild_skeleton" value="skeleton" checked/><label for="widgetbuild_skeleton">Create a skeleton framework (no code, just the correct file structure)</label>
-                    <input type="radio" name="widgetbuilder_skeletontype" id="widgetbuild_example" value="helloworld"/><label for="widgetbuild_example">Create an example framework (code and the correct file structure)</label>
-                </div>
-                <hr class="wl-split-line"/>
-                <button type="button" class="wl-button wl-overlay-button" id="widgetbuilder_create">Create skeleton Widget</button>
-             </div>
-        </div>
+<div id="widgetbuilder" class="widgetsdk_container">
+    <h1>Widget template builder</h1>
+    <p>If you’re stuck on how tostart with the creation of your widget we have a couple of options to help you on your way:</p>
+    <%= form_tag("/zippedwidget", :method => "post", :id => "widgetbuilder_form") do %>
+        <div class="wl-widget-item first">
+            <h1>Widget creator</h1>
+            <p>Fill out the ‘name’ and a basic description of your widget below, selection one of the pre-defined categories and we’ll send you a skeleton framework of a widget with the correct structure into which you can add your code.</p>
+            <div class="widgetsdk_split_container">
+                <h1>Widget name</h1>
+                <input type="text" placeholder="(e.g. Grapher 202...)" id="widgetbuilder_title" name="widgetbuilder_title"/>
+            </div>
+            <div class="widgetsdk_split_container last">
+                <h1>Select a category</h1>
+                <label for="widgetbuilder_category">Category:</label>
+                <select name="widgetbuilder_category" id="widgetbuilder_category_dropdown">
+                    <option value="">Games</option>
+                    <option value="">Quizzes</option>
+                    <option value="">Feeds, News  Blogging</option>
+                    <option value="">Social  Communication</option>
+                    <option value="">Video  images</option>
+                    <option value="">Graphing</option>
+                    <option value="" selected="selected">Utilities</option>
+                    <option value="">Other</option>
+                </select>
+            </div>
+            <h1 class="wl-push">Add a description</h1>
+            <textarea placeholder="(e.g. Graph creation widget...)" id="widgetbuilder_description" name="widgetbuilder_description"></textarea>
+            <h1>Options</h1>
+            <div id="widgetbuilder_options">
+                <input type="radio" name="widgetbuilder_skeletontype" id="widgetbuild_skeleton" value="skeleton" checked/><label for="widgetbuild_skeleton">Create a skeleton framework (no code, just the correct file structure)</label>
+                <input type="radio" name="widgetbuilder_skeletontype" id="widgetbuild_example" value="helloworld"/><label for="widgetbuild_example">Create an example framework (code and the correct file structure)</label>
+            </div>
+            <hr class="wl-split-line"/>
+            <button type="button" class="wl-button wl-overlay-button" id="widgetbuilder_create">Create skeleton Widget</button>
+         </div>
     <% end %>
-
-    <div class="wl-content-185 wl-left wl-padding-15-0">
-        <%= render :partial => "pagewidgets/lhnavigation", :locals => {:display => {:nav_context => params[:controller]}} %>
-    </div>
     <hr class="wl-push wl-hidden"/>
-</div>
 
-<div id="widgetbuilder_widgetloading" class="wl-dialog wl-dialog-container">
-    <div class="wl-dialog-close jqmClose"></div>
-    <h1 class="wl-dialog-header">Widget construction in progress</h1>
-    <div id="widgetbuilder_loader" class="wl-inset-shadow-container">
-        <%= image_tag "progress_bar.gif", :alt => "Progress bar" %>
+    <div id="widgetbuilder_widgetloading" class="wl-dialog wl-dialog-container">
+        <div class="wl-dialog-close jqmClose"></div>
+        <h1 class="wl-dialog-header">Widget construction in progress</h1>
+        <div id="widgetbuilder_loader" class="wl-inset-shadow-container">
+            <%= image_tag "progress_bar.gif", :alt => "Progress bar" %>
+        </div>
+        <div class="dialog_actions">
+            <button class="wl-link-button jqmClose" type="button">Cancel</button>
+        </div>
     </div>
-    <div class="dialog_actions">
-        <button class="wl-link-button jqmClose" type="button">Cancel</button>
-    </div>
-</div>
 
-<div id="widgetbuilder_downloadwidget" class="wl-dialog wl-dialog-container">
-    <div class="wl-dialog-close jqmClose"></div>
-    <h1 class="wl-dialog-header">Widget construction completed</h1>
+    <div id="widgetbuilder_downloadwidget" class="wl-dialog wl-dialog-container">
+        <div class="wl-dialog-close jqmClose"></div>
+        <h1 class="wl-dialog-header">Widget construction completed</h1>
 
-    <p>Your widget framework is ready for you to download</p>
+        <p>Your widget framework is ready for you to download</p>
 
-    <div id="widgetbuilder_built" class="wl-inset-shadow-container">
-        <p id="widgetbuilder_built_name"></p>
-    </div>
-    <div class="dialog_actions">
-        <button class="wl-link-button jqmClose" type="button">Cancel</button>
-        <button class="wl-button wl-overlay-button" type="button" id="widgetbuilder_dodownloadwidget">Download</button>
+        <div id="widgetbuilder_built" class="wl-inset-shadow-container">
+            <p id="widgetbuilder_built_name"></p>
+        </div>
+        <div class="dialog_actions">
+            <button class="wl-link-button jqmClose" type="button">Cancel</button>
+            <button class="wl-button wl-overlay-button" type="button" id="widgetbuilder_dodownloadwidget">Download</button>
+        </div>
     </div>
 </div>
