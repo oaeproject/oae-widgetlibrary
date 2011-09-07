@@ -40,11 +40,7 @@ namespace :db do
       widget.ratings.each do |rating|
         total_stars += rating.stars
       end
-      if total_stars > 0
-        widget.average_rating = (widget.ratings.length / total_stars).round(1)
-      else
-        widget.average_rating = 0
-      end
+      widget.average_rating = (total_stars.to_f / widget.ratings.length.to_f).round(1)
       widget.icon = File.open(Dir.glob(File.join(Rails.root, 'test/sampledata/images', '*')).sample)
       widget.code = File.open(Dir.glob(File.join(Rails.root, 'test/sampledata/zip', '*')).sample)
       widget.save!
