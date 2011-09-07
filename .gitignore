@@ -5,7 +5,6 @@ tmp/
 .tmp*
 .project
 public/system
-<<<<<<< HEAD
 public/assets
 *.swp
 test_can_be_deleted/
