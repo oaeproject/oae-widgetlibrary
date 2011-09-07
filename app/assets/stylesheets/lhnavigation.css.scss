@@ -2,7 +2,9 @@
     h1 {
       color: #666;
       font-size: 16px;
-      margin-left: 12px;
+      margin: 0 0 9px 12px;
+      border-bottom:none;
+      padding: 0;
     }
     ul {
       list-style: none;
@@ -23,6 +25,14 @@
           }
           .wl-split-line {
               visibility: hidden;
+          }
+      }
+      li.selected_parent {
+          background: image-url("lhnav_selected_item_parent_bg.png") repeat-x scroll left top #909090;
+          font-weight: bold;
+          a {
+              color: #fff;
+              text-shadow: 0.09em 0.04em 1px #666666;
           }
       }
       li div {

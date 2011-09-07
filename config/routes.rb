@@ -1,5 +1,4 @@
 SakaiWidgetlibrary::Application.routes.draw do
-
   devise_for :users, :controllers => {:sessions => 'sessions'}, :skip => [:sessions] do
     post "/login" => "sessions#create", :as => :user_session
     get "/logout" => "devise/sessions#destroy", :as => :logout
@@ -12,7 +11,17 @@ SakaiWidgetlibrary::Application.routes.draw do
   match '/widget/:widget_title' => 'widget#show', :as => :widget
   match '/browse' => 'browse#index', :as => :browse
   match '/developer' => 'developer#index', :as => :developer
-  match '/developer/widgetbuilder' => 'developer#widgetbuilder'
+  match '/developer/developwidget' => 'developer#developwidget'
+  match '/developer/developwidget/widgetbuilder' => 'developer#widgetbuilder'
+  match '/developer/widgetdesignandstyle' => 'developer#widgetdesignandstyle'
+  match '/developer/widgetdesignandstyle/typography' => 'developer#typography'
+  match '/developer/widgetdesignandstyle/colorpalette' => 'developer#colorpalette'
+  match '/developer/widgetdesignandstyle/widgetexamples01' => 'developer#widgetexamples01'
+  match '/developer/widgetdesignandstyle/widgetexamples02' => 'developer#widgetexamples02'
+  match '/developer/widgetdesignandstyle/forms' => 'developer#forms'
+  match '/developer/widgetdesignandstyle/navigationalitems' => 'developer#navigationalitems'
+  match '/developer/widgetdesignandstyle/iconography' => 'developer#iconography'
+  match '/developer/widgetdesignandstyle/interactionmodels' => 'developer#interactionmodels'
   match '/developer/:developer_name' => 'developerdetails#index', :as => :developer_page
   match '/mywidgets' => 'mywidgets#index', :as => :mywidgets
   match 'submit' => 'submit#index'
