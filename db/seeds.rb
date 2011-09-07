@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+State.create(:title => "accepted")
+State.create(:title => "pending")
+State.create(:title => "declined")
