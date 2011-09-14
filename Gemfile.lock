@@ -118,6 +118,7 @@ GEM
       thor (~> 0.14.6)
     rake (0.9.2)
     rdoc (3.9.4)
+    recaptcha (0.3.1)
     ruby-debug-base19 (0.11.25)
       columnize (>= 0.3.1)
       linecache19 (>= 0.5.11)
@@ -168,6 +169,7 @@ DEPENDENCIES
   paperclip (~> 2.3)
   populator
   rails (= 3.1.0)
+  recaptcha
   ruby-debug19
   rubyzip
   sass-rails (~> 3.1.0)

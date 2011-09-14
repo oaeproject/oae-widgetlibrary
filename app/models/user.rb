@@ -13,4 +13,5 @@ class User < ActiveRecord::Base
                   :summary, :location, :avatar
 
   validates_presence_of :username, :first_name, :last_name
+  validates_uniqueness_of :username, :email
 end
