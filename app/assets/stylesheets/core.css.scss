@@ -159,10 +159,12 @@ select {
         float:right;
         margin: -3px 0 0 7px;
     }
-}
-
-.wl-button.wl-nopadding-button {
-    padding: 0 3px !important;
+    &.wl-button-tight {
+        padding:5px;
+    }
+    &.wl-nopadding-button {
+        padding: 0 3px !important;
+    }
 }
 
 .wl-icon {
