@@ -49,4 +49,12 @@ module ApplicationHelper
        "Vatican City", "Venezuela", "Vietnam", "Wallis and Futuna Islands",
        "Yemen Republic", "Yugoslavia", "Zambia", "Zimbabwe"], default)
   end
+
+  def urlize(str)
+    str.downcase.gsub(" ", "-").html_safe
+  end
+
+  def custom_ago(date)
+    date.strftime("%e %B")
+  end
 end

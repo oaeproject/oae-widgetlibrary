@@ -13,18 +13,20 @@ namespace :db do
       user.last_name          = Faker::Name.first_name
       user.info               = Faker::Lorem.sentence(20)
       user.summary            = Faker::Lorem.sentence(20)
-      user.occupation         = Faker::Lorem.words(2).join(' ')
+      user.occupation         = Faker::Lorem.words(2).collect!{|t| t.capitalize }.join(' ')
       user.homepage           = Faker::Internet.domain_name
       user.location           = Faker::Address.city
       user.encrypted_password = Faker::Lorem.words(1).join(' ')
       Widget.populate 4 do |widget|
-        widget.title          = Faker::Lorem.words(2).join(' ')
+        widget.title          = Faker::Lorem.words(2).collect!{|t| t.capitalize }.join(' ')
         widget.description    = Faker::Lorem.sentence(20)
-        widget.features       = Faker::Lorem.words(2).join(' ')
+        widget.features       = Faker::Lorem.words(5).collect!{|t| t.capitalize }.join(' ')
         widget.released_on    = Time.now
         Rating.populate ((rand*20).round+1) do |rating|
           rating.review       = Faker::Lorem.sentence(20)
-          rating.stars        = (rand*5).round
+          # Create a weighted array of ratings, so we get fewer 0 and 1 ratings, and more 4 and 5s
+          rating_arr = [0,0,1,1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5]
+          rating.stars        = rating_arr[(rand*rating_arr.length-1).round]
           rating.widget_id    = widget.id
           rating.user_id      = (rand*25).round
         end

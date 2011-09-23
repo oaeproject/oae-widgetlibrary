@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_attached_file :avatar, :styles => { :thumb => ["50x50!", :png], :medium => ["100x100!", :png], :large => ["800x800", :png] }
+  has_many :widgets
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
@@ -13,4 +14,8 @@ class User < ActiveRecord::Base
                   :summary, :location, :avatar
 
   validates_presence_of :username, :first_name, :last_name
+
+  def name
+    "#{self.first_name} #{self.last_name}"
+  end
 end

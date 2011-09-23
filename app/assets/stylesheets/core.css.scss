@@ -304,6 +304,7 @@ select {
   height: 78px;
     a.wl-widget-item_widgetname {
       display: block;
+      word-wrap:break-word;
     }
     .wl-widget-item-icon {
       height: 50px;
