@@ -232,13 +232,42 @@ select {
 .wl-rating-container {
   padding-top: 10px;
     .wl-rating-icon {
-      background: image-url("rating_icon.png") no-repeat scroll left -14px transparent;
-      width: 15px;
+      width: 80px;
       height: 15px;
       float: left;
     }
-    .wl-rating-icon.filled {
-      background: image-url("rating_icon.png") no-repeat left top transparent;
+    .wl-rating-icon.wl-rating-icon-0 {
+        background: url("ratings_icon_0.png") no-repeat top left transparent;
+    }
+    .wl-rating-icon.wl-rating-icon-05 {
+        background: url("ratings_icon_05.png") no-repeat top left transparent;
+    }
+    .wl-rating-icon.wl-rating-icon-10 {
+        background: url("ratings_icon_1.png") no-repeat top left transparent;
+    }
+    .wl-rating-icon.wl-rating-icon-15 {
+        background: url("ratings_icon_15.png") no-repeat top left transparent;
+    }
+    .wl-rating-icon.wl-rating-icon-20 {
+        background: url("ratings_icon_2.png") no-repeat top left transparent;
+    }
+    .wl-rating-icon.wl-rating-icon-25 {
+        background: url("ratings_icon_25.png") no-repeat top left transparent;
+    }
+    .wl-rating-icon.wl-rating-icon-30 {
+        background: url("ratings_icon_3.png") no-repeat top left transparent;
+    }
+    .wl-rating-icon.wl-rating-icon-35 {
+        background: url("ratings_icon_35.png") no-repeat top left transparent;
+    }
+    .wl-rating-icon.wl-rating-icon-40 {
+        background: url("ratings_icon_4.png") no-repeat top left transparent;
+    }
+    .wl-rating-icon.wl-rating-icon-45 {
+        background: url("ratings_icon_45.png") no-repeat top left transparent;
+    }
+    .wl-rating-icon.wl-rating-icon-50 {
+        background: url("ratings_icon_5.png") no-repeat top left transparent;
     }
     .wl-number-of-ratings {
       margin-left: 7px;

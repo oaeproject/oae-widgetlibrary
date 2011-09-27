@@ -1,16 +1,9 @@
 <div class="wl-rating-container">
-    <% widget.average_rating.to_i.times do %>
-      <div class="wl-rating-icon filled"></div>
-    <% end %>
-    <% (5-(widget.average_rating.to_i)).times do %>
-      <div class="wl-rating-icon"></div>
-    <% end %>
-    <% if !display.blank? %>
-      <% if display[:num_ratings] %>
+    <div class="wl-rating-icon wl-rating-icon-<%= round_to_fraction(widget.average_rating).to_s.delete(".") %>"></div>
+    <% if display[:num_ratings] %>
         <a href="#" class="wl-regular-link wl-number-of-ratings"><%= widget.ratings.length %> Ratings</a>
-      <% end %>
-      <% if display[:rate_widget] %>
+    <% end %>
+    <% if display[:rate_widget] %>
         <span>Rate this widget</span>
-      <% end %>
     <% end %>
 </div>
