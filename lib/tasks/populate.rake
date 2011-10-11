@@ -41,12 +41,12 @@ namespace :db do
         total_stars += rating.stars
       end
       widget.average_rating = (total_stars.to_f / widget.ratings.length.to_f).round(1)
-      widget.icon = File.open(Dir.glob(File.join(Rails.root, 'test/sampledata/images', '*')).sample)
+      widget.icon = File.open(Dir.glob(File.join(Rails.root, 'test/sampledata/images', "#{1+rand(10)}.png")).sample)
       widget.code = File.open(Dir.glob(File.join(Rails.root, 'test/sampledata/zip', '*')).sample)
       widget.save!
     end
     User.all.each do |user|
-      user.avatar = File.open(Dir.glob(File.join(Rails.root, 'test/sampledata/images', '*')).sample)
+      user.avatar = File.open(Dir.glob(File.join(Rails.root, 'test/sampledata/images', "#{1+rand(10)}.png")).sample)
       user.save!
     end
   end

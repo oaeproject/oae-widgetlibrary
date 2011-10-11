@@ -18,7 +18,7 @@ end
 
 Factory.define :screenshot do |f|
   f.association :widget
-  f.image fixture_file_upload(Rails.root.to_s + '/test/fixtures/test.png', 'image/png')
+  f.image fixture_file_upload(Rails.root.to_s + '/test/fixtures/1.png', 'image/png')
 end
 
 Factory.define :state do |f|
@@ -31,7 +31,7 @@ Factory.define :user do |f|
   f.first_name "User"
   f.last_name "One"
   f.email "user1@example.com"
-  f.avatar fixture_file_upload(Rails.root.to_s + '/test/fixtures/test.png', 'image/png')
+  f.avatar fixture_file_upload(Rails.root.to_s + '/test/fixtures/1.png', 'image/png')
 end
 
 Factory.define :widget do |f|
@@ -40,8 +40,8 @@ Factory.define :widget do |f|
   f.features "warmth, fuzziness"
   f.average_rating 5.0
   f.association :state
-  f.icon fixture_file_upload(Rails.root.to_s + '/test/fixtures/test.png', 'image/png')
-  f.code fixture_file_upload(Rails.root.to_s + '/test/fixtures/test.png.zip', 'application/zip')
+  f.icon fixture_file_upload(Rails.root.to_s + '/test/fixtures/1.png', 'image/png')
+  f.code fixture_file_upload(Rails.root.to_s + '/test/fixtures/1.png.zip', 'application/zip')
   f.after_create { |w| Factory(:rating, :widget => w) }
   f.after_create { |w| Factory(:screenshot, :widget => w) }
 end
