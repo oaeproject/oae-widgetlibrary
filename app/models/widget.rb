@@ -3,6 +3,7 @@ class Widget < ActiveRecord::Base
   has_attached_file :code
 
   belongs_to :state
+  belongs_to :user
   has_many :ratings
   has_many :screenshots
   has_and_belongs_to_many :categories

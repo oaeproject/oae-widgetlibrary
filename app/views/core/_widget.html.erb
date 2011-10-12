@@ -3,22 +3,22 @@
         <div class="widget_review_status widget_approved"></div>
     <% end %>
     <%= image_tag "default_widget_icon.png", :class => "wl-widget-item-icon" %>
-    <%= link_to "Yahoo Weather", widget_path({:widget_title => "yahoo_weather"}), :title => "Yahoo Weather", :class => "wl-regular-link wl-bold wl-widget-item_widgetname" %>
+    <%= link_to truncate(widget.title, :length => 23, :omission => "..."), widget_path({:widget_title => urlize(widget.title)}), :class => "wl-regular-link wl-bold wl-widget-item_widgetname" %>
     <% if !display.blank? %>
       <% if display[:added] %>
-          <span>added 3 August</span>
+          <span>added <%= custom_ago(widget.created_at) %></span>
           <% end %>
       <% if display[:author] %>
-          <span>by <%= link_to "Bert Pareyn", developer_page_path({:developer_name => "bp323"}), :title => "by Bert Pareyn", :class => "wl-regular-link" %></span>
+          <span>by <%= link_to widget.user.name, developer_page_path({:developer_name => urlize(widget.user.name)}), :class => "wl-regular-link" %></span>
       <% end %>
       <% if display[:rating] %>
-          <%= render :partial => "pagewidgets/rating", :locals => {:display => {:num_ratings => display[:num_ratings]}} %>
+          <%= render :partial => "pagewidgets/rating", :locals => { :display => display, :widget => widget } %>
       <% end %>
-      <% if display[:users] %>
+      <% if false # if display[:users] %>
           <a href="#" title="65 users" class="wl-regular-link wl-number-of-users">65 users</a>
-      <% end %>
+      <% end # end %>
       <% if display[:desc] %>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Curabitur blandit tempus porttitor. Maecenas faucibus...</p>
+          <p><%= widget.description %></p>
       <% end %>
     <% end %>
 </div>

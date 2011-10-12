@@ -1,7 +1,5 @@
 <div id="widgetlibrary_recentlyadded" class="wl-inset-shadow-container wl-content-145">
     <h1>Recently Added</h1>
-    <% 5.times do %>
-        <%= render :partial => "core/widget", :locals => {:display => {:added => true}} %>
-    <% end %>
+    <%= render :partial => "core/widget", :locals => {:display => {:added => true}}, :collection => @recentlyadded %>
     <hr class="wl-push wl-hidden">
 </div>
