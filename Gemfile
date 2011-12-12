@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0'
+gem 'rails', '3.1.3'
 
 # Use jQuery instead of Prototype
 gem 'jquery-rails'
@@ -42,7 +42,7 @@ end
 
 # Assets for Rails 3.1
 group :assets do
-  gem 'sass-rails', "  ~> 3.1.0"
+  gem 'sass-rails', "  ~> 3.1.5"
   gem 'uglifier'
   gem 'yui-compressor'
 end
