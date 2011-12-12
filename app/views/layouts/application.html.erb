@@ -9,7 +9,7 @@
 </head>
 <body class="<%= "#{params[:controller].gsub("/", "_")} #{params[:action]}" %>">
 
-<%= render :partial => "core/useractions" %>
+<%= render :partial => "core/useractions", :locals => {:show => show_login} %>
 
 <div class="wl-page-container wl-centered">
     <div class="wl-container-shadow-left"></div>

@@ -1,17 +1,22 @@
+<% content_for :head do %>
+    <%= javascript_include_tag "registrations" %>
+<% end %>
 <div class="wl-content-container" id="register_container">
     <h1>Register as a developer and submit your own widgets to Sakai</h1>
     <div class="wl-inset-shadow-container">
         <h1>Create new account</h1>
-        <%= devise_error_messages! %>
-        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true } ) do |f| %>
+        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true }, :remote => true ) do |f| %>
             <div class="account_labels">
                 <%= f.label :first_name %>
                 <%= f.label :last_name %>
                 <%= f.label :email %>
             </div>
             <div class="account_inputfields">
+                <div id="user_first_name_error" class="error_msg" style="display:none"></div>
                 <%= f.text_field :first_name %>
+                <div id="user_last_name_error" class="error_msg" style="display:none"></div>
                 <%= f.text_field :last_name %>
+                <div id="user_email_error" class="error_msg" style="display:none"></div>
                 <%= f.email_field :email %>
             </div>
             <div class="account_labels">
@@ -20,11 +25,15 @@
                 <%= f.label :password_confirmation, "Re-Type Password" %>
             </div>
             <div class="account_inputfields">
+                <div id="user_username_error" class="error_msg" style="display:none"></div>
                 <%= f.text_field :username %>
+                <div id="user_password_error" class="error_msg" style="display:none"></div>
                 <%= f.password_field :password %>
+                <div id="user_password_confirmation_error" class="error_msg" style="display:none"></div>
                 <%= f.password_field :password_confirmation %>
             </div>
-            <a target="_blank" class="wl-button wl-header-button" href="#">Check if username is available</a>
+            <button class="wl-button wl-header-button wl-button-tight" id="check_username" type="button">Check if username is available</button>
+            <div id="check_username_result"></div>
             <hr class="wl-push wl-hidden"/>
             <hr class="wl-split-line full-line wl-push register_form_splitter"/>
 
@@ -51,13 +60,18 @@
                 <div>
                     <%= f.select :location, country_options %>
                     <%= f.text_field :occupation, :id => "occupation", :placeholder => "(Student/Developer/...)" %>
+                    <div id="user_homepage_error" class="error_msg" style="display:none"></div>
                     <%= f.text_field :homepage, :id => "homepage", :placeholder => "http://www.example.org"  %>
                 </div>
             </div>
 
             <hr class="wl-push wl-hidden"/>
             <hr class="wl-split-line full-line wl-push register_form_splitter"/>
-            <div class="register_column1"></div><div id="captcha"></div>
+            <div class="register_column1"></div>
+            <div id="user_recaptcha_container">
+                <div id="user_recaptcha_error" class="error_msg" style="display:none"></div>
+                <div id="user_recaptcha"><%= recaptcha_tags :display => {:theme => "clean"} %></div>
+            </div>
             <button class="wl-button wl-large-button" type="submit" id="create_account_button">Create account</button>
         <% end %>
         <hr class="wl-push wl-hidden"/>
