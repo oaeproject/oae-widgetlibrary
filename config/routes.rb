@@ -1,4 +1,5 @@
 SakaiWidgetlibrary::Application.routes.draw do
+
   devise_for :users, :controllers => {:sessions => 'sessions'}, :skip => [:sessions] do
     post '/login' => 'sessions#create', :as => :user_session
     get '/logout' => 'devise/sessions#destroy', :as => :logout
@@ -10,7 +11,9 @@ SakaiWidgetlibrary::Application.routes.draw do
   end
 
   match '/widget/:widget_title' => 'widget#show', :as => :widget
+
   match '/browse' => 'browse#index', :as => :browse
+
   match '/developer' => 'developer#index', :as => :developer
   match '/developer/developwidget' => 'developer#developwidget'
   match '/developer/developwidget/widgetbuilder' => 'developer#widgetbuilder'
@@ -23,9 +26,13 @@ SakaiWidgetlibrary::Application.routes.draw do
   match '/developer/widgetdesignandstyle/navigationalitems' => 'developer#navigationalitems'
   match '/developer/widgetdesignandstyle/iconography' => 'developer#iconography'
   match '/developer/widgetdesignandstyle/interactionmodels' => 'developer#interactionmodels'
+
   match '/developer/:developer_name' => 'developerdetails#index', :as => :developer_page
+
   match '/mywidgets' => 'mywidgets#index', :as => :mywidgets
+
   match 'submit' => 'submit#index'
+
   match '/zippedwidget' => 'widget_generator#zippedwidget'
   root :to => "home#index"
 

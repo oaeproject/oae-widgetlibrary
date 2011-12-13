@@ -12,7 +12,7 @@
           <span>by <%= link_to widget.user.name, developer_page_path({:developer_name => urlize(widget.user.name)}), :class => "wl-regular-link" %></span>
       <% end %>
       <% if display[:rating] %>
-          <%= render :partial => "pagewidgets/rating", :locals => { :display => display, :widget => widget } %>
+          <%= render :partial => "pagewidgets/rating", :locals => { :display => display, :stars => widget.average_rating, :num_ratings => widget.ratings.size } %>
       <% end %>
       <% if false # if display[:users] %>
           <a href="#" title="65 users" class="wl-regular-link wl-number-of-users">65 users</a>

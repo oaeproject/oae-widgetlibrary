@@ -19,4 +19,9 @@ class User < ActiveRecord::Base
   def name
     "#{self.first_name} #{self.last_name}"
   end
+
+  def self.find_by_name(name)
+    name = name.split("-")
+    self.first(:conditions => ["lower(first_name) = ? AND lower(last_name) = ? ", name[0], name[1]])
+  end
 end

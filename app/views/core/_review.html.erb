@@ -1,5 +1,5 @@
 <div class="widget_review">
-    <a href="#" title="Cara McMann" class="wl-regular-link wl-bold">Cara McMann</a>
-    <p>"Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet."</p>
-    <%= render :partial => "pagewidgets/rating" %>
+    <a href="#" title="Cara McMann" class="wl-regular-link wl-bold"><%= review.user.name %></a>
+    <p>"<%= review.review %>"</p>
+    <%= render :partial => "pagewidgets/rating", :locals => { :stars => review.stars, :display => { :rate_widget => false } } %>
 </div>

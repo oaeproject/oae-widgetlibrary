@@ -1,6 +1,7 @@
 class WidgetController < ApplicationController
   def show
-    wiget_name = params[:widget_name]
+    widget_title = params[:widget_title]
+    @widget = Widget.find_by_title(widget_title)
   end
 
   def new

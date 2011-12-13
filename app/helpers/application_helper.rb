@@ -13,8 +13,13 @@ module ApplicationHelper
     date.strftime("%e %B")
   end
 
-  def round_to_fraction(number,fraction = 0.5)
+  def round_to_fraction(number, fraction = 0.5)
     multiplier = 1.0 / fraction
     (multiplier*number).round / multiplier
   end
+
+  def get_rating(stars)
+    round_to_fraction(stars).to_s.delete(".")
+  end
+
 end

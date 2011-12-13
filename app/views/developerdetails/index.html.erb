@@ -22,7 +22,7 @@
                 <div class="developer_details_left">No. of Widgets Developed:</div><div class="developer_details_right">7 Sakai Widgets</div>
                 <hr class="wl-split-line wl-push">
                 <div class="developer_details_left">Average rating for their Widgets:</div><div class="developer_details_right">
-                    <%= render :partial => "pagewidgets/rating" %>
+                    <%= render :partial => "pagewidgets/rating", :locals => {:stars => 5, :display => {} }  %>
                 </div>
                 <hr class="wl-split-line wl-push">
             </div>
@@ -31,9 +31,7 @@
     <hr class="wl-push wl-hidden">
     <div id="developer_widgetsbydeveloper" class="wl-inset-shadow-container">
         <h1>Widgets by this developer</h1>
-        <% 5.times do %>
-            <%= render :partial => "core/widget", :locals => {:display => {:rating => true, :author => true, :num_ratings => true}} %>
-        <% end %>
+        <%= render :partial => "core/widget", :locals => {:display => {:rating => true, :author => true, :num_ratings => true}}, :collection => @widgets %>
         <hr class="wl-push wl-hidden">
     </div>
 </div>

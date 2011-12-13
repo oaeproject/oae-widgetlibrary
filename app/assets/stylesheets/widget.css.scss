@@ -84,14 +84,6 @@
          display: inline-block;
          float: left;
          padding-top:3px;
-        .wl-rating-icon {
-          background: image-url("rating_icon_large.png") no-repeat scroll left -21px transparent !important;
-          width: 23px;
-          height: 21px;
-        }
-        .wl-rating-icon.filled {
-         background: image-url("rating_icon_large.png") no-repeat left top transparent !important;
-        }
     }
     #widget_average_rating {
         display: block;
@@ -132,13 +124,6 @@
     margin-top: 20px;
     .wl-rating-container {
         padding-top:5px;
-        .wl-rating-icon {
-            background: image-url("rating_icon_grey.png") no-repeat scroll left -16px transparent;
-            margin-right:2px;
-        }
-        .wl-rating-icon.filled {
-            background: image-url("rating_icon_grey.png") no-repeat scroll left top transparent;
-        }
     }
     #widgetdetails_tabs {
         display:inline-block;
