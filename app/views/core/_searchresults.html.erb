@@ -1,0 +1,11 @@
+<div id="search_widgets_results_container">
+    <ul>
+      <%= render :partial => 'core/searchresult', :collection => @searchresults.first(10), :as => :widget %>
+    </ul>
+</div>
+<div id="search_widgets_results_bottom_container">
+    <% if @searchresults.size > 0 %>
+    <a href="/browse?q=<%= params[:q] %>" class="wl-button wl-overlay-button">View all results</a>
+    <% end %>
+    <span id="search_widgets_results_bottom_content"><%= @searchresults.size %> results</span>
+</div>

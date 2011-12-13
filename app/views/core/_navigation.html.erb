@@ -1,18 +1,10 @@
 <nav id="widgetlibrary_navigation">
     <div id="search_widgets_search_results">
-        <input id="search_widgets" type="text" placeholder="Search Widget name / Category / Type..."/>
+        <form id="search_widgets_search_form" method="post" data-remote="true" action="/search" accept-charset="UTF-8">
+            <input id="search_widgets" type="text" placeholder="Search Widget name / Category / Type..."/>
+        </form>
         <div id="search_widgets_results" style="display:none;">
-            <div id="search_widgets_results_container">
-                <ul>
-                    <% 9.times do %>
-                        <%= render :partial => "core/searchresult" %>
-                    <% end %>
-                </ul>
-            </div>
-            <div id="search_widgets_results_bottom_container">
-                <a href="/browse" class="wl-button wl-overlay-button">View all results</a>
-                <span id="search_widgets_results_bottom_content">9 results</span>
-            </div>
+
         </div>
     </div>
 

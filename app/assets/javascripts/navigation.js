@@ -52,7 +52,20 @@ var handleEnterKeyInSearch = function() {
  * @param {String} val Search value from input field
  */
 var doSearch = function(val){
-    $(searchResults).show();
+    $.ajax({
+        type: 'POST',
+        url: "/search",
+        data: {
+            "q": $("#search_widgets").val()
+        },
+        success: function(data, success){
+            if(success){
+                $("#search_widgets_results").html(data);
+                $(searchResults).show();
+            }
+            return false;
+        }
+    });
 };
 
 

@@ -31,7 +31,9 @@ SakaiWidgetlibrary::Application.routes.draw do
 
   match '/mywidgets' => 'mywidgets#index', :as => :mywidgets
 
-  match 'submit' => 'submit#index'
+  match '/submit' => 'submit#index'
+
+  match '/search' => "application#search"
 
   match '/zippedwidget' => 'widget_generator#zippedwidget'
   root :to => "home#index"
