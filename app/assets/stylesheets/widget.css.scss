@@ -50,6 +50,10 @@
     }
 }
 
+#widget_container #widget_description_container {
+    min-height: 260px;
+}
+
 #widget_container #widget_description {
   width: 400px;
   overflow: hidden;
@@ -61,6 +65,7 @@
       color: #666;
       font-size: 23px;
       margin: 0;
+      text-transform: capitalize;
         #widget_version {
           font-size: 13px;
         }
@@ -84,6 +89,14 @@
          display: inline-block;
          float: left;
          padding-top:3px;
+         div {
+             width:120px;
+             height:23px;
+         }
+         a {
+             display: inline-block;
+             padding-top: 3px;
+         }
     }
     #widget_average_rating {
         display: block;
@@ -231,7 +244,7 @@
             }
         }
     }
-    #widgetdetails_uploadedversions {
+    #widgetdetails_versions {
         font-size:12px;
         color:#666;
         #widgetdetails_uploadedversions_headerline {

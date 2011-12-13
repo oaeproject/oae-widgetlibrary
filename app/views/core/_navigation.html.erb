@@ -15,8 +15,6 @@
         <li class="navigation_item<% if params[:controller].eql?("mywidgets")%> selected<% end %>"><%= link_to "My Widgets", mywidgets_path, :title => "My Widgets" %></li>
         <% end %>
         <li class="navigation_item<% if params[:controller].eql?("developer") || params[:controller].eql?("developerdetails") %> selected<% end %>"><%= link_to "Developer", developer_path, :title => "Developer" %></li>
-        <% if user_signed_in? %>
         <li class="navigation_item<% if params[:controller].eql?("submit") %> selected<% end %>"><%= link_to "Submit", "/submit", :title => "Submit" %></li>
-        <% end %>
     </ul>
 </nav>

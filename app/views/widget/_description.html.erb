@@ -1,39 +1,31 @@
-<h1 class="widget_accepted_header" style="display:none;">Your Widget has been accepted!</h1>
-<h1 class="widget_declined_header">Your Widget has been declined, please read the '<a href="#" class="wl-regular-link" title="Steps needed to improve the widget">Steps needed to improve the widget</a>' before resubmition</h1>
-<hr class="wl-split-line"/>
+<div id="widget_description_container">
+    <h1 class="widget_accepted_header" style="display:none;">Your Widget has been accepted!</h1>
+    <h1 class="widget_declined_header" style="display:none;">Your Widget has been declined, please read the '<a href="#" class="wl-regular-link" title="Steps needed to improve the widget">Steps needed to improve the widget</a>' before resubmission</h1>
+    <hr class="wl-split-line" style="display:none;"/>
 
-<div id="widget_download">
-    <%= image_tag "widget_small_preview.jpg", :alt => "#{@widget} preview" %>
-    <a target="_blank" class="wl-button wl-header-button" href="#">Download</a>
-</div>
-<div id="widget_description">
-    <h1 class="wl-bold">Activity Plus <span id="widget_version">v3.0</span></h1>
-    by <%= link_to "James Johnson", developer_page_path({:developer_name => "jj"}), :title => "by James Johnson", :class => "wl-regular-link" %>
-    <p>A+ adds additional functionality to an already popular Sakai widget. Just few taps and your activity chart is ready. You can save it for later or email immediately.</p>
-    <ul>
-        <li>supports rotation,</li>
-        <li>add new slices (up to 12),</li>
-        <li>move slices on a chart in slice settings,</li>
-        <li>change slice size,</li>
-        <li>rotate whole chart, just swipe your finger next to chart border,</li>
-        <li>skew and scale chart in real time,</li>
-        <li>save for later, in chart settings, chart is saved with date and chart name.</li>
-    </ul>
-</div>
-<div id="widget_details">
-    <div>
-        <%= render :partial => "pagewidgets/rating", :locals => { :stars => @widget.average_rating, :num_ratings => @widget.ratings.size, :display => { :num_ratings => true } } %>
-        <hr class="wl-push wl-hidden"/>
-    </div>
-    <hr class="wl-split-line wl-push"/>
-    <h1>Information</h1>
-    <ul>
-        <li><div>Category:</div><div><a href="#" title="Social + Communication" class="wl-regular-link">Social + Communication</a></div></li>
-        <li><div>Collection:</div><div><a href="#" title="Maths course, Presentation" class="wl-regular-link">Maths course, Presentation</a></div></li>
-        <li><div>Developer:</div><div><a href="#" title="James Johnson" class="wl-regular-link">James Johnson</a></div></li>
-        <li><div>Used by:</div><div><a href="#" title="13 Institutions" class="wl-regular-link">13 Institutions</a></div></li>
-        <li><div>Language:</div><div>English, French</div></li>
-        <li><div>Released:</div><div>12 July 2011</div></li>
-    </ul>
+  <div id="widget_download">
+      <%= image_tag @widget.icon.url, :alt => "#{@widget.title} preview" %>
+      <a target="_blank" class="wl-button wl-header-button" href="/system/codes/<%= @widget.id %>/original/<%= @widget.code_file_name %>">Download</a>
+  </div>
+  <div id="widget_description">
+      <h1 class="wl-bold"><%= @widget.title %> <span id="widget_version"></span></h1>
+      by <%= link_to @widget.user.name, developer_page_path({:developer_name => urlize(@widget.user.name)}), :title => "by #{@widget.user.name}", :class => "wl-regular-link" %>
+      <p><%= @widget.description %></p>
+  </div>
+  <div id="widget_details">
+      <div>
+          <%= render :partial => "pagewidgets/rating", :locals => { :stars => @widget.average_rating, :num_ratings => @widget.ratings.size, :display => { :num_ratings => true } } %>
+          <hr class="wl-push wl-hidden"/>
+      </div>
+      <hr class="wl-split-line wl-push"/>
+      <h1>Information</h1>
+      <ul>
+          <li><div>Category:</div><div><a href="#" title="Social + Communication" class="wl-regular-link">Social + Communication</a></div></li>
+          <li><div>Developer:</div><div><a href="#" title="James Johnson" class="wl-regular-link"><%= link_to @widget.user.name, developer_page_path({:developer_name => urlize(@widget.user.name)}), :title => "by #{@widget.user.name}", :class => "wl-regular-link" %></a></div></li>
+          <li><div>Used by:</div><div><a href="#" title="13 Institutions" class="wl-regular-link">13 Institutions</a></div></li>
+          <li><div>Language:</div><div>English, French</div></li>
+          <li><div>Released:</div><div><%= @widget.released_on.strftime("%B %e, %Y") %></div></li>
+      </ul>
+  </div>
 </div>
 <hr class="wl-push wl-hidden"/>

@@ -7,3 +7,4 @@
 //= require useractions
 //= require widgetbuilder
 //= require newversion
+//= require widget
