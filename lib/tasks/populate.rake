@@ -22,27 +22,37 @@ namespace :db do
         widget.description    = Faker::Lorem.sentence(20)
         widget.features       = Faker::Lorem.words(5).collect!{|t| t.capitalize }.join(' ')
         widget.released_on    = Time.now
-        Rating.populate ((rand*20).round+1) do |rating|
+        num_ratings = rand(20) + 1
+        ratings = []
+        count = 1
+        seed = rand(25) + 1
+        Rating.populate (num_ratings) do |rating|
           rating.review       = Faker::Lorem.sentence(20)
           # Create a weighted array of ratings, so we get fewer 0 and 1 ratings, and more 4 and 5s
-          rating_arr = [0,0,1,1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5]
+          rating_arr          = [0,0,1,1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5]
           rating.stars        = rating_arr[(rand*rating_arr.length-1).round]
           rating.widget_id    = widget.id
-          rating.user_id      = (rand*25).round
+          rating.user_id      = ((seed + count) % 25) + 1
+          time = Time.now - rand(50000000)
+          rating.created_at   = time
+          rating.updated_at   = time
+          ratings.push(rating)
+          count += 1
         end
-        widget.state_id       = (rand*2).round
+        total_stars = 0
+        ratings.each do |rating|
+          total_stars += rating.stars
+        end
+        widget.average_rating = total_stars.to_f / num_ratings.to_f
+        widget.state_id       = rand(2) + 1
         widget.user_id        = user.id
-        widget.created_at     = Time.now
-        widget.updated_at     = Time.now
+        time                  = Time.now - rand(50000000)
+        widget.created_at     = time
+        widget.updated_at     = time
       end
     end
 
     Widget.all.each do |widget|
-      total_stars = 0
-      widget.ratings.each do |rating|
-        total_stars += rating.stars
-      end
-      widget.average_rating = (total_stars.to_f / widget.ratings.length.to_f).round(1)
       widget.icon = File.open(Dir.glob(File.join(Rails.root, 'test/sampledata/images', "#{1+rand(10)}.png")).sample)
       widget.code = File.open(Dir.glob(File.join(Rails.root, 'test/sampledata/zip', '*')).sample)
       widget.save!
