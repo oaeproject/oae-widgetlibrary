@@ -3,9 +3,13 @@
     <div id="footer_menu">
         <%= link_to "Home", root_path, :title => "Home", :class => "wl-regular-link wl-bold" %>
         <%= link_to "Browse", browse_path, :title => "Browse", :class => "wl-regular-link wl-bold" %>
+        <% if user_signed_in? %>
         <%= link_to "My Widgets", mywidgets_path, :title => "My Widgets", :class => "wl-regular-link wl-bold" %>
+        <% end %>
         <%= link_to "Developer", developer_path, :title => "Developer", :class => "wl-regular-link wl-bold" %>
+        <% if user_signed_in? %>
         <%= link_to "Submit", submit_path, :title => "Submit", :class => "wl-regular-link wl-bold" %>
+        <% end %>
     </div>
     <p><strong>Open Academic Environment</strong></p>
     <p>&copy; The Sakai Foundation <span id="footer_date_end">2011</span> All rights reserved
