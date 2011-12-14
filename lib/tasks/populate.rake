@@ -21,7 +21,8 @@ namespace :db do
         widget.title          = Faker::Lorem.words(2).collect!{|t| t.capitalize }.join(' ')
         widget.description    = Faker::Lorem.sentence(20)
         widget.features       = Faker::Lorem.words(5).collect!{|t| t.capitalize }.join(' ')
-        widget.released_on    = Time.now
+        released_on = Time.now - rand(50000000)
+        widget.released_on    = released_on
         num_ratings = rand(20) + 1
         ratings = []
         count = 1
@@ -30,10 +31,10 @@ namespace :db do
           rating.review       = Faker::Lorem.sentence(20)
           # Create a weighted array of ratings, so we get fewer 0 and 1 ratings, and more 4 and 5s
           rating_arr          = [0,0,1,1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5]
-          rating.stars        = rating_arr[(rand*rating_arr.length-1).round]
+          rating.stars        = rating_arr[rand(rating_arr.length-1)]
           rating.widget_id    = widget.id
           rating.user_id      = ((seed + count) % 25) + 1
-          time = Time.now - rand(50000000)
+          time = released_on - rand(50000000)
           rating.created_at   = time
           rating.updated_at   = time
           ratings.push(rating)
@@ -55,6 +56,12 @@ namespace :db do
     Widget.all.each do |widget|
       widget.icon = File.open(Dir.glob(File.join(Rails.root, 'test/sampledata/images', "#{1+rand(10)}.png")).sample)
       widget.code = File.open(Dir.glob(File.join(Rails.root, 'test/sampledata/zip', '*')).sample)
+      rand(4).times do
+        screenshot = Screenshot.new
+        screenshot.image = File.open(Dir.glob(File.join(Rails.root, 'test/sampledata/screenshots', "#{1+rand(9)}.png")).sample)
+        screenshot.widget_id = widget.id
+        screenshot.save!
+      end
       widget.save!
     end
     User.all.each do |user|

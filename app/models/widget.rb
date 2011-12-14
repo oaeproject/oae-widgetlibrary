@@ -8,6 +8,7 @@ class Widget < ActiveRecord::Base
   has_many :screenshots
   has_and_belongs_to_many :categories
   has_and_belongs_to_many :languages
+  accepts_nested_attributes_for :screenshots
 
   # Validations
   validates_attachment_presence :icon

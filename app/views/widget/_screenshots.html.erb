@@ -1,0 +1,12 @@
+<% if @widget.screenshots.size > 0 %>
+  <%= image_tag @widget.screenshots[0].image.url(:medium), :alt => "#{@widget.title} Screenshot", :id => "widgetdetails_main_screenshot" %>
+  <div id="widgetdetails_screenshots_thumbs">
+    <% @widget.screenshots.each_index do |i| %>
+      <div class="widgetdetails_screenshots_thumb">
+          <% cssclass = if i.eql? 0 then "selected" else "" end %>
+          <%= image_tag @widget.screenshots[i].image.url(:thumb), :alt => "#{@widget.title} Screenshot", :class => cssclass, "data-large-src" => @widget.screenshots[i].image.url(:medium) %>
+          <div></div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

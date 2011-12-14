@@ -1,11 +1,17 @@
+<% has_screenshots = @widget.screenshots.size > 0 %>
 <div id="widgetdetails_container">
     <div class="wl-inpage-tabs">
+      <% if has_screenshots %>
       <div class="wl-inpage-tab selected" id="screenshot_tab">Screenshots</div>
       <div class="wl-inpage-tab" id="reviews_tab">Reviews</div>
       <div class="wl-inpage-tab" id="versions_tab">Uploaded versions</div>
+      <% else %>
+      <div class="wl-inpage-tab selected" id="reviews_tab">Reviews</div>
+      <div class="wl-inpage-tab" id="versions_tab">Uploaded versions</div>
+      <% end %>
     </div>
     <div class="wl-inpage-tab-content">
-        <div id="widgetdetails_screenshots" class="widgetdetails_tabcontent_content">
+        <div id="widgetdetails_screenshots" class="widgetdetails_tabcontent_content"<% if !has_screenshots %>style="display:none"<% end %>>
             <div id="widgetdetails_newestreviews">
                 <h1>Latest reviews</h1>
                 <%= render :partial => "core/review", :locals => { :display => { :rate_widget => true } }, :collection => @widget.ratings.limit(3) %>
@@ -14,25 +20,11 @@
             </div>
 
             <div id="widgetdetails_screenshot_container">
-                <%= image_tag "widget_screenshot1.png", :alt => "Activity Plus Screenshot", :id => "widgetdetails_main_screenshot" %>
-                <div id="widgetdetails_screenshots_thumbs">
-                    <div class="widgetdetails_screenshots_thumb">
-                        <%= image_tag "widget_screenshot_small1.png", :alt => "Activity Plus Screenshot", :class => "selected" %>
-                        <div></div>
-                    </div>
-                    <div class="widgetdetails_screenshots_thumb">
-                        <%= image_tag "widget_screenshot_small2.png", :alt => "Activity Plus Screenshot" %>
-                        <div></div>
-                    </div>
-                    <div class="widgetdetails_screenshots_thumb">
-                        <%= image_tag "widget_screenshot_small3.png", :alt => "Activity Plus Screenshot" %>
-                        <div></div>
-                    </div>
-                </div>
+              <%= render :partial => "screenshots" %>
             </div>
         </div>
 
-        <div id="widgetdetails_reviews" class="widgetdetails_tabcontent_content" style="display:none;">
+        <div id="widgetdetails_reviews" class="widgetdetails_tabcontent_content" <% if has_screenshots %>style="display:none;"<% end %>>
             <div id="widgetdetails_reviews_review_widget">
                 <h1>Review this widget</h1>
                 <textarea></textarea>
