@@ -11,6 +11,7 @@ namespace :db do
       user.username           = Faker::Internet.user_name
       user.first_name         = Faker::Name.first_name
       user.last_name          = Faker::Name.first_name
+      user.name               = "#{user.first_name} #{user.last_name}"
       user.info               = Faker::Lorem.sentence(20)
       user.summary            = Faker::Lorem.sentence(20)
       user.occupation         = Faker::Lorem.words(2).collect!{|t| t.capitalize }.join(' ')
