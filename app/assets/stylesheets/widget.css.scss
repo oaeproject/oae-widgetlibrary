@@ -64,7 +64,8 @@
     h1 {
       color: #666;
       font-size: 23px;
-      margin: 0;
+      line-height: 1em;
+      margin: 0 0 10px 0;
       text-transform: capitalize;
         #widget_version {
           font-size: 13px;
@@ -112,10 +113,17 @@
         li {
             clear:both;
             padding: 2px 0;
-        }
-        li div:first-child {
-            float:left;
-            width:100px;
+            span {
+                padding:2px 0px;
+                float:left;
+
+                &:first-child {
+                    width:100px;
+                }
+            }
+            ul {
+                float:left;
+            }
         }
     }
     .wl-split-line {

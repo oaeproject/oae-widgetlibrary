@@ -13,6 +13,7 @@ SakaiWidgetlibrary::Application.routes.draw do
   match '/widget/:widget_title' => 'widget#show', :as => :widget
 
   match '/browse' => 'browse#index', :as => :browse
+  match '/browse/:category_title' => 'browse#index', :as => :category
 
   match '/developer' => 'developer#index', :as => :developer
   match '/developer/developwidget' => 'developer#developwidget'

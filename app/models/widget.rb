@@ -16,7 +16,4 @@ class Widget < ActiveRecord::Base
   validates_attachment_content_type :code, :content_type => [ 'application/zip', 'application/x-zip', 'application/x-zip-compressed', 'application/octet-stream', 'application/x-compress', 'application/x-compressed', 'multipart/x-zip' ],
                                     :message => 'file must be a .zip file'
 
-  def self.find_by_title(title)
-    self.first(:conditions => ["lower(title) = ?", title.gsub("-", " ")])
-  end
 end

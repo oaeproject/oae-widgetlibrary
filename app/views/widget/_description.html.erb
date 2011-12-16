@@ -20,11 +20,27 @@
       <hr class="wl-split-line wl-push"/>
       <h1>Information</h1>
       <ul>
-          <li><div>Category:</div><div><a href="#" title="Social + Communication" class="wl-regular-link">Social + Communication</a></div></li>
-          <li><div>Developer:</div><div><a href="#" title="James Johnson" class="wl-regular-link"><%= link_to @widget.user.name, developer_page_path({:developer_name => u(@widget.user.name)}), :title => "by #{@widget.user.name}", :class => "wl-regular-link" %></a></div></li>
-          <li><div>Used by:</div><div><a href="#" title="13 Institutions" class="wl-regular-link">13 Institutions</a></div></li>
-          <li><div>Language:</div><div>English, French</div></li>
-          <li><div>Released:</div><div><%= @widget.released_on.strftime("%B %e, %Y") %></div></li>
+          <% if @widget.categories.size > 0 %>
+          <li><span>Categories:</span>
+            <ul>
+              <% @widget.categories.each do |category| %>
+                <li><%= link_to category.title, category_path({:category_title => category.title}), :class => "wl-regular-link" %></li>
+              <% end %>
+            </ul>
+          </li>
+          <% end %>
+          <li><span>Developer:</span><span><%= link_to @widget.user.name, developer_page_path({:developer_name => u(@widget.user.name)}), :title => "by #{@widget.user.name}", :class => "wl-regular-link" %></span></li>
+          <% if @widget.languages.size > 0 %>
+          <li>
+            <span>Languages:</span>
+              <ul>
+                <% @widget.languages.each do |language| %>
+                  <li><%= language.title %></li>
+                <% end %>
+              </ul>
+          </li>
+          <% end %>
+          <li><span>Released:</span><span><%= @widget.released_on.strftime("%B %e, %Y") %></span></li>
       </ul>
   </div>
 </div>
