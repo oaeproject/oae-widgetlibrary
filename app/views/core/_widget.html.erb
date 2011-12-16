@@ -3,7 +3,7 @@
         <div class="widget_review_status widget_approved"></div>
     <% end %>
     <%= image_tag widget.icon, :class => "wl-widget-item-icon" %>
-    <%= link_to truncate(widget.title, :length => 23, :omission => "..."), widget_path({:widget_title => urlize(widget.title)}), :class => "wl-regular-link wl-bold wl-widget-item_widgetname" %>
+    <%= link_to truncate(widget.title, :length => 23, :omission => "..."), widget_path({:widget_title => u(widget.title)}), :class => "wl-regular-link wl-bold wl-widget-item_widgetname" %>
     <% if !display.blank? %>
       <% if display[:added] %>
           <span>added <%= custom_ago(widget.created_at) %></span>
