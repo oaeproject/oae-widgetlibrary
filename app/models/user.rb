@@ -11,17 +11,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, 
                   :remember_me, :username, :first_name, 
                   :last_name, :info, :homepage, :occupation,
-                  :summary, :location, :avatar
+                  :summary, :location, :avatar, :name
 
   validates_presence_of :username, :first_name, :last_name
   validates_uniqueness_of :username, :email
-
-  def name
-    "#{self.first_name} #{self.last_name}"
-  end
-
-  def self.find_by_name(name)
-    name = name.split("-")
-    self.first(:conditions => ["lower(first_name) = ? AND lower(last_name) = ? ", name[0], name[1]])
-  end
 end
