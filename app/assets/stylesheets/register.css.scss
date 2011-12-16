@@ -81,22 +81,27 @@
     }
 
     .register_column2, .register_column3 {
-        margin-left:25px;
-        width:340px;
+        width:407px;
         float:left;
     }
 
+    .register_column3 {
+        margin-left:25px;
+    }
+
     .register_column1 {
-        width:110px;
         min-height:20px;
-        float:left;
+        .wl-button{
+            margin-bottom: 20px;
+        }
         a.wl-button{
-            margin-top: 5px;
             color:#2683BC;
             width: 85px;
+            margin-top: 5px;
         }
         img {
             border:1px solid #dbdada;
+            display:block
         }
     }
 
@@ -153,7 +158,7 @@
             width:441px;
             height:108px;
             float:left;
-            margin:0 20px 0 25px;
+            margin-right: 25px;
             border: 1px solid #D4D4D4;
             .recaptchatable {
                 border:0 !important;
