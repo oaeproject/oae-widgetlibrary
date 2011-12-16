@@ -24,6 +24,9 @@ gem 'cancan'
 # Use reCAPTCHA
 gem "recaptcha", :require => "recaptcha/rails"
 
+# Platforms without a native javascript interpreter can use this ruby one
+gem 'therubyracer', :platforms => :ruby
+
 group :test, :development do
   # Use factory_girl as a fixtures replacement
   gem "factory_girl_rails"
