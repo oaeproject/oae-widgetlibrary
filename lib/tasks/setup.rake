@@ -7,6 +7,7 @@ namespace :setup do
     end
     Rake::Task["db:drop"].invoke
     Rake::Task["db:setup"].invoke
+    Rake::Task["db:seed"].invoke
     Rake::Task["db:populate"].invoke
   end
 end
