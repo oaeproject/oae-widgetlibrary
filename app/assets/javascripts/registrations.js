@@ -1,10 +1,13 @@
 $(function() {
 
+    // Classes
+    var wlError = "wl-error";
+
     // Reset all the errors on a new submit of the form
     $("#user_new").live("submit", function(){
-        $(".error").removeClass("error");
-        $(".error_msg").text("").hide();
-        $("#check_username_result").removeClass("available").removeClass("unavailable").text("");
+        $("span." + wlError).text("").hide();
+        $("." + wlError).removeClass(wlError);
+        $("#check_username_result").removeClass("available unavailable").text("");
     });
 
     // Handle the return for the user registration form
@@ -15,12 +18,12 @@ $(function() {
         } else if (data.errors) {
             // otherwise, display the error labels
             $.each(data.errors, function(key, error) {
-                $("#user_" +  key).addClass("error");
-                $("label[for='user_" + key + "']").addClass("error");
+                $("#user_" + key).addClass(wlError);
+                $("label[for='user_" + key + "']").addClass(wlError);
                 if (key === "user_password") {
-                    $("label[for='user_" + key + "_confirmation']").addClass("error_half");
+                    $("label[for='user_" + key + "_confirmation']").addClass(wlError);
                 }
-                $("#user_" +  key + "_error").text(error[0]).show();
+                $("#user_" +  key + "_error").text(error[0]).addClass(wlError).show();
                 // Always reload the recaptcha
                 Recaptcha.reload();
             });
@@ -40,7 +43,7 @@ $(function() {
                         if (data.user_found === true) {
                             classToAdd = "unavailable";
                         }
-                        $("#check_username_result").removeClass("available").removeClass("unavailable").addClass(classToAdd).text(text);
+                        $("#check_username_result").removeClass("available unavailable").addClass(classToAdd).text(text);
                     }
                 }
             });

@@ -43,7 +43,6 @@
     .account_inputfields, .account_labels {
         float:left;
         width:210px;
-        line-height: 31px;
     }
 
     .account_labels {
@@ -56,18 +55,31 @@
         }
     }
 
-    .account_inputfields input {
-        height: 16px;
-        margin-bottom: 5px;
-        width: 180px;
-    }
+    .account_inputfields{
+        input {
+            height: 16px;
+            margin-bottom: 5px;
+            width: 180px;
+        }
+        span.wl-error {
+            width: 180px;
+        }
+    } 
 
     .account_inputfields input:first-child {
         margin-top:2px;
     }
 
-    .account_inputfields input, .account_labels label {
+    .account_inputfields input {
         display:block;
+    }
+
+    .account_labels label {
+        display:block;
+        margin-top: 6px;
+        &.wl-error {
+            margin-top: 33px;
+        }
     }
 
     .register_column1, .register_column2, .register_column3 {
@@ -151,8 +163,7 @@
     #user_recaptcha_container {
         float:left;
         #user_recaptcha_error {
-            margin-left:25px;
-            width:433px;
+            width:431px;
         }
         #user_recaptcha {
             width:441px;
@@ -171,29 +182,6 @@
         }
     }
 
-    .error {
-        border:1px solid #fbb800 !important;
-    }
-    label {
-        &.error {
-            margin-top:26px;
-            border:0 !important;
-        }
-        &.error_half {
-            margin-top:13px;
-        }
-    }
-
-    .error_msg {
-        background-color:#fbb800;
-        color:#666;
-        padding:5px;
-        width:182px;
-        line-height:13px;
-        &.big {
-            width:443px;
-        }
-    }
     #create_account_button {
         margin-top:65px;
     }
