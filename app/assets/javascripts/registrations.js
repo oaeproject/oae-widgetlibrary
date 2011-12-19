@@ -6,7 +6,7 @@ $(function() {
     // Reset all the errors on a new submit of the form
     $("#user_new").live("submit", function(){
         $("span." + wlError).text("").hide();
-        $("." + wlError).removeClass(wlError);
+        $("label."  + wlError + ", input." + wlError).removeClass(wlError);
         $("#check_username_result").removeClass("available unavailable").text("");
     });
 
@@ -23,7 +23,7 @@ $(function() {
                 if (key === "user_password") {
                     $("label[for='user_" + key + "_confirmation']").addClass(wlError);
                 }
-                $("#user_" +  key + "_error").text(error[0]).addClass(wlError).show();
+                $("#user_" +  key + "_error").text(error[0]).show();
                 // Always reload the recaptcha
                 Recaptcha.reload();
             });
