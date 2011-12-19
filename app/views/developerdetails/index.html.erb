@@ -31,7 +31,7 @@
     <hr class="wl-push wl-hidden">
     <div id="developer_widgetsbydeveloper" class="wl-inset-shadow-container">
         <h1>Widgets by this developer</h1>
-        <%= render :partial => "core/widget", :locals => {:display => {:rating => true, :author => true, :num_ratings => true}}, :collection => @widgets %>
+        <%= render :partial => "core/widget", :locals => {:display => {:rating => true, :author => true, :num_ratings => true, :allowlongertitle => true}}, :collection => @widgets %>
         <hr class="wl-push wl-hidden">
     </div>
 </div>
