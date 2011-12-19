@@ -8,3 +8,4 @@
 //= require widgetbuilder
 //= require newversion
 //= require widget
+//= require developer

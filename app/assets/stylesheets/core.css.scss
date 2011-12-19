@@ -513,6 +513,11 @@ a.wl-button.wl-header-button {
   display: inline-block;
 }
 
+/* Link buttons */
+.wl-link-button {margin:0;padding:0;background: none repeat scroll 0 0 transparent;border: medium none;color:#2683bc;font-family: Arial,Helvetica,sans-serif;font-size:13px;display: inline-block;text-align:left;font-size:11px;}
+.wl-link-button:hover {cursor:pointer;text-decoration:none;color:#999;}
+.wl-link-button::-moz-focus-inner {padding:0;margin:0;border:0;}
+
 
 /***********/
 /* DIALOGS */
@@ -577,10 +582,28 @@ a.wl-button.wl-header-button {
     }
 }
 
-/* Link buttons */
-.wl-link-button {margin:0;padding:0;background: none repeat scroll 0 0 transparent;border: medium none;color:#2683bc;font-family: Arial,Helvetica,sans-serif;font-size:13px;display: inline-block;text-align:left;font-size:11px;}
-.wl-link-button:hover {cursor:pointer;text-decoration:none;color:#999;}
-.wl-link-button::-moz-focus-inner {padding:0;margin:0;border:0;}
+/* Video overlay */
+#videocontent_overlay_container {
+     width: 636px;
+     height: 375px;
+     background-color: #efefef;
+     z-index: 1001;
+     margin: 0pt auto;
+     position: fixed;
+     @include border-radius($topLeft: 3px, $topRight: 3px, $bottomRight: 3px, $bottomLeft: 3px);
+     @include box-shadow($h-shadow: 0, $v-shadow: 0, $blur: 40px, $spread: 0, $color: #222, $outerinner: "");
+     padding: 7px;
+}
+
+#videocontent_overlay {
+    width: 100%;
+    background-color: #000;
+    z-index: 1000;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    opacity: 0.6;
+}
 
 
 /****************/
