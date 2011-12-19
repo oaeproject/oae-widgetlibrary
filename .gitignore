@@ -9,3 +9,4 @@ public/assets
 *.swp
 test_can_be_deleted/
 .sass-cache/
+.DS_Store

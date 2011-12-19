@@ -26,7 +26,7 @@ var handleArrowKeyInSearch = function(up) {
             next = 0;
         if ($(searchResults).find("li.selected").length) {
             currentIndex = $(searchResults).find("li").index($(searchResults).find("li.selected")[0]);
-            next = up ? (currentIndex - 1 >= 0 ? currentIndex-1 : -1) : (currentIndex + 1 >= $(searchResults).find("li").length ? $(searchResults).find("li").length-1 : currentIndex +1);
+            next = up ? (currentIndex - 1 >= 0 ? currentIndex-1 : $(searchResults).find("li").length - 1) : (currentIndex + 1 >= $(searchResults).find("li").length ? 0 : currentIndex +1);
             $(searchResults).find("li.selected").removeClass("selected");
         }
         if (next !== -1) {
@@ -77,9 +77,9 @@ var doSearch = function(val){
  * Add binding to various elements
  */
 var addBinding = function(){
-    $(searchInput).live("keyup", function(evt){
+    $(searchInput).live("keyup", function(ev){
         var val = $.trim($(this).val());
-        if (val !== "" && evt.keyCode !== 16 && val !== lastSearchVal) {
+        if (val !== "" && ev.which !== $.ui.keyCode.SHIFT && val !== lastSearchVal) {
             if (searchTimeout) {
                 clearTimeout(searchTimeout);
             }
@@ -93,15 +93,15 @@ var addBinding = function(){
         }
     });
 
-    $(searchInput).live("keydown", function(evt){
+    $(searchInput).live("keydown", function(ev){
         var val = $.trim($(this).val());
         // 40 is down, 38 is up, 13 is enter
-        if (evt.keyCode === 40 || evt.keyCode === 38) {
-            handleArrowKeyInSearch(evt.keyCode === 38);
-            evt.preventDefault();
-        } else if (evt.keyCode === 13) {
+        if (ev.which === $.ui.keyCode.DOWN || ev.which === $.ui.keyCode.UP) {
+            handleArrowKeyInSearch(ev.which === $.ui.keyCode.UP);
+            ev.preventDefault();
+        } else if (ev.which === $.ui.keyCode.ENTER) {
             handleEnterKeyInSearch();
-            evt.preventDefault();
+            ev.preventDefault();
         }
     });
 };
