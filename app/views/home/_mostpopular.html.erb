@@ -1,6 +1,6 @@
 <div id="widgetlibrary_mostpopular" class="wl-inset-shadow-container wl-content-710">
     <h1>Most Popular</h1>
-    <%= render :partial => "core/widget", :locals => {:display => {:rating => true, :author => true, :num_ratings => true, :allowlongertitle => true}}, :collection => @mostpopular %>
+    <%= render :partial => "core/widget", :locals => {:display => {:rating => true, :author => true, :num_ratings => true, :title_length => "medium"}}, :collection => @mostpopular %>
     <hr class="wl-push wl-hidden"/>
     <button class="wl-button wl-large-button" id="show_more">Show more</button>
 </div>

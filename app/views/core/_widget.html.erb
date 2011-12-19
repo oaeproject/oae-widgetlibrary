@@ -5,9 +5,9 @@
     <%= image_tag widget.icon, :class => "wl-widget-item-icon" %>
 
     <% if !display.blank? %>
-        <% if display[:allowlongesttitle] %>
+        <% if display[:title_length] === "long"%>
             <%= link_to truncate(widget.title, :length => 50, :omission => "..."), widget_path({:widget_title => u(widget.title)}), :class => "wl-regular-link wl-bold wl-widget-item_widgetname", :title => widget.title %>
-        <% elsif display[:allowlongertitle] %>
+        <% elsif display[:title_length] === "medium"%>
             <%= link_to truncate(widget.title, :length => 25, :omission => "..."), widget_path({:widget_title => u(widget.title)}), :class => "wl-regular-link wl-bold wl-widget-item_widgetname", :title => widget.title %>
         <% else %>
             <%= link_to truncate(widget.title, :length => 13, :omission => "..."), widget_path({:widget_title => u(widget.title)}), :class => "wl-regular-link wl-bold wl-widget-item_widgetname", :title => widget.title %>
