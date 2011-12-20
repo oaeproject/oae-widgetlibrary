@@ -27,7 +27,7 @@
             <li <% if params[:action].eql?("developwidget")%>class="selected"  <% elsif ["learnbasics", "codingstandards", "quickdev", "fulldev", "widgetbuilder"].include?(params[:action])%>class="selected_parent"<% end %>><div><a href="/developer/developwidget" title="How to develop a widget">How to develop a widget</a></div></li>
 
             <ul class="subnav">
-                <li <% if params[:action].eql?("learnbasics")%>class="selected"<% end %>><div><a href="#" title="Learn the basics, 'Hello World' tutorial">Learn the basics, 'Hello World' tutorial</a><hr class="wl-split-line"/></div></li>
+                <li <% if params[:action].eql?("learnbasics")%>class="selected"<% end %>><div><a href="/developer/developwidget/learnbasics" title="Learn the basics, 'Hello World' tutorial">Learn the basics, 'Hello World' tutorial</a><hr class="wl-split-line"/></div></li>
                 <li <% if params[:action].eql?("codingstandards")%>class="selected"<% end %>><div><a href="#" title="Coding standards">Coding standards</a><hr class="wl-split-line"/></div></li>
                 <li <% if params[:action].eql?("quickdev")%>class="selected"<% end %>><div><a href="#" title="Quick development environment setup">Quick development environment setup</a><hr class="wl-split-line"/></div></li>
                 <li <% if params[:action].eql?("fulldev")%>class="selected"<% end %>><div><a href="#" title="Full development environment setup">Full development environment setup</a><hr class="wl-split-line"/></div></li>

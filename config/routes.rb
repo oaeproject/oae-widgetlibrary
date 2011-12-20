@@ -17,6 +17,7 @@ SakaiWidgetlibrary::Application.routes.draw do
 
   match '/developer' => 'developer#index', :as => :developer
   match '/developer/developwidget' => 'developer#developwidget'
+  match '/developer/developwidget/learnbasics' => 'developer#learnbasics'
   match '/developer/developwidget/widgetbuilder' => 'developer#widgetbuilder'
   match '/developer/widgetdesignandstyle' => 'developer#widgetdesignandstyle'
   match '/developer/widgetdesignandstyle/typography' => 'developer#typography'
