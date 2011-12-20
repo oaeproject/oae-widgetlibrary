@@ -10,6 +10,9 @@
     }
 }
 
+.navigationalitems_codesnippit_container.few_lines {
+    background: image-url("codesnippet_bg.png") repeat-x left center #f1f5f9;
+}
 .navigationalitems_codesnippit_container{
     border: 1px solid #c7cfd5;
     padding-bottom: 15px;
@@ -156,6 +159,13 @@
             padding-left: 0;
         }
     }
+}
+
+.widgetsdk_header_icon_text {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 10px 0 0 12px;
 }
 
 #widgetbuilder_widgetloading, #widgetbuilder_downloadwidget {
