@@ -6,6 +6,7 @@
 var dropdownMenu = ".wl-dropdown-menu";
 var loginFieldsContainer = "#useractions_login_fields";
 var loginFieldsContainerInput = "#useractions_login_fields input";
+var loginFieldsContainerInputTextPassword = "#useractions_login_fields input[type=text], #useractions_login_fields input[type=password]";
 
 // Elements
 var signingInLabel = "#useractions_login_button_signing_in";
@@ -15,6 +16,7 @@ var useractions_login_error = "#useractions_login_error";
 
 // Classes
 var formHasFocus = "form_has_focus";
+var wlError = "wl-error";
 
 var formOpened = false;
 
@@ -42,21 +44,37 @@ var toggleLoginButtons = function(doLogin){
 ////////////////////
 
 /**
+ * Remove Errors
+ */
+var removeErrors = function() {
+    $(useractions_login_error).hide();
+    $(loginFieldsContainerInputTextPassword).removeClass(wlError);
+};
+
+/**
+ * Show Errors
+ */
+var showErrors = function() {
+    $(useractions_login_error).show();
+    $(loginFieldsContainerInputTextPassword).addClass(wlError);
+};
+
+/**
  * Add binding to various elements
  */
 var addBinding = function(){
     $(loginForm).live("submit", function(){
-        $(useractions_login_error).hide();
+        removeErrors();
         toggleLoginButtons(true);
     });
 
     $(loginForm).live('ajax:success', function() {
-        $(useractions_login_error).hide();
+        removeErrors();
         document.location = document.location;
     });
 
     $(loginForm).live('ajax:error', function() {
-        $(useractions_login_error).show();
+        showErrors();
         toggleLoginButtons(false);
     });
 

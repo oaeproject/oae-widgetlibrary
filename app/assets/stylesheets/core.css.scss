@@ -538,10 +538,32 @@ a.wl-button.wl-header-button {
   display: inline-block;
 }
 
+
 /* Link buttons */
 .wl-link-button {margin:0;padding:0;background: none repeat scroll 0 0 transparent;border: medium none;color:#2683bc;font-family: Arial,Helvetica,sans-serif;font-size:13px;display: inline-block;text-align:left;font-size:11px;}
 .wl-link-button:hover {cursor:pointer;text-decoration:none;color:#999;}
 .wl-link-button::-moz-focus-inner {padding:0;margin:0;border:0;}
+
+
+/* Errors */
+.wl-form-field-wrapper{
+    input.wl-error,
+    textarea.wl-error,
+    input.wl-error-after,
+    textarea.wl-error-after,
+    div.wl-error {
+        border:3px solid #cc0000 !important;
+    }
+
+    span.wl-error {
+        background-color:#cc0000;
+        border:3px solid #cc0000;
+        color:#fff;
+        clear:both;
+        display: block;
+        padding: 0 5px;
+    }
+}
 
 
 /***********/
@@ -729,9 +751,6 @@ textarea {
             margin-top: 0;
             position: absolute;
             z-index: 11000;
-            #useractions_login_error {
-                color:red;
-            }
             #useractions_login_button_login {
                 float:right;
             }
@@ -760,14 +779,25 @@ textarea {
 }
 .wl-dropdown-menu-content-container {
     margin:0;
-    padding: 10px 7px;
+    padding: 2px 7px 10px;
     display:block;
     background-color: #F3F3F3;
     color:#666;
     @include border-radius($topLeft: 2px, $topRight: 2px, $bottomRight: 2px, $bottomLeft: 2px);
     input[type=text], input[type=password] {
         width:94%;
-        margin: 5px 0 9px;
+    }
+    label {
+        display: block;
+        clear: both;
+        margin: 7px 0 5px;
+    }
+    .useractions_forgot_username {
+        display: block;
+        margin-top: 10px;
+    }
+    .wl-error {
+        width: 170px !important;
     }
 }
 .wl-dropdown-container {
