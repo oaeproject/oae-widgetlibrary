@@ -104,6 +104,7 @@
     /****************/
     #widgetlibrary_mostpopular .wl-widget-item a.wl-widget-item_widgetname {
       font-size: 12px;
+      overflow:hidden;
     }
 
     #widgetlibrary_mostpopular .wl-widget-item .wl-rating-container {
@@ -142,6 +143,7 @@
       padding: 8px;
       .wl-rating-container {
           clear: none;
+          padding-top:7px;
       }
     }
 
