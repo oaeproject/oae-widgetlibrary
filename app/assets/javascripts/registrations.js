@@ -6,7 +6,7 @@ $(function() {
     // Reset all the errors on a new submit of the form
     $("#user_new").live("submit", function(){
         $("span." + wlError).text("").hide();
-        $("label."  + wlError + ", input." + wlError).removeClass(wlError);
+        $("label."  + wlError + ", input." + wlError + ", div." + wlError).removeClass(wlError);
         $("#check_username_result").removeClass("available unavailable").text("");
     });
 
