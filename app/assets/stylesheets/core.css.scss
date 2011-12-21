@@ -35,8 +35,21 @@ h1 {
   margin: 0 0 9px 0;
 }
 
+h4 {
+    font-size: 14px;
+}
+
+h5 {
+    font-size: 12px;
+    margin: 10px 0 7px;
+}
+
 .wl-bold {
   font-weight: bold;
+}
+
+.wl-normal {
+    font-weight: normal;
 }
 
 .wl-push {
@@ -64,6 +77,10 @@ h1 {
   text-decoration: none
 }
 
+.wl-regular-link.no_decoration:hover {
+    text-decoration: none;
+}
+
 .wl-regular-link:hover {
   text-decoration: underline;
 }
@@ -88,6 +105,10 @@ select {
 
 .indent {
     margin: 10px 0 10px 16px !important;
+}
+
+.wl-margin-right-15 {
+    margin-right: 15px;
 }
 
 /* Main container*/
