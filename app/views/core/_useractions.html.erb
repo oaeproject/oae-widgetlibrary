@@ -11,18 +11,17 @@
                 <li <% if params[:controller].eql?("register")%>class="selected"<% end %>><a href="/register" title="Register">Register</a></li>|
                 <li class="wl-dropdown-menu"><a href="javascript:;" title="Sign In"><div id="useractions_arrow_down"></div>Sign In</a>
                     <div class="wl-dropdown-container" id="useractions_login_fields" style="display:none;">
-                        <%= form_tag(user_session_path, :method => "POST", :id => "useractions_login_form", :remote => true) do%>
+                        <%= form_tag(user_session_path, :method => "POST", :id => "useractions_login_form", :class => "wl-form-field-wrapper", :remote => true) do%>
                             <div class="wl-dropdown-menu-content-container" id="useractions_login_fields_container">
-                                <div style="display:none;" id="useractions_login_error">
-                                    <div id="useractions_login_error_icon"></div>
-                                    <span>Invalid Username or Password</span>
-                                </div>
                                 <%= hidden_field_tag "user[remember_me]", 1 %>
                                 <%= label_tag "user[username]", "Username" %>
+                                <div style="display:none;" id="useractions_login_error">
+                                    <span class="wl-error">Invalid Username or Password</span>
+                                </div>
                                 <%= text_field_tag "user[username]", nil, :class => "login-container-textfield" %>
                                 <%= label_tag "user[password]", "Password" %>
                                 <%= text_field_tag "user[password]", nil, :class => "login-container-textfield", :type => "password" %>
-                                <span>Forgot your <a href="javascript:;" class="wl-regular-link" title="Forgotten your Username or Password?">username or password?</a></span>
+                                <span class="useractions_forgot_username">Forgot your <a href="javascript:;" class="wl-regular-link" title="Forgotten your Username or Password?">username or password?</a></span>
                                 <hr class="wl-split-line wl-push">
                                 <%= submit_tag "Sign in", :name => "commit", :id => "useractions_login_button_login", :class => "wl-button wl-overlay-button" %>
                                 <span style="display:none;" id="useractions_login_button_signing_in">Signing In ...</span>
