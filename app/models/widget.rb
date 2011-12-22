@@ -22,4 +22,19 @@ class Widget < ActiveRecord::Base
                                     :message => 'file must be a .zip file'
 
   validates_as_image :icon
+
+
+  def self.find_accepted(args = {})
+    conditions = args[:conditions] || {}
+    order = args[:order] || "created_at desc"
+    limit = args[:limit] || nil
+
+    conditions[:state_id] = State.where(:title => "accepted").first.id
+
+    if limit
+      Widget.where(conditions).order(order).limit(limit)
+    else
+      Widget.where(conditions).order(order)
+    end
+  end
 end

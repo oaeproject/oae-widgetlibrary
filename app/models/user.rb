@@ -15,4 +15,21 @@ class User < ActiveRecord::Base
 
   validates_presence_of :username, :first_name, :last_name
   validates_uniqueness_of :username, :email
+
+  def widgets
+    Widget.find_accepted(:conditions => { :user_id => self.id })
+  end
+
+  def widget_average_rating
+    rating = 0.0
+    widgets = Widget.find_accepted(:conditions => { :user_id => self.id })
+    if widgets.size > 0
+      widgets.each do |widget|
+        rating += widget.average_rating
+      end
+      rating.to_f / widgets.size.to_f
+    else
+      rating
+    end
+  end
 end

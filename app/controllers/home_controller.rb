@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
-    @recentlyadded = Widget.order("created_at desc").limit(5)
-    @toprated = Widget.order("average_rating desc").limit(5)
-    @mostpopular = Widget.limit(16)
+    @recentlyadded = Widget.find_accepted(:order => "released_on desc", :limit => 5)
+    @toprated = Widget.find_accepted(:order => "average_rating desc", :limit => 5)
+    @mostpopular = Widget.find_accepted(:order => "random()", :limit => 16)
   end
 end

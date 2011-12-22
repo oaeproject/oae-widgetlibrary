@@ -18,7 +18,7 @@
 
     <% if !display.blank? %>
       <% if display[:added] %>
-          <span>Added <%= custom_ago(widget.created_at) %></span>
+          <span>Added <%= custom_ago(widget.released_on) %></span>
           <% end %>
       <% if display[:author] %>
           <span>by <%= link_to widget.user.name, developer_page_path({:developer_name => u(widget.user.name)}), :class => "wl-regular-link" %></span>

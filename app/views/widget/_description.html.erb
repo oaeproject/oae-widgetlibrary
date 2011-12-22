@@ -1,8 +1,15 @@
 <div id="widget_description_container">
-    <h1 class="widget_accepted_header" style="display:none;">Your Widget has been accepted!</h1>
-    <h1 class="widget_declined_header" style="display:none;">Your Widget has been declined, please read the '<a href="#" class="wl-regular-link" title="Steps needed to improve the widget">Steps needed to improve the widget</a>' before resubmission</h1>
-    <hr class="wl-split-line" style="display:none;"/>
-
+    <% if @widget.user == current_user %>
+      <% case @widget.state.title %>
+      <% when "accepted" %>
+        <h1 class="widget_accepted_header">Your Widget has been accepted!</h1>
+      <% when "declined" %>
+        <h1 class="widget_declined_header">Your Widget has been declined, please read the '<a href="#" class="wl-regular-link" title="Steps needed to improve the widget">Steps needed to improve the widget</a>' before resubmission</h1>
+      <% else %>
+        <h1 class="widget_declined_header">You widget is pending review</h1>
+      <% end %>
+    <% end %>
+  <hr class="wl-split-line" style="display:none;"/>
   <div id="widget_download">
       <%= image_tag @widget.icon.url(:medium), :alt => "#{@widget.title} preview" %>
       <a target="_blank" class="wl-button wl-header-button" href="/system/codes/<%= @widget.id %>/original/<%= @widget.code_file_name %>">Download</a>
@@ -40,7 +47,9 @@
               </ul>
           </li>
           <% end %>
-          <li><span>Released:</span><span><%= @widget.released_on.strftime("%B %e, %Y") %></span></li>
+          <% if @widget.state.title === "accepted" %>
+            <li><span>Released:</span><span><%= @widget.released_on.strftime("%B %e, %Y") %></span></li>
+          <% end %>
       </ul>
   </div>
 </div>

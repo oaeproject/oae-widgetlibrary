@@ -15,7 +15,11 @@ module ApplicationHelper
   end
 
   def get_rating(stars)
-    round_to_fraction(stars).to_s.delete(".")
+    ret = round_to_fraction(stars).to_s.delete(".")
+    if ret.eql? "00"
+      ret = 0
+    end
+    ret
   end
 
 end
