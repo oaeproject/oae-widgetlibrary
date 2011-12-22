@@ -1,0 +1,64 @@
+<div id="codingstandards" class="widgetsdk_container">
+    <h1>Code best practices</h1>
+    <p>Follow these simple few rules and you will be creating your own widgets for others to use on their Sakai platform.</p>
+    <div class="wl-widget-item first">
+        <h3>A more in-depth guid on Sakai OAE Widget SDK coding standards will be coming soon.</h3>
+        <p>If you:</p>
+        <ul class="inline_list">
+            <li>start all your widgets using the template files provided in the <i>3akai-ux/devwidgets/_template</i> directory,</li>
+            <li>follow the namespacing standards below and,</li>
+            <li>follow the patterns mentioned in the <%= link_to "Hello World Tutorial", "/developer/developwidget/learnbasics", :class => "wl-regular-link" %>,</li>
+        </ul>
+        <p>you should be just fine. The guidelines in the above resources should be considered the most up-to-date, but you may reference the older Development Guidelines if you are looking for further information. If you have any questions about coding standards, please feel free to comment on this page or contact the Sakai OAE developers.</p>
+        <h2>Name spacing</h2>
+        <p>It is very important to remember that widgets are designed to be embedded within other pages. A page that includes widget X may contain other widgets and may even contain multiple instances of widget X itself. For this reason, it is important to take certain measures to prevent naming clashes with other widgets. If you look at the Hello World Tutorial you will find that:</p>
+
+        <ul class="inline_list">
+            <li>All HTML element classes and ids begin with the widget's id: <i>myhelloworld</i>:</li>
+        </ul>
+
+        <div class="navigationalitems_codesnippit_container">
+            <div class="navigationalitems_codesnippit_header"><h4>Properly namespacing HTML element classes and IDs</h4></div>
+            <ul>
+                <li>&lt;div class="myhelloworld_widget"&gt;</li>
+                <li><div class="indent_container"></div>...</li>
+                <li><div class="indent_container"></div>&lt;div id="myhelloworld_main"&gt;</li>
+                <li><div class="double_indent_container"></div>...</li>
+                <li><div class="indent_container"></div>&lt;/div&gt;</li>
+                <li>&nbsp;</li>
+                <li><div class="indent_container"></div>&lt;div id="myhelloworld_settings"&gt;</li>
+                <li><div class="double_indent_container"></div>...</li>
+                <li><div class="indent_container"></div>&lt;/div&gt;</li>
+                <li><div class="indent_container"></div>...</li>
+                <li>&lt;/div&gt;</li>
+            </ul>
+        </div>
+
+        <ul class="inline_list">
+            <li>all JavaScript references to HTML elements are constrained to the unique container of the widget (all instances of a widget, even instances of the same widget, are provided with unique ids):</li>
+        </ul>
+
+        <div class="navigationalitems_codesnippit_container">
+            <div class="navigationalitems_codesnippit_header"><h4>Properly selecting elements in JavaScript</h4></div>
+            <ul>
+                <li>// tuid is passed in as this widget's unique id</li>
+                <li>&nbsp;</li>
+                <li>// unique container for each widget instance</li>
+                <li>var $rootel = $("#" + tuid);</li>
+                <li>&nbsp;</li>
+                <li>// jQuery's search for the element with an id of myhelloworld_main is</li>
+                <li>// limited to within the $rootel container:</li>
+                <li>var $mainContainer = $("#myhelloworld_main", $rootel);</li>
+                <li>&nbsp;</li>
+                <li>// more jQuery HTML elements</li>
+                <li>var $settingsContainer = $("#myhelloworld_settings", $rootel);</li>
+                <li>var $settingsForm = $("#myhelloworld_settings_form", $rootel);</li>
+                <li>var $colorPicker = $("#myhelloworld_color", $rootel);</li>
+                <li>var $usernameContainer = $("#myhelloworld_username", $rootel);</li>
+            </ul>
+        </div>
+    </div>
+    <div class="wl-widget-item">
+        <%= image_tag "developer_sad_smiley_icon.png", :alt => "Visit the FAQ", :class => "wl-left" %><h3 class="widgetsdk_header_icon_text">Check out our <%= link_to "FAQ", "/developer/faq", :class => "wl-regular-link" %> or add a comment below if you didn’t find what you were looking for on this page.</h3>
+    </div>
+</div>

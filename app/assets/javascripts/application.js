@@ -11,3 +11,4 @@
 //= require newversion
 //= require submit
 //= require widget
+//= require developer

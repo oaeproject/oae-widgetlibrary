@@ -1,0 +1,69 @@
+<div id="frontend" class="widgetsdk_container">
+    <h1>Front-end services</h1>
+    <p>Sakai OAE has a number of API functions available that should be used to build the interface of your widgets. A full list of API functions will be coming soon, but documentation on some of the most used frontend Widget API functions are provided below.</p>
+    <p>If you are looking for API functions to communicate with the Sakai OAE server, check out the Backend Services page.</p>
+    
+    <h3 class="wl-normal">Categories <a href="javascript:;" title="Expand All" class="wl-regular-link wl-bold wl-right expand_all_link" data-expanded="false"><span>Expand all &or;</span><span style="display:none;">Collapse all &and;</span></a></h3>
+    <div class="wl-widget-item">
+        <h3 class="wl-regular-link no_decoration wl-normal">Widgets <a href="javascript:;" title="Expand Widgets" class="wl-regular-link wl-bold wl-right expand_link" data-expanded="false"><span>Expand &or;</span><span style="display:none;">Collapse &and;</span></a></h3>
+        <p>Sakai OAE manages widgets dynamically in the frontend code and provides API functions to inform Sakai OAE when your widget is ready to be run and when your widget changes state.</p>
+        <div class="expandable_container" style="display:none;">
+            <i><h4>sakai.api.Widgets.widgetLoader.informOnLoad(widgetname)</h4></i>
+
+            <p>This function must be called at the end of your widget's JavaScript to inform Sakai OAE that the widget is ready to run. Once called, the given widget will be run.</p>
+
+            <h5>Arguments</h5>
+            <ul class="inline_list">
+                <li>String widgetname - the id of the widget as defined in the widget's config.json file (e.g. myhelloworld, sites, myprofile, video, ...)</li>
+            </ul>
+
+            <h5>Return</h5>
+            <ul class="inline_list">
+                <li>
+                    None.
+                </li>
+            </ul>
+
+            <h5>Example</h5>
+            <p>On the last line of all widgets, you will find a call to sakai.api.Widgets.widgetLoader.informOnLoad(). For example, in the <%= link_to "Hello World Tutorial", "/developer/developwidget/learnbasics", :class => "wl-regular-link" %>:</p>
+            
+            <div class="navigationalitems_codesnippit_container">
+                <div class="navigationalitems_codesnippit_header"><h4>/devwidgets/myhelloworld/javascript/myhelloworld.js, line 187</h4></div>
+                <ul>
+                    <li>// inform Sakai OAE that this widget has loaded and is ready to run</li>
+                    <li>sakai.api.Widgets.widgetLoader.informOnLoad("myhelloworld");</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="wl-widget-item">
+        <h3 class="wl-regular-link no_decoration wl-normal">User info <a href="javascript:;" title="Expand User info" class="wl-regular-link wl-bold wl-right expand_link" data-expanded="false"><span>Expand &or;</span><span style="display:none;">Collapse &and;</span></a></h3>
+        <p>Sakai OAE automatically loads information about the current user on every Sakai OAE page and makes it available through the sakai.data.me JavaScript object. The configuration of the sakai.data.me object can be found in the sakai.config.Profile object of /dev/configuration/config.js. Aside from the sakai.data.me object, the following functions should be used to get certain data about the user.</p>
+        <div class="expandable_container" style="display:none;"></div>
+    </div>
+    <div class="wl-widget-item">
+        <h3 class="wl-regular-link no_decoration wl-normal">Internationalization <a href="javascript:;" title="Expand Internationalization" class="wl-regular-link wl-bold wl-right expand_link" data-expanded="false"><span>Expand &or;</span><span style="display:none;">Collapse &and;</span></a></h3>
+        <p>Sakai OAE has a system for internationalizing the interfaces of all widgets using the concept of 'message bundles'. Message bundles contain lists of message keys and values. The keys stay the same and the values can be changed for different languages. See the message bundle section of the Hello World tutorial for more info.</p>
+        <div class="expandable_container" style="display:none;"></div>
+    </div>
+    <div class="wl-widget-item">
+        <h3 class="wl-regular-link no_decoration wl-normal">Localization <a href="javascript:;" title="Expand Localization" class="wl-regular-link wl-bold wl-right expand_link" data-expanded="false"><span>Expand &or;</span><span style="display:none;">Collapse &and;</span></a></h3>
+        <p>Functions around presenting users times in their preferred timezone.</p>
+        <div class="expandable_container" style="display:none;"></div>
+    </div>
+    <div class="wl-widget-item">
+        <h3 class="wl-regular-link no_decoration wl-normal">Notifications <a href="javascript:;" title="Expand Notifications" class="wl-regular-link wl-bold wl-right expand_link" data-expanded="false"><span>Expand &or;</span><span style="display:none;">Collapse &and;</span></a></h3>
+        <p>Displays an overlay notification message to the user. Often used for errors or confirmations on form submissions such as when a user's profile is updated.</p>
+        <div class="expandable_container" style="display:none;"></div>
+    </div>
+    <div class="wl-widget-item">
+        <h3 class="wl-regular-link no_decoration wl-normal">Logging <a href="javascript:;" title="Expand Logging" class="wl-regular-link wl-bold wl-right expand_link" data-expanded="false"><span>Expand &or;</span><span style="display:none;">Collapse &and;</span></a></h3>
+        <p>Log system messages of varying degree to the JavaScript console if available.</p>
+        <div class="expandable_container" style="display:none;"></div>
+    </div>
+    <div class="wl-widget-item">
+        <h3 class="wl-regular-link no_decoration wl-normal">More Frontend Services <a href="javascript:;" title="Expand More Frontend Services" class="wl-regular-link wl-bold wl-right expand_link" data-expanded="false"><span>Expand &or;</span><span style="display:none;">Collapse &and;</span></a></h3>
+        <p>There are other frontend API functions that can be found in the various sakai.api JavaScript files located at: /dev/lib/sakai</p>
+        <div class="expandable_container" style="display:none;"></div>
+    </div>
+</div>

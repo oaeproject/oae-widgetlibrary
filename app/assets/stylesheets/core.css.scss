@@ -35,8 +35,21 @@ h1 {
   margin: 0 0 9px 0;
 }
 
+h4 {
+    font-size: 14px;
+}
+
+h5 {
+    font-size: 12px;
+    margin: 10px 0 7px;
+}
+
 .wl-bold {
   font-weight: bold;
+}
+
+.wl-normal {
+    font-weight: normal;
 }
 
 .wl-push {
@@ -64,6 +77,10 @@ h1 {
   text-decoration: none
 }
 
+.wl-regular-link.no_decoration:hover {
+    text-decoration: none;
+}
+
 .wl-regular-link:hover {
   text-decoration: underline;
 }
@@ -84,6 +101,14 @@ select {
     margin-top:5px;
     margin-bottom:7px;
     border:1px solid #d4d4d4;
+}
+
+.indent {
+    margin: 10px 0 10px 16px !important;
+}
+
+.wl-margin-right-15 {
+    margin-right: 15px;
 }
 
 /* Main container*/
@@ -513,6 +538,13 @@ a.wl-button.wl-header-button {
   display: inline-block;
 }
 
+
+/* Link buttons */
+.wl-link-button {margin:0;padding:0;background: none repeat scroll 0 0 transparent;border: medium none;color:#2683bc;font-family: Arial,Helvetica,sans-serif;font-size:13px;display: inline-block;text-align:left;font-size:11px;}
+.wl-link-button:hover {cursor:pointer;text-decoration:none;color:#999;}
+.wl-link-button::-moz-focus-inner {padding:0;margin:0;border:0;}
+
+
 /* Errors */
 .wl-form-field-wrapper{
     input.wl-error,
@@ -597,10 +629,28 @@ a.wl-button.wl-header-button {
     }
 }
 
-/* Link buttons */
-.wl-link-button {margin:0;padding:0;background: none repeat scroll 0 0 transparent;border: medium none;color:#2683bc;font-family: Arial,Helvetica,sans-serif;font-size:13px;display: inline-block;text-align:left;font-size:11px;}
-.wl-link-button:hover {cursor:pointer;text-decoration:none;color:#999;}
-.wl-link-button::-moz-focus-inner {padding:0;margin:0;border:0;}
+/* Video overlay */
+#videocontent_overlay_container {
+     width: 636px;
+     height: 375px;
+     background-color: #efefef;
+     z-index: 1001;
+     margin: 0pt auto;
+     position: fixed;
+     @include border-radius($topLeft: 3px, $topRight: 3px, $bottomRight: 3px, $bottomLeft: 3px);
+     @include box-shadow($h-shadow: 0, $v-shadow: 0, $blur: 40px, $spread: 0, $color: #222, $outerinner: "");
+     padding: 7px;
+}
+
+#videocontent_overlay {
+    width: 100%;
+    background-color: #000;
+    z-index: 1000;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    opacity: 0.6;
+}
 
 
 /****************/
