@@ -17,7 +17,14 @@ SakaiWidgetlibrary::Application.routes.draw do
 
   match '/developer' => 'developer#index', :as => :developer
   match '/developer/developwidget' => 'developer#developwidget'
+  match '/developer/developwidget/learnbasics' => 'developer#learnbasics'
+  match '/developer/developwidget/codingstandards' => 'developer#codingstandards'
+  match '/developer/developwidget/quickdevsetup' => 'developer#quickdevsetup'
+  match '/developer/developwidget/fulldevsetup' => 'developer#fulldevsetup'
   match '/developer/developwidget/widgetbuilder' => 'developer#widgetbuilder'
+  match '/developer/examples' => 'developer#examples'
+  match '/developer/examples/worlddashboard' => 'developer#worlddashboard'
+  match '/developer/examples/pagewidget' => 'developer#pagewidget'
   match '/developer/widgetdesignandstyle' => 'developer#widgetdesignandstyle'
   match '/developer/widgetdesignandstyle/typography' => 'developer#typography'
   match '/developer/widgetdesignandstyle/colorpalette' => 'developer#colorpalette'
@@ -27,6 +34,11 @@ SakaiWidgetlibrary::Application.routes.draw do
   match '/developer/widgetdesignandstyle/navigationalitems' => 'developer#navigationalitems'
   match '/developer/widgetdesignandstyle/iconography' => 'developer#iconography'
   match '/developer/widgetdesignandstyle/interactionmodels' => 'developer#interactionmodels'
+  match '/developer/services/frontend' => 'developer#frontend'
+  match '/developer/services/backend' => 'developer#backend'
+  match '/developer/services/thirdparty' => 'developer#thirdparty'
+  match '/developer/faq' => 'developer#faq'
+  match '/developer/help' => 'developer#help'
 
   match '/developer/:developer_name' => 'developerdetails#index', :as => :developer_page
 
