@@ -113,6 +113,8 @@ ActiveRecord::Schema.define(:version => 20111214203828) do
     t.string   "code_content_type"
     t.string   "code_file_size"
     t.string   "code_updated_at"
+    t.string   "widget_repo"
+    t.string   "widget_backend_repo"
   end
 
 end

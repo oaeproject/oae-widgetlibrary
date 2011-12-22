@@ -1,0 +1,14 @@
+// If it is a success, just redirect to the URL returned
+<% unless @widget.errors.any? %>
+  document.location = "/widget/<%=u @widget.title %>";
+<% else %>
+  var errors = <%=raw @widget.errors.to_json %>;
+  $.each(errors, function(key, error) {
+      if (key.indexOf("content_type") !== -1) {
+        key = key.replace("content_type", "");
+      }
+      $("#widget_" + key).addClass(wlError);
+      $("label[for='widget_" + key + "']").addClass(wlError);
+      $("#widget_" +  key + "_error").text(error[0]).show();
+  });
+<% end %>

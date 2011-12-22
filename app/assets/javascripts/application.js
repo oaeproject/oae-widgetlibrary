@@ -9,4 +9,5 @@
 //= require useractions
 //= require widgetbuilder
 //= require newversion
+//= require submit
 //= require widget

@@ -1,0 +1,66 @@
+<%= form_for(@widget, :url => create_widget_path, :html => { :multipart => true, :class => "wl-form-field-wrapper" }, :remote => true) do |f| %>
+    <h1>Submit a widget</h1>
+    <h2 class="second_column">Or, enter 'url' to the source code repository</h2>
+    <h2>01. Select created Widget to upload</h2>
+    <div class="submit_container_split">
+        <span id="widget_code_error" class="wl-error" style="display:none"></span>
+        <%= f.file_field :code %>
+        <p><span class="submit_descriptive_text">Optional step:</span>Upload a backend feed bundle source code repository</p>
+        <%= f.file_field :bundle %>
+    </div>
+    <div class="submit_container_split">
+        <%= f.text_field :widget_repo, :placeholder => "http://github.com/you/repository", :type => "url" %>
+        <p>Or, enter 'url' to the backend feed bundle source code repository</p>
+        <%= f.text_field :widget_backend_repo, :placeholder => "http://github.com/you/repository", :type => "url" %>
+    </div>
+
+    <hr class="wl-push wl-hidden"/>
+    <h2>02. Add basic info about the Widget</h2>
+    <div class="register_column1">
+        <h2>Select Image for Icon</h2>
+        <span id="widget_icon_error" class="wl-error" style="display:none"></span>
+        <%= image_tag "widget_default_image.jpg", :alt => "Widget Icon" %>
+        <%= f.file_field :icon %>
+    </div>
+
+    <div class="register_column2">
+        <h2>Basic information</h2>
+        <span id="widget_title_error" class="wl-error" style="display:none"></span>
+        <%= f.text_field :title, :id => "submit_widgetname", :placeholder => "Widget name" %>
+        <span id="widget_description_error" class="wl-error" style="display:none"></span>
+        <%= f.text_area :description, :id => "register_basic", :placeholder => "Brief summary of the widget" %>
+        <span id="widget_features_error" class="wl-error" style="display:none"></span>
+        <%= f.text_area :features, :id => "register_summary", :placeholder => "Enter a functional breakdown of the widget" %>
+    </div>
+
+    <div class="register_column3">
+        <h2>Details</h2>
+        <div id="register_details_labels">
+            <label for="location">Categories:</label>
+            <label for="homepage">Languages:</label>
+        </div>
+        <div id="submitdetails_input">
+            <%= select_tag "widget[category_ids][]", options_from_collection_for_select(Category.all, :id, :title), :multiple => true %>
+            <%= select_tag "widget[language_ids][]", options_from_collection_for_select(Language.all, :id, :title), :multiple => true %>
+        </div>
+    </div>
+
+    <hr class="wl-split-line wl-push">
+    <h2>03. Add screenshots to the Widget overview</h2>
+    <div id="submit_screenshot_uploadfields">
+        <h3>Upload new screenshots</h3>
+        <p><span class="submit_descriptive_text">Use the buttons below to select screenshots for your widget to upload. These will be dynamically resized to the thumbnail size.</span></p>
+        <%= f.fields_for :screenshots do |s| %>
+            <h4>Screenshot:</h4>
+            <%= s.file_field :image %>
+        <% end %>
+    </div>
+
+
+    <hr class="wl-split-line wl-push">
+    <div id="submit_widget_buttons">
+        <button class="wl-link-button wl-bold" type="button">Cancel</button>
+        <button class="wl-button wl-overlay-button">Save and Upload Widget</button>
+    </div>
+    <hr class="wl-push wl-hidden"/>
+<% end %>

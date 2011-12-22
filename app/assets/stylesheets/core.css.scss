@@ -607,7 +607,7 @@ a.wl-button.wl-header-button {
 /* INPUT FIELDS */
 /****************/
 
-input {
+input[type=text], input[type=email], input[type=password], input[type=url] {
     border: 1px solid #D4D4D4;
     height: 11px;
     padding: 5px;

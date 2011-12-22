@@ -15,7 +15,7 @@ namespace :db do
       user.info               = Faker::Lorem.sentence(rand(50) + 20)
       user.summary            = Faker::Lorem.sentence(rand(50) + 20)
       user.occupation         = Faker::Lorem.words(rand(6) + 1).collect!{|t| t.capitalize }.join(' ')
-      user.homepage           = Faker::Internet.domain_name
+      user.homepage           = "http://#{Faker::Internet.domain_name}"
       user.location           = Faker::Address.city
       user.encrypted_password = Faker::Lorem.words(1).join(' ')
       Widget.populate 4 do |widget|
@@ -81,9 +81,32 @@ namespace :db do
       end
       widget.save!
     end
+
+    5.times do |i|
+      params = {
+        :email => "user#{i}@sakaiproject.invalid",
+        :admin => false,
+        :reviewer => false,
+        :username => "user#{i}",
+        :password => "test",
+        :password_confirmation => "test",
+        :first_name => "User",
+        :last_name => i,
+        :name => "User #{i}",
+        :info => Faker::Lorem.sentence(rand(50) + 20),
+        :summary => Faker::Lorem.sentence(rand(50) + 20),
+        :occupation => Faker::Lorem.words(rand(6) + 1).collect!{|t| t.capitalize }.join(' '),
+        :homepage => "http://#{Faker::Internet.domain_name}",
+        :location => Faker::Address.city
+      }
+      user = User.new(params)
+      user.save!
+    end
+
     User.all.each do |user|
       user.avatar = File.open(Dir.glob(File.join(Rails.root, 'test/sampledata/images', "#{1+rand(10)}.png")).sample)
       user.save!
     end
+
   end
 end
