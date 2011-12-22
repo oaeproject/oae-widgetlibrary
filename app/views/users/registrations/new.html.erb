@@ -41,7 +41,7 @@
             <div class="register_column1">
                 <h2>Image</h2>
                 <%= image_tag "register_default_image.jpg", :alt => "User image" %>
-                <%= f.file_field :avatar, :class => "wl-button wl-header-button" %>
+                <%= f.file_field :avatar %>
             </div>
 
             <div class="register_column2">
@@ -61,7 +61,7 @@
                     <%= f.select :location, country_options %>
                     <%= f.text_field :occupation, :id => "occupation", :placeholder => "(Student/Developer/...)" %>
                     <span id="user_homepage_error" class="wl-error" style="display:none"></span>
-                    <%= f.text_field :homepage, :id => "homepage", :placeholder => "http://www.example.org"  %>
+                    <%= f.text_field :homepage, :id => "homepage", :placeholder => "http://www.example.org", :type => "url"  %>
                 </div>
             </div>
 
