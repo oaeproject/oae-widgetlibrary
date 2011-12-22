@@ -24,6 +24,9 @@ gem 'cancan'
 # Use reCAPTCHA
 gem "recaptcha", :require => "recaptcha/rails"
 
+# handle ajax image uploads
+gem 'remotipart'
+
 # Platforms without a native javascript interpreter can use this ruby one
 gem 'therubyracer', :platforms => :ruby
 
