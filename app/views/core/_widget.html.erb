@@ -1,10 +1,13 @@
 <div class="wl-widget-item">
-    <% if !display.blank? && display[:status] %>
-        <div class="widget_review_status widget_approved"></div>
-    <% end %>
+
     <%= image_tag widget.icon, :class => "wl-widget-item-icon" %>
 
     <% if !display.blank? %>
+
+        <% if display[:status] %>
+            <div class="widget_review_status widget_<%= widget.state.title.downcase %>"></div>
+        <% end %>
+
         <% if display[:title_length].eql? "long"%>
             <%= link_to truncate(widget.title, :length => 50, :omission => "..."), widget_path({:widget_title => u(widget.title)}), :class => "wl-regular-link wl-bold wl-widget-item_widgetname", :title => widget.title %>
         <% elsif display[:title_length].eql? "medium"%>
@@ -12,25 +15,31 @@
         <% else %>
             <%= link_to truncate(widget.title, :length => 13, :omission => "..."), widget_path({:widget_title => u(widget.title)}), :class => "wl-regular-link wl-bold wl-widget-item_widgetname", :title => widget.title %>
         <% end %>
+
+        <% if display[:added] %>
+            <span>Added <%= custom_ago(widget.released_on) %></span>
+        <% end %>
+
+        <% if display[:author] %>
+            <span>by <%= link_to widget.user.name, developer_page_path({:developer_name => u(widget.user.name)}), :class => "wl-regular-link" %></span>
+        <% end %>
+
+        <% if display[:rating] %>
+            <%= render :partial => "pagewidgets/rating", :locals => { :display => display, :stars => widget.average_rating, :num_ratings => widget.ratings.size } %>
+        <% end %>
+
+        <% if false # if display[:users] %>
+            <a href="#" title="65 users" class="wl-regular-link wl-number-of-users">65 users</a>
+        <% end # end %>
+
+        <% if display[:desc] %>
+            <p><%= widget.description %></p>
+        <% end %>
+
     <% else %>
+
         <%= link_to truncate(widget.title, :length => 13, :omission => "..."), widget_path({:widget_title => u(widget.title)}), :class => "wl-regular-link wl-bold wl-widget-item_widgetname", :title => widget.title %>
+
     <% end %>
 
-    <% if !display.blank? %>
-      <% if display[:added] %>
-          <span>Added <%= custom_ago(widget.released_on) %></span>
-          <% end %>
-      <% if display[:author] %>
-          <span>by <%= link_to widget.user.name, developer_page_path({:developer_name => u(widget.user.name)}), :class => "wl-regular-link" %></span>
-      <% end %>
-      <% if display[:rating] %>
-          <%= render :partial => "pagewidgets/rating", :locals => { :display => display, :stars => widget.average_rating, :num_ratings => widget.ratings.size } %>
-      <% end %>
-      <% if false # if display[:users] %>
-          <a href="#" title="65 users" class="wl-regular-link wl-number-of-users">65 users</a>
-      <% end # end %>
-      <% if display[:desc] %>
-          <p><%= widget.description %></p>
-      <% end %>
-    <% end %>
 </div>

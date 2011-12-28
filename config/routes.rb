@@ -43,6 +43,7 @@ SakaiWidgetlibrary::Application.routes.draw do
   match '/developer/:developer_name' => 'developerdetails#index', :as => :developer_page
 
   match '/mywidgets' => 'mywidgets#index', :as => :mywidgets
+  match '/mywidgets/:filter' => "mywidgets#index"
 
   get '/submit' => 'submit#index'
   post '/submit' => 'submit#create', :as => :create_widget

@@ -33,6 +33,8 @@ class Widget < ActiveRecord::Base
 
     if limit
       Widget.where(conditions).order(order).limit(limit)
+    elsif count
+      Widget.count(:conditions => conditions)
     else
       Widget.where(conditions).order(order)
     end

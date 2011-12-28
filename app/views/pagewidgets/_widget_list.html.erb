@@ -1,0 +1,5 @@
+<div id="allcategories_sorty_by">
+    Sort by <a href="#" title="Sort by" class="wl-regular-link"><span id="allcategories_sort_method">Most Popular</span> <span id="allcategories_sort_down_arrow">&#9660;</span></a>
+</div>
+<div>Widgets 1-<%= @widgets.size %> of <%= @count %></div>
+<%= render :partial => "core/widget", :locals => {:display => {:rating => true, :author => true, :num_ratings => true, :status => params[:controller].eql?("mywidgets"), :title_length => "medium"}}, :collection => @widgets %>
