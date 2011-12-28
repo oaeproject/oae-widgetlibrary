@@ -9,8 +9,8 @@
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
 # Create the default states
-State.create(:title => "pending", :id => 1)
-State.create(:title => "accepted", :id => 2)
+State.create(:title => "accepted", :id => 1)
+State.create(:title => "pending", :id => 2)
 State.create(:title => "declined", :id => 3)
 
 # Create a starting set of categories
