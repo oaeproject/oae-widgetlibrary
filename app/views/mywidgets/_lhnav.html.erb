@@ -1,0 +1,11 @@
+<nav id="lhnavigation_container">
+  <h1 class="wl-bold">My Widgets</h1>
+  <ul>
+      <li<% if !params[:filter] %> class="selected wl-bold"<% end %>><div><a href="/mywidgets">All my widgets</a></div></li>
+      <% @states.each do |state| %>
+        <li<% if params[:filter].eql? state.title %> class="selected wl-bold"<% end %>><div><%= link_to "#{state.title.capitalize} (#{if !@widgets_in_state[state.id].nil? then @widgets_in_state[state.id] else "0" end})", "/mywidgets/#{state.title}" %></div></li>
+      <% end %>
+  </ul>
+  <%= render :partial => "pagewidgets/submitwidget" %>
+</nav>
+<hr class="wl-push wl-hidden"/>
