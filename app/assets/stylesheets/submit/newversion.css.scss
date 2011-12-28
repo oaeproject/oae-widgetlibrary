@@ -1,0 +1,11 @@
+@import "mixins.css.scss";
+
+#newversion_improvements_container {
+  background: image-url("widget_declined_bg.png") repeat-x top left #fae8b2;
+  padding: 20px;
+  margin: 25px 0 15px;
+  color: #666;
+  font-size: 12px;
+  @include border-radius($topLeft: 5px, $topRight: 5px, $bottomRight: 5px, $bottomLeft: 5px);
+  p {
+    margin-top: 12px; } }

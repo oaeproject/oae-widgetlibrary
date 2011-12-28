@@ -25,7 +25,7 @@ class MywidgetsController < ApplicationController
         @count = Widget.count(:conditions => {:user_id => current_user.id})
       end
 
-      render :layout => 'lhnavcontent'
+      render :layout => 'lhnavigation'
     end
   end
 

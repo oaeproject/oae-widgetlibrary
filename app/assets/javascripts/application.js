@@ -4,11 +4,5 @@
 //= require jquery.remotipart
 //= require modernizr
 //= require jqmodal
-//= require_self
-//= require navigation
-//= require useractions
-//= require widgetbuilder
-//= require newversion
-//= require submit
-//= require widget
-//= require developer
+//= require core/navigation
+//= require core/useractions

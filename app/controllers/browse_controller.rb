@@ -3,6 +3,6 @@ class BrowseController < ApplicationController
     @featured = Widget.find_accepted(:limit => 3)
     @widgets = Widget.find_accepted(:limit => 16)
     @count = Widget.find_accepted(:count => true)
-    render :layout => 'lhnavcontent'
+    render :layout => 'lhnavigation'
   end
 end

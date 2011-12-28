@@ -1,3 +1,5 @@
+//= require submit/newversion
+
 $(function() {
     // Classes
     var wlError = "wl-error";

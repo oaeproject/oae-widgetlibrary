@@ -1,0 +1,96 @@
+<div id="quickdevsetup" class="widgetsdk_container">
+    <h1>Quick development environment set up</h1>
+    <p>If you need to install Java, git, other helpful development tools or need instructions on setting up your editor, please see the Full development environment set up.</p>
+
+    <div class="wl-widget-item first">
+        <p>If not, follow these steps to get up and running with Sakai OAE:</p>
+        <p>1. Create a directory for Sakai OAE (we will use sakai3 in this documentation) anywhere you like:</p>
+        <div class="navigationalitems_codesnippit_container few_lines">
+            <ul>
+                <li>$ mkdir sakai3</li>
+            </ul>
+        </div>
+
+        <p>2. Go into the new sakai3 directory:</p>
+        <div class="navigationalitems_codesnippit_container few_lines">
+            <ul>
+                <li>$ cd sakai3</li>
+            </ul>
+        </div>
+
+        <p>3. Download the Sakai OAE backend (codenamed Nakamura) executable and save it as nakamura.jar in your sakai3 directory (this may take a couple of minutes depending on your Internet connection).</p>
+
+        <p>4. Start up the server using the following Java command:</p>
+        <div class="navigationalitems_codesnippit_container few_lines">
+            <ul>
+                <li>$ java -Xmx256m -server -jar nakamura.jar -f -</li>
+            </ul>
+        </div>
+
+        <p>5. For about a minute, you will see Nakamura starting up and a number of logging statements go by. Once it stops, Nakamura is up and running and this terminal will continue to print the server's logging statements. You can test whether it is running by pointing your browser to http://localhost:8080/dev - you should see the Sakai OAE homepage.</p>
+
+        <p>6. If you do have a github account:</p>
+        <p class="indent">a. After logging in to github, click the 'Fork' button in the upper-right of the Sakai OAE frontend code (codenamed 3akai-UX) github repository page. This will allow you to have a personal copy, or fork, of the 3akai-UX code that you can modify freely.</p>
+        <p class="indent">b. After the fork completes, use git to clone your very own 3akai-UX repository from your sakai3 directory:</p>
+        <div class="navigationalitems_codesnippit_container few_lines">
+            <ul>
+                <li>$ git clone git@github.com:YOUR_GIT_USERNAME/3akai-ux.git</li>
+            </ul>
+        </div>
+        <p class="indent">c. This will reach out to github, download the 3akai-UX code and place it in a new 3akai-ux directory in your sakai3 directory. This is where you will do all of your widget development work. Because you own this clone of the main Sakai OAE 3akai-UX repository, you can use git to read and write to this repository.</p>
+
+        <p>7. If you do not have a github account:</p>
+        <p class="indent">a. Get the Sakai OAE frontend code (codenamed 3akai-UX) using git to clone the repository on your local machine:</p>
+        <div class="navigationalitems_codesnippit_container few_lines">
+            <ul>
+                <li>$ git clone git://github.com/sakaiproject/3akai-ux.git</li>
+            </ul>
+        </div>
+        <p class="indent">b. This will reach out to github, download the 3akai-UX code and place it in a new 3akai-ux directory in your sakai3 directory. This is where you will do all of your widget development work.</p>
+
+        <p>8. The UX code Nakamura is currently using is not from your local 3akai-UX repository. To change this, navigate to http://localhost:8080/system/console and log in using admin for both the username and password.</p>
+
+        <p>9. Select the "Configuration" tab on the top part of the console</p>
+
+        <p>10. Find the "Apache Sling Filesystem Resource Provider" and click the plus icon to the right of it and a modal dialog should appear.</p>
+
+        <p>11. Enter /dev in the "Provider Root" field</p>
+
+        <p>12. Enter the full path to your /FULL_PATH/sakai3/3akai-ux/dev directory in the "Filesystem Root" field and click "Save"</p>
+
+        <p>13. If you do not see a new entry beneath the "Apache Sling Filesystem Resource Provider", reload the page and you should see it.</p>
+
+        <p>14. Click the plus icon to the right of the "Apache Sling Filesystem Resource Provider" again.</p>
+
+        <p>15. Enter /devwidgets in the "Provider Root" field</p>
+
+        <p>16. Enter the full path to your /FULL_PATH/sakai3/3akai-ux/devwidgets directory in the "Filesystem Root" field and click "Save"</p>
+
+        <p>17. If you do not see a new entry beneath the "Apache Sling Filesystem Resource Provider", reload the page and you should now see two.</p>
+
+        <p>18. Make sure your browser's cache is disabled so your browser is always fetching your latest local code. In Firefox, you can use Firebug's Net Panel to disable the browser's cache.</p>
+
+        <p>19. Nakamura should now be using your UX code rather than the UX code it came with. To make sure, try saving the following HTML to sakai3/3akai-ux/dev/testing.html and go to http://localhost:8080/dev/testing.html</p>
+
+        <div class="navigationalitems_codesnippit_container">
+            <ul>
+                <li>&lt;html&gt;</li>
+                <li><div class="indent_container"></div>&lt;head&gt;</li>
+                <li><div class="double_indent_container"></div>&lt;title&gt;Hello World&lt;/title&gt;</li>
+                <li><div class="indent_container"></div>&lt;/head&gt;</li>
+                <li><div class="indent_container"></div>&lt;body&gt;</li>
+                <li><div class="double_indent_container"></div>Hello World</li>
+                <li><div class="indent_container"></div>&lt;/body&gt;</li>
+                <li>&lt;/html&gt;</li>
+            </ul>
+        </div>
+
+        <p>You should see something like the following:</p>
+        <%= image_tag "developer_quickdev_example.png", :alt => "Hello World Quick Dev Example" %>
+        <p><b>Voila! You are up and running with Sakai OAE!</b> You should now be able to edit 3akai-ux code, save it and refresh your browser to see the changes right away. If you feel ready to dive in, have a look at the Hello World Tutorial or the Widget Examples.</p>
+    </div>
+
+    <div class="wl-widget-item">
+        <%= image_tag "developer_sad_smiley_icon.png", :alt => "Visit the FAQ", :class => "wl-left" %><h3 class="widgetsdk_header_icon_text">Check out our <%= link_to "FAQ", "/sdk/faq", :class => "wl-regular-link" %> or add a comment below if you didn’t find what you were looking for on this page.</h3>
+    </div>
+</div>

@@ -3,26 +3,23 @@
 // border-radius mixin
 // usage: @include border-radius($topLeft: 5px, $topRight: 5px, $bottomRight: 5px, $bottomLeft: 5px);
 @mixin border-radius($topLeft, $topRight, $bottomRight, $bottomLeft) {
-    border-radius: $topLeft $topRight $bottomRight $bottomLeft;
-    -moz-border-radius: $topLeft $topRight $bottomRight $bottomLeft;
-    -webkit-border-radius: $topLeft $topRight $bottomRight $bottomLeft;
-}
+  border-radius: $topLeft $topRight $bottomRight $bottomLeft;
+  -moz-border-radius: $topLeft $topRight $bottomRight $bottomLeft;
+  -webkit-border-radius: $topLeft $topRight $bottomRight $bottomLeft; }
 
 // box-shadow mixin
 // usage: @include box-shadow($h-shadow: 0, $v-shadow: 0, $blur: 12px, $spread: -4px, $color: #888, $outerinner: inset);
 @mixin box-shadow($h-shadow, $v-shadow, $blur, $spread, $color, $outerinner) {
-    @if $h-shadow == "" {
-        // No shadow defined
-        box-shadow: none;
-        -moz-box-shadow: none;
-        -webkit-box-shadow: none;
-    } @else if $outerinner != ""{
-        box-shadow: $h-shadow $v-shadow $blur $spread $color $outerinner;
-        -moz-box-shadow: $h-shadow $v-shadow $blur $spread $color $outerinner;
-        -webkit-box-shadow: $h-shadow $v-shadow $blur $spread $color $outerinner;
-    } @else {
-        box-shadow: $h-shadow $v-shadow $blur $spread $color;
-        -moz-box-shadow: $h-shadow $v-shadow $blur $spread $color;
-        -webkit-box-shadow: $h-shadow $v-shadow $blur $spread $color;
-    }
-}
+  @if $h-shadow == "" {
+    // No shadow defined
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none; }
+  @else if $outerinner != "" {
+    box-shadow: $h-shadow $v-shadow $blur $spread $color $outerinner;
+    -moz-box-shadow: $h-shadow $v-shadow $blur $spread $color $outerinner;
+    -webkit-box-shadow: $h-shadow $v-shadow $blur $spread $color $outerinner; }
+  @else {
+    box-shadow: $h-shadow $v-shadow $blur $spread $color;
+    -moz-box-shadow: $h-shadow $v-shadow $blur $spread $color;
+    -webkit-box-shadow: $h-shadow $v-shadow $blur $spread $color; } }

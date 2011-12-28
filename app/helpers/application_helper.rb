@@ -22,4 +22,14 @@ module ApplicationHelper
     ret
   end
 
+  def page_js
+    controller = params[:controller].gsub("devise\/", "")
+    javascript_include_tag controller
+  end
+
+  def page_css
+    controller = params[:controller].gsub("devise\/", "")
+    stylesheet_link_tag controller
+  end
+
 end
