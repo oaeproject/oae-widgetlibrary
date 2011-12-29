@@ -1,7 +1,7 @@
 class WidgetController < ApplicationController
   def show
     widget_title = params[:widget_title]
-    @widget = Widget.first( :conditions => { :title => widget_title } )
+    @widget = Widget.first( :conditions => { :url_title => widget_title } )
     if not @widget.state.title.eql? "accepted" and @widget.user != current_user
       redirect_to :root
     end
