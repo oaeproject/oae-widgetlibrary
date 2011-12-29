@@ -11,6 +11,7 @@ $(function() {
     // App variables
     var lastSearchVal = "";
     var searchTimeout = false;
+    var searchOpen = false;
 
 
     ///////////////
@@ -60,8 +61,9 @@ $(function() {
             data: {
                 "q": $("#search_widgets").val()
             },
-            success: function(data, success){
-                if(success){
+            success: function(data, success) {
+                if (success) {
+                    searchOpen = true;
                     $("#search_widgets_results").html(data);
                     $(searchResults).show();
                 }
@@ -92,6 +94,7 @@ $(function() {
             } else if (val === "") {
                 lastSearchVal = val;
                 $(searchResults).hide();
+                searchOpen = false;
             }
         });
 
@@ -104,6 +107,13 @@ $(function() {
             } else if (ev.which === $.ui.keyCode.ENTER) {
                 handleEnterKeyInSearch();
                 ev.preventDefault();
+            }
+        });
+
+        $(document).on("click", function(e) {
+            if ( searchOpen && $( e.target ).parents( searchInput + ", " + searchResults ).length === 0 && !$( e.target ).is( searchInput + ", " + searchResults ) ) {
+                $(searchResults).hide();
+                searchOpen = false;
             }
         });
     };
