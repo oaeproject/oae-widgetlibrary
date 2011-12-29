@@ -24,6 +24,17 @@ namespace :db do
     ret
   end
 
+  def generate_title
+    Faker::Lorem.words(rand(5) + 1).collect!{|t| t.capitalize }
+  end
+
+  def generate_url_title(title)
+    title.collect{|t| t.downcase}.join('-')
+  end
+
+  $widget_titles = []
+  $widget_urls = []
+
   def create_widget(userid)
     ret = false
 
@@ -31,10 +42,17 @@ namespace :db do
     num_ratings = rand(20) + 1
     created = Time.now - rand(50000000)
     state = rand(3) + 1
-    title = Faker::Lorem.words(rand(5) + 1).collect!{|t| t.capitalize }
+    title = generate_title
+    url_title = generate_url_title(title)
+    while $widget_titles.include?(title.join(' ')) || $widget_urls.include?(url_title)
+      title = generate_title
+      url_title = generate_url_title(title)
+    end
+    $widget_titles.push(title.join(' '))
+    $widget_urls.push(url_title)
     Widget.populate 1 do |widget|
       widget.title          = title.join(' ')
-      widget.url_title      = title.collect!{|t| t.downcase}.join('-')
+      widget.url_title      = url_title
       widget.description    = Faker::Lorem.sentence(rand(50) + 20)
       widget.features       = Faker::Lorem.words(rand(20) + 1).collect!{|t| t.capitalize }.join(' ')
       widget.released_on    = released_on
@@ -94,15 +112,30 @@ namespace :db do
     end
   end
 
+  $usernames = []
+  $names = []
+
   def create_dummy_user
+    username = Faker::Internet.user_name
+    first_name = Faker::Name.first_name
+    last_name  = Faker::Name.last_name
+    name = "#{first_name} #{last_name}"
+    while $usernames.include?(username) || $names.include?(name)
+      username = Faker::Internet.user_name
+      first_name = Faker::Name.first_name
+      last_name  = Faker::Name.last_name
+      name = "#{first_name} #{last_name}"
+    end
+    $usernames.push(username)
+    $names.push(name)
     User.populate 1 do |user|
       user.email              = Faker::Internet.email
       user.admin              = 0
       user.reviewer           = 0
-      user.username           = Faker::Internet.user_name
-      user.first_name         = Faker::Name.first_name
-      user.last_name          = Faker::Name.first_name
-      user.name               = "#{user.first_name} #{user.last_name}"
+      user.username           = username
+      user.first_name         = first_name
+      user.last_name          = last_name
+      user.name               = name
       user.url_title          = "#{user.first_name.downcase}-#{user.last_name.downcase}"
       user.info               = Faker::Lorem.sentence(rand(50) + 20)
       user.summary            = Faker::Lorem.sentence(rand(50) + 20)
