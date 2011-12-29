@@ -14,7 +14,7 @@ class Widget < ActiveRecord::Base
   accepts_nested_attributes_for :screenshots, :allow_destroy => true
   attr_accessible :title, :description, :features, :screenshots_attributes, :code, :widget_repo, :widget_backend_repo, :icon, :category_ids, :language_ids, :url_title
 
-  validates_uniqueness_of :title, :wiget_repo, :widget_backend_repo, :url_title
+  validates_uniqueness_of :title, :widget_repo, :widget_backend_repo, :url_title
 
   # Validations
   validates_presence_of :title, :description, :features
