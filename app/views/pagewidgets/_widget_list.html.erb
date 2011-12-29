@@ -1,5 +1,16 @@
-<div id="widget_list_sort_by">
-    Sort by <a href="#" title="Sort by" class="wl-regular-link"><span id="widget_list_sort_method">Most Popular</span> <span id="widget_list_sort_down_arrow">&#9660;</span></a>
+<div id="widget_list_header">
+  <div id="widget_list_sort_by">
+      <label for="sort">Sort by</label>
+      <select id="sort_by">
+        <!-- <option data-sortby="popularity" data-direction="desc" selected>Most Popular</option> -->
+        <option data-sortby="average_rating" data-direction="desc" selected>Highest Rated</option>
+        <option data-sortby="average_rating" data-direction="asc">Lowest Rated</option>
+        <option data-sortby="title" data-direction="asc">A-Z</option>
+        <option data-sortby="title" data-direction="desc">Z-A</option>
+      </select>
+  </div>
+  <div>Widgets 1-<%= @widgets.size %> of <%= @count %></div>
 </div>
-<div>Widgets 1-<%= @widgets.size %> of <%= @count %></div>
-<%= render :partial => "core/widget", :locals => {:display => {:rating => true, :author => true, :num_ratings => true, :status => params[:controller].eql?("mywidgets"), :title_length => "medium"}}, :collection => @widgets %>
+<div id="widget_list">
+  <%= render :partial => "core/widget", :locals => {:display => {:rating => true, :author => true, :num_ratings => true, :status => params[:controller].eql?("mywidgets"), :title_length => "medium"}}, :collection => @widgets %>
+</div>

@@ -16,16 +16,22 @@ class MywidgetsController < ApplicationController
         end
       end
 
+      order = get_sort("average_rating desc")
+
       if params[:filter]
         filterstate = State.where(:title => params[:filter]).first
-        @widgets = Widget.where(:state_id => filterstate.id, :user_id => current_user.id).limit(20)
+        @widgets = Widget.where(:state_id => filterstate.id, :user_id => current_user.id).order(order).limit(20)
         @count = @widgets_in_state[filterstate.id]
       else
-        @widgets = Widget.where(:user_id => current_user.id).limit(20)
+        @widgets = Widget.where(:user_id => current_user.id).order(order).limit(20)
         @count = Widget.count(:conditions => {:user_id => current_user.id})
       end
 
-      render :layout => 'lhnavigation'
+      if request.xhr?
+        render :partial => "pagewidgets/widget_list"
+      else
+        render :layout => 'lhnavigation'
+      end
     end
   end
 

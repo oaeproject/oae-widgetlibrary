@@ -5,12 +5,12 @@
       <div class="wl-widget-item-container" id="mywidgets_status">
           <div id="mywidgets_approved" <% if @declined %>style="display:none;"<% end %>>
               <div id="mywidgets_status_icon"><h1></h1></div>
-              <p>Your widgets have been approved for publication on the Sakai OAE platform. Good stuff! We invite you to <a href="#" title="Submit a new widget" class="wl-regular-link">submit a new widget</a> to the Sakai OAE platform.</p>
+              <p>Your widgets have been approved for publication on the Sakai OAE platform. Good stuff! We invite you to <a href="/submit" class="wl-regular-link">submit a new widget</a> to the Sakai OAE platform.</p>
           </div>
 
           <div id="mywidgets_declined" <% if !@declined %>style="display:none;"<% end %>>
               <div id="mywidgets_status_icon"><h1></h1></div>
-              <p>One or more of your submitted widgets has been declined for publication on the Sakai OAE platform. Please review the <a href="#" title="Suggested improvements" class="wl-regular-link">Suggested improvements</a> and resubmit to our approval process.</p>
+              <p>One or more of your submitted widgets has been declined for publication on the Sakai OAE platform. Please review the suggested improvements for each rejected widget</p>
           </div>
       </div>
     <% end %>
