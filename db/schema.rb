@@ -11,12 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111214203828) do
+ActiveRecord::Schema.define(:version => 20111229003800) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "url_title"
   end
 
   create_table "categories_widgets", :id => false, :force => true do |t|
@@ -90,6 +91,7 @@ ActiveRecord::Schema.define(:version => 20111214203828) do
     t.string   "avatar_file_size"
     t.string   "avatar_updated_at"
     t.string   "name"
+    t.string   "url_title"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
@@ -115,6 +117,7 @@ ActiveRecord::Schema.define(:version => 20111214203828) do
     t.string   "code_updated_at"
     t.string   "widget_repo"
     t.string   "widget_backend_repo"
+    t.string   "url_title"
   end
 
 end

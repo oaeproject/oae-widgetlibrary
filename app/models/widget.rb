@@ -12,7 +12,9 @@ class Widget < ActiveRecord::Base
   has_and_belongs_to_many :languages
 
   accepts_nested_attributes_for :screenshots, :allow_destroy => true
-  attr_accessible :title, :description, :features, :screenshots_attributes, :code, :widget_repo, :widget_backend_repo, :icon, :category_ids, :language_ids
+  attr_accessible :title, :description, :features, :screenshots_attributes, :code, :widget_repo, :widget_backend_repo, :icon, :category_ids, :language_ids, :url_title
+
+  validates_uniqueness_of :title, :wiget_repo, :widget_backend_repo, :url_title
 
   # Validations
   validates_presence_of :title, :description, :features
@@ -31,12 +33,14 @@ class Widget < ActiveRecord::Base
 
     conditions[:state_id] = State.where(:title => "accepted").first.id
 
-    if limit
-      Widget.where(conditions).order(order).limit(limit)
+    if args[:category_id] && args[:count]
+      Category.find(args[:category_id]).widgets.count(:conditions => conditions)
+    elsif args[:category_id]
+      Category.find(args[:category_id]).widgets.where(conditions).order(order).limit(limit)
     elsif args[:count]
       Widget.count(:conditions => conditions)
     else
-      Widget.where(conditions).order(order)
+      Widget.where(conditions).order(order).limit(limit)
     end
   end
 end

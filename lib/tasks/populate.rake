@@ -10,13 +10,12 @@ namespace :db do
     created = released_on - rand(50000000)
     # Create a weighted array of ratings, so we get fewer 0 and 1 ratings, and more 4 and 5s
     rating_arr  = [0,0,1,1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5]
-    seed = rand(NUM_DUMMY_USERS) + 1
 
     Rating.populate 1 do |rating|
       rating.review       = Faker::Lorem.sentence(rand(50)+20)
       rating.stars        = rating_arr[rand(rating_arr.length-1)]
       rating.widget_id    = widgetid
-      rating.user_id      = (seed % NUM_DUMMY_USERS) + 1
+      rating.user_id      = rand(NUM_DUMMY_USERS) + 1
       rating.created_at   = created
       rating.updated_at   = created
       ret = rating
@@ -32,9 +31,10 @@ namespace :db do
     num_ratings = rand(20) + 1
     created = Time.now - rand(50000000)
     state = rand(3) + 1
-
+    title = Faker::Lorem.words(rand(5) + 1).collect!{|t| t.capitalize }
     Widget.populate 1 do |widget|
-      widget.title          = Faker::Lorem.words(rand(5) + 1).collect!{|t| t.capitalize }.join(' ')
+      widget.title          = title.join(' ')
+      widget.url_title      = title.collect!{|t| t.downcase}.join('-')
       widget.description    = Faker::Lorem.sentence(rand(50) + 20)
       widget.features       = Faker::Lorem.words(rand(20) + 1).collect!{|t| t.capitalize }.join(' ')
       widget.released_on    = released_on
@@ -103,6 +103,7 @@ namespace :db do
       user.first_name         = Faker::Name.first_name
       user.last_name          = Faker::Name.first_name
       user.name               = "#{user.first_name} #{user.last_name}"
+      user.url_title          = "#{user.first_name.downcase}-#{user.last_name.downcase}"
       user.info               = Faker::Lorem.sentence(rand(50) + 20)
       user.summary            = Faker::Lorem.sentence(rand(50) + 20)
       user.occupation         = Faker::Lorem.words(rand(6) + 1).collect!{|t| t.capitalize }.join(' ')
@@ -125,6 +126,7 @@ namespace :db do
       :password_confirmation => "test",
       :first_name => "User",
       :last_name => i,
+      :url_title => "user-#{i}",
       :name => "User #{i}",
       :info => Faker::Lorem.sentence(rand(50) + 20),
       :summary => Faker::Lorem.sentence(rand(50) + 20),

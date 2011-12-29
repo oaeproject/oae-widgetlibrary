@@ -8,6 +8,7 @@ class SubmitController < ApplicationController
     @widget = Widget.new(params[:widget])
     @widget[:user_id] = current_user[:id]
     @widget[:state_id] = State.where(:title => "pending").first.id
+    @widget[:url_title] = @widget.title.split(" ").collect!{|t| t.downcase}.join("-")
     respond_to do |format|
       @widget.save
       format.js

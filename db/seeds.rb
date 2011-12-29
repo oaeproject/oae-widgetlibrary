@@ -14,14 +14,14 @@ State.create(:title => "pending", :id => 2)
 State.create(:title => "declined", :id => 3)
 
 # Create a starting set of categories
-Category.create(:title =>"Games")
-Category.create(:title =>"Quizzes")
-Category.create(:title =>"Feeds, News + Blogging")
-Category.create(:title =>"Social + Communication")
-Category.create(:title =>"Video + images")
-Category.create(:title =>"Graphing")
-Category.create(:title =>"Utilities")
-Category.create(:title =>"Other")
+Category.create(:title =>"Games", :url_title => "games")
+Category.create(:title =>"Quizzes", :url_title => "quizzes")
+Category.create(:title =>"Feeds, News + Blogging", :url_title => "feeds-news-blogging")
+Category.create(:title =>"Social + Communication", :url_title => "social-communication")
+Category.create(:title =>"Video + images", :url_title => "video-images")
+Category.create(:title =>"Graphing", :url_title => "graphing")
+Category.create(:title =>"Utilities", :url_title => "utilities")
+Category.create(:title =>"Other", :url_title => "other")
 
 # Create some languages
 Language.create(:title => "English (US)", :code => "en", :region => "US")
