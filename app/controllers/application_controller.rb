@@ -2,7 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   def search
-    @searchresults = Widget.where("title LIKE '%" + params["q"] + "%'").order("created_at desc")
+    w = Widget.scoped
+    @searchresults = w.where(w.table[:title].matches("%#{params[:q]}%").and(w.table[:state_id].eq(State.accepted))).order("created_at desc")
     render :partial => 'core/searchresults'
   end
 
