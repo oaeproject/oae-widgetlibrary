@@ -43,14 +43,25 @@ SakaiWidgetlibrary::Application.routes.draw do
   match '/developer/:developer_name' => 'developerdetails#index', :as => :developer_page
 
   match '/mywidgets' => 'mywidgets#index', :as => :mywidgets
-  match '/mywidgets/:filter' => "mywidgets#index"
+  match '/mywidgets/:filter' => 'mywidgets#index'
 
   get '/submit' => 'submit#index'
   post '/submit' => 'submit#create', :as => :create_widget
+  get '/edit/:widget_id' => 'submit#edit', :as => :edit_widget
+  post '/edit/:widget_id' => 'submit#new_version', :as => :new_widget_version
 
-  match '/search' => "application#search"
+  match '/search' => 'application#search'
 
   match '/zippedwidget' => 'widget_generator#zippedwidget'
-  root :to => "home#index"
+
+  match '/admin/users' => 'admin#users', :as => :admin_users
+  match '/admin/users/admin' => 'admin#users', :as => :admin_admin_users
+  match '/admin/options' => 'admin#options', :as => :admin_options
+  match '/admin' => 'admin#widgets'
+  match '/admin/widgets' => 'admin#widgets', :as => :admin
+  match '/admin/widgets/:filter' => 'admin#widgets'
+  match '/admin/widgets/:method/:widget_id' => 'admin#reviewed'
+
+  root :to => 'home#index'
 
 end

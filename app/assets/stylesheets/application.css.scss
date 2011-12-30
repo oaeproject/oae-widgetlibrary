@@ -805,5 +805,36 @@ input:-moz-placeholder, textarea:-moz-placeholder {
   font-style: italic;
   font-size: 11px; }
 
+.pagination {
+  margin-top:10px;
+  text-align: center;
+  padding: 0.3em;
+  cursor: default;
+  a, span, em {
+    padding: 0.2em 0.5em; }
+  .disabled {
+    color: #aaaaaa; }
+  .current {
+    font-style: normal;
+    font-weight: bold;
+    color: #000; }
+  a {
+    border: 1px solid #dddddd;
+    color: #2683BC;
+    text-decoration: none;
+    &:hover, &:focus {
+      border-color:#fff;
+      background: #2683BC;
+      color: white; } }
+  .page_info {
+    color: #aaaaaa;
+    padding-top: 0.8em; }
+  .previous_page, .next_page {
+    border-width: 2px; }
+  .previous_page {
+    margin-right: 1em; }
+  .next_page {
+    margin-left: 1em; } }
+
 @import "core/widget_list.css.scss";
 @import "core/submitwidget.css.scss";

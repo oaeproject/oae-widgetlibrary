@@ -16,5 +16,9 @@ class SubmitController < ApplicationController
   end
 
   def edit
+    @widget = Widget.find(params[:widget_id])
+  end
+
+  def new_version
   end
 end

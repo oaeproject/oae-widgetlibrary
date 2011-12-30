@@ -1,7 +1,10 @@
 class HomeController < ApplicationController
   def index
-    @recentlyadded = Widget.find_accepted(:order => "released_on desc", :limit => 5)
-    @toprated = Widget.find_accepted(:order => "average_rating desc", :limit => 5)
-    @mostpopular = Widget.find_accepted(:order => "random()", :limit => 16)
+    args = {
+      :state_id => State.accepted
+    }
+    @recentlyadded = Widget.where(args).order("released_on desc").limit(5)
+    @toprated = Widget.where(args).order("average_rating desc").limit(5)
+    @mostpopular = Widget.where(args).order("random()").limit(16)
   end
 end

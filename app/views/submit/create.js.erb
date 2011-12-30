@@ -1,6 +1,6 @@
 // If it is a success, just redirect to the URL returned
 <% unless @widget.errors.any? %>
-  document.location = "/widget/<%=u @widget.title %>";
+  document.location = "/widget/<%= @widget.url_title %>";
 <% else %>
   var errors = <%=raw @widget.errors.to_json %>;
   $.each(errors, function(key, error) {

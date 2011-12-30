@@ -1,12 +1,16 @@
 <div id="widget_description_container">
-    <% if @widget.user == current_user %>
+  <% if can_view_admin_area? && @widget.state.title.eql?("pending") %>
+    <%= render :partial => "admin_actions" %>
+  <% end %>
+    <% if @widget.user == current_user || can_view_admin_area? %>
+      <% if @widget.user == current_user then pronoun = "Your" else pronoun = "This" end %>
       <% case @widget.state.title %>
       <% when "accepted" %>
-        <h1 class="widget_accepted_header">Your Widget has been accepted!</h1>
+        <h1 class="widget_accepted_header"><%= pronoun %> Widget has been accepted!</h1>
       <% when "declined" %>
         <h1 class="widget_declined_header"><%= pronoun %> Widget has been declined, please read the '<a href="#" class="wl-regular-link">Steps needed to improve the widget</a>' before resubmission</h1>
       <% else %>
-        <h1 class="widget_declined_header">You widget is pending review</h1>
+        <h1 class="widget_declined_header"><%= pronoun %> widget is pending review</h1>
       <% end %>
     <% end %>
   <hr class="wl-split-line" style="display:none;"/>

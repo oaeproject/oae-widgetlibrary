@@ -1,0 +1,28 @@
+<nav id="lhnavigation_container">
+  <% if params[:action].eql?"widgets" %>
+  <h1 class="wl-bold">All Widgets</h1>
+  <ul>
+      <li<% if !params[:filter] %> class="selected wl-bold"<% end %>>
+        <div><a href="/admin">All widgets</a></div>
+      </li>
+      <% @states.each do |state| %>
+        <li<% if params[:filter].eql? state.title %> class="selected wl-bold"<% end %>>
+          <div><%= link_to "#{state.title.capitalize} (#{if !@widgets_in_state[state.id].nil? then @widgets_in_state[state.id] else "0" end})", "/admin/widgets/#{state.title}" %></div>
+        </li>
+      <% end %>
+  </ul>
+  <% elsif params[:action].eql?"users" %>
+  <h1 class="wl-bold">User Management</h1>
+  <ul>
+    <li><div><%= link_to "All Users", admin_users_path %></div></li>
+    <li><div><%= link_to "Admin Users", admin_admin_users_path %></div></li>
+  </ul>
+  <% elsif params[:action].eql?"options" %>
+  <h1 class="wl-bold">Widget Options</h1>
+  <ul>
+    <li><div>Categories</div></li>
+    <li><div>Languages</div></li>
+  </ul>
+  <% end %>
+</nav>
+<hr class="wl-push wl-hidden"/>

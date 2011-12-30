@@ -30,6 +30,12 @@ gem 'remotipart'
 # Platforms without a native javascript interpreter can use this ruby one
 gem 'therubyracer', :platforms => :ruby
 
+# Use will_paginate for query and view pagination
+gem 'will_paginate'
+
+# Use vestal_versions for model versioning
+gem 'vestal_versions', :git => 'git://github.com/jodosha/vestal_versions'
+
 group :test, :development do
   # Use factory_girl as a fixtures replacement
   gem "factory_girl_rails"

@@ -8,9 +8,10 @@
             <div class="widget_review_status widget_<%= widget.state.title.downcase %>"></div>
         <% end %>
 
-        <% if display[:title_length].eql? "long"%>
+        <% case display[:title_length] %>
+        <% when "long" %>
             <%= link_to truncate(widget.title, :length => 50, :omission => "..."), widget_path({:widget_title => widget.url_title}), :class => "wl-regular-link wl-bold wl-widget-item_widgetname" %>
-        <% elsif display[:title_length].eql? "medium"%>
+        <% when "medium" %>
             <%= link_to truncate(widget.title, :length => 25, :omission => "..."), widget_path({:widget_title => widget.url_title}), :class => "wl-regular-link wl-bold wl-widget-item_widgetname" %>
         <% else %>
             <%= link_to truncate(widget.title, :length => 13, :omission => "..."), widget_path({:widget_title => widget.url_title}), :class => "wl-regular-link wl-bold wl-widget-item_widgetname" %>
@@ -29,11 +30,16 @@
         <% end %>
 
         <% if false # if display[:users] %>
-            <a href="#" title="65 users" class="wl-regular-link wl-number-of-users">65 users</a>
+            <a href="#" class="wl-regular-link wl-number-of-users">65 users</a>
         <% end # end %>
 
         <% if display[:desc] %>
-            <p><%= widget.description %></p>
+            <% case display[:desc_length] %>
+            <% when "short" %>
+              <p><%= truncate(widget.description, :length => 200, :omission => "...") %></p>
+            <% else %>
+              <p><%= widget.description %></p>
+            <% end %>
         <% end %>
 
     <% else %>

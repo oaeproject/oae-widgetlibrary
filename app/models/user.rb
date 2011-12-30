@@ -17,12 +17,20 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username, :email, :url_title
 
   def widgets
-    Widget.find_accepted(:conditions => { :user_id => self.id })
+    args = {
+      :state_id => State.accepted,
+      :user_id => self.id
+    }
+    Widget.where(args)
   end
 
   def widget_average_rating
     rating = 0.0
-    widgets = Widget.find_accepted(:conditions => { :user_id => self.id })
+    args = {
+      :state_id => State.accepted,
+      :user_id => self.id
+    }
+    widgets = Widget.where(args)
     if widgets.size > 0
       widgets.each do |widget|
         rating += widget.average_rating

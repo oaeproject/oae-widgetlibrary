@@ -17,7 +17,8 @@ $(function() {
             url: document.location,
             data: {
                 s: sort_by,
-                d: direction
+                d: direction,
+                page: 1
             },
             success: function( data ) {
                 var $data = $( "<div/>" ).html( data );

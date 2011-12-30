@@ -1,6 +1,8 @@
 class Widget < ActiveRecord::Base
   include ValidatesAsImage
 
+  versioned
+
   has_attached_file :icon, :styles => { :thumb => ["50x50!", :png], :medium => ["100x100!", :png], :large => ["800x800", :png] }, :whiny => false
   has_attached_file :code
 
@@ -25,22 +27,21 @@ class Widget < ActiveRecord::Base
 
   validates_as_image :icon
 
-
-  def self.find_accepted(args = {})
-    conditions = args[:conditions] || {}
-    order = args[:order] || "created_at desc"
-    limit = args[:limit] || nil
-
-    conditions[:state_id] = State.where(:title => "accepted").first.id
-
-    if args[:category_id] && args[:count]
-      Category.find(args[:category_id]).widgets.count(:conditions => conditions)
-    elsif args[:category_id]
-      Category.find(args[:category_id]).widgets.where(conditions).order(order).limit(limit)
-    elsif args[:count]
-      Widget.count(:conditions => conditions)
-    else
-      Widget.where(conditions).order(order).limit(limit)
+  def self.find_by_state(state_title, order = "released_on desc", page = 1, userid = nil)
+    filterstate = State.where(:title => state_title).first
+    conditions = {:state_id => filterstate.id}
+    if userid
+      conditions[:user_id] = userid
     end
+    Widget.where(conditions).order(order).page(page)
   end
+
+  def self.count_by_state(state_id, userid = nil)
+    conditions = {:state_id => state_id}
+    if userid
+      conditions[:user_id] = userid
+    end
+    Widget.count(:conditions => conditions)
+  end
+
 end

@@ -4,14 +4,13 @@ class MywidgetsController < ApplicationController
     if !user_signed_in?
       redirect_to :root
     else
-      @states = []
-      @widgets_in_state = {}
+      @states = State.all
+      @widgets_in_state = []
       @declined = false
-      State.all.each do |state|
-        @states.push(state)
-        widgets_in_filter = Widget.count(:conditions => {:state_id => state.id, :user_id => current_user.id})
-        @widgets_in_state[state.id] = widgets_in_filter
-        if state.title.downcase.eql?("declined") && widgets_in_filter > 0
+
+      @states.each do |state|
+        @widgets_in_state[state.id] = Widget.count_by_state(state.id, current_user.id)
+        if state.title.downcase.eql?("declined") && @widgets_in_state[state.id].size > 0
           @declined = true
         end
       end
@@ -19,11 +18,10 @@ class MywidgetsController < ApplicationController
       order = get_sort("average_rating desc")
 
       if params[:filter]
-        filterstate = State.where(:title => params[:filter]).first
-        @widgets = Widget.where(:state_id => filterstate.id, :user_id => current_user.id).order(order).limit(20)
-        @count = @widgets_in_state[filterstate.id]
+        @widgets = Widget.find_by_state(params[:filter], order, current_user.id)
+        @count = @widgets.size
       else
-        @widgets = Widget.where(:user_id => current_user.id).order(order).limit(20)
+        @widgets = Widget.where(:user_id => current_user.id).order(order).page(params[:page])
         @count = Widget.count(:conditions => {:user_id => current_user.id})
       end
 

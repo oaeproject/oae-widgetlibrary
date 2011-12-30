@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sakai OAE Widget Store</title>
+        <%= stylesheet_link_tag "application" %>
+        <%= stylesheet_link_tag "core/lhnavigation" %>
+        <%= page_css %>
+        <%= javascript_include_tag "application" %>
+        <%= csrf_meta_tag %>
+        <%= yield :head %>
+    </head>
+    <body class="<%= "#{params[:controller].gsub("/", "_")} #{params[:action]}" %>">
+
+    <%= render :partial => "core/useractions", :locals => {:show => show_login} %>
+
+    <div class="wl-page-container wl-centered">
+        <div class="wl-container-shadow-left"></div>
+        <div class="wl-container-shadow-right"></div>
+        <%= render :partial => "core/header" %>
+        <h1 id="admin_header">Admin Area</h1>
+        <%= render :partial => "admin/nav" %>
+
+        <div class="wl-content-container">
+            <div class="wl-content-710 wl-right wl-padding-15-0 wl-padding-0-10 wl-content-right-container">
+                <%= yield %>
+            </div>
+            <div class="wl-content-185 wl-left wl-padding-15-0">
+                <%= render :partial => "#{params[:controller]}/lhnav" %>
+            </div>
+            <hr class="wl-push wl-hidden" />
+        </div>
+        <hr class="wl-push wl-hidden" />
+    </div>
+
+    <%= render :partial => "core/footer" %>
+
+    <%= page_js %>
+
+    </body>
+</html>

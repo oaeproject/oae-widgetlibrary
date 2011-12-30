@@ -1,0 +1,8 @@
+<div class="wl-content-container" id="submit_container">
+    <div id="submit_container_artwork"></div>
+    <% if user_signed_in? %>
+      <%= render :partial => "form" %>
+    <% else %>
+      <h1>Please sign in or <br/><%= link_to "create an account", user_registration_path, :class => "wl-regular-link" %> to edit a widget</h1>
+    <% end %>
+</div>

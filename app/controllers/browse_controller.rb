@@ -1,21 +1,26 @@
 class BrowseController < ApplicationController
   def index
 
-    args = {}
+    args = {
+      :state_id => State.accepted
+    }
+
+    order = get_sort("average_rating desc")
+
     if params[:category_title]
-      args[:category_id] = Category.find(:first, :conditions => {:url_title => params[:category_title]})
+      @widgets = Category.first(:conditions => {:url_title => params[:category_title]}).widgets.where(args).order(order).page(params[:page])
+      @count = Category.first(:conditions => {:url_title => params[:category_title]}).widgets.count(:conditions => args)
+    else
+      @widgets = Widget.where(args).order(order).page(params[:page])
+      @count = Widget.count(:conditions => args)
     end
-
-    args[:order] = get_sort("average_rating desc")
-
-    @widgets = Widget.find_accepted({:limit => 16}.merge(args))
 
     if request.xhr?
       render :partial => "pagewidgets/widget_list"
     else
       @categories = Category.all
-      @featured = Widget.find_accepted({:limit => 3}.merge(args))
-      @count = Widget.find_accepted({:count => true}.merge(args))
+      @featured = Widget.where(args).order(order).limit(3)
+
       render :layout => 'lhnavigation'
     end
   end

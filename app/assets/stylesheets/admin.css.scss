@@ -1,0 +1,54 @@
+@import "mixins.css.scss";
+
+
+/** Admin actions in the widget detail page **/
+.show #admin_actions {
+  margin-bottom:20px;
+  width:98%;
+  h1 {
+    font-size:20px;
+  }
+  button.wl-overlay-button {
+    margin-left:0px;
+  }
+  .widget_confirmation {
+    margin-top:20px;
+    label {
+      width:100%;
+      display:block;
+      font-size:16px;
+      margin-bottom:10px;
+    }
+    textarea {
+      width:400px;
+      height:150px;
+      font-size:14px;
+      display:block;
+      margin-bottom:10px;
+    }
+  }
+}
+
+/** Admin styles for the admin area **/
+.admin {
+  .wl-page-container {
+    padding: 0 22px;
+  }
+  #admin_header {
+    font-size:26px;
+    font-weight:bold;
+    text-shadow:0 5px 5px #CCC;
+  }
+
+  #widgetlibrary_navigation ul li {
+    width:auto;
+    &.navigation_item, &.navigation_item.selected {
+      width:auto;
+    }
+    a {
+      width:auto;
+      min-width:95px;
+      padding:15px 10px 6px 10px;
+    }
+  }
+}
