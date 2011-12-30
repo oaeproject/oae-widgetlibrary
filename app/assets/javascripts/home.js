@@ -25,7 +25,8 @@ $(function() {
             pause: 2500,
             play: 10000,
             animationStart: hidePrevArrow,
-            animationComplete: showSelectedArrow
+            animationComplete: showSelectedArrow,
+            paginationClass: "carousel_pagination"
         });
         showSelectedArrow();
         $(homeCarousel).css("visibility", "visible");
