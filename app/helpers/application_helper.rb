@@ -19,7 +19,11 @@ module ApplicationHelper
     if ret.eql? "00"
       ret = 0
     end
-    ret
+    ret.to_i * 2
+  end
+
+  def get_stars(rating)
+    rating.to_i / 20
   end
 
   def page_js

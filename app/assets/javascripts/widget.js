@@ -9,6 +9,12 @@ $(function() {
     var widgetdetails_main_screenshot = "#widgetdetails_main_screenshot";
     var widgetdetails_screenshots_thumbs = "#widgetdetails_screenshots_thumbs";
     var widgetdetails_screenshots_thumb_image = ".widgetdetails_screenshots_thumb img";
+    var widgetdetailsReviewsReviewWidget = "#widgetdetails_reviews_review_widget";
+
+    var wl_rating_container = ".wl-rating-container";
+    var wl_rating_icon = ".wl-rating-icon";
+    var wl_rating_input = ".wl-rating-input";
+    var wl_rating_current = ".wl-rating-current";
 
     var selectTabs = function(clickedTab){
         $(widgetdetailsTabs).removeClass("selected");
@@ -38,6 +44,16 @@ $(function() {
             $( widgetdetails_screenshots_thumb_image + ".selected" ).removeClass( "selected" );
             $( this ).addClass( "selected" );
         });
+
+        // Rating
+        $(wl_rating_container).on("click", wl_rating_icon, function(evt){
+            var currentrating = $(evt.target).attr("data-rating");
+            var $this = $(this);
+            $(wl_rating_input, widgetdetailsReviewsReviewWidget).val(currentrating);
+            $this.find(wl_rating_current).css({
+                width: (currentrating * 20) + "%"
+            })
+        })
     };
 
     var doInit = function(){
