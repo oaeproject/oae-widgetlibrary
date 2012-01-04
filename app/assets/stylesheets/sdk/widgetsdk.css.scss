@@ -1,6 +1,6 @@
 @import "mixins.css.scss";
 
-.developer {
+.sdk {
   .wl-content-container {
     background: image-url("library_bg.png") repeat-x scroll center top transparent;
     padding-top: 0; }
@@ -15,9 +15,12 @@
   padding-bottom: 15px;
   background: image-url("codesnippet_bg.png") repeat-x left top #f1f5f9;
   margin: 15px 0;
-  ul.green {
-    color: #079201; }
-  ul {
+  overflow-x: auto;
+  pre.green {
+      color: #079201; }
+  pre.black {
+      color: #000; }
+  pre {
     list-style: none;
     margin: 15px 0 0 15px;
     .blue {
@@ -28,20 +31,8 @@
       color: #666; }
     .red {
       color: #ae1111; }
-    li {
-      margin: 3px 0;
-      .indent_container {
-        width: 15px;
-        height: 1px;
-        float: left; }
-      .double_indent_container {
-        width: 30px;
-        height: 1px;
-        float: left; }
-      .codesnippet_right_value {
-        display: inline-block;
-        left: 250px;
-        position: absolute; } } }
+    .black {
+      color: #000; } }
   .navigationalitems_codesnippit_header {
     background: image-url("codesnippet_bg.png") repeat-x left -30px #f1f5f9;
     border-bottom: 1px solid #c7cfd5;

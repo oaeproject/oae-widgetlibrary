@@ -8,8 +8,13 @@
                 <li><%= link_to "Logout", logout_path %></li>
             <% else %>
                 <li><span>Hi Guest</span></li>|
-                <li <% if params[:controller].eql?("register")%>class="selected"<% end %>><a href="/register">Register</a></li>|
-                <li class="wl-dropdown-menu"><a href="#"><div id="useractions_arrow_down"></div>Sign In</a>
+                <li <% if params[:controller].eql?("register")%>class="selected"<% end %>>
+                    <%= link_to "Register", "/register"%></li>|
+                <li class="wl-dropdown-menu">
+                    <%= link_to "javascript:;" do %>
+                        <div id='useractions_arrow_down'></div>
+                        Sign In
+                    <% end %>
                     <div class="wl-dropdown-container" id="useractions_login_fields" style="display:none;">
                         <%= form_tag(user_session_path, :method => "POST", :id => "useractions_login_form", :class => "wl-form-field-wrapper", :remote => true) do%>
                             <div class="wl-dropdown-menu-content-container" id="useractions_login_fields_container">
@@ -21,7 +26,7 @@
                                 <%= text_field_tag "user[username]", nil, :class => "login-container-textfield" %>
                                 <%= label_tag "user[password]", "Password" %>
                                 <%= text_field_tag "user[password]", nil, :class => "login-container-textfield", :type => "password" %>
-                                <span class="useractions_forgot_username">Forgot your <a href="#" class="wl-regular-link">username or password?</a></span>
+                                <span class="useractions_forgot_username">Forgot your <%= link_to "username or password?", "javascript:;", :class => "wl-regular-link" %></span>
                                 <hr class="wl-split-line wl-push">
                                 <%= submit_tag "Sign in", :name => "commit", :id => "useractions_login_button_login", :class => "wl-button wl-overlay-button" %>
                                 <span style="display:none;" id="useractions_login_button_signing_in">Signing In ...</span>

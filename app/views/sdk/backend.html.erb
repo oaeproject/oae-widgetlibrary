@@ -3,19 +3,39 @@
     <p>Sakai OAE has a number of API functions available that your widgets should use to communicate with the Sakai OAE server. A full list of API functions will be coming soon, but documentation on some of the most used backend Widget API functions are provided below.</p>
     <p>If you are looking for API functions to build the interface of your widgets, check out the Frontend Services page.</p>
     
-    <h3 class="wl-normal">Categories <a href="javascript:;" class="wl-regular-link wl-bold wl-right expand_all_link" data-expanded="false"><span>Expand all &or;</span><span style="display:none;">Collapse all &and;</span></a></h3>
+    <h3 class="wl-normal">Categories 
+        <%= link_to "javascript:;", :class => "wl-regular-link wl-bold wl-right expand_all_link", "data-expanded" => "false" do %>
+            <span>Expand all &or;</span>
+            <span style="display:none;">Collapse all &and;</span>
+        <% end %>
+    </h3>
     <div class="wl-widget-item">
-        <h3 class="wl-regular-link no_decoration wl-normal">Widgets <a href="javascript:;" class="wl-regular-link wl-bold wl-right expand_link" data-expanded="false"><span>Expand &or;</span><span style="display:none;">Collapse &and;</span></a></h3>
+        <h3 class="wl-regular-link no_decoration wl-normal">Widgets 
+            <%= link_to "javascript:;", :class => "wl-regular-link wl-bold wl-right expand_link", "data-expanded" => "false" do %>
+                <span>Expand &or;</span>
+                <span style="display:none;">Collapse &and;</span>
+            <% end %>
+        </h3>
         <p>Many widgets need to save and retrieve settings or data about the work that they do for the user. The following two functions allow any instance of a widget to save and load data about itself to and from the server.</p>
         <div class="expandable_container" style="display:none;"></div>
     </div>
     <div class="wl-widget-item">
-        <h3 class="wl-regular-link no_decoration wl-normal">Groups <a href="javascript:;" class="wl-regular-link wl-bold wl-right expand_link" data-expanded="false"><span>Expand &or;</span><span style="display:none;">Collapse &and;</span></a></h3>
+        <h3 class="wl-regular-link no_decoration wl-normal">Groups 
+            <%= link_to "javascript:;", :class => "wl-regular-link wl-bold wl-right expand_link", "data-expanded" => "false" do %>
+                <span>Expand &or;</span>
+                <span style="display:none;">Collapse &and;</span>
+            <% end %>
+        </h3>
         <p>Many widgets run within the context of a Sakai OAE Group. Groups contain members and managers that your widget may want to know about. Your widgets may also want to limit the functionality or data available to these different types of users.</p>
         <div class="expandable_container" style="display:none;"></div>
     </div>
     <div class="wl-widget-item">
-        <h3 class="wl-regular-link no_decoration wl-normal">More Backend Services <a href="javascript:;" class="wl-regular-link wl-bold wl-right expand_link" data-expanded="false"><span>Expand &or;</span><span style="display:none;">Collapse &and;</span></a></h3>
+        <h3 class="wl-regular-link no_decoration wl-normal">More Backend Services 
+            <%= link_to "javascript:;", :class => "wl-regular-link wl-bold wl-right expand_link", "data-expanded" => "false" do %>
+                <span>Expand &or;</span>
+                <span style="display:none;">Collapse &and;</span>
+            <% end %>
+        </h3>
         <p>here are other backend API functions that can be found in the various sakai.api JavaScript files located at: /dev/lib/sakai</p>
         <div class="expandable_container" style="display:none;"></div>
     </div>

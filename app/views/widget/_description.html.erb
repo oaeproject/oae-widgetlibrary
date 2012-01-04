@@ -8,7 +8,7 @@
       <% when "accepted" %>
         <h1 class="widget_accepted_header"><%= pronoun %> Widget has been accepted!</h1>
       <% when "declined" %>
-        <h1 class="widget_declined_header"><%= pronoun %> Widget has been declined, please read the '<a href="#" class="wl-regular-link">Steps needed to improve the widget</a>' before resubmission</h1>
+        <h1 class="widget_declined_header"><%= pronoun %> Widget has been declined, please read the '<%= link_to "Steps needed to improve the widget", "javascript:;", :class => "wl-regular-link"%>' before resubmission</h1>
       <% else %>
         <h1 class="widget_declined_header"><%= pronoun %> widget is pending review</h1>
       <% end %>
@@ -16,7 +16,7 @@
   <hr class="wl-split-line" style="display:none;"/>
   <div id="widget_download">
       <%= image_tag @widget.icon.url(:medium), :alt => "#{@widget.title} preview" %>
-      <a target="_blank" class="wl-button wl-header-button" href="/system/codes/<%= @widget.id %>/original/<%= @widget.code_file_name %>">Download</a>
+      <%= link_to "Download", "/system/codes/#{@widget.id}/original/#{@widget.code_file_name}", :target => "_blank", :class => "wl-button wl-header-button"%>
   </div>
   <div id="widget_description">
       <h1 class="wl-bold"><%= @widget.title %> <span id="widget_version"></span></h1>

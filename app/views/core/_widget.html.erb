@@ -30,7 +30,7 @@
         <% end %>
 
         <% if false # if display[:users] %>
-            <a href="#" class="wl-regular-link wl-number-of-users">65 users</a>
+            <%= link_to "65 users", "javascript:;", :class => "wl-regular-link wl-number-of-users" %>
         <% end # end %>
 
         <% if display[:desc] %>

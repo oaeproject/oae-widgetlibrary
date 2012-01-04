@@ -1,9 +1,19 @@
 <div id="faq" class="widgetsdk_container">
     <h1>FAQs about Sakai OAE Widget development</h1>
 
-    <h3 class="wl-normal"><a href="javascript:;" class="wl-regular-link wl-bold wl-right expand_all_link" data-expanded="false"><span>Expand all &or;</span><span style="display:none;">Collapse all &and;</span></a></h3>
+    <h3 class="wl-normal">
+        <%= link_to "javascript:;", :class => "wl-regular-link wl-bold wl-right expand_all_link", "data-expanded" => "false" do %>
+            <span>Expand all &or;</span>
+            <span style="display:none;">Collapse all &and;</span>
+        <% end %>
+    </h3>
     <div class="wl-widget-item">
-        <h3 class="wl-regular-link no_decoration wl-normal">Development Questions <a href="javascript:;" class="wl-regular-link wl-bold wl-right expand_link" data-expanded="false"><span>Expand &or;</span><span style="display:none;">Collapse &and;</span></a></h3>
+        <h3 class="wl-regular-link no_decoration wl-normal">Development Questions 
+            <%= link_to "javascript:;", :class => "wl-regular-link wl-bold wl-right expand_link", "data-expanded" => "false" do %>
+                <span>Expand &or;</span>
+                <span style="display:none;">Collapse &and;</span>
+            <% end %>
+        </h3>
         <h3 class="wl-normal">What kinds of technologies do I need to know to develop Sakai OAE widgets? How much experience will I need?</h3>
         <div class="expandable_container" style="display:none;">
             <p>Sakai OAE widgets use frontend web technologies such as HTML (for widget layout), CSS (for widget styling), JavaScript (for widget behavior) and JSON (for widget data management). jQuery is a major JavaScript library used throughout Sakai OAE widgets. Sakai OAE has been designed to make widget development very easy and the architecture of a Sakai OAE widget is relatively simple.</p>
@@ -42,7 +52,12 @@
     </div>
 
     <div class="wl-widget-item">
-        <h3 class="wl-regular-link no_decoration wl-normal">Contributing to Sakai OAE <a href="javascript:;" class="wl-regular-link wl-bold wl-right expand_link" data-expanded="false"><span>Expand &or;</span><span style="display:none;">Collapse &and;</span></a></h3>
+        <h3 class="wl-regular-link no_decoration wl-normal">Contributing to Sakai OAE 
+            <%= link_to "javascript:;", :class => "wl-regular-link wl-bold wl-right expand_link", "data-expanded" => "false" do %>
+                <span>Expand &or;</span>
+                <span style="display:none;">Collapse &and;</span>
+            <% end %>
+        </h3>
         <h3 class="wl-normal">How do I report a bug?</h3>
         <div class="expandable_container" style="display:none;"></div>
         <h3 class="wl-normal">How do I suggest a feature?</h3>
@@ -52,7 +67,12 @@
     </div>
 
     <div class="wl-widget-item">
-        <h3 class="wl-regular-link no_decoration wl-normal">Sakai OAE Background information <a href="javascript:;" class="wl-regular-link wl-bold wl-right expand_link" data-expanded="false"><span>Expand &or;</span><span style="display:none;">Collapse &and;</span></a></h3>
+        <h3 class="wl-regular-link no_decoration wl-normal">Sakai OAE Background information 
+            <%= link_to "javascript:;", :class => "wl-regular-link wl-bold wl-right expand_link", "data-expanded" => "false" do %>
+                <span>Expand &or;</span>
+                <span style="display:none;">Collapse &and;</span>
+            <% end %>
+        </h3>
         <h3 class="wl-normal">How does Sakai OAE relate to Sakai CLE (the previous version of Sakai)?</h3>
         <div class="expandable_container" style="display:none;"></div>
         <h3 class="wl-normal">What releases of Sakai OAE are currently available?</h3>

@@ -8,7 +8,7 @@
         <h1>Start developing Sakai OAE Widgets:</h1>
         <h2>Design. Develop. Inspire</h2>
         <p>A 'Widget' is an app which can be used as a 'bolt on' to the installed Sakai Open Academic Environment to add additional functionality, expanding the value of the platform for tutors and students alike. A 'Widget' is an app which can be used as a 'bolt on' to the installed Sakai Open Academic Environment to add additional functionality, expanding the value of the platform for tutors and students alike.</p>
-        <a class="wl-button wl-link-button wl-header-button" href="/sdk/developwidget">Visit the Widget SDK</a>
+        <%= link_to "Visit the Widget SDK", "/sdk/developwidget", :class => "wl-button wl-link-button wl-header-button"%>
     </div>
     <hr class="wl-hidden wl-push"/>
     <div id="developer_wheretobegin_container">
@@ -17,40 +17,40 @@
             <h1>Developing a Widget</h1>
             <%= image_tag "developer_wgt_icon.png", :alt => "Developing a Widget" %>
             <p>Detailed instructions for developing your own widgets.</p>
-            <a href="/sdk/developwidget" class="wl-regular-link wl-bold">How to do it</a>
+            <%= link_to "How to do it", "/sdk/developwidget", :class => "wl-regular-link wl-bold"%>
         </div>
         <div class="wl-widget-item">
             <h1>Examples</h1>
             <%= image_tag "developer_examples_icon.png", :alt => "Examples" %>
             <p>Sample code and examples of widgets for various categories.</p>
-            <a href="/sdk/widgetdesignandstyle/widgetexamples01" class="wl-regular-link wl-bold">View the examples</a>
+            <%= link_to "View the examples", "/sdk/widgetdesignandstyle/widgetexamples01", :class => "wl-regular-link wl-bold"%>
         </div>
         <div class="wl-widget-item">
             <h1>Widget builder</h1>
             <%= image_tag "developer_widgetbuilder_icon.png", :alt => "Widget builder" %>
             <p>Fill out a simple form and create a skeleton widget framework.</p>
-            <a href="/sdk/developwidget/widgetbuilder" class="wl-regular-link wl-bold">Get started</a>
+            <%= link_to "Get started", "/sdk/developwidget/widgetbuilder", :class => "wl-regular-link wl-bold"%>
         </div>
         <div class="wl-widget-item last">
             <h1>FAQs</h1>
             <%= image_tag "developer_faq_icon.png", :alt => "FAQs" %>
             <p>The most frequently asked questions answered here.</p>
-            <a href="/sdk/faq" class="wl-regular-link wl-bold">View the questions</a>
+            <%= link_to "View the questions", "/sdk/faq", :class => "wl-regular-link wl-bold"%>
         </div>
         <div class="developer_threecolumn first">
             <h1>Code best practices</h1>
             <p>Follow these simple few rules and you will be creating your own widgets for others to use on their Sakai platform.</p>
-            <a href="/sdk/developwidget/codingstandards" class="wl-regular-link wl-bold">View the examples</a>
+            <%= link_to "View the examples", "/sdk/developwidget/codingstandards", :class => "wl-regular-link wl-bold"%>
         </div>
         <div class="developer_threecolumn">
             <h1>Design style guide</h1>
             <p>Follow these simple few rules and you will be creating your own widgets for others to use on their Sakai platform.</p>
-            <a href="/sdk/widgetdesignandstyle/" class="wl-regular-link wl-bold">Colors, styles... all here</a>
+            <%= link_to "Colors, styles... all here", "/sdk/widgetdesignandstyle", :class => "wl-regular-link wl-bold"%>
         </div>
         <div class="developer_threecolumn last">
             <h1>UI and API documentation</h1>
             <p>Follow these simple few rules and you will be creating your own widgets for others to use on their Sakai platform.</p>
-            <a href="/sdk/services/frontend" class="wl-regular-link wl-bold">View documentation</a>
+            <%= link_to "View documentation", "/sdk/services/frontend", :class => "wl-regular-link wl-bold"%>
         </div>
         <hr class="wl-hidden wl-push"/>
     </div>

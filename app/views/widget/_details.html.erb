@@ -16,7 +16,7 @@
                 <h1>Latest reviews</h1>
                 <%= render :partial => "core/review", :locals => { :display => { :rate_widget => true } }, :collection => @widget.ratings.limit(3) %>
                 <hr class="wl-push wl-hidden"/>
-                <a target="_blank" class="wl-button wl-header-button" href="#">Write a review</a>
+                <%= link_to "Write a review", "javascript:;", :target => "_blank", :class => "wl-button wl-header-button"%>
             </div>
 
             <div id="widgetdetails_screenshot_container">
@@ -29,7 +29,7 @@
                 <h1>Review this widget</h1>
                 <textarea></textarea>
                 <%= render :partial => "pagewidgets/rating", :locals => { :display => { :rate_widget => true }, :stars => @widget.average_rating, :num_ratings => @widget.ratings.size } %>
-                <a target="_blank" class="wl-button wl-header-button" href="#">Post review</a>
+                <%= link_to "Post review", "javascript:;", :target => "_blank", :class => "wl-button wl-header-button"%>
             </div>
             <div id="widgetdetails_reviews_all">
                 <%= render :partial => "core/review", :locals => { :display => { :rate_widget => true } }, :collection => @widget.ratings.limit(4) %>
@@ -46,7 +46,8 @@
             </div>
 
             <div class="widgetdetails_uploadedversions_versiondescription">
-                <a href="#" class="wl-regular-link wl-bold">Activity Plus v3.0</a> <span class="widgetdetails_uploadeversions_dateuuploaded"> - uploaded 10.07.2011</span>
+                <%= link_to "Activity Plus v3.0", "javascript:;", :target => "_blank", :class => "wl-regular-link wl-bold"%>
+                <span class="widgetdetails_uploadeversions_dateuuploaded"> - uploaded 10.07.2011</span>
                 <p class="widgetdetails_uploadedversions_mainfeatures">Main feautures:</p>
                 <p>Donec sed odio dui. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
             </div>
@@ -59,7 +60,8 @@
             </div>
 
             <div class="widgetdetails_uploadedversions_versiondescription">
-                <a href="#" class="wl-regular-link wl-bold">Activity Plus v2.0</a> <span class="widgetdetails_uploadeversions_dateuuploaded"> - uploaded 24.06.2011</span>
+                <%= link_to "Activity Plus v2.0", "javascript:;", :target => "_blank", :class => "wl-regular-link wl-bold"%>
+                <span class="widgetdetails_uploadeversions_dateuuploaded"> - uploaded 24.06.2011</span>
                 <p class="widgetdetails_uploadedversions_mainfeatures">Main feautures:</p>
                 <p>Donec sed odio dui. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
             </div>
@@ -72,7 +74,8 @@
             </div>
 
             <div class="widgetdetails_uploadedversions_versiondescription">
-                <a href="#" class="wl-regular-link wl-bold">Activity Plus v1.0</a> <span class="widgetdetails_uploadeversions_dateuuploaded"> - uploaded 24.12.2010</span>
+                <%= link_to "Activity Plus v1.0", "javascript:;", :target => "_blank", :class => "wl-regular-link wl-bold"%>
+                <span class="widgetdetails_uploadeversions_dateuuploaded"> - uploaded 24.12.2010</span>
                 <p class="widgetdetails_uploadedversions_mainfeatures">Main feautures:</p>
                 <p>Donec sed odio dui. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
             </div>
