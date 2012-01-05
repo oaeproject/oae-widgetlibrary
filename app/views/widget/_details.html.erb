@@ -25,12 +25,19 @@
         </div>
 
         <div id="widgetdetails_reviews" class="widgetdetails_tabcontent_content" <% if has_screenshots %>style="display:none;"<% end %>>
-            <div id="widgetdetails_reviews_review_widget">
-                <h1>Review this widget</h1>
-                <textarea></textarea>
-                <%= render :partial => "pagewidgets/rating", :locals => { :display => { :rate_widget => true }, :stars => @widget.average_rating, :num_ratings => @widget.ratings.size } %>
-                <a target="_blank" class="wl-button wl-header-button" href="#">Post review</a>
-            </div>
+            <% if user_signed_in? #Only allow logged in users to review %>
+                <%= form_for(@rating, :url => "/widget/#{@widget.url_title}/rate") do |f| %>
+                <div id="widgetdetails_reviews_review_widget">
+                    <h1>Review this widget</h1>
+                    <%= f.text_area :review, :placeholder => "Write a review" %>
+                    <%= f.hidden_field :widget_id, :value => @widget.id %>
+                    <%= f.hidden_field :user_id, :value => @rating.user_id || current_user.id %>
+                    <%= f.hidden_field :stars , :value => @rating.stars.to_i, :class => 'wl-rating-input' %>
+                    <%= render :partial => "pagewidgets/rating", :locals => { :display => { :rate_widget => true }, :stars => @rating.stars, :num_ratings => @widget.ratings.size } %>
+                    <%= f.submit "Post review", :class => "wl-button wl-header-button" %>
+                </div>
+                <% end %>
+            <% end %>
             <div id="widgetdetails_reviews_all">
                 <%= render :partial => "core/review", :locals => { :display => { :rate_widget => true } }, :collection => @widget.ratings.limit(4) %>
             </div>

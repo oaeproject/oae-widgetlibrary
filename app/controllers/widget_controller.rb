@@ -6,6 +6,25 @@ class WidgetController < ApplicationController
       not_found
     end
     @related = Widget.order("random()").limit(5)
+
+    if user_signed_in?
+      @rating = Rating.where(:user_id => current_user.id, :widget_id => @widget.id).first || Rating.new
+    end
+  end
+
+  def rating_create
+    @rating = Rating.new(params[:rating])
+    @rating.save!
+
+    redirect_to :action => :show
+  end
+  
+  def rating_update
+    @rating = Rating.where(:user_id => current_user.id, :widget_id => params[:rating][:widget_id]).first
+    @rating.update_attributes(params[:rating])
+    @rating.save!
+
+    redirect_to :action => :show
   end
 
   def new
