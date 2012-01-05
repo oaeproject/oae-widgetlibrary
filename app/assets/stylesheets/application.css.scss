@@ -212,32 +212,65 @@ option {
 /* Ratings */
 .wl-rating-container {
   padding-top: 10px;
+  .wl-rating-inline {
+    display:-moz-inline-block;
+    display:-moz-inline-box;
+    display:inline-block;
+    vertical-align: middle; }
   .wl-rating-icon {
+    position:relative;
     width: 80px;
-    height: 15px;
-    float: left; }
-  .wl-rating-icon.wl-rating-icon-0 {
-    background: url("ratings_icon_0.png") no-repeat top left transparent; }
-  .wl-rating-icon.wl-rating-icon-05 {
-    background: url("ratings_icon_05.png") no-repeat top left transparent; }
-  .wl-rating-icon.wl-rating-icon-10 {
-    background: url("ratings_icon_1.png") no-repeat top left transparent; }
-  .wl-rating-icon.wl-rating-icon-15 {
-    background: url("ratings_icon_15.png") no-repeat top left transparent; }
-  .wl-rating-icon.wl-rating-icon-20 {
-    background: url("ratings_icon_2.png") no-repeat top left transparent; }
-  .wl-rating-icon.wl-rating-icon-25 {
-    background: url("ratings_icon_25.png") no-repeat top left transparent; }
-  .wl-rating-icon.wl-rating-icon-30 {
-    background: url("ratings_icon_3.png") no-repeat top left transparent; }
-  .wl-rating-icon.wl-rating-icon-35 {
-    background: url("ratings_icon_35.png") no-repeat top left transparent; }
-  .wl-rating-icon.wl-rating-icon-40 {
-    background: url("ratings_icon_4.png") no-repeat top left transparent; }
-  .wl-rating-icon.wl-rating-icon-45 {
-    background: url("ratings_icon_45.png") no-repeat top left transparent; }
-  .wl-rating-icon.wl-rating-icon-50 {
-    background: url("ratings_icon_5.png") no-repeat top left transparent; }
+    height: 16px;
+    overflow:hidden;
+    list-style:none;
+    margin:0;
+    padding:0;
+    background-position: left top !important;
+
+    button {
+      background-color:transparent }
+
+    &, button:hover, button:focus, .wl-rating-current {
+      background: url("ratings_icons.png") left -1000px repeat-x; }
+
+    button:hover, button:focus{
+      background-position: left bottom; }
+
+    li{
+      display: inline;
+      padding: 0 !important; }
+
+    button, .wl-rating-current {
+      position:absolute;
+      top:0;
+      left:0;
+      text-indent:-1000em;
+      height: 16px;
+      line-height:16px !important;
+      outline:none;
+      overflow:hidden;
+      border: none; }
+
+    .wl-rating-icon-1 {
+       width:20%;
+       z-index:6; }
+    .wl-rating-icon-2 {
+       width:40%;
+       z-index:5; }
+    .wl-rating-icon-3 {
+       width:60%;
+       z-index:4; }
+    .wl-rating-icon-4 {
+       width:80%;
+       z-index:3; }
+    .wl-rating-icon-5 {
+       width:100%;
+       z-index:2; }
+    .wl-rating-current {
+       z-index:1;
+       background-position: left bottom; }
+    .wl-rating-modifiable {
+       background-position: left center; } }
   .wl-number-of-ratings {
     margin-left: 7px; } }
 

@@ -11,6 +11,8 @@ SakaiWidgetlibrary::Application.routes.draw do
   end
 
   match '/widget/:widget_title' => 'widget#show', :as => :widget
+  post '/widget/:widget_title/rate' => 'widget#rating_create'
+  put '/widget/:widget_title/rate' => 'widget#rating_update'
 
   match '/browse' => 'browse#index', :as => :browse
   match '/browse/:category_title' => 'browse#index', :as => :category
