@@ -47,6 +47,7 @@ $(function() {
 
         // Rating
         $(wl_rating_container).on("click", wl_rating_icon, function(evt){
+            evt.preventDefault();
             var currentrating = $(evt.target).attr("data-rating");
             var $this = $(this);
             $(wl_rating_input, widgetdetailsReviewsReviewWidget).val(currentrating);

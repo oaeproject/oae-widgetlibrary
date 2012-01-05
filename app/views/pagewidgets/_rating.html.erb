@@ -2,7 +2,7 @@
     <span class="wl-rating-inline">
     <ul class="wl-rating-icon">
         <% widget_rating = get_rating(stars.to_f) %>
-        <li class="wl-rating-current" style="width:<%= widget_rating %>%;"><%= pluralize(get_stars(widget_rating), 'star') %> out of 5</li>
+        <li class="wl-rating-current <% if display[:rate_widget] %>wl-rating-modifiable<% end %>" style="width:<%= widget_rating %>%;"><%= pluralize(get_stars(widget_rating), 'star') %> out of 5</li>
         <% if display[:rate_widget] %>
             <li><button title="1 star out of 5" class="wl-rating-icon-1" data-rating="1"></button></li>
             <li><button title="2 stars out of 5" class="wl-rating-icon-2" data-rating="2"></button></li>
