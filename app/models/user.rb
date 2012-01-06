@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
       :active => true,
       :user_id => self.id
     }
-    Widget.joins(:widget_version).where(args)
+    Widget.includes(:version).where(args)
   end
 
   def widget_average_rating
@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
       :active => true,
       :user_id => self.id
     }
-    widgets = Widget.joins(:widget_version).where(args)
+    widgets = Widget.includes(:version).where(args)
     if widgets.size > 0
       widgets.each do |widget|
         rating += widget.average_rating

@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   helper_method :is_admin?, :can_view_admin_area?
 
   def search
-    @searchresults = Widget.joins(:widget_version).where("widgets.active = ? AND widget_versions.title LIKE '%#{params[:q]}%'", true).order("widget_versions.created_at DESC")
+    @searchresults = Widget.includes(:versions).where("widgets.active = ? AND versions.title LIKE '%#{params[:q]}%'", true).order("versions.created_at DESC")
     render :partial => 'core/searchresults'
   end
 
