@@ -1,5 +1,5 @@
 <div class="widget_review">
-    <a href="#"  class="wl-regular-link wl-bold"><%= review.user.name %></a>
+    <%= link_to review.user.name, "javascript:;", :class => "wl-regular-link wl-bold" %>
     <p>"<%= review.review %>"</p>
     <%= render :partial => "pagewidgets/rating", :locals => { :stars => review.stars, :display => { :rate_widget => false } } %>
 </div>

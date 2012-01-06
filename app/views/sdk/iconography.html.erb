@@ -84,7 +84,7 @@
         <div class="widget-narrow-column">
             <h3>Usage:</h3>
             <span>These appear by default if a user hasn’t uploaded an image for them selves or one can’t be extracted from a piece of content.</span>
-            <a href="javascript:;" class="wl-regular-link">See example</a>
+            <%= link_to "See example", "javascript:;", :class => "wl-regular-link"%>
         </div>
         <hr class="wl-push wl-hidden">
 
@@ -103,7 +103,7 @@
         <div class="widget-narrow-column">
             <h3>Usage:</h3>
             <span>To be used as an icon for your designed widget. If you can’t design one yourself and have already had your widget approved for te OAE we may be able to help.</span>
-            <a href="javascript:;" class="wl-regular-link">Send us a message</a>
+            <%= link_to "Send us a message", "javascript:;", :class => "wl-regular-link"%>
         </div>
         <hr class="wl-push wl-hidden">
 
@@ -126,11 +126,10 @@
                 <span class="first">
                     <%= image_tag "usedby_icon_15x10.png", :alt => "Used By Icon" %>
                     Used by
-                    <a class="entity_content_people wl-regular-link" href="#">2053 people</a>, and <a class="entity_content_people wl-regular-link" href="#">4 places</a>
+                    <%= link_to "2053 people", "javascript:;", :class => "wl-regular-link entity_content_people"%>, and <%= link_to "4 places", "javascript:;", :class => "wl-regular-link entity_content_people"%>
                 </span>
-                 <span>
-                     <%= image_tag "comment_icon_15x10.png", :alt => "Comments Icon" %>
-                    <a href="#" id="entity_comments_link" class="wl-regular-link">256 Comments</a>
+                <span>
+                    <%= image_tag "comment_icon_15x10.png", :alt => "Comments Icon" %> <%= link_to "256 Comments", "javascript:;", :class => "wl-regular-link"%>
                 </span>
                 <span>
                     <%= image_tag "chain_icon_15x10.png", :alt => "Chain Icon" %>

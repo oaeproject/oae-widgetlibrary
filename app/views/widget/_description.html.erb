@@ -5,7 +5,7 @@
   <hr class="wl-split-line" style="display:none;"/>
   <div id="widget_download">
       <%= image_tag @widget.icon.url(:medium), :alt => "#{@widget.title} preview" %>
-      <a target="_blank" class="wl-button wl-header-button" href="/system/codes/<%= @widget.id %>/original/<%= @widget.code_file_name %>">Download</a>
+      <%= link_to "Download", "/system/codes/#{@widget.id}/original/#{@widget.code_file_name}", :target => "_blank", :class => "wl-button wl-header-button"%>
   </div>
   <div id="widget_description">
       <h1 class="wl-bold"><%= @widget.title %> <span id="widget_version"></span></h1>

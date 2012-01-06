@@ -19,19 +19,20 @@
 
         <div class="navigationalitems_codesnippit_container">
             <div class="navigationalitems_codesnippit_header"><h4>Properly namespacing HTML element classes and IDs</h4></div>
-            <ul>
-                <li>&lt;div class="myhelloworld_widget"&gt;</li>
-                <li><div class="indent_container"></div>...</li>
-                <li><div class="indent_container"></div>&lt;div id="myhelloworld_main"&gt;</li>
-                <li><div class="double_indent_container"></div>...</li>
-                <li><div class="indent_container"></div>&lt;/div&gt;</li>
-                <li>&nbsp;</li>
-                <li><div class="indent_container"></div>&lt;div id="myhelloworld_settings"&gt;</li>
-                <li><div class="double_indent_container"></div>...</li>
-                <li><div class="indent_container"></div>&lt;/div&gt;</li>
-                <li><div class="indent_container"></div>...</li>
-                <li>&lt;/div&gt;</li>
-            </ul>
+
+<pre>
+<span class="blue">&lt;div class=</span><span class="green">"myhelloworld_widget"</span><span class="blue">&gt;</span>
+    ...
+   <span class="blue"> &lt;div id=</span><span class="green">"myhelloworld_main"</span><span class="blue">&gt;</span>
+        ...
+    <span class="blue">&lt;/div&gt;</span>
+
+    <span class="blue">&lt;div id=</span><span class="green">"myhelloworld_settings"</span><span class="blue">&gt;</span>
+        ...
+   <span class="blue"> &lt;/div&gt;</span>
+    ...
+<span class="blue">&lt;/div&gt;</span>
+</pre>
         </div>
 
         <ul class="inline_list">
@@ -40,22 +41,22 @@
 
         <div class="navigationalitems_codesnippit_container">
             <div class="navigationalitems_codesnippit_header"><h4>Properly selecting elements in JavaScript</h4></div>
-            <ul>
-                <li>// tuid is passed in as this widget's unique id</li>
-                <li>&nbsp;</li>
-                <li>// unique container for each widget instance</li>
-                <li>var $rootel = $("#" + tuid);</li>
-                <li>&nbsp;</li>
-                <li>// jQuery's search for the element with an id of myhelloworld_main is</li>
-                <li>// limited to within the $rootel container:</li>
-                <li>var $mainContainer = $("#myhelloworld_main", $rootel);</li>
-                <li>&nbsp;</li>
-                <li>// more jQuery HTML elements</li>
-                <li>var $settingsContainer = $("#myhelloworld_settings", $rootel);</li>
-                <li>var $settingsForm = $("#myhelloworld_settings_form", $rootel);</li>
-                <li>var $colorPicker = $("#myhelloworld_color", $rootel);</li>
-                <li>var $usernameContainer = $("#myhelloworld_username", $rootel);</li>
-            </ul>
+<pre class="black">
+<span class="grey">// tuid is passed in as this widget's unique id</span>
+
+<span class="grey">// unique container for each widget instance</span>
+<span class="blue">var $rootel</span> = $(<span class="green">"#"</span> + tuid);
+
+<span class="grey">// jQuery's search for the element with an id of myhelloworld_main is</span>
+<span class="grey">// limited to within the $rootel container:</span>
+<span class="blue">var $mainContainer</span> = $(<span class="green">"#myhelloworld_main"</span>, $rootel);
+
+<span class="grey">// more jQuery HTML elements</span>
+<span class="blue">var $settingsContainer</span> = $(<span class="green">"#myhelloworld_settings"</span>, $rootel);
+<span class="blue">var $settingsForm</span> = $(<span class="green">"#myhelloworld_settings_form"</span>, $rootel);
+<span class="blue">var $colorPicker</span> = $(<span class="green">"#myhelloworld_color"</span>, $rootel);
+<span class="blue">var $usernameContainer</span> = $(<span class="green">"#myhelloworld_username"</span>, $rootel);
+</pre>
         </div>
     </div>
     <div class="wl-widget-item">

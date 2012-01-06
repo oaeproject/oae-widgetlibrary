@@ -1,43 +1,44 @@
 <nav id="lhnavigation_container">
   <h1 class="wl-bold">Sakai OAE Widget SDK</h1>
   <ul>
-      <li <% if params[:action].eql?("developwidget")%>class="selected"  <% elsif ["learnbasics", "codingstandards", "quickdev", "fulldev", "widgetbuilder"].include?(params[:action])%>class="selected_parent"<% end %>><div><a href="/sdk/developwidget">How to develop a widget</a></div></li>
+      <li <% if params[:action].eql?("developwidget")%>class="selected"  <% elsif ["learnbasics", "codingstandards", "quickdev", "fulldev", "widgetbuilder"].include?(params[:action])%>class="selected_parent"<% end %>><div><%= link_to "How to develop a widget", "/sdk/developwidget" %></div></li>
       <ul class="subnav" <% if !["developwidget", "learnbasics", "codingstandards", "quickdevsetup", "fulldevsetup", "widgetbuilder"].include?(params[:action]) %> style="display:none;"<% end %>>
-          <li <% if params[:action].eql?("learnbasics")%>class="selected"<% end %>><div><a href="/sdk/developwidget/learnbasics">Learn the basics, 'Hello World' tutorial</a><hr class="wl-split-line"/></div></li>
-          <li <% if params[:action].eql?("codingstandards")%>class="selected"<% end %>><div><a href="/sdk/developwidget/codingstandards">Coding standards</a><hr class="wl-split-line"/></div></li>
-          <li <% if params[:action].eql?("quickdevsetup")%>class="selected"<% end %>><div><a href="/sdk/developwidget/quickdevsetup">Quick development environment setup</a><hr class="wl-split-line"/></div></li>
-          <li <% if params[:action].eql?("fulldevsetup")%>class="selected"<% end %>><div><a href="/sdk/developwidget/fulldevsetup">Full development environment setup</a><hr class="wl-split-line"/></div></li>
-          <li <% if params[:action].eql?("widgetbuilder")%>class="selected"<% end %>><div><a href="/sdk/developwidget/widgetbuilder">Widget template builder</a></div></li>
+          <li <% if params[:action].eql?("learnbasics")%>class="selected"<% end %>><div><%= link_to "Learn the basics, 'Hello World' tutorial", "/sdk/developwidget/learnbasics" %><hr class="wl-split-line"/></div></li>
+          <li <% if params[:action].eql?("codingstandards")%>class="selected"<% end %>><div><%= link_to "Coding standards", "/sdk/developwidget/codingstandards" %><hr class="wl-split-line"/></div></li>
+          <li <% if params[:action].eql?("quickdevsetup")%>class="selected"<% end %>><div><%= link_to "Quick development environment setup", "/sdk/developwidget/quickdevsetup" %><hr class="wl-split-line"/></div></li>
+          <li <% if params[:action].eql?("fulldevsetup")%>class="selected"<% end %>><div><%= link_to "Full development environment setup", "/sdk/developwidget/fulldevsetup" %><hr class="wl-split-line"/></div></li>
+          <li <% if params[:action].eql?("widgetbuilder")%>class="selected"<% end %>><div><%= link_to "Widget template builder", "/sdk/developwidget/widgetbuilder" %></div></li>
       </ul>
 
-      <li <% if params[:action].eql?("examples")%>class="selected"<% end %>><div><a href="/sdk/examples">Examples</a></div></li>
+      <li <% if params[:action].eql?("examples")%>class="selected" <% elsif ["worlddashboard", "pagewidget"].include?(params[:action])%>class="selected_parent"<% end %>><div><%= link_to "Examples", "/sdk/examples" %></div></li>
       <ul class="subnav" <% if !["worlddashboard", "pagewidget", "examples"].include?(params[:action]) %> style="display:none;"<% end %>>
-          <li <% if params[:action].eql?("worlddashboard")%>class="selected"<% end %>><div><a href="/sdk/examples/worlddashboard">World dashboard widget</a><hr class="wl-split-line"/></div></li>
-          <li <% if params[:action].eql?("pagewidget")%>class="selected"<% end %>><div><a href="/sdk/examples/pagewidget">Page widget</a><hr class="wl-split-line"/></div></li>
+          <li <% if params[:action].eql?("worlddashboard")%>class="selected"<% end %>><div><%= link_to "World dashboard widget", "/sdk/examples/worlddashboard" %><hr class="wl-split-line"/></div></li>
+          <li <% if params[:action].eql?("pagewidget")%>class="selected"<% end %>><div>
+              <%= link_to "Page widget", "/sdk/examples/pagewidget" %><hr class="wl-split-line"/></div></li>
       </ul>
 
 
-      <li <% if params[:action].eql?("widgetdesignandstyle")%>class="selected" <% elsif ["typography", "colorpalette", "widgetexamples01", "widgetexamples02", "forms", "navigationalitems", "iconography", "interactionmodels"].include?(params[:action])%>class="selected_parent"<% end %>><div><a href="/sdk/widgetdesignandstyle">Widget design and style guide</a></div></li>
+      <li <% if params[:action].eql?("widgetdesignandstyle")%>class="selected" <% elsif ["typography", "colorpalette", "widgetexamples01", "widgetexamples02", "forms", "navigationalitems", "iconography", "interactionmodels"].include?(params[:action])%>class="selected_parent"<% end %>><div><%= link_to "Widget design and style guide", "/sdk/widgetdesignandstyle" %></div></li>
       <ul class="subnav" <% if !["typography", "colorpalette", "widgetexamples01", "widgetexamples02", "forms", "navigationalitems", "iconography", "interactionmodels", "widgetdesignandstyle"].include?(params[:action]) %> style="display:none;"<% end %>>
-          <li <% if params[:action].eql?("typography")%>class="selected"<% end %>><div><a href="/sdk/widgetdesignandstyle/typography">Typography</a><hr class="wl-split-line"/></div></li>
-          <li <% if params[:action].eql?("colorpalette")%>class="selected"<% end %>><div><a href="/sdk/widgetdesignandstyle/colorpalette">Color palette</a><hr class="wl-split-line"/></div></li>
-          <li <% if params[:action].eql?("widgetexamples01")%>class="selected"<% end %>><div><a href="/sdk/widgetdesignandstyle/widgetexamples01">Widget Examples 01</a><hr class="wl-split-line"/></div></li>
-          <li <% if params[:action].eql?("widgetexamples02")%>class="selected"<% end %>><div><a href="/sdk/widgetdesignandstyle/widgetexamples02">Widget Examples 02</a><hr class="wl-split-line"/></div></li>
-          <li <% if params[:action].eql?("forms")%>class="selected"<% end %>><div><a href="/sdk/widgetdesignandstyle/forms">Forms</a><hr class="wl-split-line"/></div></li>
-          <li <% if params[:action].eql?("navigationalitems")%>class="selected"<% end %>><div><a href="/sdk/widgetdesignandstyle/navigationalitems">Navigation, Button usage and Link language</a><hr class="wl-split-line"/></div></li>
-          <li <% if params[:action].eql?("iconography")%>class="selected"<% end %>><div><a href="/sdk/widgetdesignandstyle/iconography">Iconography</a><hr class="wl-split-line"/></div></li>
-          <li <% if params[:action].eql?("interactionmodels")%>class="selected"<% end %>><div><a href="/sdk/widgetdesignandstyle/interactionmodels">Interaction models</a></div></li>
+          <li <% if params[:action].eql?("typography")%>class="selected"<% end %>><div><%= link_to "Typography", "/sdk/widgetdesignandstyle/typography" %><hr class="wl-split-line"/></div></li>
+          <li <% if params[:action].eql?("colorpalette")%>class="selected"<% end %>><div><%= link_to "Color palette", "/sdk/widgetdesignandstyle/colorpalette" %><hr class="wl-split-line"/></div></li>
+          <li <% if params[:action].eql?("widgetexamples01")%>class="selected"<% end %>><div><%= link_to "Widget Examples 01", "/sdk/widgetdesignandstyle/widgetexamples01" %><hr class="wl-split-line"/></div></li>
+          <li <% if params[:action].eql?("widgetexamples02")%>class="selected"<% end %>><div><%= link_to "Widget Examples 02", "/sdk/widgetdesignandstyle/widgetexamples02" %><hr class="wl-split-line"/></div></li>
+          <li <% if params[:action].eql?("forms")%>class="selected"<% end %>><div><%= link_to "Forms", "/sdk/widgetdesignandstyle/forms" %><hr class="wl-split-line"/></div></li>
+          <li <% if params[:action].eql?("navigationalitems")%>class="selected"<% end %>><div><%= link_to "Navigation, Button usage and Link language", "/sdk/widgetdesignandstyle/navigationalitems" %><hr class="wl-split-line"/></div></li>
+          <li <% if params[:action].eql?("iconography")%>class="selected"<% end %>><div><%= link_to "Iconography", "/sdk/widgetdesignandstyle/iconography" %><hr class="wl-split-line"/></div></li>
+          <li <% if params[:action].eql?("interactionmodels")%>class="selected"<% end %>><div><%= link_to "Interaction models", "/sdk/widgetdesignandstyle/interactionmodels" %></div></li>
       </ul>
 
-      <li <% if ["frontend", "backend", "thirdparty"].include?(params[:action]) %>class="selected_parent"<% end %>><div><a href="/sdk/services/frontend">Back-end feed and UI API documentation</a></div></li>
+      <li <% if ["frontend", "backend", "thirdparty"].include?(params[:action]) %>class="selected_parent"<% end %>><div><%= link_to "Back-end feed and UI API documentation", "/sdk/services/frontend" %></div></li>
       <ul class="subnav" <% if !["frontend", "backend", "thirdparty"].include?(params[:action]) %> style="display:none;"<% end %>>
-          <li <% if params[:action].eql?("frontend")%>class="selected"<% end %>><div><a href="/sdk/services/frontend">Front-end Services</a><hr class="wl-split-line"/></div></li>
-          <li <% if params[:action].eql?("backend")%>class="selected"<% end %>><div><a href="/sdk/services/backend">Back-end Services</a><hr class="wl-split-line"/></div></li>
-          <li <% if params[:action].eql?("thirdparty")%>class="selected"<% end %>><div><a href="/sdk/services/thirdparty">3rd Party Services</a><hr class="wl-split-line"/></div></li>
+          <li <% if params[:action].eql?("frontend")%>class="selected"<% end %>><div><%= link_to "Front-end Services", "/sdk/services/frontend" %><hr class="wl-split-line"/></div></li>
+          <li <% if params[:action].eql?("backend")%>class="selected"<% end %>><div><%= link_to "Back-end Services", "/sdk/services/backend" %><hr class="wl-split-line"/></div></li>
+          <li <% if params[:action].eql?("thirdparty")%>class="selected"<% end %>><div><%= link_to "3rd Party Libraries", "/sdk/services/thirdparty" %><hr class="wl-split-line"/></div></li>
       </ul>
 
-      <li <% if params[:action].eql?("faq")%>class="selected"<% end %>><div><a href="/sdk/faq">FAQs</a></div></li>
-      <li <% if params[:action].eql?("help")%>class="selected"<% end %>><div><a href="/sdk/help">Getting help</a></div></li>
+      <li <% if params[:action].eql?("faq")%>class="selected"<% end %>><div><%= link_to "FAQs", "/sdk/faq" %></div></li>
+      <li <% if params[:action].eql?("help")%>class="selected"<% end %>><div><%= link_to "Getting help", "/sdk/help" %></div></li>
   </ul>
 </nav>
 <hr class="wl-push wl-hidden"/>

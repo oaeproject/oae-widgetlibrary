@@ -13,7 +13,7 @@
     </ul>
     </span>
     <% if display[:num_ratings] %>
-        <a href="#" class="wl-regular-link wl-number-of-ratings"><%= num_ratings %> Ratings</a>
+        <%= link_to "#{num_ratings} Ratings", "javascript:;", :class => "wl-regular-link wl-number-of-ratings" %>
     <% end %>
     <% if display[:rate_widget] %>
         <span>Rate this widget</span>
