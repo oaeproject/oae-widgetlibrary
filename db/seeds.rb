@@ -12,6 +12,7 @@
 State.create(:title => "accepted", :id => 1)
 State.create(:title => "pending", :id => 2)
 State.create(:title => "declined", :id => 3)
+State.create(:title => "superseded", :id => 4)
 
 # Create a starting set of categories
 Category.create(:title =>"Games", :url_title => "games")

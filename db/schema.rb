@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111230222848) do
+ActiveRecord::Schema.define(:version => 20120102233355) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(:version => 20111230222848) do
     t.string   "url_title"
   end
 
-  create_table "categories_widgets", :id => false, :force => true do |t|
+  create_table "categories_versions", :id => false, :force => true do |t|
     t.integer "category_id"
-    t.integer "widget_id"
+    t.integer "version_id"
   end
 
   create_table "languages", :force => true do |t|
@@ -33,9 +33,9 @@ ActiveRecord::Schema.define(:version => 20111230222848) do
     t.datetime "updated_at"
   end
 
-  create_table "languages_widgets", :id => false, :force => true do |t|
+  create_table "languages_versions", :id => false, :force => true do |t|
     t.integer "language_id"
-    t.integer "widget_id"
+    t.integer "version_id"
   end
 
   create_table "ratings", :force => true do |t|
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(:version => 20111230222848) do
     t.string   "image_content_type"
     t.string   "image_file_size"
     t.string   "image_updated_at"
-    t.integer  "widget_id"
+    t.integer  "version_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -98,36 +98,17 @@ ActiveRecord::Schema.define(:version => 20111230222848) do
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
   create_table "versions", :force => true do |t|
-    t.integer  "versioned_id"
-    t.string   "versioned_type"
-    t.integer  "user_id"
-    t.string   "user_type"
-    t.string   "user_name"
-    t.text     "modifications"
-    t.integer  "number"
-    t.integer  "reverted_from"
-    t.string   "tag"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "versions", ["created_at"], :name => "index_versions_on_created_at"
-  add_index "versions", ["number"], :name => "index_versions_on_number"
-  add_index "versions", ["tag"], :name => "index_versions_on_tag"
-  add_index "versions", ["user_id", "user_type"], :name => "index_versions_on_user_id_and_user_type"
-  add_index "versions", ["user_name"], :name => "index_versions_on_user_name"
-  add_index "versions", ["versioned_id", "versioned_type"], :name => "index_versions_on_versioned_id_and_versioned_type"
-
-  create_table "widgets", :force => true do |t|
+    t.integer  "widget_id"
     t.string   "title"
     t.text     "description"
     t.text     "features"
     t.datetime "released_on"
-    t.float    "average_rating"
+    t.datetime "reviewed_on"
     t.integer  "state_id"
-    t.integer  "user_id"
+    t.string   "version_number"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "user_id"
     t.string   "icon_file_name"
     t.string   "icon_content_type"
     t.string   "icon_file_size"
@@ -138,7 +119,15 @@ ActiveRecord::Schema.define(:version => 20111230222848) do
     t.string   "code_updated_at"
     t.string   "widget_repo"
     t.string   "widget_backend_repo"
-    t.string   "url_title"
+    t.string   "notes"
+  end
+
+  create_table "widgets", :force => true do |t|
+    t.integer "user_id"
+    t.integer "average_rating"
+    t.string  "url_title"
+    t.integer "version_id"
+    t.boolean "active",         :default => false
   end
 
 end

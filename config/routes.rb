@@ -11,6 +11,8 @@ SakaiWidgetlibrary::Application.routes.draw do
   end
 
   match '/widget/:widget_title' => 'widget#show', :as => :widget
+  post '/widget/:widget_title/rate' => 'widget#rating_create'
+  put '/widget/:widget_title/rate' => 'widget#rating_update'
 
   match '/browse' => 'browse#index', :as => :browse
   match '/browse/:category_title' => 'browse#index', :as => :category
@@ -43,12 +45,12 @@ SakaiWidgetlibrary::Application.routes.draw do
   match '/developer/:developer_name' => 'developerdetails#index', :as => :developer_page
 
   match '/mywidgets' => 'mywidgets#index', :as => :mywidgets
-  match '/mywidgets/:filter' => 'mywidgets#index'
+  match '/mywidgets/submissions' => 'mywidgets#submissions'
 
   get '/submit' => 'submit#index'
   post '/submit' => 'submit#create', :as => :create_widget
-  get '/edit/:widget_id' => 'submit#edit', :as => :edit_widget
-  post '/edit/:widget_id' => 'submit#new_version', :as => :new_widget_version
+  get '/submit/edit/:widget_id' => 'submit#edit', :as => :edit_widget
+  post '/submit/edit/:widget_id' => 'submit#new_version', :as => :new_widget_version
 
   match '/search' => 'application#search'
 

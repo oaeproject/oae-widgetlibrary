@@ -1,4 +1,4 @@
-<%= form_for(@widget, :url => create_widget_path, :html => { :multipart => true, :class => "wl-form-field-wrapper" }, :remote => true) do |f| %>
+<%= form_for(@version, :url => create_widget_path, :html => { :multipart => true, :class => "wl-form-field-wrapper" }, :remote => true) do |f| %>
     <h1>Submit a widget</h1>
     <h2 class="second_column">Or, enter 'url' to the source code repository</h2>
     <h2>01. Select created Widget to upload</h2>
@@ -27,6 +27,8 @@
         <h2>Basic information</h2>
         <span id="widget_title_error" class="wl-error" style="display:none"></span>
         <%= f.text_field :title, :id => "submit_widgetname", :placeholder => "Widget name" %>
+        <span id="widget_version_number_title_error" class="wl-error" style="display:none"></span>
+        <%= f.text_field :version_number, :id => "submit_version_number_title", :placeholder => "Version Number (i.e. 1.0)" %>
         <span id="widget_description_error" class="wl-error" style="display:none"></span>
         <%= f.text_area :description, :id => "register_basic", :placeholder => "Brief summary of the widget" %>
         <span id="widget_features_error" class="wl-error" style="display:none"></span>
@@ -48,14 +50,13 @@
     <hr class="wl-split-line wl-push">
     <h2>03. Add screenshots to the Widget overview</h2>
     <div id="submit_screenshot_uploadfields">
-        <h3>Upload new screenshots</h3>
+        <h3>Upload screenshots</h3>
         <p><span class="submit_descriptive_text">Use the buttons below to select screenshots for your widget to upload. These will be dynamically resized to the thumbnail size.</span></p>
         <%= f.fields_for :screenshots do |s| %>
             <h4>Screenshot:</h4>
             <%= s.file_field :image %>
         <% end %>
     </div>
-
 
     <hr class="wl-split-line wl-push">
     <div id="submit_widget_buttons">

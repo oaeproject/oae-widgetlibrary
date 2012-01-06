@@ -4,6 +4,7 @@ log/*.log
 tmp/
 .tmp*
 .project
+.rvmrc
 public/system
 public/assets
 *.swp

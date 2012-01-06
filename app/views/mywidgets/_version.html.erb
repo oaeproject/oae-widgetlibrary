@@ -1,0 +1,6 @@
+<% if row %><tr><% end %>
+  <td><%= version.created_at.strftime("%B %e, %Y %l:%M%P") %></td>
+  <td><%= version.version_number %></td>
+  <td><%= version.state.title %></td>
+  <td><%= version.notes %></td>
+<% if row %></tr><% end %>

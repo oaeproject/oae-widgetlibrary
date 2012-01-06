@@ -9,7 +9,7 @@ namespace :db do
 
     created = released_on - rand(50000000)
     # Create a weighted array of ratings, so we get fewer 0 and 1 ratings, and more 4 and 5s
-    rating_arr  = [0,0,1,1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5]
+    rating_arr  = [1,1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5]
 
     Rating.populate 1 do |rating|
       rating.review       = Faker::Lorem.sentence(rand(50)+20)
@@ -37,38 +37,69 @@ namespace :db do
 
   def create_widget(userid)
     ret = false
-
     released_on = Time.now - rand(50000000)
     num_ratings = rand(20) + 1
     created = Time.now - rand(50000000)
-    state = rand(3) + 1
+
     title = generate_title
     url_title = generate_url_title(title)
+
     while $widget_titles.include?(title.join(' ')) || $widget_urls.include?(url_title)
       title = generate_title
       url_title = generate_url_title(title)
     end
+
     $widget_titles.push(title.join(' '))
     $widget_urls.push(url_title)
+
+    reviewers = User.where(:reviewer => true).collect{ |u| u.id }
+
     Widget.populate 1 do |widget|
-      widget.title          = title.join(' ')
-      widget.url_title      = url_title
-      widget.description    = Faker::Lorem.sentence(rand(50) + 20)
-      widget.features       = Faker::Lorem.words(rand(20) + 1).collect!{|t| t.capitalize }.join(' ')
-      widget.released_on    = released_on
       ratings = []
-      num_ratings.times do
-        ratings.push(create_rating(widget.id, released_on))
-      end
       total_stars = 0
-      ratings.each do |rating|
+      num_ratings.times do
+        rating = create_rating(widget.id, released_on)
+        ratings.push(rating)
         total_stars += rating.stars
       end
+
+      widget.url_title      = url_title
       widget.average_rating = total_stars.to_f / num_ratings.to_f
-      widget.state_id       = state
       widget.user_id        = userid
-      widget.created_at     = created
-      widget.updated_at     = created
+
+      activeVersion = false
+      count = 1
+      num_versions = 1+rand(4)
+
+      Version.populate num_versions do |version|
+        created = created + rand(10000000)
+        version.title          = title.join(' ')
+        version.description    = Faker::Lorem.sentence(rand(50) + 20)
+        version.features       = Faker::Lorem.words(rand(20) + 1).collect!{|t| t.capitalize }.join(' ')
+        version.state_id       = rand(3) + 1
+        version.created_at     = created
+        version.updated_at     = created
+        version.widget_id      = widget.id
+        version.version_number = "#{count}.0"
+        if version.state_id.eql?(State.accepted)
+          count += 1
+          activeVersion        = version
+          version.released_on  = released_on
+        end
+        if version.state_id.eql?(State.accepted) || version.state_id.eql?(State.declined)
+          version.notes        = Faker::Lorem.sentence(rand(50) + 20)
+          version.user_id      = reviewers.sample
+          version.reviewed_on  = Time.now
+        end
+      end
+
+      if activeVersion
+        widget.version_id = activeVersion.id
+        widget.active = true
+      else
+        widget.active = false
+      end
+
       ret = widget
     end
 
@@ -79,36 +110,44 @@ namespace :db do
     num_categories = Category.count
     num_languages = Language.count
 
-    Widget.all.each do |widget|
+    Version.find_each do |version|
       icon = File.open(Dir.glob(File.join(Rails.root, 'test/sampledata/images', "#{1+rand(10)}.png")).sample)
-      widget.icon = icon
+      version.icon = icon
       icon.close
 
       code = File.open(Dir.glob(File.join(Rails.root, 'test/sampledata/zip', '*')).sample)
-      widget.code = code
+      version.code = code
       code.close
 
       category_ids = []
       rand(5).times do
-        category_ids.push( rand(num_categories) + 1 )
+        cat_id = rand(num_categories) + 1
+        while category_ids.include?(cat_id)
+          cat_id = rand(num_categories) + 1
+        end
+        category_ids.push( cat_id )
       end
-      widget.category_ids = category_ids
+      version.category_ids = category_ids
 
       language_ids = []
       rand(4).times do
-        language_ids.push( rand(num_languages) + 1 )
+        lang_id = rand(num_languages) + 1
+        while language_ids.include?(lang_id)
+          lang_id = rand(num_languages) + 1
+        end
+        language_ids.push( lang_id )
       end
-      widget.language_ids = language_ids
+      version.language_ids = language_ids
 
       rand(4).times do
         screenshot = Screenshot.new
         image = File.open(Dir.glob(File.join(Rails.root, 'test/sampledata/screenshots', "#{1+rand(9)}.png")).sample)
         screenshot.image = image
-        screenshot.widget_id = widget.id
+        screenshot.version_id = version.id
         screenshot.save!
         image.close
       end
-      widget.save!
+      version.save!
     end
   end
 
@@ -130,8 +169,8 @@ namespace :db do
     $names.push(name)
     User.populate 1 do |user|
       user.email              = Faker::Internet.email
-      user.admin              = 0
-      user.reviewer           = 0
+      user.admin              = true
+      user.reviewer           = true
       user.username           = username
       user.first_name         = first_name
       user.last_name          = last_name
@@ -175,7 +214,7 @@ namespace :db do
   end
 
   def give_users_avatars
-    User.all.each do |user|
+    User.find_each do |user|
       avatar = File.open(Dir.glob(File.join(Rails.root, 'test/sampledata/images', "#{1+rand(10)}.png")).sample)
       user.avatar = avatar
       user.save!

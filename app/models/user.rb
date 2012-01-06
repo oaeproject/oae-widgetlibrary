@@ -18,19 +18,19 @@ class User < ActiveRecord::Base
 
   def widgets
     args = {
-      :state_id => State.accepted,
+      :active => true,
       :user_id => self.id
     }
-    Widget.where(args)
+    Widget.joins(:widget_version).where(args)
   end
 
   def widget_average_rating
     rating = 0.0
     args = {
-      :state_id => State.accepted,
+      :active => true,
       :user_id => self.id
     }
-    widgets = Widget.where(args)
+    widgets = Widget.joins(:widget_version).where(args)
     if widgets.size > 0
       widgets.each do |widget|
         rating += widget.average_rating

@@ -2,17 +2,6 @@
   <% if can_view_admin_area? && @widget.state.title.eql?("pending") %>
     <%= render :partial => "admin_actions" %>
   <% end %>
-    <% if @widget.user == current_user || can_view_admin_area? %>
-      <% if @widget.user == current_user then pronoun = "Your" else pronoun = "This" end %>
-      <% case @widget.state.title %>
-      <% when "accepted" %>
-        <h1 class="widget_accepted_header"><%= pronoun %> Widget has been accepted!</h1>
-      <% when "declined" %>
-        <h1 class="widget_declined_header"><%= pronoun %> Widget has been declined, please read the '<%= link_to "Steps needed to improve the widget", "javascript:;", :class => "wl-regular-link"%>' before resubmission</h1>
-      <% else %>
-        <h1 class="widget_declined_header"><%= pronoun %> widget is pending review</h1>
-      <% end %>
-    <% end %>
   <hr class="wl-split-line" style="display:none;"/>
   <div id="widget_download">
       <%= image_tag @widget.icon.url(:medium), :alt => "#{@widget.title} preview" %>
@@ -35,7 +24,7 @@
           <li><span>Categories:</span>
             <ul>
               <% @widget.categories.each do |category| %>
-                <li><%= link_to category.title, category_path({:category_title => category.title}), :class => "wl-regular-link" %></li>
+                <li><%= link_to category.title, category_path({:category_title => category.url_title}), :class => "wl-regular-link" %></li>
               <% end %>
             </ul>
           </li>
@@ -51,7 +40,7 @@
               </ul>
           </li>
           <% end %>
-          <% if @widget.state.title === "accepted" %>
+          <% if @widget.released_on %>
             <li><span>Released:</span><span><%= @widget.released_on.strftime("%B %e, %Y") %></span></li>
           <% end %>
       </ul>
