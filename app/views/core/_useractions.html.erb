@@ -4,17 +4,22 @@
         <% if show %>
         <ul>
             <% if user_signed_in? %>
-                <li><span>Hi <%= "#{current_user.first_name}" %></span></li>
+                <li><span>Hi <%= current_user.first_name %></span></li>
                 <li><%= link_to "Logout", logout_path %></li>
             <% else %>
-                <li><span>Hi Guest</span></li>|
+                <li>
+                    <span>Hi Guest</span>
+                </li>
+                <span class="wl-left wl-margin-top-9">|</span>
                 <li <% if params[:controller].eql?("register")%>class="selected"<% end %>>
-                    <%= link_to "Register", "/register"%></li>|
+                    <%= link_to "Register", "/register"%>
+                </li>
+                <span class="wl-left wl-margin-top-9">|</span>
                 <li class="wl-dropdown-menu">
-                    <%= link_to "javascript:;" do %>
+                    <button type="button" class="wl-link-button">
                         <div id='useractions_arrow_down'></div>
                         Sign In
-                    <% end %>
+                    </button>
                     <div class="wl-dropdown-container" id="useractions_login_fields" style="display:none;">
                         <%= form_tag(user_session_path, :method => "POST", :id => "useractions_login_form", :class => "wl-form-field-wrapper", :remote => true) do%>
                             <div class="wl-dropdown-menu-content-container" id="useractions_login_fields_container">

@@ -6,7 +6,7 @@
       </li>
       <% @categories.each do |category| %>
         <li<% if params[:category_title].eql? category.url_title %> class="selected wl-bold"<% end %>>
-          <div><%= link_to "#{category.title}", "/browse/#{category.url_title}"%></div>
+          <div><%= link_to category.title, "/browse/#{category.url_title}"%></div>
         </li>
       <% end %>
   </ul>

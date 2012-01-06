@@ -87,6 +87,9 @@ option {
 .wl-margin-right-15 {
   margin-right: 15px; }
 
+.wl-margin-top-9 {
+  margin-top: 9px; }
+
 /* Main container*/
 .wl-page-container {
   background-color: #fff;
@@ -659,14 +662,17 @@ textarea {
       li {
         display: inline-block;
         margin-right: 2px;
-        > span, > a {
+        float: left;
+        > span, > a, > button {
           padding: 9px 22px;
           color: #ccc;
           text-decoration: none;
-          display: block; } }
+          display: block; }
+        &.opened > button {
+            color: #fff; } }
       li.selected {
         background: image-url("navigation_item_selected.png") repeat-x top left transparent;
-        a {
+        a, button {
           color: #FFF; } } }
     input[type=submit] {
       float: right; }
@@ -679,7 +685,7 @@ textarea {
     #useractions_login_fields {
       width: 200px;
       @include border-radius($topLeft: 0, $topRight: 0, $bottomRight: 5px, $bottomLeft: 5px);
-      margin-left: -113px;
+      margin-left: -112px;
       margin-top: 0;
       position: absolute;
       z-index: 11000;
