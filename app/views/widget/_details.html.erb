@@ -58,7 +58,8 @@
                   </div>
                 <% end %>
                 <div class="widgetdetails_uploadedversions_versiondescription">
-                    <a href="#" class="wl-regular-link wl-bold"><%= version.title %> v<%= version.version_number %></a> <span class="widgetdetails_uploadeversions_dateuuploaded"> - released <%= version.released_on.strftime("%B %d, %Y") %></span>
+                    <%= link_to version.title + " " + version.version_number, "javascript:;", :class => "wl-regular-link wl-bold" %>
+                    <span class="widgetdetails_uploadeversions_dateuuploaded"> - released <%= version.released_on.strftime("%B %d, %Y") %></span>
                     <p class="widgetdetails_uploadedversions_mainfeatures">Main features:</p>
                     <p><%= version.features %></p>
                 </div>

@@ -2,11 +2,11 @@
   <h1 class="wl-bold">Browse Widgets</h1>
   <ul>
       <li<% if !params[:category_title] %> class="selected wl-bold"<% end %>>
-        <div><a href="/browse">All categories</a></div>
+        <div><%= link_to "All categories", "/browse" %></div>
       </li>
       <% @categories.each do |category| %>
         <li<% if params[:category_title].eql? category.url_title %> class="selected wl-bold"<% end %>>
-          <div><a href="/browse/<%=category.url_title %>"><%= category.title %></a></div>
+          <div><%= link_to category.title, "/browse/#{category.url_title}"%></div>
         </li>
       <% end %>
   </ul>

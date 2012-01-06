@@ -5,7 +5,7 @@
 </div>
 <div id="search_widgets_results_bottom_container">
     <% if @searchresults.size > 0 %>
-    <a href="/browse?q=<%= params[:q] %>" class="wl-button wl-overlay-button">View all results</a>
+        <%= link_to "View all results", "/browse?q=#{params[:q]}", :class => "wl-button wl-overlay-button" %>
     <% end %>
     <span id="search_widgets_results_bottom_content"><%= @searchresults.size %> results</span>
 </div>

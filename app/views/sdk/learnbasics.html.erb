@@ -7,7 +7,7 @@
     <p>Make sure your development environment is set up so you can create the My Hello World widget and run it within Sakai OAE on your machine|:</p>
 
     <p><%= link_to "Quick set up", "/sdk/developwidget/quicksetup", :class => "wl-regular-link wl-bold" %> if you have Java and git installed.<br/>
-        <%= link_to "Full set up", "/sdk/developwidget/fullsetup", :class => "wl-regular-link wl-bold" %> if you don't have any of these tools installed.</p>
+    <%= link_to "Full set up", "/sdk/developwidget/fullsetup", :class => "wl-regular-link wl-bold" %> if you don't have any of these tools installed.</p>
     
     <p>The My Hello World widget is identical to the Hello World widget (except the name and ID of the widget) included in the 3akai-UX code distribution at 3akai-ux/devwidgets/helloworld. For the purposes of this tutorial we are using My Hello World (and corresponding myhelloworld ID) so you can create a new widget while referencing the provided Hello World widget if necessary.</p>
 
@@ -71,29 +71,30 @@
 
     <div class="navigationalitems_codesnippit_container">
         <div class="navigationalitems_codesnippit_header"><h4>config.json</h4></div>
-        <ul class="green">
-            <li class="grey">{</li>
-            <li><div class="indent_container"></div>"enabled": <div class="codesnippet_right_value blue">true,</div></li>
-            <li><div class="indent_container"></div>"groupdashboard": <div class="codesnippet_right_value blue">false,</div></li>
-            <li><div class="indent_container"></div>"grouppages": <div class="codesnippet_right_value grey">false,</div></li>
-            <li><div class="indent_container"></div>"hasSettings": <div class="codesnippet_right_value grey">true,</div></li>
-            <li><div class="indent_container"></div>"i18n": <span class="grey">{</span></li>
-            <li><div class="double_indent_container"></div>default": <span class="grey">{</span></li>
-            <li><div class="indent_container"></div><div class="double_indent_container"></div>"bundle": <div class="codesnippet_right_value"> "/devwidgets/myhelloworld/bundles/default.properties",</div></li>
-            <li><div class="indent_container"></div><div class="double_indent_container"></div>"name": <div class="codesnippet_right_value">"My Hello world",</div></li>
-            <li><div class="indent_container"></div><div class="double_indent_container"></div>"description": <div class="codesnippet_right_value">"Sakai OAE widget SDK demonstration widget"</div></li>
-            <li class="grey"><div class="double_indent_container"></div>}</li>
-            <li class="grey"><div class="indent_container"></div>},</li>
-            <li><div class="indent_container"></div>"id": <div class="codesnippet_right_value">"myhelloworld",</div></li>
-            <li><div class="indent_container"></div>"personalportal": <div class="codesnippet_right_value blue">false,</div></li>
-            <li><div class="indent_container"></div>"showinsakaigoodies": <div class="codesnippet_right_value blue">false,</div></li>
-            <li><div class="indent_container"></div>"type": <div class="codesnippet_right_value">"sakai",</div></li>
-            <li><div class="indent_container"></div>"url": <div class="codesnippet_right_value">"/devwidgets/myhelloworld/myhelloworld.html",</div></li>
-            <li><div class="indent_container"></div>"userdashboard": <div class="codesnippet_right_value blue">false,</div></li>
-            <li><div class="indent_container"></div>"userpages": <div class="codesnippet_right_value blue">false</div></li>
-            <li class="grey">}</li>
-        </ul>
-    </div>
+        
+<pre class="green">
+<span class="grey">{</span>
+    <span>"enabled":                <span class="blue">true,</span>
+    <span>"groupdashboard":         <span class="blue">false,</span>
+    <span>"grouppages":             <span class="grey">false,</span>
+    <span>"hasSettings":            <span class="grey">true,</span>
+    <span>"i18n": <span class="grey">{</span></span>
+        <span>default": <span class="grey">{</span></span>
+            <span>"bundle":         "/devwidgets/myhelloworld/bundles/default.properties",</span>
+            <span>"name":           "My Hello world",</span>
+            <span>"description":    "Sakai OAE widget SDK demonstration widget"</span>
+        <span class="grey">}</span>
+    <span class="grey">},</span>
+    <span>"id":                     <span class="codesnippet_right_value">"myhelloworld",</span>
+    <span>"personalportal":         <span class="blue">false,</span>
+    <span>"showinsakaigoodies":     <span class="blue">false,</span>
+    <span>"type":                   "sakai",</span>
+    <span>"url":                    "/devwidgets/myhelloworld/myhelloworld.html",</span>
+    <span>"userdashboard":          <span class="blue">false,</span>
+    <span>"userpages":              <span class="blue">false</span>
+<span class="grey">}</span>
+</pre>
+</div>
 
     <p>As you can see, the configuration options are listed in alphabetical order. When creating JSON or properties lists of key-value pairs, it is best to try and alphabetize the keys so the lists are easier to read and specific properties are easier to find.</p>
 

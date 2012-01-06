@@ -3,7 +3,7 @@
   <h1 class="wl-bold">All Widgets</h1>
   <ul>
       <li<% if !params[:filter] %> class="selected wl-bold"<% end %>>
-        <div><a href="/admin">All widgets</a></div>
+        <div><%= link_to "All widgets", "/admin"%></div>
       </li>
       <% @states.each do |state| %>
         <li<% if params[:filter].eql? state.title %> class="selected wl-bold"<% end %>>
