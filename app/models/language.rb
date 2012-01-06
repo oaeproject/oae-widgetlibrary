@@ -1,3 +1,3 @@
 class Language < ActiveRecord::Base
-  has_and_belongs_to_many :widgets
+  has_and_belongs_to_many :versions
 end

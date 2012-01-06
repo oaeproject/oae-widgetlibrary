@@ -13,10 +13,14 @@
     <div class="wl-inpage-tab-content">
         <div id="widgetdetails_screenshots" class="widgetdetails_tabcontent_content"<% if !has_screenshots %>style="display:none"<% end %>>
             <div id="widgetdetails_newestreviews">
+                <% if @widget.ratings.size > 0 %>
                 <h1>Latest reviews</h1>
                 <%= render :partial => "core/review", :locals => { :display => { :rate_widget => true } }, :collection => @widget.ratings.limit(3) %>
                 <hr class="wl-push wl-hidden"/>
-                <a target="_blank" class="wl-button wl-header-button" href="#">Write a review</a>
+                <% end %>
+                <% if user_signed_in? && current_user.id != @widget.user.id %>
+                  <button class="wl-button wl-header-button" id="write_review">Write a review</a>
+                <% end %>
             </div>
 
             <div id="widgetdetails_screenshot_container">
@@ -25,7 +29,7 @@
         </div>
 
         <div id="widgetdetails_reviews" class="widgetdetails_tabcontent_content" <% if has_screenshots %>style="display:none;"<% end %>>
-            <% if user_signed_in? #Only allow logged in users to review %>
+            <% if user_signed_in? && current_user.id != @widget.user.id #Only allow logged in users to review %>
                 <%= form_for(@rating, :url => "/widget/#{@widget.url_title}/rate") do |f| %>
                 <div id="widgetdetails_reviews_review_widget">
                     <h1>Review this widget</h1>
@@ -39,50 +43,29 @@
                 <% end %>
             <% end %>
             <div id="widgetdetails_reviews_all">
-                <%= render :partial => "core/review", :locals => { :display => { :rate_widget => true } }, :collection => @widget.ratings.limit(4) %>
+                <%= render :partial => "core/review", :locals => { :display => { :rate_widget => true } }, :collection => @widget.ratings %>
             </div>
         </div>
 
         <div id="widgetdetails_versions" class="widgetdetails_tabcontent_content" style="display:none;">
             <h1>Versions</h1>
             <hr class="wl-split-line" id="widgetdetails_uploadedversions_headerline"/>
+            <% @versions.each do |version| %>
+                <% if version.languages.size > 0 %>
+                  <div class="widgetdetails_uploadedversions_versionlanguage">
+                      <p>Languages:</p>
+                      <p><%= version.languages.collect{|l| l = l.title}.join(", ") %></p>
+                  </div>
+                <% end %>
+                <div class="widgetdetails_uploadedversions_versiondescription">
+                    <a href="#" class="wl-regular-link wl-bold"><%= version.title %> v<%= version.version_number %></a> <span class="widgetdetails_uploadeversions_dateuuploaded"> - released <%= version.released_on.strftime("%B %d, %Y") %></span>
+                    <p class="widgetdetails_uploadedversions_mainfeatures">Main features:</p>
+                    <p><%= version.features %></p>
+                </div>
 
-            <div class="widgetdetails_uploadedversions_versionlanguage">
-                <p>Languages:</p>
-                <p>English, French (Fully translated)</p>
-            </div>
+                <hr class="wl-split-line"/>
+            <% end %>
 
-            <div class="widgetdetails_uploadedversions_versiondescription">
-                <a href="#" class="wl-regular-link wl-bold">Activity Plus v3.0</a> <span class="widgetdetails_uploadeversions_dateuuploaded"> - uploaded 10.07.2011</span>
-                <p class="widgetdetails_uploadedversions_mainfeatures">Main feautures:</p>
-                <p>Donec sed odio dui. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-            </div>
-
-            <hr class="wl-split-line"/>
-
-            <div class="widgetdetails_uploadedversions_versionlanguage">
-                <p>Languages:</p>
-                <p>English, French (Partially translated)</p>
-            </div>
-
-            <div class="widgetdetails_uploadedversions_versiondescription">
-                <a href="#" class="wl-regular-link wl-bold">Activity Plus v2.0</a> <span class="widgetdetails_uploadeversions_dateuuploaded"> - uploaded 24.06.2011</span>
-                <p class="widgetdetails_uploadedversions_mainfeatures">Main feautures:</p>
-                <p>Donec sed odio dui. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-            </div>
-
-            <hr class="wl-split-line"/>
-
-            <div class="widgetdetails_uploadedversions_versionlanguage">
-                <p>Languages:</p>
-                <p>English</p>
-            </div>
-
-            <div class="widgetdetails_uploadedversions_versiondescription">
-                <a href="#" class="wl-regular-link wl-bold">Activity Plus v1.0</a> <span class="widgetdetails_uploadeversions_dateuuploaded"> - uploaded 24.12.2010</span>
-                <p class="widgetdetails_uploadedversions_mainfeatures">Main feautures:</p>
-                <p>Donec sed odio dui. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-            </div>
         </div>
     </div>
     <hr class="wl-push wl-hidden">

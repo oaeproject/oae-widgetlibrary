@@ -33,9 +33,6 @@ gem 'therubyracer', :platforms => :ruby
 # Use will_paginate for query and view pagination
 gem 'will_paginate'
 
-# Use vestal_versions for model versioning
-gem 'vestal_versions', :git => 'git://github.com/jodosha/vestal_versions'
-
 group :test, :development do
   # Use factory_girl as a fixtures replacement
   gem "factory_girl_rails"
@@ -51,8 +48,6 @@ group :development do
   gem 'capistrano'
   # Allow for multi-stage deploys with Capistrano
   gem 'capistrano-ext'
-  # Use the Ruby debugger for Ruby 1.9.2+
-  gem 'ruby-debug19', :require => 'ruby-debug'
 end
 
 # Assets for Rails 3.1

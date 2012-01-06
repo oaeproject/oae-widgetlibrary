@@ -12,7 +12,7 @@
   <div class="page_info"><%= page_entries_info @widgets %></div>
 </div>
 <div id="widget_list">
-  <%= render :partial => "core/widget", :locals => {:display => {:rating => true, :author => true, :num_ratings => true, :status => params[:controller].eql?("mywidgets"), :title_length => "medium"}}, :collection => @widgets %>
+  <%= render :partial => "core/widget", :locals => {:display => {:rating => true, :author => true, :num_ratings => true, :status => false, :title_length => "medium"}}, :collection => @widgets %>
   <hr class="wl-push wl-hidden"/>
   <%= will_paginate @widgets %>
 </div>

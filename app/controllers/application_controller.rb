@@ -5,17 +5,17 @@ class ApplicationController < ActionController::Base
   helper_method :is_admin?, :can_view_admin_area?
 
   def search
-    w = Widget.scoped
-    @searchresults = w.where(w.table[:title].matches("%#{params[:q]}%").and(w.table[:state_id].eq(State.accepted))).order("created_at desc")
+    @searchresults = Widget.joins(:widget_version).where("widgets.active = ? AND widget_versions.title LIKE '%#{params[:q]}%'", true).order("widget_versions.created_at DESC")
     render :partial => 'core/searchresults'
   end
+
+  $version_sorts = ["title"]
 
   def get_sort(default = "average_rating desc")
     ret = default
     if params[:s] && params[:d]
-      case params[:s]
-      when "popular"
-        # not sure how to measure popularity just yet
+      if $version_sorts.include?(params[:s])
+        ret = "versions.#{params[:s]} #{params[:d]}"
       else
         ret = "#{params[:s]} #{params[:d]}"
       end

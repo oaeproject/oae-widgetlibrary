@@ -1,0 +1,14 @@
+<div id="mywidgets">
+  <table>
+    <thead>
+      <tr>
+        <th>Widget</th><th>Date</th><th>Version</th><th>State</th><th>Notes</th><th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td colspan="5" class="spacer"></td></tr>
+      <%= render :partial => "widget", :collection => @widgets %>
+    </tbody>
+  </table>
+</div>
+<hr class="wl-push wl-hidden"/>
