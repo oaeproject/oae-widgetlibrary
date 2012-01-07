@@ -12,10 +12,10 @@ class Version < ActiveRecord::Base
   has_and_belongs_to_many :languages
 
   accepts_nested_attributes_for :screenshots, :allow_destroy => true
-  attr_accessible :title, :description, :features, :screenshots_attributes, :code, :widget_repo, :widget_backend_repo, :icon, :category_ids, :language_ids
+  attr_accessible :title, :description, :features, :screenshots_attributes, :code, :widget_repo, :widget_backend_repo, :icon, :category_ids, :language_ids, :version_number
 
   # Validations
-  validates_presence_of :title, :description, :features
+  validates_presence_of :title, :description, :features, :version_number
   validates_attachment_presence :icon
   validates_attachment_presence :code
   validates_attachment_content_type :code, :content_type => [ 'application/zip', 'application/x-zip', 'application/x-zip-compressed', 'application/octet-stream', 'application/x-compress', 'application/x-compressed', 'multipart/x-zip' ],

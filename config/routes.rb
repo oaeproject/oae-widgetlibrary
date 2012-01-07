@@ -2,17 +2,17 @@ SakaiWidgetlibrary::Application.routes.draw do
 
   devise_for :users, :controllers => {:sessions => 'sessions'}, :skip => [:sessions] do
     post '/login' => 'sessions#create', :as => :user_session
-    get '/logout' => 'devise/sessions#destroy', :as => :logout
-    get '/register' => 'devise/registrations#new', :as => :user_registration
+    get  '/logout' => 'devise/sessions#destroy', :as => :logout
+    get  '/register' => 'devise/registrations#new', :as => :user_registration
     post '/register' => 'registrations#create', :as => :user_registration
-    get '/register' => 'devise/registrations#new', :as => :new_user_registration
-    get '/register/check_username/:username' => 'registrations#check_username'
-    get '/forgot_password' => 'devise/passwords#new', :as => :new_user_password
+    get  '/register' => 'devise/registrations#new', :as => :new_user_registration
+    get  '/register/check_username/:username' => 'registrations#check_username'
+    get  '/forgot_password' => 'devise/passwords#new', :as => :new_user_password
   end
 
-  match '/widget/:widget_title' => 'widget#show', :as => :widget
-  post '/widget/:widget_title/rate' => 'widget#rating_create'
-  put '/widget/:widget_title/rate' => 'widget#rating_update'
+  match '/widget/:title' => 'widget#show', :as => :widget
+  post  '/widget/:title/rate' => 'widget#rating_create', :as => :ratings
+  put   '/widget/:title/rate' => 'widget#rating_update', :as => :ratings
 
   match '/browse' => 'browse#index', :as => :browse
   match '/browse/:category_title' => 'browse#index', :as => :category
@@ -47,10 +47,7 @@ SakaiWidgetlibrary::Application.routes.draw do
   match '/mywidgets' => 'mywidgets#index', :as => :mywidgets
   match '/mywidgets/submissions' => 'mywidgets#submissions'
 
-  get '/submit' => 'submit#index'
-  post '/submit' => 'submit#create', :as => :create_widget
-  get '/submit/edit/:widget_id' => 'submit#edit', :as => :edit_widget
-  post '/submit/edit/:widget_id' => 'submit#new_version', :as => :new_widget_version
+  resources :versions, :path => "submit", :controller => "submit"
 
   match '/search' => 'application#search'
 
@@ -61,7 +58,7 @@ SakaiWidgetlibrary::Application.routes.draw do
   match '/admin/options' => 'admin#options', :as => :admin_options
   match '/admin' => 'admin#widgets'
   match '/admin/widgets' => 'admin#widgets', :as => :admin
-  match '/admin/widgets/:filter' => 'admin#widgets'
+  match '/admin/widgets/:state' => 'admin#widgets', :as => :admin_state
   match '/admin/widgets/:method/:widget_id' => 'admin#reviewed'
 
   root :to => 'home#index'

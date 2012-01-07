@@ -1,38 +1,45 @@
-<%= form_for(@version, :url => create_widget_path, :html => { :multipart => true, :class => "wl-form-field-wrapper" }, :remote => true) do |f| %>
+<%= form_for(@version, :html => { :multipart => true, :class => "wl-form-field-wrapper" }, :remote => true) do |f| %>
     <h1>Submit a widget</h1>
-    <h2 class="second_column">Or, enter 'url' to the source code repository</h2>
-    <h2>01. Select created Widget to upload</h2>
+    <h2 class="second_column">Or, enter a url to the source code repository</h2>
+    <h2>01. Select widget to upload</h2>
     <div class="submit_container_split">
-        <span id="widget_code_error" class="wl-error" style="display:none"></span>
+        <span id="version_code_error" class="wl-error" style="display:none"></span>
+        <% if !@version.new_record? %>
+          <span>Current file: <%= @version.code_file_name %></span><br/>
+        <% end %>
         <%= f.file_field :code %>
-        <p><span class="submit_descriptive_text">Optional step:</span>Upload a backend feed bundle source code repository</p>
+        <p><span class="submit_descriptive_text">Optional step:</span>Select a supporting backend feed bundle</p>
         <%= f.file_field :bundle %>
     </div>
     <div class="submit_container_split">
         <%= f.text_field :widget_repo, :placeholder => "http://github.com/you/repository", :type => "url" %>
-        <p>Or, enter 'url' to the backend feed bundle source code repository</p>
+        <p>Or, enter a url to the backend feed bundle source code repository</p>
         <%= f.text_field :widget_backend_repo, :placeholder => "http://github.com/you/repository", :type => "url" %>
     </div>
 
     <hr class="wl-push wl-hidden"/>
     <h2>02. Add basic info about the Widget</h2>
     <div class="register_column1">
-        <h2>Select Image for Icon</h2>
-        <span id="widget_icon_error" class="wl-error" style="display:none"></span>
-        <%= image_tag "widget_default_image.jpg", :alt => "Widget Icon" %>
+        <h2>Select<%= if !@version.new_record? then " New" end %> Image for Icon</h2>
+        <span id="version_icon_error" class="wl-error" style="display:none"></span>
+        <% if @version.new_record? %>
+          <%= image_tag "widget_default_image.jpg", :alt => "Widget Icon" %>
+        <% else %>
+          <%= image_tag @version.icon.url(:medium), :alt => "Widget Icon" %>
+        <% end %>
         <%= f.file_field :icon %>
     </div>
 
     <div class="register_column2">
         <h2>Basic information</h2>
-        <span id="widget_title_error" class="wl-error" style="display:none"></span>
-        <%= f.text_field :title, :id => "submit_widgetname", :placeholder => "Widget name" %>
-        <span id="widget_version_number_title_error" class="wl-error" style="display:none"></span>
-        <%= f.text_field :version_number, :id => "submit_version_number_title", :placeholder => "Version Number (i.e. 1.0)" %>
-        <span id="widget_description_error" class="wl-error" style="display:none"></span>
-        <%= f.text_area :description, :id => "register_basic", :placeholder => "Brief summary of the widget" %>
-        <span id="widget_features_error" class="wl-error" style="display:none"></span>
-        <%= f.text_area :features, :id => "register_summary", :placeholder => "Enter a functional breakdown of the widget" %>
+        <span id="version_title_error" class="wl-error" style="display:none"></span>
+        <%= f.text_field :title, :class => "submit_widgetname", :placeholder => "Widget name" %>
+        <span id="version_version_number_title_error" class="wl-error" style="display:none"></span>
+        <%= f.text_field :version_number, :class => "submit_version_number_title", :placeholder => "Version Number (i.e. 1.0)" %>
+        <span id="version_description_error" class="wl-error" style="display:none"></span>
+        <%= f.text_area :description, :class => "register_basic", :placeholder => "Brief summary of the widget" %>
+        <span id="version_features_error" class="wl-error" style="display:none"></span>
+        <%= f.text_area :features, :class => "register_summary", :placeholder => "Enter a functional breakdown of the widget" %>
     </div>
 
     <div class="register_column3">
@@ -42,8 +49,8 @@
             <label for="homepage">Languages:</label>
         </div>
         <div id="submitdetails_input">
-            <%= select_tag "widget[category_ids][]", options_from_collection_for_select(Category.all, :id, :title), :multiple => true %>
-            <%= select_tag "widget[language_ids][]", options_from_collection_for_select(Language.all, :id, :title), :multiple => true %>
+            <%= select_tag "version[category_ids][]", options_from_collection_for_select(Category.all, :id, :title, @version.category_ids), :multiple => true %>
+            <%= select_tag "version[language_ids][]", options_from_collection_for_select(Language.all, :id, :title, @version.language_ids), :multiple => true %>
         </div>
     </div>
 
@@ -52,9 +59,23 @@
     <div id="submit_screenshot_uploadfields">
         <h3>Upload screenshots</h3>
         <p><span class="submit_descriptive_text">Use the buttons below to select screenshots for your widget to upload. These will be dynamically resized to the thumbnail size.</span></p>
-        <%= f.fields_for :screenshots do |s| %>
-            <h4>Screenshot:</h4>
-            <%= s.file_field :image %>
+        <% if @version.new_record? %>
+          <%= f.fields_for :screenshots do |s| %>
+              <h4>Screenshot:</h4>
+              <%= s.file_field :image %>
+          <% end %>
+        <% else %>
+          <% @version.screenshots.each_index do |s| %>
+            <%= image_tag @version.screenshots[s].image.url(:medium) %>
+            <h4>Upload new screenshot:</h4>
+            <%= file_field_tag "version_screenshots_attributes_#{s}_image" %>
+          <% end %>
+          <% if @version.screenshots.size < 3 %>
+            <% @version.screenshots.size.upto(2) do |s| %>
+              <h4>Upload new screenshot:</h4>
+              <%= file_field_tag "version_screenshots_attributes_#{s}_image" %>
+            <% end %>
+          <% end %>
         <% end %>
     </div>
 

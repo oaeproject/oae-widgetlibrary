@@ -15,6 +15,6 @@
         <li class="navigation_item<% if params[:controller].eql?("mywidgets")%> selected<% end %>"><%= link_to "My Widgets", mywidgets_path %></li>
         <% end %>
         <li class="navigation_item<% if params[:controller].eql?("sdk") || params[:controller].eql?("developerdetails") %> selected<% end %>"><%= link_to "Developer", sdk_path %></li>
-        <li class="navigation_item<% if params[:controller].eql?("submit") %> selected<% end %>"><%= link_to "Submit", "/submit" %></li>
+        <li class="navigation_item<% if params[:controller].eql?("submit") %> selected<% end %>"><%= link_to "Submit", new_version_path %></li>
     </ul>
 </nav>

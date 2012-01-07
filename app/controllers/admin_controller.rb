@@ -4,25 +4,9 @@ class AdminController < ApplicationController
   WillPaginate.per_page = 24
 
   def widgets
-    @states = State.all
-    @widgets_in_state = {}
-    this_count = 0
-    @states.each do |state|
-      @widgets_in_state[state.id] = Widget.count_by_state(state.id)
-      if state.title.eql? params[:filter]
-        this_count = @widgets_in_state[state.id]
-      end
-    end
-
-    order = "created_at desc"
-
-    if params[:filter]
-      @widgets = Widget.find_by_state(params[:filter], order, params[:page])
-      @count = this_count
-    else
-      @widgets = Widget.order(order).page(params[:page])
-      @count = Widget.count
-    end
+    state = params[:state] ? params[:state] : State.pending
+    logger.debug "state --- #{state} ---"
+    @widgets = Widget.includes(:versions).where("versions.state_id = ?", state).order("versions.created_at desc")
   end
 
   def users

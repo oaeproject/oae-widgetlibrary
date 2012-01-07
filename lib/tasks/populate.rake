@@ -2,12 +2,12 @@ namespace :db do
 
   NUM_DUMMY_USERS = 25
   NUM_WIDGETS_PER_USER = 4
-  NUM_USERS = 5
+  NUM_USERS = 10
 
   def create_rating(widgetid, released_on)
     ret = false
 
-    created = released_on - rand(50000000)
+    created = rand(released_on..(Time.now-10000))
     # Create a weighted array of ratings, so we get fewer 0 and 1 ratings, and more 4 and 5s
     rating_arr  = [1,1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5]
 
@@ -37,9 +37,8 @@ namespace :db do
 
   def create_widget(userid)
     ret = false
-    released_on = Time.now - rand(50000000)
     num_ratings = rand(20) + 1
-    created = Time.now - rand(50000000)
+    created = Time.now - 10000 - rand(50000000)
 
     title = generate_title
     url_title = generate_url_title(title)
@@ -55,24 +54,16 @@ namespace :db do
     reviewers = User.where(:reviewer => true).collect{ |u| u.id }
 
     Widget.populate 1 do |widget|
-      ratings = []
-      total_stars = 0
-      num_ratings.times do
-        rating = create_rating(widget.id, released_on)
-        ratings.push(rating)
-        total_stars += rating.stars
-      end
+
 
       widget.url_title      = url_title
-      widget.average_rating = total_stars.to_f / num_ratings.to_f
       widget.user_id        = userid
 
       activeVersion = false
       count = 1
       num_versions = 1+rand(4)
-
       Version.populate num_versions do |version|
-        created = created + rand(10000000)
+        created = rand(created..(Time.now-10000))
         version.title          = title.join(' ')
         version.description    = Faker::Lorem.sentence(rand(50) + 20)
         version.features       = Faker::Lorem.words(rand(20) + 1).collect!{|t| t.capitalize }.join(' ')
@@ -84,7 +75,7 @@ namespace :db do
         if version.state_id.eql?(State.accepted)
           count += 1
           activeVersion        = version
-          version.released_on  = released_on
+          version.released_on  = rand(created..(Time.now-10000))
         end
         if version.state_id.eql?(State.accepted) || version.state_id.eql?(State.declined)
           version.notes        = Faker::Lorem.sentence(rand(50) + 20)
@@ -96,6 +87,14 @@ namespace :db do
       if activeVersion
         widget.version_id = activeVersion.id
         widget.active = true
+        ratings = []
+        total_stars = 0
+        num_ratings.times do
+          rating = create_rating(widget.id, activeVersion.released_on)
+          ratings.push(rating)
+          total_stars += rating.stars
+        end
+        widget.average_rating = total_stars.to_f / num_ratings.to_f
       else
         widget.active = false
       end
@@ -169,8 +168,8 @@ namespace :db do
     $names.push(name)
     User.populate 1 do |user|
       user.email              = Faker::Internet.email
-      user.admin              = true
-      user.reviewer           = true
+      user.admin              = false
+      user.reviewer           = false
       user.username           = username
       user.first_name         = first_name
       user.last_name          = last_name
@@ -191,8 +190,6 @@ namespace :db do
   def create_real_user(i)
     params = {
       :email => "user#{i}@sakaiproject.invalid",
-      :admin => false,
-      :reviewer => false,
       :username => "user#{i}",
       :password => "test",
       :password_confirmation => "test",
@@ -207,10 +204,9 @@ namespace :db do
       :location => Faker::Address.city
     }
     user = User.new(params)
+    user.admin = true
+    user.reviewer = true
     user.save!
-    10.times do
-      create_widget(user.id)
-    end
   end
 
   def give_users_avatars
@@ -230,12 +226,19 @@ namespace :db do
     # Drop all the existing tables
     [Widget, User, Rating].each(&:delete_all)
 
-    NUM_DUMMY_USERS.times do
-      create_dummy_user
+    NUM_USERS.times do |i|
+      create_real_user(i+1)
     end
 
     NUM_USERS.times do |i|
-      create_real_user(i+1)
+      user = User.where(:username => "user#{i+1}").first
+      NUM_WIDGETS_PER_USER.times do
+        create_widget(user.id)
+      end
+    end
+
+    NUM_DUMMY_USERS.times do
+      create_dummy_user
     end
 
     give_users_avatars

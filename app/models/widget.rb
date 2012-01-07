@@ -37,6 +37,10 @@ class Widget < ActiveRecord::Base
     self.version
   end
 
+  def latest_version
+    Version.where(:widget_id => self.id).order("created_at desc").limit(1).first
+  end
+
   # I'm sure there is a better way to do this. For now, we'll just do a pass-through here
   def title
     self.active_version.title unless !self.active_version
@@ -108,6 +112,10 @@ class Widget < ActiveRecord::Base
 
   def released_on
     self.active_version.released_on unless !self.active_version
+  end
+
+  def created_at
+    self.active_version.created_at unless !self.active_version
   end
 
   def approved_by

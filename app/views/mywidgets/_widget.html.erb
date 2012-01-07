@@ -1,9 +1,9 @@
 <% versions = widget.versions %>
 <% title = widget.title || Version.where(:widget_id => widget.id).order("created_at desc").limit(1).first.title %>
 <tr>
-  <td rowspan="<%= versions.size %>"><%= link_to title, widget_path(:widget_title => widget.url_title), :class => "wl-regular-link wl-bold wl-widget-item_widgetname" %></td>
+  <td rowspan="<%= versions.size %>"><%= link_to title, widget_path(:title => widget.url_title), :class => "wl-regular-link wl-bold wl-widget-item_widgetname" %></td>
   <%= render :partial => 'version', :locals => {:version => versions.first, :row => false} %>
-  <td rowspan="<%= versions.size %>"><%= link_to "submit new version", new_widget_version_path(:widget_id => widget.id), :class => "wl-regular-link wl-bold wl-widget-item_widgetname" %></td>
+  <td rowspan="<%= versions.size %>"><%= link_to "submit new version", edit_version_path(widget.id), :class => "wl-regular-link wl-bold wl-widget-item_widgetname" %></td>
 </tr>
 <%= render :partial => 'version', :collection => versions[1..-1], :locals => {:row => true} %>
 <tr><td colspan="6" class="spacer"></td></tr>

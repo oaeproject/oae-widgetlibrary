@@ -9,11 +9,11 @@
 
         <% case display[:title_length] %>
         <% when "long" %>
-            <%= link_to truncate(widget.title, :length => 50, :omission => "..."), widget_path({:widget_title => widget.url_title}), :class => "wl-regular-link wl-bold wl-widget-item_widgetname", :title => widget.title %>
+            <%= link_to truncate(widget.title, :length => 50, :omission => "..."), widget_path({:title => widget.url_title}), :class => "wl-regular-link wl-bold wl-widget-item_widgetname", :title => widget.title %>
         <% when "medium" %>
-            <%= link_to truncate(widget.title, :length => 20, :omission => "..."), widget_path({:widget_title => widget.url_title}), :class => "wl-regular-link wl-bold wl-widget-item_widgetname", :title => widget.title %>
+            <%= link_to truncate(widget.title, :length => 20, :omission => "..."), widget_path({:title => widget.url_title}), :class => "wl-regular-link wl-bold wl-widget-item_widgetname", :title => widget.title %>
         <% else %>
-            <%= link_to truncate(widget.title, :length => 13, :omission => "..."), widget_path({:widget_title => widget.url_title}), :class => "wl-regular-link wl-bold wl-widget-item_widgetname", :title => widget.title %>
+            <%= link_to truncate(widget.title, :length => 13, :omission => "..."), widget_path({:title => widget.url_title}), :class => "wl-regular-link wl-bold wl-widget-item_widgetname", :title => widget.title %>
         <% end %>
 
         <% if display[:added] %>
@@ -43,7 +43,7 @@
 
     <% else %>
 
-        <%= link_to truncate(widget.title, :length => 13, :omission => "..."), widget_path({:widget_title => widget.url_title}), :class => "wl-regular-link wl-bold wl-widget-item_widgetname", :title => widget.title %>
+        <%= link_to truncate(widget.title, :length => 13, :omission => "..."), widget_path({:title => widget.url_title}), :class => "wl-regular-link wl-bold wl-widget-item_widgetname", :title => widget.title %>
 
     <% end %>
 

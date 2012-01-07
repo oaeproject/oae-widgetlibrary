@@ -1,1 +1,20 @@
-<%= render :partial => "pagewidgets/widget_list" %>  
+<div id="admin_widgets">
+  <table>
+    <thead>
+      <tr>
+        <th>Widget</th>
+        <th>Author</th>
+        <th>Date Submitted</th>
+        <th>Version</th>
+        <% if params[:state].to_s.eql? State.declined.to_s %>
+          <th>Reviewer</th>
+          <th>Notes</th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render :partial => "widget", :collection => @widgets %>
+    </tbody>
+  </table>
+</div>
+<hr class="wl-push wl-hidden"/>

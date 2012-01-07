@@ -1,6 +1,6 @@
 class WidgetController < ApplicationController
   def show
-    widget_title = params[:widget_title]
+    widget_title = params[:title]
     @widget = Widget.first( :conditions => { :url_title => widget_title } )
 
     if !can_view_admin_area? && (!@widget.active_version && @widget.user != current_user)
@@ -8,8 +8,6 @@ class WidgetController < ApplicationController
     elsif !@widget.active_version && @widget.user == current_user
       @widget.version = Version.where(:widget_id => @widget.id).order("created_at desc").limit(1).first
     end
-
-
 
     @versions = @widget.approved_versions.order("version_number desc")
     @related = Widget.where(:active => true).order("random()").limit(5)

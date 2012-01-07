@@ -1,0 +1,13 @@
+<% version = Version.where("widget_id = ? AND state_id = ?", widget.id, params[:state] || State.pending).order("created_at desc").limit(1).first %>
+<tr>
+  <td><%= link_to version.title, widget_path(:title => widget.url_title), :class => "wl-regular-link wl-bold wl-widget-item_widgetname" %></td>
+  <td><%= widget.user.name %></td>
+  <td><%= version.created_at.strftime("%B %e, %Y %l:%M%P") %></td>
+  <td><%= version.version_number %></td>
+  <% if params[:state].to_s.eql? State.declined.to_s %>
+  <% logger.debug version.inspect %>
+  <td><%= version.reviewer.name %></td>
+  <td><%= version.notes %></td>
+  <% end %>
+</tr>
+<tr><td colspan="6" class="spacer"></td></tr>
