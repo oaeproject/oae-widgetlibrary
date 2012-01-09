@@ -60,7 +60,7 @@ $(function() {
             toTop: true
         });
 
-        to = setTimeout(showDownloadZip, 3000);
+        to = setTimeout(showDownloadZip, 500);
     };
 
     /**
