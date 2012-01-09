@@ -5,8 +5,17 @@ class AdminController < ApplicationController
 
   def widgets
     state = params[:state] ? params[:state] : State.pending
-    logger.debug "state --- #{state} ---"
-    @widgets = Widget.includes(:versions).where("versions.state_id = ?", state).order("versions.created_at desc")
+    widgets = Widget.includes(:versions).where("versions.state_id = ?", state).order("versions.created_at desc")
+    @widgets = widgets
+
+    if state.eql? State.pending
+      @widgets = []
+      widgets.each do |widget|
+        if (widget.versions.size == 1 || widget.latest_version != widget.version) && widget.latest_version.state_id.eql?(state)
+          @widgets.push(widget)
+        end
+      end
+    end
   end
 
   def users
@@ -16,8 +25,24 @@ class AdminController < ApplicationController
   end
 
   def reviewed
-    widget = Widget.find(params[:widget_id])
-    render :json => {"success" => true}.to_json
+    version = Version.find(params[:version_id])
+    new_state = State.where(:title => params[:review]).first
+    version.state_id = new_state.id
+    version.notes = params[:notes]
+    version.user_id = current_user.id
+    version.reviewed_on = Time.now
+    if new_state.id.eql? State.accepted
+      version.released_on = Time.now
+    end
+
+    widget = Widget.find(version.widget.id)
+    widget.version_id = version.id
+
+    if version.save && widget.save
+      render :json => {"success" => true}.to_json
+    else
+      render :json => {"success" => false}.to_json
+    end
   end
 
   private

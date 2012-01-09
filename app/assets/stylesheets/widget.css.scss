@@ -21,7 +21,8 @@
     margin: 4px 0 20px;
     font-weight: normal;
     padding-left: 30px;
-    width: 650px; }
+    float:left;
+    width: 100%; }
   h1.widget_accepted_header {
     background: image-url("tick_icon_small.png") no-repeat left top transparent; }
   h1.widget_declined_header {
@@ -40,7 +41,18 @@
     color: #2683bc; } }
 
 #widget_container #widget_description_container {
-  min-height: 260px; }
+  min-height:260px;
+  margin-bottom:50px;
+  width:100%;
+  float:left; }
+
+#widget_container #latest_version {
+  margin-bottom:30px;
+  p {
+    font-size:14px;
+    color:#666666;
+  }
+}
 
 #widget_container #widget_description {
   width: 400px;
@@ -67,7 +79,7 @@
 
 #widget_container #widget_details {
   float: right;
-  height: 100px;
+  min-height: 100px;
   width: 300px;
   .wl-rating-container {
     display: inline-block;

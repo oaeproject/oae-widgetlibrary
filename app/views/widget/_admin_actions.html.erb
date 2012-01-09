@@ -1,4 +1,4 @@
-<div id="admin_actions" data-widgetid="<%= @widget.id %>" class="wl-widget-item-container">
+<div id="admin_actions" data-versionid="<%= @latest_version.id %>" class="wl-widget-item-container">
   <h1>Review actions</h1>
   <div id="admin_action_buttons">
     <button data-action="approve" class="wl-button wl-overlay-button">Approve this widget</button>
@@ -6,14 +6,14 @@
   </div>
   <div id="reject_confirm" class="widget_confirmation" style="display:none">
     <h2>Rejecting widget</h2>
-    <label for="reject_message">Reason for declining and/or steps to improve and fix the widget</label>
+    <label for="reject_message">Reason for declining and/or steps to improve and fix the widget:</label>
     <textarea id="reject_message" placeholder="Please update the design to conform to our design standards as per the SDK."></textarea>
     <button data-action="confirm" data-which="reject" class="wl-button">Confirm rejection</button>
     <button class="wl-button wl-link-button" data-action="cancel">Cancel</button>
   </div>
   <div id="approve_confirm" class="widget_confirmation" style="display:none">
     <h2>Approving widget</h2>
-    <label for="approve_message">Note to user (optional):</label>
+    <label for="approve_message">Note to user:</label>
     <textarea id="approve_message" placeholder="This widget is awesome! Way to go!"></textarea>
     <button data-action="confirm" data-which="approve" class="wl-button wl-overlay-button">Confirm approval</button>
     <button class="wl-button wl-link-button" data-action="cancel">Cancel</button>

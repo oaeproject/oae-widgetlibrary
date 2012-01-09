@@ -737,10 +737,13 @@ textarea {
 /*******************/
 /* HEADER BRANDING */
 /*******************/
-#widgetlibrary_header_branding {
-  background: image-url("header_branding.png") no-repeat bottom left transparent;
-  height: 60px;
-  width: 100%; }
+#widgetlibrary_header_branding_link {
+  width:35%;
+  display:block;
+  #widgetlibrary_header_branding {
+    background: image-url("header_branding.png") no-repeat bottom left transparent;
+    height: 60px;
+    width: 100%; } }
 
 /**************/
 /* NAVIGATION */

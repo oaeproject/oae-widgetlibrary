@@ -1,7 +1,11 @@
 <%= form_for(@version, :html => { :multipart => true, :class => "wl-form-field-wrapper" }, :remote => true) do |f| %>
-    <h1>Submit a widget</h1>
+    <% if @version.new_record? %>
+      <h1>Submit a widget</h1>
+    <% else %>
+      <h1>Submit a new version</h1>
+    <% end %>
     <h2 class="second_column">Or, enter a url to the source code repository</h2>
-    <h2>01. Select widget to upload</h2>
+    <h2>01. Select widget code to upload</h2>
     <div class="submit_container_split">
         <span id="version_code_error" class="wl-error" style="display:none"></span>
         <% if !@version.new_record? %>
@@ -20,7 +24,7 @@
     <hr class="wl-push wl-hidden"/>
     <h2>02. Add basic info about the Widget</h2>
     <div class="register_column1">
-        <h2>Select<%= if !@version.new_record? then " New" end %> Image for Icon</h2>
+        <h2>Select<%= if !@version.new_record? then " new" end %> image for widget icon</h2>
         <span id="version_icon_error" class="wl-error" style="display:none"></span>
         <% if @version.new_record? %>
           <%= image_tag "widget_default_image.jpg", :alt => "Widget Icon" %>
@@ -82,7 +86,7 @@
     <hr class="wl-split-line wl-push">
     <div id="submit_widget_buttons">
         <button class="wl-link-button wl-bold" type="button">Cancel</button>
-        <button class="wl-button wl-overlay-button">Save and Upload Widget</button>
+        <button class="wl-button wl-overlay-button" type="submit">Save and Upload Widget</button>
     </div>
     <hr class="wl-push wl-hidden"/>
 <% end %>

@@ -1,6 +1,27 @@
 <div id="widget_description_container">
-  <% if can_view_admin_area? && @widget.state.title.eql?("pending") %>
-    <%= render :partial => "admin_actions" %>
+  <% if @latest_version %>
+    <% if can_view_admin_area? && @latest_version.state.id.eql?(State.pending) %>
+      <%= render :partial => "admin_actions" %>
+    <% end %>
+    <div id="latest_version">
+      <%
+        if @latest_version.state.id.eql?(State.pending)
+          state = "is pending review"
+          hclass = "widget_declined_header"
+        else
+          state = "has been declined"
+          hclass = "widget_declined_header"
+        end
+      %>
+      <h1 class="<%= hclass %>">Version <%= @latest_version.version_number %>, submitted on <%= @latest_version.created_at.localtime.strftime("%B %e, %Y %l:%M%P") %>, <%= state %></h1>
+      <% if @latest_version.state.id.eql?(State.declined) && @latest_version.notes %>
+        <h3>Notes from the reviewer:</h3>
+        <p><%= @latest_version.notes %></p>
+      <% end %>
+      <% if @widget.user == current_user %>
+        <%= link_to "Submit a new version", edit_version_path(@widget.id), :class => "wl-regular-link wl-bold submit_new_version_link" %>
+      <% end %>
+    </div>
   <% end %>
   <hr class="wl-split-line" style="display:none;"/>
   <div id="widget_download">
@@ -9,7 +30,7 @@
   </div>
   <div id="widget_description">
       <h1 class="wl-bold"><%= @widget.title %> <span id="widget_version"></span></h1>
-      by <%= link_to @widget.user.name, developer_page_path({:developer_name => @widget.user.url_title}), :class => "wl-regular-link" %>
+      by <%= link_to @widget.user.name, user_path(@widget.user.url_title), :class => "wl-regular-link" %>
       <p><%= @widget.description %></p>
   </div>
   <div id="widget_details">
@@ -29,7 +50,7 @@
             </ul>
           </li>
           <% end %>
-          <li><span>Developer:</span><span><%= link_to @widget.user.name, developer_page_path({:developer_name => @widget.user.url_title}), :class => "wl-regular-link" %></span></li>
+          <li><span>Developer:</span><span><%= link_to @widget.user.name, user_path(@widget.user.url_title), :class => "wl-regular-link" %></span></li>
           <% if @widget.languages.size > 0 %>
           <li>
             <span>Languages:</span>
@@ -39,6 +60,9 @@
                 <% end %>
               </ul>
           </li>
+          <% end %>
+          <% if @widget.version_number %>
+            <li><span>Version:</span><span><%= @widget.version_number %></span></li>
           <% end %>
           <% if @widget.released_on %>
             <li><span>Released:</span><span><%= @widget.released_on.strftime("%B %e, %Y") %></span></li>

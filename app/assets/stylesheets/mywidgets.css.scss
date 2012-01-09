@@ -1,3 +1,5 @@
+@import "mixins.css.scss";
+
 .mywidgets {
   h1 {
     font-size: 24px;
@@ -8,14 +10,6 @@
     p {
       font-size: 16px;
       line-height: 18px; }
-    #mywidgets_approved {
-      background: image-url("tick_icon_large.png") no-repeat scroll left top transparent;
-      h1 {
-        background: image-url("congratulations_text.png") no-repeat scroll left top transparent; } }
-    #mywidgets_declined {
-      background: image-url("exclamation_icon_large.png") no-repeat scroll left top transparent;
-      h1 {
-        background: image-url("oops_text.png") no-repeat scroll left top transparent; } }
     #mywidgets_status_icon {
       height: 41px;
       padding-top: 8px;
@@ -36,13 +30,43 @@
   table {
     border-collapse:collapse;
     width:100%;
+    col {
+      &.mywidgets_submissions_title {
+        width:150px;
+      }
+      &.mywidgets_submissions_date{
+        width:150px;
+      }
+      &.mywidgets_submissions_version{
+        width:40px;
+      }
+      &.mywidgets_submissions_state{
+        width:50px;
+      }
+      &.mywidgets_submissions_notes{
+        width:250px;
+      }
+      &.mywidgets_submissions_actions{
+        width:120px;
+      }
+    }
     tr {
       td, th {
         padding:4px;
-        border:1px solid black;
+        border:1px solid #666;
         vertical-align:top;
         &.spacer {
           border:none;
+        }
+      }
+    }
+    thead {
+      tr {
+        background: image-url("navigation_item_bg.png") repeat-x scroll left top transparent;
+        color:white;
+        @include border-radius($topLeft: 5px, $topRight: 5px, $bottomRight: 5px, $bottomLeft: 5px);
+        th {
+          border-color:#888;
         }
       }
     }

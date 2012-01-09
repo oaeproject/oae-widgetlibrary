@@ -2,7 +2,7 @@
 <tr>
   <td><%= link_to version.title, widget_path(:title => widget.url_title), :class => "wl-regular-link wl-bold wl-widget-item_widgetname" %></td>
   <td><%= widget.user.name %></td>
-  <td><%= version.created_at.strftime("%B %e, %Y %l:%M%P") %></td>
+  <td><%= version.created_at.localtime.strftime("%B %e, %Y %l:%M%P") %></td>
   <td><%= version.version_number %></td>
   <% if params[:state].to_s.eql? State.declined.to_s %>
   <% logger.debug version.inspect %>

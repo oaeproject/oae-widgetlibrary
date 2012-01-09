@@ -1,7 +1,9 @@
+<% content_for :title do %> - <%= @widget.title %><% end %>
+
 <div class="wl-content-container" id="widget_container">
-    <%= render :partial => "description" %>
+    <%= render :partial => "top_info" %>
     
-    <%= render :partial => "details" %>
+    <%= render :partial => "tabs" %>
 
     <%= render :partial => "newversion" %>
 

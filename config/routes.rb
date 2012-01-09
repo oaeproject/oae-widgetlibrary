@@ -42,7 +42,7 @@ SakaiWidgetlibrary::Application.routes.draw do
   match '/sdk/faq' => 'sdk#faq'
   match '/sdk/help' => 'sdk#help'
 
-  match '/developer/:developer_name' => 'developerdetails#index', :as => :developer_page
+  match '/user/:url_title' => 'developerdetails#index', :as => :user
 
   match '/mywidgets' => 'mywidgets#index', :as => :mywidgets
   match '/mywidgets/submissions' => 'mywidgets#submissions'
@@ -59,7 +59,7 @@ SakaiWidgetlibrary::Application.routes.draw do
   match '/admin' => 'admin#widgets'
   match '/admin/widgets' => 'admin#widgets', :as => :admin
   match '/admin/widgets/:state' => 'admin#widgets', :as => :admin_state
-  match '/admin/widgets/:method/:widget_id' => 'admin#reviewed'
+  match '/admin/widgets/:review/:version_id' => 'admin#reviewed'
 
   root :to => 'home#index'
 

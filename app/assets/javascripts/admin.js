@@ -8,10 +8,13 @@ $(function() {
 
     var finalize_rejection = function( widgetid ) {
         $.ajax({
-            url: "/admin/widgets/reject/" + widgetid,
+            url: "/admin/widgets/declined/" + widgetid,
             type: "POST",
+            data: {
+                notes: $("#reject_message").val()
+            },
             success: function( data ) {
-                console.log("rejected");
+                document.location = document.location;
             }
         });
     };
@@ -24,10 +27,13 @@ $(function() {
 
     var finalize_approval = function( widgetid ) {
         $.ajax({
-            url: "/admin/widgets/approve/" + widgetid,
+            url: "/admin/widgets/accepted/" + widgetid,
             type: "POST",
+            data: {
+                notes: $("#approve_message").val()
+            },
             success: function( data ) {
-                console.log("approved");
+                document.location = document.location;
             }
         });
     };
@@ -48,7 +54,7 @@ $(function() {
                     break;
                 case "confirm":
                     var which = $( e.target ).attr( "data-which" );
-                    var widgetid = $( "#admin_actions" ).attr( "data-widgetid" );
+                    var widgetid = $( "#admin_actions" ).attr( "data-versionid" );
                     if ( which === "approve" ) {
                         finalize_approval( widgetid );
                     } else {

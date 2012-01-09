@@ -5,8 +5,16 @@ class WidgetController < ApplicationController
 
     if !can_view_admin_area? && (!@widget.active_version && @widget.user != current_user)
       not_found
-    elsif !@widget.active_version && @widget.user == current_user
-      @widget.version = Version.where(:widget_id => @widget.id).order("created_at desc").limit(1).first
+    end
+
+    if can_view_in_progress_widget
+      if (@widget.latest_version != @widget.version) || (@widget.versions.size == 1 && !@widget.state.id.eql?(State.accepted))
+        @latest_version = @widget.latest_version
+      end
+
+      if !@widget.active_version
+        @widget.version = Version.where(:widget_id => @widget.id).order("created_at desc").limit(1).first
+      end
     end
 
     @versions = @widget.approved_versions.order("version_number desc")
@@ -31,6 +39,11 @@ class WidgetController < ApplicationController
       @rating.save!
     end
     redirect_to :action => :show
+  end
+
+  protected
+  def can_view_in_progress_widget
+    @widget.user == current_user || can_view_admin_area?
   end
 
 end

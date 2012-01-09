@@ -8,8 +8,9 @@ class BrowseController < ApplicationController
     order = get_sort("average_rating desc")
 
     if params[:category_title]
-      cat_id = Category.first(:conditions => {:url_title => params[:category_title]}).id
-      @widgets = Widget.where(args).includes(:version => :categories).where("categories_versions.category_id = ?", cat_id).order(order).page(params[:page])
+      cat = Category.first(:conditions => {:url_title => params[:category_title]})
+      @widgets = Widget.where(args).includes(:version => :categories).where("categories_versions.category_id = ?", cat.id).order(order).page(params[:page])
+      @cat_title = cat.title
     else
       @widgets = Widget.where(args).includes(:versions).order(order).page(params[:page])
     end
