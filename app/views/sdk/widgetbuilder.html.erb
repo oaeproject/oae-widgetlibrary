@@ -1,3 +1,4 @@
+<% content_for :title do %> - SDK - Widget template builder<% end %>
 <div id="widgetbuilder" class="widgetsdk_container">
     <h1>Widget template builder</h1>
     <p>If you’re stuck on how tostart with the creation of your widget we have a couple of options to help you on your way:</p>
@@ -12,16 +13,7 @@
             <div class="widgetsdk_split_container last">
                 <h1>Select a category</h1>
                 <label for="widgetbuilder_category">Category:</label>
-                <select name="widgetbuilder_category" id="widgetbuilder_category_dropdown">
-                    <option value="">Games</option>
-                    <option value="">Quizzes</option>
-                    <option value="">Feeds, News  Blogging</option>
-                    <option value="">Social  Communication</option>
-                    <option value="">Video  images</option>
-                    <option value="">Graphing</option>
-                    <option value="" selected="selected">Utilities</option>
-                    <option value="">Other</option>
-                </select>
+                <%= select_tag "categories", options_from_collection_for_select(Category.all, :id, :title, Category.where(:title => "Utilities").first.id), :id => "widgetbuilder_category_dropdown" %>
             </div>
             <h1 class="wl-push">Add a description</h1>
             <textarea placeholder="(e.g. Graph creation widget...)" id="widgetbuilder_description" name="widgetbuilder_description"></textarea>

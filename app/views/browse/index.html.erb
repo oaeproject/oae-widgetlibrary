@@ -1,3 +1,4 @@
+<% content_for :title do %> - Browse<%= if @cat_title then " - #{@cat_title}" end %><% end %>
 <div id="browse">
     <%= render :partial => "featured" %>
     <%= render :partial => "pagewidgets/widget_list" %>

@@ -1,3 +1,4 @@
+<% content_for :title do %> - <%= @developer.name %><% end %>
 <div class="wl-content-container" id="developer_container">
     <div id="developer_description_container">
         <%= image_tag @developer.avatar.url(:medium), :alt => "#{@developer.name}'s Photo" %>
