@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
                   :last_name, :info, :homepage, :occupation,
                   :summary, :location, :avatar, :name, :url_title
 
-  validates_presence_of :username, :first_name, :last_name, :password, :password_confirmation
+  validates_presence_of :username, :first_name, :last_name
   validates_uniqueness_of :username, :email, :url_title
   validates_as_image :avatar
 
