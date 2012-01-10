@@ -14,7 +14,7 @@ class SubmitController < ApplicationController
 
     @version = Version.new(params[:version])
     @version[:state_id] = State.pending
-    @version[:widget_id] = widget_id
+    @version[:widget_id] = @widget.id
     @version.save
 
     respond_to do |format|
