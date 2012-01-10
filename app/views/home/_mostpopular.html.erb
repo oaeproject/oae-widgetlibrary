@@ -2,5 +2,7 @@
     <h1>Most Popular</h1>
     <%= render :partial => "core/widget", :locals => {:display => {:rating => true, :author => true, :num_ratings => true}}, :collection => @mostpopular %>
     <hr class="wl-push wl-hidden"/>
-    <button class="wl-button wl-large-button" id="show_more">Show more</button>
+    <div id="home_footer">
+      <%= link_to "Show more", browse_path, :id => "show_more", :class => "wl-button wl-large-button" %>
+    </div>
 </div>

@@ -83,14 +83,23 @@
   /****************/
   /* MOST POPULAR */
   /****************/
-  #widgetlibrary_mostpopular .wl-widget-item a.wl-widget-item_widgetname {
-    font-size: 12px;
-    overflow: hidden; }
-  #widgetlibrary_mostpopular .wl-widget-item .wl-rating-container {
-    clear: both; }
-  #widgetlibrary_mostpopular #show_more {
-    display: block;
-    margin: 5px auto 5px; }
+  #widgetlibrary_mostpopular {
+    float:left;
+    .wl-widget-item a.wl-widget-item_widgetname {
+      font-size: 12px;
+      overflow: hidden; }
+    .wl-widget-item .wl-rating-container {
+      clear: both; }
+    #home_footer {
+      float:left;
+      text-align:center;
+      width:100%;
+      height:30px;
+      margin-top:15px;
+      #show_more {
+        margin: 5px auto 5px;
+        padding:7px;
+        height:auto; } } }
   /******************/
   /* RECENTLY ADDED */
   /******************/
