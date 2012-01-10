@@ -12,7 +12,7 @@ class WidgetController < ApplicationController
         @latest_version = @widget.latest_version
       end
 
-      if !@widget.active_version
+      if !@widget.version
         @widget.version = Version.where(:widget_id => @widget.id).order("created_at desc").limit(1).first
       end
     end

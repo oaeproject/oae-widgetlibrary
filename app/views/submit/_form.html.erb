@@ -4,27 +4,31 @@
     <% else %>
       <h1>Submit a new version</h1>
     <% end %>
-    <h2 class="second_column">Or, enter a url to the source code repository</h2>
     <h2>01. Select widget code to upload</h2>
     <div class="submit_container_split">
-        <span id="version_code_error" class="wl-error" style="display:none"></span>
         <% if !@version.new_record? %>
           <span>Current file: <%= @version.code_file_name %></span><br/>
         <% end %>
+        <span id="version_code_error" class="wl-error" style="display:none"></span>
         <%= f.file_field :code %>
-        <p><span class="submit_descriptive_text">Optional step:</span>Select a supporting backend feed bundle</p>
+        <p><span class="submit_descriptive_text">Optional step:</span>Select a supporting backend bundle</p>
+        <% if !@version.new_record? && !@version.bundle_file_name.blank? %>
+          <span>Current file: <%= @version.bundle_file_name %></span><br/>
+        <% end %>
+        <span id="version_bundle_error" class="wl-error" style="display:none"></span>
         <%= f.file_field :bundle %>
     </div>
     <div class="submit_container_split">
+        <p>Source code repository</p>
         <%= f.text_field :widget_repo, :placeholder => "http://github.com/you/repository", :type => "url" %>
-        <p>Or, enter a url to the backend feed bundle source code repository</p>
-        <%= f.text_field :widget_backend_repo, :placeholder => "http://github.com/you/repository", :type => "url" %>
+        <p>Backend bundle source code repository</p>
+        <%= f.text_field :widget_backend_repo, :placeholder => "http://github.com/you/backend_repository", :type => "url" %>
     </div>
 
     <hr class="wl-push wl-hidden"/>
     <h2>02. Add basic info about the Widget</h2>
     <div class="register_column1">
-        <h2>Select<%= if !@version.new_record? then " new" end %> image for widget icon</h2>
+        <h2>Select<%= if !@version.new_record? then " a new" end %> image for the widget icon</h2>
         <span id="version_icon_error" class="wl-error" style="display:none"></span>
         <% if @version.new_record? %>
           <%= image_tag "widget_default_image.jpg", :alt => "Widget Icon" %>
@@ -63,6 +67,7 @@
     <div id="submit_screenshot_uploadfields">
         <h3>Upload screenshots</h3>
         <p><span class="submit_descriptive_text">Use the buttons below to select screenshots for your widget to upload. These will be dynamically resized to the thumbnail size.</span></p>
+        <span id="version_screenshots_image_error" class="wl-error" style="display:none"></span>
         <% if @version.new_record? %>
           <%= f.fields_for :screenshots do |s| %>
               <h4>Screenshot:</h4>

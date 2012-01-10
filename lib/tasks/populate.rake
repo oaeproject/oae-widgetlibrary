@@ -118,6 +118,12 @@ namespace :db do
       version.code = code
       code.close
 
+      if rand(2).eql? 1
+        bundle = File.open(Dir.glob(File.join(Rails.root, 'test/sampledata/zip', '*')).sample)
+        version.bundle = bundle
+        bundle.close
+      end
+
       category_ids = []
       rand(5).times do
         cat_id = rand(num_categories) + 1

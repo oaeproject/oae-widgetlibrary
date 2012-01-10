@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120102233355) do
+ActiveRecord::Schema.define(:version => 20120110223621) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -120,6 +120,10 @@ ActiveRecord::Schema.define(:version => 20120102233355) do
     t.string   "widget_repo"
     t.string   "widget_backend_repo"
     t.string   "notes"
+    t.string   "bundle_file_name"
+    t.string   "bundle_content_type"
+    t.string   "bundle_file_size"
+    t.string   "bundle_updated_at"
   end
 
   create_table "widgets", :force => true do |t|

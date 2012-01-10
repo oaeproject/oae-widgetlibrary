@@ -62,6 +62,10 @@ class Widget < ActiveRecord::Base
     self.active_version.code unless !self.active_version
   end
 
+  def bundle
+    self.active_version.bundle unless !self.active_version
+  end
+
   def state
     self.active_version.state unless !self.active_version
   end

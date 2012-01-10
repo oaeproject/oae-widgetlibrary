@@ -19,7 +19,7 @@ class MywidgetsController < ApplicationController
   end
 
   def submissions
-    @widgets = Widget.where(:user_id => current_user.id).includes(:versions).order("versions.reviewed_on desc, versions.created_at desc")
+    @widgets = Widget.where(:user_id => current_user.id).includes(:versions).order("versions.created_at desc, versions.reviewed_on desc")
   end
 
   def authenticated

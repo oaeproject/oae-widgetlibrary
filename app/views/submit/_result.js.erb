@@ -5,11 +5,16 @@
   var wlError = "wl-error";
   var errors = <%=raw @version.errors.to_json %>;
   $.each(errors, function(key, error) {
-      if (key.indexOf("content_type") !== -1) {
-        key = key.replace("content_type", "");
+      var error_message = error[0];
+      if (key.indexOf("_content_type") !== -1) {
+        key = key.replace("_content_type", "");
+      }
+      if (key.indexOf(".") !== -1) {
+        key = key.replace(".", "_");
+        error_message = error[1];
       }
       $("#version_" + key).addClass(wlError);
       $("label[for='version_" + key + "']").addClass(wlError);
-      $("#version_" +  key + "_error").text(error[0]).show();
+      $("#version_" +  key + "_error").text(error_message).show();
   });
 <% end %>
