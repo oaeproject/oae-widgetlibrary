@@ -70,6 +70,12 @@
           <% if @widget.released_on %>
             <li><span>Released:</span><span><%= @widget.released_on.strftime("%B %e, %Y") %></span></li>
           <% end %>
+          <% unless @widget.widget_repo.blank? %>
+            <li><span>Source repository:</span><span><%= link_to @widget.widget_repo, @widget.widget_repo, :class => "wl-regular-link" %></span></li>
+          <% end %>
+          <% unless @widget.widget_backend_repo.blank? %>
+            <li><span>Backend source repository:</span><span><%= link_to @widget.widget_backend_repo, @widget.widget_backend_repo, :class => "wl-regular-link" %></span></li>
+          <% end %>
       </ul>
   </div>
 </div>
