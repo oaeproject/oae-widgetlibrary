@@ -12,18 +12,19 @@ class RegistrationsController < Devise::RegistrationsController
         if resource.active_for_authentication?
           set_flash_message :notice, :signed_up if is_navigational_format?
           sign_in(resource_name, resource)
-          if request.xhr?
-            render :json => {"success" => true, "url" => redirect_location(resource_name, resource)}
-          else
-            respond_with resource, :location => redirect_location(resource_name, resource)
+          @url = redirect_location(resource_name, resource)
+
+          respond_to do |format|
+            format.js { render 'users/registrations/create' }
           end
+
         else
           set_flash_message :notice, :inactive_signed_up, :reason => inactive_reason(resource) if is_navigational_format?
           expire_session_data_after_sign_in!
-          if request.xhr?
-            render :json => {"success" => true, "url" => after_inactive_sign_up_path_for(resource)}
-          else
-            respond_with resource, :location => after_inactive_sign_up_path_for(resource)
+          @url = after_inactive_sign_up_path_for(resource)
+
+          respond_to do |format|
+            format.js { render 'users/registrations/create' }
           end
         end
       else
@@ -37,18 +38,16 @@ class RegistrationsController < Devise::RegistrationsController
   def error(resource, recaptcha_valid)
     clean_up_passwords(resource)
     # determine the errors
-    errors = {}
+    @errors = {}
     if resource.errors
-      errors = resource.errors.messages
+      @errors = resource.errors.messages
     end
     if !recaptcha_valid then
-      errors[:recaptcha] = ["invalid response"]
+      @errors[:recaptcha] = ["invalid response"]
     end
     # respond with json if xhr
-    if request.xhr?
-      render :json => {"success" => false, "errors" => errors}
-    else
-      render_with_scope :new
+    respond_to do |format|
+      format.js { render 'users/registrations/error' }
     end
   end
 

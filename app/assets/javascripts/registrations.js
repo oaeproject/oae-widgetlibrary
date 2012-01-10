@@ -10,26 +10,6 @@ $(function() {
         $("#check_username_result").removeClass("available unavailable").text("");
     });
 
-    // Handle the return for the user registration form
-    $("#user_new").live('ajax:success', function(xhr, data) {
-        // If it is a success, just redirect to the URL returned
-        if (data.success && data.url) {
-            document.location = data.url;
-        } else if (data.errors) {
-            // otherwise, display the error labels
-            $.each(data.errors, function(key, error) {
-                $("#user_" + key).addClass(wlError);
-                $("label[for='user_" + key + "']").addClass(wlError);
-                if (key === "user_password") {
-                    $("label[for='user_" + key + "_confirmation']").addClass(wlError);
-                }
-                $("#user_" +  key + "_error").text(error[0]).show();
-                // Always reload the recaptcha
-                Recaptcha.reload();
-            });
-        }
-    });
-
     // Handle checking for the username availability
     $("#check_username").live("click", function() {
         var username = $.trim($("#user_username").val());

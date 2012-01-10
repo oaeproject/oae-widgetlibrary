@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include ValidatesAsImage
+
   has_attached_file :avatar, :styles => { :thumb => ["50x50!", :png], :medium => ["100x100!", :png], :large => ["800x800", :png] }
   has_many :widgets
 
@@ -13,8 +15,9 @@ class User < ActiveRecord::Base
                   :last_name, :info, :homepage, :occupation,
                   :summary, :location, :avatar, :name, :url_title
 
-  validates_presence_of :username, :first_name, :last_name
+  validates_presence_of :username, :first_name, :last_name, :password, :password_confirmation
   validates_uniqueness_of :username, :email, :url_title
+  validates_as_image :avatar
 
   def widgets
     args = {
