@@ -27,5 +27,3 @@ namespace :deploy do
   end
 
 end
-after "deploy:symlink", "deploy:set_db"
-after "deploy:set_db", "deploy:binstubs"

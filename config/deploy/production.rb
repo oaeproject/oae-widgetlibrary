@@ -28,5 +28,3 @@ namespace :deploy do
     run "ln -nfs #{shared_path}/db/production.sqlite3 #{current_release}/db/production.sqlite3"
   end
 end
-after "deploy:symlink", "deploy:set_db"
-after "deploy:set_db", "deploy:binstubs"

@@ -33,6 +33,14 @@ namespace :deploy do
     task t, :roles => :app do ; end
   end
 
+  desc "Set reCaptcha keys"
+  task :recaptcha, :roles => :app do
+    # Remove the dev captcha that is in github
+    run "rm #{current_release}/config/initializers/recaptcha.rb"
+    run "ln -nfs #{shared_path}/config/initializers/recaptcha.rb #{current_release}/config/initializers/recaptcha.rb"
+    run "touch #{current_release}/tmp/restart.txt"
+  end
+
   desc "Install binstubs"
   task :binstubs, :roles => :app do
     run "cd #{current_release} && bundle --binstubs bin/"
@@ -44,3 +52,7 @@ namespace :deploy do
   end
 
 end
+
+after "deploy:symlink", "deploy:set_db"
+after "deploy:set_db", "deploy:binstubs"
+after "deploy:binstubs", "deploy:recaptcha"
