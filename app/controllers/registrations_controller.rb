@@ -1,6 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
 
-  # override the Devise::RegistrationsController create method completely
+  # override the Devise::RegistrationsController#create method completely
   # extended for recaptcha and xhr handling
   def create
     build_resource
@@ -64,6 +64,25 @@ class RegistrationsController < Devise::RegistrationsController
       user = true
     end
     render :json => {"user_found" => user, "text" => text}
+  end
+
+  # Overwrite the Devise::RegistrationsController#update method
+  # extended for xhr handling
+  def update
+    self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
+
+    if resource.update_with_password(params[resource_name])
+      set_flash_message :notice, :updated if is_navigational_format?
+      sign_in resource_name, resource, :bypass => true
+      @url = redirect_location(resource_name, resource)
+
+      respond_to do |format|
+        format.js { render 'users/registrations/create' }
+      end
+    else
+      clean_up_passwords(resource)
+      error(resource, true)
+    end
   end
 
 end

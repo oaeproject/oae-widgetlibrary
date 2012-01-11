@@ -1,0 +1,90 @@
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true, :class => "wl-form-field-wrapper" }, :remote => true ) do |f| %>
+    <div class="account_labels">
+        <%= f.label :first_name %>
+        <%= f.label :last_name %>
+        <%= f.label :email %>
+    </div>
+    <div class="account_inputfields">
+        <span id="user_first_name_error" class="wl-error" style="display:none"></span>
+        <%= f.text_field :first_name %>
+        <span id="user_last_name_error" class="wl-error" style="display:none"></span>
+        <%= f.text_field :last_name %>
+        <span id="user_email_error" class="wl-error" style="display:none"></span>
+        <%= f.email_field :email %>
+    </div>
+    <div class="account_labels">
+        <%= f.label :username %>
+        <% if resource.new_record? %>
+        <%= f.label :password %>
+        <%= f.label :password_confirmation, "Re-type password" %>
+        <% else %>
+        <%= f.label :password, "New password" %>
+        <%= f.label :password_confirmation, "Re-type new password" %>
+        <% end %>
+
+    </div>
+    <div class="account_inputfields">
+        <span id="user_username_error" class="wl-error" style="display:none"></span>
+        <%= f.text_field :username %>
+        <span id="user_password_error" class="wl-error" style="display:none"></span>
+        <%= f.password_field :password %>
+        <span id="user_password_confirmation_error" class="wl-error" style="display:none"></span>
+        <%= f.password_field :password_confirmation %>
+    </div>
+    <button class="wl-button wl-header-button wl-button-tight" id="check_username" type="button">Check if username is available</button>
+    <div id="check_username_result"></div>
+    <hr class="wl-push wl-hidden"/>
+    <hr class="wl-split-line full-line wl-push register_form_splitter"/>
+
+    <h1>Some information about you</h1>
+    <div class="register_column1">
+        <% if resource.new_record? %>
+          <h2>Image</h2>
+          <%= image_tag "register_default_image.jpg", :alt => "User image" %>
+        <% else %>
+          <h2>Upload new image</h2>
+          <%= image_tag resource.avatar.url(:medium), :alt => "User image" %>
+        <% end %>
+        <%= f.file_field :avatar %>
+    </div>
+
+    <div class="register_column2">
+        <h2>Introductory text</h2>
+        <%= f.text_area :info, :placeholder => "Enter some basic intro text...", :class => "register_basic" %>
+        <%= f.text_area :summary, :placeholder => "Enter a quick summary of yourself...", :class => "register_summary" %>
+    </div>
+
+    <div class="register_column3">
+        <h2>Details</h2>
+        <div id="register_details_labels">
+            <%= f.label :location %>
+            <%= f.label :occupation %>
+            <%= f.label :homepage %>
+        </div>
+        <div>
+            <%= f.select :location, country_options %>
+            <%= f.text_field :occupation, :id => "occupation", :placeholder => "(Student/Developer/...)" %>
+            <span id="user_homepage_error" class="wl-error" style="display:none"></span>
+            <%= f.text_field :homepage, :id => "homepage", :placeholder => "http://www.example.org", :type => "url"  %>
+        </div>
+    </div>
+
+    <hr class="wl-push wl-hidden"/>
+    <hr class="wl-split-line full-line wl-push register_form_splitter"/>
+    <% if resource.new_record? %>
+      <div class="register_column1"></div>
+      <div id="user_recaptcha_container">
+          <span id="user_recaptcha_error" class="wl-error" style="display:none"></span>
+          <div id="user_recaptcha"><%= recaptcha_tags :display => {:theme => "clean"} %></div>
+      </div>
+      <button class="wl-button wl-large-button" type="submit" id="create_account_button">Create account</button>
+    <% else %>
+      <div class="register_column2">
+        <span id="user_current_password_error" class="wl-error" style="display:none"></span>
+        <%= f.label :current_password %> <%= f.password_field :current_password %>
+      </div>
+      <button class="wl-button wl-large-button" type="submit" id="create_account_button">Update account</button>
+    <% end %>
+
+<% end %>
+<hr class="wl-push wl-hidden"/>

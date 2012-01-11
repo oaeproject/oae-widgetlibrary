@@ -1,12 +1,8 @@
 $(function() {
 
-    // Classes
-    var wlError = "wl-error";
-
     // Reset all the errors on a new submit of the form
-    $("#user_new").live("submit", function(){
-        $("span." + wlError).text("").hide();
-        $("label."  + wlError + ", input." + wlError + ", div." + wlError).removeClass(wlError);
+    $("#user_new, #user_edit").live("submit", function(){
+        WL.reset_errors();
         $("#check_username_result").removeClass("available unavailable").text("");
     });
 

@@ -4,7 +4,7 @@
         <% if show %>
         <ul>
             <% if user_signed_in? %>
-                <li><span>Hi <%= current_user.first_name %></span></li>
+                <li><span>Hi <%= link_to current_user.first_name, user_path(current_user.url_title) %></span></li>
                 <li><%= link_to "Logout", logout_path %></li>
             <% else %>
                 <li>
@@ -12,7 +12,7 @@
                 </li>
                 <span class="wl-left wl-margin-top-9">|</span>
                 <li <% if params[:controller].eql?("register")%>class="selected"<% end %>>
-                    <%= link_to "Register", "/register"%>
+                    <%= link_to "Register", user_registration_path %>
                 </li>
                 <span class="wl-left wl-margin-top-9">|</span>
                 <li class="wl-dropdown-menu">
@@ -31,7 +31,7 @@
                                 <%= text_field_tag "user[username]", nil, :class => "login-container-textfield" %>
                                 <%= label_tag "user[password]", "Password" %>
                                 <%= text_field_tag "user[password]", nil, :class => "login-container-textfield", :type => "password" %>
-                                <span class="useractions_forgot_username">Forgot your <%= link_to "username or password?", "javascript:;", :class => "wl-regular-link" %></span>
+                                <span class="useractions_forgot_username">Forgot your <%= link_to "username or password?", new_user_password_path, :class => "wl-regular-link" %></span>
                                 <hr class="wl-split-line wl-push">
                                 <%= submit_tag "Sign in", :name => "commit", :id => "useractions_login_button_login", :class => "wl-button wl-overlay-button" %>
                                 <span style="display:none;" id="useractions_login_button_signing_in">Signing In ...</span>

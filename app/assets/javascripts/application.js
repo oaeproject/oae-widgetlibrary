@@ -9,6 +9,32 @@
 //= require core/useractions
 
 $(function() {
+    // Define a global object to toss some methods into
+    WL = {
+        wlError : "wl-error",
+        show_errors: function(errors, controller_name) {
+            $.each(errors, function(key, error) {
+                var error_message = error[0];
+                if (key.indexOf("_content_type") !== -1) {
+                  key = key.replace("_content_type", "");
+                }
+                if (key.indexOf(".") !== -1) {
+                  key = key.replace(".", "_");
+                  error_message = error[1];
+                }
+                nice_key = key.replace("_", " ");
+                error_message = nice_key + " " + error_message;
+                $("#" + controller_name + "_" + key).addClass(WL.wlError);
+                $("label[for='" + controller_name + "_" + key + "']").addClass(WL.wlError);
+                $("#" + controller_name + "_" +  key + "_error").text(error_message).show();
+            });
+        },
+        reset_errors: function() {
+            $("span." + WL.wlError).hide();
+            $("." + WL.wlError + ":not(span)").removeClass(WL.wlError);
+        }
+    };
+
     var sort = function(e) {
         var $selection = $(e.target).find("option:selected");
         var sort_by = $selection.attr("data-sortby");

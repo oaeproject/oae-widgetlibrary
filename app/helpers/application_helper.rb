@@ -2,7 +2,8 @@
 
 module ApplicationHelper
   def show_login
-    !(params[:controller].gsub("/", "_").eql?("devise_registrations") || params[:controller].gsub("/", "_").eql?("registrations"))
+    controller = params[:controller].gsub("/", "_")
+    !((controller.eql?("devise_registrations") || controller.eql?("registrations")) && !params[:action].eql?("edit"))
   end
 
   def custom_ago(date)

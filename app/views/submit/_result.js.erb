@@ -1,20 +1,6 @@
-// If it is a success, just redirect to the URL returned
 <% unless @version.errors.any? %>
+  // If it is a success, just redirect to the URL returned
   document.location = "<%= widget_path(@widget.url_title) %>";
 <% else %>
-  var wlError = "wl-error";
-  var errors = <%=raw @version.errors.to_json %>;
-  $.each(errors, function(key, error) {
-      var error_message = error[0];
-      if (key.indexOf("_content_type") !== -1) {
-        key = key.replace("_content_type", "");
-      }
-      if (key.indexOf(".") !== -1) {
-        key = key.replace(".", "_");
-        error_message = error[1];
-      }
-      $("#version_" + key).addClass(wlError);
-      $("label[for='version_" + key + "']").addClass(wlError);
-      $("#version_" +  key + "_error").text(error_message).show();
-  });
+  WL.show_errors(<%=raw @version.errors.to_json %>, "version");
 <% end %>

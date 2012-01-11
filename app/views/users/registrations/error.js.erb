@@ -1,14 +1,5 @@
-var wlError = "wl-error";
-var errors = <%=raw @errors.to_json %>;
-
 // display the error labels
-$.each(errors, function(key, error) {
-    $("#user_" + key).addClass(wlError);
-    $("label[for='user_" + key + "']").addClass(wlError);
-    if (key === "user_password") {
-        $("label[for='user_" + key + "_confirmation']").addClass(wlError);
-    }
-    $("#user_" +  key + "_error").text(error[0]).show();
-    // Always reload the recaptcha on error
-    Recaptcha.reload();
-});
+WL.show_errors(<%=raw @errors.to_json %>, "user");
+
+// Always reload the recaptcha on error
+Recaptcha.reload();

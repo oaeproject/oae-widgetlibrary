@@ -1,6 +1,7 @@
 SakaiWidgetlibrary::Application.routes.draw do
 
   devise_for :users, :controllers => {:sessions => 'sessions'}, :skip => [:sessions] do
+    get  '/' => "home#index", :as => :new_user_session
     post '/login' => 'sessions#create', :as => :user_session
     get  '/logout' => 'devise/sessions#destroy', :as => :logout
     get  '/register' => 'devise/registrations#new', :as => :user_registration
@@ -8,6 +9,9 @@ SakaiWidgetlibrary::Application.routes.draw do
     get  '/register' => 'devise/registrations#new', :as => :new_user_registration
     get  '/register/check_username/:username' => 'registrations#check_username'
     get  '/forgot_password' => 'devise/passwords#new', :as => :new_user_password
+    post '/forgot_password' => 'passwords#create', :as => :user_password
+    put  '/register' => 'registrations#update', :as => :edit_user_registration
+    get  '/edit' => 'devise/registrations#edit', :as => :edit_user_registration
   end
 
   match '/widget/:title' => 'widget#show', :as => :widget

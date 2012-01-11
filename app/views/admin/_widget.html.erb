@@ -5,7 +5,6 @@
   <td><%= version.created_at.localtime.strftime("%B %e, %Y %l:%M%P") %></td>
   <td><%= version.version_number %></td>
   <% if params[:state].to_s.eql? State.declined.to_s %>
-  <% logger.debug version.inspect %>
   <td><%= version.reviewer.name %></td>
   <td><%= version.notes %></td>
   <% end %>

@@ -1,5 +1,8 @@
 <% content_for :title do %> - <%= @developer.name %><% end %>
 <div class="wl-content-container" id="developer_container">
+    <% if current_user == @developer %>
+      <%= link_to "Edit my profile", edit_user_registration_path, :class => "wl-link-button wl-button wl-overlay-button", :id => "edit_profile_button" %>
+    <% end %>
     <div id="developer_description_container">
         <%= image_tag @developer.avatar.url(:medium), :alt => "#{@developer.name}'s Photo" %>
         <div id="developer_description">
@@ -24,7 +27,7 @@
                 <hr class="wl-split-line wl-push">
                 <div class="developer_details_left">No. of Widgets Developed:</div><div class="developer_details_right"><%= @developer.widgets.size %></div>
                 <hr class="wl-split-line wl-push">
-                <div class="developer_details_left">Average rating for their Widgets:</div><div class="developer_details_right">
+                <div class="developer_details_left">Average rating for <%= if current_user == @developer then "your" else "their" end %> widgets:</div><div class="developer_details_right">
                     <%= render :partial => "pagewidgets/rating", :locals => {:stars => @developer.widget_average_rating, :display => {} }  %>
                 </div>
                 <hr class="wl-split-line wl-push">

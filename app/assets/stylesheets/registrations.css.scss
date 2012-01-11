@@ -67,7 +67,7 @@
     margin-left: 25px; }
   .register_column1 {
     min-height: 20px;
-    .wl-button {
+    .wl-button, input[type=file] {
       margin-bottom: 20px; }
     a.wl-button {
       color: #2683BC;
@@ -120,4 +120,7 @@
           border: 1px solid #D4D4D4 !important;
           font-size: 11px; } } } }
   #create_account_button {
-    margin-top: 65px; } }
+    margin-top: 65px; }
+  &.edit {
+    #create_account_button {
+      margin-top:0px; } } }

@@ -18,7 +18,6 @@ $(function() {
 
     // Classes
     var formHasFocus = "form_has_focus";
-    var wlError = "wl-error";
 
     var formOpened = false;
 
@@ -50,7 +49,7 @@ $(function() {
      */
     var removeErrors = function() {
         $(useractions_login_error).hide();
-        $(loginFieldsContainerInputTextPassword).removeClass(wlError);
+        $(loginFieldsContainerInputTextPassword).removeClass(WL.wlError);
     };
 
     /**
@@ -58,7 +57,7 @@ $(function() {
      */
     var showErrors = function() {
         $(useractions_login_error).show();
-        $(loginFieldsContainerInputTextPassword).addClass(wlError);
+        $(loginFieldsContainerInputTextPassword).addClass(WL.wlError);
     };
 
     /**

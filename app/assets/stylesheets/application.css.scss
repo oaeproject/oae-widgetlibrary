@@ -609,7 +609,7 @@ a.wl-button.wl-header-button {
 
 input[type=text], input[type=email], input[type=password], input[type=url] {
   border: 1px solid #D4D4D4;
-  height: 11px;
+  height: 14px;
   padding: 5px; }
 
 textarea {
@@ -670,6 +670,9 @@ textarea {
           color: #ccc;
           text-decoration: none;
           display: block; }
+         > span a {
+          text-decoration:none;
+          color:#ccc; }
         &.opened > button {
             color: #fff; } }
       li.selected {
