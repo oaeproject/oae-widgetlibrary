@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
   include ValidatesAsImage
 
-  has_attached_file :avatar, :styles => { :thumb => ["50x50!", :png], :medium => ["100x100!", :png], :large => ["800x800", :png] }
+  has_attached_file :avatar,
+                    :styles => { :thumb => ["50x50!", :png], :medium => ["100x100!", :png], :large => ["800x800", :png] },
+                    :default_url => "register_default_image.jpg"
   has_many :widgets
 
   # Include default devise modules. Others available are:
