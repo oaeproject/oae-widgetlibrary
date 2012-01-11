@@ -10,12 +10,15 @@ class SubmitController < ApplicationController
     @widget[:user_id] = current_user[:id]
     @widget[:url_title] = params[:version][:title].split(" ").collect{|t| t.downcase}.join("-")
     @widget[:active] = false
-    @widget.save
 
     @version = Version.new(params[:version])
     @version[:state_id] = State.pending
-    @version[:widget_id] = @widget.id
-    @version.save
+
+    if @widget.valid? && @version.valid?
+      @widget.save
+      @version[:widget_id] = @widget.id
+      @version.save
+    end
 
     respond_to do |format|
       format.js
@@ -38,14 +41,14 @@ class SubmitController < ApplicationController
     @version.code = old_version.code
     @version.icon = old_version.icon
     @version.screenshots = old_version.screenshots
-
     @version[:state_id] = State.pending
-    @version.update_attributes!(params[:version])
 
-    if old_version.state_id.eql?(State.pending)
-      old_version.state_id = State.superseded
-      old_version.notes = "Superseded by the submission on #{Time.now.strftime("%B %e, %Y at %l:%M%P")}"
-      old_version.save!
+    if @version.update_attributes(params[:version])
+      if old_version.state_id.eql?(State.pending)
+        old_version.state_id = State.superseded
+        old_version.notes = "Superseded by the submission on #{Time.now.strftime("%B %e, %Y at %l:%M%P")}"
+        old_version.save
+      end
     end
 
     respond_to do |format|
