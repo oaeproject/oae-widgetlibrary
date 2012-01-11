@@ -11,7 +11,7 @@ $(function() {
     });
 
     // Handle checking for the username availability
-    $("#check_username").live("click", function() {
+    $("#check_username").on("click", function() {
         var username = $.trim($("#user_username").val());
         if (username) {
             $.ajax({
