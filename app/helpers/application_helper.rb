@@ -28,12 +28,12 @@ module ApplicationHelper
 
   def page_js
     controller = params[:controller].gsub("devise\/", "")
-    javascript_include_tag controller
+    javascript_include_tag controller if SakaiWidgetlibrary::Application.assets.find_asset("#{controller}.js")
   end
 
   def page_css
     controller = params[:controller].gsub("devise\/", "")
-    stylesheet_link_tag controller
+    stylesheet_link_tag controller if SakaiWidgetlibrary::Application.assets.find_asset("#{controller}.css")
   end
 
 end
