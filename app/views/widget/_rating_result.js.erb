@@ -1,0 +1,19 @@
+// If it is a success, just redirect to the URL returned
+<% unless @rating.errors.any? %>
+  window.location.reload();
+<% else %>
+  var wlError = "wl-error";
+  var errors = <%=raw @rating.errors.to_json %>;
+
+  $("." + wlError).not('span').removeClass(wlError);
+  $('span.' + wlError).hide();
+
+  $.each(errors, function(key, error) {
+      if (key === "stars"){
+          $("#rating_" + key).siblings(".wl-rating-container").addClass(wlError);
+      } else {
+          $("#rating_" + key).addClass(wlError);
+      }
+      $("#rating_" +  key + "_error").text(error[0]).show();
+  });
+<% end %>

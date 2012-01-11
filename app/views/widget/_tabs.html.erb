@@ -30,13 +30,15 @@
 
         <div id="widgetdetails_reviews" class="widgetdetails_tabcontent_content" <% if has_screenshots %>style="display:none;"<% end %>>
             <% if user_signed_in? && current_user.id != @widget.user.id #Only allow logged in users to review %>
-                <%= form_for(@rating, :url => "/widget/#{@widget.url_title}/rate") do |f| %>
+                <%= form_for(@rating, :url => "/widget/#{@widget.url_title}/rate", :html => { :class => "wl-form-field-wrapper" }, :remote => true) do |f| %>
                 <div id="widgetdetails_reviews_review_widget">
                     <h1>Review this widget</h1>
+                    <span id="rating_review_error" class="wl-error" style="display:none"></span>
                     <%= f.text_area :review, :placeholder => "Write a review" %>
                     <%= f.hidden_field :widget_id, :value => @widget.id %>
                     <%= f.hidden_field :user_id, :value => @rating.user_id || current_user.id %>
                     <%= f.hidden_field :stars , :value => @rating.stars.to_i, :class => 'wl-rating-input' %>
+                    <span id="rating_stars_error" class="wl-error" style="display:none"></span>
                     <%= render :partial => "pagewidgets/rating", :locals => { :display => { :rate_widget => true }, :stars => @rating.stars, :num_ratings => @widget.ratings.size } %>
                     <%= f.submit "Post review", :class => "wl-button wl-header-button" %>
                 </div>
