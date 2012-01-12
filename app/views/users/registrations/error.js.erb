@@ -1,5 +1,11 @@
+<%
+  form_id = "#user_new"
+  unless params[:action].eql?"create"
+    form_id = "#user_edit"
+  end
+%>
 // display the error labels
-WL.show_errors(<%=raw @errors.to_json %>, "user");
+WL.show_errors(<%=raw @errors.to_json %>, "user", $("<%= form_id %>"));
 
 // Always reload the recaptcha on error
 Recaptcha.reload();

@@ -2,5 +2,11 @@
   // If it is a success, just redirect to the URL returned
   document.location = "<%= widget_path(@widget.url_title) %>";
 <% else %>
-  WL.show_errors(<%=raw @version.errors.to_json %>, "version");
+  <%
+    form_id = "#new_version"
+    unless params[:action].eql?"create"
+      form_id = "#edit_version_" + params[:id]
+    end
+  %>
+  WL.show_errors(<%=raw @version.errors.to_json %>, "version", $("<%= form_id %>"));
 <% end %>

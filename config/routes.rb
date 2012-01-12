@@ -10,6 +10,7 @@ SakaiWidgetlibrary::Application.routes.draw do
     get  '/register/check_username/:username' => 'registrations#check_username'
     get  '/forgot_password' => 'devise/passwords#new', :as => :new_user_password
     post '/forgot_password' => 'passwords#create', :as => :user_password
+    put  '/forgot_password' => 'passwords#update', :as => :user_password
     put  '/register' => 'registrations#update', :as => :edit_user_registration
     get  '/edit' => 'devise/registrations#edit', :as => :edit_user_registration
   end

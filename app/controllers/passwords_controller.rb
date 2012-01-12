@@ -16,4 +16,22 @@ class PasswordsController < Devise::PasswordsController
       end
     end
   end
+
+  def update
+    self.resource = resource_class.reset_password_by_token(params[resource_name])
+
+    if resource.errors.empty?
+      sign_in(resource_name, resource)
+      @url = after_sign_in_path_for(resource)
+      respond_to do |format|
+        format.js { render 'users/passwords/success' }
+      end
+    else
+      @errors = resource.errors
+      respond_to do |format|
+        format.js { render 'users/passwords/error' }
+      end
+    end
+  end
+
 end

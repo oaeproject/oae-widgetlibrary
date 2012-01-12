@@ -1,14 +1,18 @@
-<h2>Change your password</h2>
+<div class="wl-content-container">
+  <h2>Change your password</h2>
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put, :class => "wl-form-field-wrapper" }, :remote => true) do |f| %>
   <%= f.hidden_field :reset_password_token %>
 
   <p><%= f.label :password, "New password" %><br />
+  <span id="user_password_error" class="wl-error" style="display:none"></span>
   <%= f.password_field :password %></p>
 
   <p><%= f.label :password_confirmation, "Confirm new password" %><br />
+  <span id="user_password_confirmation_error" class="wl-error" style="display:none"></span>
   <%= f.password_field :password_confirmation %></p>
 
-  <p><%= f.submit "Change my password" %></p>
+  <p><%= f.submit "Change my password", :class => "wl-button wl-overlay-button" %></p>
 <% end %>
+
+</div>
