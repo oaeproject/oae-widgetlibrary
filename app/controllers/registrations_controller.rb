@@ -12,7 +12,7 @@ class RegistrationsController < Devise::RegistrationsController
         if resource.active_for_authentication?
           set_flash_message :notice, :signed_up if is_navigational_format?
           sign_in(resource_name, resource)
-          @url = redirect_location(resource_name, resource)
+          @url = after_sign_in_path_for(resource)
 
           respond_to do |format|
             format.js { render 'users/registrations/create' }
@@ -74,7 +74,7 @@ class RegistrationsController < Devise::RegistrationsController
     if resource.update_with_password(params[resource_name])
       set_flash_message :notice, :updated if is_navigational_format?
       sign_in resource_name, resource, :bypass => true
-      @url = redirect_location(resource_name, resource)
+      @url = after_sign_in_path_for(resource)
 
       respond_to do |format|
         format.js { render 'users/registrations/create' }
