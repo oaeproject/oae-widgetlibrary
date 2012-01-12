@@ -48,6 +48,8 @@ group :development do
   gem 'capistrano'
   # Allow for multi-stage deploys with Capistrano
   gem 'capistrano-ext'
+  # Mailcatcher allows debugging of outgoing mail
+  gem 'mailcatcher'
 end
 
 # Assets for Rails 3.1

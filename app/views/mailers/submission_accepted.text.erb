@@ -1,0 +1,14 @@
+Congratulations!
+================
+
+Your widget '<%= @version.title %>' (v<%= @version.version_number %>) has been approved!
+
+You can view your widget at widget_url(@widget.url_title)
+
+<% unless @version.notes.blank? %>
+The reviewer left you the following note:
+
+  <%= @version.notes %>
+<% end %>
+
+To see the status of all your submissions, you can always check your widget submissions page at <%= mywidgets_submissions_url %>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <style type="text/css">
+      <%= SakaiWidgetlibrary::Application.assets["mailers.css"].body %>
+    </style>
+  </head>
+  <body>
+    <h1>Sad news..</h1>
+    <p>Your widget '<%= @version.title %>' (v<%= @version.version_number %>) was denied approval</p>
+    <% unless @version.notes.blank? %>
+    <p>The reviewer left you the following note:</p>
+    <blockquote><%= @version.notes %></blockquote>
+    <% end %>
+    <p>To see the status of all your submissions, you can always check your <%= link_to "widget submissions", mywidgets_submissions_url %> page</p>
+  </body>
+</html>

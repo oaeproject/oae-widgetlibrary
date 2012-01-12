@@ -18,6 +18,7 @@ class SubmitController < ApplicationController
       @widget.save
       @version[:widget_id] = @widget.id
       @version.save
+      WidgetMailer.new_submission(@version, @widget).deliver
     end
 
     respond_to do |format|
@@ -49,6 +50,7 @@ class SubmitController < ApplicationController
         old_version.notes = "Superseded by the submission on #{Time.now.strftime("%B %e, %Y at %l:%M%P")}"
         old_version.save
       end
+      WidgetMailer.new_submission(@version, @widget).deliver
     end
 
     respond_to do |format|

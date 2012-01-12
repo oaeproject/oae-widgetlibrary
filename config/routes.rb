@@ -36,7 +36,7 @@ SakaiWidgetlibrary::Application.routes.draw do
 
   # My Widgets
   match '/mywidgets' => 'mywidgets#index', :as => :mywidgets
-  match '/mywidgets/submissions' => 'mywidgets#submissions'
+  match '/mywidgets/submissions' => 'mywidgets#submissions', :as => :mywidgets_submissions
 
   # SDK
   match '/sdk' => 'sdk#index', :as => :sdk

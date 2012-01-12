@@ -39,6 +39,7 @@ class AdminController < ApplicationController
     widget.version_id = version.id
 
     if version.save && widget.save
+      WidgetMailer.reviewed(version, widget).deliver
       render :json => {"success" => true}.to_json
     else
       render :json => {"success" => false}.to_json

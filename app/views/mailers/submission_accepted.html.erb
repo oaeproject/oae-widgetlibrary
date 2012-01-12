@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <style type="text/css">
+      <%= SakaiWidgetlibrary::Application.assets["mailers.css"].body %>
+    </style>
+  </head>
+  <body>
+    <h1>Congratulations!</h1>
+    <p>Your widget '<%= @version.title %>' (v<%= @version.version_number %>) has been approved!</p>
+    <p>You can view your widget at <%= link_to widget_url(@widget.url_title), widget_url(@widget.url_title) %></p>
+    <% unless @version.notes.blank? %>
+    <p>The reviewer left you the following note:</p>
+    <blockquote><%= @version.notes %></blockquote>
+    <% end %>
+    <p>To see the status of all your submissions, you can always check your <%= link_to "widget submissions", mywidgets_submissions_url %> page</p>
+  </body>
+</html>

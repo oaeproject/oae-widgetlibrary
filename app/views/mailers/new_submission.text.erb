@@ -1,0 +1,5 @@
+A new widget has been submitted to the Sakai Widget Library
+
+<%= @widget.user.name %> submitted a new widget entitled <%= @version.title %> on <%= @version.created_at.strftime("%B %e, %Y at %l:%M%P") %>
+
+Please review it at <%= widget_url(@widget.url_title) %>

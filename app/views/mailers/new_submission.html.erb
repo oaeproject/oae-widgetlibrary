@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <style type="text/css">
+      <%= SakaiWidgetlibrary::Application.assets["mailers.css"].body %>
+    </style>
+  </head>
+  <body>
+    <h1>A new widget has been submitted to the Sakai Widget Library</h1>
+    <p><%= @widget.user.name %> submitted a new widget entitled <%= @version.title %> on <%= @version.created_at.strftime("%B %e, %Y at %l:%M%P") %>.</p>
+    <p>Please review it at <%= link_to widget_url(@widget.url_title), widget_url(@widget.url_title) %></p>
+  </body>
+</html>
