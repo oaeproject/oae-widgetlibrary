@@ -881,5 +881,13 @@ input:-moz-placeholder, textarea:-moz-placeholder {
   .next_page {
     margin-left: 1em; } }
 
+#error_container {
+  text-align:center;
+  h1 {
+    font-size:72px;
+    text-shadow:2px 3px 6px #CCC;
+  }
+}
+
 @import "core/widget_list.css.scss";
 @import "core/submitwidget.css.scss";

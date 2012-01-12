@@ -1,5 +1,6 @@
 SakaiWidgetlibrary::Application.routes.draw do
 
+  # Routes for devise authentication
   devise_for :users, :controllers => {:sessions => 'sessions'}, :skip => [:sessions] do
     get  '/' => "home#index", :as => :new_user_session
     post '/login' => 'sessions#create', :as => :user_session
@@ -15,13 +16,29 @@ SakaiWidgetlibrary::Application.routes.draw do
     get  '/edit' => 'devise/registrations#edit', :as => :edit_user_registration
   end
 
+  # Application-level routes
+  match '/search' => 'application#search'
+
+  # Browse
+  match '/browse' => 'browse#index', :as => :browse
+  match '/browse/:category_title' => 'browse#index', :as => :category
+
+  # Widget Details
   match '/widget/:title' => 'widget#show', :as => :widget
   post  '/widget/:title/rate' => 'widget#rating_create', :as => :ratings
   put   '/widget/:title/rate' => 'widget#rating_update', :as => :ratings
 
-  match '/browse' => 'browse#index', :as => :browse
-  match '/browse/:category_title' => 'browse#index', :as => :category
+  # Widget Submission (Versions)
+  resources :versions, :path => "submit", :controller => "submit"
 
+  # Users
+  match '/user/:url_title' => 'developerdetails#index', :as => :user
+
+  # My Widgets
+  match '/mywidgets' => 'mywidgets#index', :as => :mywidgets
+  match '/mywidgets/submissions' => 'mywidgets#submissions'
+
+  # SDK
   match '/sdk' => 'sdk#index', :as => :sdk
   match '/sdk/developwidget' => 'sdk#developwidget'
   match '/sdk/developwidget/learnbasics' => 'sdk#learnbasics'
@@ -46,18 +63,10 @@ SakaiWidgetlibrary::Application.routes.draw do
   match '/sdk/services/thirdparty' => 'sdk#thirdparty'
   match '/sdk/faq' => 'sdk#faq'
   match '/sdk/help' => 'sdk#help'
-
-  match '/user/:url_title' => 'developerdetails#index', :as => :user
-
-  match '/mywidgets' => 'mywidgets#index', :as => :mywidgets
-  match '/mywidgets/submissions' => 'mywidgets#submissions'
-
-  resources :versions, :path => "submit", :controller => "submit"
-
-  match '/search' => 'application#search'
-
   match '/zippedwidget' => 'widget_generator#zippedwidget'
 
+
+  # Admin section
   match '/admin/users' => 'admin#users', :as => :admin_users
   match '/admin/users/admin' => 'admin#users', :as => :admin_admin_users
   match '/admin/options' => 'admin#options', :as => :admin_options
@@ -65,6 +74,13 @@ SakaiWidgetlibrary::Application.routes.draw do
   match '/admin/widgets' => 'admin#widgets', :as => :admin
   match '/admin/widgets/:state' => 'admin#widgets', :as => :admin_state
   match '/admin/widgets/:review/:version_id' => 'admin#reviewed'
+
+  # Errors
+  unless Rails.application.config.consider_all_requests_local
+    match '*not_found', to: 'errors#e404'
+  end
+  get "errors/e404"
+  get "errors/e500"
 
   root :to => 'home#index'
 

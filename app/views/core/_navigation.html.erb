@@ -10,7 +10,7 @@
 
     <ul class="wl-bold">
         <li class="navigation_item<% if params[:controller].eql?("home") %> selected<% end %>"><%= link_to "Home", root_path %></li>
-        <li class="navigation_item<% if params[:controller].eql?("browse") || params[:controller].eql?("widget") %> selected<% end %>"><%= link_to "Browse", browse_path %></li>
+        <li class="navigation_item<% if params[:controller].eql?("browse") || params[:controller].eql?("widget") && !@error %> selected<% end %>"><%= link_to "Browse", browse_path %></li>
         <% if user_signed_in? %>
         <li class="navigation_item<% if params[:controller].eql?("mywidgets") %> selected<% end %>"><%= link_to "My Widgets", mywidgets_path %></li>
         <% end %>
