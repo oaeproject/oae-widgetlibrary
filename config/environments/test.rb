@@ -39,4 +39,7 @@ SakaiWidgetlibrary::Application.configure do
 
   # Allow pass debug_assets=true as a query parameter to load pages with unpackaged assets
   config.assets.allow_debugging = true
+
+  # mailer
+  config.action_mailer.default_url_options = { :host => 'oae-widgets.sakaiproject.org:8080' }
 end

@@ -41,6 +41,12 @@ namespace :deploy do
     run "touch #{current_release}/tmp/restart.txt"
   end
 
+  desc "Set reCaptcha keys"
+  task :mailer_settings, :roles => :app do
+    run "ln -nfs #{shared_path}/config/initializers/mailer_settings.rb #{current_release}/config/initializers/mailer_settings.rb"
+    run "touch #{current_release}/tmp/restart.txt"
+  end
+
   desc "Install binstubs"
   task :binstubs, :roles => :app do
     run "cd #{current_release} && bundle --binstubs bin/"
@@ -56,3 +62,4 @@ end
 after "deploy:symlink", "deploy:set_db"
 after "deploy:set_db", "deploy:binstubs"
 after "deploy:binstubs", "deploy:recaptcha"
+after "deploy:binstubs", "deploy:mailer_settings"
