@@ -27,7 +27,7 @@
   <div id="widget_download">
       <%= image_tag @widget.icon.url(:medium), :alt => "#{@widget.title} preview" %>
       <%= link_to "Download", @widget.code.url, :target => "_blank", :class => "wl-button wl-header-button"%>
-      <% if @widget.bundle.url %>
+      <% if @widget.bundle.file? %>
         <%= link_to "Download Backend Bundle", @widget.bundle.url, :target => "_blank", :class => "wl-button wl-header-button"%>
       <% end %>
   </div>
