@@ -88,8 +88,6 @@
     div {
       float: left;
       width: 150px; }
-    #register_details_labels {
-      width: 100px; }
     label, input {
       display: block;
       line-height: 30px; }
@@ -121,6 +119,17 @@
           font-size: 11px; } } } }
   #create_account_button {
     margin-top: 65px; }
+  #user_current_password_error {
+    margin-left: 120px;
+    width: 200px; }
+  #user_current_password {
+    width: 200px;
+    float: left;
+    margin-top: 0; }
+  label[for="user_current_password"] {
+    float: left;
+    width: 120px;
+    line-height: 29px; }
   &.edit {
     #create_account_button {
-      margin-top:0px; } } }
+      margin-top:-5px; } } }

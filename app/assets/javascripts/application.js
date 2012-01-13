@@ -24,7 +24,13 @@ $(function() {
                 }
                 nice_key = key.replace("_", " ");
                 error_message = nice_key + " " + error_message;
-                $("#" + controller_name + "_" + key, $form).addClass(WL.wlError);
+                var inputelement = $("#" + controller_name + "_" + key, $form);
+                // In some cases we aren't able to use the key name
+                // since it is possible that it already exists elsewhere
+                if (inputelement.length === 0){
+                  inputelement = $("#" + controller_name + "_" + key + "_label", $form);
+                }
+                inputelement.addClass(WL.wlError);
                 $("label[for='" + controller_name + "_" + key + "']", $form).addClass(WL.wlError);
                 $("#" + controller_name + "_" +  key + "_error", $form).text(error_message).show();
             });
