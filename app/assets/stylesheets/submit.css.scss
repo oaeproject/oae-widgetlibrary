@@ -29,8 +29,13 @@
     margin-bottom: 2px; }
   p {
     margin: 7px 0; }
+  label {
+    display: block; }
   button {
     color: #2683BC; }
+  .submit_left_label {
+    float: left;
+    width: 100px; }
   #submit_container_artwork {
     background: image-url("submit_widget_artwork.png") repeat-x scroll center top transparent;
     height: 96px;
@@ -53,28 +58,39 @@
       + p {
         margin-top: 26px; } } }
   .register_column2 {
-    .submit_widget_name, .submit_version_number_title {
-      margin-bottom: 7px; }
     .register_summary {
-      margin-bottom: 12px; } }
-  .register_column3 {
-    #submitdetails_input {
-      width: 258px; }
+      margin-bottom: 12px; }
     label {
-      line-height: 27px; }
+      line-height: 30px;
+      margin-top: 3px; }
+    input[type="file"] {
+       margin: 0; } }
+  .submit_code_column1 {
+    label {
+      margin-top: 0; } }
+  .submit_details_column2 {
+    div {
+      clear: both; } }
+  .register_column3 {
+    div {
+      width: auto; }
     select {
-      width: 150px;
-      float: left; }
-    input {
-      width: 200px; }
+      float: left;
+      margin: 5px 0 15px; }
     .wl-button {
       float: left;
-      margin-left: 10px; } }
+      margin-left: 10px; }
+    input[type="url"] {
+      margin: 0; } }
   .register_column1, .register_column2, .register_column3 {
     h2 {
-      margin-bottom: 9px; } }
-  .register_column2, .register_column3 {
-    width: 358px; }
+      margin-bottom: 9px; }
+    input {
+      margin-top: 0; }
+    input[type="text"] {
+      width: 391px; }
+    textarea {
+      width: 391px; } }
   #submit_screenshot_container {
     float: left;
     margin-bottom: 10px; }
@@ -106,10 +122,14 @@
   #submit_screenshot_uploadfields {
     float: left;
     width: 310px;
-    margin-left: 25px;
     .submit_descriptive_text {
-      margin-top: 12px; }
+      margin: 12px 0 20px; }
     input {
       display: block;
       margin-top: 10px;
-      width: 260px; } } }
+      width: 260px; } }
+  .submit_left_input {
+    width: 200px
+  }
+  .submit_input_file_error {
+    width: 220px; } }

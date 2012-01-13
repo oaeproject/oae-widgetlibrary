@@ -18,6 +18,10 @@ class PasswordsController < Devise::PasswordsController
   end
 
   def update
+    # Since the login box already has a user_password id, we're using password_label instead
+    # We do need to remap it to :password since that is what devise uses
+    params[resource_name][:password] = params[resource_name][:password_label]
+
     self.resource = resource_class.reset_password_by_token(params[resource_name])
 
     if resource.errors.empty?

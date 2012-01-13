@@ -4,15 +4,17 @@
 <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put, :class => "wl-form-field-wrapper" }, :remote => true) do |f| %>
   <%= f.hidden_field :reset_password_token %>
 
-  <p><%= f.label :password, "New password" %><br />
   <span id="user_password_error" class="wl-error" style="display:none"></span>
-  <%= f.password_field :password %></p>
+  <%= f.label :password_label, "New password" %>
+  <%= f.password_field :password_label %>
 
-  <p><%= f.label :password_confirmation, "Confirm new password" %><br />
+  <hr class="wl-hidden wl-push" />
+
   <span id="user_password_confirmation_error" class="wl-error" style="display:none"></span>
-  <%= f.password_field :password_confirmation %></p>
+  <%= f.label :password_confirmation, "Confirm new password" %>
+  <%= f.password_field :password_confirmation %>
 
-  <p><%= f.submit "Change my password", :class => "wl-button wl-overlay-button" %></p>
+  <%= f.submit "Change my password", :class => "wl-button wl-overlay-button" %>
 <% end %>
 
 </div>

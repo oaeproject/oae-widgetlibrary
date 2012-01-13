@@ -5,23 +5,26 @@
       <h1>Submit a new version</h1>
     <% end %>
     <h2>01. Select widget code to upload</h2>
-    <div class="submit_container_split">
+    <div class="register_column2 submit_code_column1">
         <% if !@version.new_record? %>
-          <span>Current file: <%= @version.code_file_name %></span><br/>
+          <%= f.label :code, "Current file: #{@version.code_file_name}" %>
+        <% else %>
+          <%= f.label :code, "Select file:" %>
         <% end %>
-        <span id="version_code_error" class="wl-error" style="display:none"></span>
+        <span id="version_code_error" class="wl-error submit_input_file_error" style="display:none"></span>
         <%= f.file_field :code %>
-        <p><span class="submit_descriptive_text">Optional step:</span>Select a supporting backend bundle</p>
         <% if !@version.new_record? && !@version.bundle_file_name.blank? %>
-          <span>Current file: <%= @version.bundle_file_name %></span><br/>
+          <%= f.label :bundle, "Current backend bundle file: #{@version.bundle_file_name}" %>
+        <% else %>
+          <%= f.label :code, "Backend bundle file (optional):" %>
         <% end %>
-        <span id="version_bundle_error" class="wl-error" style="display:none"></span>
+        <span id="version_bundle_error" class="wl-error submit_input_file_error" style="display:none"></span>
         <%= f.file_field :bundle %>
     </div>
-    <div class="submit_container_split">
-        <p>Source code repository</p>
+    <div class="register_column3">
+        <%= f.label :widget_repo, "Source code repository" %>
         <%= f.text_field :widget_repo, :placeholder => "http://github.com/you/repository", :type => "url" %>
-        <p>Backend bundle source code repository</p>
+        <%= f.label :widget_backend_repo, "Backend bundle source code repository" %>
         <%= f.text_field :widget_backend_repo, :placeholder => "http://github.com/you/backend_repository", :type => "url" %>
     </div>
 
@@ -29,66 +32,69 @@
     <h2>02. Add basic info about the Widget</h2>
     <div class="register_column1">
         <h2>Select<%= if !@version.new_record? then " a new" end %> image for the widget icon</h2>
-        <span id="version_icon_error" class="wl-error" style="display:none"></span>
         <% if @version.new_record? %>
           <%= image_tag "widget_default_image.jpg", :alt => "Widget Icon" %>
         <% else %>
           <%= image_tag @version.icon.url(:medium), :alt => "Widget Icon" %>
         <% end %>
+        <span id="version_icon_error" class="wl-error submit_input_file_error" style="display:none"></span>
         <%= f.file_field :icon %>
     </div>
 
     <div class="register_column2">
         <h2>Basic information</h2>
+        <%= f.label :title, "Widget name" %>
         <span id="version_title_error" class="wl-error" style="display:none"></span>
-        <%= f.text_field :title, :class => "submit_widgetname", :placeholder => "Widget name" %>
+        <%= f.text_field :title, :class => "submit_left_input", :placeholder => "Sakai Widget" %>
+        <hr class="wl-hidden wl-push" />
+        <%= f.label :version_number, "Version number" %>
         <span id="version_version_number_error" class="wl-error" style="display:none"></span>
-        <%= f.text_field :version_number, :class => "submit_version_number_title", :placeholder => "Version Number (i.e. 1.0)" %>
+        <%= f.text_field :version_number, :class => "submit_left_input", :placeholder => "0.0.1" %>
+        <hr class="wl-hidden wl-push" />
+        <%= f.label :description, "Widget summary" %>
         <span id="version_description_error" class="wl-error" style="display:none"></span>
-        <%= f.text_area :description, :class => "register_basic", :placeholder => "Brief summary of the widget" %>
+        <%= f.text_area :description, :class => "register_basic", :placeholder => "Brief description about why your widget is awesome" %>
+        <%= f.label :features, "Functional breakdown" %>
         <span id="version_features_error" class="wl-error" style="display:none"></span>
         <%= f.text_area :features, :class => "register_summary", :placeholder => "Enter a functional breakdown of the widget" %>
     </div>
 
-    <div class="register_column3">
+    <div class="register_column3 submit_details_column2">
         <h2>Details</h2>
-        <div id="register_details_labels">
-            <label for="location">Categories:</label>
-            <label for="homepage">Languages:</label>
-        </div>
-        <div id="submitdetails_input">
-            <%= select_tag "version[category_ids][]", options_from_collection_for_select(Category.all, :id, :title, @version.category_ids), :multiple => true %>
-            <%= select_tag "version[language_ids][]", options_from_collection_for_select(Language.all, :id, :title, @version.language_ids), :multiple => true %>
-        </div>
+        <%= label_tag "version[category_ids][]", "Categories", :class => "submit_left_label" %>
+        <%= select_tag "version[category_ids][]", options_from_collection_for_select(Category.all, :id, :title, @version.category_ids), :multiple => true %>
+        <hr class="wl-hidden wl-push" />
+        <%= label_tag "version[language_ids][]", "Languages", :class => "submit_left_label" %>
+        <%= select_tag "version[language_ids][]", options_from_collection_for_select(Language.all, :id, :title, @version.language_ids), :multiple => true %>
     </div>
 
     <hr class="wl-split-line wl-push">
     <h2>03. Add screenshots to the Widget overview</h2>
-    <div id="submit_screenshot_uploadfields">
+    <div id="submit_screenshot_uploadfields" class="register_column2">
         <h3>Upload screenshots</h3>
-        <p><span class="submit_descriptive_text">Use the buttons below to select screenshots for your widget to upload. These will be dynamically resized to the thumbnail size.</span></p>
+        <p class="submit_descriptive_text">Use the buttons below to select screenshots for your widget to upload. These will be dynamically resized to the thumbnail size.</p>
         <span id="version_screenshots_image_error" class="wl-error" style="display:none"></span>
         <% if @version.new_record? %>
           <%= f.fields_for :screenshots do |s| %>
-              <h4>Screenshot:</h4>
+              <%= s.label :image, "Screenshot" %>
               <%= s.file_field :image %>
           <% end %>
         <% else %>
           <% @version.screenshots.each_index do |s| %>
             <%= image_tag @version.screenshots[s].image.url(:medium) %>
-            <h4>Upload new screenshot:</h4>
+            <%= label_tag "version_screenshots_attributes_#{s}_image", "Upload new screenshot" %>
             <%= file_field_tag "version_screenshots_attributes_#{s}_image" %>
           <% end %>
           <% if @version.screenshots.size < 3 %>
             <% @version.screenshots.size.upto(2) do |s| %>
-              <h4>Upload new screenshot:</h4>
+              <%= label_tag "version_screenshots_attributes_#{s}_image", "Upload new screenshot" %>
               <%= file_field_tag "version_screenshots_attributes_#{s}_image" %>
             <% end %>
           <% end %>
         <% end %>
     </div>
 
-    <hr class="wl-split-line wl-push">
+    <hr class="wl-split-line wl-push" />
     <div id="submit_widget_buttons">
         <button class="wl-link-button wl-bold" type="button">Cancel</button>
         <button class="wl-button wl-overlay-button" type="submit">Save and Upload Widget</button>
