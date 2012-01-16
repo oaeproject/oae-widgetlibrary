@@ -40,7 +40,6 @@
     <div class="register_column1">
         <% if resource.new_record? %>
           <h2>Image</h2>
-          <%= image_tag "register_default_image.jpg", :alt => "User image" %>
         <% else %>
           <h2>Upload new image</h2>
           <%= image_tag resource.avatar.url(:medium), :alt => "User image" %>

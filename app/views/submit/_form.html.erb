@@ -32,9 +32,7 @@
     <h2>02. Add basic info about the Widget</h2>
     <div class="register_column1">
         <h2>Select<%= if !@version.new_record? then " a new" end %> image for the widget icon</h2>
-        <% if @version.new_record? %>
-          <%= image_tag "widget_default_image.jpg", :alt => "Widget Icon" %>
-        <% else %>
+        <% unless @version.new_record? %>
           <%= image_tag @version.icon.url(:medium), :alt => "Widget Icon" %>
         <% end %>
         <span id="version_icon_error" class="wl-error submit_input_file_error" style="display:none"></span>
