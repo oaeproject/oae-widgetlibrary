@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
                   :summary, :location, :avatar, :name, :url_title
 
   validates_presence_of :username, :first_name, :last_name
-  validates_uniqueness_of :username, :email, :url_title
+  validates_uniqueness_of :username, :email
   validates_as_image :avatar
 
   def widgets

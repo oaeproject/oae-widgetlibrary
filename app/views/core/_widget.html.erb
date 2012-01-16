@@ -21,7 +21,7 @@
         <% end %>
 
         <% if display[:author] %>
-            <span>by <%= link_to widget.user.name, user_path(widget.user.url_title), :class => "wl-regular-link" %></span>
+            <span>by <%= link_to widget.user.name, user_path(:id => widget.user.id, :url_title => widget.user.url_title), :class => "wl-regular-link" %></span>
         <% end %>
 
         <% if display[:rating] %>

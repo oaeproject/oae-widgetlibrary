@@ -4,7 +4,7 @@
         <% if show %>
         <ul>
             <% if user_signed_in? %>
-                <li><span>Hi <%= link_to current_user.first_name, user_path(current_user.url_title) %></span></li>
+                <li><span>Hi <%= link_to current_user.first_name, user_path(:id => current_user.id, :url_title => current_user.url_title) %></span></li>
                 <li><%= link_to "Logout", logout_path %></li>
             <% else %>
                 <li>

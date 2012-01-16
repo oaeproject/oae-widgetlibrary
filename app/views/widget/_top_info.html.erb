@@ -33,7 +33,7 @@
   </div>
   <div id="widget_description">
       <h1 class="wl-bold"><%= @widget.title %> <span id="widget_version"></span></h1>
-      by <%= link_to @widget.user.name, user_path(@widget.user.url_title), :class => "wl-regular-link" %>
+      by <%= link_to @widget.user.name, user_path(:id => @widget.user.id, :url_title => @widget.user.url_title), :class => "wl-regular-link" %>
       <p><%= @widget.description %></p>
   </div>
   <div id="widget_details">
@@ -53,7 +53,7 @@
             </ul>
           </li>
           <% end %>
-          <li><span>Developer:</span><span><%= link_to @widget.user.name, user_path(@widget.user.url_title), :class => "wl-regular-link" %></span></li>
+          <li><span>Developer:</span><span><%= link_to @widget.user.name, user_path(:id => @widget.user.id, :url_title => @widget.user.url_title), :class => "wl-regular-link" %></span></li>
           <% if @widget.languages.size > 0 %>
           <li>
             <span>Languages:</span>

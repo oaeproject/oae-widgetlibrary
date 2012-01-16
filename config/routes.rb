@@ -36,7 +36,7 @@ SakaiWidgetlibrary::Application.routes.draw do
   resources :versions, :path => "submit", :controller => "submit"
 
   # Users
-  match '/user/:url_title' => 'developerdetails#index', :as => :user
+  get '/user/:id-:url_title' => 'user#index', :as => :user
 
   # My Widgets
   match '/mywidgets' => 'mywidgets#index', :as => :mywidgets

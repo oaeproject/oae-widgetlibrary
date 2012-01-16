@@ -1,0 +1,47 @@
+<% content_for :title do %> - <%= @user.name %><% end %>
+<div class="wl-content-container" id="developer_container">
+    <% if current_user == @user %>
+      <%= link_to "Edit my profile", edit_user_registration_path, :class => "wl-link-button wl-button wl-overlay-button", :id => "edit_profile_button" %>
+    <% end %>
+    <div id="developer_description_container">
+        <%= image_tag @user.avatar.url(:medium), :alt => "#{@user.name}'s Photo" %>
+        <div id="developer_description">
+            <h1><%= @user.name %></h1>
+            <p><%=h @user.info %></p>
+            <div id="developer_details">
+                <h2>Details:</h2>
+                <hr class="wl-split-line wl-push">
+                <% if @user.location %>
+                  <div class="developer_details_left">Location:</div><div class="developer_details_right"><%= @user.location %></div>
+                  <hr class="wl-split-line wl-push">
+                <% end %>
+                <% if @user.occupation %>
+                  <div class="developer_details_left">Occupation:</div><div class="developer_details_right"><%= @user.occupation %></div>
+                  <hr class="wl-split-line wl-push">
+                <% end %>
+                <% if @user.homepage %>
+                  <div class="developer_details_left">Homepage:</div><div class="developer_details_right"><%= link_to @user.homepage, @user.homepage, :target => "_blank", :class => "wl-regular-link" %></div>
+                  <hr class="wl-split-line wl-push">
+                <% end %>
+                <div class="developer_details_left">User since:</div><div class="developer_details_right"><%= @user.created_at.strftime("%B %e, %Y") %></div>
+                <hr class="wl-split-line wl-push">
+                <% if @user.widgets.size > 0 %>
+                  <div class="developer_details_left">No. of Widgets Developed:</div><div class="developer_details_right"><%= @user.widgets.size %></div>
+                  <hr class="wl-split-line wl-push">
+                  <div class="developer_details_left">Average rating for <%= if current_user == @user then "your" else "their" end %> widgets:</div><div class="developer_details_right">
+                      <%= render :partial => "pagewidgets/rating", :locals => {:stars => @user.widget_average_rating, :display => {} }  %>
+                  </div>
+                  <hr class="wl-split-line wl-push">
+                <% end %>
+            </div>
+        </div>
+    </div>
+    <hr class="wl-push wl-hidden">
+    <% if @user.widgets.size > 0 %>
+    <div id="developer_widgetsbydeveloper" class="wl-inset-shadow-container">
+        <h1>Widgets by this developer</h1>
+        <%= render :partial => "core/widget", :locals => {:display => {:rating => true, :author => true, :num_ratings => true, :title_length => "medium"}}, :collection => @widgets %>
+        <hr class="wl-push wl-hidden">
+    </div>
+    <% end %>
+</div>
