@@ -5,7 +5,7 @@ class BrowseController < ApplicationController
       :active => true
     }
 
-    order = get_sort("average_rating desc")
+    order = get_sort
 
     if params[:category_title]
       cat = Category.first(:conditions => {:url_title => params[:category_title]})

@@ -12,10 +12,10 @@ namespace :db do
     rating_arr  = [1,1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5]
 
     Rating.populate 1 do |rating|
-      rating.review       = Faker::Lorem.sentence(rand(50)+20)
+      rating.review       = Faker::Lorem.sentence(rand(20..70))
       rating.stars        = rating_arr[rand(rating_arr.length-1)]
       rating.widget_id    = widgetid
-      rating.user_id      = rand(NUM_DUMMY_USERS) + 1
+      rating.user_id      = rand(1..NUM_DUMMY_USERS)
       rating.created_at   = created
       rating.updated_at   = created
       ret = rating
@@ -24,8 +24,24 @@ namespace :db do
     ret
   end
 
+  def create_download(widgetid, versionid)
+    Download.populate 1 do |download|
+      download.widget_id = widgetid
+      download.version_id = versionid
+      if rand(2).eql? 1
+        download.user_id = User.order("random()").first.id
+        download.unique_id = download.user_id
+      else
+        download.ip_address = "#{Faker::Internet.ip_v4_address}"
+        download.unique_id = download.ip_address
+      end
+      download.file = "code"
+      ret = download
+    end
+  end
+
   def generate_title
-    Faker::Lorem.words(rand(5) + 1).collect!{|t| t.capitalize }
+    Faker::Lorem.words(rand(1..5)).collect!{|t| t.capitalize }
   end
 
   def generate_url_title(title)
@@ -37,7 +53,8 @@ namespace :db do
 
   def create_widget(userid)
     ret = false
-    num_ratings = rand(20) + 1
+    num_ratings = rand(1..20)
+    num_downloads = rand(1..50)
     created = Time.now - 10000 - rand(50000000)
 
     title = generate_title
@@ -61,13 +78,13 @@ namespace :db do
 
       activeVersion = false
       count = 1
-      num_versions = 1+rand(4)
+      num_versions = rand(1..4)
       Version.populate num_versions do |version|
         created = rand(created..(Time.now-10000))
         version.title          = title.join(' ')
-        version.description    = Faker::Lorem.sentence(rand(50) + 20)
-        version.features       = Faker::Lorem.words(rand(20) + 1).collect!{|t| t.capitalize }.join(' ')
-        version.state_id       = rand(3) + 1
+        version.description    = Faker::Lorem.sentence(rand(20..70))
+        version.features       = Faker::Lorem.words(rand(1..20)).collect!{|t| t.capitalize }.join(' ')
+        version.state_id       = rand(1..3)
         version.created_at     = created
         version.updated_at     = created
         version.widget_id      = widget.id
@@ -78,7 +95,7 @@ namespace :db do
           version.released_on  = rand(created..(Time.now-10000))
         end
         if version.state_id.eql?(State.accepted) || version.state_id.eql?(State.declined)
-          version.notes        = Faker::Lorem.sentence(rand(50) + 20)
+          version.notes        = Faker::Lorem.sentence(rand(20..70))
           version.user_id      = reviewers.sample
           version.reviewed_on  = Time.now
         end
@@ -95,6 +112,11 @@ namespace :db do
           total_stars += rating.stars
         end
         widget.average_rating = total_stars.to_f / num_ratings.to_f
+        widget.num_ratings = num_ratings
+        num_downloads.times do
+          create_download(widget.id, activeVersion.id)
+        end
+        widget.num_downloads = num_downloads
       else
         widget.active = false
       end
@@ -110,7 +132,7 @@ namespace :db do
     num_languages = Language.count
 
     Version.find_each do |version|
-      icon = File.open(Dir.glob(File.join(Rails.root, 'test/sampledata/images', "#{1+rand(10)}.png")).sample)
+      icon = File.open(Dir.glob(File.join(Rails.root, 'test/sampledata/images', "#{rand(1..10)}.png")).sample)
       version.icon = icon
       icon.close
 
@@ -126,9 +148,9 @@ namespace :db do
 
       category_ids = []
       rand(5).times do
-        cat_id = rand(num_categories) + 1
+        cat_id = rand(1..num_categories)
         while category_ids.include?(cat_id)
-          cat_id = rand(num_categories) + 1
+          cat_id = rand(1..num_categories)
         end
         category_ids.push( cat_id )
       end
@@ -136,9 +158,9 @@ namespace :db do
 
       language_ids = []
       rand(4).times do
-        lang_id = rand(num_languages) + 1
+        lang_id = rand(1..num_languages)
         while language_ids.include?(lang_id)
-          lang_id = rand(num_languages) + 1
+          lang_id = rand(1..num_languages)
         end
         language_ids.push( lang_id )
       end
@@ -146,7 +168,7 @@ namespace :db do
 
       rand(4).times do
         screenshot = Screenshot.new
-        image = File.open(Dir.glob(File.join(Rails.root, 'test/sampledata/screenshots', "#{1+rand(9)}.png")).sample)
+        image = File.open(Dir.glob(File.join(Rails.root, 'test/sampledata/screenshots', "#{rand(1..9)}.png")).sample)
         screenshot.image = image
         screenshot.version_id = version.id
         screenshot.save!
@@ -181,9 +203,9 @@ namespace :db do
       user.last_name          = last_name
       user.name               = name
       user.url_title          = "#{user.first_name.downcase}-#{user.last_name.downcase}"
-      user.info               = Faker::Lorem.sentence(rand(50) + 20)
-      user.summary            = Faker::Lorem.sentence(rand(50) + 20)
-      user.occupation         = Faker::Lorem.words(rand(6) + 1).collect!{|t| t.capitalize }.join(' ')
+      user.info               = Faker::Lorem.sentence(rand(20..70))
+      user.summary            = Faker::Lorem.sentence(rand(20..70))
+      user.occupation         = Faker::Lorem.words(rand(1..6)).collect!{|t| t.capitalize }.join(' ')
       user.homepage           = "http://#{Faker::Internet.domain_name}"
       user.location           = Faker::Address.city
       user.encrypted_password = Faker::Lorem.words(1).join(' ')
@@ -203,9 +225,9 @@ namespace :db do
       :last_name => i,
       :url_title => "user-#{i}",
       :name => "User #{i}",
-      :info => Faker::Lorem.sentence(rand(50) + 20),
-      :summary => Faker::Lorem.sentence(rand(50) + 20),
-      :occupation => Faker::Lorem.words(rand(6) + 1).collect!{|t| t.capitalize }.join(' '),
+      :info => Faker::Lorem.sentence(rand(20..70)),
+      :summary => Faker::Lorem.sentence(rand(20..70)),
+      :occupation => Faker::Lorem.words(rand(1..6)).collect!{|t| t.capitalize }.join(' '),
       :homepage => "http://#{Faker::Internet.domain_name}",
       :location => Faker::Address.city
     }
@@ -217,7 +239,7 @@ namespace :db do
 
   def give_users_avatars
     User.find_each do |user|
-      avatar = File.open(Dir.glob(File.join(Rails.root, 'test/sampledata/images', "#{1+rand(10)}.png")).sample)
+      avatar = File.open(Dir.glob(File.join(Rails.root, 'test/sampledata/images', "#{rand(1..10)}.png")).sample)
       user.avatar = avatar
       user.save!
       avatar.close

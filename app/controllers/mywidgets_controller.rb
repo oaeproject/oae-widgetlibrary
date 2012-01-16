@@ -3,7 +3,7 @@ class MywidgetsController < ApplicationController
   layout 'lhnavigation'
 
   def index
-    order = get_sort("average_rating desc")
+    order = get_sort
 
     if params[:filter]
       @widgets = Widget.find_by_state(params[:filter], order, current_user.id)

@@ -5,12 +5,17 @@ class Widget < ActiveRecord::Base
   has_many :ratings
   has_many :versions, :order => "created_at desc"
   has_many :screenshots
+  has_many :downloads
 
   accepts_nested_attributes_for :versions, :screenshots, :allow_destroy => true
 
-  attr_accessible :url_title
+  attr_accessible :url_title, :downloads
 
   validates_uniqueness_of :url_title
+
+  def self.find_most_popular(args, limit = false)
+    Widget.where(args).joins(:downloads).limit(limit).find(:all, :select => "*, count(distinct(downloads.unique_id)) as download_count", :group => "downloads.widget_id", :order => "download_count desc")
+  end
 
   def self.find_by_state(state_title, order = "released_on desc", page = 1, userid = nil)
     filterstate = State.where(:title => state_title).first
@@ -84,6 +89,22 @@ class Widget < ActiveRecord::Base
 
   def code_updated_at
     self.active_version.code_updated_at unless !self.active_version
+  end
+
+  def bundle_file_name
+    self.active_version.bundle_file_name unless !self.active_version
+  end
+
+  def bundle_content_type
+    self.active_version.bundle_content_type unless !self.active_version
+  end
+
+  def bundle_file_size
+    self.active_version.bundle_file_size unless !self.active_version
+  end
+
+  def bundle_updated_at
+    self.active_version.bundle_updated_at unless !self.active_version
   end
 
   def categories

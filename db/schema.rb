@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120110223621) do
+ActiveRecord::Schema.define(:version => 20120113212214) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(:version => 20120110223621) do
   create_table "categories_versions", :id => false, :force => true do |t|
     t.integer "category_id"
     t.integer "version_id"
+  end
+
+  create_table "downloads", :force => true do |t|
+    t.integer  "widget_id"
+    t.integer  "version_id"
+    t.integer  "user_id"
+    t.string   "ip_address"
+    t.string   "unique_id"
+    t.string   "file"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "languages", :force => true do |t|
@@ -132,6 +143,8 @@ ActiveRecord::Schema.define(:version => 20120110223621) do
     t.string  "url_title"
     t.integer "version_id"
     t.boolean "active",         :default => false
+    t.integer "num_downloads",  :default => 0
+    t.integer "num_ratings",    :default => 0
   end
 
 end

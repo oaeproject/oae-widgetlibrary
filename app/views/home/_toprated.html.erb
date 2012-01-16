@@ -1,5 +1,8 @@
-<div id="widgetlibrary_toprated" class="wl-inset-shadow-container wl-content-145">
+<div id="widgetlibrary_toprated" class="wl-inset-shadow-container wl-content-710">
     <h1>Top Rated</h1>
-    <%= render :partial => "core/widget", :locals => {:display => {:rating => true}}, :collection => @toprated %>
-    <hr class="wl-push wl-hidden">
+    <%= render :partial => "core/widget", :locals => {:display => {:rating => true, :author => true, :num_ratings => true}}, :collection => @toprated %>
+    <hr class="wl-push wl-hidden"/>
+    <div id="home_footer">
+      <%= link_to "Show more", browse_path, :id => "show_more", :class => "wl-button wl-large-button" %>
+    </div>
 </div>

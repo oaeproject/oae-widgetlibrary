@@ -9,6 +9,7 @@ class Version < ActiveRecord::Base
   belongs_to :state
   belongs_to :user
   has_many :screenshots, :dependent => :destroy
+  has_many :downloads
   has_and_belongs_to_many :categories
   has_and_belongs_to_many :languages
 

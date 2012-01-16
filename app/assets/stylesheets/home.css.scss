@@ -83,7 +83,7 @@
   /****************/
   /* MOST POPULAR */
   /****************/
-  #widgetlibrary_mostpopular {
+  #widgetlibrary_toprated {
     float:left;
     .wl-widget-item a.wl-widget-item_widgetname {
       font-size: 12px;
@@ -116,14 +116,14 @@
   /*************/
   /* TOP RATED */
   /*************/
-  #widgetlibrary_toprated .wl-widget-item {
+  #widgetlibrary_mostpopular .wl-widget-item {
     width: 130px;
     height: 40px;
     background-color: #fff;
     padding: 8px;
     .wl-rating-container {
       clear: none;
-      padding-top: 7px; } }
-  #widgetlibrary_toprated .wl-widget-item-icon {
-    height: 40px;
-    width: 40px; } }
+      padding-top: 7px; }
+    .wl-widget-item-icon {
+      height: 40px;
+      width: 40px; } } }

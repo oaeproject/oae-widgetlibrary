@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
                     :styles => { :thumb => ["50x50!", :png], :medium => ["100x100!", :png], :large => ["800x800", :png] },
                     :default_url => "register_default_image.jpg"
   has_many :widgets
+  has_many :downloads
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable

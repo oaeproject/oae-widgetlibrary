@@ -35,7 +35,7 @@ class WidgetController < ApplicationController
     end
 
     widget.average_rating = total_stars.to_f / ratings.size.to_f
-
+    widget.num_ratings = ratings.size
     widget.save
   end
 
@@ -64,6 +64,44 @@ class WidgetController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
+
+  def log_download(widget, version_id, kind)
+    if !widget.active
+      return
+    end
+    exists = Download.where(["widget_id = ? AND (user_id = ? OR ip_address = ?)", widget.id, current_user ? current_user.id : nil, request.remote_ip])
+    # Always log the download, even if it exists
+    download = Download.new
+    download.widget_id = widget.id
+    download.version_id = params[:version]
+    if current_user
+      download.user_id = current_user.id
+      download.unique_id = current_user.id
+    else
+      download.ip_address = request.remote_ip
+      download.unique_id = request.remote_ip
+    end
+
+    # only increment the downloads on the widget if this is a unique download
+    unless exists.size > 0
+      widget.num_downloads += 1
+      widget.save
+    end
+
+    download.save
+  end
+
+  def download
+    widget = Widget.first( :conditions => { :url_title => params[:title] } )
+    log_download(widget, params[:version], "code")
+    send_file widget.code.path, :type => widget.code_content_type
+  end
+
+  def download_backend
+    widget = Widget.first( :conditions => { :url_title => params[:title] } )
+    log_download(widget, params[:version], "bundle")
+    send_file widget.bundle.path, :type => widget.bundle_content_type
   end
 
   protected

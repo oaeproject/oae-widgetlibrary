@@ -16,6 +16,8 @@ class ApplicationController < ActionController::Base
     if params[:s] && params[:d]
       if $version_sorts.include?(params[:s])
         ret = "versions.#{params[:s]} #{params[:d]}"
+      elsif params[:s].eql? "popularity"
+        ret = "num_downloads #{params[:d]}, num_ratings #{params[:d]}, average_rating #{params[:d]}"
       else
         ret = "#{params[:s]} #{params[:d]}"
       end

@@ -28,6 +28,10 @@ SakaiWidgetlibrary::Application.routes.draw do
   post  '/widget/:title/rate' => 'widget#rating_create', :as => :ratings
   put   '/widget/:title/rate' => 'widget#rating_update', :as => :ratings
 
+  # Widget code (hijacking paperclip's route)
+  get   '/widget/:title/:version/download' => "widget#download", :as => :widget_download
+  get   '/widget/:title/:version/backend/download' => "widget#backend_download", :as => :widget_backend_download
+
   # Widget Submission (Versions)
   resources :versions, :path => "submit", :controller => "submit"
 

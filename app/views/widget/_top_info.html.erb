@@ -26,9 +26,9 @@
   <hr class="wl-split-line" style="display:none;"/>
   <div id="widget_download">
       <%= image_tag @widget.icon.url(:medium), :alt => "#{@widget.title} preview" %>
-      <%= link_to "Download", @widget.code.url, :target => "_blank", :class => "wl-button wl-header-button"%>
+      <%= link_to "Download", widget_download_path(:title => @widget.url_title, :version => @widget.version.id), :class => "wl-button wl-header-button", :id => "widget_download_button" %>
       <% if @widget.bundle.file? %>
-        <%= link_to "Download Backend Bundle", @widget.bundle.url, :target => "_blank", :class => "wl-button wl-header-button"%>
+        <%= link_to "Download Backend Bundle", widget_backend_download_path(:title => @widget.url_title, :version => @widget.version.id), :class => "wl-button wl-header-button"%>
       <% end %>
   </div>
   <div id="widget_description">

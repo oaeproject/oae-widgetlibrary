@@ -27,7 +27,7 @@ $(function() {
         $( widgetdetails + context ).show();
     };
 
-    var addBinding = function(){
+    var addBinding = function() {
         $( screenshotTab ).live( "click", function() {
             selectTabs( this );
             switchTabs( "screenshots" );
