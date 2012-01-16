@@ -1,7 +1,7 @@
 <nav id="lhnavigation_container">
   <h1 class="wl-bold">Sakai OAE Widget SDK</h1>
   <ul>
-      <li <% if params[:action].eql?("developwidget")%>class="selected"  <% elsif ["learnbasics", "codingstandards", "quickdev", "fulldev", "widgetbuilder"].include?(params[:action])%>class="selected_parent"<% end %>><div><%= link_to "How to develop a widget", "/sdk/developwidget" %></div></li>
+      <li <% if params[:action].eql?("developwidget")%>class="selected"  <% elsif ["learnbasics", "codingstandards", "quickdevsetup", "fulldevsetup", "widgetbuilder"].include?(params[:action])%>class="selected_parent"<% end %>><div><%= link_to "How to develop a widget", "/sdk/developwidget" %></div></li>
       <ul class="subnav" <% if !["developwidget", "learnbasics", "codingstandards", "quickdevsetup", "fulldevsetup", "widgetbuilder"].include?(params[:action]) %> style="display:none;"<% end %>>
           <li <% if params[:action].eql?("learnbasics")%>class="selected"<% end %>><div><%= link_to "Learn the basics, 'Hello World' tutorial", "/sdk/developwidget/learnbasics" %><hr class="wl-split-line"/></div></li>
           <li <% if params[:action].eql?("codingstandards")%>class="selected"<% end %>><div><%= link_to "Coding standards", "/sdk/developwidget/codingstandards" %><hr class="wl-split-line"/></div></li>
@@ -18,8 +18,10 @@
       </ul>
 
 
-      <li <% if params[:action].eql?("widgetdesignandstyle")%>class="selected" <% elsif ["typography", "colorpalette", "widgetexamples01", "widgetexamples02", "forms", "navigationalitems", "iconography", "interactionmodels"].include?(params[:action])%>class="selected_parent"<% end %>><div><%= link_to "Widget design and style guide", "/sdk/widgetdesignandstyle" %></div></li>
-      <ul class="subnav" <% if !["typography", "colorpalette", "widgetexamples01", "widgetexamples02", "forms", "navigationalitems", "iconography", "interactionmodels", "widgetdesignandstyle"].include?(params[:action]) %> style="display:none;"<% end %>>
+      <li <% if params[:action].eql?("widgetdesignandstyle")%>class="selected" <% elsif ["cssguide", "reusablecss", "typography", "colorpalette", "widgetexamples01", "widgetexamples02", "forms", "navigationalitems", "iconography", "interactionmodels"].include?(params[:action])%>class="selected_parent"<% end %>><div><%= link_to "Widget design and style guide", "/sdk/widgetdesignandstyle" %></div></li>
+      <ul class="subnav" <% if !["cssguide", "reusablecss", "typography", "colorpalette", "widgetexamples01", "widgetexamples02", "forms", "navigationalitems", "iconography", "interactionmodels", "widgetdesignandstyle"].include?(params[:action]) %> style="display:none;"<% end %>>
+          <li <% if params[:action].eql?("cssguide")%>class="selected"<% end %>><div><%= link_to "CSS Guide", "/sdk/widgetdesignandstyle/cssguide" %><hr class="wl-split-line"/></div></li>
+          <li <% if params[:action].eql?("reusablecss")%>class="selected"<% end %>><div><%= link_to "Reusable CSS", "/sdk/widgetdesignandstyle/reusablecss" %><hr class="wl-split-line"/></div></li>
           <li <% if params[:action].eql?("typography")%>class="selected"<% end %>><div><%= link_to "Typography", "/sdk/widgetdesignandstyle/typography" %><hr class="wl-split-line"/></div></li>
           <li <% if params[:action].eql?("colorpalette")%>class="selected"<% end %>><div><%= link_to "Color palette", "/sdk/widgetdesignandstyle/colorpalette" %><hr class="wl-split-line"/></div></li>
           <li <% if params[:action].eql?("widgetexamples01")%>class="selected"<% end %>><div><%= link_to "Widget Examples 1", "/sdk/widgetdesignandstyle/widgetexamples01" %><hr class="wl-split-line"/></div></li>
