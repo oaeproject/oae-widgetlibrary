@@ -13,10 +13,6 @@ class Widget < ActiveRecord::Base
 
   validates_uniqueness_of :url_title
 
-  def self.find_most_popular(args, limit = false)
-    Widget.where(args).joins(:downloads).limit(limit).find(:all, :select => "*, count(distinct(downloads.unique_id)) as download_count", :group => "downloads.widget_id", :order => "download_count desc")
-  end
-
   def self.find_by_state(state_title, order = "released_on desc", page = 1, userid = nil)
     filterstate = State.where(:title => state_title).first
     conditions = {:state_id => filterstate.id}

@@ -18,7 +18,7 @@ class BrowseController < ApplicationController
     if request.xhr?
       render :partial => "pagewidgets/widget_list"
     else
-      @categories = Category.all
+      @categories = Category.includes(:versions => :widget).where("widgets.active = ?", true)
       @featured = Widget.includes(:versions).where(args).order(order).limit(3)
 
       render :layout => 'lhnavigation'
