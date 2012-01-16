@@ -1,5 +1,5 @@
 <div class="wl-widget-item">
-    <%= image_tag widget.icon, :class => "wl-widget-item-icon" %>
+    <%= link_to image_tag(widget.icon, :class => "wl-widget-item-icon"), widget_path({:title => widget.url_title}) %>
 
     <% if !display.blank? %>
 
