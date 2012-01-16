@@ -30,11 +30,11 @@ $(function() {
             $.each($(".expandable_container"), function(i, container){
                 container = $(container);
                 if(container.is(":visible") && expanded === "true"){
-                    container.animate({'height': 'toggle'}, 500);
+                    container.animate({'height': 'toggle', 'opacity': 'toggle'}, 500);
                     container.prevAll("h3").children("a").attr("data-expanded", false);
                     container.prevAll("h3").find("span").toggle();
                 } else if(!container.is(":visible")  && expanded !== "true"){
-                    container.animate({'height': 'toggle'}, 500);
+                    container.animate({'height': 'toggle', 'opacity': 'toggle'}, 500);
                     container.prevAll("h3").children("a").attr("data-expanded", true);
                     container.prevAll("h3").find("span").toggle();
                 }

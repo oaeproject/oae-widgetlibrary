@@ -1,0 +1,95 @@
+<% content_for :title do %> - SDK - CSS Guide<% end %>
+<div id="cssguide" class="widgetsdk_container">
+    <h1>CSS Guidelines</h1>
+    <p>This section of the Widget SDK helps clarify the CSS guidelines used by the Sakai OAE project. These guidelines exist to facilitate development, readability and maintenance of the various stylesheets in the system.</p>
+
+    <div class="wl-widget-item">
+        <h2>Stylesheet layout</h2>
+        <p>A stylesheet in the OAE starts of with license information that is identical in every file followed by the styles applied to the widget elements. There should only be one stylesheet per widget (external libraries not included).</p>
+        <div class="navigationalitems_codesnippit_container">
+            <div class="navigationalitems_codesnippit_header"><h4>A basic stylesheet layout</h4></div>
+<pre>
+/**
+ * Licensed to the Sakai Foundation (SF) under one
+ * or more contributor license agreements. See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership. The SF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+
+
+/**
+ * General
+ */
+
+<span class="black">.widget_name {</span>
+  <span class="blue">overflow</span>:     <span class="green">auto</span>;
+  <span class="blue">width</span>:        <span class="green">350px</span>;
+<span class="black">}</span>
+<span class="black">.widget_name .main_container {</span>
+  <span class="blue">height</span>:       <span class="green">400px</span>;
+  <span class="blue">overflow</span>:     <span class="green">auto</span>;
+  <span class="blue">padding</span>:      <span class="green">10px 5px</span>;
+<span class="black">}</span>
+</pre>
+        </div>
+
+        <p>There's a couple of guidelines in the example above that should be followed:</p>
+        <ul class="inline_list">
+            <li>Create sections to group relevant styles by adding comments. Those section headers should be preceded by 2 and followed by 1 line break.</li>
+            <li>Always prepend the class applied to the top container of the widget (.widget_name in this case) to any rule in the CSS file.</li>
+            <li>Use 1 line per rule of CSS</li>
+            <li>Use indentation (1 tab = 4 spaces) to improve readability of the CSS.</li>
+            <li>Indent the right hand values in a way that aligns them to improve readability.</li>
+            <li>Alphabetize the CSS rules to improve readability</li>
+        </ul>
+
+        <h2>Overriding core stylesheets</h2>
+        <p>Overriding core stylesheets is something that can be done and might be necessary from time to time. There are a few guidelines in this area as well to make sure that the UI remains consistent (colors, font sizes,...) and maintenance time stays optimized. Let's look at an example of an override:</p>
+        <div class="navigationalitems_codesnippit_container">
+            <div class="navigationalitems_codesnippit_header"><h4>Example of an override in CSS</h4></div>
+<pre>
+/**
+ * Overrides
+ */
+
+<span class="black">.sharecontent_widget ul.as-list {</span>
+    <span class="blue">max-height</span>:   <span class="green">120px <span class="red">!important</span></span>;
+    <span class="blue">overflow</span>:     <span class="green">auto <span class="red">!important</span></span>;
+    <span class="blue">width</span>:        <span class="green">218px</span>;
+<span class="black">}</span>
+</pre>
+        </div>
+        <p>The example describes the sharecontent widget and a type of list that we want to modify. The rule of thumb is that we use <span class="red">!important</span> when a normal override doesn't work for any reason but keep the general appearance (fonts, colors, etc.) intact. <span class="red">!important</span> should be avoided where possible.</p>
+
+        <h2>Naming convention</h2>
+        <p>Choosing the right name for classes and IDs is almost as important as the style you are going to apply since it identifies what the element is and possibly what it should be doing. The naming convention for a classname in the OAE is "<strong>WIDGETNAME_relevant_classname</strong>". Let's take the sharecontent widget as an example:</p>
+
+        <div class="navigationalitems_codesnippit_container">
+            <div class="navigationalitems_codesnippit_header"><h4>An example choice of class names</h4></div>
+<pre class="blue">
+&lt;div class=<span class="green">"sharecontent_widget"</span>&gt;
+    &lt;div class=<span class="green">"sharecontent_main_content_container"</span>&gt;
+        &lt;button type=<span class="green">"button"</span> class=<span class="green">"s3d-link-button"</span<span class="black">&gt;__MSG__ADD_A_MESSAGE__</span>&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+        </div>
+        <p>This example features a main content container (<span class="blue">class=</span><span class="green">"sharecontent_main_content_container"</span>) and a link button (<span class="blue">class=</span><span class="green">"s3d-link-button"</span>). The classnames are self-explanatory. If I wanted to add in a textarea for a message I could name it '<span class="green">sharecontent_share_message</span>'.</p>
+
+    </div>
+
+    <div class="wl-widget-item">
+        <img src="/assets/developer_sad_smiley_icon.png" class="wl-left" alt="Visit the FAQ"><h3 class="widgetsdk_header_icon_text">Check out our <a class="wl-regular-link" href="/sdk/faq">FAQ</a> or add a comment below if you didn’t find what you were looking for on this page.</h3>
+    </div>
+</div>

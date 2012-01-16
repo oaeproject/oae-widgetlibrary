@@ -50,6 +50,8 @@ SakaiWidgetlibrary::Application.routes.draw do
   match '/sdk/examples/worlddashboard' => 'sdk#worlddashboard'
   match '/sdk/examples/pagewidget' => 'sdk#pagewidget'
   match '/sdk/widgetdesignandstyle' => 'sdk#widgetdesignandstyle'
+  match '/sdk/widgetdesignandstyle/cssguide' => 'sdk#cssguide'
+  match '/sdk/widgetdesignandstyle/reusablecss' => 'sdk#reusablecss'
   match '/sdk/widgetdesignandstyle/typography' => 'sdk#typography'
   match '/sdk/widgetdesignandstyle/colorpalette' => 'sdk#colorpalette'
   match '/sdk/widgetdesignandstyle/widgetexamples01' => 'sdk#widgetexamples01'

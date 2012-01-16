@@ -1,0 +1,577 @@
+<% content_for :title do %> - SDK - CSS Guide<% end %>
+<div id="cssguide" class="widgetsdk_container">
+    <h1>Reusable CSS</h1>
+    <p>This section of the Widget SDK contains a list of CSS classes that can be reused throughout the system. Styles in these classes can be overridden if necessary but the general look and feel should remain the same to keep the UI as consistent as possible.</p>
+
+    <ul class="inline_list">
+        <li><a href="#utility" class="wl-regular-link" title="Utility">Utility</a></li>
+        <li><a href="#accessibility" class="wl-regular-link" title="Accessibility">Accessibility</a></li>
+        <li><a href="#links" class="wl-regular-link" title="Links">Links</a></li>
+        <li><a href="#buttons" class="wl-regular-link" title="Buttons">Buttons</a></li>
+        <li><a href="#dropdowns" class="wl-regular-link" title="Drop downs">Drop downs</a></li>
+        <li><a href="#draganddrop" class="wl-regular-link" title="Drag and drop">Drag and drop</a></li>
+        <li><a href="#listviewoptions" class="wl-regular-link" title="List view options">List view options</a></li>
+        <li><a href="#lists" class="wl-regular-link" title="Lists">Lists</a></li>
+        <li><a href="#containers" class="wl-regular-link" title="Containers">Containers</a></li>
+        <li><a href="#icons" class="wl-regular-link" title="Icons">Icons</a></li>
+        <li><a href="#dialogs" class="wl-regular-link" title="Overlay dialogs">Overlay dialogs</a></li>
+        <li><a href="#forms" class="wl-regular-link" title="Forms">Forms</a></li>
+    </ul>
+
+
+    <div class="wl-widget-item">
+        <!-- UTILITY CLASSES -->
+        <a name="utility"><h1>Utility classes</h1></a>
+        <p>Utility classes don't necessarily show on the page but aid other classes to achieve a specific style. Most of these can be used on their own as well as in combination with other classes.</p>
+        <h2>Dotted line</h2>
+        <div class="navigationalitems_codesnippit_container few_lines">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Create a dotted line</h4>
+            </div>
+<pre class="black">
+.s3d-split-line
+</pre>
+        </div>
+        <h2>Margin</h2>
+        <div class="navigationalitems_codesnippit_container few_lines">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Adds or removes some margin</h4>
+            </div>
+<pre class="black">
+.s3d-margin-top-3
+.s3d-margin-top-5
+.s3d-margin-top-10
+.s3d-margin-top-15
+.s3d-margin-top-20
+.s3d-button.s3d-margin-top-5
+.s3d-button.s3d-no-margin-top
+</pre>
+        </div>
+        <h2>Hide elements</h2>
+        <div class="navigationalitems_codesnippit_container few_lines">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Hide an element</h4>
+            </div>
+<pre class="black">
+.s3d-hidden
+</pre>
+        </div>
+        <h2>Bold text</h2>
+        <div class="navigationalitems_codesnippit_container few_lines">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Make text bold</h4>
+            </div>
+<pre class="black">
+.s3d-bold
+</pre>
+        </div>
+        <h2>Floats</h2>
+        <div class="navigationalitems_codesnippit_container few_lines">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Create floating elements</h4>
+            </div>
+<pre class="black">
+.fl-force-left
+.fl-force-right
+</pre>
+        </div>
+
+
+        <!-- ACCESSIBILITY -->
+        <a name="accessibility"><h1>Accessibility</h1></a>
+        <div class="navigationalitems_codesnippit_container few_lines">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Apply to containers that need to be rendered off-screen but visible to screen readers</h4>
+            </div>
+<pre class="black">
+.s3d-aural-text
+</pre>
+        </div>
+
+
+        <!-- LINKS -->
+        <a name="links"><h1>Links</h1></a>
+        <h2>Regular links</h2>
+        <div class="navigationalitems_codesnippit_container few_lines">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Create a regular link</h4>
+            </div>
+<pre class="black">
+<span class="blue">&lt;a href=<span class="green">"javascript:;"</span> class=<span class="green">"s3d-regular-links"</span>&gt;<span class="black">www.google.co.uk</span>&lt;/a&gt;</span>
+</pre>
+        </div>
+        <h2>Button links</h2>
+        <p>Button links are regular links with that have a button style applied</p>
+        <div class="navigationalitems_codesnippit_container few_lines">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Create a button link</h4>
+            </div>
+<pre class="black">
+<span class="blue">&lt;a href=<span class="green">"javascript:;"</span> class=<span class="green">"s3d-button s3d-large-button"</span>&gt;<span class="black">__MSG__SHOW_ALL_RESULTS__</span>&lt;/a&gt;</span>
+</pre>
+        </div>
+
+
+        <!-- BUTTONS -->
+        <a name="buttons"><h1>Buttons</h1></a>
+        <h2>General</h2>
+        <p>This class has to be applied to all buttons as it contains some overrides for the browser's default button style.</p>
+        <div class="navigationalitems_codesnippit_container few_lines">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Override default browser button style</h4>
+            </div>
+<pre class="black">
+.s3d-button
+</pre>
+        </div>
+        <h2>Link buttons</h2>
+        <div class="navigationalitems_codesnippit_container few_lines">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Convert a link to a button</h4>
+            </div>
+<pre class="black">
+.s3d-button.s3d-link-button
+</pre>
+        </div>
+        <h2>Header buttons</h2>
+        <div class="navigationalitems_codesnippit_container few_lines">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Create a header button</h4>
+            </div>
+<pre class="black">
+.s3d-button.s3d-header-button
+</pre>
+        </div>
+        <h2>Header buttons (smaller)</h2>
+        <div class="navigationalitems_codesnippit_container few_lines">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Create a smaller header button</h4>
+            </div>
+<pre class="black">
+.s3d-button.s3d-header-button.s3d-header-smaller-button
+</pre>
+        </div>
+        <h2>Pop out buttons</h2>
+        <p>A 'pop out' button is a button that's based on the default header button. A typical use case would be a button that's floating right on the edge of a container. It's style is different from a normal button as it only has one side of rounded borders in order to make it float on the edge.</p>
+        <p>Example pop out button:</p>
+        <%= image_tag "popout_button_example.png", :alt => "Pop out button" %>
+        <div class="navigationalitems_codesnippit_container few_lines">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Create a pop out button</h4>
+            </div>
+<pre class="black">
+.s3d-popout-button-shadow
+.s3d-button.s3d-header-button.s3d-popout-button
+
+<span class="blue">&lt;div&gt;
+    &lt;div class=<span class="green">"s3d-popout-button-shadow"</span>&gt;&lt;/div&gt;
+    &lt;button class=<span class="green">"s3d-button s3d-header-button s3d-popout-button"</span> type=<span class="green">"button"</span>&gt;
+        &lt;span&gt;<span class="black">+</span>&lt;/span&gt;<span class="black">__MSG__ADD__</span>
+    &lt;/button&gt;
+&lt;/div&gt;</span>
+</pre>
+        </div>
+        <h2>Large in-page buttons</h2>
+        <p>Large in-page buttons are used to emphasize an action in the UI. An example of this is a 'show more' button to show more results for a search.</p>
+        <div class="navigationalitems_codesnippit_container few_lines">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Create a large in-page button</h4>
+            </div>
+<pre class="black">
+.s3d-button.s3d-large-button
+a.s3d-button.s3d-large-button
+</pre>
+        </div>
+        <h2>Overlay buttons</h2>
+        <p>This type of button is typically used in overlays invoked in the UI but can be used inside of a page as well. They define a 'submit' or 'complete' action (e.g. share content, update profile).</p>
+        <div class="navigationalitems_codesnippit_container few_lines">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Create an overlay button</h4>
+            </div>
+<pre class="black">
+.s3d-button.s3d-overlay-button
+</pre>
+        </div>
+        <h2>Overlay action buttons</h2>
+        <p>This overlay action buttons are only used in overlays to define a 'complete' or 'submit' action.</p>
+        <div class="navigationalitems_codesnippit_container few_lines">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Create an overlay action button</h4>
+            </div>
+<pre class="black">
+.s3d-button.s3d-overlay-action-button
+</pre>
+        </div>
+        <h2>Button without text</h2>
+        <p>You can create buttons without text to hold an icon.</p>
+        <div class="navigationalitems_codesnippit_container few_lines">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Create a button without text</h4>
+            </div>
+<pre class="black">
+.s3d-button.s3d-button-no-text
+</pre>
+        </div>
+        <h2>Button in a button</h2>
+        <p>Buttons inside of buttons can be useful when you want to apply a style to the counters that looks like a button and bind actions to buttons inside of that container.</p>
+        <div class="navigationalitems_codesnippit_container few_lines">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Create a button in a button</h4>
+            </div>
+<pre class="black">
+.s3d-button .s3d-button-in-button
+.s3d-button .s3d-button-in-button-lighter
+.s3d-button.s3d-overlay-action-button .s3d-button-in-button
+</pre>
+        </div>
+
+
+        <!-- DROP DOWNS -->
+        <a name="dropdowns"><h1>Drop downs</h1></a>
+        <h2>Drop down lists</h2>
+        <div class="navigationalitems_codesnippit_container">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Create a dropdown lists (e.g. content settings)</h4>
+            </div>
+<pre class="black">
+.s3d-dropdown-list
+.s3d-dropdown-list .s3d-dropdown-list-arrow-up
+
+<span class="blue">&lt;div class=</span><span class="green">"s3d-dropdown-list"</span><span class="blue">&gt;</span>
+    <span class="blue">&lt;div class=</span><span class="green">"s3d-dropdown-list-arrow-up"</span><span class="blue">&gt;&lt;/div&gt;</span>
+    <span class="blue">&lt;ul&gt;</span>
+        <span class="blue">&lt;li&gt;</span>
+            <span class="blue">&lt;button class=</span><span class="green">"s3d-link-button"</span><span class="blue">&gt;</span>__MSG__PERMISSIONS__<span class="blue">&lt;/button&gt;</span>
+        <span class="blue">&lt;/li&gt;</span>
+        <span class="blue">&lt;hr class=</span><span class="green">"s3d-split-line"</span><span class="blue">&gt;</span>
+        <span class="blue">&lt;li&gt;</span>
+            <span class="blue">&lt;button class=</span><span class="green">"s3d-link-button"</span><span class="blue">&gt;</span>__MSG__DELETE__<span class="blue">&lt;/button&gt;</span>
+        <span class="blue">&lt;/li&gt;</span>
+    <span class="blue">&lt;/ul&gt;</span>
+<span class="blue">&lt;/div&gt;</span>
+</pre>
+        </div>
+        <h2>Drop down menu</h2>
+        <div class="navigationalitems_codesnippit_container">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Create a dropdown menu (e.g. topnavigation menu, sign in)</h4>
+            </div>
+<pre class="black">
+.s3d-dropdown-menu
+.s3d-dropdown-content-container
+
+<span class="blue">&lt;ul&gt;
+    &lt;li class=<span class="green">"s3d-dropdown-menu"</span>&gt;
+        &lt;a href=<span class="green">"javascript:;"</span> aria-haspopup=<span class="green">"true"</span>&gt;<span class="black">__MSG__CREATE_AND_COLLECT__</span>&lt;/a&gt;
+        &lt;div class=<span class="green">"s3d-dropdown-container"</span>&gt;
+            &lt;ul aria-hidden=<span class="green">"true"</span>&gt;
+                &lt;li&gt;
+                    &lt;a class=<span class="green">"s3d-bold"</span> href=<span class="green">"javascript:;"</span>&gt;<span class="black">__MSG__ADD_CONTENT__</span>&lt;/a&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</span>
+</pre>
+        </div>
+
+
+        <!-- DRAG AND DROP -->
+        <a name="draganddrop"><h1>Drag and Drop</h1></a>
+        <div class="navigationalitems_codesnippit_container">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Applies drag and drop functionality on render of the HTML</h4>
+            </div>
+<pre class="black">
+.s3d-draggable-container
+.s3d-droppable-container
+
+<span class="blue">&lt;div class=<span class="green">"s3d-draggable-container"</span>&gt;
+    <span class="grey">...
+    // Content goes here
+    ...</span>
+&lt;/div&gt;</span>
+
+<span class="blue">&lt;div class=<span class="green">"s3d-droppable-container"</span>&gt;
+    <span class="grey">...
+    // Content goes here
+    ...</span>
+&lt;/div&gt;</span>
+
+</pre>
+        </div>
+
+
+        <!-- LIST VIEW OPTIONS -->
+        <a name="listviewoptions"><h1>List view options</h1></a>
+        <div class="navigationalitems_codesnippit_container">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Create list view options that allow change of style for listing items (e.g. my memberships, my library)</h4>
+            </div>
+<pre class="black">
+.s3d-listview-options
+
+<span class="grey">// Icons that can be used in this list of options</span>
+.s3d-action-icon.s3d-search-results-gridview
+.s3d-action-icon.s3d-search-results-listview
+.s3d-action-icon.s3d-search-results-carouselview
+
+<span class="blue">&lt;div class=<span class="green">"s3d-button s3d-header-button s3d-header-smaller-button s3d-listview-options"</span>&gt;
+    &lt;div class=<span class="green">"s3d-listview-grid selected"</span>&gt;
+        &lt;div class=<span class="green">"s3d-action-icon s3d-search-results-gridview"</span>&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=<span class="green">"s3d-listview-list"</span>&gt;
+        &lt;div class=<span class="green">"s3d-action-icon s3d-search-results-listview"</span>&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=<span class="green">"s3d-listview-carousel"</span>&gt;
+        &lt;div class=<span class="green">"s3d-action-icon s3d-search-results-carouselview selected"</span>&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</span>
+</pre>
+        </div>
+
+
+        <!-- LISTS -->
+        <a name="lists"><h1>Search Lists</h1></a>
+        <p>Search can deliver a wide variety of results including people, content and courses. There are a few classes that can be applied to cope with different situations.</p>
+        <div class="navigationalitems_codesnippit_container">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Create a search result list</h4>
+            </div>
+<pre class="black">
+.s3d-search-result-content.s3d-search-result
+.s3d-search-result-content.s3d-search-result.s3d-search-result-first
+.s3d-search-result-content .s3d-search-result-user-functions
+.s3d-search-result-content .s3d-search-result-user-functions.s3d-draggable-hidden
+.s3d-search-result-content .s3d-search-result-right
+
+<span class="grey">// Other list types can be defined as well</span>
+.s3d-search-result-content
+.s3d-search-result-person
+.s3d-search-result-group
+
+<span class="grey">// Apply the grid view class to achieve a grid layout</span>
+ul.s3d-search-results-grid
+
+<span class="grey">// Apply styles for anonymous users</span>
+.s3d-search-results-anon
+.s3d-search-results-anon .s3d-search-result-anonuser
+
+<span class="blue">&lt;ul class=<span class="green">"s3d-search-results-grid"</span>&gt;
+    &lt;li class=<span class="green">"fl-container fl-fix s3d-search-result-content s3d-search-result s3d-search-result-first s3d-draggable-container"</span>&gt;
+        &lt;span class=<span class="green">"s3d-search-result-user-functions s3d-draggable-hidden"</span>&gt;
+            <span class="grey">...
+            // Items that are hidden while dragging the list item
+            ...</span>
+        &lt;/span&gt;
+
+        &lt;div class=<span class="green">"s3d-search-result-right"</span>&gt;
+            <span class="grey">...
+            // Items placed on the right (share, message, etc.)
+            ...</span>
+        &lt;/div&gt;
+        <span class="grey">...
+        // Items placed on the left (Image, description, icon, etc.)
+        ...</span>
+    &lt;/li&gt;
+&lt;/ul&gt;</span>
+</pre>
+        </div>
+
+
+        <!-- CONTAINERS -->
+        <a name="containers"><h1>Containers</h1></a>
+        <h2>Container with inner shadow</h2>
+        <div class="navigationalitems_codesnippit_container few_lines">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Create a container with inner shadow</h4>
+            </div>
+<pre class="black">
+.s3d-inset-shadow-container
+</pre>
+        </div>
+        <h2>Container with outer shadow</h2>
+        <div class="navigationalitems_codesnippit_container few_lines">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Create a container with outer shadow</h4>
+            </div>
+<pre class="black">
+.s3d-outer-shadow-container
+</pre>
+        </div>
+        <h2>Search container</h2>
+        <p>Search containers, containing an input field and a submit button, are standardized.</p>
+        <div class="navigationalitems_codesnippit_container">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Create a search container</h4>
+            </div>
+<pre class="black">
+.s3d-search-container
+.s3d-search-container .s3d-search-inputfield
+.s3d-search-container .s3d-search-button
+.s3d-search-container .s3d-search-button .s3d-search-button-icon
+
+<span class="blue">&lt;span class=<span class="green">"s3d-search-container"</span>&gt;
+    &lt;input type=<span class="green">"text"</span> class=<span class="green">"s3d-search-inputfield"</span> title=<span class="green">"Search through content, people and groups"</span> maxlength=<span class="green">"255"</span>&gt;
+    &lt;button title=<span class="green">"Search through content, people and groups"</span> class=<span class="green">"s3d-button s3d-overlay-button s3d-search-button"</span> type=<span class="green">"button"</span>&gt;
+        &lt;span class=<span class="green">"s3d-search-button-icon"</span>&gt;&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/span&gt;</span>
+</pre>
+        </div>
+        <h2>'No results' container</h2>
+        <p>A 'No results' container is used when, for example, a search result doesn't return anything or your inbox is empty and a default message should be shown.</p>
+        <div class="navigationalitems_codesnippit_container">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Create a 'no results' container</h4>
+            </div>
+<pre class="black">
+.s3d-search-container
+.s3d-search-container .s3d-search-button
+.s3d-search-container .s3d-search-button .s3d-search-button-icon
+
+<span class="grey">// There are a bunch of icons defined to use in the container</span>
+.s3d-no-results-container .s3d-no-results-icon.s3d-no-results-magnifier
+.s3d-no-results-container .s3d-no-results-icon.s3d-no-results-world
+.s3d-no-results-container .s3d-no-results-icon.s3d-no-results-people
+.s3d-no-results-container .s3d-no-results-icon.s3d-no-results-content
+.s3d-no-results-container .s3d-no-results-icon.s3d-no-results-content-small
+.s3d-no-results-container .s3d-no-results-icon.s3d-no-results-memberships
+.s3d-no-results-container .s3d-no-results-icon.s3d-no-results-memberships-small
+.s3d-no-results-container .s3d-no-results-icon.s3d-no-results-contacts
+.s3d-no-results-container .s3d-no-results-icon.s3d-no-results-contacts-small
+.s3d-no-results-container .s3d-no-results-icon.s3d-no-results-replied
+.s3d-no-results-container .s3d-no-results-icon.s3d-no-results-trash
+.s3d-no-results-container .s3d-no-results-icon.s3d-no-results-upload
+.s3d-no-results-container .s3d-no-results-icon.s3d-no-results-search-messages
+.s3d-no-results-container .s3d-no-results-icon.s3d-no-results-search-world
+.s3d-no-results-container .s3d-no-results-icon.s3d-no-results-search-people
+.s3d-no-results-container .s3d-no-results-icon.s3d-no-results-search-content
+.s3d-no-results-container .s3d-no-results-icon.s3d-no-results-sakai2sites
+
+<span class="blue">&lt;div class=<span class="green">"s3d-no-results-container"</span>&gt;
+    &lt;div class=<span class="green">"s3d-no-results-arrow-up"</span>&gt;&lt;/div&gt;
+    &lt;div class=<span class="green">"s3d-no-results-icon s3d-no-results-people"</span>&gt;&lt;/div&gt;
+    &lt;h1&gt;<span class="black">__MSG__NO_NEW_MESSAGES__</span>&lt;/h1&gt;
+&lt;/div&gt;</span>
+</pre>
+        </div>
+
+
+        <!-- ICONS -->
+        <a name="icons"><h1>Icons</h1></a>
+        <h2>Action icons</h2>
+        <p>Action icons are all icons that can define an action like deleting content, sharing content, uploading content,...</p>
+        <div class="navigationalitems_codesnippit_container">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Create action icons</h4>
+            </div>
+<pre class="black">
+.s3d-action-icon
+.s3d-action-icon.disabled
+
+.s3d-actions-delete
+.s3d-actions-delete:hover
+
+.s3d-actions-addtolibrary
+.s3d-actions-addtolibrary:hover
+
+.s3d-actions-author
+.s3d-actions-author:hover
+
+.s3d-actions-share
+.s3d-actions-share:hover
+
+.s3d-actions-message
+.s3d-actions-message:hover
+</pre>
+        </div>
+        <h2>Mime type icons</h2>
+        <p>Mime type icons are generally accessed by the API's handling content items. Here is a list of mime type icons available. For an up to date way of displaying mime type icons check the front end getMimeTypeData function.</p>
+        <div class="navigationalitems_codesnippit_container">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Add mime type icons</h4>
+            </div>
+<pre class="black">
+<span class="grey">// Define a square container to display a mime type icon</span>
+.s3d-icon-16
+
+.icon-audio-sprite
+.icon-doc-sprite
+.icon-pdf-sprite
+.icon-pps-sprite
+.icon-swf-sprite
+.icon-zip-sprite
+.icon-spreadsheet-sprite
+.icon-txt-sprite
+.icon-image-sprite
+.icon-html-sprite
+.icon-video-sprite
+.icon-sound-sprite
+.icon-kmultiple-sprite
+.icon-url-sprite
+.icon-sakaidoc-sprite
+.icon-unknown-sprite
+.icon-collection-sprite
+
+<span class="blue">&lt;div class=<span class="green">"s3d-icon-16 .icon-pdf-sprite"</span>&gt;&lt;/div&gt;</span>
+</pre>
+        </div>
+
+
+        <!-- OVERLAY DIALOGS -->
+        <a name="dialogs"><h1>Overlay dialogs</h1></a>
+        <div class="navigationalitems_codesnippit_container">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Create an overlay dialog</h4>
+            </div>
+<pre class="black">
+.s3d-dialog.s3d-dialog-container
+.s3d-dialog.s3d-dialog-container .s3d-dialog-close.jqmClose
+.s3d-dialog.s3d-dialog-container h1.s3d-dialog-header
+.s3d-dialog.s3d-dialog-container .dialog_buttons
+
+<span class="blue">&lt;div class=<span class="green">"s3d-dialog s3d-dialog-container"</span>&gt;</span>
+    <span class="blue">&lt;div class=<span class="green">"s3d-dialog-close jqmClose"</span>&gt;&lt;/div&gt;</span>
+    <span class="blue">&lt;h1 class=<span class="green">"s3d-dialog-header"</span>&gt;<span class="black">__MSG__ADD_CONTENT__</span>&lt;/h1&gt;</span>
+    <span class="grey">...</span>
+    <span class="blue">&lt;div class=<span class="green">"dialog_buttons"</span>&gt;</span>
+        <span class="blue">&lt;button type=<span class="green">"button"</span> class=<span class="green">"s3d-button s3d-link-button"</span>&gt;</span>__MSG__CANCEL__<span class="blue">&lt;/button&gt;</span>
+        <span class="blue">&lt;button type=<span class="green">"button"</span> class=<span class="green">"s3d-button s3d-overlay-button"</span>&gt;</span>__MSG__UPLOAD_CONTENT__<span class="blue">&lt;/button&gt;</span>
+    <span class="blue">&lt;/div&gt;</span>
+<span class="blue">&lt;/div&gt;</span>
+</pre>
+        </div>
+
+
+        <!-- FORMS -->
+        <a name="forms"><h1>Forms</h1></a>
+        <p>Forms are validated using the validation plugin provided by jQuery. See the forms section in the SDK for implementation of the Javascript.</p>
+        <div class="navigationalitems_codesnippit_container">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Add form validation</h4>
+            </div>
+<pre class="black">
+.s3d-form-field-wrapper
+.s3d-form-field-wrapper .s3d-error
+.s3d-form-field-wrapper input.s3d-error
+.s3d-form-field-wrapper textarea.s3d-error
+.s3d-form-field-wrapper input.s3d-error-after
+.s3d-form-field-wrapper textarea.s3d-error-after
+.s3d-form-field-wrapper ul.as-selections.s3d-error
+
+<span class="blue">&lt;form novalidate=<span class="green">"novalidate"</span>&gt;
+    &lt;div class=<span class="green">"s3d-form-field-wrapper"</span>&gt;
+        &lt;span for=<span class="green">"firstName"</span> generated=<span class="green">"true"</span> class=<span class="green">"s3d-error"</span> id=<span class="green">"firstName_error"</span>&gt;<span class="black">__MSG__PLEASE_ENTER_YOUR_FIRST_NAME__</span>&lt;/span&gt;
+        &lt;label class=<span class="green">"firstName s3d-input-label"</span> for=<span class="green">"firstName"</span>&gt;<span class="black">__MSG__FIRST_NAME__:</span>&lt;/label&gt;
+        &lt;input type=<span class="green">"text"</span> class=<span class="green">"create_account_input required s3d-error"</span> name=<span class="green">"firstName"</span> id=<span class="green">"firstName"</span> maxlength=<span class="green">"255"</span> aria-invalid=<span class="green">"true"</span> aria-describedby=<span class="green">"firstName_error"</span>&gt;
+    &lt;/div&gt;
+&lt;/form&gt;</span>
+</pre>
+        </div>
+    </div>
+
+    <div class="wl-widget-item">
+        <%= image_tag "developer_sad_smiley_icon.png", :alt => "Visit the FAQ", :class => "wl-left" %><h3 class="widgetsdk_header_icon_text">Check out our <%= link_to "FAQ", "/sdk/faq", :class => "wl-regular-link" %> or add a comment below if you didn’t find what you were looking for on this page.</h3>
+    </div>
+</div>
