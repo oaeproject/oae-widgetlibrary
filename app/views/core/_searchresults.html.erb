@@ -3,7 +3,7 @@
       <%= render :partial => 'core/searchresult', :collection => @searchresults.first(10), :as => :widget %>
     </ul>
 </div>
-<div id="search_widgets_results_bottom_container" style="display:none">
+<div id="search_widgets_results_bottom_container">
     <% if @searchresults.size > 0 %>
         <%= link_to "View all results", "/browse?q=#{params[:q]}", :class => "wl-button wl-overlay-button" %>
     <% end %>

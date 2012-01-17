@@ -1,6 +1,9 @@
-<% content_for :title do %> - Browse<%= if @cat_title then " - #{@cat_title}" end %><% end %>
+<% content_for :title do %> - Browse<%= if @cat then " - #{@cat.title}" end %><% end %>
 <div id="browse">
+    <%= render :partial => "searchbox" %>
+  <% if params[:q].blank? %>
     <%= render :partial => "featured" %>
+  <% end %>
     <%= render :partial => "pagewidgets/widget_list" %>
 
     <hr class="wl-push wl-hidden"/>

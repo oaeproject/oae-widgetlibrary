@@ -8,19 +8,17 @@ class BrowseController < ApplicationController
     order = get_sort
 
     if params[:category_title]
-      cat = Category.first(:conditions => {:url_title => params[:category_title]})
-      @widgets = Widget.where(args).includes(:version => :categories).where("categories_versions.category_id = ?", cat.id).order(order).page(params[:page])
-      @cat_title = cat.title
+      @cat = Category.first(:conditions => {:url_title => params[:category_title]})
+      @widgets = Widget.includes(:version => :categories).where("widgets.active = ? AND versions.title LIKE '%#{params[:q]}%'", true).where("categories_versions.category_id = ?", @cat.id).order(order).page(params[:page])
     else
-      @widgets = Widget.where(args).includes(:versions).order(order).page(params[:page])
+      @widgets = Widget.includes(:versions).where("widgets.active = ? AND versions.title LIKE '%#{params[:q]}%'", true).order(order).page(params[:page])
     end
 
+    @categories = Category.includes(:versions => :widget).where("widgets.active = ?", true)
+    @featured = Widget.includes(:versions).where(args).order(order).limit(3)
     if request.xhr?
-      render :partial => "pagewidgets/widget_list"
+      render :partial => "browse/livesearch"
     else
-      @categories = Category.includes(:versions => :widget).where("widgets.active = ?", true)
-      @featured = Widget.includes(:versions).where(args).order(order).limit(3)
-
       render :layout => 'lhnavigation'
     end
   end
