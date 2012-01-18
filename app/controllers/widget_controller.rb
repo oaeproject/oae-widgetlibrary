@@ -18,7 +18,7 @@ class WidgetController < ApplicationController
     end
 
     @versions = @widget.approved_versions.order("version_number desc")
-    @related = Widget.where(:active => true).order("random()").limit(5)
+    @related = Widget.where(:active => true).limit(5)
     if user_signed_in?
       @rating = Rating.where(:user_id => current_user.id, :widget_id => @widget.id).first || Rating.new
     end

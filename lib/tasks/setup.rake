@@ -5,10 +5,7 @@ namespace :setup do
     paths.each do |path|
       FileUtils.remove_dir(path)
     end
-    # drop actually deletes the .sqlite3 file, which is not what we want on test
-    unless ENV['RAILS_ENV'].eql? "test"
-      Rake::Task["db:drop"].invoke
-    end
+    Rake::Task["db:drop"].invoke
     Rake::Task["db:setup"].invoke
     Rake::Task["db:seed"].invoke
     Rake::Task["db:populate"].invoke

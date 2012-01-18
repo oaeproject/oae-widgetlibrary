@@ -33,6 +33,8 @@ gem 'therubyracer', :platforms => :ruby
 # Use will_paginate for query and view pagination
 gem 'will_paginate'
 
+gem 'sass-rails', "  ~> 3.1.5"
+
 group :test, :development do
   # Use factory_girl as a fixtures replacement
   gem "factory_girl_rails"
@@ -55,7 +57,6 @@ end
 # Assets for Rails 3.1
 group :assets do
   gem 'mysql2'
-  gem 'sass-rails', "  ~> 3.1.5"
   gem 'uglifier'
   gem 'yui-compressor'
 end

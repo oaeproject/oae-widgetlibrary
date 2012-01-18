@@ -29,7 +29,7 @@ namespace :db do
       download.widget_id = widgetid
       download.version_id = versionid
       if rand(2).eql? 1
-        download.user_id = User.order("random()").first.id
+        download.user_id = User.first(:offset => rand(User.count))
         download.unique_id = download.user_id
       else
         download.ip_address = "#{Faker::Internet.ip_v4_address}"
