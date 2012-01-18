@@ -2,11 +2,11 @@
   <div id="widget_list_sort_by">
       <label for="sort">Sort by</label>
       <select id="sort_by">
-        <option data-sortby="average_rating" data-direction="desc" selected>Highest Rated</option>
-        <option data-sortby="average_rating" data-direction="asc">Lowest Rated</option>
-        <option data-sortby="popularity" data-direction="desc">Most Popular</option>
-        <option data-sortby="title" data-direction="asc">A-Z</option>
-        <option data-sortby="title" data-direction="desc">Z-A</option>
+        <option data-sortby="average_rating" data-direction="desc" <% if params[:s].eql?("average_rating") && params[:d].eql?("desc") %>selected<% end %>>Highest Rated</option>
+        <option data-sortby="average_rating" data-direction="asc" <% if params[:s].eql?("average_rating") && params[:d].eql?("asc") %>selected<% end %>>Lowest Rated</option>
+        <option data-sortby="popularity" data-direction="desc" <% if params[:s].eql? "popularity" %>selected<% end %>>Most Popular</option>
+        <option data-sortby="title" data-direction="asc" <% if params[:s].eql?("title") && params[:d].eql?("asc") %>selected<% end %>>A-Z</option>
+        <option data-sortby="title" data-direction="desc" <% if params[:s].eql?("title") && params[:d].eql?("desc") %>selected<% end %>>Z-A</option>
       </select>
   </div>
   <div class="page_info"><%= page_entries_info @widgets %></div>
