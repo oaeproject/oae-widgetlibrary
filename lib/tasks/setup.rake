@@ -8,6 +8,7 @@ namespace :setup do
     Rake::Task["db:drop"].invoke
     Rake::Task["db:setup"].invoke
     Rake::Task["db:seed"].invoke
+    ActiveRecord::Base.verify_active_connections!
     Rake::Task["db:populate"].invoke
   end
 end

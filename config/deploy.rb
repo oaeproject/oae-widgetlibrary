@@ -25,7 +25,6 @@ set :branch, "master"
 set :deploy_via, :remote_cache
 set :scm_verbose, true
 
-
 namespace :deploy do
 
   [:start, :stop].each do |t|
@@ -47,6 +46,12 @@ namespace :deploy do
     run "touch #{current_release}/tmp/restart.txt"
   end
 
+  desc "Symlink the database.yml file"
+  task :db_symlink, :roles => :app do
+    run "rm #{current_release}/config/database.yml"
+    run "ln -nfs #{shared_path}/config/database.yml #{current_release}/config/database.yml"
+  end
+
   desc "Install binstubs"
   task :binstubs, :roles => :app do
     run "cd #{current_release} && bundle --binstubs bin/"
@@ -59,7 +64,9 @@ namespace :deploy do
 
 end
 
-after "deploy:symlink", "deploy:set_db"
-after "deploy:set_db", "deploy:binstubs"
+# need to do this right after update_code or the precompile won't work
+after "deploy:update_code", "deploy:db_symlink"
+
+after "deploy:symlink", "deploy:binstubs"
 after "deploy:binstubs", "deploy:recaptcha"
-after "deploy:binstubs", "deploy:mailer_settings"
+after "deploy:recaptcha", "deploy:mailer_settings"
