@@ -41,7 +41,7 @@ namespace :deploy do
     run "touch #{current_release}/tmp/restart.txt"
   end
 
-  desc "Set reCaptcha keys"
+  desc "Set mailer settings"
   task :mailer_settings, :roles => :app do
     run "ln -nfs #{shared_path}/config/initializers/mailer_settings.rb #{current_release}/config/initializers/mailer_settings.rb"
     run "touch #{current_release}/tmp/restart.txt"
