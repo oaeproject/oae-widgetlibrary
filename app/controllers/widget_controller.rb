@@ -66,7 +66,7 @@ class WidgetController < ApplicationController
     end
   end
 
-  def log_download(widget, version_id, kind)
+  def log_download(widget, version, kind)
     if !widget.active
       return
     end
@@ -74,7 +74,7 @@ class WidgetController < ApplicationController
     # Always log the download, even if it exists
     download = Download.new
     download.widget_id = widget.id
-    download.version_id = params[:version]
+    download.version_id = version.id
     if current_user
       download.user_id = current_user.id
       download.unique_id = current_user.id
@@ -93,15 +93,17 @@ class WidgetController < ApplicationController
   end
 
   def download
+    version = Version.find(params[:version])
     widget = Widget.first( :conditions => { :url_title => params[:title] } )
-    log_download(widget, params[:version], "code")
-    send_file widget.code.path, :type => widget.code_content_type
+    log_download(widget, version, "code")
+    send_file version.code.path, :type => version.code_content_type
   end
 
   def download_backend
+    version = Version.find(params[:version])
     widget = Widget.first( :conditions => { :url_title => params[:title] } )
-    log_download(widget, params[:version], "bundle")
-    send_file widget.bundle.path, :type => widget.bundle_content_type
+    log_download(widget, version, "bundle")
+    send_file version.bundle.path, :type => version.bundle_content_type
   end
 
   protected

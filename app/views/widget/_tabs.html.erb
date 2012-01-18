@@ -60,7 +60,7 @@
                   </div>
                 <% end %>
                 <div class="widgetdetails_uploadedversions_versiondescription">
-                    <%= link_to version.title + " " + version.version_number, "javascript:;", :class => "wl-regular-link wl-bold" %>
+                    <%= link_to version.title + " " + version.version_number, widget_download_path(:title => @widget.url_title, :version => version.id), :class => "wl-regular-link wl-bold" %>
                     <span class="widgetdetails_uploadeversions_dateuuploaded"> - released <%= version.released_on.strftime("%B %d, %Y") %></span>
                     <p class="widgetdetails_uploadedversions_mainfeatures">Main features:</p>
                     <p><%= version.features %></p>

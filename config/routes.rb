@@ -30,7 +30,7 @@ SakaiWidgetlibrary::Application.routes.draw do
 
   # Widget code (hijacking paperclip's route)
   get   '/widget/:title/:version/download' => "widget#download", :as => :widget_download
-  get   '/widget/:title/:version/backend/download' => "widget#backend_download", :as => :widget_backend_download
+  get   '/widget/:title/:version/backend/download' => "widget#download_backend", :as => :widget_download_backend
 
   # Widget Submission (Versions)
   resources :versions, :path => "submit", :controller => "submit"
