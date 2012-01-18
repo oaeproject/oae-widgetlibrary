@@ -54,6 +54,7 @@ end
 
 # Assets for Rails 3.1
 group :assets do
+  gem 'mysql2'
   gem 'sass-rails', "  ~> 3.1.5"
   gem 'uglifier'
   gem 'yui-compressor'
