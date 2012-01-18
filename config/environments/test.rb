@@ -41,5 +41,5 @@ SakaiWidgetlibrary::Application.configure do
   config.assets.allow_debugging = true
 
   # mailer
-  config.action_mailer.default_url_options = { :host => 'oae-widgets.sakaiproject.org:8080' }
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end
