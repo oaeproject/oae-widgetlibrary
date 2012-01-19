@@ -89,8 +89,10 @@
       float: left;
       width: 150px; }
     label, input {
-      display: block;
-      line-height: 30px; }
+      display: block; }
+    label {
+      line-height: 30px;
+    }
     input, select {
       width: 230px; } }
   #check_username_result {
