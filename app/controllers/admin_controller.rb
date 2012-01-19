@@ -36,6 +36,7 @@ class AdminController < ApplicationController
 
     if new_state.id.eql? State.accepted
       version.released_on = Time.now
+      widget.active = true
       widget.version_id = version.id
     end
 

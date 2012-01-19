@@ -41,4 +41,19 @@ class WidgetApprovalTest < ActionDispatch::IntegrationTest
     assert page.has_content?(version.title), "Non-reviewer can view approved widget"
   end
 
+  test "widget shows up in mywidgets submissions after approval" do
+    submitter = FactoryGirl.create(:user)
+    reviewer = FactoryGirl.create(:user, :reviewer => true, :admin => true)
+    widget = FactoryGirl.create(:widget, :user_id => submitter.id, :active => false)
+    version = FactoryGirl.create(:version, :widget_id => widget.id, :state_id => State.pending, :released_on => nil)
+    sign_in_as_user(reviewer)
+    visit admin_review_widget_path(:review => "accepted", :version_id => version.id)
+    sign_out
+    sign_in_as_user(submitter)
+    visit mywidgets_path
+    assert page.has_content?(version.title), "Approved widget correctly shows up in My Widgets"
+    visit browse_path
+    assert page.has_content?(version.title), "Approved widget correctly shows up in Browse"
+  end
+
 end
