@@ -31,16 +31,23 @@ class AdminController < ApplicationController
     version.notes = params[:notes]
     version.user_id = current_user.id
     version.reviewed_on = Time.now
-    if new_state.id.eql? State.accepted
-      version.released_on = Time.now
-    end
 
     widget = Widget.find(version.widget.id)
-    widget.version_id = version.id
 
-    if version.save && widget.save
-      WidgetMailer.reviewed(version, widget).deliver
+    if new_state.id.eql? State.accepted
+      version.released_on = Time.now
+      widget.version_id = version.id
+    end
+
+    unless widget.version_id.nil?
+      saved = version.save && widget.save
+    else
+      saved = version.save
+    end
+
+    if saved
       render :json => {"success" => true}.to_json
+      WidgetMailer.reviewed(version, widget).deliver
     else
       render :json => {"success" => false}.to_json
     end

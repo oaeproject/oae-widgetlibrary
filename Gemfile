@@ -54,6 +54,11 @@ group :development do
   gem 'mailcatcher'
 end
 
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+end
+
 # Assets for Rails 3.1
 group :assets do
   gem 'mysql2'

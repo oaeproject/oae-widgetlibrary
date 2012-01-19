@@ -79,7 +79,7 @@ SakaiWidgetlibrary::Application.routes.draw do
   match '/admin' => 'admin#widgets'
   match '/admin/widgets' => 'admin#widgets', :as => :admin
   match '/admin/widgets/:state' => 'admin#widgets', :as => :admin_state
-  match '/admin/widgets/:review/:version_id' => 'admin#reviewed'
+  match '/admin/widgets/:review/:version_id' => 'admin#reviewed', :as => :admin_review_widget
 
   # Errors
   unless Rails.application.config.consider_all_requests_local

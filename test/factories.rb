@@ -1,47 +1,48 @@
 include ActionDispatch::TestProcess
 
-Factory.define :category do |f|
-  f.sequence(:title) { |n| "Category #{n}" }
-end
+FactoryGirl.define do
 
-Factory.define :language do |f|
-  f.title "English (US)"
-  f.code "en"
-  f.region "us"
-end
+  factory :rating do
+    review "This is a super awesome widget, I use it every day and get a warm fuzzy feeling"
+    stars 5
+    widget
+  end
 
-Factory.define :rating do |f|
-  f.review "This is a super awesome widget, I use it every day and get a warm fuzzy feeling"
-  f.stars 5
-  f.association :widget
-end
+  factory :screenshot do
+    image fixture_file_upload(Rails.root.to_s + '/test/fixtures/1.png', 'image/png')
+    version
+  end
 
-Factory.define :screenshot do |f|
-  f.association :widget
-  f.image fixture_file_upload(Rails.root.to_s + '/test/fixtures/1.png', 'image/png')
-end
+  factory :user do
+    sequence(:username) { |n| "testuser#{n}" }
+    first_name "Testuser"
+    sequence(:last_name) { |n| "#{n}" }
+    sequence(:email) { |n| "testuser#{n}@example.com" }
+    password "test"
+    password_confirmation "test"
+    avatar fixture_file_upload(Rails.root.to_s + '/test/fixtures/1.png', 'image/png')
+  end
 
-Factory.define :state do |f|
-  f.title "accepted"
-  f.after_create { |s| Factory(:widget, :state => s) }
-end
+  factory :widget do
+    sequence(:url_title) { |n| "awesome-widget-#{n}" }
+    average_rating 5.0
+    active true
+    num_downloads 5
+    num_ratings 5
+    user
+  end
 
-Factory.define :user do |f|
-  f.username "user1"
-  f.first_name "User"
-  f.last_name "One"
-  f.email "user1@example.com"
-  f.avatar fixture_file_upload(Rails.root.to_s + '/test/fixtures/1.png', 'image/png')
-end
+  factory :version do
+    title "Awesome Widget"
+    description "A widget that gives you a warm fuzzy feeling."
+    features "warmth, fuzziness"
+    version_number "1.0"
+    released_on Time.now
+    widget_repo "http://github.com/sakaiproject/3akai-ux"
+    widget_backend_repo "http://github.com/sakaiproject/nakamura"
+    icon fixture_file_upload(Rails.root.to_s + '/test/fixtures/1.png', 'image/png')
+    code fixture_file_upload(Rails.root.to_s + '/test/fixtures/1.png.zip', 'application/zip')
+    user
+  end
 
-Factory.define :widget do |f|
-  f.title "Awesome Widget"
-  f.description "A widget that gives you a warm fuzzy feeling."
-  f.features "warmth, fuzziness"
-  f.average_rating 5.0
-  f.association :state
-  f.icon fixture_file_upload(Rails.root.to_s + '/test/fixtures/1.png', 'image/png')
-  f.code fixture_file_upload(Rails.root.to_s + '/test/fixtures/1.png.zip', 'application/zip')
-  f.after_create { |w| Factory(:rating, :widget => w) }
-  f.after_create { |w| Factory(:screenshot, :widget => w) }
 end

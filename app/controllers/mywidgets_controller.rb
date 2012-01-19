@@ -5,13 +5,8 @@ class MywidgetsController < ApplicationController
   def index
     order = get_sort
 
-    if params[:filter]
-      @widgets = Widget.find_by_state(params[:filter], order, current_user.id)
-      @count = @widgets.size
-    else
-      @widgets = Widget.where(:user_id => current_user.id, :active => true).order(order).page(params[:page])
-      @count = Widget.count(:conditions => {:user_id => current_user.id})
-    end
+    @widgets = Widget.where(:user_id => current_user.id, :active => true).order(order).page(params[:page])
+    @count = Widget.count(:conditions => {:user_id => current_user.id})
 
     if request.xhr?
       render :partial => "pagewidgets/widget_list"

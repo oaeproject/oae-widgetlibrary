@@ -9,20 +9,24 @@ class SubmitController < ApplicationController
     @widget = Widget.new
     @widget[:user_id] = current_user[:id]
     @widget[:url_title] = params[:version][:title].split(" ").collect{|t| t.downcase}.join("-")
-    @widget[:active] = false
 
     @version = Version.new(params[:version])
     @version[:state_id] = State.pending
 
-    if @widget.valid? && @version.valid?
+    valid = @widget.valid? && @version.valid?
+
+    if valid
       @widget.save
       @version[:widget_id] = @widget.id
       @version.save
-      WidgetMailer.new_submission(@version, @widget).deliver
     end
 
     respond_to do |format|
       format.js
+    end
+
+    if valid
+      WidgetMailer.new_submission(@version, @widget).deliver
     end
 
   end

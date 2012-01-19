@@ -6,8 +6,6 @@ class RegistrationsController < Devise::RegistrationsController
     build_resource
     recaptcha_valid = verify_recaptcha
     if resource.valid? && recaptcha_valid
-      resource.name = "#{resource.first_name} #{resource.last_name}"
-      resource.url_title = "#{resource.first_name.downcase}-#{resource.last_name.downcase}"
       if resource.save
         if resource.active_for_authentication?
           set_flash_message :notice, :signed_up if is_navigational_format?

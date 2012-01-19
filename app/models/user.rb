@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   include ValidatesAsImage
+  before_save :calculate_fields
 
   has_attached_file :avatar,
                     :styles => { :thumb => ["50x50!", :png], :medium => ["100x100!", :png], :large => ["800x800", :png] },
@@ -46,4 +47,11 @@ class User < ActiveRecord::Base
       rating
     end
   end
+
+  private
+  def calculate_fields
+    self.name = "#{self.first_name} #{self.last_name}"
+    self.url_title = "#{self.first_name.to_s.downcase}-#{self.last_name.to_s.downcase}"
+  end
+
 end

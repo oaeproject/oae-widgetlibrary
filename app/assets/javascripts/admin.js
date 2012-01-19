@@ -6,9 +6,9 @@ $(function() {
         $("#reject_confirm").show();
     };
 
-    var finalize_rejection = function( widgetid ) {
+    var finalize_rejection = function( versionid ) {
         $.ajax({
-            url: "/admin/widgets/declined/" + widgetid,
+            url: "/admin/widgets/declined/" + versionid,
             type: "POST",
             data: {
                 notes: $("#reject_message").val()
@@ -25,9 +25,9 @@ $(function() {
         $("#approve_confirm").show();
     };
 
-    var finalize_approval = function( widgetid ) {
+    var finalize_approval = function( versionid ) {
         $.ajax({
-            url: "/admin/widgets/accepted/" + widgetid,
+            url: "/admin/widgets/accepted/" + versionid,
             type: "POST",
             data: {
                 notes: $("#approve_message").val()
@@ -54,11 +54,11 @@ $(function() {
                     break;
                 case "confirm":
                     var which = $( e.target ).attr( "data-which" );
-                    var widgetid = $( "#admin_actions" ).attr( "data-versionid" );
+                    var versionid = $( "#admin_actions" ).attr( "data-versionid" );
                     if ( which === "approve" ) {
-                        finalize_approval( widgetid );
+                        finalize_approval( versionid );
                     } else {
-                        finalize_rejection( widgetid );
+                        finalize_rejection( versionid );
                     }
                     break;
             }

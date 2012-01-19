@@ -1,8 +1,8 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
+  test "user should not save without it's required attributes" do
+    user = User.new
+    assert !user.save, "Saved the user without any required attributes"
   end
 end
