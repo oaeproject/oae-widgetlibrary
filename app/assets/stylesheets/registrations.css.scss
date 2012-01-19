@@ -83,7 +83,10 @@
     .register_summary {
       height: 105px; }
     textarea {
-      width: 97%; } }
+      width: 97%; }
+    label {
+      line-height: 30px;
+      margin-top: 3px; } }
   .register_column3 {
     div {
       float: left;
