@@ -24,6 +24,8 @@
         <a name="utility"><h1>Utility classes</h1></a>
         <p>Utility classes don't necessarily show on the page but aid other classes to achieve a specific style. Most of these can be used on their own as well as in combination with other classes.</p>
         <h2>Dotted line</h2>
+        <p>Example:</p>
+        <%= image_tag "dotted_line_example.png", :alt => "Dotted line example" %>
         <div class="navigationalitems_codesnippit_container few_lines">
             <div class="navigationalitems_codesnippit_header">
                 <h4>Create a dotted line</h4>
@@ -92,22 +94,26 @@
         <!-- LINKS -->
         <a name="links"><h1>Links</h1></a>
         <h2>Regular links</h2>
+        <p>Example:</p>
+        <%= image_tag "regular_links_example.png", :alt => "Regular links example" %>
         <div class="navigationalitems_codesnippit_container few_lines">
             <div class="navigationalitems_codesnippit_header">
                 <h4>Create a regular link</h4>
             </div>
 <pre class="black">
-<span class="blue">&lt;a href=<span class="green">"javascript:;"</span> class=<span class="green">"s3d-regular-links"</span>&gt;<span class="black">www.google.co.uk</span>&lt;/a&gt;</span>
+<span class="blue">&lt;a href=<span class="green">"http://www.google.co.uk"</span> class=<span class="green">"s3d-regular-links"</span>&gt;<span class="black">www.google.co.uk</span>&lt;/a&gt;</span>
 </pre>
         </div>
         <h2>Button links</h2>
-        <p>Button links are regular links with that have a button style applied</p>
+        <p>Button links are regular links that have a button style applied</p>
+        <p>Example:</p>
+        <%= image_tag "button_link_example.png", :alt => "Button link example" %>
         <div class="navigationalitems_codesnippit_container few_lines">
             <div class="navigationalitems_codesnippit_header">
                 <h4>Create a button link</h4>
             </div>
 <pre class="black">
-<span class="blue">&lt;a href=<span class="green">"javascript:;"</span> class=<span class="green">"s3d-button s3d-large-button"</span>&gt;<span class="black">__MSG__SHOW_ALL_RESULTS__</span>&lt;/a&gt;</span>
+<span class="blue">&lt;a href=<span class="green">"/search#q=query"</span> class=<span class="green">"s3d-button s3d-large-button"</span>&gt;<span class="black">__MSG__SHOW_ALL_RESULTS__</span>&lt;/a&gt;</span>
 </pre>
         </div>
 
@@ -125,6 +131,9 @@
 </pre>
         </div>
         <h2>Link buttons</h2>
+        <p>Link buttons are buttons that are styled as regular links. They are often used in situations where a pop up is invoked on click instead of browsing to another page.</p>
+        <p>Example:</p>
+        <%= image_tag "link_button_example.png", :alt => "Link button example" %>
         <div class="navigationalitems_codesnippit_container few_lines">
             <div class="navigationalitems_codesnippit_header">
                 <h4>Convert a link to a button</h4>
@@ -134,6 +143,8 @@
 </pre>
         </div>
         <h2>Header buttons</h2>
+        <p>Example:</p>
+        <%= image_tag "header_button_example.png", :alt => "Header button example" %>
         <div class="navigationalitems_codesnippit_container few_lines">
             <div class="navigationalitems_codesnippit_header">
                 <h4>Create a header button</h4>
@@ -143,6 +154,8 @@
 </pre>
         </div>
         <h2>Header buttons (smaller)</h2>
+        <p>Example:</p>
+        <%= image_tag "smaller_header_button_example.png", :alt => "Smaller header button example" %>
         <div class="navigationalitems_codesnippit_container few_lines">
             <div class="navigationalitems_codesnippit_header">
                 <h4>Create a smaller header button</h4>
@@ -173,6 +186,8 @@
         </div>
         <h2>Large in-page buttons</h2>
         <p>Large in-page buttons are used to emphasize an action in the UI. An example of this is a 'show more' button to show more results for a search.</p>
+        <p>Example:</p>
+        <%= image_tag "large_button_example.png", :alt => "Large in-page button example" %>
         <div class="navigationalitems_codesnippit_container few_lines">
             <div class="navigationalitems_codesnippit_header">
                 <h4>Create a large in-page button</h4>
@@ -184,6 +199,8 @@ a.s3d-button.s3d-large-button
         </div>
         <h2>Overlay buttons</h2>
         <p>This type of button is typically used in overlays invoked in the UI but can be used inside of a page as well. They define a 'submit' or 'complete' action (e.g. share content, update profile).</p>
+        <p>Example:</p>
+        <%= image_tag "overlay_button_example.png", :alt => "Overlay button example" %>
         <div class="navigationalitems_codesnippit_container few_lines">
             <div class="navigationalitems_codesnippit_header">
                 <h4>Create an overlay button</h4>
@@ -194,6 +211,8 @@ a.s3d-button.s3d-large-button
         </div>
         <h2>Overlay action buttons</h2>
         <p>This overlay action buttons are only used in overlays to define a 'complete' or 'submit' action.</p>
+        <p>Example:</p>
+        <%= image_tag "overlay_action_button_example.png", :alt => "Overlay action button example" %>
         <div class="navigationalitems_codesnippit_container few_lines">
             <div class="navigationalitems_codesnippit_header">
                 <h4>Create an overlay action button</h4>
@@ -204,6 +223,8 @@ a.s3d-button.s3d-large-button
         </div>
         <h2>Button without text</h2>
         <p>You can create buttons without text to hold an icon.</p>
+        <p>Example:</p>
+        <%= image_tag "no_text_button_example.png", :alt => "Button without text example" %>
         <div class="navigationalitems_codesnippit_container few_lines">
             <div class="navigationalitems_codesnippit_header">
                 <h4>Create a button without text</h4>
@@ -214,6 +235,8 @@ a.s3d-button.s3d-large-button
         </div>
         <h2>Button in a button</h2>
         <p>Buttons inside of buttons can be useful when you want to apply a style to the counters that looks like a button and bind actions to buttons inside of that container.</p>
+        <p>Example:</p>
+        <%= image_tag "button_in_button_example.png", :alt => "Button in a button example" %>
         <div class="navigationalitems_codesnippit_container few_lines">
             <div class="navigationalitems_codesnippit_header">
                 <h4>Create a button in a button</h4>
@@ -229,6 +252,8 @@ a.s3d-button.s3d-large-button
         <!-- DROP DOWNS -->
         <a name="dropdowns"><h1>Drop downs</h1></a>
         <h2>Drop down lists</h2>
+        <p>Example:</p>
+        <%= image_tag "dropdown_list_example.png", :alt => "Drop down list example" %>
         <div class="navigationalitems_codesnippit_container">
             <div class="navigationalitems_codesnippit_header">
                 <h4>Create a dropdown lists (e.g. content settings)</h4>
@@ -252,6 +277,8 @@ a.s3d-button.s3d-large-button
 </pre>
         </div>
         <h2>Drop down menu</h2>
+        <p>Example:</p>
+        <%= image_tag "dropdown_menu_example.png", :alt => "Drop down menu example" %>
         <div class="navigationalitems_codesnippit_container">
             <div class="navigationalitems_codesnippit_header">
                 <h4>Create a dropdown menu (e.g. topnavigation menu, sign in)</h4>
@@ -278,6 +305,8 @@ a.s3d-button.s3d-large-button
 
         <!-- DRAG AND DROP -->
         <a name="draganddrop"><h1>Drag and Drop</h1></a>
+        <p>Example:</p>
+        <%= image_tag "drag_and_drop_example.png", :alt => "Drag and drop example" %>
         <div class="navigationalitems_codesnippit_container">
             <div class="navigationalitems_codesnippit_header">
                 <h4>Applies drag and drop functionality on render of the HTML</h4>
@@ -304,6 +333,8 @@ a.s3d-button.s3d-large-button
 
         <!-- LIST VIEW OPTIONS -->
         <a name="listviewoptions"><h1>List view options</h1></a>
+        <p>Example:</p>
+        <%= image_tag "list_view_options_example.png", :alt => "List view options example" %>
         <div class="navigationalitems_codesnippit_container">
             <div class="navigationalitems_codesnippit_header">
                 <h4>Create list view options that allow change of style for listing items (e.g. my memberships, my library)</h4>
@@ -334,6 +365,8 @@ a.s3d-button.s3d-large-button
         <!-- LISTS -->
         <a name="lists"><h1>Search Lists</h1></a>
         <p>Search can deliver a wide variety of results including people, content and courses. There are a few classes that can be applied to cope with different situations.</p>
+        <p>Example:</p>
+        <%= image_tag "search_list_example.png", :alt => "Search list example" %>
         <div class="navigationalitems_codesnippit_container">
             <div class="navigationalitems_codesnippit_header">
                 <h4>Create a search result list</h4>
@@ -382,6 +415,8 @@ ul.s3d-search-results-grid
         <!-- CONTAINERS -->
         <a name="containers"><h1>Containers</h1></a>
         <h2>Container with inner shadow</h2>
+        <p>Example:</p>
+        <%= image_tag "inner_shadow_container_example.png", :alt => "Inner shadow container example" %>
         <div class="navigationalitems_codesnippit_container few_lines">
             <div class="navigationalitems_codesnippit_header">
                 <h4>Create a container with inner shadow</h4>
@@ -391,6 +426,8 @@ ul.s3d-search-results-grid
 </pre>
         </div>
         <h2>Container with outer shadow</h2>
+        <p>Example:</p>
+        <%= image_tag "outer_shadow_container_example.png", :alt => "Outer shadow container example" %>
         <div class="navigationalitems_codesnippit_container few_lines">
             <div class="navigationalitems_codesnippit_header">
                 <h4>Create a container with outer shadow</h4>
@@ -401,6 +438,8 @@ ul.s3d-search-results-grid
         </div>
         <h2>Search container</h2>
         <p>Search containers, containing an input field and a submit button, are standardized.</p>
+        <p>Example:</p>
+        <%= image_tag "search_container_example.png", :alt => "Search container example" %>
         <div class="navigationalitems_codesnippit_container">
             <div class="navigationalitems_codesnippit_header">
                 <h4>Create a search container</h4>
@@ -421,6 +460,8 @@ ul.s3d-search-results-grid
         </div>
         <h2>'No results' container</h2>
         <p>A 'No results' container is used when, for example, a search result doesn't return anything or your inbox is empty and a default message should be shown.</p>
+        <p>Example:</p>
+        <%= image_tag "no_results_container_example.png", :alt => "No results container example" %>
         <div class="navigationalitems_codesnippit_container">
             <div class="navigationalitems_codesnippit_header">
                 <h4>Create a 'no results' container</h4>
@@ -521,6 +562,8 @@ ul.s3d-search-results-grid
 
         <!-- OVERLAY DIALOGS -->
         <a name="dialogs"><h1>Overlay dialogs</h1></a>
+        <p>Example:</p>
+        <%= image_tag "dialog_overlay_example.png", :alt => "Overlay dialog example" %>
         <div class="navigationalitems_codesnippit_container">
             <div class="navigationalitems_codesnippit_header">
                 <h4>Create an overlay dialog</h4>
@@ -547,6 +590,8 @@ ul.s3d-search-results-grid
         <!-- FORMS -->
         <a name="forms"><h1>Forms</h1></a>
         <p>Forms are validated using the validation plugin provided by jQuery. See the forms section in the SDK for implementation of the Javascript.</p>
+        <p>Example:</p>
+        <%= image_tag "form_example.png", :alt => "Form example" %>
         <div class="navigationalitems_codesnippit_container">
             <div class="navigationalitems_codesnippit_header">
                 <h4>Add form validation</h4>
