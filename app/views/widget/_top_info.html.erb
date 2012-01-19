@@ -38,7 +38,7 @@
   </div>
   <div id="widget_details">
       <div>
-          <%= render :partial => "pagewidgets/rating", :locals => { :stars => @widget.average_rating, :num_ratings => @widget.ratings.size, :display => { :num_ratings => true } } %>
+          <%= render :partial => "pagewidgets/rating", :locals => { :stars => @widget.average_rating, :num_ratings => @widget.ratings.size, :display => { :num_ratings => true }, :widget => @widget } %>
           <hr class="wl-push wl-hidden"/>
       </div>
       <hr class="wl-split-line wl-push"/>
