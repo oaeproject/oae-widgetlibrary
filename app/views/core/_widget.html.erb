@@ -25,7 +25,7 @@
         <% end %>
 
         <% if display[:rating] %>
-            <%= render :partial => "pagewidgets/rating", :locals => { :display => display, :stars => widget.average_rating, :num_ratings => widget.ratings.size } %>
+            <%= render :partial => "pagewidgets/rating", :locals => { :display => display, :stars => widget.average_rating, :num_ratings => widget.ratings.size, :widget => widget } %>
         <% end %>
 
         <% if false # if display[:users] %>
