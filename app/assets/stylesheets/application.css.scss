@@ -238,7 +238,9 @@ option {
     &, button:hover, button:focus, .wl-rating-current {
       background: url("ratings_icons.png") left -1000px repeat-x; }
 
-    button:hover, button:focus{
+    button:hover {
+      background-position: left center; }
+    button:focus {
       background-position: left bottom; }
 
     li{
@@ -274,7 +276,7 @@ option {
        z-index:1;
        background-position: left bottom; }
     .wl-rating-modifiable {
-       background-position: left center; } } }
+       background-position: left bottom; } } }
 
 /* Tabs */
 .wl-inpage-tabs {

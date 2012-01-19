@@ -1,8 +1,8 @@
 $(function() {
 
-    var screenshotTab = "#screenshot_tab";
-    var reviewsTab = "#reviews_tab";
-    var versionsTab = "#versions_tab";
+    var screenshotTab = "#screenshots";
+    var reviewsTab = "#reviews";
+    var versionsTab = "#versions";
     var write_review = "#write_review";
     var widgetdetails = "#widgetdetails_";
     var widgetdetailsTabContentContent = ".widgetdetails_tabcontent_content";
@@ -11,6 +11,7 @@ $(function() {
     var widgetdetails_screenshots_thumbs = "#widgetdetails_screenshots_thumbs";
     var widgetdetails_screenshots_thumb_image = ".widgetdetails_screenshots_thumb img";
     var widgetdetailsReviewsReviewWidget = "#widgetdetails_reviews_review_widget";
+    var widget_details_rating_link = "#widget_details .wl-rating-container a";
 
     var wl_rating_container = ".wl-rating-container";
     var wl_rating_icon = ".wl-rating-icon";
@@ -25,6 +26,13 @@ $(function() {
     var switchTabs = function( context ) {
         $( widgetdetailsTabContentContent ).hide();
         $( widgetdetails + context ).show();
+    };
+
+    var checkHash = function() {
+        var hash = window.location.hash;
+        if( hash ){
+          $( hash ).trigger( "click" );
+        }
     };
 
     var addBinding = function() {
@@ -46,6 +54,10 @@ $(function() {
             $( this ).addClass( "selected" );
         });
 
+        $( widget_details_rating_link ).on( "click", function(){
+            checkHash();
+        });
+
         // Rating
         $( wl_rating_container ).on( "click", wl_rating_icon, function( e ) {
             e.preventDefault();
@@ -60,6 +72,7 @@ $(function() {
 
     var doInit = function() {
         addBinding();
+        checkHash();
     };
 
     doInit();
