@@ -35,6 +35,7 @@
       <h1 class="wl-bold"><%= @widget.title %> <span id="widget_version"></span></h1>
       by <%= link_to @widget.user.name, user_path(:id => @widget.user.id, :url_title => @widget.user.url_title), :class => "wl-regular-link" %>
       <p><%= @widget.description %></p>
+      <p><%= @widget.features %></p>
   </div>
   <div id="widget_details">
       <div>
