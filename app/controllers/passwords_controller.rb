@@ -10,7 +10,7 @@ class PasswordsController < Devise::PasswordsController
         format.js { render 'users/passwords/success' }
       end
     else
-      @errors = resource.errors
+      @resource = resource
       respond_to do |format|
         format.js { render 'users/passwords/error' }
       end
@@ -31,7 +31,7 @@ class PasswordsController < Devise::PasswordsController
         format.js { render 'users/passwords/success' }
       end
     else
-      @errors = resource.errors
+      @resource = resource
       respond_to do |format|
         format.js { render 'users/passwords/error' }
       end
