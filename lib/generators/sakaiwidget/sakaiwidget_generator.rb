@@ -8,6 +8,7 @@ class SakaiwidgetGenerator < Rails::Generators::NamedBase
     @appdesc = @_initializer[2][:appdesc]
     @showinsakaigoodies = @_initializer[2][:showinsakaigoodies]
     @personalportal = @_initializer[2][:personalportal]
+    @sakaidocs = @_initializer[2][:sakaidocs]
     @createdir = @_initializer[2][:destination_root]    
 
     if @appstyle.eql? "skeleton" then
@@ -22,7 +23,6 @@ class SakaiwidgetGenerator < Rails::Generators::NamedBase
       empty_directory "#{@createdir}/#{file_name}/javascript"
       template "_template/javascript/WIDGET_ID.js", "#{@createdir}/#{file_name}/javascript/#{file_name}.js"
       template "_template/config.json", "#{@createdir}/#{file_name}/config.json"
-      copy_file "_template/README.txt", "#{@createdir}/#{file_name}/README.txt"
       template "_template/WIDGET_ID.html", "#{@createdir}/#{file_name}/#{file_name}.html"
     elsif @appstyle.eql? "helloworld" then
       empty_directory "#{@createdir}"
@@ -36,7 +36,6 @@ class SakaiwidgetGenerator < Rails::Generators::NamedBase
       empty_directory "#{@createdir}/#{file_name}/javascript"
       template "helloworld/javascript/helloworld.js", "#{@createdir}/#{file_name}/javascript/#{file_name}.js"
       template "helloworld/config.json", "#{@createdir}/#{file_name}/config.json"
-      template "helloworld/README.txt", "#{@createdir}/#{file_name}/README.txt"
       template "helloworld/helloworld.html", "#{@createdir}/#{file_name}/#{file_name}.html"
     end
   end

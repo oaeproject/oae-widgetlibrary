@@ -13,9 +13,22 @@ class WidgetGeneratorController < ApplicationController
     appstyle = params[:widgetbuilder_skeletontype]
     myappname = params[:widgetbuilder_title]
     appdesc = params[:widgetbuilder_description]
+    apptype = params[:widget_type]
     tempdir = "#{Dir::tmpdir}/#{Guid.new}"
-    showinsakaigoodies = "true"
-    personalportal = "true"
+
+    if (apptype === "Dashboard")
+      showinsakaigoodies = "false"
+      personalportal = "true"
+      sakaidocs = "false"
+    elsif (apptype === "Page")
+      showinsakaigoodies = "true"
+      personalportal = "false"
+      sakaidocs = "true"
+    else
+      showinsakaigoodies = "true"
+      personalportal = "true"
+      sakaidocs = "true"
+    end
 
     # This is a bit of a leaky abstraction really. But we're doing the same thing
     # the generator does (humanize.downcase), but *also* replacing the spaces
@@ -23,7 +36,7 @@ class WidgetGeneratorController < ApplicationController
     # the temp directory for the zip file as well.
     filename = myappname.humanize.downcase.gsub(' ','_')
 
-    Rails::Generators.invoke 'sakaiwidget', ["#{filename}"], :behavior => :invoke, :destination_root => tempdir, :appstyle => appstyle, :appdesc => appdesc, :showinsakaigoodies => showinsakaigoodies, :personalportal => personalportal, :apptitle => myappname
+    Rails::Generators.invoke 'sakaiwidget', ["#{filename}"], :behavior => :invoke, :destination_root => tempdir, :appstyle => appstyle, :appdesc => appdesc, :showinsakaigoodies => showinsakaigoodies, :personalportal => personalportal, :sakaidocs => sakaidocs, :apptitle => myappname
     t = Tempfile.new("#{filename}")
     zos = Zip::ZipOutputStream.open(t.path)
     prefix = "#{tempdir}/"

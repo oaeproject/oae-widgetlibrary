@@ -5,11 +5,16 @@
     "grouppages":         false,
     "hasSettings":        true,
     "i18n": {
-        "default":        "/devwidgets/<%= @file_name %>/bundles/default.properties"
+        "default": {
+            "bundle":        "/devwidgets/<%= @file_name %>/bundles/default.properties",
+            "name":           "<%= @apptitle %>",
+            "description":    "<%= @appdesc %>"
+        }
     },
     "id":                 "<%= @file_name %>",
     "name":               "<%= @apptitle %>",
     "personalportal":     <%= @personalportal %>,
+    "sakaidocs":          <%= @sakaidocs %>,
     "showinsakaigoodies": <%= @showinsakaigoodies %>,
     "type":               "contrib",
     "url":                "/devwidgets/<%= @file_name %>/<%= @file_name %>.html",
