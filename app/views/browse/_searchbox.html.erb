@@ -1,0 +1,14 @@
+<div id="searchbox_container">
+  <%= form_tag("/browse", :method => "get", :remote => true, :id => "searchbox_form") do %>
+    <%= label_tag(:searchbox_input, "Search term:") %>
+    <div id="searchbox_container_input">
+      <%= text_field_tag(:q, params[:q], :id => "searchbox_input", :autocomplete => "off") %>
+      <% if !params[:category_title] %>
+        <%= link_to "Remove", "/browse", :class => "searchbox_remove" %>
+      <% else %>
+        <%= link_to "Remove", "/browse/#{@cat.url_title}", :class => "searchbox_remove" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<hr class="searchbox_hr" />
