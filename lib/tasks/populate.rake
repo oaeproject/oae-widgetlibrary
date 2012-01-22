@@ -132,16 +132,16 @@ namespace :db do
     num_languages = Language.count
 
     Version.find_each do |version|
-      icon = File.open(Dir.glob(File.join(Rails.root, 'test/sampledata/images', "#{rand(1..10)}.png")).sample)
+      icon = File.open(Dir.glob(File.join(Rails.root, 'test/fixtures/images', "#{rand(1..10)}.png")).sample)
       version.icon = icon
       icon.close
 
-      code = File.open(Dir.glob(File.join(Rails.root, 'test/sampledata/zip', '*')).sample)
+      code = File.open(Dir.glob(File.join(Rails.root, 'test/fixtures/zip', '*')).sample)
       version.code = code
       code.close
 
       if rand(2).eql? 1
-        bundle = File.open(Dir.glob(File.join(Rails.root, 'test/sampledata/zip', '*')).sample)
+        bundle = File.open(Dir.glob(File.join(Rails.root, 'test/fixtures/zip', '*')).sample)
         version.bundle = bundle
         bundle.close
       end
@@ -168,7 +168,7 @@ namespace :db do
 
       rand(4).times do
         screenshot = Screenshot.new
-        image = File.open(Dir.glob(File.join(Rails.root, 'test/sampledata/screenshots', "#{rand(1..9)}.png")).sample)
+        image = File.open(Dir.glob(File.join(Rails.root, 'test/fixtures/screenshots', "#{rand(1..9)}.png")).sample)
         screenshot.image = image
         screenshot.version_id = version.id
         screenshot.save!
@@ -239,7 +239,7 @@ namespace :db do
 
   def give_users_avatars
     User.find_each do |user|
-      avatar = File.open(Dir.glob(File.join(Rails.root, 'test/sampledata/images', "#{rand(1..10)}.png")).sample)
+      avatar = File.open(Dir.glob(File.join(Rails.root, 'test/fixtures/images', "#{rand(1..10)}.png")).sample)
       user.avatar = avatar
       user.save!
       avatar.close
