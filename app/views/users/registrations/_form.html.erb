@@ -63,7 +63,7 @@
             <%= f.label :homepage %>
         </div>
         <div>
-            <%= f.select :location, country_options %>
+            <%= f.select :location, country_options(resource.location) %>
             <%= f.text_field :occupation, :id => "occupation", :placeholder => "(Student/Developer/...)" %>
             <span id="user_homepage_error" class="wl-error" style="display:none"></span>
             <%= f.text_field :homepage, :id => "homepage", :placeholder => "http://www.example.org", :type => "url"  %>

@@ -1,8 +1,8 @@
 # encoding: utf-8
 
 module RegistrationsHelper
-  def country_options
-    default = "United Kingdom"
+  def country_options(default)
+    default = default || "United Kingdom"
     options_for_select(["Afghanistan", "Albania", "Algeria", "Andorra",
        "Angola", "Antigua and Barbuda", "Antilles", "Argentina", "Armenia",
        "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain",
