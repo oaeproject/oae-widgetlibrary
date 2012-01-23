@@ -8,5 +8,5 @@
       form_id = "#edit_version_" + params[:id]
     end
   %>
-  WL.show_errors(<%=raw @version.errors.to_json %>, "version", $("<%= form_id %>"));
+  WL.show_errors(<%=raw translate_errors(@version).to_json %>, "version", $("<%= form_id %>"));
 <% end %>

@@ -36,12 +36,9 @@ class RegistrationsController < Devise::RegistrationsController
   def error(resource, recaptcha_valid)
     clean_up_passwords(resource)
     # determine the errors
-    @errors = {}
-    if resource.errors
-      @errors = resource.errors.messages
-    end
+    @resource = resource
     if !recaptcha_valid then
-      @errors[:recaptcha] = ["invalid response"]
+      @resource.errors[:recaptcha] = "invalid response"
     end
     # respond with json if xhr
     respond_to do |format|
@@ -78,7 +75,6 @@ class RegistrationsController < Devise::RegistrationsController
         format.js { render 'users/registrations/create' }
       end
     else
-      clean_up_passwords(resource)
       error(resource, true)
     end
   end

@@ -5,7 +5,7 @@
   end
 %>
 // display the error labels
-WL.show_errors(<%=raw @errors.to_json %>, "user", $("<%= form_id %>"));
+WL.show_errors(<%=raw translate_errors(@resource).to_json %>, "user", $("<%= form_id %>"));
 
 // Always reload the recaptcha on error
 Recaptcha.reload();

@@ -1,1 +1,1 @@
-WL.show_errors(<%=raw @errors.to_json %>, "user", $("#user_new"));
+WL.show_errors(<%=raw translate_errors(@resource).to_json %>, "user", $("#user_new"));
