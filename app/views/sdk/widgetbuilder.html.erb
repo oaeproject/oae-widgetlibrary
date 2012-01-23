@@ -12,15 +12,15 @@
             </div>
             <div class="widgetsdk_split_container last">
                 <h1>Select a Widget type</h1>
-                <label for="widgetbuilder_category">Widget type:</label>
+                <%= label_tag "widgetbuilder_category_dropdown", "Widget type:" %>
                 <%= select_tag "widget_type", options_for_select(["Dashboard", "Page", "Both"], :selected => "Dashboard"), :id => "widgetbuilder_category_dropdown" %>
             </div>
             <h1 class="wl-push">Add a description</h1>
             <textarea placeholder="(e.g. Graph creation widget...)" id="widgetbuilder_description" name="widgetbuilder_description"></textarea>
             <h1>Options</h1>
             <div id="widgetbuilder_options">
-                <input type="radio" name="widgetbuilder_skeletontype" id="widgetbuild_skeleton" value="skeleton" checked/><label for="widgetbuild_skeleton">Create a skeleton framework (no code, just the correct file structure)</label>
-                <input type="radio" name="widgetbuilder_skeletontype" id="widgetbuild_example" value="helloworld"/><label for="widgetbuild_example">Create an example framework (code and the correct file structure)</label>
+                <input type="radio" name="widgetbuilder_skeletontype" id="widgetbuild_skeleton" value="skeleton" checked/><%= label_tag "widgetbuild_skeleton", "Create a skeleton framework (no code, just the correct file structure)" %>
+                <input type="radio" name="widgetbuilder_skeletontype" id="widgetbuild_example" value="helloworld"/><%= label_tag "widgetbuild_example", "Create an example framework (code and the correct file structure)" %>
             </div>
             <hr class="wl-split-line"/>
             <button type="button" class="wl-button wl-overlay-button" id="widgetbuilder_create">Create skeleton Widget</button>

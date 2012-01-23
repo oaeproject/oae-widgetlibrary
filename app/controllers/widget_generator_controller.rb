@@ -15,18 +15,17 @@ class WidgetGeneratorController < ApplicationController
     appdesc = params[:widgetbuilder_description]
     apptype = params[:widget_type]
     tempdir = "#{Dir::tmpdir}/#{Guid.new}"
+    showinsakaigoodies = "true"
+    personalportal = "true"
+    sakaidocs = "true"
 
-    if (apptype === "Dashboard")
+    if (apptype.eql?("Dashboard"))
       showinsakaigoodies = "false"
       personalportal = "true"
       sakaidocs = "false"
-    elsif (apptype === "Page")
+    elsif (apptype.eql?("Page"))
       showinsakaigoodies = "true"
       personalportal = "false"
-      sakaidocs = "true"
-    else
-      showinsakaigoodies = "true"
-      personalportal = "true"
       sakaidocs = "true"
     end
 
