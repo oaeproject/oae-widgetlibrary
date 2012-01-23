@@ -13,7 +13,7 @@ class SubmitController < ApplicationController
     @version = Version.new(params[:version])
     @version[:state_id] = State.pending
 
-    valid = @widget.valid? && @version.valid?
+    valid = @version.valid? && @widget.valid?
 
     if valid
       @widget.save
