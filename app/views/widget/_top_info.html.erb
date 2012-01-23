@@ -18,9 +18,11 @@
         <h3>Notes from the reviewer:</h3>
         <p><%= @latest_version.notes %></p>
       <% end %>
-      <% if @widget.user == current_user %>
-        <%= link_to "Submit a new version", edit_version_path(@widget.id), :class => "wl-regular-link wl-bold submit_new_version_link" %>
-      <% end %>
+    </div>
+  <% end %>
+  <% if @widget.user == current_user %>
+    <div id="new_version_container">
+      <%= link_to "Submit a new version", edit_version_path(@widget.id), :class => "wl-regular-link wl-bold submit_new_version_link" %>
     </div>
   <% end %>
   <hr class="wl-split-line" style="display:none;"/>

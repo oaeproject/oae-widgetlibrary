@@ -2,101 +2,94 @@
 <div id="faq" class="widgetsdk_container">
     <h1>FAQs about Sakai OAE Widget development</h1>
 
-    <h3 class="wl-normal">
-        <button type="button" class="wl-link-button wl-regular-link wl-bold wl-right expand_all_link" data-expanded="false">
-            <span>Expand all &or;</span>
-            <span style="display:none;">Collapse all &and;</span>
-        </button>
-    </h3>
-    <div class="wl-widget-item">
-        <h3 class="wl-regular-link no_decoration wl-normal">Development Questions 
-            <button type="button" class="wl-link-button wl-regular-link wl-bold wl-right expand_link" data-expanded="false">
-                <span>Expand &or;</span>
-                <span style="display:none;">Collapse &and;</span>
-            </button>
-        </h3>
-        <h3 class="wl-normal">What kinds of technologies do I need to know to develop Sakai OAE widgets? How much experience will I need?</h3>
-        <div class="expandable_container" style="display:none;">
-            <p>Sakai OAE widgets use frontend web technologies such as HTML (for widget layout), CSS (for widget styling), JavaScript (for widget behavior) and JSON (for widget data management). jQuery is a major JavaScript library used throughout Sakai OAE widgets. Sakai OAE has been designed to make widget development very easy and the architecture of a Sakai OAE widget is relatively simple.</p>
-            <p>If you are comfortable (but by no means an expert) with HTML, CSS, JavaScript/jQuery and JSON, you should have no problem at all in developing Sakai OAE widgets.</p>
-            <p>If you are new to any of the above technologies, you can expect a bit of a ramp up period to get up-to-speed, but because Sakai OAE widgets have a relatively simple architecture, you will be able to quickly learn from other simple widgets within the codebase as examples.</p>
-            <p>For example widgets that have been heavily documented in this Widget SDK documentation, see the Widget Examples page.</p>
-        </div>
-
-        <h3 class="wl-normal">How do I get and install Sakai OAE?</h3>
-        <div class="expandable_container" style="display:none;">
-            <p>Depending on what you want to do with Sakai OAE, there are different methods for getting and installing Sakai OAE:</p>
-            <ul class="inline_list">
-                <li>for building, deploying and developing for Sakai OAE on your own machine, follow the instructions on the Quick development environment set up page.</li>
-                <li>for simply running and experimenting with the latest Sakai OAE release on your own machine, you can download a one-click installer from the Sakai OAE release page. This will not allow you to see or change any of the Sakai OAE code.</li>
-                <li>if you have trouble with the one-click installer, you may also download the binary package from the Sakai OAE release page and run the server yourself. This option will also not allow you to see or change any of the Sakai OAE code.</li>
+    <ul class="widgetsdk_treelist">
+        <li>
+            <a href="#developmentquestions" class="wl-regular-link" title="Development Questions">Development Questions</a>
+            <ul>
+                <li><a href="#experience" class="wl-regular-link" title="What kinds of technologies do I need to know to develop Sakai OAE widgets? How much experience will I need?">What kinds of technologies do I need to know to develop Sakai OAE widgets? How much experience will I need?</a></li>
+                <li><a href="#installation" class="wl-regular-link" title="How do I get and install Sakai OAE?">How do I get and install Sakai OAE?</a></li>
+                <li><a href="#documentation" class="wl-regular-link" title="Where do I find detailed documentation on the services that are available for use in my widgets?">Where do I find detailed documentation on the services that are available for use in my widgets?</a></li>
             </ul>
-        </div>
+        </li>
+        <li>
+            <a href="#contributing" class="wl-regular-link" title="Contributing to Sakai OAE">Contributing to Sakai OAE</a>
+            <ul>
+                <li><a href="#reportbugs" class="wl-regular-link" title="How do I report a bug?">How do I report a bug?</a></li>
+                <li><a href="#suggestfeature" class="wl-regular-link" title="How do I suggest a feature?">How do I suggest a feature?</a></li>
+                <li><a href="#gitworkflow" class="wl-regular-link" title="What is the best git workflow to use?">What is the best git workflow to use?</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#backgroundinformation" class="wl-regular-link" title="Sakai OAE Background information">Sakai OAE Background information</a>
+            <ul>
+                <li><a href="#clerelation" class="wl-regular-link" title="How does Sakai OAE relate to Sakai CLE (the previous version of Sakai)?">How does Sakai OAE relate to Sakai CLE (the previous version of Sakai)?</a></li>
+                <li><a href="#releases" class="wl-regular-link" title="What releases of Sakai OAE are currently available?">What releases of Sakai OAE are currently available?</a></li>
+                <li><a href="#platforms" class="wl-regular-link" title="What platform(s) does Sakai OAE run on?">What platform(s) does Sakai OAE run on?</a></li>
+                <li><a href="#browsers" class="wl-regular-link" title="What browsers does the OAE support?">What browsers does the OAE support?</a></li>
+                <li><a href="#license" class="wl-regular-link" title="How is Sakai OAE licensed?">How is Sakai OAE licensed?</a></li>
+                <li><a href="#cost" class="wl-regular-link" title="Do I need to buy or pay anything to create Sakai OAE widgets?">Do I need to buy or pay anything to create Sakai OAE widgets?</a></li>
+                <li><a href="#experiment" class="wl-regular-link" title="Where can I find working versions of Sakai OAE to experiment with or share with colleagues?">Where can I find working versions of Sakai OAE to experiment with or share with colleagues?</a></li>
+            </ul>
+        </li>
+    </ul>
 
-        <h3 class="wl-normal">Where do I find detailed documentation on the services that are available for use in my widgets?</h3>
-        <div class="expandable_container" style="display:none;">
-            <p>The Widget API section of this documentation contains information on Frontend Services, Backend Services and 3rd Party Services available to Sakai OAE widgets. If you are unable to find information on the service you are looking for, there may be additional locations that would be worthwhile to search:</p>
-            <div class="widgetsdk_treelist">
-                <ul>
-                    <li>All Sakai OAE Widget API functions can be found in the various sakai.api JavaScript files located in the /dev/lib/sakai directory</li>
-                    <li>For information on services provided directly by the Sakai OAE server, check out these locations:
-                        <ul>
-                            <li>Nakamura Documentation Wiki</li>
-                            <li>Your local Sakai OAE server's built in documentation: <%= link_to "localhost:8080/system/doc", "http://localhost:8080/system/doc", :class => "wl-regular-link" %></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+    <div class="wl-widget-item">
+        <a name="developmentquestions"><h1 class="wl-regular-link no_decoration wl-normal">Development Questions</h1></a>
+        <a name="experience"><h2><strong>Q: What kinds of technologies do I need to know to develop Sakai OAE widgets? How much experience will I need?</strong></h2></a>
+        <p>A: Sakai OAE widgets use frontend web technologies such as HTML (for widget layout), CSS (for widget styling), JavaScript (for widget behavior) and JSON (for widget data management). jQuery is a major JavaScript library used throughout Sakai OAE widgets. Sakai OAE has been designed to make widget development very easy and the architecture of a Sakai OAE widget is relatively simple.</p>
+        <p>If you are comfortable (but by no means an expert) with HTML, CSS, JavaScript/jQuery and JSON, you should have no problem at all in developing Sakai OAE widgets.</p>
+        <p>If you are new to any of the above technologies, you can expect a bit of a ramp up period to get up-to-speed, but because Sakai OAE widgets have a relatively simple architecture, you will be able to quickly learn from other simple widgets within the codebase as examples.</p>
+        <p>For example widgets that have been heavily documented in this Widget SDK documentation, see the Widget Examples page.</p>
+
+        <a name="installation"><h2><strong>Q: How do I get and install Sakai OAE?</strong></h2></a>
+        <p>A: Depending on what you want to do with Sakai OAE, there are different methods for getting and installing Sakai OAE:</p>
+        <ul class="inline_list">
+            <li>for building, deploying and developing for Sakai OAE on your own machine, follow the instructions on the Quick development environment set up page.</li>
+            <li>for simply running and experimenting with the latest Sakai OAE release on your own machine, you can download a one-click installer from the Sakai OAE release page. This will not allow you to see or change any of the Sakai OAE code.</li>
+            <li>if you have trouble with the one-click installer, you may also download the binary package from the Sakai OAE release page and run the server yourself. This option will also not allow you to see or change any of the Sakai OAE code.</li>
+        </ul>
+
+        <a name="documentation"><h2><strong>Q: Where do I find detailed documentation on the services that are available for use in my widgets?</strong></h2></a>
+        <p>A: The Widget API section of this documentation contains information on Frontend Services, Backend Services and 3rd Party Services available to Sakai OAE widgets. If you are unable to find information on the service you are looking for, there may be additional locations that would be worthwhile to search:</p>
+        <div class="widgetsdk_treelist">
+            <ul>
+                <li>All Sakai OAE Widget API functions can be found in the various sakai.api JavaScript files located in the /dev/lib/sakai directory</li>
+                <li>For information on services provided directly by the Sakai OAE server, check out these locations:
+                    <ul>
+                        <li>Nakamura Documentation Wiki</li>
+                        <li>Your local Sakai OAE server's built in documentation: <%= link_to "localhost:8080/system/doc", "http://localhost:8080/system/doc", :class => "wl-regular-link" %></li>
+                    </ul>
+                </li>
+            </ul>
 
             <p>If you cannot find what you are looking for, please feel free to contact the Sakai OAE developers.</p>
         </div>
     </div>
 
     <div class="wl-widget-item">
-        <h3 class="wl-regular-link no_decoration wl-normal">Contributing to Sakai OAE 
-            <button type="button" class="wl-link-button wl-regular-link wl-bold wl-right expand_link" data-expanded="false">
-                <span>Expand &or;</span>
-                <span style="display:none;">Collapse &and;</span>
-            </button>
-        </h3>
-        <h3 class="wl-normal">How do I report a bug?</h3>
-        <div class="expandable_container" style="display:none;"></div>
-        <h3 class="wl-normal">How do I suggest a feature?</h3>
-        <div class="expandable_container" style="display:none;"></div>
-        <h3 class="wl-normal">What is the best git workflow to use?</h3>
-        <div class="expandable_container" style="display:none;"></div>
+        <a name="contributing"><h1 class="wl-regular-link no_decoration wl-normal">Contributing to Sakai OAE</h1></a>
+        <a name="reportbugs"><h2><strong>Q: How do I report a bug?</strong></h2></a>
+        <a name="suggestfeature"><h2><strong>Q: How do I suggest a feature?</strong></h2></a>
+        <a name="gitworkflow"><h2><strong>Q: What is the best git workflow to use?</strong></h2></a>
     </div>
 
     <div class="wl-widget-item">
-        <h3 class="wl-regular-link no_decoration wl-normal">Sakai OAE Background information 
-            <button type="button" class="wl-link-button wl-regular-link wl-bold wl-right expand_link" data-expanded="false">
-                <span>Expand &or;</span>
-                <span style="display:none;">Collapse &and;</span>
-            </button>
-        </h3>
-        <h3 class="wl-normal">How does Sakai OAE relate to Sakai CLE (the previous version of Sakai)?</h3>
-        <div class="expandable_container" style="display:none;"></div>
-        <h3 class="wl-normal">What releases of Sakai OAE are currently available?</h3>
-        <div class="expandable_container" style="display:none;"></div>
-        <h3 class="wl-normal">What platform(s) does Sakai OAE run on?</h3>
-        <div class="expandable_container" style="display:none;"></div>
-        <h3 class="wl-normal">What browsers does the OAE support?</h3>
-        <div class="expandable_container" style="display:none;">
-            <p>The OAE tries to support as many browsers as possible. However, due to the vast amount of browsers out there we support the 2 latest versions of the most popular browsers.</p>
-            <ul class="inline_list">
-                <li><%= link_to "Mozilla Firefox", "http://www.mozilla.org/firefox", :title => "Mozilla Firefox", :class => "wl-regular-link", :target => "_blank" %></li>
-                <li><%= link_to "Microsoft Internet Explorer", "http://windows.microsoft.com/en-US/internet-explorer/products/ie/home", :title => "Microsoft Internet Explorer", :class => "wl-regular-link", :target => "_blank" %></li>
-                <li><%= link_to "Google Chrome", "http://www.google.com/chrome/", :title => "Google Chrome", :class => "wl-regular-link", :target => "_blank" %></li>
-                <li><%= link_to "Apple Safari", "http://www.apple.com/safari", :title => "Apple Safari", :class => "wl-regular-link", :target => "_blank" %></li>
-            </ul>
+        <a name="backgroundinformation"><h1 class="wl-regular-link no_decoration wl-normal">Sakai OAE Background information</h1></a>
+        <a name="clerelation"><h2><strong>Q: How does Sakai OAE relate to Sakai CLE (the previous version of Sakai)?</strong></h2></a>
+        <a name="releases"><h2><strong>Q: What releases of Sakai OAE are currently available?</strong></h2></a>
+        <a name="platforms"><h2><strong>Q: What platform(s) does Sakai OAE run on?</strong></h2></a>
+        <a name="browsers"><h2><strong>Q: What browsers does the OAE support?</strong></h2></a>
+        <p>A: The OAE tries to support as many browsers as possible. However, due to the vast amount of browsers out there we support the 2 latest versions of the most popular browsers.</p>
+        <ul class="inline_list">
+            <li><%= link_to "Mozilla Firefox", "http://www.mozilla.org/firefox", :title => "Mozilla Firefox", :class => "wl-regular-link", :target => "_blank" %></li>
+            <li><%= link_to "Microsoft Internet Explorer", "http://windows.microsoft.com/en-US/internet-explorer/products/ie/home", :title => "Microsoft Internet Explorer", :class => "wl-regular-link", :target => "_blank" %></li>
+            <li><%= link_to "Google Chrome", "http://www.google.com/chrome/", :title => "Google Chrome", :class => "wl-regular-link", :target => "_blank" %></li>
+            <li><%= link_to "Apple Safari", "http://www.apple.com/safari", :title => "Apple Safari", :class => "wl-regular-link", :target => "_blank" %></li>
+        </ul>
 
-            <p>For users to fully enjoy your widgets it's best to test them in these browsers before submitting them to the Widget Library.</p>
-        </div>
-        <h3 class="wl-normal">How is Sakai OAE licensed?</h3>
-        <div class="expandable_container" style="display:none;"></div>
-        <h3 class="wl-normal">Do I need to buy or pay anything to create Sakai OAE widgets?</h3>
-        <div class="expandable_container" style="display:none;"></div>
-        <h3 class="wl-normal">Where can I find working versions of Sakai OAE to experiment with or share with colleagues?</h3>
-        <div class="expandable_container" style="display:none;"></div>
+        <p>For users to fully enjoy your widgets it's best to test them in these browsers before submitting them to the Widget Library.</p>
+        <a name="license"><h2><strong>Q: How is Sakai OAE licensed?</strong></h2></a>
+        <a name="cost"><h2><strong>Q: Do I need to buy or pay anything to create Sakai OAE widgets?</strong></h2></a>
+        <a name="experiment"><h2><strong>Q: Where can I find working versions of Sakai OAE to experiment with or share with colleagues?</strong></h2></a>
     </div>
 </div>

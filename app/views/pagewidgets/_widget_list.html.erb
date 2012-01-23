@@ -1,6 +1,6 @@
 <div id="widget_list_header">
   <div id="widget_list_sort_by">
-      <label for="sort">Sort by</label>
+      <label for="sort_by">Sort by</label>
       <select id="sort_by">
         <option data-sortby="average_rating" data-direction="desc" <% if params[:s].eql?("average_rating") && params[:d].eql?("desc") %>selected<% end %>>Highest Rated</option>
         <option data-sortby="average_rating" data-direction="asc" <% if params[:s].eql?("average_rating") && params[:d].eql?("asc") %>selected<% end %>>Lowest Rated</option>
@@ -9,7 +9,7 @@
         <option data-sortby="title" data-direction="desc" <% if params[:s].eql?("title") && params[:d].eql?("desc") %>selected<% end %>>Z-A</option>
       </select>
   </div>
-  <div class="page_info"><%= page_entries_info @widgets %></div>
+  <div id="widget_list_count"><%= page_entries_info @widgets %></div>
 </div>
 <div id="widget_list">
   <%= render :partial => "core/widget", :locals => {:display => {:rating => true, :author => true, :num_ratings => true, :status => false, :title_length => "medium"}}, :collection => @widgets %>

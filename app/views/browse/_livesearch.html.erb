@@ -1,0 +1,5 @@
+<%= render :partial => "lhnav" %>
+<% unless @featured.nil? %>
+  <%= render :partial => "featured" %>
+<% end %>
+<%= render :partial => "pagewidgets/widget_list" %>

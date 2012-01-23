@@ -78,16 +78,16 @@
               <%= s.file_field :image %>
           <% end %>
         <% else %>
-          <% @version.screenshots.each_index do |s| %>
-            <%= image_tag @version.screenshots[s].image.url(:medium) %>
-            <%= label_tag "version_screenshots_attributes_#{s}_image", "Upload new screenshot" %>
-            <%= file_field_tag "version_screenshots_attributes_#{s}_image" %>
-          <% end %>
-          <% if @version.screenshots.size < 3 %>
-            <% @version.screenshots.size.upto(2) do |s| %>
-              <%= label_tag "version_screenshots_attributes_#{s}_image", "Upload new screenshot" %>
-              <%= file_field_tag "version_screenshots_attributes_#{s}_image" %>
-            <% end %>
+          <% count = 0 %>
+          <%= f.fields_for :screenshots do |s| %>
+              <% if @version.screenshots[count].image.file? %>
+                <%= image_tag  @version.screenshots[count].image.url(:medium) %>
+                <%= s.label :image, "Upload new screenshot" %>
+              <% else %>
+                <%= s.label :image, "Screenshot" %>
+              <% end %>
+              <%= s.file_field :image %>
+              <% count += 1 %>
           <% end %>
         <% end %>
     </div>

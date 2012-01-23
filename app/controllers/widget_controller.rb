@@ -10,6 +10,9 @@ class WidgetController < ApplicationController
     if can_view_in_progress_widget
       if (@widget.latest_version != @widget.version) || (@widget.versions.size == 1 && !@widget.state.id.eql?(State.accepted))
         @latest_version = @widget.latest_version
+        unless @latest_version.state.id.eql?(State.declined)
+          @widget.version = Version.where(:widget_id => @widget.id).order("created_at desc").limit(1).first
+        end
       end
 
       if !@widget.version

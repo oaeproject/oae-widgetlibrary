@@ -85,7 +85,6 @@
         <div class="widget-narrow-column">
             <h3>Usage:</h3>
             <span>These appear by default if a user hasn’t uploaded an image for them selves or one can’t be extracted from a piece of content.</span>
-            <%= link_to "See example", "javascript:;", :class => "wl-regular-link"%>
         </div>
         <hr class="wl-push wl-hidden">
 
@@ -104,7 +103,7 @@
         <div class="widget-narrow-column">
             <h3>Usage:</h3>
             <span>To be used as an icon for your designed widget. If you can’t design one yourself and have already had your widget approved for te OAE we may be able to help.</span>
-            <%= link_to "Send us a message", "javascript:;", :class => "wl-regular-link"%>
+            <%= link_to "Send us a message", "/sdk/help", :class => "wl-regular-link"%>
         </div>
         <hr class="wl-push wl-hidden">
 
@@ -127,10 +126,10 @@
                 <span class="first">
                     <%= image_tag "usedby_icon_15x10.png", :alt => "Used By Icon" %>
                     Used by
-                    <%= link_to "2053 people", "javascript:;", :class => "wl-regular-link entity_content_people"%>, and <%= link_to "4 places", "javascript:;", :class => "wl-regular-link entity_content_people"%>
+                    <button type="button" class="wl-link-button">2053 people</button>, and <button type="button" class="wl-link-button">4 places</button>
                 </span>
                 <span>
-                    <%= image_tag "comment_icon_15x10.png", :alt => "Comments Icon" %> <%= link_to "256 Comments", "javascript:;", :class => "wl-regular-link"%>
+                    <%= image_tag "comment_icon_15x10.png", :alt => "Comments Icon" %> <button type="button" class="wl-link-button">256 Comments</button>
                 </span>
                 <span>
                     <%= image_tag "chain_icon_15x10.png", :alt => "Chain Icon" %>
