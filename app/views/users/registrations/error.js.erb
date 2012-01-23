@@ -8,4 +8,4 @@
 WL.show_errors(<%=raw translate_errors(@resource).to_json %>, "user", $("<%= form_id %>"));
 
 // Always reload the recaptcha on error
-Recaptcha.reload();
+Recaptcha.reload("t");

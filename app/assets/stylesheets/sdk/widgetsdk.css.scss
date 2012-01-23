@@ -142,18 +142,13 @@
   font-weight: normal;
   margin: 10px 0 0 12px; }
 
-#widgetbuilder_widgetloading, #widgetbuilder_downloadwidget {
+#widgetbuilder_downloadwidget {
   h1 {
     text-align: center;
     margin-bottom: 12px; }
-  #widgetbuilder_loader, #widgetbuilder_built {
+  #widgetbuilder_built {
     height: 70px;
     margin: 12px 0 15px;
-    img {
-      height: 20px;
-      margin: 26px 0 0 146px;
-      width: 188px; } }
-  #widgetbuilder_built {
     text-align: center;
     img {
       width: 17px;
