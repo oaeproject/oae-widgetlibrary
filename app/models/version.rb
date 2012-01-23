@@ -21,11 +21,27 @@ class Version < ActiveRecord::Base
   validates_attachment_presence :icon
   validates_attachment_presence :code
 
-  validates_attachment_content_type :code, :content_type => [ 'application/zip', 'application/x-zip', 'application/x-zip-compressed', 'application/octet-stream', 'application/x-compress', 'application/x-compressed', 'multipart/x-zip' ],
+  zip_types = [
+    'application/zip',
+    'application/x-zip',
+    'application/x-zip-compressed',
+    'application/octet-stream',
+    'application/x-compress',
+    'application/x-compressed',
+    'multipart/x-zip'
+  ]
+
+  validates_attachment_content_type :code,
+                                    :content_type => zip_types,
                                     :message => 'file must be a .zip file'
 
-  validates_attachment_content_type :bundle, :content_type => [ 'application/zip', 'application/x-zip', 'application/x-zip-compressed', 'application/octet-stream', 'application/x-compress', 'application/x-compressed', 'multipart/x-zip' ],
+  validates_attachment_content_type :bundle,
+                                    :content_type => zip_types,
                                     :message => 'file must be a .zip file'
+
+  validates_attachment_size :code, :less_than=>20.megabytes, :message => 'file must be less than 20 megabytes'
+  validates_attachment_size :bundle, :less_than=>20.megabytes, :message => 'file must be less than 20 megabytes'
+  validates_attachment_size :icon, :less_than=>5.megabytes, :message => 'file must be less than 5 megabytes'
 
   validates_as_image :icon
 
