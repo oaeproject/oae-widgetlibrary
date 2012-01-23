@@ -35,6 +35,8 @@ gem 'will_paginate'
 
 gem 'sass-rails', "  ~> 3.1.5"
 
+gem 'delayed_job_active_record'
+
 group :test, :development do
   # Use factory_girl as a fixtures replacement
   gem "factory_girl_rails"
@@ -64,7 +66,10 @@ end
 
 # Assets for Rails 3.1
 group :assets do
-  gem 'mysql2'
   gem 'uglifier'
   gem 'yui-compressor'
+end
+
+group :qa, :production do
+  gem 'mysql2'
 end

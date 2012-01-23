@@ -26,7 +26,7 @@ class SubmitController < ApplicationController
     end
 
     if valid
-      WidgetMailer.new_submission(@version, @widget).deliver
+      WidgetMailer.delay.new_submission(@version, @widget)
     end
 
   end
@@ -76,7 +76,7 @@ class SubmitController < ApplicationController
         old_version.notes = "Superseded by the submission on #{Time.now.strftime("%B %e, %Y at %l:%M%P")}"
         old_version.save
       end
-      WidgetMailer.new_submission(@version, @widget).deliver
+      WidgetMailer.delay.new_submission(@version, @widget)
     end
 
     respond_to do |format|
