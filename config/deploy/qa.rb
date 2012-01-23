@@ -4,7 +4,7 @@ role :app, host
 role :web, host
 role :db, host, :primary => true
 set :rails_env, "qa"
-set :bundle_without, [:development]
+set :bundle_without, [:development, :test]
 
 namespace :deploy do
 

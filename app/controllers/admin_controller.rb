@@ -32,7 +32,7 @@ class AdminController < ApplicationController
     version.user_id = current_user.id
     version.reviewed_on = Time.now
 
-    widget = Widget.find(version.widget.id)
+    widget = Widget.find(version.widget_id)
 
     if new_state.id.eql? State.accepted
       version.released_on = Time.now

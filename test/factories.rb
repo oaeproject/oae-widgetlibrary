@@ -9,7 +9,7 @@ FactoryGirl.define do
   end
 
   factory :screenshot do
-    image fixture_file_upload(Rails.root.to_s + '/test/fixtures/1.png', 'image/png')
+    image fixture_file_upload(Rails.root.to_s + '/test/fixtures/images/1.png', 'image/png')
     version
   end
 
@@ -20,7 +20,7 @@ FactoryGirl.define do
     sequence(:email) { |n| "testuser#{n}@example.com" }
     password "test"
     password_confirmation "test"
-    avatar fixture_file_upload(Rails.root.to_s + '/test/fixtures/1.png', 'image/png')
+    avatar fixture_file_upload(Rails.root.to_s + '/test/fixtures/images/1.png', 'image/png')
   end
 
   factory :widget do
@@ -40,8 +40,8 @@ FactoryGirl.define do
     released_on Time.now
     widget_repo "http://github.com/sakaiproject/3akai-ux"
     widget_backend_repo "http://github.com/sakaiproject/nakamura"
-    icon fixture_file_upload(Rails.root.to_s + '/test/fixtures/1.png', 'image/png')
-    code fixture_file_upload(Rails.root.to_s + '/test/fixtures/1.png.zip', 'application/zip')
+    icon fixture_file_upload(Rails.root.to_s + '/test/fixtures/images/1.png', 'image/png')
+    code fixture_file_upload(Rails.root.to_s + '/test/fixtures/zip/1.png.zip', 'application/zip')
     user
   end
 

@@ -20,4 +20,41 @@
       margin-top: 10px;
       font-size: 12px; } }
   .wl-widget-item-container .wl-widget-item {
-    width: 220px; } }
+    width: 220px; }
+  #searchbox_container {
+    margin: 0 10px;
+    overflow: hidden;
+    label {
+      float: left;
+      margin: 5px 10px 0 0; }
+    input[type="text"] {
+      border: 1px solid #e9e9e9;
+      border-top: none;
+      border-bottom: 1px solid #d2d2d2;
+      @include border-radius($topLeft: 4px, $topRight: 4px, $bottomRight: 4px, $bottomLeft: 4px);
+      @include box-shadow($h-shadow: 0, $v-shadow: 1px, $blur: 1px, $spread: 0, $color: #eaeaea, $outerinner: "");
+      padding: 5px 35px 5px 10px;
+      width: 255px;
+      color: #666;
+      font-size: 12px;
+      height: 18px; }
+    #searchbox_container_input {
+      position: relative;
+      float: left;
+      .searchbox_remove{
+        background: image-url("input_remove_icon_20x20.png") no-repeat scroll 0 0 transparent;
+        display: inline;
+        float: right;
+        margin-top: 5px;
+        position: absolute;
+        right: 6px;
+        text-indent: -9999em;
+        height: 20px;
+        width: 20px; } } }
+  .searchbox_hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #fefefe;
+    margin: 15px 10px 30px;
+  } }
