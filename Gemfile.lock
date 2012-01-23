@@ -220,6 +220,7 @@ DEPENDENCIES
   capistrano
   capistrano-ext
   capybara
+  daemons
   database_cleaner
   delayed_job_active_record
   devise

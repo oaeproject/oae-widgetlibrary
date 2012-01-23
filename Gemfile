@@ -37,6 +37,8 @@ gem 'sass-rails', "  ~> 3.1.5"
 
 gem 'delayed_job_active_record'
 
+gem 'daemons'
+
 group :test, :development do
   # Use factory_girl as a fixtures replacement
   gem "factory_girl_rails"
