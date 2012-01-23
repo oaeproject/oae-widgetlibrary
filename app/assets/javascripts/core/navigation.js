@@ -46,7 +46,7 @@ $(function() {
         if ($(searchResults).find("li.selected").length) {
             document.location = $(searchResults).find("li.selected a").attr("href");
         } else {
-            document.location = "/browse#q=" + $.trim($(searchInput).val());
+            document.location = "/browse?q=" + $.trim($(searchInput).val());
         }
     };
 

@@ -1,11 +1,15 @@
 #widget_list_header {
-  float:left;
-  width:100%; }
+  float: left;
+  margin: 0 10px 8px;
+  width: 685px; }
 
 #widget_list_sort_by {
   float: right;
-  font-size: 11px;
-  margin: 5px 10px 0 0; }
+  font-size: 11px; }
+
+#widget_list_count {
+  color: #aaaaaa;
+  margin-top: 3px; }
 
 #widget_list_sort_down_arrow {
   font-size: 9px; }

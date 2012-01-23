@@ -1,4 +1,6 @@
-<h1>Featured</h1>
-<div class="wl-widget-item-container">
-    <%= render :partial => "core/widget", :locals => {:display => {:rating => true, :author => true, :num_ratings => true, :desc => true, :desc_length => "short", :users => true, :title_length => "long"}}, :collection => @featured %>
+<div id="featured">
+    <h1>Featured</h1>
+    <div class="wl-widget-item-container">
+        <%= render :partial => "core/widget", :locals => {:display => {:rating => true, :author => true, :num_ratings => true, :desc => true, :desc_length => "short", :users => true, :title_length => "long"}}, :collection => @featured %>
+    </div>
 </div>
