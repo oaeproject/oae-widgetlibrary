@@ -55,7 +55,8 @@ $(function() {
         });
 
         $( widget_details_rating_link ).on( "click", function(){
-            checkHash();
+            selectTabs( reviewsTab );
+            switchTabs( "reviews" );
         });
 
         // Rating
