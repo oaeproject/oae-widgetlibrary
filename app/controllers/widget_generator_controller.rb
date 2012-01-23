@@ -19,14 +19,11 @@ class WidgetGeneratorController < ApplicationController
     personalportal = "true"
     sakaidocs = "true"
 
-    if (apptype.eql?("Dashboard"))
+    if apptype.eql?("Dashboard")
       showinsakaigoodies = "false"
-      personalportal = "true"
       sakaidocs = "false"
-    elsif (apptype.eql?("Page"))
-      showinsakaigoodies = "true"
+    elsif apptype.eql?("Page")
       personalportal = "false"
-      sakaidocs = "true"
     end
 
     # This is a bit of a leaky abstraction really. But we're doing the same thing
