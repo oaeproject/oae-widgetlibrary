@@ -37,4 +37,27 @@ module ApplicationHelper
     stylesheet_link_tag controller if SakaiWidgetlibrary::Application.assets.find_asset("#{controller}.css")
   end
 
+  def translate_errors(record)
+    ret = {}
+    record.errors.each do |key, message|
+      keystring = key.to_s
+      if keystring.include? '_content_type'
+        keystring.gsub!('_content_type', '')
+        key = keystring.to_sym
+      end
+      # Happens when you try to submit an invalid file (e.g. zip) as a screenshot
+      if keystring.include? '.'
+        keystring.gsub!('.', '_')
+        key = keystring.to_sym
+        message = message.split(".")[0]
+      end
+
+      ret[key] = {
+        :title => record.class.human_attribute_name(key),
+        :message => message
+      }
+    end
+    ret
+  end
+
 end
