@@ -34,19 +34,18 @@ $(function() {
 
     var lastSearchVal = "";
     var searchTimeout = false;
-    var $sort_by = $("#sort_by");
-    var $widget_list = $( "#widget_list" );
-    var $widget_list_count = $( "#widget_list_count" );
     var $lhnavigation_container = $( "#lhnavigation_container" );
+    var $widget_list_container = $( "#widget_list_container" );
     var $searchbox_input = $( "#searchbox_input" );
-    var $searchbox_hr = $( ".searchbox_hr" );
     var $searchbox_remove = $( ".searchbox_remove" );
 
     var performsearch = function() {
+        var $sort_by = $("#sort_by");
         var query = $searchbox_input.val();
         var $selection = $sort_by.find("option:selected");
         var sort_by = $selection.attr("data-sortby");
         var direction = $selection.attr("data-direction");
+        $("#featured").remove();
         $.ajax({
             url: document.location,
             data: {
@@ -57,16 +56,11 @@ $(function() {
             },
             success: function( data ) {
                 var $data = $( "<div/>" ).html( data );
-                var widgets = $data.find( "#widget_list" );
-                var widget_list_count = $data.find( "#widget_list_count" );
                 var lhnavigation_container = $data.find( "#lhnavigation_container" );
+                var widget_list_container = $data.find( "#widget_list_container" );
                 var featured = $data.find( "#featured" );
-                $( "#featured" ).remove();
-                if ( !query ) {
-                    $searchbox_hr.after( featured );
-                }
-                $widget_list.html( widgets );
-                $widget_list_count.html( widget_list_count );
+
+                $widget_list_container.html( widget_list_container ).before(featured);
                 $lhnavigation_container.html( lhnavigation_container );
             }
         });
