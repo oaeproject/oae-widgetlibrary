@@ -85,4 +85,9 @@ class SubmitController < ApplicationController
 
   end
 
+  def destroy
+    version = Version.find(params[:id])
+    version.destroy
+    redirect_to_back
+  end
 end

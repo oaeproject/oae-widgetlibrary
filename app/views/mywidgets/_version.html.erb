@@ -3,4 +3,12 @@
   <td><%= version.version_number %></td>
   <td><%= version.state.title %></td>
   <td><%= version.notes %></td>
+  <td>
+    <% if version.state_id.eql? State.pending %>
+    <%= button_to "delete", version_path(version.id),
+      :method => :delete,
+      :confirm => "Are you sure you want to delete this submission? There is no undo.",
+      :class => "wl-link-button" %>
+    <% end %>
+  </td>
 <% if row %></tr><% end %>

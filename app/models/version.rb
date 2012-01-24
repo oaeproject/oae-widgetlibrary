@@ -1,6 +1,8 @@
 class Version < ActiveRecord::Base
   include ValidatesAsImage
 
+  before_destroy :clean_widgets
+
   has_attached_file :icon,
   :styles => {
     :thumb => ["50x50!", :png],
@@ -67,6 +69,14 @@ class Version < ActiveRecord::Base
 
   def reviewer
     self.user
+  end
+
+  private
+  def clean_widgets
+    widget = self.widget
+    if widget.versions.size.eql? 1
+      widget.destroy
+    end
   end
 
 end
