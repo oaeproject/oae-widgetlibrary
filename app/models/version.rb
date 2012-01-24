@@ -50,22 +50,22 @@ class Version < ActiveRecord::Base
                                     :content_type => zip_types,
                                     :message => 'file must be a .zip file'
 
+  validates_as_image :icon
+
   validates_attachment_size :code,
                             :less_than=>20.megabytes,
                             :message => 'file must be less than 20 megabytes',
-                            :unless => Proc.new {|m| m[:code].nil?}
+                            :if => lambda { code.dirty? }
 
   validates_attachment_size :bundle,
                             :less_than=>20.megabytes,
                             :message => 'file must be less than 20 megabytes',
-                            :unless => Proc.new {|m| m[:bundle].nil?}
+                            :if => lambda { bundle.dirty? }
 
   validates_attachment_size :icon,
                             :less_than=>5.megabytes,
                             :message => 'file must be less than 5 megabytes',
-                            :unless => Proc.new {|m| m[:icon].nil?}
-
-  validates_as_image :icon
+                            :if => lambda { icon.dirty? }
 
   def reviewer
     self.user

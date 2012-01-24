@@ -12,5 +12,5 @@ class Screenshot < ActiveRecord::Base
   validates_attachment_size :image,
                             :less_than=>5.megabytes,
                             :message => 'file must be less than 5 megabytes',
-                            :unless => Proc.new {|m| m[:image].nil?}
+                            :if => lambda { image.dirty? }
 end

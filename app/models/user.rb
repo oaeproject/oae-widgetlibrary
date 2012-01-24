@@ -27,6 +27,11 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username, :email
   validates_as_image :avatar
 
+  validates_attachment_size :avatar,
+                            :less_than=>5.megabytes,
+                            :message => 'file must be less than 5 megabytes',
+                            :if => lambda { avatar.dirty? }
+
   def widgets
     args = {
       :active => true,
