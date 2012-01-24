@@ -5,11 +5,31 @@
         <%= stylesheet_link_tag "application" %>
         <%= stylesheet_link_tag "core/lhnavigation" %>
         <%= page_css %>
+        <%= stylesheet_link_tag "prettify-sakai-edited" %>
         <%= javascript_include_tag "application" %>
+        <%= javascript_include_tag "prettify" %>
+        <%= javascript_include_tag "lang-clj" %>
+        <%= javascript_include_tag "lang-hs" %>
+        <%= javascript_include_tag "lang-ml" %>
+        <%= javascript_include_tag "lang-scala" %>
+        <%= javascript_include_tag "lang-vb" %>
+        <%= javascript_include_tag "lang-xq" %>
+        <%= javascript_include_tag "lang-css" %>
+        <%= javascript_include_tag "lang-lisp" %>
+        <%= javascript_include_tag "lang-n" %>
+        <%= javascript_include_tag "lang-sql" %>
+        <%= javascript_include_tag "lang-vhdl" %>
+        <%= javascript_include_tag "lang-yaml" %>
+        <%= javascript_include_tag "lang-apollo" %>
+        <%= javascript_include_tag "lang-go" %>
+        <%= javascript_include_tag "lang-lua" %>
+        <%= javascript_include_tag "lang-proto" %>
+        <%= javascript_include_tag "lang-tex" %>
+        <%= javascript_include_tag "lang-wiki" %>
         <%= csrf_meta_tag %>
         <%= yield :head %>
     </head>
-    <body class="<%= "#{params[:controller].gsub("/", "_")} #{params[:action]}" %>">
+    <body class="<%= "#{params[:controller].gsub("/", "_")} #{params[:action]}" %>" onload="prettyPrint()">
 
     <%= render :partial => "core/useractions", :locals => {:show => show_login} %>
 
