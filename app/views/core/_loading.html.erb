@@ -1,0 +1,6 @@
+<div <% unless id.blank? %> id="<%= id %>" <% end %> class="wl-dialog wl-dialog-container wl-loading">
+    <h1 class="wl-dialog-header"><%= message ||= "Loading..." %></h1>
+    <div class="wl-inset-shadow-container wl-loader">
+        <%= image_tag "progress_bar.gif", :alt => "Progress bar" %>
+    </div>
+</div>
