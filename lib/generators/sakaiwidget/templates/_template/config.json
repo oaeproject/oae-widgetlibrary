@@ -14,7 +14,7 @@
             "description":    "<%= @appdesc %>"
         }
     },
-    "personalportal":     "<%= @personalportal %>",
-    "sakaidocs":          "<%= @sakaidocs %>",
-    "showinsakaigoodies": "<%= @showinsakaigoodies %>"
+    "personalportal":     <%= @personalportal %>,
+    "sakaidocs":          <%= @sakaidocs %>,
+    "showinsakaigoodies": <%= @showinsakaigoodies %>
 }
