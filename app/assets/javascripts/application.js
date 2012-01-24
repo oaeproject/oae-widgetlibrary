@@ -92,10 +92,16 @@ $(function() {
         return false;
     }
 
+    var readmore = function() {
+        var $parentElement = $(this).parent();
+        $parentElement.text($parentElement.attr("data-completetext"));
+    };
+
     var add_bindings = function() {
         $( ".wl-page-container" ).on( "change", "#sort_by", performsearch );
         $searchbox_remove.on( "click", $searchbox_input, emptysearch );
         $("#searchbox_input").on( "keyup", livesearch );
+        $("body").on( "click", ".review_read_more", readmore );
     };
 
     var init = function() {
