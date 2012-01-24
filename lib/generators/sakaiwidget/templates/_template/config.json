@@ -8,9 +8,13 @@
     "url":                "/devwidgets/<%= @file_name %>/<%= @file_name %>.html",
     "img":                "/devwidgets/<%= @file_name %>/images/<%= @file_name %>.png",
     "i18n": {
-        "default":        "/devwidgets/<%= @file_name %>/bundles/default.properties"
+        "default": {
+            "bundle":        "/devwidgets/<%= @file_name %>/bundles/default.properties",
+            "name":           "<%= @apptitle %>",
+            "description":    "<%= @appdesc %>"
+        }
     },
     "personalportal":     "<%= @personalportal %>",
-    "sakaidocs":          false,
+    "sakaidocs":          "<%= @sakaidocs %>",
     "showinsakaigoodies": "<%= @showinsakaigoodies %>"
 }
