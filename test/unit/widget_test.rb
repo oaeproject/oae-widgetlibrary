@@ -2,17 +2,17 @@ require 'test_helper'
 
 class WidgetTest < ActiveSupport::TestCase
 
-  test "widget should not save without a url_title" do
+  test "should not save widget without a url_title" do
     widget = Widget.new
     assert !widget.save, "Saved the widget without a url_title"
   end
 
-  test "widget successfully creates" do
+  test "should create widget" do
     widget = FactoryGirl.create(:widget)
     assert widget, "Widget successfully created"
   end
 
-  test "finds active version" do
+  test "should find active version on approved widget" do
     widget = FactoryGirl.create(:widget)
     version = FactoryGirl.create(:version, :title => "Approved Version", :state_id => State.accepted, :widget_id => widget.id)
     widget.version_id = version.id
@@ -21,7 +21,7 @@ class WidgetTest < ActiveSupport::TestCase
     assert_equal version.id, widget.active_version.id, "Active version is the version we just created"
   end
 
-  test "finds all approved versions" do
+  test "should find many approved versions on widgets" do
     widget = FactoryGirl.create(:widget)
     version = FactoryGirl.create(:version, :title => "Approved Version 1", :state_id => State.accepted, :widget_id => widget.id)
     version2 = FactoryGirl.create(:version, :title => "Pending Version 1", :state_id => State.pending, :widget_id => widget.id)
@@ -32,7 +32,7 @@ class WidgetTest < ActiveSupport::TestCase
     assert_equal version2.id, widget.latest_version.id, "Latest version is the second version we just created"
   end
 
-  test "find all the passthrough attributes for the active version" do
+  test "should find all the passthrough attributes for widget" do
     widget = FactoryGirl.create(:widget)
     version = FactoryGirl.create(:version, :title => "Active Version", :state_id => State.accepted, :widget_id => widget.id)
     widget.version_id = version.id

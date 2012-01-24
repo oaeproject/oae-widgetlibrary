@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class ApplicationControllerTest < ActionController::TestCase
-  test "search typeahead correctly returns a result" do
+  test "should return a typeahead result" do
     widget = FactoryGirl.create(:widget)
     version = FactoryGirl.create(:version, :widget_id => widget.id, :title => "Sassafrass")
     widget.version_id = version.id
@@ -12,7 +12,7 @@ class ApplicationControllerTest < ActionController::TestCase
     assert_equal "Sassafrass", assigns(:searchresults).first.title, "Search result correctly returned"
   end
 
-  test "check the default sort" do
+  test "default sort should be average_rating" do
     assert_equal "average_rating desc", @controller.send(:get_sort)
   end
 

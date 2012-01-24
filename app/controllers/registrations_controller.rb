@@ -14,6 +14,7 @@ class RegistrationsController < Devise::RegistrationsController
 
           respond_to do |format|
             format.js { render 'users/registrations/create' }
+            format.html { redirect_to @url }
           end
 
         else
@@ -23,6 +24,7 @@ class RegistrationsController < Devise::RegistrationsController
 
           respond_to do |format|
             format.js { render 'users/registrations/create' }
+            format.html { redirect_to @url }
           end
         end
       else
@@ -41,8 +43,10 @@ class RegistrationsController < Devise::RegistrationsController
       @resource.errors[:recaptcha] = "invalid response"
     end
     # respond with json if xhr
+    html_url = params[:action].eql?("create") ? "new" : "edit"
     respond_to do |format|
       format.js { render 'users/registrations/error' }
+      format.html { render "users/registrations/#{html_url}" }
     end
   end
 
@@ -68,11 +72,11 @@ class RegistrationsController < Devise::RegistrationsController
 
     if resource.update_with_password(params[resource_name])
       set_flash_message :notice, :updated if is_navigational_format?
-      sign_in resource_name, resource, :bypass => true
-      @url = after_sign_in_path_for(resource)
+      @url = user_path(:id => resource.id, :url_title => resource.url_title)
 
       respond_to do |format|
         format.js { render 'users/registrations/create' }
+        format.html { redirect_to @url }
       end
     else
       error(resource, true)

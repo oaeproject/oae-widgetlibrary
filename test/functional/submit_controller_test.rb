@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class SubmitControllerTest < ActionController::TestCase
-  test "ensure version deletion works" do
+  test "should delete a widget" do
     widget = FactoryGirl.create(:widget)
     version = FactoryGirl.create(:version, :widget_id => widget.id, :state_id => State.pending)
     get :destroy, :id => version.id
@@ -15,7 +15,7 @@ class SubmitControllerTest < ActionController::TestCase
     end
   end
 
-  test "deleting a version does not delete a widget if the widget has two versions" do
+  test "should keep the old widget version" do
     widget = FactoryGirl.create(:widget)
     version = FactoryGirl.create(:version, :widget_id => widget.id, :state_id => State.accepted)
     version_two = FactoryGirl.create(:version, :widget_id => widget.id, :state_id => State.pending)

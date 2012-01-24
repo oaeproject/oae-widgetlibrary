@@ -3,7 +3,7 @@ require 'test_helper'
 class WidgetApprovalTest < ActionDispatch::IntegrationTest
   fixtures :all
 
-  test "verify that a user cannot view an unapproved widget" do
+  test "should deny users view rights to unapproved widgets" do
     submitter = FactoryGirl.create(:user)
     reviewer = FactoryGirl.create(:user, :reviewer => true, :admin => true)
     third_user = FactoryGirl.create(:user)
@@ -31,7 +31,7 @@ class WidgetApprovalTest < ActionDispatch::IntegrationTest
     assert_equal 404, page.status_code, "Non-reviewer cannot view rejected widget"
   end
 
-  test "verify that a user view an approved widget" do
+  test "should allow users to view approved widgets" do
     submitter = FactoryGirl.create(:user)
     reviewer = FactoryGirl.create(:user, :reviewer => true, :admin => true)
     third_user = FactoryGirl.create(:user)
@@ -47,7 +47,7 @@ class WidgetApprovalTest < ActionDispatch::IntegrationTest
     assert page.has_content?(version.title), "Non-reviewer can view approved widget"
   end
 
-  test "widget shows up in mywidgets submissions after approval" do
+  test "widget should show up in mywidgets submissions after approval" do
     submitter = FactoryGirl.create(:user)
     reviewer = FactoryGirl.create(:user, :reviewer => true, :admin => true)
     widget = FactoryGirl.create(:widget, :user_id => submitter.id, :active => false)
@@ -64,7 +64,7 @@ class WidgetApprovalTest < ActionDispatch::IntegrationTest
     assert page.has_content?(version.title), "Approved widget correctly shows up in Browse"
   end
 
-  test "widget info updates during the review process" do
+  test "widget info should update during the review process" do
     submitter = FactoryGirl.create(:user)
     reviewer = FactoryGirl.create(:user, :reviewer => true, :admin => true)
     third_user = FactoryGirl.create(:user)
@@ -126,7 +126,7 @@ class WidgetApprovalTest < ActionDispatch::IntegrationTest
 
   end
 
-  test "ensure screenshots update when submitting a new version" do
+  test "screenshots should update when submitting a new version" do
     submitter = FactoryGirl.create(:user)
     reviewer = FactoryGirl.create(:user, :reviewer => true, :admin => true)
     widget = FactoryGirl.create(:widget, :user_id => submitter.id, :active => false)
@@ -169,7 +169,7 @@ class WidgetApprovalTest < ActionDispatch::IntegrationTest
     assert_equal screenshot_src, screenshot_page_src, "After declining, the screenshot has the correct path"
   end
 
-  test "ensure code and icons update when submitting a new version" do
+  test "code and icons should update when submitting a new version" do
     submitter = FactoryGirl.create(:user)
     reviewer = FactoryGirl.create(:user, :reviewer => true, :admin => true)
     widget = FactoryGirl.create(:widget, :user_id => submitter.id, :active => false)

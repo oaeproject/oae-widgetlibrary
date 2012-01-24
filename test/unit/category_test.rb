@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class CategoryTest < ActiveSupport::TestCase
-  test "can find widgets" do
+  test "category should have widgets" do
     widget = FactoryGirl.create(:widget)
     version = FactoryGirl.create(:version, :widget_id => widget.id, :category_ids => [Category.first.id])
     widget.version_id = version.id

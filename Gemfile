@@ -64,6 +64,7 @@ end
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'flexmock'
 end
 
 # Assets for Rails 3.1

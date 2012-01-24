@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class RatingTest < ActiveSupport::TestCase
-  test "rating should not save without it's required attributes" do
+  test "should not save rating without required attributes" do
     rating = Rating.new
     assert !rating.save, "Saved the rating without any required attributes"
     rating.stars = 4
