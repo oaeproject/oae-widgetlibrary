@@ -12,6 +12,7 @@ $(function() {
     // Define a global object to toss some methods into
     WL = {
         wlError : "wl-error",
+        wlLoading: ".wl-loading",
         show_errors: function(errors, controller_name, $form) {
             $.each(errors, function(key, error) {
                 var error_message = error.title + " " + error.message;
@@ -25,6 +26,9 @@ $(function() {
                 $("label[for='" + controller_name + "_" + key + "']", $form).addClass(WL.wlError);
                 $("#" + controller_name + "_" +  key + "_error", $form).text(error_message).show();
             });
+            $(WL.wlLoading).jqmHide();
+            // Scroll to the first element that has an error on it
+            $("html").scrollTop($("." + WL.wlError + ":visible:first").offset().top - 40);
         },
         reset_errors: function() {
             $("span." + WL.wlError).hide();
