@@ -32,11 +32,12 @@
   .navigationalitems_codesnippit_header {
     background: image-url("codesnippet_bg.png") repeat-x left -30px #f1f5f9;
     border-bottom: 1px solid #c7cfd5;
-    height: 30px;
-    line-height: 30px;
+    min-height: 20px;
     padding-left: 15px;
     h4 {
-      font-size: 13px; } } }
+      font-size: 13px;
+      line-height: 18px;
+      margin: 6px 0px; } } }
 
 #examples {
   .descriptive_text {
