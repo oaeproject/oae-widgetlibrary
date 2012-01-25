@@ -1,4 +1,4 @@
-/*
+/**
  * Licensed to the Sakai Foundation (SF) under one
  * or more contributor license agreements. See the NOTICE file
  * distributed with this work for additional information
@@ -17,6 +17,6 @@
  */
 
 /* Widget Container CSS */
-.<%= @file_name %>_widget .s3d-widget-content{padding:10px 20px;}
+.<%= @file_name %>_widget {padding:0 12px;}
 /* Dashboard Widget Icon */
 .<%= @file_name %>.s3d-widget .s3d-widget-titlebar .widget_title{background:url(/devwidgets/<%= @file_name %>/images/<%= @file_name %>_icon.png) 17px 18px no-repeat;}
