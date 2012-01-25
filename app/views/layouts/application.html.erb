@@ -10,13 +10,6 @@
     </head>
     <body class="<%= "#{params[:controller].gsub("/", "_")} #{params[:action]}" %>">
 
-    <div>
-        <div id="videocontent_overlay" style="display:none;"></div>
-        <div id="videocontent_overlay_container" style="display:none;">
-            <iframe width="636" height="375" src="http://www.youtube.com/embed/WWY79LoV7ac" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </div>
-
     <%= render :partial => "core/useractions", :locals => {:show => show_login} %>
 
     <div class="wl-page-container wl-centered">
