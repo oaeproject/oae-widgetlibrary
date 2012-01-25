@@ -1,5 +1,6 @@
 <% content_for :title do %> - Your Widget Submissions<% end %>
 
+<% if @widgets.size > 0 %>
 <div id="mywidgets">
   <table>
     <colgroup span="6">
@@ -8,11 +9,12 @@
       <col class="mywidgets_submissions_version"></col>
       <col class="mywidgets_submissions_state"></col>
       <col class="mywidgets_submissions_notes"></col>
+      <col class="mywidgets_submissions_retract"></col>
       <col class="mywidgets_submissions_actions"></col>
     </colgroup>
     <thead>
       <tr>
-        <th>Widget</th><th>Date</th><th>Version</th><th>State</th><th>Notes</th><th></th>
+        <th>Widget</th><th>Date</th><th>Version</th><th>State</th><th>Notes</th><th></th><th></th>
       </tr>
     </thead>
     <tbody>
@@ -22,3 +24,6 @@
   </table>
 </div>
 <hr class="wl-push wl-hidden"/>
+<% else %>
+  <%= render :partial => "pagewidgets/widget_list", :locals => {:noresults => {:message => "You don't have any submissions.", :icon => 'widget'}} %>
+<% end %>

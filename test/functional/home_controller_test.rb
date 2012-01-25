@@ -1,8 +1,7 @@
 require 'test_helper'
 
 class HomeControllerTest < ActionController::TestCase
-
-  test "objects created for views exist and have the correct number of elements in them" do
+  test "should populate the view objects with the correct results" do
     16.times do
       widget = FactoryGirl.create(:widget)
       version = FactoryGirl.create(:version, :widget_id => widget.id)

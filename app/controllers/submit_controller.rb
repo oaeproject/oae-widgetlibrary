@@ -13,7 +13,7 @@ class SubmitController < ApplicationController
     @version = Version.new(params[:version])
     @version[:state_id] = State.pending
 
-    valid = @widget.valid? && @version.valid?
+    valid = @version.valid? && @widget.valid?
 
     if valid
       @widget.save
@@ -26,7 +26,7 @@ class SubmitController < ApplicationController
     end
 
     if valid
-      WidgetMailer.new_submission(@version, @widget).deliver
+      WidgetMailer.delay.new_submission(@version, @widget)
     end
 
   end
@@ -76,7 +76,7 @@ class SubmitController < ApplicationController
         old_version.notes = "Superseded by the submission on #{Time.now.strftime("%B %e, %Y at %l:%M%P")}"
         old_version.save
       end
-      WidgetMailer.new_submission(@version, @widget).deliver
+      WidgetMailer.delay.new_submission(@version, @widget)
     end
 
     respond_to do |format|
@@ -85,4 +85,9 @@ class SubmitController < ApplicationController
 
   end
 
+  def destroy
+    version = Version.find(params[:id])
+    version.destroy
+    redirect_to_back
+  end
 end

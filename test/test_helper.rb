@@ -3,6 +3,8 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'capybara/rails'
 require 'rake'
+require 'flexmock'
+require 'flexmock/test_unit'
 
 class ActiveSupport::TestCase
 end

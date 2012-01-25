@@ -28,16 +28,7 @@
     <% end %>
     <hr class="wl-push wl-hidden"/>
 
-    <div id="widgetbuilder_widgetloading" class="wl-dialog wl-dialog-container">
-        <div class="wl-dialog-close jqmClose"></div>
-        <h1 class="wl-dialog-header">Widget construction in progress</h1>
-        <div id="widgetbuilder_loader" class="wl-inset-shadow-container">
-            <%= image_tag "progress_bar.gif", :alt => "Progress bar" %>
-        </div>
-        <div class="dialog_actions">
-            <button class="wl-link-button jqmClose" type="button">Cancel</button>
-        </div>
-    </div>
+    <%= render :partial => "core/loading", :locals => {:id => "widgetbuilder_widgetloading", :message => "Widget construction in progress"} %>
 
     <div id="widgetbuilder_downloadwidget" class="wl-dialog wl-dialog-container">
         <div class="wl-dialog-close jqmClose"></div>

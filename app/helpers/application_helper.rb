@@ -37,4 +37,32 @@ module ApplicationHelper
     stylesheet_link_tag controller if SakaiWidgetlibrary::Application.assets.find_asset("#{controller}.css")
   end
 
+  $paperclip_validations = ['_content_type', '_file_size']
+
+  def translate_errors(record)
+    ret = {}
+    record.errors.each do |key, message|
+      keystring = key.to_s
+
+      # check for any paperclip validations
+      paperclip_validation = "_" + keystring.split("_")[1..-1].join("_")
+      if $paperclip_validations.include? paperclip_validation
+        keystring.gsub!(paperclip_validation, '')
+        key = keystring.to_sym
+      end
+      # Happens when you try to submit an invalid file (e.g. zip) as a screenshot
+      if keystring.include? '.'
+        keystring.gsub!('.', '_')
+        key = keystring.to_sym
+        message = message.split(".")[0]
+      end
+
+      ret[key] = {
+        :title => record.class.human_attribute_name(key),
+        :message => message
+      }
+    end
+    ret
+  end
+
 end

@@ -33,6 +33,14 @@ class ApplicationController < ActionController::Base
     user_signed_in? && current_user.admin
   end
 
+  def redirect_to_back(default = root_path)
+    unless request.env["HTTP_REFERER"].blank? || request.env["HTTP_REFERER"].eql?(request.env["REQUEST_URI"])
+      redirect_to :back
+    else
+      redirect_to default
+    end
+  end
+
   # Error handling
   def not_found
     raise ActionController::RoutingError.new('Not Found')

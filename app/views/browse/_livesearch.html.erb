@@ -1,5 +1,5 @@
 <%= render :partial => "lhnav" %>
-<% unless @featured.nil? %>
+<% if params[:q].blank? && @featured %>
   <%= render :partial => "featured" %>
 <% end %>
-<%= render :partial => "pagewidgets/widget_list" %>
+<%= render :partial => "pagewidgets/widget_list", :locals => {:noresults => {:message => "No widgets were found."} } %>

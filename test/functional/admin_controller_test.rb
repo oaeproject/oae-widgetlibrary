@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class AdminControllerTest < ActionController::TestCase
-  test "verify that a user cannot view a rejected widget" do
+  test "should deny users view rights to rejected widgets" do
     request.env["devise.mapping"] = Devise.mappings[:user]
     submitter = FactoryGirl.create(:user)
     reviewer = FactoryGirl.create(:user, :reviewer => true)

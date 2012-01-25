@@ -48,7 +48,7 @@ class AdminController < ApplicationController
 
     if saved
       render :json => {"success" => true}.to_json
-      WidgetMailer.reviewed(version, widget).deliver
+      WidgetMailer.delay.reviewed(version, widget)
     else
       render :json => {"success" => false}.to_json
     end

@@ -1,6 +1,6 @@
 <% content_for :title do %> - Your Approved Widgets<% end %>
 
 <div id="mywidgets">
-    <%= render :partial => "pagewidgets/widget_list" %>
+    <%= render :partial => "pagewidgets/widget_list", :locals => {:noresults => {:message => "You don't have any approved widgets.", :icon => 'widget'}} %>
 </div>
 <hr class="wl-push wl-hidden"/>

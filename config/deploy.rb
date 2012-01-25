@@ -70,3 +70,7 @@ after "deploy:update_code", "deploy:db_symlink"
 after "deploy:symlink", "deploy:binstubs"
 after "deploy:binstubs", "deploy:recaptcha"
 after "deploy:recaptcha", "deploy:mailer_settings"
+
+before "deploy:restart", "delayed_job:restart"
+after "deploy:stop",  "delayed_job:stop"
+after "deploy:start", "delayed_job:start"
