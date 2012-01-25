@@ -20,11 +20,10 @@ SakaiWidgetlibrary::Application.routes.draw do
   match '/search' => 'application#search'
 
   # Browse
-  match '/browse' => 'browse#index', :as => :browse
-  match '/browse/:category_title' => 'browse#index', :as => :category
+  match '/browse(/:category_title)' => 'browse#index', :as => :browse
 
   # Widget Details
-  match '/widget/:title' => 'widget#show', :as => :widget
+  get   '/widget/:title' => 'widget#show', :as => :widget
   post  '/widget/:title/rate' => 'widget#rating_create', :as => :ratings
   put   '/widget/:title/rate' => 'widget#rating_update', :as => :ratings
 
@@ -77,8 +76,7 @@ SakaiWidgetlibrary::Application.routes.draw do
   match '/admin/users/admin' => 'admin#users', :as => :admin_admin_users
   match '/admin/options' => 'admin#options', :as => :admin_options
   match '/admin' => 'admin#widgets'
-  match '/admin/widgets' => 'admin#widgets', :as => :admin
-  match '/admin/widgets/:state' => 'admin#widgets', :as => :admin_state
+  match '/admin/widgets(/:state)' => 'admin#widgets', :as => :admin
   match '/admin/widgets/:review/:version_id' => 'admin#reviewed', :as => :admin_review_widget
 
   # Errors

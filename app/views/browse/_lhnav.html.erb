@@ -1,13 +1,12 @@
 <nav id="lhnavigation_container">
   <h1 class="wl-bold">Browse Widgets</h1>
   <ul>
-      <% query = params[:q].blank? ? "" : "?q=" + params[:q] %>
-      <li<% if !params[:category_title] %> class="selected wl-bold"<% end %>>
-        <div><%= link_to "All categories", "/browse#{query}" %></div>
+      <li<% if !params[:category_title] %> class="selected"<% end %>>
+        <div><%= link_to "All categories", "/browse" %></div>
       </li>
       <% @categories.each do |category| %>
-        <li<% if params[:category_title].eql? category.url_title %> class="selected wl-bold"<% end %>>
-          <div><%= link_to category.title, "/browse/#{category.url_title}#{query}"%></div>
+        <li<% if params[:category_title].eql? category.url_title %> class="selected"<% end %>>
+          <div><%= link_to category.title, "/browse/#{category.url_title}"%></div>
         </li>
       <% end %>
   </ul>

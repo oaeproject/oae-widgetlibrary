@@ -6,7 +6,7 @@
         <div><%= link_to "Widgets to review", admin_path %></div>
       </li>
       <li<% if params[:state] %> class="selected wl-bold"<% end %>>
-        <div><%= link_to "Declined widgets", admin_state_path(State.declined) %></div>
+        <div><%= link_to "Declined widgets", admin_path(:state => State.declined) %></div>
       </li>
   </ul>
   <% elsif params[:action].eql?"users" %>

@@ -1,17 +1,23 @@
-<% has_screenshots = @widget.screenshots.size > 0 %>
+<%
+has_screenshots = @widget.screenshots.size > 0
+selected = "screenshots"
+if !has_screenshots || params[:show].eql?("reviews")
+  selected = "reviews"
+elsif params[:show].eql?("versions")
+  selected = "versions"
+end
+%>
 <div id="widgetdetails_container">
     <div class="wl-inpage-tabs">
       <% if has_screenshots %>
-      <div class="wl-inpage-tab selected" id="screenshots">Screenshots</div>
-      <div class="wl-inpage-tab" id="reviews">Reviews</div>
-      <div class="wl-inpage-tab" id="versions">Uploaded versions</div>
-      <% else %>
-      <div class="wl-inpage-tab selected" id="reviews">Reviews</div>
-      <div class="wl-inpage-tab" id="versions">Uploaded versions</div>
+        <div class="wl-inpage-tab<% if selected.eql?("screenshots") %> selected<% end %>" id="screenshots">Screenshots</div>
       <% end %>
+      <div class="wl-inpage-tab<% if selected.eql?("reviews") %> selected<% end %>" id="reviews">Reviews</div>
+      <div class="wl-inpage-tab<% if selected.eql?("versions") %> selected<% end %>" id="versions">Uploaded versions</div>
     </div>
     <div class="wl-inpage-tab-content">
-        <div id="widgetdetails_screenshots" class="widgetdetails_tabcontent_content"<% if !has_screenshots %>style="display:none"<% end %>>
+      <% if has_screenshots %>
+        <div id="widgetdetails_screenshots" class="widgetdetails_tabcontent_content<%= if selected.eql?("screenshots") then " selected" end %>"<% unless selected.eql?("screenshots") %> style="display:none"<% end %>>
             <div id="widgetdetails_newestreviews">
                 <% if @widget.ratings.size > 0 %>
                 <h1>Latest reviews</h1>
@@ -19,7 +25,7 @@
                 <hr class="wl-push wl-hidden"/>
                 <% end %>
                 <% if user_signed_in? && current_user.id != @widget.user.id %>
-                  <button class="wl-button wl-header-button" id="write_review">Write a review</a>
+                  <button class="wl-button wl-header-button" id="write_review">Write a review</button>
                 <% end %>
             </div>
 
@@ -27,9 +33,9 @@
               <%= render :partial => "screenshots" %>
             </div>
         </div>
-
-        <div id="widgetdetails_reviews" class="widgetdetails_tabcontent_content" <% if has_screenshots %>style="display:none;"<% end %>>
-            <% if user_signed_in? && current_user.id != @widget.user.id #Only allow logged in users to review %>
+      <% end %>
+        <div id="widgetdetails_reviews" class="widgetdetails_tabcontent_content<%= if selected.eql?("reviews") then " selected" end %>"<% unless selected.eql?("reviews") %> style="display:none;"<% end %>>
+            <% if user_signed_in? && current_user.id != @widget.user.id %>
                 <%= form_for(@rating, :url => "/widget/#{@widget.url_title}/rate", :html => { :class => "wl-form-field-wrapper" }, :remote => true) do |f| %>
                 <div id="widgetdetails_reviews_review_widget">
                     <h1>Review this widget</h1>
@@ -49,7 +55,7 @@
             </div>
         </div>
 
-        <div id="widgetdetails_versions" class="widgetdetails_tabcontent_content" style="display:none;">
+        <div id="widgetdetails_versions" class="widgetdetails_tabcontent_content<%= if selected.eql?("versions") then " selected" end %>"<% unless selected.eql?("versions") %> style="display:none;"<% end %>>
             <h1>Versions</h1>
             <hr class="wl-split-line" id="widgetdetails_uploadedversions_headerline"/>
             <% @versions.each do |version| %>

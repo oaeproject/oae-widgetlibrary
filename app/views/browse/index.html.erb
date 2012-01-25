@@ -1,10 +1,9 @@
 <% content_for :title do %> - Browse<%= if @cat then " - #{@cat.title}" end %><% end %>
 <div id="browse">
     <%= render :partial => "searchbox" %>
-  <% if params[:q].blank? && @featured %>
-    <%= render :partial => "featured" %>
-  <% end %>
-    <%= render :partial => "pagewidgets/widget_list", :locals => {:noresults => {:message => "No widgets were found."} } %>
-
+    <div id="browse_results">
+      <%= render :partial => "livesearch" %>
+    </div>
     <hr class="wl-push wl-hidden"/>
 </div>
+<div id="browse_overlay"></div>
