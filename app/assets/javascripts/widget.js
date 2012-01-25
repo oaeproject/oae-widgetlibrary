@@ -29,12 +29,12 @@ $(function() {
 
 
     $(window).on('statechange', function() {
-        var State = History.getState();
-        var tab = State.data.tab;
+        var state = History.getState();
+        var tab = state.data.tab;
         if (!tab) {
             tab = DEFAULT_TAB;
         }
-        selectTab(tab, State.data.scroll);
+        selectTab(tab, state.data.scroll);
     });
 
     var selectTab = function(which, scroll) {
@@ -55,18 +55,18 @@ $(function() {
         $this.find(wl_rating_current).css({
             width: (currentrating * 20) + '%'
         });
-        return false;
     };
 
     var changeScreenshot = function() {
+        var $this = $(this);
         $(widgetdetails_main_screenshot).attr(
-            'src', $(this).attr('data-large-src')
+            'src', $this.attr('data-large-src')
         );
 
         $(widgetdetails_screenshots_thumb_image + '.selected')
             .removeClass('selected');
 
-        $(this).addClass('selected');
+        $this.addClass('selected');
         return false;
     };
 
@@ -84,9 +84,8 @@ $(function() {
     };
 
     var addBinding = function() {
-        $('.show').on(
+        $(widgetdetailsTabs + ', ' + widget_details_rating_link).on(
             'click',
-            widgetdetailsTabs + ', ' + widget_details_rating_link,
             handleTabClick);
 
         $(widgetdetails_screenshots_thumbs).on(
