@@ -13,3 +13,4 @@ test_can_be_deleted/
 .sass-cache/
 .DS_Store
 config/initializers/mailer_settings.rb
+coverage/
