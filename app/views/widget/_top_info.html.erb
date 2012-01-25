@@ -51,7 +51,7 @@
           <li><span>Categories:</span>
             <ul>
               <% @widget.categories.each do |category| %>
-                <li><%= link_to category.title, category_path({:category_title => category.url_title}), :class => "wl-regular-link" %></li>
+                <li><%= link_to category.title, browse_path({:category_title => category.url_title}), :class => "wl-regular-link" %></li>
               <% end %>
             </ul>
           </li>
