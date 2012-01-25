@@ -5,9 +5,9 @@ class Version < ActiveRecord::Base
 
   has_attached_file :icon,
   :styles => {
-    :thumb => ["50x50!", :png],
-    :medium => ["100x100!", :png],
-    :large => ["800x800", :png]
+    :smaller => ["40x40#", :png],
+    :thumb => ["50x50#", :png],
+    :medium => ["100x100#", :png]
   },
   :whiny => false
 
