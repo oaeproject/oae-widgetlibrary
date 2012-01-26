@@ -6,6 +6,7 @@
 //= require history.js/history.html4.js
 //= require history.js/json2.js
 //= require jquery.remotipart
+//= require jquery.autoellipsis
 //= require modernizr
 //= require jqmodal
 //= require_self
@@ -37,6 +38,9 @@ $(function() {
         reset_errors: function() {
             $("span." + WL.wlError).hide();
             $("." + WL.wlError + ":not(span)").removeClass(WL.wlError);
+        },
+        ellipsisize: function() {
+            $(".wl-widget-ellipsis").ellipsis().parent().css({"visibility": "visible"});
         }
     };
 
@@ -45,6 +49,14 @@ $(function() {
         $parentElement.text($parentElement.attr("data-completetext"));
     };
 
-    $("body").on( "click", ".review_read_more", readmore );
+    var addBindings = function() {
+        $("body").on( "click", ".review_read_more", readmore );
+    };
+
+    var init = function() {
+        addBindings();
+        WL.ellipsisize();
+    };
+    init();
 
 });
