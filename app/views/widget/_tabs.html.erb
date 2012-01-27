@@ -25,7 +25,7 @@ end
                 <hr class="wl-push wl-hidden"/>
                 <% end %>
                 <% if user_signed_in? && current_user.id != @widget.user.id %>
-                  <button class="wl-button wl-header-button" id="write_review">Write a review</button>
+                  <%= link_to "Write a review", widget_path(:title => @widget.url_title) + "?show=reviews", :id => "write_review", :class => "wl-button wl-header-button wl-link-button" %>
                 <% end %>
             </div>
 
