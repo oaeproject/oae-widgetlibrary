@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   def search
     @searchresults = Widget.includes(:versions).where("widgets.active = ? AND versions.title LIKE '%#{params[:q]}%'", true).order("versions.created_at DESC")
-    render :partial => 'core/searchresults'
+    render :partial => 'core/searchresult_list'
   end
 
   $version_sorts = ["title"]
