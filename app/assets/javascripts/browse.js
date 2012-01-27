@@ -45,6 +45,7 @@ $(function() {
                     if (isCurrentSearch && isCurrentPage) {
                         $browseOverlay.hide();
                         $browseResults.html(data);
+                        WL.ellipsisize();
                     }
                 }
             });

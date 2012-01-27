@@ -1,5 +1,5 @@
 <div id="widgetlibrary_recentlyadded" class="wl-inset-shadow-container wl-content-145">
     <h1>Recently Added</h1>
-    <%= render :partial => "core/widget", :locals => {:display => {:added => true, :icon_size => "smaller"}}, :collection => @recentlyadded %>
+    <%= render :partial => "core/widget", :locals => {:display => {:added => true, :icon_size => "smaller", :ellipsis => 1}}, :collection => @recentlyadded %>
     <hr class="wl-push wl-hidden">
 </div>
