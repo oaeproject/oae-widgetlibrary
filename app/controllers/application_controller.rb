@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   WillPaginate.per_page = 16
 
-  helper_method :is_admin?, :can_view_admin_area?
+  helper_method :is_admin?, :can_view_admin_area?, :is_numeric?
 
   def search
     @searchresults = Widget.includes(:versions).where("widgets.active = ? AND versions.title LIKE '%#{params[:q]}%'", true).order("versions.created_at DESC")
@@ -31,6 +31,17 @@ class ApplicationController < ActionController::Base
 
   def is_admin?
     user_signed_in? && current_user.admin
+  end
+
+  # http://rosettacode.org/wiki/Determine_if_a_string_is_numeric#Ruby
+  def is_numeric?(s)
+    begin
+      Float(s)
+    rescue
+      false # not numeric
+    else
+      true # numeric
+    end
   end
 
   def redirect_to_back(default = root_path)

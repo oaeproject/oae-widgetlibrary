@@ -1,7 +1,12 @@
 <div class="wl-widget-item">
-    <%= link_to image_tag(widget.icon, :class => "wl-widget-item-icon"), widget_path({:title => widget.url_title}) %>
 
     <% if !display.blank? %>
+
+        <% if display[:icon_size] && display[:icon_size].eql?("smaller")  %>
+          <%= link_to image_tag(widget.icon.url(:smaller), :class => "wl-widget-item-icon"), widget_path({:title => widget.url_title}) %>
+        <% else %>
+          <%= link_to image_tag(widget.icon.url(:thumb), :class => "wl-widget-item-icon"), widget_path({:title => widget.url_title}) %>
+        <% end %>
 
         <% if display[:status] %>
             <div class="widget_review_status widget_<%= widget.state.title.downcase %>"></div>

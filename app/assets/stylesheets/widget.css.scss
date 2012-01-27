@@ -34,6 +34,9 @@
   width: 120px;
   text-align: center;
   float: left;
+  img {
+    width:100px;
+    height:100px; }
   .wl-header-button {
     margin-right: 0;
     margin-top: 15px;
@@ -154,14 +157,20 @@
     margin-top: 20px;
     #widgetdetails_screenshot_container {
       float: left; }
+    #widgetdetails_screenshot_active {
+      height: 358px;
+      width: 538px;
+      float:left; }
     #widgetdetails_main_screenshot {
-      border: 1px solid #BEBDBD;
-      height: 298px;
-      width: 538px; }
+      border: 1px solid #BEBDBD; }
     #widgetdetails_screenshots_thumbs {
+      float:left;
       clear: both;
       display: block;
       margin-top: 5px;
+      padding-top: 10px;
+      width:100%;
+      border-top: 1px solid #BEBDBD;
       img {
         width: 98px;
         height: 48px;

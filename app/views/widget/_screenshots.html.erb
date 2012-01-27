@@ -1,5 +1,7 @@
 <% if @widget.screenshots.size > 0 %>
-  <%= image_tag @widget.screenshots[0].image.url(:medium), :alt => "#{@widget.title} Screenshot", :id => "widgetdetails_main_screenshot" %>
+  <div id="widgetdetails_screenshot_active">
+    <%= image_tag @widget.screenshots[0].image.url(:medium), :alt => "#{@widget.title} Screenshot", :id => "widgetdetails_main_screenshot" %>
+  </div>
   <div id="widgetdetails_screenshots_thumbs">
     <% @widget.screenshots.each_index do |i| %>
       <div class="widgetdetails_screenshots_thumb">

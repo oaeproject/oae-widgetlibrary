@@ -2,6 +2,8 @@
 
 .browse {
   /* Library */
+  .wl-content-right-container {
+    overflow:hidden; }
   .wl-content-container {
     background: image-url("library_bg.png") repeat-x scroll center top transparent;
     padding-top: 0; }
@@ -58,3 +60,12 @@
     border-bottom: 1px solid #fefefe;
     margin: 15px 10px 30px;
   } }
+
+#browse_overlay {
+  display:none;
+  position:absolute;
+  height:100%;
+  width:100%;
+  top:60px;
+  background-color:#fff;
+  opacity: 0.4; }

@@ -68,6 +68,12 @@
   .submit_details_column2 {
     div {
       clear: both; } }
+  .register_column1 {
+    input[type="file"] {
+      margin-bottom:0px;
+    }
+    em label {
+      margin-bottom:20px; } }
   .register_column3 {
     div {
       width: auto; }

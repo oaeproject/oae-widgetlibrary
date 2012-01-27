@@ -1,79 +1,103 @@
 $(function() {
 
-    var screenshotTab = "#screenshots";
-    var reviewsTab = "#reviews";
-    var versionsTab = "#versions";
-    var write_review = "#write_review";
-    var widgetdetails = "#widgetdetails_";
-    var widgetdetailsTabContentContent = ".widgetdetails_tabcontent_content";
-    var widgetdetailsTabs = "#widgetdetails_container .wl-inpage-tab";
-    var widgetdetails_main_screenshot = "#widgetdetails_main_screenshot";
-    var widgetdetails_screenshots_thumbs = "#widgetdetails_screenshots_thumbs";
-    var widgetdetails_screenshots_thumb_image = ".widgetdetails_screenshots_thumb img";
-    var widgetdetailsReviewsReviewWidget = "#widgetdetails_reviews_review_widget";
-    var widget_details_rating_link = "#widget_details .wl-rating-container a";
+    var DEFAULT_TAB = $("#widgetdetails_screenshots").length ?
+                        'screenshots' : 'reviews';
 
-    var wl_rating_container = ".wl-rating-container";
-    var wl_rating_icon = ".wl-rating-icon";
-    var wl_rating_input = ".wl-rating-input";
-    var wl_rating_current = ".wl-rating-current";
+    var History = window.History;
 
-    var selectTabs = function( clickedTab ) {
-        $( widgetdetailsTabs ).removeClass( "selected" );
-        $( clickedTab ).addClass( "selected" );
-    };
+    var screenshotTab = '#screenshots';
+    var reviewsTab = '#reviews';
+    var versionsTab = '#versions';
+    var write_review = '#write_review';
+    var widgetdetails = '#widgetdetails_';
+    var widgetdetailsTabContentContent = '.widgetdetails_tabcontent_content';
+    var widgetdetailsTabs = '#widgetdetails_container .wl-inpage-tab';
+    var widgetdetails_main_screenshot = '#widgetdetails_main_screenshot';
+    var widgetdetails_screenshots_thumbs = '#widgetdetails_screenshots_thumbs';
+    var widgetdetails_screenshots_thumb_image =
+        '.widgetdetails_screenshots_thumb img';
 
-    var switchTabs = function( context ) {
-        $( widgetdetailsTabContentContent ).hide();
-        $( widgetdetails + context ).show();
-    };
+    var widgetdetailsReviewsReviewWidget =
+        '#widgetdetails_reviews_review_widget';
 
-    var checkHash = function() {
-        var hash = window.location.hash;
-        if( hash ){
-          $( hash ).trigger( "click" );
+    var widget_details_rating_link = '#widget_details .wl-rating-container a';
+
+    var wl_rating_container = '.wl-rating-container';
+    var wl_rating_icon = '.wl-rating-icon';
+    var wl_rating_input = '.wl-rating-input';
+    var wl_rating_current = '.wl-rating-current';
+
+
+    $(window).on('statechange', function() {
+        var state = History.getState();
+        var tab = state.data.tab;
+        if (!tab) {
+            tab = DEFAULT_TAB;
+        }
+        selectTab(tab, state.data.scroll);
+    });
+
+    var selectTab = function(which, scroll) {
+        $(widgetdetailsTabs).removeClass('selected');
+        $('#' + which).addClass('selected');
+        $(widgetdetailsTabContentContent).hide();
+        $(widgetdetails + which).show();
+        if (scroll) {
+            $('html').scrollTop($('#' + which).offset().top);
         }
     };
 
+    var handleRatingClick = function(e) {
+        e.preventDefault();
+        var currentrating = $(e.target).attr('data-rating');
+        var $this = $(this);
+        $(wl_rating_input, widgetdetailsReviewsReviewWidget).val(currentrating);
+        $this.find(wl_rating_current).css({
+            width: (currentrating * 20) + '%'
+        });
+    };
+
+    var changeScreenshot = function() {
+        var $this = $(this);
+        $(widgetdetails_main_screenshot).attr(
+            'src', $this.attr('data-large-src')
+        );
+
+        $(widgetdetails_screenshots_thumb_image + '.selected')
+            .removeClass('selected');
+
+        $this.addClass('selected');
+        return false;
+    };
+
+    var handleTabClick = function() {
+        var state = {
+            tab: $(this).attr('id')
+        };
+        // the reviews link doesn't have an id
+        if (!state.tab) {
+            state.tab = 'reviews';
+            state.scroll = true;
+        }
+        History.pushState(state, document.title, '?show=' + state.tab);
+        return false;
+    };
+
     var addBinding = function() {
-        $( screenshotTab ).live( "click", function() {
-            selectTabs( this );
-            switchTabs( "screenshots" );
-        });
-        $( reviewsTab  + ", " + write_review ).live( "click", function() {
-            selectTabs( reviewsTab );
-            switchTabs( "reviews" );
-        });
-        $( versionsTab ).live( "click", function() {
-            selectTabs( this );
-            switchTabs( "versions" );
-        });
-        $( widgetdetails_screenshots_thumbs).on( "click", widgetdetails_screenshots_thumb_image + ":not(.selected)", function() {
-            $( widgetdetails_main_screenshot ).attr( "src", $( this ).attr( "data-large-src" ));
-            $( widgetdetails_screenshots_thumb_image + ".selected" ).removeClass( "selected" );
-            $( this ).addClass( "selected" );
-        });
+        $(widgetdetailsTabs + ', ' + widget_details_rating_link).on(
+            'click',
+            handleTabClick);
 
-        $( widget_details_rating_link ).on( "click", function(){
-            selectTabs( reviewsTab );
-            switchTabs( "reviews" );
-        });
+        $(widgetdetails_screenshots_thumbs).on(
+            'click',
+            widgetdetails_screenshots_thumb_image + ':not(.selected)',
+            changeScreenshot);
 
-        // Rating
-        $( wl_rating_container ).on( "click", wl_rating_icon, function( e ) {
-            e.preventDefault();
-            var currentrating = $( e.target ).attr( "data-rating" );
-            var $this = $( this );
-            $( wl_rating_input, widgetdetailsReviewsReviewWidget ).val( currentrating );
-            $this.find( wl_rating_current ).css({
-                width: ( currentrating * 20 ) + "%"
-            });
-        });
+        $(wl_rating_container).on('click', wl_rating_icon, handleRatingClick);
     };
 
     var doInit = function() {
         addBinding();
-        checkHash();
     };
 
     doInit();
