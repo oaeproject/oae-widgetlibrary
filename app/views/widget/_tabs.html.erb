@@ -21,7 +21,7 @@ end
             <div id="widgetdetails_newestreviews">
                 <% if @widget.ratings.size > 0 %>
                 <h1>Latest reviews</h1>
-                <%= render :partial => "core/review", :locals => { :display => { :rate_widget => true } }, :collection => @widget.ratings.limit(3) %>
+                <%= render :partial => "core/review_list", :locals => { :ratings => @widget.ratings.limit(3) } %>
                 <hr class="wl-push wl-hidden"/>
                 <% end %>
                 <% if user_signed_in? && current_user.id != @widget.user.id %>
@@ -35,23 +35,27 @@ end
         </div>
       <% end %>
         <div id="widgetdetails_reviews" class="widgetdetails_tabcontent_content<%= if selected.eql?("reviews") then " selected" end %>"<% unless selected.eql?("reviews") %> style="display:none;"<% end %>>
-            <% if user_signed_in? && current_user.id != @widget.user.id %>
-                <%= form_for(@rating, :url => "/widget/#{@widget.url_title}/rate", :html => { :class => "wl-form-field-wrapper" }, :remote => true) do |f| %>
-                <div id="widgetdetails_reviews_review_widget">
-                    <h1>Review this widget</h1>
-                    <span id="rating_review_error" class="wl-error" style="display:none"></span>
-                    <%= f.text_area :review, :placeholder => "Write a review" %>
-                    <%= f.hidden_field :widget_id, :value => @widget.id %>
-                    <%= f.hidden_field :user_id, :value => @rating.user_id || current_user.id %>
-                    <%= f.hidden_field :stars , :value => @rating.stars.to_i, :class => 'wl-rating-input' %>
-                    <span id="rating_stars_error" class="wl-error" style="display:none"></span>
-                    <%= render :partial => "pagewidgets/rating", :locals => { :display => { :rate_widget => true }, :stars => @rating.stars, :num_ratings => @widget.ratings.size } %>
-                    <%= f.submit "Post review", :class => "wl-button wl-header-button" %>
-                </div>
-                <% end %>
-            <% end %>
+            <div id="widgetdetails_reviews_review_widget">
+                <h1>Review this widget</h1>
+                    <% if user_signed_in? && current_user.id != @widget.user.id %>
+                        <%= form_for(@rating, :url => "/widget/#{@widget.url_title}/rate", :html => { :class => "wl-form-field-wrapper" }, :remote => true) do |f| %>
+                            <span id="rating_review_error" class="wl-error" style="display:none"></span>
+                            <%= f.text_area :review, :placeholder => "Write a review" %>
+                            <%= f.hidden_field :widget_id, :value => @widget.id %>
+                            <%= f.hidden_field :user_id, :value => @rating.user_id || current_user.id %>
+                            <%= f.hidden_field :stars , :value => @rating.stars.to_i, :class => 'wl-rating-input' %>
+                            <span id="rating_stars_error" class="wl-error" style="display:none"></span>
+                            <%= render :partial => "pagewidgets/rating", :locals => { :display => { :rate_widget => true }, :stars => @rating.stars, :num_ratings => @widget.ratings.size } %>
+                            <%= f.submit "Post review", :class => "wl-button wl-header-button" %>
+                        <% end %>
+                    <% elsif !user_signed_in? %>
+                        <p>Please sign in or <%= link_to "create an account", user_registration_path, :class => "wl-regular-link" %> to post a review.</p>
+                    <% else %>
+                        <p>You can't review your own widget.</p>
+                    <% end %>
+            </div>
             <div id="widgetdetails_reviews_all">
-                <%= render :partial => "core/review", :locals => { :display => { :rate_widget => true } }, :collection => @widget.ratings %>
+                <%= render :partial => "core/review_list", :locals => { :ratings => @widget.ratings } %>
             </div>
         </div>
 
