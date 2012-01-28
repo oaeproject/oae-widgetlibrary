@@ -13,6 +13,12 @@
     border-left: 1px solid #c4c4c4;
     @include box-shadow($h-shadow: -4px, $v-shadow: 4px, $blur: 7px, $spread: -4px, $color: #888888, $outerinner: "");
     position: relative; }
+  #widget_list_container {
+    .wl-widget-item {
+      position: relative;
+      .wl-rating-container {
+        position: absolute;
+        bottom: 10px; } } }
   .wl-widget-item .wl-rating-container {
     clear: both; }
   .wl-widget-item {

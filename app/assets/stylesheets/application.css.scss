@@ -36,6 +36,9 @@ h5 {
   font-size: 12px;
   margin: 10px 0 7px; }
 
+img {
+  border: none; }
+
 .wl-bold {
   font-weight: bold; }
 
@@ -360,10 +363,15 @@ option {
 
 .wl-widget-item {
   width: 148px;
-  height: 78px;
-  a.wl-widget-item_widgetname {
-    display: block;
-    word-wrap: break-word; }
+  height: 78px; }
+.wl-widget-ellipsis-container {
+  visibility: hidden;
+  .wl-widget-ellipsis {
+    overflow: hidden; }
+  .wl-widget-ellipsis-1 {
+    max-height: 14px; }
+  .wl-widget-ellipsis-2 {
+    max-height: 27px; }
   .wl-widget-item-icon {
     height: 50px;
     width: 50px;
