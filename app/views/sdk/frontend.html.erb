@@ -181,15 +181,15 @@ e.g. return '4.5 MB';",
         <a name="draggable"><h2>Draggable</h2></a>
         <a name="setupdraggable"><h3>setupDraggable</h3></a>
         <%= render :partial => "sdk/apifunction", :locals => {:display => {
-            :function => "sakai.api.Draggable.setupDraggable(params, $container)",
-            :description => "Sets up draggables accross the page or given container",
+            :function => "sakai.api.Util.Draggable.setupDraggable(params, $container)",
+            :description => "Sets up draggables across the page or given container",
             :parameters => "<strong>params</strong> {Object}     // Optional parameters that override defaults
 <strong>$container</strong> {Object} // container element to add draggables, defaults to 
                     // $(\"html\") if not set",
             :callback => "None",
             :example => "sakai.api.Util.Draggable.setupDraggable({
-    \"helper\": \"clone\",
-    \"cursor\": \"hand\"
+    helper: \"clone\",
+    cursor: \"hand\"
 }, $(\"#container_to_apply_to\"));
 
 
@@ -202,22 +202,99 @@ e.g. return '4.5 MB';",
             ...
         &lt;/li&gt;
     &lt;/ul&gt;
-&lt;/div&gt;</pre>
-
-"
-            }
+&lt;/div&gt;</pre>"}
         } %>
 
         <a name="droppable"><h2>Droppable</h2></a>
         <a name="setupdroppable"><h3>setupDroppable</h3></a>
-        <p></p>
+        <%= render :partial => "sdk/apifunction", :locals => {:display => {
+            :function => "sakai.api.Util.Droppable.setupDroppable(params, $container)",
+            :description => "Sets up containers that allow dropping of elements on them across the page or given container",
+            :parameters => "<strong>params</strong> {Object}     // Optional parameters that override defaults
+<strong>$container</strong> {Object} // container element to add droppable containers, defaults to 
+                    // $(\"html\") if not set",
+            :callback => "None",
+            :example => "sakai.api.Util.Droppable.setupDroppable({
+    tolerance: \"touch\",
+    hoverClass: \"custom_class\"
+}, $(\"#container_to_apply_to\"));
+
+
+// Setting parameters can also be achieved through the data object in HTML.
+// This HTML is automatically picked up by the API on render of the page
+// but can not be applied to templates rendered after initial page load.
+<pre id=\"html\" class=\"prettyprint\">&lt;div id=\"container_to_apply_to\"&gt;
+    &lt;div class=\"s3d-droppable-container\" data-tolerance=\"touch\" data-hoverClass=\"custom_class\"&gt;
+        ...
+    &lt;/div&gt;
+&lt;/div&gt;</pre>"}
+        } %>
 
         <a name="formattags"><h2>formatTags</h2></a>
-        <p></p>
+        <%= render :partial => "sdk/apifunction", :locals => {:display => {
+            :function => "sakai.api.Util.formatTags(inputTags)",
+            :description => "Formats a comma separated string of text to an array of usable tags, filters out unwanted tags (e.g. empty tags), returns the array of tags and if no tags were provided or none were valid an empty array is returned",
+            :parameters => "<strong>inputTags</strong> {Object}     // Unformated, comma separated, string of tags put in
+                       // by a user",
+            :callback => "tags {Array} // Array of formatted tags
+
+e.g. return [\"Physics\", \"Advanced Mathematics 101\", \"Biology 201\";",
+            :example => "var inputTags = $(\"#metadata_tag_input_field\").val();
+
+debug.log(inputTags);
+// \"  Physics   ,   , ,  Advanced Mathematics 101, , Biology 201  \"
+
+var formattedTags = sakai.api.Util.formatTags(inputTags);
+
+debug.log(formattedTags);
+ // [\"Physics\", \"Advanced Mathematics 101\", \"Biology 201\"]"}
+        } %>
 
         <a name="forms"><h2>Forms</h2></a>
         <a name="validate"><h3>validate</h3></a>
-        <p></p>
+        <%= render :partial => "sdk/apifunction", :locals => {:display => {
+            :function => "sakai.api.Util.formatTags(inputTags)",
+            :description => "A wrapper for jquery.validate with a custom Sakai OAE styling.",
+            :parameters => "<strong>$form</strong> {Object} // $form the jQuery element of the form in question
+<strong>opts</strong> {Object}  // options to pass through to jquery.validate
+               // NOTE: There is one additional option you can pass in
+               // an error callback function
+               // When there is an error in validation detected, it will be called
+<strong>insertAfterLabel</strong> {Boolean} // Insert the error span after the label, not before",
+            :callback => "None",
+            :example => "var validateOpts = {
+    rules: {
+        password: {
+            minlength: 4
+        },
+        password_repeat: {
+            equalTo: \"#password\"
+        },
+        username: {
+            minlength: 3,
+            nospaces: true,
+            validusername: true
+        }
+    },
+    messages: {
+        username: {
+            required: $(\"#username_empty\").text(),
+            minlength: $(\"#username_short\").text(),
+            nospaces: $(\"#username_spaces\").text()
+        },
+        password: {
+            required: $(\"#password_empty\").text(),
+            minlength: $(\"#password_short\").text()
+        }
+    },
+    submitHandler: function(form, validator){
+        doLogin();
+        return false;
+    }
+};
+
+sakai.api.Util.Forms.validate($(\"#create_account_form\"), validateOpts, true);"}
+        } %>
 
         <a name="hideonclickout"><h2>hideOnClickOut</h2></a>
         <p></p>
