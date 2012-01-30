@@ -5,16 +5,17 @@
 
     <%= image_tag "developer_helloworld_example.png", :alt => "My Hello World" %>
 
+    <p>The My Hello World widget is identical to the Hello World widget (except the name and ID of the widget) included in the 3akai-UX code distribution at 3akai-ux/devwidgets/helloworld. For the purposes of this tutorial we are using My Hello World (and corresponding myhelloworld ID) so you can create a new widget while referencing the provided Hello World widget if necessary.</p>
+
+    <h1>Step 1: <b>Development environment setup</b></h1>
     <p>Make sure your development environment is set up so you can create the My Hello World widget and run it within Sakai OAE on your machine:</p>
 
     <ul class="inline_list">
-        <li><%= link_to "Quick set up", "/sdk/developwidget/quickdevsetup", :class => "wl-regular-link wl-bold" %> if you have Java and git installed.</li>
-        <li><%= link_to "Full set up", "/sdk/developwidget/fulldevsetup", :class => "wl-regular-link wl-bold" %> if you don't have any of these tools installed.</li>
+        <li><%= link_to "Quick setup", "/sdk/developwidget/quickdevsetup", :class => "wl-regular-link wl-bold" %> if you have Java and git installed.</li>
+        <li><%= link_to "Full setup", "/sdk/developwidget/fulldevsetup", :class => "wl-regular-link wl-bold" %> if you don't have any of these tools installed.</li>
     </ul>
 
-    <p>The My Hello World widget is identical to the Hello World widget (except the name and ID of the widget) included in the 3akai-UX code distribution at 3akai-ux/devwidgets/helloworld. For the purposes of this tutorial we are using My Hello World (and corresponding myhelloworld ID) so you can create a new widget while referencing the provided Hello World widget if necessary.</p>
-
-    <h1>Step 1: <b>Set up the widget file structure</b></h1>
+    <h1>Step 2: <b>Set up the widget file structure</b></h1>
     <p>You can generate the widget file &amp; folder structure with the <%= link_to "widget template builder", "/sdk/developwidget/widgetbuilder", :class => "wl-regular-link wl-bold" %>. If you don't want to, follow the steps below. Either way, you should follow the widget file structure pattern so your widgets function properly.</p>
     <ul class="inline_list">
         <li>Create a <b><i>myhelloworld directory</i></b> within the 3akai-ux/devwidgets directory.</li>
@@ -67,7 +68,7 @@
         </li>
     </ul>
 
-    <h1>Step 2: <b>Configure the widget</b></h1>
+    <h1>Step 3: <b>Configure the widget</b></h1>
     <p>To let Sakai OAE know about our new widget, we need to set certain configuration parameters.</p>
     <p>This is done by editing the widget's <i>config.json</i> file that the Sakai OAE frontend code reads to know which widgets are available (you can see all registered Sakai OAE widgets at http://localhost:8080/var/widgets.json). All widgets must have a <i>config.json</i> file.</p>
     <p>Here is the <i>config.json</i> you will need for My Hello World (minus the comments from the template file for brevity):</p>
@@ -79,8 +80,8 @@
 <span class="grey">{</span>
     <span>"enabled":                <span class="blue">true,</span>
     <span>"groupdashboard":         <span class="blue">false,</span>
-    <span>"grouppages":             <span class="grey">false,</span>
-    <span>"hasSettings":            <span class="grey">true,</span>
+    <span>"grouppages":             <span class="blue">false,</span>
+    <span>"hasSettings":            <span class="blue">true,</span>
     <span>"i18n": <span class="grey">{</span></span>
         <span>default": <span class="grey">{</span></span>
             <span>"bundle":         "/devwidgets/myhelloworld/bundles/default.properties",</span>
@@ -119,4 +120,9 @@
         <li><b>userdashboard</b> - true | false: sets whether or not this widget can be placed in a user's dashboard pages</li>
         <li><b>userpages</b> - true | false: sets whether or not this widget can be placed in a user's standard pages (showinsakaigoodies must also be enabled to access this widget from the page editor)</li>
     </ul>
+
+    <h1>Step 4: <b>What's next?</b></h1>
+
+    <p>It's always a good idea to look at the <%= link_to "coding standards", "/sdk/developwidget/codingstandards", :class => "wl-regular-link wl-bold" %> we use for Sakai OAE development.</p>
+    <p>When you make your own widget and want to show it to the world, feel free to <%= link_to "submit it", new_version_path, :class => "wl-regular-link wl-bold" %>.</p>
 </div>
