@@ -43,31 +43,7 @@ SakaiWidgetlibrary::Application.routes.draw do
 
   # SDK
   match '/sdk' => 'sdk#index', :as => :sdk
-  match '/sdk/developwidget' => 'sdk#developwidget'
-  match '/sdk/developwidget/learnbasics' => 'sdk#learnbasics'
-  match '/sdk/developwidget/codingstandards' => 'sdk#codingstandards'
-  match '/sdk/developwidget/quickdevsetup' => 'sdk#quickdevsetup'
-  match '/sdk/developwidget/fulldevsetup' => 'sdk#fulldevsetup'
-  match '/sdk/developwidget/widgetbuilder' => 'sdk#widgetbuilder'
-  match '/sdk/examples' => 'sdk#examples'
-  match '/sdk/examples/worlddashboard' => 'sdk#worlddashboard'
-  match '/sdk/examples/pagewidget' => 'sdk#pagewidget'
-  match '/sdk/widgetdesignandstyle' => 'sdk#widgetdesignandstyle'
-  match '/sdk/widgetdesignandstyle/cssguide' => 'sdk#cssguide'
-  match '/sdk/widgetdesignandstyle/reusablecss' => 'sdk#reusablecss'
-  match '/sdk/widgetdesignandstyle/typography' => 'sdk#typography'
-  match '/sdk/widgetdesignandstyle/colorpalette' => 'sdk#colorpalette'
-  match '/sdk/widgetdesignandstyle/widgetexamples01' => 'sdk#widgetexamples01'
-  match '/sdk/widgetdesignandstyle/widgetexamples02' => 'sdk#widgetexamples02'
-  match '/sdk/widgetdesignandstyle/forms' => 'sdk#forms'
-  match '/sdk/widgetdesignandstyle/navigationalitems' => 'sdk#navigationalitems'
-  match '/sdk/widgetdesignandstyle/iconography' => 'sdk#iconography'
-  match '/sdk/widgetdesignandstyle/interactionmodels' => 'sdk#interactionmodels'
-  match '/sdk/services/frontend' => 'sdk#frontend'
-  match '/sdk/services/backend' => 'sdk#backend'
-  match '/sdk/services/thirdparty' => 'sdk#thirdparty'
-  match '/sdk/faq' => 'sdk#faq'
-  match '/sdk/help' => 'sdk#help'
+  match '/sdk/*section' => 'sdk#sdk_section'
   match '/zippedwidget' => 'widget_generator#zippedwidget'
 
 
