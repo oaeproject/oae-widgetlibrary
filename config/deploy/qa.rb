@@ -8,11 +8,7 @@ set :bundle_without, [:development, :test]
 
 namespace :deploy do
 
-  task :cold, :roles => :app do
-    run "touch #{shared_path}/db/#{rails_env}.sqlite3"
-  end
-
-  desc "set up dummy datea for the qa environment"
+  desc "set up dummy data for the qa environment"
   task :dummy_data, :roles => :app do
     run "cd #{current_release} && rake environment RAILS_ENV=#{rails_env} setup:dev --trace"
   end

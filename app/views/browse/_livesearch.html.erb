@@ -1,4 +1,4 @@
-<% if (params[:q].blank? && params[:category_title].blank? && (params[:page].blank? || params[:page].eql?("1")))  && @featured %>
+<% if @featured && @featured.size > 0 && (params[:q].blank? && params[:category_title].blank? && (params[:page].blank? || params[:page].eql?("1")))  %>
   <%= render :partial => "featured" %>
 <% end %>
 <%= render :partial => "pagewidgets/widget_list", :locals => {:noresults => {:message => "No widgets were found."} } %>

@@ -1,0 +1,5 @@
+<% if ratings.size > 0 %>
+    <%= render :partial => "core/review", :locals => { :display => { :rate_widget => true } }, :collection => ratings %>
+<% else %>
+    <%= render :partial => "core/noresults", :locals => {:message => "There are no reviews yet.", :icon => 'widget'} %>
+<% end %>

@@ -1,4 +1,4 @@
-<div class="wl-widget-item">
+<div class="wl-widget-item wl-widget-ellipsis-container">
 
     <% if !display.blank? %>
 
@@ -12,21 +12,16 @@
             <div class="widget_review_status widget_<%= widget.state.title.downcase %>"></div>
         <% end %>
 
-        <% case display[:title_length] %>
-        <% when "long" %>
-            <%= link_to truncate(widget.title, :length => 50, :omission => "..."), widget_path({:title => widget.url_title}), :class => "wl-regular-link wl-bold wl-widget-item_widgetname", :title => widget.title %>
-        <% when "medium" %>
-            <%= link_to truncate(widget.title, :length => 20, :omission => "..."), widget_path({:title => widget.url_title}), :class => "wl-regular-link wl-bold wl-widget-item_widgetname", :title => widget.title %>
-        <% else %>
-            <%= link_to truncate(widget.title, :length => 12, :omission => "..."), widget_path({:title => widget.url_title}), :class => "wl-regular-link wl-bold wl-widget-item_widgetname", :title => widget.title %>
-        <% end %>
+        <% ellipsis = display[:ellipsis] ||= 2 %>
+
+        <div class="wl-widget-ellipsis wl-widget-ellipsis-<%= ellipsis %>" data-ellipsis="<%= ellipsis %>"><%= link_to widget.title, widget_path({:title => widget.url_title}), :class => "wl-regular-link wl-bold wl-widget-item_widgetname", :title => widget.title %></div>
 
         <% if display[:added] %>
             <span>Added <%= custom_ago(widget.released_on) %></span>
         <% end %>
 
         <% if display[:author] %>
-            <span>by <%= link_to widget.user.name, user_path(:id => widget.user.id, :url_title => widget.user.url_title), :class => "wl-regular-link" %></span>
+            <div class="wl-widget-ellipsis wl-widget-ellipsis-<%= ellipsis %>" data-ellipsis="<%= ellipsis %>">by <%= link_to widget.user.name, user_path(:id => widget.user.id, :url_title => widget.user.url_title), :class => "wl-regular-link" %></div>
         <% end %>
 
         <% if display[:rating] %>

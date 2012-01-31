@@ -85,11 +85,12 @@
   /****************/
   #widgetlibrary_toprated {
     float:left;
-    .wl-widget-item a.wl-widget-item_widgetname {
-      font-size: 12px;
-      overflow: hidden; }
-    .wl-widget-item .wl-rating-container {
-      clear: both; }
+    .wl-widget-item {
+      position: relative;
+      .wl-rating-container {
+        clear: both;
+        position: absolute;
+        bottom: 10px; } }
     #home_footer {
       float:left;
       text-align:center;

@@ -8,23 +8,6 @@ set :bundle_without, [:development, :test]
 
 namespace :deploy do
 
-  [:start, :stop].each do |t|
-    desc "#{t} task is a no-op with mod_rails"
-    task t, :roles => :app do ; end
-  end
+ # no custom tasks needed for prod right now
 
-  desc "Restart Application by touching restart.txt (how mod_rails handles it)"
-  task :restart, :roles => :app do
-    run "touch #{current_release}/tmp/restart.txt"
-  end
-
-  desc "Install binstubs"
-  task :binstubs, :roles => :app do
-    run "cd #{current_release} && bundle --binstubs bin/"
-  end
-
-  desc "Link database"
-  task :set_db, :roles => :app do
-    run "ln -nfs #{shared_path}/db/production.sqlite3 #{current_release}/db/production.sqlite3"
-  end
 end

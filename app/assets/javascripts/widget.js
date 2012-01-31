@@ -75,9 +75,11 @@ $(function() {
             tab: $(this).attr('id')
         };
         // the reviews link doesn't have an id
-        if (!state.tab) {
+        if (!state.tab || state.tab === 'write_review') {
+            if (!state.tab) {
+                state.scroll = true;
+            }
             state.tab = 'reviews';
-            state.scroll = true;
         }
         History.pushState(state, document.title, '?show=' + state.tab);
         return false;
@@ -94,6 +96,7 @@ $(function() {
             changeScreenshot);
 
         $(wl_rating_container).on('click', wl_rating_icon, handleRatingClick);
+        $(write_review).on('click', handleTabClick);
     };
 
     var doInit = function() {
