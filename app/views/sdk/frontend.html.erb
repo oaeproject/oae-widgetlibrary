@@ -42,7 +42,6 @@
                 <li><a class="wl-regular-link" title="show" href="#show">show</a></li>
             </ul>
         </li>
-        <li><a class="wl-regular-link" title="parseRFC822Date" href="#parserfc822date">parseRFC822Date</a></li>
         <li><a class="wl-regular-link" title="parseSakaiDate" href="#parsesakaidate">parseSakaiDate</a></li>
         <li><a class="wl-regular-link" title="progressIndicator" href="#progressIndicator">progressIndicator</a>
             <ul>
@@ -195,8 +194,7 @@ e.g. return '4.5 MB';",
 
 // Setting parameters can also be achieved through the data object in HTML.
 // This HTML is automatically picked up by the API on render of the page
-// but can not be applied to templates rendered after initial page load.
-<pre id=\"html\" class=\"prettyprint\">&lt;div id=\"container_to_apply_to\"&gt;
+// but can not be applied to templates rendered after initial page load.<pre id=\"html\" class=\"prettyprint\">&lt;div id=\"container_to_apply_to\"&gt;
     &lt;ul&gt;
         &lt;li class=\"s3d-draggable-container\" data-helper=\"clone\" data-cursor=\"hand\"&gt;
             ...
@@ -222,8 +220,7 @@ e.g. return '4.5 MB';",
 
 // Setting parameters can also be achieved through the data object in HTML.
 // This HTML is automatically picked up by the API on render of the page
-// but can not be applied to templates rendered after initial page load.
-<pre id=\"html\" class=\"prettyprint\">&lt;div id=\"container_to_apply_to\"&gt;
+// but can not be applied to templates rendered after initial page load.<pre id=\"html\" class=\"prettyprint\">&lt;div id=\"container_to_apply_to\"&gt;
     &lt;div class=\"s3d-droppable-container\" data-tolerance=\"touch\" data-hoverClass=\"custom_class\"&gt;
         ...
     &lt;/div&gt;
@@ -297,66 +294,153 @@ sakai.api.Util.Forms.validate($(\"#create_account_form\"), validateOpts, true);"
         } %>
 
         <a name="hideonclickout"><h2>hideOnClickOut</h2></a>
-        <p></p>
+        <%= render :partial => "sdk/apifunction", :locals => {:display => {
+            :function => "sakai.api.Util.hideOnClickOut(elementToHide, ignoreElements, callback)",
+            :description => "Sets up events to hide a dialog when the user clicks outside of it",
+            :parameters => "<strong>elementToHide</strong> {String}  // a jquery selector, jquery object, dom element, or array
+                        // thereof containing the element to be hidden, clicking this
+                        // element or its children won't cause it to hide
+<strong>ignoreElements</strong> {String} // any elements that match a jquery.is(ignoreElements)
+                        // will not hide the target element when clicked
+<strong>callback</strong> {function}     // a function to be called instead of the default
+                        // jquery.hide()",
+            :callback => "callback {function} // a function to be called instead of the default jquery.hide()",
+            :example => "sakai.api.Util.hideOnClickOut(\"#settings_dropdown\", \".settings_icon\", function(){
+    // Do some extra handling
+    ...
+    // Close the dialog
+    $(\"#settings_dropdown\").jqmHide();
+});"}
+        } %>
+
 
         <a name="notification"><h2>notification</h2></a>
+        <p>Utility functions related to notifications messages in Sakai3</p>
         <a name="show"><h3>show</h3></a>
-        <p></p>
+        <%= render :partial => "sdk/apifunction", :locals => {:display => {
+            :function => "sakai.api.Util.Notification.show(title, text, type, sticky)",
+            :description => "Show notification messages in the top right corner of the screen",
+            :parameters => "<strong>title</strong> {String}  // The notification title (if it is an empty string, the
+                // title isn't shown)
+<strong>text</strong> {String}   // The text you want to see appear in the body of the notification
+<strong>type</strong> {Constant} // The type of the notification. If this is not supplied, we use
+                // the type \"information\"
+<strong>sticky</strong>{Boolean} // The sticky (if it is true, the notification doesn't disappear
+                // without using action)",
+            :callback => "None",
+            :example => "sakai.api.Util.notification.show(sakai.api.i18n.getValueForKey(\"COLLECTION_CREATED\"),
+                                 \"\",
+                                 sakai.api.Util.notification.type.INFORMATION,
+                                 false);
 
-        <a name="parserfc822date"><h2>parseRFC822Date</h2></a>
-        <p></p>
+// 2 different types of notification exist
+sakai.api.Util.notification.type.INFORMATION  // Default
+sakai.api.Util.notification.type.ERROR"}
+        } %>
+
 
         <a name="parsesakaidate"><h2>parseSakaiDate</h2></a>
-        <p></p>
+        <%= render :partial => "sdk/apifunction", :locals => {:display => {
+            :function => "sakai.api.Util.parseSakaiDate(dateInput)",
+            :description => "Parse a ISO8601 date into a JavaScript date object.",
+            :parameters => "<strong>dateInput</strong> {String}  // The date that needs to be converted to a JavaScript date
+                    // object. If the format is in milliseconds, you need to provide
+                    // an integer, otherwise a string",
+            :callback => "dateOutput {Date} // parsed JavaScript Date",
+            :example => "debug.log(oldDate);
+// \"2012-01-31T17:44Z\"
+
+var parsedDate = sakai.api.Util.parseSakaiDate(oldDate);
+
+debug.log(parsedDate);
+// Date \{Tue Jan 31 2012 17:44:00 GMT+0000 (GMT)\}"}
+        } %>
 
         <a name="progressIndicator"><h2>progressIndicator</h2></a>
         <a name="showprogressIndicator"><h3>showProgressIndicator</h3></a>
-        <p></p>
+        <%= render :partial => "sdk/apifunction", :locals => {:display => {
+            :function => "sakai.api.Util.showProgressIndicator(title, body)",
+            :description => "Shows a progress indicator on the screen in the form of an overlay and progress bar.",
+            :parameters => "<strong>title</strong> {String} // Title of the indicator screen
+<strong>body</strong>  {String} // Additional text to be shown in the indicator",
+            :callback => "None",
+            :example => "sakai.api.Util.showProgressIndicator(sakai.api.i18n.getValueForKey(\"CREATING_COLLECTION\"),
+                                     sakai.api.i18n.getValueForKey(\"WONT_BE_LONG\"));"}
+        } %>
+
         <a name="hideprogressIndicator"><h3>hideProgressIndicator</h3></a>
-        <p></p>
+        <%= render :partial => "sdk/apifunction", :locals => {:display => {
+            :function => "sakai.api.Util.hideProgressIndicator()",
+            :description => "Hide the existing progress indicator.",
+            :parameters => "None",
+            :callback => "None",
+            :example => "sakai.api.Util.hideProgressIndicator();"}
+        } %>
 
         <a name="rendermath"><h2>renderMath</h2></a>
-        <p></p>
+        <%= render :partial => "sdk/apifunction", :locals => {:display => {
+            :function => "sakai.api.Util.renderMath(element)",
+            :description => "Runs MathJax over an element replacing any math TeX with rendered formulas",
+            :parameters => "<strong>element</strong> {String} // The element (or its id) that should be checked for math",
+            :callback => "None",
+            :example => "// Rendering the math in a whole widget:
+sakai.api.Util.renderMath(tuid);"}
+        } %>
 
         <a name="tagentity"><h2>tagEntity</h2></a>
-        <p></p>
+        <%= render :partial => "sdk/apifunction", :locals => {:display => {
+            :function => "sakai.api.Util.tagEntity(tagLocation, newTags, currentTags, callback)",
+            :description => "Add and delete tags from an entity. To delete a tag don't pass that tag in the 'newTags' Array.",
+            :parameters => "<strong>tagLocation</strong> {String}   // The URL to tag
+<strong>newTags</strong>     {Array}    // The set of tags you wish to be on the entity
+<strong>currentTags</strong> {Array}    // The set of tags on the current entity
+<strong>callback</strong>    {Function} // The callback function",
+            :callback => "<strong>success</strong> {Boolean} // Indicates success or failure of setting tags
+<strong>newTags</strong> {Array}   // Array of new tags on the item
+
+e.g. callback(success, newTags);",
+            :example => "// Adding tags:
+sakai.api.Util.tagEntity(\"/p/XwawEdaS\",    // tagLocation
+                         [\"tag1\", \"tag2\"], // newTags
+                         [\"tag1\"],         // currentTags
+                         function(success, newTags){ // callback
+    debug.log(success); // True or false
+    debug.log(newTags); // If a success, newTags looks like this: [\"tag1\", \"tag2\"]
+});
+
+// Deleting tags:
+sakai.api.Util.tagEntity(\"/p/XwawEdaS\",  // tagLocation
+             [\"tag1\"],                   // newTags
+             [\"tag1\", \"tag2\"],           // currentTags
+             function(success, newTags){ // callback
+    debug.log(success); // True or false
+    debug.log(newTags); // If a success, newTags looks like this: [\"tag1\"]
+});"}
+        } %>
 
         <a name="templaterenderer"><h2>TemplateRenderer</h2></a>
-        <p></p>
+        <%= render :partial => "sdk/apifunction", :locals => {:display => {
+            :function => "sakai.api.Util.TemplateRenderer(templateElement, templateData, outputElement, doSanitize)",
+            :description => "Renders the template with the given JSON object, inserts it into a certain HTML element if required, and returns the rendered HTML string. If an output element is specified the renderer scans for draggable/droppable classes and applies that functionality in the process.",
+            :parameters => "<strong>templateElement</strong> {String|Object}      // The name of the template HTML ID or a jQuery
+                                     // selection object.
+<strong>templateData</strong>    {Object}             // JSON object containing the template data
+<strong>outputElement</strong>   {Object}(Optional)   // jQuery element in which the template needs
+                                     // to be rendered
+<strong>doSanitize</strong>      {Boolean}(Optional)  // perform html sanitization. Defaults to true",
+            :callback => "<strong>render</strong> {String} // Rendered string of HTML
+
+e.g. return \"&lt;div&gt; ... &lt;/div&gt;\";",
+            :example => "sakai.api.Util.TemplateRenderer(\"some_list_template\", {
+    data: dataArr,
+    sakai: sakai,
+}, $(\"#some_list_container\"));
+
+// The HTML for the templaterenderer should look like:<pre id=\"html\" class=\"prettyprint\">&lt;div id=\"some_list_template\"&gt;&lt;!--
+    ...
+    // content for template goes here
+    ...
+-->&lt;/div&gt;</pre>"}
+        } %>
     </div>
-
-
-    <div class="wl-widget-item">
-        <h3 class="wl-regular-link no_decoration wl-normal">Widgets</h3>
-        <p>Sakai OAE manages widgets dynamically in the frontend code and provides API functions to inform Sakai OAE when your widget is ready to be run and when your widget changes state.</p>
-        <i><h4>sakai.api.Widgets.widgetLoader.informOnLoad(widgetname)</h4></i>
-
-        <p>This function must be called at the end of your widget's JavaScript to inform Sakai OAE that the widget is ready to run. Once called, the given widget will be run.</p>
-
-        <h5>Arguments</h5>
-        <ul class="inline_list">
-            <li>String widgetname - the id of the widget as defined in the widget's config.json file (e.g. myhelloworld, sites, myprofile, video, ...)</li>
-        </ul>
-
-        <h5>Return</h5>
-        <ul class="inline_list">
-            <li>
-                None.
-            </li>
-        </ul>
-
-        <h5>Example</h5>
-        <p>On the last line of all widgets, you will find a call to sakai.api.Widgets.widgetLoader.informOnLoad(). For example, in the <%= link_to "Hello World Tutorial", "/sdk/developwidget/learnbasics", :class => "wl-regular-link" %>:</p>
-        
-        <div class="navigationalitems_codesnippit_container">
-            <div class="navigationalitems_codesnippit_header"><h4>/devwidgets/myhelloworld/javascript/myhelloworld.js, line 187</h4></div>
-<pre class="black">
-<span class="grey">// inform Sakai OAE that this widget has loaded and is ready to run</span>
-sakai.api.Widgets.widgetLoader.informOnLoad(<span class="green">"myhelloworld"</span>);
-</pre>
-        </div>
-    </div>
-
-
-
 </div>
