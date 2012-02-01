@@ -4,31 +4,33 @@
 .pln { color: #000 }  /* plain text */
 
 @media screen {
-  .str { color: #080 }  /* string content */
-  .kwd { color: #008 }  /* a keyword */
-  .com { color: #666 }  /* a comment */
+  .str { color: #DD1144 }  /* string content */
+  .kwd { color: #000; font-weight: bold; }  /* a keyword */
+  .com { color: #999988; font-style: italic; }  /* a comment */
   .typ { color: #606 }  /* a type name */
-  .lit { color: #066 }  /* a literal value */
+  .lit { color: #009999 }  /* a literal value */
   /* punctuation, lisp open bracket, lisp close bracket */
-  .pun, .opn, .clo { color: #660 }
-  .tag { color: #008 }  /* a markup tag name */
-  .atn { color: #606 }  /* a markup attribute name */
+  .pun, .opn, .clo { color: #000 }
+  .tag { color: #000080 }  /* a markup tag name */
+  .atn { color: #008080; font-weight: normal; }  /* a markup attribute name */
   .atv { color: #080 }  /* a markup attribute value */
   .dec, .var { color: #606 }  /* a declaration; a variable name */
   .fun { color: red }  /* a function name */
+  .str, .kwd, .typ, .lit, .pun, .opn, .clo, .tag, .atn, .atv, .desc, .var, .fun {font-style: normal;}
 }
 
 /* Use higher contrast and text-weight for printable form. */
 @media print, projection {
-  .str { color: #060 }
+  .str { color: #DD1144 }
   .kwd { color: #006; font-weight: bold }
-  .com { color: #666; font-style: italic }
+  .com { color: #999988; font-style: italic }
   .typ { color: #404; font-weight: bold }
-  .lit { color: #044 }
-  .pun, .opn, .clo { color: #440 }
-  .tag { color: #006; font-weight: bold }
-  .atn { color: #404 }
+  .lit { color: #009999 }
+  .pun, .opn, .clo { color: #000 }
+  .tag { color: #000080; font-weight: bold }
+  .atn { color: #008080 }
   .atv { color: #060 }
+  .str, .kwd, .typ, .lit, .pun, .opn, .clo, .tag, .atn, .atv {font-style: normal;}
 }
 
 /* Put a border around prettyprinted code snippets. 
