@@ -8,10 +8,10 @@
             <div class="navigationalitems_codesnippit_header">
                 <h4>Install ruby via rvm (once per machine, you can skip this if you already have ruby and rvm installed)</h4>
             </div>
-<pre class="black">
+<pre class="prettyprint" id="bash">
 bash &lt; &lt;(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
 
-echo -e '\n[[ -s <span class="green">"$HOME/.rvm/scripts/rvm"</span> ]] &amp;&amp; . <span class="green">"$HOME/.rvm/scripts/rvm"</span> # Load RVM function' >> ~/.bash_profile
+echo -e '\n[[ -s "$HOME/.rvm/scripts/rvm" ]] &amp;&amp; . "$HOME/.rvm/scripts/rvm" # Load RVM function' &gt;&gt; ~/.bash_profile
 
 source $HOME/.bash_profile
 
@@ -19,9 +19,9 @@ rvm install 1.9.2
 
 rvm use 1.9.2
 
-rvm gemset create <span class="blue">default</span>
+rvm gemset create default
 
-rvm use --<span class="blue">default</span> 1.9.2@<span class="blue">default</span>
+rvm use --default 1.9.2@default
 </pre>
         </div>
 
@@ -29,12 +29,12 @@ rvm use --<span class="blue">default</span> 1.9.2@<span class="blue">default</sp
             <div class="navigationalitems_codesnippit_header">
                 <h4>Set up OAE-Builder (only need to do this once per machine)</h4>
             </div>
-<pre class="black">
+<pre class="prettyprint" id="bash">
 mkdir /opt/sakai
 
 cd /opt/sakai
 
-git clone <span class="grey">git://github.com/sakaiproject/OAE-Builder.git</span>
+git clone git://github.com/sakaiproject/OAE-Builder.git
 
 cd OAE-Builder
 
@@ -48,14 +48,39 @@ bundle install --without mysql
             <div class="navigationalitems_codesnippit_header">
                 <h4>Create a file called settings.rb in the current folder</h4>
             </div>
-<pre class="black">
+<pre class="prettyprint" id="ruby">
 num_users_groups = 25
-update_ui = <span class="blue">false</span>
+update_ui = false
 
-ui = {<span class="blue">"path"</span> => <span class="green">"../3akai-ux"</span>, <span class="blue">"repository"</span> => <span class="green">"https://github.com/sakaiproject/3akai-ux.git"</span>, <span class="blue">"branch"</span> => <span class="green">"master"</span>, <span class="blue">"localbranch"</span> => <span class="green">"master"</span>, <span class="blue">"remote"</span> => <span class="green">"sakaiproject"</span>}
-sparse = {<span class="blue">"path"</span> => <span class="green">"../sparsemapcontent"</span>, <span class="blue">"repository"</span> => <span class="green">"https://github.com/sakaiproject/sparsemapcontent.git"</span>, <span class="blue">"branch"</span> => <span class="green">"master"</span>, <span class="blue">"localbranch"</span> => <span class="green">"master"</span>, <span class="blue">"remote"</span> => <span class="green">"sakaiproject"</span>}
-solr = {<span class="blue">"path"</span> => <span class="green">"../solr"</span>, <span class="blue">"repository"</span> => <span class="green">"https://github.com/sakaiproject/solr.git"</span>, <span class="blue">"branch"</span> => <span class="green">"master"</span>, <span class="blue">"localbranch"</span> => <span class="green">"master"</span>, <span class="blue">"remote"</span> => <span class="green">"sakaiproject"</span>}
-nakamura = {<span class="blue">"path"</span> => <span class="green">"../nakamura"</span>, <span class="blue">"repository"</span> => <span class="green">"https://github.com/sakaiproject/nakamura.git"</span>, <span class="blue">"branch"</span> => <span class="green">"master"</span>, <span class="blue">"localbranch"</span> => <span class="green">"master"</span>, <span class="blue">"port"</span> => <span class="green">"8080"</span>, <span class="blue">"remote"</span> => <span class="green">"sakaiproject"</span>}
+ui = {
+    "path" => "../3akai-ux",
+    "repository" => "https://github.com/sakaiproject/3akai-ux.git",
+    "branch" => "master",
+    "localbranch" => "master",
+    "remote" => "sakaiproject"
+}
+sparse = {
+    "path" => "../sparsemapcontent",
+    "repository" => "https://github.com/sakaiproject/sparsemapcontent.git",
+    "branch" => "master",
+    "localbranch" => "master",
+    "remote" => "sakaiproject"
+}
+solr = {
+    "path" => "../solr",
+    "repository" => "https://github.com/sakaiproject/solr.git",
+    "branch" => "master",
+    "localbranch" => "master",
+    "remote" => "sakaiproject"
+}
+nakamura = {
+    "path" => "../nakamura",
+    "repository" => "https://github.com/sakaiproject/nakamura.git",
+    "branch" => "master",
+    "localbranch" => "master",
+    "port" => "8080",
+    "remote" => "sakaiproject"
+}
 </pre>
         </div>
 
@@ -63,7 +88,7 @@ nakamura = {<span class="blue">"path"</span> => <span class="green">"../nakamura
             <div class="navigationalitems_codesnippit_header">
                 <h4>Create a load directory to store some configuration files in</h4>
             </div>
-<pre class="black">
+<pre class="prettyprint" id="bash">
 mkdir /opt/sakai/OAE-Builder/load
 cd /opt/sakai/OAE-Builder/load
 </pre>
@@ -73,7 +98,7 @@ cd /opt/sakai/OAE-Builder/load
             <div class="navigationalitems_codesnippit_header">
                 <h4>Create 'org.sakaiproject.nakamura.http.cache.CacheControlFilter.cfg' in the load directory</h4>
             </div>
-<pre class="black">
+<pre class="prettyprint" id="bash">
 pattern=
 </pre>
         </div>
@@ -82,7 +107,7 @@ pattern=
             <div class="navigationalitems_codesnippit_header">
                 <h4>Create 'org.sakaiproject.nakamura.http.usercontent.ServerProtectionServiceImpl.cfg' in the load directory</h4>
             </div>
-<pre class="black">
+<pre class="prettyprint" id="bash">
 disable.protection.for.dev.mode=true
 </pre>
         </div>
@@ -91,7 +116,7 @@ disable.protection.for.dev.mode=true
             <div class="navigationalitems_codesnippit_header">
                 <h4>Clone all the projects locally (only do this once)</h4>
             </div>
-<pre class="black">
+<pre class="prettyprint" id="bash">
 cd /opt/sakai/OAE-Builder
 rake clone
 </pre>
@@ -101,7 +126,7 @@ rake clone
             <div class="navigationalitems_codesnippit_header">
                 <h4>Build all the projects and start the server (you'll do this every day)</h4>
             </div>
-<pre class="black">
+<pre class="prettyprint" id="bash">
 rake
 </pre>
         </div>
@@ -110,7 +135,7 @@ rake
             <div class="navigationalitems_codesnippit_header">
                 <h4>When finished, create a bunch of users and groups, send some messages and set up fsresource</h4>
             </div>
-<pre class="black">
+<pre class="prettyprint" id="bash">
 rake setup
 </pre>
         </div>

@@ -13,7 +13,7 @@
   .pun, .opn, .clo { color: #000 }
   .tag { color: #000080 }  /* a markup tag name */
   .atn { color: #008080; font-weight: normal; }  /* a markup attribute name */
-  .atv { color: #080 }  /* a markup attribute value */
+  .atv { color: #DD1144 }  /* a markup attribute value */
   .dec, .var { color: #606 }  /* a declaration; a variable name */
   .fun { color: red }  /* a function name */
   .str, .kwd, .typ, .lit, .pun, .opn, .clo, .tag, .atn, .atv, .desc, .var, .fun {font-style: normal;}
@@ -52,3 +52,5 @@ li.L3,
 li.L5,
 li.L7,
 li.L9 { background: #eee }
+
+#bash .pun + .com { color: #000; font-style: normal; }

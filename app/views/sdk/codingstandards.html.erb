@@ -21,18 +21,18 @@
         <div class="navigationalitems_codesnippit_container">
             <div class="navigationalitems_codesnippit_header"><h4>Properly namespacing HTML element classes and IDs</h4></div>
 
-<pre>
-<span class="blue">&lt;div class=</span><span class="green">"myhelloworld_widget"</span><span class="blue">&gt;</span>
+<pre class="prettyprint" id="html">
+&lt;div class="myhelloworld_widget"&gt;
     ...
-   <span class="blue"> &lt;div id=</span><span class="green">"myhelloworld_main"</span><span class="blue">&gt;</span>
+    &lt;div id="myhelloworld_main"&gt;
         ...
-    <span class="blue">&lt;/div&gt;</span>
+    &lt;/div&gt;
 
-    <span class="blue">&lt;div id=</span><span class="green">"myhelloworld_settings"</span><span class="blue">&gt;</span>
+    &lt;div id="myhelloworld_settings"&gt;
         ...
-   <span class="blue"> &lt;/div&gt;</span>
+    &lt;/div&gt;
     ...
-<span class="blue">&lt;/div&gt;</span>
+&lt;/div&gt;
 </pre>
         </div>
 
@@ -42,21 +42,21 @@
 
         <div class="navigationalitems_codesnippit_container">
             <div class="navigationalitems_codesnippit_header"><h4>Properly selecting elements in JavaScript</h4></div>
-<pre class="black">
-<span class="grey">// tuid is passed in as this widget's unique id</span>
+<pre class="prettyprint" class="javascript">
+// tuid is passed in as this widget's unique id
 
-<span class="grey">// unique container for each widget instance</span>
-<span class="blue">var $rootel</span> = $(<span class="green">"#"</span> + tuid);
+// unique container for each widget instance
+var $rootel = $("#" + tuid);
 
-<span class="grey">// jQuery's search for the element with an id of myhelloworld_main is</span>
-<span class="grey">// limited to within the $rootel container:</span>
-<span class="blue">var $mainContainer</span> = $(<span class="green">"#myhelloworld_main"</span>, $rootel);
+// jQuery's search for the element with an id of myhelloworld_main is
+// limited to within the $rootel container:
+var $mainContainer = $("#myhelloworld_main", $rootel);
 
-<span class="grey">// more jQuery HTML elements</span>
-<span class="blue">var $settingsContainer</span> = $(<span class="green">"#myhelloworld_settings"</span>, $rootel);
-<span class="blue">var $settingsForm</span> = $(<span class="green">"#myhelloworld_settings_form"</span>, $rootel);
-<span class="blue">var $colorPicker</span> = $(<span class="green">"#myhelloworld_color"</span>, $rootel);
-<span class="blue">var $usernameContainer</span> = $(<span class="green">"#myhelloworld_username"</span>, $rootel);
+// more jQuery HTML elements
+var $settingsContainer = $("#myhelloworld_settings", $rootel);
+var $settingsForm = $("#myhelloworld_settings_form", $rootel);
+var $colorPicker = $("#myhelloworld_color", $rootel);
+var $usernameContainer = $("#myhelloworld_username", $rootel);
 </pre>
         </div>
     </div>
