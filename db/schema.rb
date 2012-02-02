@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120123184004) do
+ActiveRecord::Schema.define(:version => 20120202201948) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -155,7 +155,7 @@ ActiveRecord::Schema.define(:version => 20120123184004) do
 
   create_table "widgets", :force => true do |t|
     t.integer "user_id"
-    t.integer "average_rating"
+    t.float   "average_rating", :default => 0.0
     t.string  "url_title"
     t.integer "version_id"
     t.boolean "active",         :default => false
