@@ -47,6 +47,10 @@ $(function() {
                         $browseResults.html(data);
                         WL.ellipsisize();
                     }
+                },
+                error: function(){
+                    // If the ajax request wouldn't succeed, we'll reload the page
+                    window.location.reload();
                 }
             });
         }
