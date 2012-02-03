@@ -45,6 +45,7 @@
           <%= image_tag resource.avatar.url(:medium), :alt => "User image" %>
         <% end %>
         <%= f.file_field :avatar %>
+        <em><%= f.label :avatar, "Image should be 100px x 100px" %></em>
     </div>
 
     <div class="register_column2">
