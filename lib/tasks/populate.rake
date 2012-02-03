@@ -204,7 +204,6 @@ namespace :db do
       user.name               = name
       user.url_title          = "#{user.first_name.downcase}-#{user.last_name.downcase}"
       user.info               = Faker::Lorem.sentence(rand(20..70))
-      user.summary            = Faker::Lorem.sentence(rand(20..70))
       user.occupation         = Faker::Lorem.words(rand(1..6)).collect!{|t| t.capitalize }.join(' ')
       user.homepage           = "http://#{Faker::Internet.domain_name}"
       user.location           = Faker::Address.city
@@ -226,7 +225,6 @@ namespace :db do
       :url_title => "user-#{i}",
       :name => "User #{i}",
       :info => Faker::Lorem.sentence(rand(20..70)),
-      :summary => Faker::Lorem.sentence(rand(20..70)),
       :occupation => Faker::Lorem.words(rand(1..6)).collect!{|t| t.capitalize }.join(' '),
       :homepage => "http://#{Faker::Internet.domain_name}",
       :location => Faker::Address.city

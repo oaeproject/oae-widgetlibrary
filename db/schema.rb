@@ -109,7 +109,6 @@ ActiveRecord::Schema.define(:version => 20120202201948) do
     t.string   "first_name"
     t.string   "last_name"
     t.text     "info"
-    t.text     "summary"
     t.string   "occupation"
     t.string   "homepage"
     t.string   "location"
