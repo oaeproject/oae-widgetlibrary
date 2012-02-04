@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, 
                   :remember_me, :username, :first_name, 
                   :last_name, :info, :homepage, :occupation,
-                  :summary, :location, :avatar, :name, :url_title
+                  :location, :avatar, :name, :url_title
 
   validates_presence_of :username, :first_name, :last_name
   validates_uniqueness_of :username, :email
