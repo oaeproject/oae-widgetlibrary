@@ -94,7 +94,7 @@ $(function() {
             }
         });
 
-        $("body").on("click", "#lhnavigation_container a", function(evt){
+        $("body").on("click", '#lhnavigation_container a, .wl-content-container .wl-content-right-container a[href^="/sdk/"]', function(evt){
             // Disable the default click behavior
             evt.preventDefault();
             // Cache the this selector
