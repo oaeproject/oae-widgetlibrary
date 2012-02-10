@@ -27,7 +27,7 @@ rvm use --<span class="blue">default</span> 1.9.2@<span class="blue">default</sp
 
         <div class="navigationalitems_codesnippit_container">
             <div class="navigationalitems_codesnippit_header">
-                <h4>Set up OAE-Builder (only need to do this once per machine)</h4>
+                <h4>Set up OAE-Builder (only need to do this once per machine &amp; you can use any folder you want)</h4>
             </div>
 <pre class="black">
 mkdir /opt/sakai
@@ -53,9 +53,15 @@ num_users_groups = 25
 update_ui = <span class="blue">false</span>
 
 ui = {<span class="blue">"path"</span> => <span class="green">"../3akai-ux"</span>, <span class="blue">"repository"</span> => <span class="green">"https://github.com/sakaiproject/3akai-ux.git"</span>, <span class="blue">"branch"</span> => <span class="green">"master"</span>, <span class="blue">"localbranch"</span> => <span class="green">"master"</span>, <span class="blue">"remote"</span> => <span class="green">"sakaiproject"</span>}
-sparse = {<span class="blue">"path"</span> => <span class="green">"../sparsemapcontent"</span>, <span class="blue">"repository"</span> => <span class="green">"https://github.com/sakaiproject/sparsemapcontent.git"</span>, <span class="blue">"branch"</span> => <span class="green">"master"</span>, <span class="blue">"localbranch"</span> => <span class="green">"master"</span>, <span class="blue">"remote"</span> => <span class="green">"sakaiproject"</span>}
-solr = {<span class="blue">"path"</span> => <span class="green">"../solr"</span>, <span class="blue">"repository"</span> => <span class="green">"https://github.com/sakaiproject/solr.git"</span>, <span class="blue">"branch"</span> => <span class="green">"master"</span>, <span class="blue">"localbranch"</span> => <span class="green">"master"</span>, <span class="blue">"remote"</span> => <span class="green">"sakaiproject"</span>}
 nakamura = {<span class="blue">"path"</span> => <span class="green">"../nakamura"</span>, <span class="blue">"repository"</span> => <span class="green">"https://github.com/sakaiproject/nakamura.git"</span>, <span class="blue">"branch"</span> => <span class="green">"master"</span>, <span class="blue">"localbranch"</span> => <span class="green">"master"</span>, <span class="blue">"port"</span> => <span class="green">"8080"</span>, <span class="blue">"remote"</span> => <span class="green">"sakaiproject"</span>}
+</pre>
+        </div>
+        <div class="navigationalitems_codesnippit_container navigationalitems_codesnippit_container_intended">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>If you'll be working on the front-end code, change the repository to your own 3akai-ux repo.</h4>
+            </div>
+<pre class="black">
+ui = {<span class="blue">"path"</span> => <span class="green">"../3akai-ux"</span>, <span class="blue">"repository"</span> => <span class="green">"git@github.com:</span><span class="grey">&lt;your github username here&gt;</span><span class="green">/3akai-ux.git"</span>, <span class="blue">"branch"</span> => <span class="green">"master"</span>, <span class="blue">"localbranch"</span> => <span class="green">"master"</span>, <span class="blue">"remote"</span> => <span class="green">"origin"</span>}
 </pre>
         </div>
 
@@ -65,7 +71,7 @@ nakamura = {<span class="blue">"path"</span> => <span class="green">"../nakamura
             </div>
 <pre class="black">
 cd /opt/sakai/OAE-Builder
-rake clone
+rake bld:clone
 </pre>
         </div>
 
