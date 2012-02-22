@@ -16,7 +16,7 @@
       <h1 class="<%= hclass %>">Version <%= @latest_version.version_number %>, submitted on <%= @latest_version.created_at.localtime.strftime("%B %e, %Y %l:%M%P") %>, <%= state %></h1>
       <% if @latest_version.state.id.eql?(State.declined) && @latest_version.notes %>
         <h3>Notes from the reviewer:</h3>
-        <p><%= @latest_version.notes %></p>
+        <pre><%= word_wrap @latest_version.notes, 110 %></pre>
       <% end %>
     </div>
   <% end %>
