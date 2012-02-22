@@ -1,5 +1,5 @@
 class WidgetMailer < ActionMailer::Base
-  default :from => "Sakai Widget Library <noreply@sakaiproject.org>",
+  default :from => "Sakai Widget Library <no-reply@sakaifoundation.org>",
           :host => ActionMailer::Base.default_url_options[:host]
 
   def new_submission(version, widget)
