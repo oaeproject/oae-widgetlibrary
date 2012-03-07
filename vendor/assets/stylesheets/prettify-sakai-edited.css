@@ -54,3 +54,13 @@ li.L7,
 li.L9 { background: #eee }
 
 #bash .pun + .com { color: #000; font-style: normal; }
+
+#css .kwd {
+    color: #1d2db3;
+}
+#css .pun, #css .opn, #css .clo {
+    color: #666600;
+}
+#css .str {
+    color: #06960e;
+}
