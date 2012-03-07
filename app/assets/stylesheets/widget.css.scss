@@ -172,22 +172,25 @@
       width:100%;
       border-top: 1px solid #BEBDBD;
       img {
-        width: 98px;
-        height: 48px;
         border: 1px solid #BEBDBD;
         cursor: pointer; }
       .widgetdetails_screenshots_thumb {
         width: 100px;
         height: 60px;
         float: left;
-        margin-right: 7px; }
-      img.selected {
-        cursor: default; }
-      img.selected + div {
-        background-color: #00c2ff;
-        height: 7px;
-        width: 100px;
-        position: absolute; } }
+        margin-right: 7px;
+        &.selected {
+          div.underline {
+            background-color: #00c2ff;
+            height: 7px;
+            width: 100px;
+            position: absolute; }
+          img {
+            cursor:default; } }
+        .widgetdetails_screenshots_thumb_container {
+          width:100px;
+          height:60px;
+          overflow:hidden; } } }
     #widgetdetails_newestreviews {
       float: right;
       width: 290px;

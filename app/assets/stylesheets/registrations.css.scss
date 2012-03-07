@@ -68,6 +68,11 @@
   .register_column3 {
     margin-left: 25px; }
   .register_column1 {
+    #user_avatar {
+      margin-bottom: 0; }
+    em label {
+      display: block;
+      margin-bottom:20px; }
     min-height: 20px;
     .wl-button, input[type=file] {
       margin-bottom: 20px; }

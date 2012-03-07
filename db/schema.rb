@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120123184004) do
+ActiveRecord::Schema.define(:version => 20120222203306) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -109,7 +109,6 @@ ActiveRecord::Schema.define(:version => 20120123184004) do
     t.string   "first_name"
     t.string   "last_name"
     t.text     "info"
-    t.text     "summary"
     t.string   "occupation"
     t.string   "homepage"
     t.string   "location"
@@ -146,7 +145,7 @@ ActiveRecord::Schema.define(:version => 20120123184004) do
     t.string   "code_updated_at"
     t.string   "widget_repo"
     t.string   "widget_backend_repo"
-    t.string   "notes"
+    t.text     "notes",               :limit => 255
     t.string   "bundle_file_name"
     t.string   "bundle_content_type"
     t.string   "bundle_file_size"
@@ -155,7 +154,7 @@ ActiveRecord::Schema.define(:version => 20120123184004) do
 
   create_table "widgets", :force => true do |t|
     t.integer "user_id"
-    t.integer "average_rating"
+    t.float   "average_rating", :default => 0.0
     t.string  "url_title"
     t.integer "version_id"
     t.boolean "active",         :default => false

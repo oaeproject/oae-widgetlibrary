@@ -1,19 +1,22 @@
 <% content_for :title do %> - SDK - Intro<% end %>
 <div id="helloworld" class="widgetsdk_container">
     <h1>Intro</h1>
-    <p>This tutorial will walk you through building a relatively simple widget called 'My Hello World'. My Hello World is a dashboard widget that says hello to the current user with text in the colour of their choosing:</p>
+    <p>This tutorial will walk you through building a relatively simple widget called 'My Hello World'. My Hello World is a dashboard widget that says hello to the current user with text in the colour of their choosing.</p>
 
     <%= image_tag "developer_helloworld_example.png", :alt => "My Hello World" %>
 
-    <p>Make sure your development environment is set up so you can create the My Hello World widget and run it within Sakai OAE on your machine|:</p>
-
-    <p><%= link_to "Quick set up", "/sdk/developwidget/quickdevsetup", :class => "wl-regular-link wl-bold" %> if you have Java and git installed.<br/>
-    <%= link_to "Full set up", "/sdk/developwidget/fulldevsetup", :class => "wl-regular-link wl-bold" %> if you don't have any of these tools installed.</p>
-    
     <p>The My Hello World widget is identical to the Hello World widget (except the name and ID of the widget) included in the 3akai-UX code distribution at 3akai-ux/devwidgets/helloworld. For the purposes of this tutorial we are using My Hello World (and corresponding myhelloworld ID) so you can create a new widget while referencing the provided Hello World widget if necessary.</p>
 
-    <h1>Step 1: <b>Set up the widget file structure</b></h1>
-    <p>Almost all widgets consist of the same types of files. You must follow the widget file structure pattern described below for your widgets to function properly.</p>
+    <h1>Step 1: <b>Development environment setup</b></h1>
+    <p>Make sure your development environment is set up so you can create the My Hello World widget and run it within Sakai OAE on your machine:</p>
+
+    <ul class="inline_list">
+        <li><%= link_to "Quick setup", "/sdk/developwidget/quickdevsetup", :class => "wl-regular-link wl-bold" %> if you have Java and git installed.</li>
+        <li><%= link_to "Full setup", "/sdk/developwidget/fulldevsetup", :class => "wl-regular-link wl-bold" %> if you don't have any of these tools installed.</li>
+    </ul>
+
+    <h1>Step 2: <b>Set up the widget file structure</b></h1>
+    <p>You can generate the widget file &amp; folder structure with the <%= link_to "widget template builder", "/sdk/developwidget/widgetbuilder", :class => "wl-regular-link wl-bold" %>. If you don't want to, follow the steps below. Either way, you should follow the widget file structure pattern so your widgets function properly.</p>
     <ul class="inline_list">
         <li>Create a <b><i>myhelloworld directory</i></b> within the 3akai-ux/devwidgets directory.</li>
         <li>Copy the contents of the <b><i>3akai-ux/devwidgets/_template</i></b> directory into your <i>myhelloworld</i> directory.</li>
@@ -29,32 +32,32 @@
     <p>All widgets should use this set of directories and files though some may be unnecessary (i.e. images, CSS). Of course, the names should match the ID of the widget. In this case, the ID for the My Hello World widget is <i>myhelloworld</i>. Let's take a look at the purpose of these directories and files:</p>
 
     <ul class="widgetsdk_treelist">
-        <li>3akai-ux: contains all Sakai OAE frontend code
+        <li><strong>3akai-ux</strong>: contains all Sakai OAE frontend code
             <ul>
-                <li>devwidgets: contains all Sakai OAE widgets
+                <li><strong>devwidgets</strong>: contains all Sakai OAE widgets
                     <ul>
-                        <li>myhelloworld: contains all My Hello World widget code
+                        <li><strong>myhelloworld</strong>: contains all My Hello World widget code
                             <ul>
-                                <li>bundles: contains files used to internationalize the interface of this widget
+                                <li><strong>bundles</strong>: contains files used to internationalize the interface of this widget
                                     <ul>
-                                        <li>default.properties: a listing of key-value pairs that define internationalizable keys and their string values to be used in the default widget interface</li>
+                                        <li><strong>default.properties</strong>: a listing of key-value pairs that define internationalizable keys and their string values to be used in the default widget interface</li>
                                     </ul>
                                 </li>
-                                <li>config.json: a JSON object that defines the widget's essential properties such as name, id, url and more</li>
-                                <li>css: contains CSS files used for this widget
+                                <li><strong>config.json</strong>: a JSON object that defines the widget's essential properties such as name, id, url and more</li>
+                                <li><strong>css</strong>: contains CSS files used for this widget
                                     <ul>
-                                        <li>myhelloworld.css: the main CSS file for the My Hello World widget defining any styles specifically for this widget</li>
+                                        <li><strong>myhelloworld.css</strong>: the main CSS file for the My Hello World widget defining any styles specifically for this widget</li>
                                     </ul>
                                 </li>
-                                <li>myhelloworld.html: the main HTML file for the My Hello World widget defining the layout of the widget</li>
-                                <li>images: contains images for this widget
+                                <li><strong>myhelloworld.html</strong>: the main HTML file for the My Hello World widget defining the layout of the widget</li>
+                                <li><strong>images</strong>: contains images for this widget
                                     <ul>
-                                        <li>myhelloworld_icon.png: the icon that appears in the header bar of the dashboard widget</li>
+                                        <li><strong>myhelloworld_icon.png</strong>: the icon that appears in the header bar of the dashboard widget</li>
                                     </ul>
                                 </li>
-                                <li>javascript: contains JavaScript files for this widget
+                                <li><strong>javascript</strong>: contains JavaScript files for this widget
                                     <ul>
-                                        <li>myhelloworld.js: the main JavaScript file for the My Hello World widget defining the dynamic behaviors of the widget</li>
+                                        <li><strong>myhelloworld.js</strong>: the main JavaScript file for the My Hello World widget defining the dynamic behaviors of the widget</li>
                                     </ul>
                                 </li>
                             </ul>
@@ -65,14 +68,13 @@
         </li>
     </ul>
 
-    <h1>Step 2: <b>Configure the widget</b></h1>
+    <h1>Step 3: <b>Configure the widget</b></h1>
     <p>To let Sakai OAE know about our new widget, we need to set certain configuration parameters.</p>
     <p>This is done by editing the widget's <i>config.json</i> file that the Sakai OAE frontend code reads to know which widgets are available (you can see all registered Sakai OAE widgets at http://localhost:8080/var/widgets.json). All widgets must have a <i>config.json</i> file.</p>
     <p>Here is the <i>config.json</i> you will need for My Hello World (minus the comments from the template file for brevity):</p>
 
     <div class="navigationalitems_codesnippit_container">
         <div class="navigationalitems_codesnippit_header"><h4>config.json</h4></div>
-        
 <pre class="grey">
 {
     "enabled":                true,
@@ -117,4 +119,9 @@
         <li><b>userdashboard</b> - true | false: sets whether or not this widget can be placed in a user's dashboard pages</li>
         <li><b>userpages</b> - true | false: sets whether or not this widget can be placed in a user's standard pages (showinsakaigoodies must also be enabled to access this widget from the page editor)</li>
     </ul>
+
+    <h1>Step 4: <b>What's next?</b></h1>
+
+    <p>It's always a good idea to look at the <%= link_to "coding standards", "/sdk/developwidget/codingstandards", :class => "wl-regular-link wl-bold" %> we use for Sakai OAE development.</p>
+    <p>When you make your own widget and want to show it to the world, feel free to <%= link_to "submit it", new_version_path, :class => "wl-regular-link wl-bold" %>.</p>
 </div>

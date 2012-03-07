@@ -63,10 +63,8 @@ $(function() {
             'src', $this.attr('data-large-src')
         );
 
-        $(widgetdetails_screenshots_thumb_image + '.selected')
-            .removeClass('selected');
-
-        $this.addClass('selected');
+        $('.widgetdetails_screenshots_thumb.selected').removeClass('selected');
+        $this.parents('.widgetdetails_screenshots_thumb').addClass('selected');
         return false;
     };
 

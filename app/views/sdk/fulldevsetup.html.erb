@@ -15,13 +15,13 @@ echo -e '\n[[ -s "$HOME/.rvm/scripts/rvm" ]] &amp;&amp; . "$HOME/.rvm/scripts/rv
 
 source $HOME/.bash_profile
 
-rvm install 1.9.2
+rvm install 1.9.3
 
-rvm use 1.9.2
+rvm use 1.9.3
 
 rvm gemset create default
 
-rvm use --default 1.9.2@default
+rvm use --default 1.9.3@default
 </pre>
         </div>
 
@@ -81,34 +81,6 @@ nakamura = {
     "port" => "8080",
     "remote" => "sakaiproject"
 }
-</pre>
-        </div>
-
-        <div class="navigationalitems_codesnippit_container few_lines">
-            <div class="navigationalitems_codesnippit_header">
-                <h4>Create a load directory to store some configuration files in</h4>
-            </div>
-<pre class="prettyprint" id="bash">
-mkdir /opt/sakai/OAE-Builder/load
-cd /opt/sakai/OAE-Builder/load
-</pre>
-        </div>
-
-        <div class="navigationalitems_codesnippit_container few_lines">
-            <div class="navigationalitems_codesnippit_header">
-                <h4>Create 'org.sakaiproject.nakamura.http.cache.CacheControlFilter.cfg' in the load directory</h4>
-            </div>
-<pre class="prettyprint" id="bash">
-pattern=
-</pre>
-        </div>
-
-        <div class="navigationalitems_codesnippit_container few_lines">
-            <div class="navigationalitems_codesnippit_header">
-                <h4>Create 'org.sakaiproject.nakamura.http.usercontent.ServerProtectionServiceImpl.cfg' in the load directory</h4>
-            </div>
-<pre class="prettyprint" id="bash">
-disable.protection.for.dev.mode=true
 </pre>
         </div>
 

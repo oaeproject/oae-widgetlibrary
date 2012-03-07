@@ -45,14 +45,13 @@
           <%= image_tag resource.avatar.url(:medium), :alt => "User image" %>
         <% end %>
         <%= f.file_field :avatar %>
+        <em><%= f.label :avatar, "Image should be 100px x 100px" %></em>
     </div>
 
     <div class="register_column2">
         <h2>Introductory text</h2>
         <%= f.label :info, "Basic information" %>
         <%= f.text_area :info, :placeholder => "Front-end developer and accessibility enthusiast.", :class => "register_basic" %>
-        <%= f.label :summary, "Quick summary" %>
-        <%= f.text_area :summary, :placeholder => "Previously worked at Cambridge University and now working at UC Berkeley.", :class => "register_summary" %>
     </div>
 
     <div class="register_column3">
