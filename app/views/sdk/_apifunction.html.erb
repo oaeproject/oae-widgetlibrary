@@ -1,10 +1,10 @@
-<i><h4><%= raw(display[:function]) %></h4></i>
+<h4 class="api_function_header"><%= raw(display[:function]) %></h4>
 <p><%= raw(display[:description]) %></p>
 <div class="navigationalitems_codesnippit_container">
     <div class="navigationalitems_codesnippit_header">
         <h4>Arguments</h4>
     </div>
-<pre id="javascript" class="prettyprint grey">
+<pre id="javascript" class="prettyprint">
 <%= raw(display[:parameters]) %>
 </pre>
 </div>
@@ -13,7 +13,7 @@
     <div class="navigationalitems_codesnippit_header">
         <h4>Callback / Return</h4>
     </div>
-<pre id="javascript" class="prettyprint grey">
+<pre id="javascript" class="prettyprint">
 <%= raw(display[:callback]) %>
 </pre>
 </div>
