@@ -9,6 +9,7 @@
         <li><%= link_to "Remotes", "#remotes", :title => "Remotes", :class => "wl-regular-link" %></li>
         <li><%= link_to "Managing branches", "#managingbranches", :title => "Managing branches", :class => "wl-regular-link" %></li>
         <li><%= link_to "Committing changes", "#commit", :title => "Committing changes", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Cheat sheets", "#cheatsheets", :title => "Cheat sheets", :class => "wl-regular-link" %></li>
     </ul>
 
     <div class="wl-widget-item first">
@@ -67,7 +68,7 @@ nothing to commit (working directory clean)
 </pre>
         </div>
         <p>Once the remote and local branch have been synchronized we can start thinking about making a branch for our widget. Making a separate branch for any changes you do is best practice as we don't want to change anything in our master branch. Master branches serve for fetching the most recent data and basing your new branches off of that. Creating a new branch based off of the latest master branch we find in the sakaiproject repository can be done like this:</p>
-        <div class="navigationalitems_codesnippit_container">
+        <div class="navigationalitems_codesnippit_container few_lines">
 <pre>
 <strong>$ git checkout -b newbranch origin/master</strong> -> Creates new branch based off of master
                                              and checks it out
@@ -92,7 +93,7 @@ nothing to commit (working directory clean)
         </div>
         <div class="navigationalitems_codesnippit_container few_lines">
             <div class="navigationalitems_codesnippit_header">
-                <h4>Temporarily stash changes a branch</h4>
+                <h4>Temporarily stash changes to a branch</h4>
             </div>
 <pre>
 <strong>$ git add -A</strong> -> Adds changes to the staging area
@@ -113,15 +114,28 @@ nothing to commit (working directory clean)
         </div>
 
         <h2 id="commit">Committing changes</h2>
-        <p>Committing changes on a regular basis is best practice. Not only does it allow you to easily look back at fixes you did a few days (or weeks/months) ago but it also avoids losing your work when something goes horribly wrong. Also, when debugging your code it's easier to track down and remove patches if they're split up into manageable chunks. Committing and pushing your changes is easy:</p>
-        <div class="navigationalitems_codesnippit_container few_lines">
+        <p>Committing changes on a regular basis is best practice. Not only does it allow you to easily look back at fixes you did a few days (or weeks/months) ago but it also avoids losing your work when something goes horribly wrong. Also, when debugging your code it's easier to track down and remove patches if they're split up into manageable chunks. Before committing it can be useful to take a last look at the files you've edited. A handful of external applications like <%= link_to "GitX (Mac)", "http://gitx.frim.nl/", :title => "GitX homepage", :class => "wl-regular-link", :target => "_blank" %> or <%= link_to "SmartGit (Windows)", "http://www.syntevo.com/smartgit/index.html", :title => "SmartGit homepage", :class => "wl-regular-link", :target => "_blank" %> make this a graphical experience. Committing and pushing your changes is easy:</p>
+        <div class="navigationalitems_codesnippit_container">
 <pre>
 <strong>$ git add -A</strong>
 <strong>$ git commit -m "OAEWDGT-152 WIP Create a 'GIT Basics' section"</strong>
+[OAEWDGT-152 3e3a95b] OAEWDGT-152 WIP Create a 'GIT Basics' section
+ 3 files changed, 148 insertions(+), 2 deletions(-)
+ create mode 100644 app/views/sdk/gitbasics.html.erb
+ 
 <strong>$ git push bp323 OAEWDGT-152</strong>
-
+Counting objects: 14, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (8/8), 4.36 KiB, done.
+Total 8 (delta 6), reused 0 (delta 0)
+To git@github.com:bp323/sakai-widgetlibrary.git
+ * [new branch]      OAEWDGT-152 -> OAEWDGT-152
 </pre>
         </div>
+
+        <h2 id="cheatsheets">Cheat sheets</h2>
+        <p>If you're starting out with Git the <%= link_to "Git cheat sheet", "http://help.github.com/git-cheat-sheets/", :title => "Github cheat sheet", :class => "wl-regular-link", :target => "_blank" %> hosted on Github is a recommended source of information. It contains all of the functionality described above in a nutshell and provides a good overview of some advanced commands as well. Similar to the jQuery cheat sheets there are various other user-created cheat sheets to be found on the web.</p>
 
     </div>
 
