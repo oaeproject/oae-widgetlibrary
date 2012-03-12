@@ -12,7 +12,7 @@
         <%= csrf_meta_tag %>
         <%= yield :head %>
     </head>
-    <body class="<%= "#{params[:controller].gsub("/", "_")} #{params[:action]}" %>" onload="prettyPrint()">
+    <body class="<%= "#{params[:controller].gsub("/", "_")} #{params[:action]}" %>">
 
     <%= render :partial => "core/useractions", :locals => {:show => show_login} %>
 

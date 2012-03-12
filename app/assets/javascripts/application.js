@@ -51,6 +51,7 @@ $(function() {
 
     var addBindings = function() {
         $("body").on( "click", ".review_read_more", readmore );
+        $("document").ready(prettyPrint);
     };
 
     var init = function() {

@@ -8,7 +8,7 @@
             <div class="navigationalitems_codesnippit_header">
                 <h4>Install ruby via rvm (once per machine, you can skip this if you already have ruby and rvm installed)</h4>
             </div>
-<pre class="prettyprint" id="bash">
+<pre class="prettyprint">
 bash &lt; &lt;(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
 
 echo -e '\n[[ -s "$HOME/.rvm/scripts/rvm" ]] &amp;&amp; . "$HOME/.rvm/scripts/rvm" # Load RVM function' &gt;&gt; ~/.bash_profile
@@ -29,7 +29,7 @@ rvm use --default 1.9.3@default
             <div class="navigationalitems_codesnippit_header">
                 <h4>Set up OAE-Builder (only need to do this once per machine)</h4>
             </div>
-<pre class="prettyprint" id="bash">
+<pre class="prettyprint">
 mkdir /opt/sakai
 
 cd /opt/sakai
@@ -48,7 +48,7 @@ bundle install --without mysql
             <div class="navigationalitems_codesnippit_header">
                 <h4>Create a file called settings.rb in the current folder</h4>
             </div>
-<pre class="prettyprint" id="ruby">
+<pre class="prettyprint">
 num_users_groups = 25
 update_ui = false
 
@@ -88,7 +88,7 @@ nakamura = {
             <div class="navigationalitems_codesnippit_header">
                 <h4>Clone all the projects locally (only do this once)</h4>
             </div>
-<pre class="prettyprint" id="bash">
+<pre class="prettyprint">
 cd /opt/sakai/OAE-Builder
 rake clone
 </pre>
@@ -98,7 +98,7 @@ rake clone
             <div class="navigationalitems_codesnippit_header">
                 <h4>Build all the projects and start the server (you'll do this every day)</h4>
             </div>
-<pre class="prettyprint" id="bash">
+<pre class="prettyprint">
 rake
 </pre>
         </div>
@@ -107,7 +107,7 @@ rake
             <div class="navigationalitems_codesnippit_header">
                 <h4>When finished, create a bunch of users and groups, send some messages and set up fsresource</h4>
             </div>
-<pre class="prettyprint" id="bash">
+<pre class="prettyprint">
 rake setup
 </pre>
         </div>
