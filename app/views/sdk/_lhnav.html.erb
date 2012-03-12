@@ -1,12 +1,13 @@
 <nav id="lhnavigation_container">
   <h1 class="wl-bold">Sakai OAE Widget SDK</h1>
   <ul>
-      <li <% if params[:section].eql?("developwidget")%>class="selected"  <% elsif ["developwidget/learnbasics", "developwidget/codingstandards", "developwidget/quickdevsetup", "developwidget/fulldevsetup", "developwidget/widgetbuilder"].include?(params[:section])%>class="selected_parent"<% end %>><div><%= link_to "How to develop a widget", "/sdk/developwidget" %></div></li>
-      <ul class="subnav" <% if !["developwidget", "developwidget/learnbasics", "developwidget/codingstandards", "developwidget/quickdevsetup", "developwidget/fulldevsetup", "developwidget/widgetbuilder"].include?(params[:section]) %> style="display:none;"<% end %>>
+      <li <% if params[:section].eql?("developwidget")%>class="selected"  <% elsif ["developwidget/learnbasics", "developwidget/codingstandards", "developwidget/quickdevsetup", "developwidget/fulldevsetup", "developwidget/gitbasics", "developwidget/widgetbuilder"].include?(params[:section])%>class="selected_parent"<% end %>><div><%= link_to "How to develop a widget", "/sdk/developwidget" %></div></li>
+      <ul class="subnav" <% if !["developwidget", "developwidget/learnbasics", "developwidget/codingstandards", "developwidget/quickdevsetup", "developwidget/fulldevsetup", "developwidget/gitbasics", "developwidget/widgetbuilder"].include?(params[:section]) %> style="display:none;"<% end %>>
           <li <% if params[:section].eql?("developwidget/learnbasics")%>class="selected"<% end %>><div><%= link_to "Learn the basics, 'Hello World' tutorial", "/sdk/developwidget/learnbasics" %><hr class="wl-split-line"/></div></li>
           <li <% if params[:section].eql?("developwidget/codingstandards")%>class="selected"<% end %>><div><%= link_to "Coding standards", "/sdk/developwidget/codingstandards" %><hr class="wl-split-line"/></div></li>
           <li <% if params[:section].eql?("developwidget/quickdevsetup")%>class="selected"<% end %>><div><%= link_to "Quick development environment setup", "/sdk/developwidget/quickdevsetup" %><hr class="wl-split-line"/></div></li>
           <li <% if params[:section].eql?("developwidget/fulldevsetup")%>class="selected"<% end %>><div><%= link_to "Full development environment setup", "/sdk/developwidget/fulldevsetup" %><hr class="wl-split-line"/></div></li>
+          <li <% if params[:section].eql?("developwidget/gitbasics")%>class="selected"<% end %>><div><%= link_to "GIT Basics", "/sdk/developwidget/gitbasics" %><hr class="wl-split-line"/></div></li>
           <li <% if params[:section].eql?("developwidget/widgetbuilder")%>class="selected"<% end %>><div><%= link_to "Widget template builder", "/sdk/developwidget/widgetbuilder" %></div></li>
       </ul>
 

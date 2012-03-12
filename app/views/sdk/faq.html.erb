@@ -69,8 +69,19 @@
     <div class="wl-widget-item">
         <a name="contributing"><h1 class="wl-regular-link no_decoration wl-normal">Contributing to Sakai OAE</h1></a>
         <a name="reportbugs"><h2><strong>Q: How do I report a bug?</strong></h2></a>
+        <p>A: Bugs can be reported in <%= link_to "our bug tracking system JIRA", "http://jira.sakaiproject.org", :title => "Sakai OAE bug tracking system JIRA", :class => "wl-regular-link", :target => "_blank" %> by Atlassian.</p>
         <a name="suggestfeature"><h2><strong>Q: How do I suggest a feature?</strong></h2></a>
+        <p>A: We encourage the community to post and vote ideas on the <%= link_to "Sakai OAE Idea Informer", "http://sakaioae.idea.informer.com/", :title => "Sakai OAE Idea Informer", :class => "wl-regular-link", :target => "_blank" %> page. The Idea Informer is taken into account when setting up goals for the future.</p> 
         <a name="gitworkflow"><h2><strong>Q: What is the best git workflow to use?</strong></h2></a>
+        <p>If you're looking for a detailed workflow for setting up your environment, take a look at the Full Dev Setup.</p>
+        <p>There's a few ways of doing the same tasks with GIT, the following list has a few 'best practices' to take into account while developing for the OAE using the GIT version control system.</p>
+        <ul class="inline_list">
+            <li>Always start work on a new branch based on the master branch (keeps master clean and tidy + allows you to work on multiple widgets at once on different branches);</li>
+            <li>Committing and pushing up your work regularly is always a good idea, you don't want to lose precious code and time by having to do it over because your machine failed;</li>
+            <li>Use self-explanatory commit messages. OAE developers adopted the following commit message style: "JIRA_ID DESCRIPTION_OF_WORK". (e.g. "SAKIII-2849 Implement visual design for top navigation");</li>
+            <li>Merge your code with the master branch on a regular basis. If merge conflicts occur you can take care of them immediately instead of having to go through your code again after you've submitted a widget;</li>
+        </ul>
+        <p>If you're looking for a guide to the most useful git commands take a look at the '<%= link_to "GIT Basics", "/sdk/developwidget/gitbasics", :title => "GIT Basics", :class => "wl-regular-link" %>' section.</p>
     </div>
 
     <div class="wl-widget-item">
@@ -89,7 +100,10 @@
 
         <p>For users to fully enjoy your widgets it's best to test them in these browsers before submitting them to the Widget Library.</p>
         <a name="license"><h2><strong>Q: How is Sakai OAE licensed?</strong></h2></a>
+        <p>A: Sakai OAE is released under the <%= link_to "Educational Community License version 2.0", "http://sakaiproject.org/foundation-licenses", :title => "Educational Community License version 2.0", :class => "wl-regular-link", :target => "blank" %>.</p>
         <a name="cost"><h2><strong>Q: Do I need to buy or pay anything to create Sakai OAE widgets?</strong></h2></a>
+        <p>A: Developing for Sakai OAE is free and we encourage everyone to participate and create widgets. Take a look at the '<%= link_to "Learn the basics, 'Hello World' tutorial", "/sdk/developwidget/learnbasics", :class => "wl-regular-link" %>' section to get started on your widget.</p>
         <a name="experiment"><h2><strong>Q: Where can I find working versions of Sakai OAE to experiment with or share with colleagues?</strong></h2></a>
+        <p>A: All latest versions will be announced on the <%= link_to "Sakai OAE release page", "http://sakaiproject.org/oae-release", :title => "Sakai OAE release page", :class => "wl-regular-link", :target => "blank" %>. This page has binaries, web start packages and links to the source code to get you started with the latest version of the Open Academic Environment.</p>
     </div>
 </div>
