@@ -27,7 +27,7 @@ rvm use --default 1.9.3@default
 
         <div class="navigationalitems_codesnippit_container">
             <div class="navigationalitems_codesnippit_header">
-                <h4>Set up OAE-Builder (only need to do this once per machine)</h4>
+                <h4>Set up OAE-Builder (only need to do this once per machine &amp; you can use any folder you want)</h4>
             </div>
 <pre class="prettyprint">
 mkdir /opt/sakai
@@ -83,6 +83,14 @@ nakamura = {
 }
 </pre>
         </div>
+        <div class="navigationalitems_codesnippit_container navigationalitems_codesnippit_container_intended">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>If you'll be working on the front-end code, change the repository to your own 3akai-ux repo.</h4>
+            </div>
+<pre class="black">
+ui = {<span class="blue">"path"</span> => <span class="green">"../3akai-ux"</span>, <span class="blue">"repository"</span> => <span class="green">"git@github.com:</span><span class="grey">&lt;your github username here&gt;</span><span class="green">/3akai-ux.git"</span>, <span class="blue">"branch"</span> => <span class="green">"master"</span>, <span class="blue">"localbranch"</span> => <span class="green">"master"</span>, <span class="blue">"remote"</span> => <span class="green">"origin"</span>}
+</pre>
+        </div>
 
         <div class="navigationalitems_codesnippit_container few_lines">
             <div class="navigationalitems_codesnippit_header">
@@ -90,7 +98,7 @@ nakamura = {
             </div>
 <pre class="prettyprint">
 cd /opt/sakai/OAE-Builder
-rake clone
+rake bld:clone
 </pre>
         </div>
 
