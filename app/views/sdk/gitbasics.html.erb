@@ -1,0 +1,144 @@
+<% content_for :title do %> - SDK - Git basics<% end %>
+<div id="gitbasics" class="widgetsdk_container">
+    <h1>Git basics</h1>
+    <p>The Sakai Open Academic Environment uses git version control in combination with <%= link_to "Github", "https://github.com/sakaiproject", :class => "wl-regular-link", :target => "_blank" %> to manage and distribute the code. This section assumes a basic knowledge of what git is and what it can be used for. If you want to read up on git you can visit the <%= link_to "git homepage", "http://git-scm.com/", :title => "Git homepage", :class => "wl-regular-link", :target => "_blank" %>.</p>
+
+    <p>This section also assumes that a development environment is up and running and you are ready to start developing your widget. If you do not have your development environment up and running I suggest you follow the '<%= link_to "Full development environment setup", "/sdk/developwidget/fulldevsetup", :class => "wl-regular-link" %>' and return to this section.</p>
+
+    <ul class="inline_list">
+        <li><%= link_to "Remotes", "#remotes", :title => "Remotes", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Managing branches", "#managingbranches", :title => "Managing branches", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Committing changes", "#commit", :title => "Committing changes", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Cheat sheets", "#cheatsheets", :title => "Cheat sheets", :class => "wl-regular-link" %></li>
+    </ul>
+
+    <div class="wl-widget-item first">
+        <h2 id="remotes">Remotes</h2>
+        <p>Remotes in git are repository aliases that allow you to do various tasks. You can have some remotes with write or read access, or both. To access a list of aliases on your project simply run git remote.</p>
+        <div class="navigationalitems_codesnippit_container few_lines">
+<pre>
+<strong>$ git remote</strong>
+sakaiproject
+
+<strong>$ git remote -v</strong>
+sakaiproject	https://github.com/sakaiproject/3akai-ux.git (push)
+sakaiproject	https://github.com/sakaiproject/3akai-ux.git (fetch)
+</pre>
+        </div>
+        <p>When setting up your environment through the <%= link_to "Full development environment setup", "/sdk/developwidget/fulldevsetup", :class => "wl-regular-link" %> you'll have one remote 'sakaiproject' which is the alias for the sakaiproject repository.</p>
+        <p>Adding remotes is as simple as the previous command, take a look at the following example where I add my own repository as a remote.</p>
+        <div class="navigationalitems_codesnippit_container few_lines">
+<pre>
+<strong>$ git remote add bp323 git@github.com:bp323/3akai-ux.git</strong>
+
+<strong>$ git remote -v</strong>
+bp323	git@github.com:bp323/3akai-ux.git (fetch)
+bp323	git@github.com:bp323/3akai-ux.git (push)
+sakaiproject	https://github.com/sakaiproject/3akai-ux.git (push)
+sakaiproject	https://github.com/sakaiproject/3akai-ux.git (fetch)
+</pre>
+        </div>
+        <p>Now that we have some remotes in there we can start fetching and pushing our codes.</p>
+
+        <h2 id="managingbranches">Managing branches</h2>
+        <p>There's a few best practices for managing your local and remote branches but let's start off with fetching the most recent version of the 3akai-ux code and merging it in our local branch. Merging code from one branch in another is basically making sure that the branch you're merging in has all codes/history/... that the other branch has. This is one of the advantages of git, every repository is the same and you simple synchronize between them.</p>
+        <p>In the following example, I take a look at what branches I have and update my local master branch with the latest 3akai-ux code.</p>
+        <div class="navigationalitems_codesnippit_container">
+<pre>
+<strong>$ git branch</strong> -> Lists local branches
+master
+
+<strong>$ git fetch sakaiproject</strong> -> Fetches the remote branches by using the alias
+remote: Counting objects: 610, done.
+remote: Compressing objects: 100% (196/196), done.
+remote: Total 498 (delta 178), reused 438 (delta 123)
+Receiving objects: 100% (498/498), 56.96 KiB, done.
+Resolving deltas: 100% (178/178), completed with 51 local objects.
+From https://github.com/sakaiproject/3akai-ux
+   36f3121..06333a3  master      -> sakaiproject/master
+   
+<strong>$ git merge sakaiproject/master</strong> -> Synchronizes your local branch with the remote branch
+Updating 36f3121..06333a3
+Fast-forward
+...
+
+<strong>$ git status</strong> -> checks if the working directory has any changes
+# On branch master
+nothing to commit (working directory clean)
+</pre>
+        </div>
+        <p>Once the remote and local branch have been synchronized we can start thinking about making a branch for our widget. Making a separate branch for any changes you do is best practice as we don't want to change anything in our master branch. Master branches serve for fetching the most recent data and basing your new branches off of that. Creating a new branch based off of the latest master branch we find in the sakaiproject repository can be done like this:</p>
+        <div class="navigationalitems_codesnippit_container few_lines">
+<pre>
+<strong>$ git checkout -b newbranch sakaiproject/master</strong> -> Creates new branch based off of master
+                                             and checks it out
+</pre>
+        </div>
+        <p>There's a bunch of other useful commands for managing branches:</p>
+        <div class="navigationalitems_codesnippit_container few_lines">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Rename a branch</h4>
+            </div>
+<pre>
+<strong>$ git branch -m oldbranchname newbranchname</strong>
+</pre>
+        </div>
+        <div class="navigationalitems_codesnippit_container few_lines">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Reset a branch</h4>
+            </div>
+<pre>
+<strong>$ git reset --hard HEAD</strong>
+</pre>
+        </div>
+        <div class="navigationalitems_codesnippit_container few_lines">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Temporarily stash changes to a branch</h4>
+            </div>
+<pre>
+<strong>$ git add -A</strong> -> Adds changes to the staging area
+<strong>$ git stash</strong> -> Stashes the changes and removes them from the working tree
+... -> Changes stashed, you can do other things before applying
+<strong>$ git stash apply</strong> -> Applies the stash to the working tree
+</pre>
+        </div>
+        <div class="navigationalitems_codesnippit_container few_lines">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Delete a branch</h4>
+            </div>
+<pre>
+<strong>$ git checkout master</strong> -> Can't delete branch we're currently on, checkout to master
+<strong>$ git branch -D branchtodelete</strong> -> Deletes local branch
+<strong>$ git push bp323 :branchtodelete</strong> -> Deletes remote branch
+</pre>
+        </div>
+
+        <h2 id="commit">Committing changes</h2>
+        <p>Committing changes on a regular basis is best practice. Not only does it allow you to easily look back at fixes you did a few days (or weeks/months) ago but it also avoids losing your work when something goes horribly wrong. Also, when debugging your code it's easier to track down and remove patches if they're split up into manageable chunks. Before committing it can be useful to take a last look at the files you've edited. A handful of external applications like <%= link_to "GitX (Mac)", "http://gitx.frim.nl/", :title => "GitX homepage", :class => "wl-regular-link", :target => "_blank" %> or <%= link_to "SmartGit (Windows)", "http://www.syntevo.com/smartgit/index.html", :title => "SmartGit homepage", :class => "wl-regular-link", :target => "_blank" %> make this a graphical experience. Committing and pushing your changes is easy:</p>
+        <div class="navigationalitems_codesnippit_container">
+<pre>
+<strong>$ git commit -am "OAEWDGT-152 WIP Create a 'Git Basics' section"</strong>
+[OAEWDGT-152 3e3a95b] OAEWDGT-152 WIP Create a 'Git Basics' section
+ 3 files changed, 148 insertions(+), 2 deletions(-)
+ create mode 100644 app/views/sdk/gitbasics.html.erb
+ 
+<strong>$ git push bp323 OAEWDGT-152</strong>
+Counting objects: 14, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (8/8), 4.36 KiB, done.
+Total 8 (delta 6), reused 0 (delta 0)
+To git@github.com:bp323/sakai-widgetlibrary.git
+ * [new branch]      OAEWDGT-152 -> OAEWDGT-152
+</pre>
+        </div>
+
+        <h2 id="cheatsheets">Cheat sheets</h2>
+        <p>If you're starting out with git the <%= link_to "Git cheat sheet", "http://help.github.com/git-cheat-sheets/", :title => "Github cheat sheet", :class => "wl-regular-link", :target => "_blank" %> hosted on Github is a recommended source of information. It contains all of the functionality described above in a nutshell and provides a good overview of some advanced commands as well. Similar to the jQuery cheat sheets there are various other user-created cheat sheets to be found on the web.</p>
+
+    </div>
+
+    <div class="wl-widget-item">
+        <%= image_tag "developer_sad_smiley_icon.png", :alt => "Visit the FAQ", :class => "wl-left" %><h3 class="widgetsdk_header_icon_text">Check out our <%= link_to "FAQ", "/sdk/faq", :class => "wl-regular-link" %> or add a comment below if you didn’t find what you were looking for on this page.</h3>
+    </div>
+</div>
