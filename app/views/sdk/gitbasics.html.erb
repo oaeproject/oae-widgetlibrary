@@ -1,7 +1,7 @@
-<% content_for :title do %> - SDK - git Basics<% end %>
+<% content_for :title do %> - SDK - Git Basics<% end %>
 <div id="gitbasics" class="widgetsdk_container">
-    <h1>git Basics</h1>
-    <p>The Sakai Open Academic Environment uses git version control in combination with <%= link_to "Github", "https://github.com/sakaiproject", :class => "wl-regular-link", :target => "_blank" %> to manage and distribute the code. This section assumes a basic knowledge of what git is and what it can be used for. If you want to read up on git you can visit the <%= link_to "git homepage", "http://git-scm.com/", :title => "git homepage", :class => "wl-regular-link", :target => "_blank" %>.</p>
+    <h1>Git Basics</h1>
+    <p>The Sakai Open Academic Environment uses git version control in combination with <%= link_to "Github", "https://github.com/sakaiproject", :class => "wl-regular-link", :target => "_blank" %> to manage and distribute the code. This section assumes a basic knowledge of what git is and what it can be used for. If you want to read up on git you can visit the <%= link_to "git homepage", "http://git-scm.com/", :title => "Git homepage", :class => "wl-regular-link", :target => "_blank" %>.</p>
 
     <p>This section also assumes that a development environment is up and running and you are ready to start developing your widget. If you do not have your development environment up and running I suggest you follow the '<%= link_to "Full development environment setup", "/sdk/developwidget/fulldevsetup", :class => "wl-regular-link" %>' and return to this section.</p>
 
@@ -117,8 +117,8 @@ nothing to commit (working directory clean)
         <p>Committing changes on a regular basis is best practice. Not only does it allow you to easily look back at fixes you did a few days (or weeks/months) ago but it also avoids losing your work when something goes horribly wrong. Also, when debugging your code it's easier to track down and remove patches if they're split up into manageable chunks. Before committing it can be useful to take a last look at the files you've edited. A handful of external applications like <%= link_to "GitX (Mac)", "http://gitx.frim.nl/", :title => "GitX homepage", :class => "wl-regular-link", :target => "_blank" %> or <%= link_to "SmartGit (Windows)", "http://www.syntevo.com/smartgit/index.html", :title => "SmartGit homepage", :class => "wl-regular-link", :target => "_blank" %> make this a graphical experience. Committing and pushing your changes is easy:</p>
         <div class="navigationalitems_codesnippit_container">
 <pre>
-<strong>$ git commit -am "OAEWDGT-152 WIP Create a 'git Basics' section"</strong>
-[OAEWDGT-152 3e3a95b] OAEWDGT-152 WIP Create a 'git Basics' section
+<strong>$ git commit -am "OAEWDGT-152 WIP Create a 'Git Basics' section"</strong>
+[OAEWDGT-152 3e3a95b] OAEWDGT-152 WIP Create a 'Git Basics' section
  3 files changed, 148 insertions(+), 2 deletions(-)
  create mode 100644 app/views/sdk/gitbasics.html.erb
  
@@ -134,7 +134,7 @@ To git@github.com:bp323/sakai-widgetlibrary.git
         </div>
 
         <h2 id="cheatsheets">Cheat sheets</h2>
-        <p>If you're starting out with git the <%= link_to "git cheat sheet", "http://help.github.com/git-cheat-sheets/", :title => "Github cheat sheet", :class => "wl-regular-link", :target => "_blank" %> hosted on Github is a recommended source of information. It contains all of the functionality described above in a nutshell and provides a good overview of some advanced commands as well. Similar to the jQuery cheat sheets there are various other user-created cheat sheets to be found on the web.</p>
+        <p>If you're starting out with git the <%= link_to "Git cheat sheet", "http://help.github.com/git-cheat-sheets/", :title => "Github cheat sheet", :class => "wl-regular-link", :target => "_blank" %> hosted on Github is a recommended source of information. It contains all of the functionality described above in a nutshell and provides a good overview of some advanced commands as well. Similar to the jQuery cheat sheets there are various other user-created cheat sheets to be found on the web.</p>
 
     </div>
 
