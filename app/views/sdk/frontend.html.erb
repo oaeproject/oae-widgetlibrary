@@ -73,7 +73,7 @@
         <h2 id="activity">Activity</h2>
         <h3 id="createactivity">createActivity</h3>
         <p>Wrapper function for creating a Nakamura activity</p>
-        <%= render :partial => "sdk/apifunction", :locals => {:display => {
+        <%= render :partial => "sdk/apifunction", :locals => {
             :function => "sakai.api.Util.Activity.createActivity(nodeUrl, appID, templateID, extraData, callback)",
             :description => "Creates an activity in Nakamura",
             :parameters => "@param {String} <strong>nodeUrl</strong> // The URL of the node we would like the activity to be
@@ -88,18 +88,17 @@
 
 e.g. callback(responseData, success);",
             :example => "var activityData = {
-    \"sakai:activityMessage\": \"Bert Pareyn updated the description\"
+    'sakai:activityMessage': 'Bert Pareyn updated the description'
 };
-sakai.api.Activity.createActivity(\"/p/JexeDwb\", \"content\", \"default\", activityData, function(responseData, success){
+sakai.api.Activity.createActivity('/p/JexeDwb', 'content', 'default', activityData, function(responseData, success){
     if (success) {
-        $(window).trigger(\"updateContentActivity.entity.sakai\", activityMessage);
+        $(window).trigger('updateContentActivity.entity.sakai', activityMessage);
     }
 });"
-            }
-        } %>
+            }%>
 
         <h2 id="applythreedots">applyThreeDots</h2>
-        <%= render :partial => "sdk/apifunction", :locals => {:display => {
+        <%= render :partial => "sdk/apifunction", :locals => {
             :function => "sakai.api.Util.applyThreeDots(body, width, params, optClass, alreadySecure)",
             :description => "Truncate a string of text using the threedots plugin",
             :parameters => "@param {String} body // String of text to be truncated
@@ -113,16 +112,15 @@ sakai.api.Activity.createActivity(\"/p/JexeDwb\", \"content\", \"default\", acti
                                // safeOutput the Boolean should be set to true",
             :callback => "{String} <strong>dotted</strong> // String passed through the threedots API;
 
-e.g. return \"The quick brown fo...\";",
-            :example => "sakai.api.Util.applyThreeDots(\"The quick brown fox jumps over the lazy dog\", 100, {
+e.g. return 'The quick brown fo...';",
+            :example => "sakai.api.Util.applyThreeDots('The quick brown fox jumps over the lazy dog', 100, {
     whole_word: false
-}, \"s3d-bold\");"
-            }
-        } %>
+}, 's3d-bold');"
+            }%>
 
         <h2 id="autosuggest">AutoSuggest</h2>
         <h3 id="setup">setup</h3>
-        <%= render :partial => "sdk/apifunction", :locals => {:display => {
+        <%= render :partial => "sdk/apifunction", :locals => {
             :function => "sakai.api.Util.AutoSuggest.setup(element, options, callback, _dataFn)",
             :description => "Set up the Autosuggest for users and groups",
             :parameters => "@param {String|Object} <strong>element</strong> // jQuery selection object or selector string.
@@ -143,7 +141,7 @@ e.g. return \"The quick brown fo...\";",
     };
     var searchUrl = sakai.config.URL.POOLED_CONTENT_SPECIFIC_USER;
 
-    sakai.api.Server.loadJSON(searchUrl.replace(\".json\", \"\"), function(success, data){
+    sakai.api.Server.loadJSON(searchUrl.replace('.json', ''), function(success, data){
         if (success) {
             var suggestions = [];
             $.each(data.results, function(i) {
@@ -154,14 +152,13 @@ e.g. return \"The quick brown fo...\";",
     }, options);
 };
 
-sakai.api.Util.AutoSuggest.setup($(\"autosuggest_box\"), {
+sakai.api.Util.AutoSuggest.setup($('autosuggest_box'), {
     retrieveLimit: 10
 }, false, dataFn);"
-            }
-        } %>
+            }%>
 
         <h3 id="setuptagandcategoryautosuggest">setupTagAndCategoryAutosuggest</h3>
-        <%= render :partial => "sdk/apifunction", :locals => {:display => {
+        <%= render :partial => "sdk/apifunction", :locals => {
             :function => "sakai.api.Util.AutoSuggest.setupTagAndCategoryAutosuggest($elt, options, $list_categories_button, initialSelections, callback)",
             :description => "Set up the tag + category autosuggest box",
             :parameters => "@param {Object} <strong>$elt</strong> // The element to set up as the autosuggest box
@@ -172,97 +169,92 @@ sakai.api.Util.AutoSuggest.setup($(\"autosuggest_box\"), {
                                  // from the profile
 @param {Function} <strong>callback</strong> // Function to call after setup is complete",
             :callback => "None",
-            :example => "sakai.api.Util.AutoSuggest.setupTagAndCategoryAutosuggest($(\".autosuggest_box\", $rootel), {
+            :example => "sakai.api.Util.AutoSuggest.setupTagAndCategoryAutosuggest($('.autosuggest_box', $rootel), {
     scrollHeight: 120
-}, $(\".autosuggest_location_button\", $rootel));"
-            }
-        } %>
+}, $('.autosuggest_location_button', $rootel));"
+            }%>
 
         <h2 id="converttohumanreadablefilesize">convertToHumanReadableFileSize</h2>
-        <%= render :partial => "sdk/apifunction", :locals => {:display => {
+        <%= render :partial => "sdk/apifunction", :locals => {
             :function => "sakai.api.Util.convertToHumanReadableFileSize(filesize)",
             :description => "Convert a file's size to a human readable size",
             :parameters => "@param {Integer} <strong>filesize</strong> // The file's size to convert",
             :callback => "{String} <strong>size</strong> // Filesize in readable format and localized
             
 e.g. return '4.5 MB';",
-            :example => "sakai.api.Util.convertToHumanReadableFileSize(result[\"_length\"]);"
-            }
-        } %>
+            :example => "sakai.api.Util.convertToHumanReadableFileSize(result['_length']);"
+            }%>
 
         <h2 id="draggable">Draggable</h2>
         <h3 id="setupdraggable">setupDraggable</h3>
-        <%= render :partial => "sdk/apifunction", :locals => {:display => {
+        <%= render :partial => "sdk/apifunction", :locals => {
             :function => "sakai.api.Util.Draggable.setupDraggable(params, $container)",
             :description => "Sets up draggables across the page or given container",
             :parameters => "@param {Object} <strong>params</strong> // Optional parameters that override defaults
 @param {Object} <strong>$container</strong> // container element to add draggables, defaults to 
-                           // $(\"html\") if not set",
+                           // $('html') if not set",
             :callback => "None",
             :example => "sakai.api.Util.Draggable.setupDraggable({
-    helper: \"clone\",
-    cursor: \"hand\"
-}, $(\"#container_to_apply_to\"));
+    helper: 'clone',
+    cursor: 'hand'
+}, $('#container_to_apply_to'));
 
 
 // Setting parameters can also be achieved through the data object in HTML.
 // This HTML is automatically picked up by the API on render of the page
-// but can not be applied to templates rendered after initial page load.<pre id=\"html\" class=\"prettyprint\">&lt;div id=\"container_to_apply_to\"&gt;
+// but can not be applied to templates rendered after initial page load.<pre id=&quot;html&quot; class=&quot;prettyprint&quot;>&lt;div id=&quot;container_to_apply_to&quot;&gt;
     &lt;ul&gt;
-        &lt;li class=\"s3d-draggable-container\" data-helper=\"clone\" data-cursor=\"hand\"&gt;
+        &lt;li class=&quot;s3d-draggable-container&quot; data-helper=&quot;clone&quot; data-cursor=&quot;hand&quot;&gt;
             ...
         &lt;/li&gt;
     &lt;/ul&gt;
-&lt;/div&gt;</pre>"}
-        } %>
+&lt;/div&gt;</pre>"}%>
 
         <h2 id="droppable">Droppable</h2>
         <h3 id="setupdroppable">setupDroppable</h3>
-        <%= render :partial => "sdk/apifunction", :locals => {:display => {
+        <%= render :partial => "sdk/apifunction", :locals => {
             :function => "sakai.api.Util.Droppable.setupDroppable(params, $container)",
             :description => "Sets up containers that allow dropping of elements on them across the page or given container",
             :parameters => "@param {Object} <strong>params</strong> // Optional parameters that override defaults
 @param {Object} <strong>$container</strong> // container element to add droppable containers, defaults 
-                           // to $(\"html\") if not set",
+                           // to $('html') if not set",
             :callback => "None",
             :example => "sakai.api.Util.Droppable.setupDroppable({
-    tolerance: \"touch\",
-    hoverClass: \"custom_class\"
-}, $(\"#container_to_apply_to\"));
+    tolerance: 'touch',
+    hoverClass: 'custom_class'
+}, $('#container_to_apply_to'));
 
 
 // Setting parameters can also be achieved through the data object in HTML.
 // This HTML is automatically picked up by the API on render of the page
-// but can not be applied to templates rendered after initial page load.<pre id=\"html\" class=\"prettyprint\">&lt;div id=\"container_to_apply_to\"&gt;
-    &lt;div class=\"s3d-droppable-container\" data-tolerance=\"touch\" data-hoverClass=\"custom_class\"&gt;
+// but can not be applied to templates rendered after initial page load.<pre id=&quot;html&quot; class=&quot;prettyprint&quot;>&lt;div id=&quot;container_to_apply_to&quot;&gt;
+    &lt;div class=&quot;s3d-droppable-container&quot; data-tolerance=&quot;touch&quot; data-hoverClass=&quot;custom_class&quot;&gt;
         ...
     &lt;/div&gt;
-&lt;/div&gt;</pre>"}
-        } %>
+&lt;/div&gt;</pre>"}%>
 
         <h2 id="formattags">formatTags</h2>
-        <%= render :partial => "sdk/apifunction", :locals => {:display => {
+        <%= render :partial => "sdk/apifunction", :locals => {
             :function => "sakai.api.Util.formatTags(inputTags)",
             :description => "Formats a comma separated string of text to an array of usable tags, filters out unwanted tags (e.g. empty tags), returns the array of tags and if no tags were provided or none were valid an empty array is returned",
             :parameters => "@param {Object} <strong>inputTags</strong> // Unformatted, comma separated, string of tags put in
                           // by a user",
             :callback => "{Array} <strong>tags</strong> // Array of formatted tags
 
-e.g. return [\"Physics\", \"Advanced Mathematics 101\", \"Biology 201\";",
-            :example => "var inputTags = $(\"#metadata_tag_input_field\").val();
+e.g. return ['Physics', 'Advanced Mathematics 101', 'Biology 201';",
+            :example => "var inputTags = $('#metadata_tag_input_field').val();
 
 debug.log(inputTags);
-// \"  Physics   ,   , ,  Advanced Mathematics 101, , Biology 201  \"
+// '  Physics   ,   , ,  Advanced Mathematics 101, , Biology 201  '
 
 var formattedTags = sakai.api.Util.formatTags(inputTags);
 
 debug.log(formattedTags);
- // [\"Physics\", \"Advanced Mathematics 101\", \"Biology 201\"]"}
-        } %>
+ // ['Physics', 'Advanced Mathematics 101', 'Biology 201']"}%>
 
         <h2 id="forms">Forms</h2>
         <h3 id="validate">validate</h3>
-        <%= render :partial => "sdk/apifunction", :locals => {:display => {
+        <%= render :partial => "sdk/apifunction", :locals => {
             :function => "sakai.api.Util.formatTags(inputTags)",
             :description => "A wrapper for jquery.validate with a custom Sakai OAE styling.",
             :parameters => "@param {Object} <strong>$form</strong> // $form the jQuery element of the form in question
@@ -280,7 +272,7 @@ debug.log(formattedTags);
             minlength: 4
         },
         password_repeat: {
-            equalTo: \"#password\"
+            equalTo: '#password'
         },
         username: {
             minlength: 3,
@@ -290,13 +282,13 @@ debug.log(formattedTags);
     },
     messages: {
         username: {
-            required: $(\"#username_empty\").text(),
-            minlength: $(\"#username_short\").text(),
-            nospaces: $(\"#username_spaces\").text()
+            required: $('#username_empty').text(),
+            minlength: $('#username_short').text(),
+            nospaces: $('#username_spaces').text()
         },
         password: {
-            required: $(\"#password_empty\").text(),
-            minlength: $(\"#password_short\").text()
+            required: $('#password_empty').text(),
+            minlength: $('#password_short').text()
         }
     },
     submitHandler: function(form, validator){
@@ -305,11 +297,10 @@ debug.log(formattedTags);
     }
 };
 
-sakai.api.Util.Forms.validate($(\"#create_account_form\"), validateOpts, true);"}
-        } %>
+sakai.api.Util.Forms.validate($('#create_account_form'), validateOpts, true);"}%>
 
         <h2 id="hideonclickout">hideOnClickOut</h2>
-        <%= render :partial => "sdk/apifunction", :locals => {:display => {
+        <%= render :partial => "sdk/apifunction", :locals => {
             :function => "sakai.api.Util.hideOnClickOut(elementToHide, ignoreElements, callback)",
             :description => "Sets up events to hide a dialog when the user clicks outside of it",
             :parameters => "@param {String} <strong>elementToHide</strong> // a jquery selector, jquery object, dom element, or
@@ -320,18 +311,17 @@ sakai.api.Util.Forms.validate($(\"#create_account_form\"), validateOpts, true);"
 @param {Function} <strong>callback</strong> // a function to be called instead of the default
                            // jquery.hide()",
             :callback => "{Function} <strong>callback</strong> // a function to be called instead of the default jquery.hide()",
-            :example => "sakai.api.Util.hideOnClickOut(\"#settings_dropdown\", \".settings_icon\", function(){
+            :example => "sakai.api.Util.hideOnClickOut('#settings_dropdown', '.settings_icon', function(){
     // Do some extra handling
     ...
     // Close the dialog
-    $(\"#settings_dropdown\").jqmHide();
-});"}
-        } %>
+    $('#settings_dropdown').jqmHide();
+});"}%>
 
         <h2 id="notification">notification</h2>
         <p>Utility functions related to notifications messages in Sakai3</p>
         <h3 id="show">show</h3>
-        <%= render :partial => "sdk/apifunction", :locals => {:display => {
+        <%= render :partial => "sdk/apifunction", :locals => {
             :function => "sakai.api.Util.Notification.show(title, text, type, sticky)",
             :description => "Show notification messages in the top right corner of the screen",
             :parameters => "@param {String} <strong>title</strong> // The notification title (if it is an empty string, the
@@ -339,22 +329,21 @@ sakai.api.Util.Forms.validate($(\"#create_account_form\"), validateOpts, true);"
 @param {String} <strong>text</strong> // The text you want to see appear in the body of the
                      // notification
 @param {Constant} <strong>type</strong> // The type of the notification. If this is not supplied, we
-                       // use the type \"information\"
+                       // use the type 'information'
 @param {Boolean} <strong>sticky</strong> // The sticky (if it is true, the notification doesn't
                         // disappear without using action)",
             :callback => "None",
-            :example => "sakai.api.Util.notification.show(sakai.api.i18n.getValueForKey(\"COLLECTION_CREATED\"),
-                                 \"\",
+            :example => "sakai.api.Util.notification.show(sakai.api.i18n.getValueForKey('COLLECTION_CREATED'),
+                                 '',
                                  sakai.api.Util.notification.type.INFORMATION,
                                  false);
 
 // 2 different types of notification exist
 sakai.api.Util.notification.type.INFORMATION  // Default
-sakai.api.Util.notification.type.ERROR"}
-        } %>
+sakai.api.Util.notification.type.ERROR"}%>
 
         <h2 id="parsesakaidate">parseSakaiDate</h2>
-        <%= render :partial => "sdk/apifunction", :locals => {:display => {
+        <%= render :partial => "sdk/apifunction", :locals => {
             :function => "sakai.api.Util.parseSakaiDate(dateInput)",
             :description => "Parse a ISO8601 date into a JavaScript date object.",
             :parameters => "@param {String} <strong>dateInput</strong> // The date that needs to be converted to a JavaScript
@@ -362,47 +351,43 @@ sakai.api.Util.notification.type.ERROR"}
                           // to provide an integer, otherwise a string",
             :callback => "{Date} <strong>dateOutput</strong> // parsed JavaScript Date",
             :example => "debug.log(oldDate);
-// \"2012-01-31T17:44Z\"
+// '2012-01-31T17:44Z'
 
 var parsedDate = sakai.api.Util.parseSakaiDate(oldDate);
 
 debug.log(parsedDate);
-// Date \{Tue Jan 31 2012 17:44:00 GMT+0000 (GMT)\}"}
-        } %>
+// Date \{Tue Jan 31 2012 17:44:00 GMT+0000 (GMT)\}"}%>
 
         <h2 id="progressIndicator">progressIndicator</h2>
         <h3 id="showprogressIndicator">showProgressIndicator</h3>
-        <%= render :partial => "sdk/apifunction", :locals => {:display => {
+        <%= render :partial => "sdk/apifunction", :locals => {
             :function => "sakai.api.Util.showProgressIndicator(title, body)",
             :description => "Shows a progress indicator on the screen in the form of an overlay and progress bar.",
             :parameters => "@param {String} <strong>title</strong> // Title of the indicator screen
 @param {String} <strong>body</strong> // Additional text to be shown in the indicator",
             :callback => "None",
-            :example => "sakai.api.Util.showProgressIndicator(sakai.api.i18n.getValueForKey(\"CREATING_COLLECTION\"),
-                                     sakai.api.i18n.getValueForKey(\"WONT_BE_LONG\"));"}
-        } %>
+            :example => "sakai.api.Util.showProgressIndicator(sakai.api.i18n.getValueForKey('CREATING_COLLECTION'),
+                                     sakai.api.i18n.getValueForKey('WONT_BE_LONG'));"}%>
 
         <h3 id="hideprogressIndicator">hideProgressIndicator</h3>
-        <%= render :partial => "sdk/apifunction", :locals => {:display => {
+        <%= render :partial => "sdk/apifunction", :locals => {
             :function => "sakai.api.Util.hideProgressIndicator()",
             :description => "Hide the existing progress indicator.",
             :parameters => "None",
             :callback => "None",
-            :example => "sakai.api.Util.hideProgressIndicator();"}
-        } %>
+            :example => "sakai.api.Util.hideProgressIndicator();"}%>
 
         <h2 id="rendermath">renderMath</h2>
-        <%= render :partial => "sdk/apifunction", :locals => {:display => {
+        <%= render :partial => "sdk/apifunction", :locals => {
             :function => "sakai.api.Util.renderMath(element)",
             :description => "Runs MathJax over an element replacing any math TeX with rendered formulas",
             :parameters => "@param {String} <strong>element</strong> // The element (or its id) that should be checked for math",
             :callback => "None",
             :example => "// Rendering the math in a whole widget:
-sakai.api.Util.renderMath(tuid);"}
-        } %>
+sakai.api.Util.renderMath(tuid);"}%>
 
         <h2 id="tagentity">tagEntity</h2>
-        <%= render :partial => "sdk/apifunction", :locals => {:display => {
+        <%= render :partial => "sdk/apifunction", :locals => {
             :function => "sakai.api.Util.tagEntity(tagLocation, newTags, currentTags, callback)",
             :description => "Add and delete tags from an entity. To delete a tag don't pass that tag in the 'newTags' Array.",
             :parameters => "@param {String} <strong>tagLocation</strong> // The URL to tag
@@ -414,26 +399,25 @@ sakai.api.Util.renderMath(tuid);"}
 
 e.g. callback(success, newTags);",
             :example => "// Adding tags:
-sakai.api.Util.tagEntity(\"/p/XwawEdaS\",    // tagLocation
-                         [\"tag1\", \"tag2\"], // newTags
-                         [\"tag1\"],         // currentTags
+sakai.api.Util.tagEntity('/p/XwawEdaS',    // tagLocation
+                         ['tag1', 'tag2'], // newTags
+                         ['tag1'],         // currentTags
                          function(success, newTags){ // callback
     debug.log(success); // True or false
-    debug.log(newTags); // If a success, newTags looks like this: [\"tag1\", \"tag2\"]
+    debug.log(newTags); // If a success, newTags looks like this: ['tag1', 'tag2']
 });
 
 // Deleting tags:
-sakai.api.Util.tagEntity(\"/p/XwawEdaS\",  // tagLocation
-             [\"tag1\"],                   // newTags
-             [\"tag1\", \"tag2\"],           // currentTags
+sakai.api.Util.tagEntity('/p/XwawEdaS',  // tagLocation
+             ['tag1'],                   // newTags
+             ['tag1', 'tag2'],           // currentTags
              function(success, newTags){ // callback
     debug.log(success); // True or false
-    debug.log(newTags); // If a success, newTags looks like this: [\"tag1\"]
-});"}
-        } %>
+    debug.log(newTags); // If a success, newTags looks like this: ['tag1']
+});"}%>
 
         <h2 id="templaterenderer">TemplateRenderer</h2>
-        <%= render :partial => "sdk/apifunction", :locals => {:display => {
+        <%= render :partial => "sdk/apifunction", :locals => {
             :function => "sakai.api.Util.TemplateRenderer(templateElement, templateData, outputElement, doSanitize)",
             :description => "Renders the template with the given JSON object, inserts it into a certain HTML element if required, and returns the rendered HTML string. If an output element is specified the renderer scans for draggable/droppable classes and applies that functionality in the process.",
             :parameters => "@param {String|Object} <strong>templateElement</strong> // The name of the template HTML ID or a
@@ -444,25 +428,24 @@ sakai.api.Util.tagEntity(\"/p/XwawEdaS\",  // tagLocation
 @param {Boolean}(Optional) <strong>doSanitize</strong> // perform html sanitization. Defaults to true",
             :callback => "{String} <strong>render</strong> // Rendered string of HTML
 
-e.g. return \"&lt;div&gt; ... &lt;/div&gt;\";",
-            :example => "sakai.api.Util.TemplateRenderer(\"some_list_template\", {
+e.g. return '&lt;div&gt; ... &lt;/div&gt;';",
+            :example => "sakai.api.Util.TemplateRenderer('some_list_template', {
     data: dataArr,
     sakai: sakai,
-}, $(\"#some_list_container\"));
+}, $('#some_list_container'));
 
-// The HTML for the templaterenderer should look like:<pre id=\"html\" class=\"prettyprint\">&lt;div id=\"some_list_template\"&gt;&lt;!--
+// The HTML for the templaterenderer should look like:<pre id=&quot;html&quot; class=&quot;prettyprint&quot;>&lt;div id=&quot;some_list_template&quot;&gt;&lt;!--
     ...
     // content for template goes here
     ...
--->&lt;/div&gt;</pre>"}
-        } %>
+-->&lt;/div&gt;</pre>"}%>
     </div>
 
     <div class="wl-widget-item">
         <h1 id="user">User functions (sakai.api.User.*)</h1>
         <p>Advanced user related functionality, especially common actions that originate from a logged in user.</p>
         <h2 id="getuser">getUser</h2>
-        <%= render :partial => "sdk/apifunction", :locals => {:display => {
+        <%= render :partial => "sdk/apifunction", :locals => {
             :function => "sakai.api.User.getUser(userid, callback)",
             :description => "Gets a user's public data from the system.",
             :parameters => "@param {String} <strong>userid</strong> // ID of user to fetch data for
@@ -470,60 +453,33 @@ e.g. return \"&lt;div&gt; ... &lt;/div&gt;\";",
             :callback => "{Boolean} <strong>success</strong> // Indicates the success of the request
 {Object} <strong>data</strong> // Contains profile data for the user
 
-e.g. callback(true, data);",
-            :example => ""
-            }
-        } %>
+e.g. callback(true, data);"
+            }%>
 
         <h2 id="getmultipleusers">getMulipleUsers</h2>
-        <%= render :partial => "sdk/apifunction", :locals => {:display => {
-            :function => "sakai.api.User.createActivity()",
-            :description => "",
-            :parameters => "",
-            :callback => "",
-            :example => ""
-            }
-        } %>
+        <%= render :partial => "sdk/apifunction", :locals => {
+            :function => "sakai.api.User.createActivity()"
+            }%>
 
         <h2 id="getprofilepicture">getProfilePicture</h2>
-        <%= render :partial => "sdk/apifunction", :locals => {:display => {
-            :function => "sakai.api.User.createActivity()",
-            :description => "",
-            :parameters => "",
-            :callback => "",
-            :example => ""
-            }
-        } %>
+        <%= render :partial => "sdk/apifunction", :locals => {
+            :function => "sakai.api.User.createActivity()"
+            }%>
 
         <h2 id="getdisplayname">getDisplayName</h2>
-        <%= render :partial => "sdk/apifunction", :locals => {:display => {
-            :function => "sakai.api.User.createActivity()",
-            :description => "",
-            :parameters => "",
-            :callback => "",
-            :example => ""
-            }
-        } %>
+        <%= render :partial => "sdk/apifunction", :locals => {
+            :function => "sakai.api.User.createActivity()"
+            }%>
 
         <h2 id="checkifconnected">checkIfConnected</h2>
-        <%= render :partial => "sdk/apifunction", :locals => {:display => {
-            :function => "sakai.api.User.createActivity()",
-            :description => "",
-            :parameters => "",
-            :callback => "",
-            :example => ""
-            }
-        } %>
+        <%= render :partial => "sdk/apifunction", :locals => {
+            :function => "sakai.api.User.createActivity()"
+            }%>
 
         <h2 id="preparepeopleforrender">preparePeopleForRender</h2>
-        <%= render :partial => "sdk/apifunction", :locals => {:display => {
-            :function => "sakai.api.User.createActivity()",
-            :description => "",
-            :parameters => "",
-            :callback => "",
-            :example => ""
-            }
-        } %>
+        <%= render :partial => "sdk/apifunction", :locals => {
+            :function => "sakai.api.User.createActivity()"
+            }%>
 
     </div>
 </div>
