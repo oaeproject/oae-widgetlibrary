@@ -7,19 +7,19 @@
         <p>If not, follow these steps to get up and running with Sakai OAE:</p>
         <p>1. Create a directory for Sakai OAE (we will use sakaioae in this documentation) anywhere you like:</p>
         <div class="navigationalitems_codesnippit_container few_lines">
-<pre class="black">$ mkdir sakaioae</pre>
+<pre class="prettyprint">$ mkdir sakaioae</pre>
         </div>
 
         <p>2. Go into the new sakaioae directory:</p>
         <div class="navigationalitems_codesnippit_container few_lines">
-<pre class="black">$ cd sakaioae</pre>
+<pre class="prettyprint">$ cd sakaioae</pre>
         </div>
 
         <p>3. <%= link_to "Download", "http://source.sakaiproject.org/release/oae/1.1/binary/org.sakaiproject.nakamura.app-1.1.jar", :target => "_blank", :class => "wl-regular-link" %> the Sakai OAE backend (nakamura) executable and save it as nakamura.jar in your sakaioae directory (this may take a couple of minutes depending on your Internet connection).</p>
 
         <p>4. Start up the server using the following Java command:</p>
         <div class="navigationalitems_codesnippit_container few_lines">
-<pre class="black">$ java -Xms256m -Xmx1024m -XX:PermSize=64m -XX:MaxPermSize=512m -server -jar nakamura.jar -f -</pre>
+<pre class="prettyprint">$ java -Xms256m -Xmx1024m -XX:PermSize=64m -XX:MaxPermSize=512m -server -jar nakamura.jar -f -</pre>
         </div>
 
         <p>5. For about a minute, you will see Nakamura starting up and a number of logging statements go by. Once it stops, Nakamura is up and running and this terminal will continue to print the server's logging statements. You can test whether it is running by pointing your browser to http://localhost:8080/dev - you should see the Sakai OAE homepage.</p>
@@ -64,15 +64,15 @@
         <p>19. Nakamura should now be using your UX code rather than the UX code it came with. To make sure, try saving the following HTML to sakaioae/3akai-ux/dev/testing.html and go to http://localhost:8080/dev/testing.html</p>
 
         <div class="navigationalitems_codesnippit_container">
-<pre class="black">
-<span class="blue">&lt;html&gt;</span>
-    <span class="blue">&lt;head&gt;</span>
-        <span class="blue">&lt;title&gt;</span>Hello World<span class="blue">&lt;/title&gt;</span>
-    <span class="blue">&lt;/head&gt;</span>
-    <span class="blue">&lt;body&gt;</span>
+<pre class="prettyprint">
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Hello World&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
         Hello World
-    <span class="blue">&lt;/body&gt;</span>
-<span class="blue">&lt;/html&gt;</span>
+    &lt;/body&gt;
+&lt;/html&gt;
 </pre>
         </div>
 

@@ -3,108 +3,483 @@
     <h1>Front-end services</h1>
     <p>Sakai OAE has a number of API functions available that should be used to build the interface of your widgets. A full list of API functions will be coming soon, but documentation on some of the most used frontend Widget API functions are provided below.</p>
     <p>If you are looking for API functions to communicate with the Sakai OAE server, check out the Backend Services page.</p>
-    
-    <h3 class="wl-normal">Categories 
-        <button type="button" class="wl-link-button wl-regular-link wl-bold wl-right expand_all_link" data-expanded="false">
-            <span>Expand all &or;</span>
-            <span style="display:none;">Collapse all &and;</span>
-        </button>
-    </h3>
+
+<ul class="widgetsdk_treelist">
+    <li><%= link_to "Utility functions (sakai.api.Util.*)", "#utility", :class => "wl-regular-link", :title => "Utility functions (sakai.api.Util.*)" %>
+        <ul>
+            <li><%= link_to "Activity", "#activity", :class => "wl-regular-link", :title => "Activity" %>
+                <ul>
+                    <li><%= link_to "createActivity", "#createactivity", :class => "wl-regular-link", :title => "createActivity" %></li>
+                </ul>
+            </li>
+            <li><%= link_to "applyThreeDots", "#applythreedots", :class => "wl-regular-link", :title => "applyThreeDots" %></li>
+            <li>
+                <%= link_to "AutoSuggest", "#autosuggest", :class => "wl-regular-link", :title => "AutoSuggest" %>
+                <ul>
+                    <li><%= link_to "setup", "#setup", :class => "wl-regular-link", :title => "setup" %></li>
+                    <li><%= link_to "setupTagAndCategoryAutosuggest", "#setuptagandcategoryautosuggest", :class => "wl-regular-link", :title => "setupTagAndCategoryAutosuggest" %></li>
+                </ul>
+            </li>
+            <li><%= link_to "convertToHumanReadableFileSize", "#converttohumanreadablefilesize", :class => "wl-regular-link", :title => "convertToHumanReadableFileSize" %></li>
+            <li><%= link_to "Draggable", "#draggable", :class => "wl-regular-link", :title => "Draggable" %>
+                <ul>
+                    <li><%= link_to "setupDraggable", "#setupdraggable", :class => "wl-regular-link", :title => "setupDraggable" %></li>
+                </ul>
+            </li>
+            <li><%= link_to "Droppable", "#droppable", :class => "wl-regular-link", :title => "Droppable" %>
+                <ul>
+                    <li><%= link_to "setupDroppable", "#setupdroppable", :class => "wl-regular-link", :title => "setupDroppable" %></li>
+                </ul>
+            </li>
+            <li><%= link_to "formatTagsh", "#formattags", :class => "wl-regular-link", :title => "formatTagsh" %></li>
+            <li><%= link_to "Forms", "#forms", :class => "wl-regular-link", :title => "Forms" %>
+                <ul>
+                    <li><%= link_to "validate", "#validate", :class => "wl-regular-link", :title => "validate" %></li>
+                </ul>
+            </li>
+            <li><%= link_to "hideOnClickOut", "#hideonclickout", :class => "wl-regular-link", :title => "hideOnClickOut" %></li>
+            <li><%= link_to "notification", "#notification", :class => "wl-regular-link", :title => "notification" %>
+                <ul>
+                    <li><%= link_to "show", "#show", :class => "wl-regular-link", :title => "show" %></li>
+                </ul>
+            </li>
+            <li><%= link_to "parseSakaiDate", "#parsesakaidate", :class => "wl-regular-link", :title => "parseSakaiDate" %></li>
+            <li><%= link_to "progressIndicator", "#progressIndicator", :class => "wl-regular-link", :title => "progressIndicator" %>
+                <ul>
+                    <li><%= link_to "showProgressIndicator", "#showprogressIndicator", :class => "wl-regular-link", :title => "showProgressIndicator" %></li>
+                    <li><%= link_to "hideProgressIndicator", "#hideprogressIndicator", :class => "wl-regular-link", :title => "hideProgressIndicator" %></li>
+                </ul>
+            </li>
+            <li><%= link_to "renderMath", "#rendermath", :class => "wl-regular-link", :title => "renderMath" %></li>
+            <li><%= link_to "tagEntity", "#tagentity", :class => "wl-regular-link", :title => "tagEntity" %></li>
+            <li><%= link_to "TemplateRenderer", "#templaterenderer", :class => "wl-regular-link", :title => "TemplateRenderer" %></li>
+        </ul>
+    </li>
+    <li><%= link_to "User functions (sakai.api.User.*)", "#user", :class => "wl-regular-link", :title => "User functions (sakai.api.User.*)" %>
+        <ul>
+            <li><%= link_to "getUser", "#getuser", :class => "wl-regular-link", :title => "getUser" %></li>
+            <li><%= link_to "getMulipleUsers", "#getmultipleusers", :class => "wl-regular-link", :title => "getMulipleUsers" %></li>
+            <li><%= link_to "getProfilePicture", "#getprofilepicture", :class => "wl-regular-link", :title => "getProfilePicture" %></li>
+            <li><%= link_to "getDisplayName", "#getdisplayname", :class => "wl-regular-link", :title => "getDisplayName" %></li>
+            <li><%= link_to "checkIfConnected", "#checkifconnected", :class => "wl-regular-link", :title => "checkIfConnected" %></li>
+            <li><%= link_to "preparePeopleForRender", "#preparepeopleforrender", :class => "wl-regular-link", :title => "preparePeopleForRender" %></li>
+        </ul>
+    </li>
+</ul>
+
     <div class="wl-widget-item">
-        <h3 class="wl-regular-link no_decoration wl-normal">Widgets 
-            <button type="button" class="wl-link-button wl-regular-link wl-bold wl-right expand_link" data-expanded="false">
-                <span>Expand &or;</span>
-                <span style="display:none;">Collapse &and;</span>
-            </button>
-        </h3>
-        <p>Sakai OAE manages widgets dynamically in the frontend code and provides API functions to inform Sakai OAE when your widget is ready to be run and when your widget changes state.</p>
-        <div class="expandable_container" style="display:none;">
-            <i><h4>sakai.api.Widgets.widgetLoader.informOnLoad(widgetname)</h4></i>
+        <h1 id="utility">Utility functions (sakai.api.Util.*)</h1>
+        <p>General utility functions which implement commonly used low level operations and unifies practices across codebase.</p>
+        <h2 id="activity">Activity</h2>
+        <h3 id="createactivity">createActivity</h3>
+        <p>Wrapper function for creating a Nakamura activity</p>
+        <%= render :partial => "sdk/apifunction", :locals => {
+            :function => "sakai.api.Util.Activity.createActivity(nodeUrl, appID, templateID, extraData, callback)",
+            :description => "Creates an activity in Nakamura",
+            :parameters => "@param {String} <strong>nodeUrl</strong> The URL of the node we would like the activity to be
+                        stored on
+@param {String} <strong>appID</strong> The ID of the application/functionality creating the
+                      activity
+@param {String} <strong>templateID</strong> The ID of the activity template
+@param {Object} <strong>extraData</strong> Any extra data which will be stored on the activity node
+@param {Function} <strong>callback</strong> Callback function executed at the end of the operation",
+            :callback => "{Function} <strong>callback</strong> Function executed after operation is complete,
+                    given the returned data (Object) and a success indicator (Boolean)
 
-            <p>This function must be called at the end of your widget's JavaScript to inform Sakai OAE that the widget is ready to run. Once called, the given widget will be run.</p>
+e.g. callback(responseData, success);",
+            :example => "var activityData = {
+    'sakai:activityMessage': 'Bert Pareyn updated the description'
+};
+sakai.api.Activity.createActivity('/p/JexeDwb', 'content', 'default', activityData, function(responseData, success){
+    if (success) {
+        $(window).trigger('updateContentActivity.entity.sakai', activityMessage);
+    }
+});"
+            }%>
 
-            <h5>Arguments</h5>
-            <ul class="inline_list">
-                <li>String widgetname - the id of the widget as defined in the widget's config.json file (e.g. myhelloworld, sites, myprofile, video, ...)</li>
-            </ul>
+        <h2 id="applythreedots">applyThreeDots</h2>
+        <%= render :partial => "sdk/apifunction", :locals => {
+            :function => "sakai.api.Util.applyThreeDots(body, width, params, optClass, alreadySecure)",
+            :description => "Truncate a string of text using the threedots plugin",
+            :parameters => "@param {String} body String of text to be truncated
+@param {Number} width Width of the parent element
+@param {Object} params Object containing parameters, Threedots plugin specific.
+                       The row limit for widget headers should be 4 rows.
+@param {String} optClass Optional class(es) to give container div. Used to give
+                         specific mark-up to the content to avoid wrong
+                         calculations. e.g. s3d-bold
+@param {Boolean} alreadySecure Optional, if the content needs to be run through
+                               safeOutput the Boolean should be set to true",
+            :callback => "{String} <strong>dotted</strong> String passed through the threedots API;
 
-            <h5>Return</h5>
-            <ul class="inline_list">
-                <li>
-                    None.
-                </li>
-            </ul>
+e.g. return 'The quick brown fo...';",
+            :example => "sakai.api.Util.applyThreeDots('The quick brown fox jumps over the lazy dog', 100, {
+    whole_word: false
+}, 's3d-bold');"
+            }%>
 
-            <h5>Example</h5>
-            <p>On the last line of all widgets, you will find a call to sakai.api.Widgets.widgetLoader.informOnLoad(). For example, in the <%= link_to "Hello World Tutorial", "/sdk/developwidget/learnbasics", :class => "wl-regular-link" %>:</p>
+        <h2 id="autosuggest">AutoSuggest</h2>
+        <h3 id="setup">setup</h3>
+        <%= render :partial => "sdk/apifunction", :locals => {
+            :function => "sakai.api.Util.AutoSuggest.setup(element, options, callback, _dataFn)",
+            :description => "Set up the Autosuggest for users and groups",
+            :parameters => "@param {String|Object} <strong>element</strong> jQuery selection object or selector string.
+@param {Object} <strong>options</strong> JavaScript Object of optional parameters to extend or
+                        override defaults
+@param {Function} <strong>callback</strong> Optional Callback to be executed after calling
+                           autosuggest plugin
+@param {Function} <strong>_dataFn</strong> Optional Function that pre-fetches data list for
+                          the autosuggest box",
+            :callback => "{Object} <strong>obj</strong> new jQuery object with autosuggest",
+            :example => "var dataFn = function(query, add) {
+    var q = 'query';
+    var options = {
+        'page': 0,
+        'items': 15,
+        'q': q,
+        'userid': sakai.data.me.user.userid
+    };
+    var searchUrl = sakai.config.URL.POOLED_CONTENT_SPECIFIC_USER;
+
+    sakai.api.Server.loadJSON(searchUrl.replace('.json', ''), function(success, data){
+        if (success) {
+            var suggestions = [];
+            $.each(data.results, function(i) {
+                suggestions.push(dataObj);
+            });
+            add(suggestions, query);
+        }
+    }, options);
+};
+
+sakai.api.Util.AutoSuggest.setup($('autosuggest_box'), {
+    retrieveLimit: 10
+}, false, dataFn);"
+            }%>
+
+        <h3 id="setuptagandcategoryautosuggest">setupTagAndCategoryAutosuggest</h3>
+        <%= render :partial => "sdk/apifunction", :locals => {
+            :function => "sakai.api.Util.AutoSuggest.setupTagAndCategoryAutosuggest($elt, options, $list_categories_button, initialSelections, callback)",
+            :description => "Set up the tag + category autosuggest box",
+            :parameters => "@param {Object} <strong>$elt</strong> The element to set up as the autosuggest box
+@param {Object} <strong>options</strong> Options to pass through to the autoSuggest setup
+@param {Object} <strong>$list_categories_button</strong> The button that should trigger the
+                                        assignlocation overlay
+@param {Array} <strong>initialSelections</strong> The inital selections for the autosuggest, direct
+                                 from the profile
+@param {Function} <strong>callback</strong> Function to call after setup is complete",
+            :callback => "None",
+            :example => "sakai.api.Util.AutoSuggest.setupTagAndCategoryAutosuggest($('.autosuggest_box', $rootel), {
+    scrollHeight: 120
+}, $('.autosuggest_location_button', $rootel));"
+            }%>
+
+        <h2 id="converttohumanreadablefilesize">convertToHumanReadableFileSize</h2>
+        <%= render :partial => "sdk/apifunction", :locals => {
+            :function => "sakai.api.Util.convertToHumanReadableFileSize(filesize)",
+            :description => "Convert a file's size to a human readable size",
+            :parameters => "@param {Integer} <strong>filesize</strong> The file's size to convert",
+            :callback => "{String} <strong>size</strong> Filesize in readable format and localized
             
-            <div class="navigationalitems_codesnippit_container">
-                <div class="navigationalitems_codesnippit_header"><h4>/devwidgets/myhelloworld/javascript/myhelloworld.js, line 187</h4></div>
-<pre class="black">
-<span class="grey">// inform Sakai OAE that this widget has loaded and is ready to run</span>
-sakai.api.Widgets.widgetLoader.informOnLoad(<span class="green">"myhelloworld"</span>);
-</pre>
-            </div>
-        </div>
+e.g. return '4.5 MB';",
+            :example => "sakai.api.Util.convertToHumanReadableFileSize(result['_length']);"
+            }%>
+
+        <h2 id="draggable">Draggable</h2>
+        <h3 id="setupdraggable">setupDraggable</h3>
+        <%= render :partial => "sdk/apifunction", :locals => {
+            :function => "sakai.api.Util.Draggable.setupDraggable(params, $container)",
+            :description => "Sets up draggables across the page or given container",
+            :parameters => "@param {Object} <strong>params</strong> Optional parameters that override defaults
+@param {Object} <strong>$container</strong> container element to add draggables, defaults to 
+                           $('html') if not set",
+            :callback => "None",
+            :example => "sakai.api.Util.Draggable.setupDraggable({
+    helper: 'clone',
+    cursor: 'hand'
+}, $('#container_to_apply_to'));
+
+
+// Setting parameters can also be achieved through the data object in HTML.
+// This HTML is automatically picked up by the API on render of the page
+// but can not be applied to templates rendered after initial page load.<pre id=&quot;html&quot; class=&quot;prettyprint&quot;>&lt;div id=&quot;container_to_apply_to&quot;&gt;
+    &lt;ul&gt;
+        &lt;li class=&quot;s3d-draggable-container&quot; data-helper=&quot;clone&quot; data-cursor=&quot;hand&quot;&gt;
+            ...
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</pre>"}%>
+
+        <h2 id="droppable">Droppable</h2>
+        <h3 id="setupdroppable">setupDroppable</h3>
+        <%= render :partial => "sdk/apifunction", :locals => {
+            :function => "sakai.api.Util.Droppable.setupDroppable(params, $container)",
+            :description => "Sets up containers that allow dropping of elements on them across the page or given container",
+            :parameters => "@param {Object} <strong>params</strong> Optional parameters that override defaults
+@param {Object} <strong>$container</strong> container element to add droppable containers, defaults 
+                           to $('html') if not set",
+            :callback => "None",
+            :example => "sakai.api.Util.Droppable.setupDroppable({
+    tolerance: 'touch',
+    hoverClass: 'custom_class'
+}, $('#container_to_apply_to'));
+
+
+// Setting parameters can also be achieved through the data object in HTML.
+// This HTML is automatically picked up by the API on render of the page
+// but can not be applied to templates rendered after initial page load.<pre id=&quot;html&quot; class=&quot;prettyprint&quot;>&lt;div id=&quot;container_to_apply_to&quot;&gt;
+    &lt;div class=&quot;s3d-droppable-container&quot; data-tolerance=&quot;touch&quot; data-hoverClass=&quot;custom_class&quot;&gt;
+        ...
+    &lt;/div&gt;
+&lt;/div&gt;</pre>"}%>
+
+        <h2 id="formattags">formatTags</h2>
+        <%= render :partial => "sdk/apifunction", :locals => {
+            :function => "sakai.api.Util.formatTags(inputTags)",
+            :description => "Formats a comma separated string of text to an array of usable tags, filters out unwanted tags (e.g. empty tags), returns the array of tags and if no tags were provided or none were valid an empty array is returned",
+            :parameters => "@param {Object} <strong>inputTags</strong> Unformatted, comma separated, string of tags put in
+                          by a user",
+            :callback => "{Array} <strong>tags</strong> Array of formatted tags
+
+e.g. return ['Physics', 'Advanced Mathematics 101', 'Biology 201';",
+            :example => "var inputTags = $('#metadata_tag_input_field').val();
+
+debug.log(inputTags);
+// '  Physics   ,   , ,  Advanced Mathematics 101, , Biology 201  '
+
+var formattedTags = sakai.api.Util.formatTags(inputTags);
+
+debug.log(formattedTags);
+ // ['Physics', 'Advanced Mathematics 101', 'Biology 201']"}%>
+
+        <h2 id="forms">Forms</h2>
+        <h3 id="validate">validate</h3>
+        <%= render :partial => "sdk/apifunction", :locals => {
+            :function => "sakai.api.Util.formatTags(inputTags)",
+            :description => "A wrapper for jquery.validate with a custom Sakai OAE styling.",
+            :parameters => "@param {Object} <strong>$form</strong> $form the jQuery element of the form in question
+@param {Object} <strong>opts</strong> options to pass through to jquery.validate
+                     NOTE: There is one additional option you can pass in
+                     an error callback function
+                     When there is an error in validation detected, it will be
+                     called
+@param {Boolean} <strong>insertAfterLabel</strong> Insert the error span after the label,
+                                  not before",
+            :callback => "None",
+            :example => "var validateOpts = {
+    rules: {
+        password: {
+            minlength: 4
+        },
+        password_repeat: {
+            equalTo: '#password'
+        },
+        username: {
+            minlength: 3,
+            nospaces: true,
+            validusername: true
+        }
+    },
+    messages: {
+        username: {
+            required: $('#username_empty').text(),
+            minlength: $('#username_short').text(),
+            nospaces: $('#username_spaces').text()
+        },
+        password: {
+            required: $('#password_empty').text(),
+            minlength: $('#password_short').text()
+        }
+    },
+    submitHandler: function(form, validator){
+        doLogin();
+        return false;
+    }
+};
+
+sakai.api.Util.Forms.validate($('#create_account_form'), validateOpts, true);"}%>
+
+        <h2 id="hideonclickout">hideOnClickOut</h2>
+        <%= render :partial => "sdk/apifunction", :locals => {
+            :function => "sakai.api.Util.hideOnClickOut(elementToHide, ignoreElements, callback)",
+            :description => "Sets up events to hide a dialog when the user clicks outside of it",
+            :parameters => "@param {String} <strong>elementToHide</strong> a jquery selector, jquery object, dom element, or
+                              array containing the element to be hidden, clicking
+                              this element or its children will not cause it to hide
+@param {String} <strong>ignoreElements</strong> any elements that match a jquery.is(ignoreElements)
+                               will not hide the target element when clicked
+@param {Function} <strong>callback</strong> a function to be called instead of the default
+                           jquery.hide()",
+            :callback => "{Function} <strong>callback</strong> a function to be called instead of the default jquery.hide()",
+            :example => "sakai.api.Util.hideOnClickOut('#settings_dropdown', '.settings_icon', function(){
+    // Do some extra handling
+    ...
+    // Close the dialog
+    $('#settings_dropdown').jqmHide();
+});"}%>
+
+        <h2 id="notification">notification</h2>
+        <p>Utility functions related to notifications messages in Sakai3</p>
+        <h3 id="show">show</h3>
+        <%= render :partial => "sdk/apifunction", :locals => {
+            :function => "sakai.api.Util.Notification.show(title, text, type, sticky)",
+            :description => "Show notification messages in the top right corner of the screen",
+            :parameters => "@param {String} <strong>title</strong> The notification title (if it is an empty string, the
+                      title is not shown)
+@param {String} <strong>text</strong> The text you want to see appear in the body of the
+                     notification
+@param {Constant} <strong>type</strong> The type of the notification. If this is not supplied, we
+                       use the type 'information'
+@param {Boolean} <strong>sticky</strong> The sticky (if it is true, the notification does not
+                        disappear without using action)",
+            :callback => "None",
+            :example => "sakai.api.Util.notification.show(sakai.api.i18n.getValueForKey('COLLECTION_CREATED'),
+                                 '',
+                                 sakai.api.Util.notification.type.INFORMATION,
+                                 false);
+
+// 2 different types of notification exist
+sakai.api.Util.notification.type.INFORMATION  // Default
+sakai.api.Util.notification.type.ERROR"}%>
+
+        <h2 id="parsesakaidate">parseSakaiDate</h2>
+        <%= render :partial => "sdk/apifunction", :locals => {
+            :function => "sakai.api.Util.parseSakaiDate(dateInput)",
+            :description => "Parse a ISO8601 date into a JavaScript date object.",
+            :parameters => "@param {String} <strong>dateInput</strong> The date that needs to be converted to a JavaScript
+                          date object. If the format is in milliseconds, you need
+                          to provide an integer, otherwise a string",
+            :callback => "{Date} <strong>dateOutput</strong> parsed JavaScript Date",
+            :example => "debug.log(oldDate);
+// '2012-01-31T17:44Z'
+
+var parsedDate = sakai.api.Util.parseSakaiDate(oldDate);
+
+debug.log(parsedDate);
+// Date \{Tue Jan 31 2012 17:44:00 GMT+0000 (GMT)\}"}%>
+
+        <h2 id="progressIndicator">progressIndicator</h2>
+        <h3 id="showprogressIndicator">showProgressIndicator</h3>
+        <%= render :partial => "sdk/apifunction", :locals => {
+            :function => "sakai.api.Util.showProgressIndicator(title, body)",
+            :description => "Shows a progress indicator on the screen in the form of an overlay and progress bar.",
+            :parameters => "@param {String} <strong>title</strong> Title of the indicator screen
+@param {String} <strong>body</strong> Additional text to be shown in the indicator",
+            :callback => "None",
+            :example => "sakai.api.Util.showProgressIndicator(sakai.api.i18n.getValueForKey('CREATING_COLLECTION'),
+                                     sakai.api.i18n.getValueForKey('WONT_BE_LONG'));"}%>
+
+        <h3 id="hideprogressIndicator">hideProgressIndicator</h3>
+        <%= render :partial => "sdk/apifunction", :locals => {
+            :function => "sakai.api.Util.hideProgressIndicator()",
+            :description => "Hide the existing progress indicator.",
+            :parameters => "None",
+            :callback => "None",
+            :example => "sakai.api.Util.hideProgressIndicator();"}%>
+
+        <h2 id="rendermath">renderMath</h2>
+        <%= render :partial => "sdk/apifunction", :locals => {
+            :function => "sakai.api.Util.renderMath(element)",
+            :description => "Runs MathJax over an element replacing any math TeX with rendered formulas",
+            :parameters => "@param {String} <strong>element</strong> The element (or its id) that should be checked for math",
+            :callback => "None",
+            :example => "// Rendering the math in a whole widget:
+sakai.api.Util.renderMath(tuid);"}%>
+
+        <h2 id="tagentity">tagEntity</h2>
+        <%= render :partial => "sdk/apifunction", :locals => {
+            :function => "sakai.api.Util.tagEntity(tagLocation, newTags, currentTags, callback)",
+            :description => "Add and delete tags from an entity. To delete a tag don't pass that tag in the 'newTags' Array.",
+            :parameters => "@param {String} <strong>tagLocation</strong> The URL to tag
+@param {Array} <strong>newTags</strong> The set of tags you wish to be on the entity
+@param {Array} <strong>currentTags</strong> The set of tags on the current entity
+@param {Function} <strong>callback</strong> The callback function",
+            :callback => "{Boolean} <strong>success</strong> Indicates success or failure of setting tags
+{Array} <strong>newTags</strong> Array of new tags on the item
+
+e.g. callback(success, newTags);",
+            :example => "// Adding tags:
+sakai.api.Util.tagEntity('/p/XwawEdaS',    // tagLocation
+                         ['tag1', 'tag2'], // newTags
+                         ['tag1'],         // currentTags
+                         function(success, newTags){ // callback
+    debug.log(success); // True or false
+    debug.log(newTags); // If a success, newTags looks like this: ['tag1', 'tag2']
+});
+
+// Deleting tags:
+sakai.api.Util.tagEntity('/p/XwawEdaS',  // tagLocation
+             ['tag1'],                   // newTags
+             ['tag1', 'tag2'],           // currentTags
+             function(success, newTags){ // callback
+    debug.log(success); // True or false
+    debug.log(newTags); // If a success, newTags looks like this: ['tag1']
+});"}%>
+
+        <h2 id="templaterenderer">TemplateRenderer</h2>
+        <%= render :partial => "sdk/apifunction", :locals => {
+            :function => "sakai.api.Util.TemplateRenderer(templateElement, templateData, outputElement, doSanitize)",
+            :description => "Renders the template with the given JSON object, inserts it into a certain HTML element if required, and returns the rendered HTML string. If an output element is specified the renderer scans for draggable/droppable classes and applies that functionality in the process.",
+            :parameters => "@param {String|Object} <strong>templateElement</strong> The name of the template HTML ID or a
+                                       jQuery selection object.
+@param {Object} <strong>templateData</strong> JSON object containing the template data
+@param {Object}(Optional) <strong>outputElement</strong> jQuery element in which the template needs
+                                        to be rendered
+@param {Boolean}(Optional) <strong>doSanitize</strong> perform html sanitization. Defaults to true",
+            :callback => "{String} <strong>render</strong> Rendered string of HTML
+
+e.g. return '&lt;div&gt; ... &lt;/div&gt;';",
+            :example => "sakai.api.Util.TemplateRenderer('some_list_template', {
+    data: dataArr,
+    sakai: sakai,
+}, $('#some_list_container'));
+
+// The HTML for the templaterenderer should look like:<pre id=&quot;html&quot; class=&quot;prettyprint&quot;>&lt;div id=&quot;some_list_template&quot;&gt;&lt;!--
+    ...
+    // content for template goes here
+    ...
+-->&lt;/div&gt;</pre>"}%>
     </div>
+
     <div class="wl-widget-item">
-        <h3 class="wl-regular-link no_decoration wl-normal">User info 
-            <button type="button" class="wl-link-button wl-regular-link wl-bold wl-right expand_link" data-expanded="false">
-                <span>Expand &or;</span>
-                <span style="display:none;">Collapse &and;</span>
-            </button>
-        </h3>
-        <p>Sakai OAE automatically loads information about the current user on every Sakai OAE page and makes it available through the sakai.data.me JavaScript object. The configuration of the sakai.data.me object can be found in the sakai.config.Profile object of /dev/configuration/config.js. Aside from the sakai.data.me object, the following functions should be used to get certain data about the user.</p>
-        <div class="expandable_container" style="display:none;"></div>
-    </div>
-    <div class="wl-widget-item">
-        <h3 class="wl-regular-link no_decoration wl-normal">Internationalization 
-            <button type="button" class="wl-link-button wl-regular-link wl-bold wl-right expand_link" data-expanded="false">
-                <span>Expand &or;</span>
-                <span style="display:none;">Collapse &and;</span>
-            </button>
-        </h3>
-        <p>Sakai OAE has a system for internationalizing the interfaces of all widgets using the concept of 'message bundles'. Message bundles contain lists of message keys and values. The keys stay the same and the values can be changed for different languages. See the message bundle section of the Hello World tutorial for more info.</p>
-        <div class="expandable_container" style="display:none;"></div>
-    </div>
-    <div class="wl-widget-item">
-        <h3 class="wl-regular-link no_decoration wl-normal">Localization 
-            <button type="button" class="wl-link-button wl-regular-link wl-bold wl-right expand_link" data-expanded="false">
-                <span>Expand &or;</span>
-                <span style="display:none;">Collapse &and;</span>
-            </button>
-        </h3>
-        <p>Functions around presenting users times in their preferred timezone.</p>
-        <div class="expandable_container" style="display:none;"></div>
-    </div>
-    <div class="wl-widget-item">
-        <h3 class="wl-regular-link no_decoration wl-normal">Notifications 
-            <button type="button" class="wl-link-button wl-regular-link wl-bold wl-right expand_link" data-expanded="false">
-                <span>Expand &or;</span>
-                <span style="display:none;">Collapse &and;</span>
-            </button>
-        </h3>
-        <p>Displays an overlay notification message to the user. Often used for errors or confirmations on form submissions such as when a user's profile is updated.</p>
-        <div class="expandable_container" style="display:none;"></div>
-    </div>
-    <div class="wl-widget-item">
-        <h3 class="wl-regular-link no_decoration wl-normal">Logging 
-            <button type="button" class="wl-link-button wl-regular-link wl-bold wl-right expand_link" data-expanded="false">
-                <span>Expand &or;</span>
-                <span style="display:none;">Collapse &and;</span>
-            </button>
-        </h3>
-        <p>Log system messages of varying degree to the JavaScript console if available.</p>
-        <div class="expandable_container" style="display:none;"></div>
-    </div>
-    <div class="wl-widget-item">
-        <h3 class="wl-regular-link no_decoration wl-normal">More Frontend Services 
-            <button type="button" class="wl-link-button wl-regular-link wl-bold wl-right expand_link" data-expanded="false">
-                <span>Expand &or;</span>
-                <span style="display:none;">Collapse &and;</span>
-            </button>
-        </h3>
-        <p>There are other frontend API functions that can be found in the various sakai.api JavaScript files located at: /dev/lib/sakai</p>
-        <div class="expandable_container" style="display:none;"></div>
+        <h1 id="user">User functions (sakai.api.User.*)</h1>
+        <p>Advanced user related functionality, especially common actions that originate from a logged in user.</p>
+        <h2 id="getuser">getUser</h2>
+        <%= render :partial => "sdk/apifunction", :locals => {
+            :function => "sakai.api.User.getUser(userid, callback)",
+            :description => "Gets a user's public data from the system.",
+            :parameters => "@param {String} <strong>userid</strong> ID of user to fetch data for
+@param {Function} <strong>callback</strong> Function executed after retrieval of the data",
+            :callback => "{Boolean} <strong>success</strong> Indicates the success of the request
+{Object} <strong>data</strong> Contains profile data for the user
+
+e.g. callback(true, data);"
+            }%>
+
+        <h2 id="getmultipleusers">getMulipleUsers</h2>
+        <%= render :partial => "sdk/apifunction", :locals => {
+            :function => "sakai.api.User.createActivity()"
+            }%>
+
+        <h2 id="getprofilepicture">getProfilePicture</h2>
+        <%= render :partial => "sdk/apifunction", :locals => {
+            :function => "sakai.api.User.createActivity()"
+            }%>
+
+        <h2 id="getdisplayname">getDisplayName</h2>
+        <%= render :partial => "sdk/apifunction", :locals => {
+            :function => "sakai.api.User.createActivity()"
+            }%>
+
+        <h2 id="checkifconnected">checkIfConnected</h2>
+        <%= render :partial => "sdk/apifunction", :locals => {
+            :function => "sakai.api.User.createActivity()"
+            }%>
+
+        <h2 id="preparepeopleforrender">preparePeopleForRender</h2>
+        <%= render :partial => "sdk/apifunction", :locals => {
+            :function => "sakai.api.User.createActivity()"
+            }%>
+
     </div>
 </div>

@@ -8,7 +8,7 @@
         <p>A stylesheet in the OAE starts of with license information that is identical in every file followed by the styles applied to the widget elements. There should only be one stylesheet per widget (external libraries not included).</p>
         <div class="navigationalitems_codesnippit_container">
             <div class="navigationalitems_codesnippit_header"><h4>A basic stylesheet layout</h4></div>
-<pre>
+<pre id="css" class="prettyprint lang-css">
 /**
  * Licensed to the Sakai Foundation (SF) under one
  * or more contributor license agreements. See the NOTICE file
@@ -32,15 +32,15 @@
  * General
  */
 
-<span class="black">.widget_name {</span>
-  <span class="blue">overflow</span>:     <span class="green">auto</span>;
-  <span class="blue">width</span>:        <span class="green">350px</span>;
-<span class="black">}</span>
-<span class="black">.widget_name .main_container {</span>
-  <span class="blue">height</span>:       <span class="green">400px</span>;
-  <span class="blue">overflow</span>:     <span class="green">auto</span>;
-  <span class="blue">padding</span>:      <span class="green">10px 5px</span>;
-<span class="black">}</span>
+.widget_name {
+    overflow: auto;
+    width: 350px;
+}
+.widget_name .main_container {
+    height: 400px;
+    overflow: auto;
+    padding: 10px 5px;
+}
 </pre>
         </div>
 
@@ -58,16 +58,16 @@
         <p>Overriding core stylesheets is something that can be done and might be necessary from time to time. There are a few guidelines in this area as well to make sure that the UI remains consistent (colors, font sizes,...) and maintenance time stays optimized. Let's look at an example of an override:</p>
         <div class="navigationalitems_codesnippit_container">
             <div class="navigationalitems_codesnippit_header"><h4>Example of an override in CSS</h4></div>
-<pre>
+<pre id="css" class="prettyprint lang-css">
 /**
  * Overrides
  */
 
-<span class="black">.sharecontent_widget ul.as-list {</span>
-    <span class="blue">max-height</span>:   <span class="green">120px <span class="red">!important</span></span>;
-    <span class="blue">overflow</span>:     <span class="green">auto <span class="red">!important</span></span>;
-    <span class="blue">width</span>:        <span class="green">218px</span>;
-<span class="black">}</span>
+.sharecontent_widget ul.as-list {
+    max-height: 120px !important;
+    overflow: auto !important;
+    width: 218px;
+}
 </pre>
         </div>
         <p>The example describes the sharecontent widget and a type of list that we want to modify. The rule of thumb is that we use <span class="red">!important</span> when a normal override doesn't work for any reason but keep the general appearance (fonts, colors, etc.) intact. <span class="red">!important</span> should be avoided where possible.</p>
@@ -77,15 +77,15 @@
 
         <div class="navigationalitems_codesnippit_container">
             <div class="navigationalitems_codesnippit_header"><h4>An example choice of class names</h4></div>
-<pre class="blue">
-&lt;div class=<span class="green">"sharecontent_widget"</span>&gt;
-    &lt;div class=<span class="green">"sharecontent_main_content_container"</span>&gt;
-        &lt;button type=<span class="green">"button"</span> class=<span class="green">"s3d-link-button"</span<span class="black">&gt;__MSG__ADD_A_MESSAGE__</span>&lt;/button&gt;
+<pre class="prettyprint" id="html">
+&lt;div class="sharecontent_widget"&gt;
+    &lt;div class="sharecontent_main_content_container"&gt;
+        &lt;button type="button" class="s3d-link-button"&gt;__MSG__ADD_A_MESSAGE__&lt;/button&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 </pre>
         </div>
-        <p>This example features a main content container (<span class="blue">class=</span><span class="green">"sharecontent_main_content_container"</span>) and a link button (<span class="blue">class=</span><span class="green">"s3d-link-button"</span>). The classnames are self-explanatory. If I wanted to add in a textarea for a message I could name it '<span class="green">sharecontent_share_message</span>'.</p>
+        <p>This example features a main content container (<span class="blue">class=</span><span class="red">"sharecontent_main_content_container"</span>) and a link button (<span class="blue">class=</span><span class="red">"s3d-link-button"</span>). The classnames are self-explanatory. If I wanted to add in a textarea for a message I could name it '<span class="red">sharecontent_share_message</span>'.</p>
 
     </div>
 
