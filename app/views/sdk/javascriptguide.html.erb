@@ -1,63 +1,38 @@
 <% content_for :title do %> - SDK - CSS Guide<% end %>
 <div id="cssguide" class="widgetsdk_container">
     <h1>JavaScript Guidelines</h1>
-    <p>This section of the Widget SDK helps clarify the JavaScript guidelines used by the Sakai OAE project. These guidelines exist to improve readability and maintenance of the various JavaScript files in the system. The guide borrows heavily from the Node.js style guide but adds a few rules.</p>
+    <p>This section of the Widget SDK helps clarify the JavaScript guidelines used by the Sakai OAE project. These guidelines exist to improve readability and maintenance of the various JavaScript files in the system. The guide borrows heavily from the <%= link_to "Node.js", "http://nodeguide.com/style.html", :class => "wl-regular-link", :target => "_blank" %> style guide but adds a few rules.</p>
 
     <ul class="inline_list">
-        <li><%= link_to "Tabs vs Spaces", "#tabs-vs-spaces", :class => "wl-regular-link" %></li>
-        <li><%= link_to "Semicolons", "#semicolons", :class => "wl-regular-link" %></li>
-        <li><%= link_to "Editors", "#editors", :class => "wl-regular-link" %></li>
-        <li><%= link_to "Trailing whitespace", "#trailing-whitespace", :class => "wl-regular-link" %></li>
-        <li><%= link_to "Line length", "#line-length", :class => "wl-regular-link" %></li>
-        <li><%= link_to "Quotes", "#quotes", :class => "wl-regular-link" %></li>
         <li><%= link_to "Braces", "#braces", :class => "wl-regular-link" %></li>
-        <li><%= link_to "Variable declarations", "#variable-declarations", :class => "wl-regular-link" %></li>
-        <li><%= link_to "Variable and property names", "#variable-and-property-names", :class => "wl-regular-link" %></li>
-        <li><%= link_to "Class names", "#class-names", :class => "wl-regular-link" %></li>
-        <li><%= link_to "Constants", "#constants", :class => "wl-regular-link" %></li>
-        <li><%= link_to "Object / Array creation", "#object-array-creation", :class => "wl-regular-link" %></li>
-        <li><%= link_to "Equality operator", "#equality-operator", :class => "wl-regular-link" %></li>
-        <li><%= link_to "Extending prototypes", "#extending-prototypes", :class => "wl-regular-link" %></li>
-        <li><%= link_to "Conditions", "#conditions", :class => "wl-regular-link" %></li>
-        <li><%= link_to "Function length", "#function-length", :class => "wl-regular-link" %></li>
-        <li><%= link_to "Return statements", "#return-statements", :class => "wl-regular-link" %></li>
-        <li><%= link_to "Named closures", "#named-closures", :class => "wl-regular-link" %></li>
-        <li><%= link_to "Nested Closures", "#nested-closures", :class => "wl-regular-link" %></li>
         <li><%= link_to "Callbacks", "#callbacks", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Conditions", "#conditions", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Constants", "#constants", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Documentation", "#documentation", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Editors", "#editors", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Equality operator", "#equality-operator", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Event handling", "#eventhandling", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Extending prototypes", "#extending-prototypes", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Function length", "#function-length", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Line length", "#line-length", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Loops", "#loops", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Named closures", "#named-closures", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Nested closures", "#nested-closures", :class => "wl-regular-link" %></li>
         <li><%= link_to "Object.freeze, Object.preventExtensions, Object.seal, with, eval", "#eval", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Object / Array creation", "#object-array-creation", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Quotes", "#quotes", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Return statements", "#return-statements", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Scope", "#scope", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Semicolons", "#semicolons", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Tabs vs Spaces", "#tabs-vs-spaces", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Ternary operations", "#ternaryoperations", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Trailing whitespace", "#trailing-whitespace", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Type checking", "#typechecking", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Variable and property names", "#variable-and-property-names", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Variable declarations", "#variable-declarations", :class => "wl-regular-link" %></li>
     </ul>
 
     <div class="wl-widget-item">
-        <h2 id="tabs-vs-spaces">Tabs vs Spaces</h2>
-        <p>4 spaces are used to indent lines of code. Any respectable editor will have the option of replacing tabs with spaces.</p>
-
-        <h2 id="semicolons">Semicolons</h2>
-        <p>Following standard coding practices, semicolons are used where appropriate.</p>
-
-        <h2 id="editors">Editors</h2>
-        <p>Any editor can be used. However, it's recommended to use an editor that respects these guidelines (tabs vs spaces, etc.) and a little syntax highlighting never hurt anyone. Frequently used editors in the team are TextMate and Aptana Studio.</p>
-
-        <h2 id="trailing-whitespace">Trailing whitespace</h2>
-        <p>Keeping code clean and simple starts with basics like whitespace. To keep your conscience clear have another look for extra spaces before committing your masterpiece.</p>
-
-        <h2 id="line-length">Line Length</h2>
-        <p>Limiting line length to about 80 characters will improve readability. Especially in complex statements where you want to remember what you were thinking in a few weeks from now (you do comment your code, right?).</p>
-
-        <h2 id="quotes">Quotes</h2>
-        <p>Use single quotes at all times, unless you are writing JSON.</p>
-        <h4>Right:</h4>
-        <div class="navigationalitems_codesnippit_container few_lines">
-<pre>
-var foo = 'bar';
-</pre>
-        </div>
-        <h4>Wrong:</h4>
-        <div class="navigationalitems_codesnippit_container few_lines">
-<pre>
-var foo = "bar";
-</pre>
-        </div>
-
         <h2 id="braces">Braces</h2>
         <p>Opening braces go on the same line as the statement.</p>
         <h4>Right:</h4>
@@ -79,64 +54,25 @@ if (true)
         </div>
         <p>Also notice the use of whitespace before and after the condition statement.</p>
 
-        <h2 id="variable-declarations">Variable declarations</h2>
-        <p>Declare one variable per statement and consolidate them at the top of your file, this improves readability and maintenance of the code.</p>
+        <h2 id="callbacks">Callbacks</h2>
+        <p>Functions often return data by using callbacks. All API functions that return data do this through a callback function and it's recommended you use them.</p>
+
+        <h2 id="conditions">Conditions</h2>
+        <p>Any non-trivial conditions should be assigned to a descriptive variable. This improves code readability.</p>
         <h4>Right:</h4>
         <div class="navigationalitems_codesnippit_container few_lines">
 <pre>
-var keys = ['foo', 'bar'];
-var values = [23, 42];
-
-var object = {};
-while (items.length) {
-    var key = keys.pop();
-    object[key] = values.pop();
+var isAuthorized = (user.isAdmin() || user.isModerator());
+if (isAuthorized) {
+    debug.log('winning');
 }
 </pre>
         </div>
         <h4>Wrong:</h4>
         <div class="navigationalitems_codesnippit_container few_lines">
 <pre>
-var keys = ["foo", "bar"],
-    values = [23, 42],
-    object = {},
-    key;
-
-while (items.length) {
-    key = keys.pop();
-    object[key] = values.pop();
-}
-</pre>
-        </div>
-
-        <h2 id="variable-and-property-names">Variable and property names</h2>
-        <p>Variables and properties should use lower camel case. It's also nice to have a variable that explains what it's used for.</p>
-        <h4>Right:</h4>
-        <div class="navigationalitems_codesnippit_container few_lines">
-<pre>
-var adminUser = db.query('SELECT * FROM users ...');
-</pre>
-        </div>
-        <h4>Wrong:</h4>
-        <div class="navigationalitems_codesnippit_container few_lines">
-<pre>
-var admin_user = d.query('SELECT * FROM users ...');
-</pre>
-        </div>
-
-        <h2 id="class-names">Class names</h2>
-        <p>Class names should be capitalized using the upper camel case.</p>
-        <h4>Right:</h4>
-        <div class="navigationalitems_codesnippit_container few_lines">
-<pre>
-function BankAccount() {
-}
-</pre>
-        </div>
-        <h4>Wrong:</h4>
-        <div class="navigationalitems_codesnippit_container few_lines">
-<pre>
-function bank_Account() {
+if (user.isAdmin() || user.isModerator()) {
+    debug.log('losing');
 }
 </pre>
         </div>
@@ -156,30 +92,23 @@ const second = 1 * 1000;
 </pre>
         </div>
 
-        <h2 id="object-array-creation">Object / Array creation</h2>
-        <p>Use trailing commas and put short declarations on a single line. Don't quote the keys if not necessary but if you do be consistent and quote them all.</p>
-        <h4>Right:</h4>
+        <h2 id="documentation">Documentation</h2>
+        <p>Use JSDoc to document functions.</p>
         <div class="navigationalitems_codesnippit_container few_lines">
 <pre>
-var a = ['hello', 'world'];
-var b = {
-    'good': 'code',
-    'is generally': 'pretty',
+/**
+ * Convert a number to a boolean
+ * @param {Number} num The number to convert
+ * @return {Boolean} The number in boolean form
+ */
+var convertToBoolean = function(num) {
+   return num !== 0;
 };
 </pre>
         </div>
-        <h4>Wrong:</h4>
-        <div class="navigationalitems_codesnippit_container few_lines">
-<pre>
-var a = [
-    'hello', 'world'
-];
-var b = {"good": 'code'
-        , is generally: 'pretty'
-        };
-</pre>
-        </div>
 
+        <h2 id="editors">Editors</h2>
+        <p>Any editor can be used. However, it's recommended to use an editor that respects these guidelines (tabs vs spaces, etc.) and a little syntax highlighting never hurt anyone. Frequently used editors in the team are TextMate and Aptana Studio.</p>
 
         <h2 id="equality-operator">Equality operator</h2>
         <p>Don't take a guess at what you're comparing, use triple equality operators at all times.</p>
@@ -199,6 +128,38 @@ var a = 0;
 if (a == '') {
     debug.log('losing');
 }
+</pre>
+        </div>
+
+        <h2 id="eventhandling">Event handling</h2>
+        <p>As of jQuery 1.7 the .live(), .die(), .bind() and .unbind() methods are deprecated, instead use .on() to attach event handlers and .off() to remove them.</p>
+        <div class="navigationalitems_codesnippit_container">
+<pre>
+var changeEmail = function() {
+    ...
+};
+
+$('#accountpreferences_email').off('change', changeEmail);
+// or
+$rootel.off('change', "#accountpreferences_email", changeEmail);
+
+...
+
+$('#accountpreferences_email').on('change', changeEmail);
+// or
+$rootel.on('change', "#accountpreferences_email", changeEmail);
+</pre>
+        </div>
+
+        <p>Use events to send out updates to other widgets.</p>
+        <div class="navigationalitems_codesnippit_container few_lines">
+<pre>
+var worldTitle = 'OAE Core Team';
+$(window).trigger('updatedTitle.worldsettings.sakai', worldTitle);
+
+$(window).on('updatedTitle.worldsettings.sakai', function(ev, title) {
+    debug.log(title); // "OAE Core Team"
+});
 </pre>
         </div>
 
@@ -227,73 +188,32 @@ if (a.empty()) {
 </pre>
         </div>
 
-
-        <h2 id="conditions">Conditions</h2>
-        <p>Any non-trivial conditions should be assigned to a descriptive variable. This improves code readability.</p>
-        <h4>Right:</h4>
-        <div class="navigationalitems_codesnippit_container few_lines">
-<pre>
-var isAuthorized = (user.isAdmin() || user.isModerator());
-if (isAuthorized) {
-    debug.log('winning');
-}
-</pre>
-        </div>
-        <h4>Wrong:</h4>
-        <div class="navigationalitems_codesnippit_container few_lines">
-<pre>
-if (user.isAdmin() || user.isModerator()) {
-    debug.log('losing');
-}
-</pre>
-        </div>
-
         <h2 id="function-length">Function length</h2>
         <p>Functions that are short are often easier to read. Splitting up your big functions into multiple smaller functions often helps. Try to keep function length between 10-15 lines.</p>
-        <h2 id="return-statements">Return statements</h2>
-        <p>Always try to return a function's value as soon as possible to avoid deep nesting of if-statements.</p>
+
+        <h2 id="line-length">Line Length</h2>
+        <p>Limiting line length to about 80 characters will improve readability. Especially in complex statements where you want to remember what you were thinking in a few weeks from now (you do comment your code, right?).</p>
+
+        <h2 id="loops">Loops</h2>
+        <p>The body of every for in statement should be wrapped in an if statement that does filtering.</p>
         <h4>Right:</h4>
         <div class="navigationalitems_codesnippit_container few_lines">
 <pre>
-var isPercentage = function(val) {
-    if (val &lt; 0) {
-        return false;
+for (name in object) {
+    if (object.hasOwnProperty(name)) {
+        ...
     }
-
-    if (val &gt; 100) {
-        return false;
-    }
-
-    return true;
-};
+}
 </pre>
         </div>
         <h4>Wrong:</h4>
         <div class="navigationalitems_codesnippit_container few_lines">
 <pre>
-function isPercentage(val) {
-   if (val &gt;= 0) {
-       if (val &lt; 100) {
-           return true;
-       } else {
-           return false;
-       }
-   } else {
-       return false;
-   }
+for (name in object) {
+    object[name];
 }
 </pre>
         </div>
-        <p>In this example it's also fine to shorten things even further:</p>
-        <div class="navigationalitems_codesnippit_container few_lines">
-<pre>
-var isPercentage = function(val) {
-    var isInRange = (val &gt;= 0 &amp;&amp; val &lt;= 100);
-    return isInRange;
-};
-</pre>
-        </div>
-
 
         <h2 id="named-closures">Named closures</h2>
         <p>Give closures a name and preferably a separate function for improved readability and better stack traces.</p>
@@ -362,10 +282,182 @@ setTimeout(function() {
 </pre>
         </div>
 
-        <h2 id="callbacks">Callbacks</h2>
-        <p>Functions often return data by using callbacks. All API functions that return data do this through a callback function and it's recommended you use them.</p>
         <h2 id="eval">Object.freeze, Object.preventExtensions, Object.seal, with, eval</h2>
         <p>Evil! Please avoid these.</p>
+
+        <h2 id="object-array-creation">Object / Array creation</h2>
+        <p>Use trailing commas and put short declarations on a single line. Don't quote the keys if not necessary but if you do be consistent and quote them all.</p>
+        <h4>Right:</h4>
+        <div class="navigationalitems_codesnippit_container few_lines">
+<pre>
+var a = ['hello', 'world'];
+var b = {
+    'good': 'code',
+    'is generally': 'pretty',
+};
+</pre>
+        </div>
+        <h4>Wrong:</h4>
+        <div class="navigationalitems_codesnippit_container few_lines">
+<pre>
+var a = [
+    'hello', 'world'
+];
+var b = {"good": 'code'
+        , is generally: 'pretty'
+        };
+</pre>
+        </div>
+
+        <h2 id="quotes">Quotes</h2>
+        <p>Use single quotes at all times, unless you are writing JSON.</p>
+        <h4>Right:</h4>
+        <div class="navigationalitems_codesnippit_container few_lines">
+<pre>
+var foo = 'bar';
+</pre>
+        </div>
+        <h4>Wrong:</h4>
+        <div class="navigationalitems_codesnippit_container few_lines">
+<pre>
+var foo = "bar";
+</pre>
+        </div>
+
+        <h2 id="return-statements">Return statements</h2>
+        <p>Always try to return a function's value as soon as possible to avoid deep nesting of if-statements.</p>
+        <h4>Right:</h4>
+        <div class="navigationalitems_codesnippit_container few_lines">
+<pre>
+var isPercentage = function(val) {
+    if (val &lt; 0) {
+        return false;
+    }
+
+    if (val &gt; 100) {
+        return false;
+    }
+
+    return true;
+};
+</pre>
+        </div>
+        <h4>Wrong:</h4>
+        <div class="navigationalitems_codesnippit_container few_lines">
+<pre>
+function isPercentage(val) {
+   if (val &gt;= 0) {
+       if (val &lt; 100) {
+           return true;
+       } else {
+           return false;
+       }
+   } else {
+       return false;
+   }
+}
+</pre>
+        </div>
+        <p>In this example it's also fine to shorten things even further:</p>
+        <div class="navigationalitems_codesnippit_container few_lines">
+<pre>
+var isPercentage = function(val) {
+    var isInRange = (val &gt;= 0 &amp;&amp; val &lt;= 100);
+    return isInRange;
+};
+</pre>
+        </div>
+
+        <h2 id="scope">Scope</h2>
+        <p>Don't create globally scoped objects. We use RequireJS to handle our dependency management and this removes the need for global variables.</p>
+
+        <h2 id="semicolons">Semicolons</h2>
+        <p>Following standard coding practices, semicolons are used where appropriate.</p>
+
+        <h2 id="tabs-vs-spaces">Tabs vs Spaces</h2>
+        <p>4 spaces are used to indent lines of code. Any respectable editor will have the option of replacing tabs with spaces.</p>
+
+        <h2 id="ternaryoperations">Ternary operations</h2>
+        <p>Only use ternary operations where the benefits are substantial. If a ternary conditional requires sub-operations, then it should be an if statement for readability.</p>
+        <h4>Right:</h4>
+        <div class="navigationalitems_codesnippit_container few_lines">
+<pre>
+var howMuchCoffee = numPeople &gt; 2 ? "12 cups" : "6 cups";
+</pre>
+        </div>
+        <h4>Wrong:</h4>
+        <div class="navigationalitems_codesnippit_container few_lines">
+<pre>
+var shouldMakeMoreCoffee = numPeople &gt; 2 &amp;&amp; amountOfCoffeeLeft &lt; 1 ? totalSleepiness &lt; 2 || numPeople &gt; 4 : numPeople &lt; 4 &amp;&amp; totalSleepiness &gt; 1;
+</pre>
+        </div>
+
+        <h2 id="trailing-whitespace">Trailing whitespace</h2>
+        <p>Keeping code clean and simple starts with basics like whitespace. To keep your conscience clear have another look for extra spaces before committing your masterpiece.</p>
+
+        <h2 id="typechecking">Type checking</h2>
+        <p>Never use typeof when there is a function that does the type checking for you. We include jQuery and underscore.js which provide all the type checking you should need.</p>
+        <h4>Right:</h4>
+        <div class="navigationalitems_codesnippit_container few_lines">
+<pre>
+_.isString(someString)
+$.isFunction(myFunction)
+</pre>
+        </div>
+        <h4>Wrong:</h4>
+        <div class="navigationalitems_codesnippit_container few_lines">
+<pre>
+typeof someString === "string"
+typeof myFunction === "function"
+</pre>
+        </div>
+
+        <h2 id="variable-and-property-names">Variable and property names</h2>
+        <p>Variables and properties should use lower camel case. It's also nice to have a variable that explains what it's used for. jQuery objects should be prepended with '$' for readability.</p>
+        <h4>Right:</h4>
+        <div class="navigationalitems_codesnippit_container few_lines">
+<pre>
+var adminUser = db.query('SELECT * FROM users ...');
+var $commentBox = $('.comment_box', $rootel);
+</pre>
+        </div>
+        <h4>Wrong:</h4>
+        <div class="navigationalitems_codesnippit_container few_lines">
+<pre>
+var admin_user = d.query('SELECT * FROM users ...');
+var commentBox = $('.comment_box', rootel);
+</pre>
+        </div>
+
+        <h2 id="variable-declarations">Variable declarations</h2>
+        <p>Declare one variable per statement and consolidate them at the top of your file, this improves readability and maintenance of the code.</p>
+        <h4>Right:</h4>
+        <div class="navigationalitems_codesnippit_container few_lines">
+<pre>
+var keys = ['foo', 'bar'];
+var values = [23, 42];
+
+var object = {};
+while (items.length) {
+    var key = keys.pop();
+    object[key] = values.pop();
+}
+</pre>
+        </div>
+        <h4>Wrong:</h4>
+        <div class="navigationalitems_codesnippit_container few_lines">
+<pre>
+var keys = ["foo", "bar"],
+    values = [23, 42],
+    object = {},
+    key;
+
+while (items.length) {
+    key = keys.pop();
+    object[key] = values.pop();
+}
+</pre>
+        </div>
     </div>
 
     <div class="wl-widget-item">
