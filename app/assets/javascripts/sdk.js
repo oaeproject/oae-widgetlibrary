@@ -49,6 +49,7 @@ $(function() {
                 var $containerResponse = $("<div />").html(data);
                 var $sdkxhrContent = $containerResponse.find("#sdkxhr_content");
                 $(".wl-content-container .widgetsdk_container").html($sdkxhrContent);
+                prettyPrint();
             },
             error: function(){
                 // If the ajax request wouldn't succeed, we'll reload the page

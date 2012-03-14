@@ -51,6 +51,11 @@ $(function() {
 
     var addBindings = function() {
         $("body").on( "click", ".review_read_more", readmore );
+        $("document").ready(function() {
+            if (typeof prettyPrint !== "undefined" && $.isFunction(prettyPrint)) {
+                prettyPrint();
+            }
+        });
     };
 
     var init = function() {
