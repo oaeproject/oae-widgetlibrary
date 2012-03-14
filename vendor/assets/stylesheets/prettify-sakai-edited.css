@@ -1,0 +1,66 @@
+/* Pretty printing styles. Used with prettify.js. */
+
+/* SPAN elements with the classes below are added by prettyprint. */
+.pln { color: #000 }  /* plain text */
+
+@media screen {
+  .str { color: #DD1144 }  /* string content */
+  .kwd { color: #000; font-weight: bold; }  /* a keyword */
+  .com { color: #999988; font-style: italic; }  /* a comment */
+  .typ { color: #606 }  /* a type name */
+  .lit { color: #009999 }  /* a literal value */
+  /* punctuation, lisp open bracket, lisp close bracket */
+  .pun, .opn, .clo { color: #000 }
+  .tag { color: #000080 }  /* a markup tag name */
+  .atn { color: #008080; font-weight: normal; }  /* a markup attribute name */
+  .atv { color: #DD1144 }  /* a markup attribute value */
+  .dec, .var { color: #606 }  /* a declaration; a variable name */
+  .fun { color: red }  /* a function name */
+  .str, .kwd, .typ, .lit, .pun, .opn, .clo, .tag, .atn, .atv, .desc, .var, .fun {font-style: normal;}
+}
+
+/* Use higher contrast and text-weight for printable form. */
+@media print, projection {
+  .str { color: #DD1144 }
+  .kwd { color: #006; font-weight: bold }
+  .com { color: #999988; font-style: italic }
+  .typ { color: #404; font-weight: bold }
+  .lit { color: #009999 }
+  .pun, .opn, .clo { color: #000 }
+  .tag { color: #000080; font-weight: bold }
+  .atn { color: #008080 }
+  .atv { color: #060 }
+  .str, .kwd, .typ, .lit, .pun, .opn, .clo, .tag, .atn, .atv {font-style: normal;}
+}
+
+/* Put a border around prettyprinted code snippets. 
+pre.prettyprint { padding: 2px; border: 1px solid #888 }*/
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums { margin-top: 0; margin-bottom: 0 } /* IE indents via margin-left */
+li.L0,
+li.L1,
+li.L2,
+li.L3,
+li.L5,
+li.L6,
+li.L7,
+li.L8 { list-style-type: none }
+/* Alternate shading for lines */
+li.L1,
+li.L3,
+li.L5,
+li.L7,
+li.L9 { background: #eee }
+
+#bash .pun + .com { color: #000; font-style: normal; }
+
+#css .kwd {
+    color: #1d2db3;
+}
+#css .pun, #css .opn, #css .clo {
+    color: #666600;
+}
+#css .str {
+    color: #06960e;
+}

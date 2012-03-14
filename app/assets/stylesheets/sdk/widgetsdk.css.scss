@@ -28,7 +28,11 @@
   overflow-x: auto;
   pre {
     list-style: none;
-    margin: 15px 0 0 15px;}
+    margin: 15px 0 0 15px;
+    pre {
+        margin: 0;
+    }
+  }
   .navigationalitems_codesnippit_header {
     background: image-url("codesnippet_bg.png") repeat-x left -30px #f1f5f9;
     border-bottom: 1px solid #c7cfd5;
