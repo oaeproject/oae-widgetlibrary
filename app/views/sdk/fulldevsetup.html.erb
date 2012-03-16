@@ -9,9 +9,7 @@
                 <h4>Install ruby via rvm (once per machine, you can skip this if you already have ruby and rvm installed)</h4>
             </div>
 <pre class="prettyprint">
-bash &lt; &lt;(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
-
-echo -e '\n[[ -s "$HOME/.rvm/scripts/rvm" ]] &amp;&amp; . "$HOME/.rvm/scripts/rvm" # Load RVM function' &gt;&gt; ~/.bash_profile
+bash -s stable &lt; &lt;(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
 
 source $HOME/.bash_profile
 
@@ -51,44 +49,14 @@ bundle install --without mysql
 <pre class="prettyprint">
 num_users_groups = 25
 update_ui = false
-
-ui = {
-    "path" => "../3akai-ux",
-    "repository" => "https://github.com/sakaiproject/3akai-ux.git",
-    "branch" => "master",
-    "localbranch" => "master",
-    "remote" => "sakaiproject"
-}
-sparse = {
-    "path" => "../sparsemapcontent",
-    "repository" => "https://github.com/sakaiproject/sparsemapcontent.git",
-    "branch" => "master",
-    "localbranch" => "master",
-    "remote" => "sakaiproject"
-}
-solr = {
-    "path" => "../solr",
-    "repository" => "https://github.com/sakaiproject/solr.git",
-    "branch" => "master",
-    "localbranch" => "master",
-    "remote" => "sakaiproject"
-}
-nakamura = {
-    "path" => "../nakamura",
-    "repository" => "https://github.com/sakaiproject/nakamura.git",
-    "branch" => "master",
-    "localbranch" => "master",
-    "port" => "8080",
-    "remote" => "sakaiproject"
-}
 </pre>
         </div>
         <div class="navigationalitems_codesnippit_container navigationalitems_codesnippit_container_intended">
             <div class="navigationalitems_codesnippit_header">
                 <h4>If you'll be working on the front-end code, change the repository to your own 3akai-ux repo.</h4>
             </div>
-<pre class="black">
-ui = {<span class="blue">"path"</span> => <span class="green">"../3akai-ux"</span>, <span class="blue">"repository"</span> => <span class="green">"git@github.com:</span><span class="grey">&lt;your github username here&gt;</span><span class="green">/3akai-ux.git"</span>, <span class="blue">"branch"</span> => <span class="green">"master"</span>, <span class="blue">"localbranch"</span> => <span class="green">"master"</span>, <span class="blue">"remote"</span> => <span class="green">"origin"</span>}
+<pre class="prettyprint">
+ui = {"path" => "../3akai-ux", "repository" => "git@github.com:&lt;your github username here&gt;/3akai-ux.git", "branch" => "master", "localbranch" => "master", "remote" => "origin"}
 </pre>
         </div>
 
