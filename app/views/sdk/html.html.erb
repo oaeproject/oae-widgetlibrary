@@ -1,6 +1,6 @@
-<% content_for :title do %> - SDK - Coding standards<% end %>
+<% content_for :title do %> - SDK - HTML<% end %>
 <div id="codingstandards" class="widgetsdk_container">
-    <h1>Coding standards</h1>
+    <h1>HTML</h1>
     <p>Follow these simple few rules and you will be creating your own widgets for others to use on their Sakai platform.</p>
     <div class="wl-widget-item first">
         <h3>A more in-depth guide on Sakai OAE Widget SDK coding standards will be coming soon.</h3>
@@ -60,7 +60,5 @@ var $usernameContainer = $('#myhelloworld_username', $rootel);
 </pre>
         </div>
     </div>
-    <div class="wl-widget-item">
-        <%= image_tag "developer_sad_smiley_icon.png", :alt => "Visit the FAQ", :class => "wl-left" %><h3 class="widgetsdk_header_icon_text">Check out our <%= link_to "FAQ", "/sdk/faq", :class => "wl-regular-link" %> or add a comment below if you didn’t find what you were looking for on this page.</h3>
-    </div>
+    <%= render :partial => "sdk/feedback" %>
 </div>

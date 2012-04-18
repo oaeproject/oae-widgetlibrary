@@ -19,9 +19,10 @@
       background: image-url("lhnav_selected_item_bg.png") repeat-x scroll left top transparent;
       font-weight: bold;
       a {
-        color: #fff; }
-      .wl-split-line {
-        visibility: hidden; } }
+        border-bottom-color: rgba(212, 212, 212, 0) !important;
+        color: #fff;
+      }
+    }
     li.selected_parent {
       background: image-url("lhnav_selected_item_parent_bg.png") repeat-x scroll left top #909090;
       font-weight: bold;
@@ -31,7 +32,13 @@
     li div {
       padding: 3px 12px 2px 15px;
       font-size: 14px; }
-    .wl-split-line {
-      margin: 0; }
-    .subnav li {
-      padding-left: 20px; } } }
+    .subnav {
+      li {
+        padding-left: 20px;
+      }
+      li:not(:last-child) a {
+        border-bottom: 1px dotted #d4d4d4;
+      }
+    }
+  }
+}

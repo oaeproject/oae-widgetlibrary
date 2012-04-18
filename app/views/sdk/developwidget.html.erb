@@ -1,50 +1,38 @@
-<% content_for :title do %> - SDK - How to develop a widget<% end %>
+<% content_for :title do %> - SDK - Develop a widget<% end %>
 <div id="developwidget" class="widgetsdk_container">
-    <h1>How to develop a widget</h1>
-    <p>This section of the Widget SDK is to help you to quickly get started with developing Sakai OAE widgets. Sakai OAE widgets are built using front-end web technologies including HTML, CSS and JavaScript. It's assumed that you have a grasp on these technologies throughout this documentation.</p>
-    <p>The best way to get started is with the <%= link_to "Hello World Tutorial", "/sdk/developwidget/learnbasics", :class => "wl-regular-link"%>. It will guide you through <%= link_to "setting up your development environment", "/sdk/developwidget/quickdevsetup", :class => "wl-regular-link"%> if you need to do so.</p>
-    <p>After the <%= link_to "Hello World Tutorial", "/sdk/developwidget/learnbasics", :class => "wl-regular-link"%> you may want to check out widget <%= link_to "Coding Standards", "/sdk/developwidget/codingstandards", :class => "wl-regular-link"%>. These cover basic guidelines you should follow when building Sakai OAE widgets for efficient, secure and maintainable code.</p>
+    <h1>Develop a widget</h1>
+    <p>Join us in making some great OAE Widgets.</p>
+
+    <div class="wl-widget-item">
+        <%= image_tag "developer_fulldev_icon.png", :alt => "Development setup", :class => "descriptive_icon" %>
+        <div class="descriptive_text">
+            <h2>Development setup</h2>
+            <p>Get Sakai OAE up and running for development. While doing that, you'll also learn about the separation between the front-end and back-end.</p>
+            <%= link_to "View", "/sdk/developwidget/devsetup", :class => "wl-button wl-link-button wl-header-button"%>
+        </div>
+    </div>
 
     <div class="wl-widget-item first">
         <%= image_tag "developer_basics_icon.png", :alt => "Learn the basics", :class => "descriptive_icon" %>
         <div class="descriptive_text">
-            <h2>Learn the basics - Hello world tutorial</h2>
+            <h2>'Hello World' tutorial</h2>
             <p>Dive into the world of Sakai OAE widget development. With this tutorial you'll be able to create your first widget and show it to the world.</p>
             <%= link_to "Let's begin", "/sdk/developwidget/learnbasics", :class => "wl-button wl-link-button wl-header-button"%>
         </div>
     </div>
 
     <div class="wl-widget-item">
-        <%= image_tag "developer_codingstandards_icon.png", :alt => "Coding standards", :class => "descriptive_icon" %>
-        <div class="descriptive_text">
-            <h2>Coding standards</h2>
-            <p>Follow these simple few rules and you will be creating your own widgets for others to use on their Sakai platform.</p>
-            <%= link_to "View", "/sdk/developwidget/codingstandards", :class => "wl-button wl-link-button wl-header-button"%>
-        </div>
-    </div>
-
-    <div class="wl-widget-item">
-        <%= image_tag "developer_quickdev_icon.png", :alt => "Quick dev setup", :class => "descriptive_icon" %>
-        <div class="descriptive_text">
-            <h2>Quick development environment setup</h2>
-            <p>A fast way to get Sakai OAE up and running for development. While doing that, you'll also learn about the separation between the front-end and back-end.</p>
-            <%= link_to "View", "/sdk/developwidget/quickdevsetup", :class => "wl-button wl-link-button wl-header-button"%>
-        </div>
-    </div>
-
-    <div class="wl-widget-item">
-        <%= image_tag "developer_fulldev_icon.png", :alt => "Full dev setup", :class => "descriptive_icon" %>
-        <div class="descriptive_text">
-            <h2>Full development environment setup</h2>
-            <p>With this tutorial you'll learn how to install the OAE Builder. It does all kind of things for you. Such as updating, building and launching the server.</p>
-            <%= link_to "View", "/sdk/developwidget/fulldevsetup", :class => "wl-button wl-link-button wl-header-button"%>
-        </div>
-    </div>
-
-    <div class="wl-widget-item">
-        <%= image_tag "tick_icon_large72x72.png", :alt => "Widget template builder", :class => "descriptive_icon" %>
+        <%= image_tag "developer_widgetbuilder_icon.png", :alt => "Widget template builder", :class => "descriptive_icon" %>
         <div class="descriptive_text">
             <h2>Widget template builder</h2>
+            <p>Creating the right HTML, JavaScript and CSS files for a widget can be tedious. The widget template builder automatically generates those for you.</p>
+            <%= link_to "Let's go", "/sdk/developwidget/widgetbuilder", :class => "wl-button wl-link-button wl-header-button"%>
+        </div>
+    </div>
+    <div class="wl-widget-item">
+        <%= image_tag "developer_examples_icon.png", :alt => "Git basics", :class => "descriptive_icon" %>
+        <div class="descriptive_text">
+            <h2>Git basics</h2>
             <p>Creating the right HTML, JavaScript and CSS files for a widget can be tedious. The widget template builder automatically generates those for you.</p>
             <%= link_to "Let's go", "/sdk/developwidget/widgetbuilder", :class => "wl-button wl-link-button wl-header-button"%>
         </div>

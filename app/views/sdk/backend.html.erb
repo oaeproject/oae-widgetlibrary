@@ -1,8 +1,8 @@
-<% content_for :title do %> - SDK - Back-end services<% end %>
+<% content_for :title do %> - SDK - Back-end endpoints<% end %>
 <div id="backend" class="widgetsdk_container">
-    <h1>Back-end services</h1>
+    <h1>Back-end endpoints</h1>
     <p>Sakai OAE has a number of API functions available that your widgets should use to communicate with the Sakai OAE server. A full list of API functions will be coming soon, but documentation on some of the most used backend Widget API functions are provided below.</p>
-    <p>If you are looking for API functions to build the interface of your widgets, check out the Frontend Services page.</p>
+    <p>If you are looking for API functions to build the interface of your widgets, check out the front-end api.</p>
     
     <h3 class="wl-normal">Categories 
         <button type="button" class="wl-link-button wl-regular-link wl-bold wl-right expand_all_link" data-expanded="false">
@@ -31,7 +31,7 @@
         <div class="expandable_container" style="display:none;"></div>
     </div>
     <div class="wl-widget-item">
-        <h3 class="wl-regular-link no_decoration wl-normal">More Backend Services 
+        <h3 class="wl-regular-link no_decoration wl-normal">More back-end endpoints
             <button type="button" class="wl-link-button wl-regular-link wl-bold wl-right expand_link" data-expanded="false">
                 <span>Expand &or;</span>
                 <span style="display:none;">Collapse &and;</span>
@@ -40,4 +40,5 @@
         <p>here are other backend API functions that can be found in the various sakai.api JavaScript files located at: /dev/lib/sakai</p>
         <div class="expandable_container" style="display:none;"></div>
     </div>
+    <%= render :partial => "sdk/feedback" %>
 </div>

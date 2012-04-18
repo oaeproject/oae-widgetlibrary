@@ -22,11 +22,8 @@
         <h2>Email</h2>
         <p>The Sakai community relies heavily on email lists for communication. Questions and ideas are welcome from anyone on these lists but you must sign up before you can send to the lists.</p>
         <ul class="inline_list">
-            <li>Sakai OAE frontend: 3akai-UX Developers - <%= link_to "sakai-ui-dev@collab.sakaiproject.org", "http://collab.sakaiproject.org/mailman/listinfo/sakai-ui-dev", :class => "wl-regular-link" %> (sign up) (archive)</li>
-            <li>Sakai OAE backend: Nakamura Developers - <%= link_to "sakai-kernel@googlegroups.com", "http://groups.google.com/group/sakai-kernel", :class => "wl-regular-link" %> (sign up) (archive)</li>
+            <li>Sakai OAE development: <%= link_to "oae-dev@collab.sakaiproject.org", "http://collab.sakaiproject.org/mailman/listinfo/oae-dev", :class => "wl-regular-link" %> (sign up) (archive)</li>
         </ul>
     </div>
-    <div class="wl-widget-item">
-        <%= image_tag "developer_sad_smiley_icon.png", :alt => "Visit the FAQ", :class => "wl-left" %><h3 class="widgetsdk_header_icon_text">Check out our <%= link_to "FAQ", "/sdk/faq", :class => "wl-regular-link" %> or add a comment below if you didn’t find what you were looking for on this page.</h3>
-    </div>
+    <%= render :partial => "sdk/feedback" %>
 </div>

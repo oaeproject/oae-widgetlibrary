@@ -1,18 +1,42 @@
 <% content_for :title do %> - SDK - Git basics<% end %>
 <div id="gitbasics" class="widgetsdk_container">
     <h1>Git basics</h1>
-    <p>The Sakai Open Academic Environment uses git version control in combination with <%= link_to "Github", "https://github.com/sakaiproject", :class => "wl-regular-link", :target => "_blank" %> to manage and distribute the code. This section assumes a basic knowledge of what git is and what it can be used for. If you want to read up on git you can visit the <%= link_to "git homepage", "http://git-scm.com/", :title => "Git homepage", :class => "wl-regular-link", :target => "_blank" %>.</p>
-
-    <p>This section also assumes that a development environment is up and running and you are ready to start developing your widget. If you do not have your development environment up and running I suggest you follow the '<%= link_to "Full development environment setup", "/sdk/developwidget/fulldevsetup", :class => "wl-regular-link" %>' and return to this section.</p>
-
+    <p>We use <em>git</em> as to manage &amp; distribute our code.<br />All our code is hosted on <%= link_to "Github", "https://github.com/sakaiproject", :class => "wl-regular-link", :target => "_blank" %>.</p>
+    <p>There are many good resources on the web, which we recommend reading:</p>
     <ul class="inline_list">
-        <li><%= link_to "Remotes", "#remotes", :title => "Remotes", :class => "wl-regular-link" %></li>
-        <li><%= link_to "Managing branches", "#managingbranches", :title => "Managing branches", :class => "wl-regular-link" %></li>
-        <li><%= link_to "Committing changes", "#commit", :title => "Committing changes", :class => "wl-regular-link" %></li>
-        <li><%= link_to "Cheat sheets", "#cheatsheets", :title => "Cheat sheets", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Pro git book", "http://progit.org/book/", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Git ready", "http://gitready.com/", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Git cheat sheets", "http://help.github.com/git-cheat-sheets/", :class => "wl-regular-link" %></li>
+    </ul>
+    <p>Navigation:</p>
+    <ul class="inline_list">
+        <li><%= link_to "Setup git", "#gitsetup", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Remotes", "#remotes", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Managing branches", "#managingbranches", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Committing changes", "#commit", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Cheat sheets", "#cheatsheets", :class => "wl-regular-link" %></li>
     </ul>
 
     <div class="wl-widget-item first">
+        <h2 id="gitsetup">Setup git</h2>
+        <p>Setting up git for Sakai OAE is pretty easy.</p>
+        <ul class="inline_list">
+            <li><%= link_to "Create", "https://github.com/signup/free", :title => "Create a github account", :class => "wl-regular-link" %> a free Github account</li>
+            <li><%= link_to "Install git", "http://help.github.com/set-up-git-redirect", :title => "Git install page", :class => "wl-regular-link" %> on your machine.</li>
+            <li>Go to the <%= link_to "3akai-ux page on github", "https://github.com/sakaiproject/3akai-ux", :class => "wl-regular-link" %> and hit the fork button.</li>
+        </ul>
+        <p>Now that we have our own fork of the project, we can clone it on our machine. It is recommended to to this as a sibling of the OAE-builder folder.</p>
+        <div class="navigationalitems_codesnippit_container few_lines">
+<pre class="prettyprint lang-json">
+$ git clone git://github.com/sakaiproject/3akai-ux.git
+</pre>
+        </div>
+        <p>If you'll be modifying back-end code, you should also fork the <%= link_to "nakamura project", "https://github.com/sakaiproject/nakamura", :class => "wl-regular-link" %> &amp; clone it locally:</p>
+        <div class="navigationalitems_codesnippit_container few_lines">
+<pre class="prettyprint lang-json">
+$ git clone git://github.com/sakaiproject/nakamura.git
+</pre>
+        </div>
         <h2 id="remotes">Remotes</h2>
         <p>Remotes in git are repository aliases that allow you to do various tasks. You can have some remotes with write or read access, or both. To access a list of aliases on your project simply run git remote.</p>
         <div class="navigationalitems_codesnippit_container few_lines">
@@ -25,7 +49,7 @@ sakaiproject	https://github.com/sakaiproject/3akai-ux.git (push)
 sakaiproject	https://github.com/sakaiproject/3akai-ux.git (fetch)
 </pre>
         </div>
-        <p>When setting up your environment through the <%= link_to "Full development environment setup", "/sdk/developwidget/fulldevsetup", :class => "wl-regular-link" %> you'll have one remote 'sakaiproject' which is the alias for the sakaiproject repository.</p>
+        <p>When setting up your environment through the <%= link_to "Full development environment setup", "/sdk/developwidget/", :class => "wl-regular-link" %> you'll have one remote 'sakaiproject' which is the alias for the sakaiproject repository.</p>
         <p>Adding remotes is as simple as the previous command, take a look at the following example where I add my own repository as a remote.</p>
         <div class="navigationalitems_codesnippit_container few_lines">
 <pre>
@@ -138,7 +162,5 @@ To git@github.com:bp323/sakai-widgetlibrary.git
 
     </div>
 
-    <div class="wl-widget-item">
-        <%= image_tag "developer_sad_smiley_icon.png", :alt => "Visit the FAQ", :class => "wl-left" %><h3 class="widgetsdk_header_icon_text">Check out our <%= link_to "FAQ", "/sdk/faq", :class => "wl-regular-link" %> or add a comment below if you didn’t find what you were looking for on this page.</h3>
-    </div>
+    <%= render :partial => "sdk/feedback" %>
 </div>
