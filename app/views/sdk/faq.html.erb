@@ -1,6 +1,6 @@
-<% content_for :title do %> - SDK - FAQs<% end %>
+<% content_for :title do %> - SDK - FAQ<% end %>
 <div id="faq" class="widgetsdk_container">
-    <h1>FAQs about Sakai OAE Widget development</h1>
+    <h1>FAQ about Sakai OAE Widget development</h1>
 
     <ul class="inline_list">
         <li>
@@ -50,20 +50,18 @@
         </ul>
 
         <h2 id="documentation"><strong>Q: Where do I find detailed documentation on the services that are available for use in my widgets?</strong></h2>
-        <p>A: The Widget API section of this documentation contains information on Frontend Services, Backend Services and 3rd Party Services available to Sakai OAE widgets. If you are unable to find information on the service you are looking for, there may be additional locations that would be worthwhile to search:</p>
-        <div class="widgetsdk_treelist">
-            <ul>
-                <li>All Sakai OAE Widget API functions can be found in the various sakai.api JavaScript files located in the /dev/lib/sakai directory</li>
-                <li>For information on services provided directly by the Sakai OAE server, check out these locations:
-                    <ul>
-                        <li>Nakamura Documentation Wiki</li>
-                        <li>Your local Sakai OAE server's built in documentation: <%= link_to "localhost:8080/system/doc", "http://localhost:8080/system/doc", :class => "wl-regular-link" %></li>
-                    </ul>
-                </li>
-            </ul>
+        <p>A: The Widget API section of this documentation contains information on front-end api, back-end endpoints and 3rd Party Services available to Sakai OAE widgets. If you are unable to find information on the service you are looking for, there may be additional locations that would be worthwhile to search:</p>
+        <ul class="inline_list">
+            <li>All Sakai OAE Widget API functions can be found in the various sakai.api JavaScript files located in the /dev/lib/sakai directory</li>
+            <li>For information on services provided directly by the Sakai OAE server, check out these locations:
+                <ul class="inline_list">
+                    <li>Nakamura Documentation Wiki</li>
+                    <li>Your local Sakai OAE server's built in documentation: <%= link_to "localhost:8080/system/doc", "http://localhost:8080/system/doc", :class => "wl-regular-link" %></li>
+                </ul>
+            </li>
+        </ul>
 
-            <p>If you cannot find what you are looking for, please feel free to contact the Sakai OAE developers.</p>
-        </div>
+        <p>If you cannot find what you are looking for, please feel free to contact the Sakai OAE developers.</p>
     </div>
 
     <div class="wl-widget-item">

@@ -1,6 +1,6 @@
-<% content_for :title do %> - SDK - CSS Guide<% end %>
+<% content_for :title do %> - SDK - JavaScript<% end %>
 <div id="cssguide" class="widgetsdk_container">
-    <h1>JavaScript Guidelines</h1>
+    <h1>JavaScript</h1>
     <p>This section of the Widget SDK helps clarify the JavaScript guidelines used by the Sakai OAE project. These guidelines exist to improve readability and maintenance of the various JavaScript files in the system. The guide borrows heavily from the <%= link_to "Node.js", "http://nodeguide.com/style.html", :class => "wl-regular-link", :target => "_blank" %> style guide but adds a few rules.</p>
 
     <ul class="inline_list">
@@ -485,7 +485,5 @@ while (items.length) {
         </div>
     </div>
 
-    <div class="wl-widget-item">
-        <img src="/assets/developer_sad_smiley_icon.png" class="wl-left" alt="Visit the FAQ"><h3 class="widgetsdk_header_icon_text">Check out our <a class="wl-regular-link" href="/sdk/faq">FAQ</a> or add a comment below if you didn’t find what you were looking for on this page.</h3>
-    </div>
+    <%= render :partial => "sdk/feedback" %>
 </div>

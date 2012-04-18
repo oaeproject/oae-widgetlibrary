@@ -1,9 +1,26 @@
-<% content_for :title do %> - SDK - Widget examples 2<% end %>
+<% content_for :title do %> - SDK - Widget designs<% end %>
 <div id="widgetexamples02" class="widgetsdk_container">
-    <h1>Widget examples 2</h1>
-    <p>Depending where the modules are to be used there are various sizes that will need to be applied , to allow them to fit into the system. Images within these widgets can be of any size as long as they have a 10 pixel gutter within the module.</p>
-    <div class="wl-widget-item first">
-        <h2>Dashboard Widgets</h2>
+    <h1>Widget designs</h1>
+    <p>Various examples of widgets, detailing spacing, font type, style and size and image dimensions to help you on your way to creating your own list based Sakai widgets.</p>
+    
+    <ul class="inline_list">
+        <li><a href="#pagewidgets" class="wl-regular-link" title="Page widgets">Page widgets</a></li>
+        <li><a href="#dashboardwidgets" class="wl-regular-link" title="Dashboard widgets">Dashboard widgets</a></li>
+        <li><a href="#otherwidgets" class="wl-regular-link" title="Other widgets">Other widgets</a></li>
+    </ul>
+    
+    <div class="wl-widget-item">
+        <h1 id="pagewidgets">Page widgets</h1>
+        <p>Page widgets are those that appear on pages like a Sakai document. For example, content comments, embed content, Google maps and discussions are all page widgets that appear in a Sakai document:</p>
+        <%= image_tag "developer_pagewidget_1.jpg", :alt => "Page widget", :class => "wl-left wl-margin-right-15" %>
+
+        <hr class="wl-hidden wl-push"/>
+        <p class="wl-push">A dashboard widget can be added, removed or moved within its containing page. Another special characteristic of a page widget is that its settings have a separate overlay dialog. This settings dialog can be accessed through the page editor.</p>
+        <%= image_tag "developer_pagewidget_2.png", :alt => "Page widget", :class => "wl-left wl-margin-right-15" %>
+    </div>
+
+    <div class="wl-widget-item">
+        <h1 id="dashboardwidgets">Dashboard widgets</h1>
         <%= image_tag "widgetexample_dashboard.jpg", :alt => "Dashboard Widgets", :id => "dashboard_widgets_screenshot" %>
         <p>The diagrams below detail exactly how to create a dashboard widget, with the correct spacing, font sizes and style and image size use.</p>
         <p>The example used here fits with Featured content, “Featured page, and Featured contacts” but the spacing and font rules also apply to full width dashboard widgets.</p>
@@ -124,5 +141,85 @@
                 <div style="margin-left: 315px; margin-top: 27px;">15 px</div>
         </div>
         <%= image_tag "widgetexample_dashboard_4.png", :alt => "Dashboard Widgets" %>
+    </div>
+</div>
+<div id="widgetexamples01" class="widgetsdk_container">
+    <div class="wl-widget-item first">
+        <h1 id="otherwidgets">Other widgets</h1>
+        <h2 class="halfpage_float first">Example 'List of content'</h2>
+        <h2 class="halfpage_float">Example 'Recent Activity list'</h2>
+        <hr class="wl-push wl-hidden"/>
+        <div style="position: absolute; font-size: 10px; font-family: arial; color: rgb(102, 102, 102); margin-left: 245px; margin-top:62px;" id="widgetexample_dashboard_5_code">
+            Arial Bold 11pt, #2683bc<br/>
+            Arial Bold 11pt, #999999<br/><br/>
+            Arial Bold 11pt, #333333<br/><br/>
+            10 px<br/><br/><br/><br/><br/>
+            10 px<br/><br/><br/><br/><br/>
+            50 x 50 px<br/><br/><br/><br/><br/><br/>
+            Default content<br/>
+            image<br/>
+        </div>
+        <div style="position: absolute; font-size: 10px; font-family: arial; color: #999999; margin-top: 50px; text-align: right; margin-left: 352px;" id="widgetexample_dashboard_5_code">
+            10 px<br/><br/><br/><br/><br/>
+            15 px<br/><br/><br/><br/>
+            10 px<br/><br/><br/>
+            35 x 35 px<br/><br/><br/><br/><br/><br/><br/><br/>
+            20 x 25 px<br/>
+        </div>
+        <div style="position: absolute; font-size: 10px; font-family: arial; color: #999999; margin-left: 575px; margin-top: 76px;" id="widgetexample_dashboard_5_code">
+            Arial Bold 12pt, #2683bc<br/><br/>
+            Arial 10pt, #999<br/><br/><br/>
+            Arial 10pt, #2683bc<br/>
+            leading 13pt<br/><br/><br/><br/><br/><br/><br/>
+            Arial 11pt, #999999<br/>
+            leading 13pt<br/>
+        </div>
+        <%= image_tag "widgetexample_dashboard_5.png", :alt => "Dashboard Widgets" %>
+
+        <h2>Example 'Discussion'</h2>
+        <div style="position: absolute; font-size: 10px; font-family: arial; color: #999999;">
+            <div style="margin-top: 58px; margin-left: 198px;">Arial Bold 11pt, #2683bc</div>
+            <div style="margin-top: 17px; margin-left: 258px;">Arial Bold 11pt, #666666</div>
+            <div style="position: absolute; margin-top: 10px; margin-left: 99px;">Arial Bold 11pt, #2683bc</div>
+            <div style="position: absolute; margin-top: 10px; margin-left: 244px;">Arial 11pt, #666666</div>
+            <div style="margin-left: 386px; margin-top: 10px;">Arial 12pt, leading 16, #333333</div>
+            <div style="display: block; margin-left: 546px; margin-top: -13px;">15px</div>
+            <div style="position: absolute; margin-top: 80px; margin-left: 11px;">50 x 50 px</div>
+            <div style="margin-top: 107px; margin-left: 546px;">15 px</div>
+            <div style="margin-left: 500px;">10 px</div>
+            <div style="margin-top: -3px; margin-left: 11px; position: absolute;">35 x 35 px</div>
+            <div style="margin-left: 228px; margin-top: -2px;">Arial Bold 11pt, #2683bc</div>
+            <div style="margin-left: 546px; margin-top: -2px;">15 px</div>
+            <div style="margin-left: 546px; margin-top: 4px;">15 px</div>
+            <div style="margin-left: 546px;">10 px</div>
+            <div style="margin-top: 76px; margin-left: 3px;">15 px</div>
+            <div style="margin-top: 47px; margin-left: 227px;">Arial Bold 12pt, #666666</div>
+            <div style="margin-top: 20px; margin-left: 227px;">Arial Italic 12pt, #999999</div>
+            <div style="margin-top: 14px; margin-left: 3px; position: absolute;">15 px</div>
+            <div style="margin-top: 14px; margin-left: 45px;">10 px</div>
+        </div>
+        <%= image_tag "widgetexample_dashboard_6.png", :alt => "Dashboard Widgets" %>
+
+        <h2>Example full width 'List of Content'</h2>
+        <div style="position: absolute; font-size: 10px; font-family: arial; color: #999999;">
+            <div style="position: absolute; margin-top: 16px; margin-left: 35px;">Arial Bold, 11pt, #2683bc</div>
+            <div style="margin-left: 263px; margin-top: 18px;">Arial Bold, 12pt, #2683bc</div>
+            <div style="margin-left: 440px; margin-top: -12px;">Arial, 12pt, #333333</div>
+            <div style="margin-left: 221px; margin-top: 7px;">Arial, 11pt, #333333</div>
+            <div style="position: absolute; margin-left: 36px; margin-top: 12px;">10 px</div>
+            <div style="position: absolute; margin-top: 12px; margin-left: 70px;">10 px</div>
+            <div style="position: absolute; margin-top: 12px; margin-left: 133px;">15 px</div>
+            <div style="position: absolute; margin-top: 12px; margin-left: 335px;">20 px</div>
+            <div style="margin-top: 52px; margin-left: 336px;">15 px</div>
+            <div style="margin-left: 418px;">Arial Bold, 11pt, #2683bc</div>
+            <div style="margin-top: 3px; position: absolute;">Arial 11pt, #333333</div>
+            <div style="margin-left: 336px;">20 px</div>
+            <div style="margin-top: 8px; margin-left: 240px;">Arial 11pt, #666666</div>
+            <div style="margin-top: 215px;">Arial 11pt, #333333</div>
+        </div>
+        <%= image_tag "widgetexample_dashboard_7.png", :alt => "Dashboard Widgets" %>
+
+        <h2>Example full width 'List of Contacts'</h2>
+        <%= image_tag "widgetexample_dashboard_8.png", :alt => "Dashboard Widgets" %>
     </div>
 </div>

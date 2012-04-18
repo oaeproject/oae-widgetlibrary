@@ -1,51 +1,51 @@
-<% content_for :title do %> - SDK - Front-end services<% end %>
+<% content_for :title do %> - SDK - Front-end API<% end %>
 <div id="frontend" class="widgetsdk_container">
-    <h1>Front-end services</h1>
+    <h1>Front-end API</h1>
     <p>Sakai OAE has a number of API functions available that should be used to build the interface of your widgets. A full list of API functions will be coming soon, but documentation on some of the most used frontend Widget API functions are provided below.</p>
-    <p>If you are looking for API functions to communicate with the Sakai OAE server, check out the Backend Services page.</p>
+    <p>If you are looking for API functions to communicate with the Sakai OAE server, check out the back-end endpoints page.</p>
 
-<ul class="widgetsdk_treelist">
+<ul class="inline_list">
     <li><%= link_to "Utility functions (sakai.api.Util.*)", "#utility", :class => "wl-regular-link", :title => "Utility functions (sakai.api.Util.*)" %>
-        <ul>
+        <ul class="inline_list">
             <li><%= link_to "Activity", "#activity", :class => "wl-regular-link", :title => "Activity" %>
-                <ul>
+                <ul class="inline_list">
                     <li><%= link_to "createActivity", "#createactivity", :class => "wl-regular-link", :title => "createActivity" %></li>
                 </ul>
             </li>
             <li><%= link_to "applyThreeDots", "#applythreedots", :class => "wl-regular-link", :title => "applyThreeDots" %></li>
             <li>
                 <%= link_to "AutoSuggest", "#autosuggest", :class => "wl-regular-link", :title => "AutoSuggest" %>
-                <ul>
+                <ul class="inline_list">
                     <li><%= link_to "setup", "#setup", :class => "wl-regular-link", :title => "setup" %></li>
                     <li><%= link_to "setupTagAndCategoryAutosuggest", "#setuptagandcategoryautosuggest", :class => "wl-regular-link", :title => "setupTagAndCategoryAutosuggest" %></li>
                 </ul>
             </li>
             <li><%= link_to "convertToHumanReadableFileSize", "#converttohumanreadablefilesize", :class => "wl-regular-link", :title => "convertToHumanReadableFileSize" %></li>
             <li><%= link_to "Draggable", "#draggable", :class => "wl-regular-link", :title => "Draggable" %>
-                <ul>
+                <ul class="inline_list">
                     <li><%= link_to "setupDraggable", "#setupdraggable", :class => "wl-regular-link", :title => "setupDraggable" %></li>
                 </ul>
             </li>
             <li><%= link_to "Droppable", "#droppable", :class => "wl-regular-link", :title => "Droppable" %>
-                <ul>
+                <ul class="inline_list">
                     <li><%= link_to "setupDroppable", "#setupdroppable", :class => "wl-regular-link", :title => "setupDroppable" %></li>
                 </ul>
             </li>
             <li><%= link_to "formatTagsh", "#formattags", :class => "wl-regular-link", :title => "formatTagsh" %></li>
             <li><%= link_to "Forms", "#forms", :class => "wl-regular-link", :title => "Forms" %>
-                <ul>
+                <ul class="inline_list">
                     <li><%= link_to "validate", "#validate", :class => "wl-regular-link", :title => "validate" %></li>
                 </ul>
             </li>
             <li><%= link_to "hideOnClickOut", "#hideonclickout", :class => "wl-regular-link", :title => "hideOnClickOut" %></li>
             <li><%= link_to "notification", "#notification", :class => "wl-regular-link", :title => "notification" %>
-                <ul>
+                <ul class="inline_list">
                     <li><%= link_to "show", "#show", :class => "wl-regular-link", :title => "show" %></li>
                 </ul>
             </li>
             <li><%= link_to "parseSakaiDate", "#parsesakaidate", :class => "wl-regular-link", :title => "parseSakaiDate" %></li>
             <li><%= link_to "progressIndicator", "#progressIndicator", :class => "wl-regular-link", :title => "progressIndicator" %>
-                <ul>
+                <ul class="inline_list">
                     <li><%= link_to "showProgressIndicator", "#showprogressIndicator", :class => "wl-regular-link", :title => "showProgressIndicator" %></li>
                     <li><%= link_to "hideProgressIndicator", "#hideprogressIndicator", :class => "wl-regular-link", :title => "hideProgressIndicator" %></li>
                 </ul>
@@ -56,7 +56,7 @@
         </ul>
     </li>
     <li><%= link_to "User functions (sakai.api.User.*)", "#user", :class => "wl-regular-link", :title => "User functions (sakai.api.User.*)" %>
-        <ul>
+        <ul class="inline_list">
             <li><%= link_to "getUser", "#getuser", :class => "wl-regular-link", :title => "getUser" %></li>
             <li><%= link_to "getMulipleUsers", "#getmultipleusers", :class => "wl-regular-link", :title => "getMulipleUsers" %></li>
             <li><%= link_to "getProfilePicture", "#getprofilepicture", :class => "wl-regular-link", :title => "getProfilePicture" %></li>

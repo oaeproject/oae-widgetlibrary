@@ -1,6 +1,6 @@
 <% content_for :title do %> - SDK - Learn the basics, 'Hello World' tutorial<% end %>
 <div id="helloworld" class="widgetsdk_container">
-    <h1>Learn the basics, 'Hello World' tutorial</h1>
+    <h1>Introduction tutorial</h1>
     <p>This tutorial will walk you through building a relatively simple widget called 'My Hello World'. My Hello World is a dashboard widget that says hello to the current user with text in the colour of their choosing.</p>
 
     <%= image_tag "developer_helloworld_example.png", :alt => "My Hello World" %>
@@ -8,12 +8,7 @@
     <p>The My Hello World widget is identical to the Hello World widget (except the name and ID of the widget) included in the 3akai-UX code distribution at 3akai-ux/devwidgets/helloworld. For the purposes of this tutorial we are using My Hello World (and corresponding myhelloworld ID) so you can create a new widget while referencing the provided Hello World widget if necessary.</p>
 
     <h1>Step 1: <b>Development environment setup</b></h1>
-    <p>Make sure your development environment is set up so you can create the My Hello World widget and run it within Sakai OAE on your machine:</p>
-
-    <ul class="inline_list">
-        <li><%= link_to "Quick setup", "/sdk/developwidget/quickdevsetup", :class => "wl-regular-link wl-bold" %> if you have Java and git installed.</li>
-        <li><%= link_to "Full setup", "/sdk/developwidget/fulldevsetup", :class => "wl-regular-link wl-bold" %> if you don't have any of these tools installed.</li>
-    </ul>
+    <p>Make sure your development environment is <%= link_to "set up", "/sdk/developwidget/devsetup", :class => "wl-regular-link wl-bold" %> so you can create the My Hello World widget and run it within Sakai OAE on your machine:</p>
 
     <h1>Step 2: <b>Set up the widget file structure</b></h1>
     <p>You can generate the widget file &amp; folder structure with the <%= link_to "widget template builder", "/sdk/developwidget/widgetbuilder", :class => "wl-regular-link wl-bold" %>. If you don't want to, follow the steps below. Either way, you should follow the widget file structure pattern so your widgets function properly.</p>
@@ -31,32 +26,32 @@
 
     <p>All widgets should use this set of directories and files though some may be unnecessary (i.e. images, CSS). Of course, the names should match the ID of the widget. In this case, the ID for the My Hello World widget is <i>myhelloworld</i>. Let's take a look at the purpose of these directories and files:</p>
 
-    <ul class="widgetsdk_treelist">
+    <ul class="inline_list">
         <li><strong>3akai-ux</strong>: contains all Sakai OAE frontend code
-            <ul>
+            <ul class="inline_list">
                 <li><strong>devwidgets</strong>: contains all Sakai OAE widgets
-                    <ul>
+                    <ul class="inline_list">
                         <li><strong>myhelloworld</strong>: contains all My Hello World widget code
-                            <ul>
+                            <ul class="inline_list">
                                 <li><strong>bundles</strong>: contains files used to internationalize the interface of this widget
-                                    <ul>
+                                    <ul class="inline_list">
                                         <li><strong>default.properties</strong>: a listing of key-value pairs that define internationalizable keys and their string values to be used in the default widget interface</li>
                                     </ul>
                                 </li>
                                 <li><strong>config.json</strong>: a JSON object that defines the widget's essential properties such as name, id, url and more</li>
                                 <li><strong>css</strong>: contains CSS files used for this widget
-                                    <ul>
+                                    <ul class="inline_list">
                                         <li><strong>myhelloworld.css</strong>: the main CSS file for the My Hello World widget defining any styles specifically for this widget</li>
                                     </ul>
                                 </li>
                                 <li><strong>myhelloworld.html</strong>: the main HTML file for the My Hello World widget defining the layout of the widget</li>
                                 <li><strong>images</strong>: contains images for this widget
-                                    <ul>
+                                    <ul class="inline_list">
                                         <li><strong>myhelloworld_icon.png</strong>: the icon that appears in the header bar of the dashboard widget</li>
                                     </ul>
                                 </li>
                                 <li><strong>javascript</strong>: contains JavaScript files for this widget
-                                    <ul>
+                                    <ul class="inline_list">
                                         <li><strong>myhelloworld.js</strong>: the main JavaScript file for the My Hello World widget defining the dynamic behaviors of the widget</li>
                                     </ul>
                                 </li>

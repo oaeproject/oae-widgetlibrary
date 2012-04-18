@@ -1,11 +1,11 @@
 <% content_for :title do %> - SDK - Widget template builder<% end %>
 <div id="widgetbuilder" class="widgetsdk_container">
     <h1>Widget template builder</h1>
-    <p>If you’re stuck on how to start with the creation of your widget we have a couple of options to help you on your way:</p>
+    <p>With the widget template builder you can create a skeleton framework of a widget which you can add to Sakai OAE.</p>
     <%= form_tag("/zippedwidget", :method => "post", :id => "widgetbuilder_form") do %>
         <div class="wl-widget-item first">
             <h1>Widget creator</h1>
-            <p>Fill out the ‘name’ and a basic description of your widget below, selection one of the pre-defined categories and we’ll send you a skeleton framework of a widget with the correct structure into which you can add your code.</p>
+            <p>Fill out the ‘name’ and a basic description of your widget below and select one of the pre-defined categories.</p>
             <div class="widgetsdk_split_container">
                 <h1>Widget name</h1>
                 <input type="text" placeholder="(e.g. Grapher 202...)" id="widgetbuilder_title" name="widgetbuilder_title"/>

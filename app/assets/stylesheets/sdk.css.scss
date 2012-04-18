@@ -1,6 +1,9 @@
 @import "mixins.css.scss";
 
 .sdk {
+  p {
+    line-height: 1.4em;
+  }
   .wl-content-container#developer_container {
     background: image-url("container_bg.png") no-repeat scroll center top transparent;
     @include border-radius($topLeft: 12px, $topRight: 12px, $bottomRight: 0, $bottomLeft: 0);
@@ -32,7 +35,8 @@
     p {
       color: #666666;
       font-size: 14px;
-      line-height: 16px; } }
+    }
+  }
   #developer_videocontent {
     height: 160px;
     padding: 7px 0 0 7px;
@@ -66,8 +70,6 @@
       p {
         clear: none;
         font-size: 12px;
-        letter-spacing: -0.01em;
-        line-height: 16px;
         margin-bottom: 8px; }
       .wl-regular-link {
         font-size: 12px; }
@@ -93,7 +95,6 @@
         font-weight: normal;
         margin: 0 0 15px; }
       p {
-        line-height: 15px;
         margin-bottom: 8px; } }
     .developer_threecolumn.first {
       border-left: none;

@@ -1,32 +1,35 @@
 <% content_for :title do %> - SDK - Help<% end %>
-<div id="faq" class="widgetsdk_container">
-    <h1>Sakai is a very helpful community</h1>
-    <p>There are a number of ways you can get in touch with members of the community if you need help or want to share your ideas.</p>
+<div class="widgetsdk_container">
+    <h1>Help</h1>
+    <p>It's possible that you might run into an issue with Sakai OAE.<br/>
+        If that's the case we would recommend having a look at our FAQ or you can contact us.</p>
 
     <div class="wl-widget-item">
-        <h2>IRC</h2>
-        <p>You can almost always find a 3akai-UX (Sakai OAE frontend codename) Developer or Nakamura (Sakai OAE backend codename) Developer in the Sakai IRC group chat room. The purpose of this space is to get quick answers to issues you are having and for group discussions on various issues. All are welcome.</p>
-        <p>To join:</p>
-        <p>1. You will need an IRC Client:</p>
-        <ul class="inline_list">
-            <li>Online (any platform): <%= link_to "Freenode Webchat", "http://webchat.freenode.net/", :class => "wl-regular-link" %></li>
-            <li>Windows: <%= link_to "mIRC", "http://www.mirc.com/", :class => "wl-regular-link" %>, <%= link_to "XChat", "http://xchat.org/", :class => "wl-regular-link" %></li>
-            <li>Linux: <%= link_to "XChat", "http://xchat.org/", :class => "wl-regular-link" %></li>
-            <li>Mac OS X: <%= link_to "Colloquy", "http://colloquy.info/", :class => "wl-regular-link" %></li>
-        </ul>
-        <p>2. Connect to the server: <b><i>irc.freenode.net</i></b> (if using <%= link_to "Freenode Webchat", "http://webchat.freenode.net/", :class => "wl-regular-link" %>, you are automatically connected to this server)</p>
-        <p>3. Use a nickname that describes you</p>
-        <p>4. Once connected to the server, join room (also known as a 'channel'): <b>#sakai</b></p>
-        <p>This chat room is archived at: <%= link_to "https://www2.caret.cam.ac.uk/irc/sakai/", "https://www2.caret.cam.ac.uk/irc/sakai/", :class => "wl-regular-link" %> (username: sakaiirc, password: ircsakai)</p>
-        <p>For example widgets that have been heavily documented in this Widget SDK documentation, see the Widget Examples page.</p>
-        <h2>Email</h2>
-        <p>The Sakai community relies heavily on email lists for communication. Questions and ideas are welcome from anyone on these lists but you must sign up before you can send to the lists.</p>
-        <ul class="inline_list">
-            <li>Sakai OAE frontend: 3akai-UX Developers - <%= link_to "sakai-ui-dev@collab.sakaiproject.org", "http://collab.sakaiproject.org/mailman/listinfo/sakai-ui-dev", :class => "wl-regular-link" %> (sign up) (archive)</li>
-            <li>Sakai OAE backend: Nakamura Developers - <%= link_to "sakai-kernel@googlegroups.com", "http://groups.google.com/group/sakai-kernel", :class => "wl-regular-link" %> (sign up) (archive)</li>
-        </ul>
+        <%= image_tag "developer_faq_icon.png", :alt => "FAQ", :class => "descriptive_icon" %>
+        <div class="descriptive_text">
+            <h2>FAQ</h2>
+            <p>Frequently asked questions and answers about Sakai OAE widget development.</p>
+            <%= link_to "View", "/sdk/help/faq", :class => "wl-link-button wl-button wl-header-button blue"%>
+        </div>
     </div>
+
     <div class="wl-widget-item">
-        <%= image_tag "developer_sad_smiley_icon.png", :alt => "Visit the FAQ", :class => "wl-left" %><h3 class="widgetsdk_header_icon_text">Check out our <%= link_to "FAQ", "/sdk/faq", :class => "wl-regular-link" %> or add a comment below if you didn’t find what you were looking for on this page.</h3>
+        <%= image_tag "developer_basics_icon.png", :alt => "Contact", :class => "descriptive_icon" %>
+        <div class="descriptive_text">
+            <h2>Contact</h2>
+            <p>Get in touch with members of the community if you need help or want to share your ideas.</p>
+            <%= link_to "View", "/sdk/help/contact", :class => "wl-link-button wl-button wl-header-button blue"%>
+        </div>
     </div>
+
+    <div class="wl-widget-item">
+        <%= image_tag "developer_quickdev_icon.png", :alt => "3rd party libraries", :class => "descriptive_icon" %>
+        <div class="descriptive_text">
+            <h2>3rd party libraries</h2>
+            <p>Find out more information &amp; help about our 3rd party libraries.</p>
+            <%= link_to "View", "/sdk/help/thirdparty", :class => "wl-link-button wl-button wl-header-button blue"%>
+        </div>
+    </div>
+
+    <hr class="wl-push wl-hidden"/>
 </div>
