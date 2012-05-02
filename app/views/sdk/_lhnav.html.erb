@@ -34,8 +34,8 @@
           <li <% if params[:section].eql?("api/thirdparty")%>class="selected"<% end %>><div><%= link_to "3rd party libraries", "/sdk/api/thirdparty" %></div></li>
       </ul>
 
-      <li <% if params[:action].eql?("faq")%>class="selected"<% end %>><div><%= link_to "FAQ", "/sdk/faq" %></div></li>
-      <li <% if params[:action].eql?("help")%>class="selected"<% end %>><div><%= link_to "Getting help", "/sdk/contact" %></div></li>
+      <li <% if params[:section].eql?("faq")%>class="selected"<% end %>><div><%= link_to "FAQ", "/sdk/faq" %></div></li>
+      <li <% if params[:section].eql?("contact")%>class="selected"<% end %>><div><%= link_to "Getting help", "/sdk/contact" %></div></li>
   </ul>
 </nav>
 <hr class="wl-push wl-hidden"/>
