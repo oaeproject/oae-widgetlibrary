@@ -2,7 +2,13 @@
 <div id="gitbasics" class="widgetsdk_container">
     <h1>Git basics</h1>
     <p>We use <em>git</em> as to manage &amp; distribute our code.<br />All our code is hosted on <%= link_to "Github", "https://github.com/sakaiproject", :class => "wl-regular-link", :target => "_blank" %>.</p>
-    <p>There are <%= link_to "many", "http://progit.org/book/", :class => "wl-regular-link" %> <%= link_to "good", "http://gitready.com/", :class => "wl-regular-link" %> <%= link_to "resources", "http://progit.org/book/", :class => "wl-regular-link" %> already on the web, which we recommend reading.</p>
+    <p>There are many good resources on the web, which we recommend reading:</p>
+    <ul class="inline_list">
+        <li><%= link_to "Pro git book", "http://progit.org/book/", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Git ready", "http://gitready.com/", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Git cheat sheets", "http://help.github.com/git-cheat-sheets/", :class => "wl-regular-link" %></li>
+    </ul>
+    <p>Navigation:</p>
     <ul class="inline_list">
         <li><%= link_to "Setup git", "#gitsetup", :class => "wl-regular-link" %></li>
         <li><%= link_to "Remotes", "#remotes", :class => "wl-regular-link" %></li>
