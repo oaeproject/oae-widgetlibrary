@@ -31,14 +31,11 @@
       <ul class="subnav" <% if !["api", "api/frontend", "api/backend"].include?(params[:section]) %> style="display:none;"<% end %>>
           <li <% if params[:section].eql?("api/frontend")%>class="selected"<% end %>><div><%= link_to "Front-end API", "/sdk/api/frontend" %></div></li>
           <li <% if params[:section].eql?("api/backend")%>class="selected"<% end %>><div><%= link_to "Back-end endpoints", "/sdk/api/backend" %></div></li>
+          <li <% if params[:section].eql?("api/thirdparty")%>class="selected"<% end %>><div><%= link_to "3rd party libraries", "/sdk/api/thirdparty" %></div></li>
       </ul>
 
-      <li <% if params[:section].eql?("help")%>class="selected" <% elsif ["help/faq", "help/contact", "help/thirdparty"].include?(params[:section]) %>class="selected_parent"<% end %>><div><%= link_to "Help", "/sdk/help" %></div></li>
-      <ul class="subnav" <% if !["help", "help/faq", "help/contact", "help/thirdparty"].include?(params[:section]) %> style="display:none;"<% end %>>
-          <li <% if params[:section].eql?("help/faq")%>class="selected"<% end %>><div><%= link_to "FAQ", "/sdk/help/faq" %></div></li>
-          <li <% if params[:section].eql?("help/contact")%>class="selected"<% end %>><div><%= link_to "Contact", "/sdk/help/contact" %></div></li>
-          <li <% if params[:section].eql?("help/thirdparty")%>class="selected"<% end %>><div><%= link_to "3rd party libraries", "/sdk/help/thirdparty" %></div></li>
-      </ul>
+      <li <% if params[:action].eql?("faq")%>class="selected"<% end %>><div><%= link_to "FAQ", "/sdk/faq" %></div></li>
+      <li <% if params[:action].eql?("help")%>class="selected"<% end %>><div><%= link_to "Getting help", "/sdk/contact" %></div></li>
   </ul>
 </nav>
 <hr class="wl-push wl-hidden"/>
