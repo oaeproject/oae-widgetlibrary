@@ -79,8 +79,13 @@
     "i18n": {
         "default": {
             "bundle": "/devwidgets/myhelloworld/bundles/default.properties",
-            "name": "My Hello world",
-            "description": "Sakai OAE widget SDK demonstration widget"
+            "description": "Sakai OAE widget SDK demonstration widget",
+            "name": "My Hello world"
+        },
+        "fr_FR": {
+            "bundle": "/devwidgets/myhelloworld/bundles/fr_FR.properties"
+            "description": "Sakai OAE widget de la démonstration SDK",
+            "name": "Mon monde bonjour"
         }
     },
     "id": "myhelloworld",
@@ -99,14 +104,19 @@
     <p>Here is a quick description of the configuration options you see here:</p>
 
     <ul class="inline_list">
-        <li><b>description</b> - string: a short description of the widget that may be displayed to users</li>
+        
         <li><b>enabled</b> - true | false: sets whether or not this widget may be usable by Sakai OAE</li>
         <li><b>groupdashboard</b> - true | false: sets whether or not this widget can be placed in a group's dashboard pages</li>
         <li><b>grouppages</b> - true | false: sets whether or not this widget can be placed in a group's standard pages (showinsakaigoodies must also be enabled to access this widget from the page editor)</li>
         <li><b>hasSettings</b> - true | false: sets whether or not this widget has a settings menu option to allow users to configure or change the widget's settings. Since we want the user to be able to change the color of the text, we set hasSettings to true.</li>
-        <li><b>i18n</b> - JSON object: sets the location of internationalization (abbreviated as 'i18n') files for this widget. Since we have a default properties file, we list its location here.</li>
+        <li><b>i18n</b> - JSON object: sets the location of internationalization (abbreviated as 'i18n') files for this widget. Since we have a default properties file, we list its location here.
+            <ul class="inline_list">
+                <li><b>bundle</b> - string: path to properties file for a given locale</li>
+                <li><b>description</b> - string: a short description of the widget that may be displayed to users</li>
+                <li><b>name</b> - string: a short name for the widget that is displayed to users. Since this is a dashboard widget, the name will appear in the widget's header bar</li>
+            </ul>
+        </li>
         <li><b>id</b> - string: a short, unique identifier for this widget. This ID should be used as the widget's directory name as well as the widget's main HTML template, CSS file and JavaScript file names. It should also be used throughout the widget code and other places in the Sakai OAE codebase to refer to this widget.</li>
-        <li><b>name</b> - string: a short name for the widget that is displayed to users. Since this is a dashboard widget, the name will appear in the widget's header bar</li>
         <li><b>personalportal</b> - true | false: sets whether or not this widget may be used on a user's personal portal (more commonly known as 'My Sakai'). This is the page a user is taken to when they log in (/dev/my_sakai.html). This property is not included in the helloworld config.json because we do not want to include a demonstration widget in My Sakai by default. For the purposes of this tutorial, we will test My Hello World on the My Sakai page.</li>
         <li><b>showinsakaigoodies</b> - true | false: sets whether or not this widget may appear in the list of widgets that can be placed on either a standard group or user page (either grouppages or userpages must also be enabled to access this widget from the page editor)</li>
         <li><b>type</b> - "core" | "sakai" | "contrib": core widgets are essential for Sakai OAE to function properly (i.e. login, uploadcontent). sakai widgets are not essential for Sakai OAE to function properly, but are shipped with the main codebase (i.e. discussion, video). contrib widgets are written by individuals and institutions outside the core Sakai OAE team and contributed back to the Sakai OAE project.</li>
