@@ -6,7 +6,6 @@ class SakaiwidgetGenerator < Rails::Generators::NamedBase
     @apptitle = @_initializer[2][:apptitle]
     @appstyle = @_initializer[2][:appstyle]
     @appdesc = @_initializer[2][:appdesc]
-    @showinsakaigoodies = @_initializer[2][:showinsakaigoodies]
     @personalportal = @_initializer[2][:personalportal]
     @sakaidocs = @_initializer[2][:sakaidocs]
     @createdir = @_initializer[2][:destination_root]    
