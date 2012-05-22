@@ -21,6 +21,16 @@
   .wl-page-container {
     padding-bottom: 0; } }
 
+.widgetsdk_warning_box {
+    background: #fee;
+    border: 1px solid #dcc;
+    color: #444;
+    padding: 10px;
+    h1, h2, h3, h4, h5, h6 {
+        color: #a33;
+    }
+}
+
 .navigationalitems_codesnippit_container.few_lines {
   background: image-url("codesnippet_bg.png") repeat-x left center #f1f5f9; }
 

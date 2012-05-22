@@ -14,9 +14,20 @@
     <div class="wl-widget-item first">
         <h2 id="oaebuilder">OAE Builder setup</h2>
         <p>The OAE has a tool called OAE builder to help set up a development environment.<br />It will build the back-end, get the latest code and add test data.</p>
+
+    	<div class="widgetsdk_warning_box">
+            <h4>Note for Lion XCode Users</h4>   
+            <p>Please note that the third command in the section below ("<%= link_to "Install ruby via rvm", "#install_ruby_rvm", :class => "wl-regular-link" %>") won't work with Lion XCode due to an issue with the gcc that comes with it. If you're using Lion XCode, replace line 3 below with:</p>
+            <div class="navigationalitems_codesnippit_container">
+<pre class="prettyprint">
+rvm install 1.9.3 --with-gcc=clang
+</pre>
+            </div>
+        </div>
+
         <div class="navigationalitems_codesnippit_container">
             <div class="navigationalitems_codesnippit_header">
-                <h4>Install ruby via rvm (once per machine, you can skip this if you already have ruby and rvm installed)</h4>
+                <h4 id="install_ruby_rvm">Install ruby via rvm (once per machine, you can skip this if you already have ruby and rvm installed)</h4>
             </div>
 <pre class="prettyprint">
 bash -s stable &lt; &lt;(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
