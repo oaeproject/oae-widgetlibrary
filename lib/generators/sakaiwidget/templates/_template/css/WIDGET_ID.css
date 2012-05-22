@@ -26,15 +26,14 @@
  */
 
 /* padding around all your widget's content */
-.<%= @file_name %>_widget {padding: 0px 12px;}
-
+.<%= @file_name %>_widget {
+	padding: 0px 12px;
+}
 
 /*
  * Main View CSS
  */
 
-
 /*
  * Settings View CSS
  */
- 

@@ -15,12 +15,10 @@ class WidgetGeneratorController < ApplicationController
     appdesc = params[:widgetbuilder_description]
     apptype = params[:widget_type]
     tempdir = "#{Dir::tmpdir}/#{Guid.new}"
-    showinsakaigoodies = "true"
     personalportal = "true"
     sakaidocs = "true"
 
     if apptype.eql?("Dashboard")
-      showinsakaigoodies = "false"
       sakaidocs = "false"
     elsif apptype.eql?("Page")
       personalportal = "false"
@@ -30,9 +28,9 @@ class WidgetGeneratorController < ApplicationController
     # the generator does (humanize.downcase), but *also* replacing the spaces
     # because we don't want those in our tool ID's. We using this below to make
     # the temp directory for the zip file as well.
-    filename = myappname.humanize.downcase.gsub(' ','_')
+    filename = myappname.humanize.downcase.gsub(' ','')
 
-    Rails::Generators.invoke 'sakaiwidget', ["#{filename}"], :behavior => :invoke, :destination_root => tempdir, :appstyle => appstyle, :appdesc => appdesc, :showinsakaigoodies => showinsakaigoodies, :personalportal => personalportal, :sakaidocs => sakaidocs, :apptitle => myappname
+    Rails::Generators.invoke 'sakaiwidget', ["#{filename}"], :behavior => :invoke, :destination_root => tempdir, :appstyle => appstyle, :appdesc => appdesc, :personalportal => personalportal, :sakaidocs => sakaidocs, :apptitle => myappname
     t = Tempfile.new("#{filename}")
     zos = Zip::ZipOutputStream.open(t.path)
     prefix = "#{tempdir}/"

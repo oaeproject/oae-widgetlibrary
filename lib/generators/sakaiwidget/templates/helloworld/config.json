@@ -1,23 +1,16 @@
 {
-    "id":                 "<%= @file_name %>",
-    "name":               "<%= @apptitle %>",
-    "description":        "<%= @appdesc %>",
-    "type":               "contrib",
-    "enabled":            true,
-    "hasSettings":        true,
-    "url":                "/devwidgets/<%= @file_name %>/<%= @file_name %>.html",
+    "enabled": true,
+    "hasSettings": true,
     "i18n": {
         "default": {
-            "bundle":        "/devwidgets/<%= @file_name %>/bundles/default.properties",
-            "name":           "<%= @apptitle %>",
-            "description":    "<%= @appdesc %>"
+            "bundle": "/devwidgets/<%= @file_name %>/bundles/default.properties",
+            "name": "<%= @apptitle %>",
+            "description": "<%= @appdesc %>"
         }
     },
-    "personalportal":     <%= @personalportal %>,
-    "sakaidocs":          <%= @sakaidocs %>,
-    "showinsakaigoodies": <%= @showinsakaigoodies %>,
-    "groupdashboard":     false,
-    "grouppages":         false,
-    "userdashboard":      false,
-    "userpages":          false
+    "id": "<%= @file_name %>",
+    "personalportal": <%= @personalportal %>,
+    "sakaidocs": <%= @sakaidocs %>,
+    "type": "contrib",
+    "url": "/devwidgets/<%= @file_name %>/<%= @file_name %>.html"
 }
