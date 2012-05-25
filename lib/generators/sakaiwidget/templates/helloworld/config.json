@@ -1,7 +1,5 @@
 {
     "enabled": true,
-    "groupdashboard": false,
-    "grouppages": false,
     "hasSettings": true,
     "i18n": {
         "default": {
@@ -14,7 +12,5 @@
     "personalportal": <%= @personalportal %>,
     "sakaidocs": <%= @sakaidocs %>,
     "type": "contrib",
-    "url": "/devwidgets/<%= @file_name %>/<%= @file_name %>.html",
-    "userdashboard": false,
-    "userpages": false
+    "url": "/devwidgets/<%= @file_name %>/<%= @file_name %>.html"
 }
