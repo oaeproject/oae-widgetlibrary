@@ -1,0 +1,22 @@
+<h1>User and widget statistics</h1>
+<h5>Number of registered users</h5>
+=> <%= @totalUsers %> users registered in the system
+
+<h5>Most active user (most logins)</h5>
+=> <%= @mostLogins.name %> logged in <%= @mostLogins.sign_in_count %> times
+
+<h5>Top 5 users with most widgets</h5>
+<ol>
+<% @mostWidgets.each do |u| %>
+    <li><%= u.name %> submitted <%= u.total %> widgets</li>
+<% end %>
+</ol>
+
+<h5>Number of submitted widgets</h5>
+<%= @numWidgets %> widgets in the system
+
+<h5>Average rating per widget</h5>
+Average rating of <%= @avgWidgetRating.first().average %> per widget
+
+<h5>Number of reviews</h5>
+<%= @numRatings %> reviews submitted

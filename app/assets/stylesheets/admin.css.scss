@@ -1,5 +1,8 @@
 @import "mixins.css.scss";
 
+ol {
+    margin: 0 20px;
+}
 
 /** Admin actions in the widget detail page **/
 .show #admin_actions {
