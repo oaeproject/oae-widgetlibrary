@@ -9,11 +9,11 @@
         <div><%= link_to "Declined widgets", admin_path(:state => State.declined) %></div>
       </li>
   </ul>
-  <% elsif params[:action].eql?"users" %>
+  <% elsif ["users", "adminusers"].include?(params[:action]) %>
   <h1 class="wl-bold">User Management</h1>
   <ul>
-    <li><div><%= link_to "All Users", admin_users_path %></div></li>
-    <li><div><%= link_to "Admin Users", admin_admin_users_path %></div></li>
+    <li class="navigation_item <% if params[:action].eql?("users") %> selected<% end %>"><div><%= link_to "All Users", admin_users_path %></div></li>
+    <li class="navigation_item <% if params[:action].eql?("adminusers") %> selected<% end %>"><div><%= link_to "Admin Users", admin_admin_users_path %></div></li>
   </ul>
   <% elsif params[:action].eql?"options" %>
   <h1 class="wl-bold">Widget Options</h1>

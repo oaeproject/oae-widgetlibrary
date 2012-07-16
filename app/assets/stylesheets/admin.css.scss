@@ -1,6 +1,27 @@
 @import "mixins.css.scss";
 
-
+.wl-content-container {
+  background: image-url("library_bg.png") repeat-x scroll center top transparent;
+}
+ul.admin_userlist {
+    margin: 0;
+    list-style: none;
+    li {
+        display: inline-block;
+        float: left;
+        margin: 12px 0;
+        width: 33%;
+    }
+    img {
+        height: 50px;
+        padding-right: 12px;
+        width: 50px;
+    }
+    input[type="checkbox"]{
+        float: right;
+        margin-right: 60px;
+    }
+}
 /** Admin actions in the widget detail page **/
 .show #admin_actions {
   margin-bottom:20px;

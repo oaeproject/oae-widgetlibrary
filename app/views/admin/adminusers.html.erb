@@ -1,7 +1,6 @@
-<h1>All users</h1>
-<% logger.debug @users %>
+<h1>Admin Users</h1>
 <ul class="admin_userlist">
-    <% @users.each do |user| %>
+    <% @adminusers.each do |user| %>
         <li>
             <%= form_tag("/admin/users/update", :method => "POST", :remote => true) do %>
                 <%= image_tag user.avatar.url(:thumb), :alt => "#{user.name}'s Photo", :class => "wl-left"%>

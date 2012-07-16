@@ -19,6 +19,19 @@ class AdminController < ApplicationController
   end
 
   def users
+    @users = User.find(:all, :order => 'last_name')
+  end
+
+  def adminusers
+    @adminusers = User.where("admin = ?", "t")
+  end
+
+  def user_update
+    user = User.find(params[:user_id])
+    user.admin = params["chk_user_admin" + params[:user_id]]
+    user.reviewer = params["chk_user_reviewer" + params[:user_id]]
+    user.save
+    head :ok
   end
 
   def options
