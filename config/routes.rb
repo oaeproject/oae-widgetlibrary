@@ -51,6 +51,7 @@ SakaiWidgetlibrary::Application.routes.draw do
   match '/admin/users' => 'admin#users', :as => :admin_users
   match '/admin/users/admin' => 'admin#users', :as => :admin_admin_users
   match '/admin/options' => 'admin#options', :as => :admin_options
+  match '/admin/statistics' => 'admin#statistics', :as => :admin_statistics
   match '/admin' => 'admin#widgets'
   match '/admin/widgets(/:state)' => 'admin#widgets', :as => :admin
   match '/admin/widgets/:review/:version_id' => 'admin#reviewed', :as => :admin_review_widget
