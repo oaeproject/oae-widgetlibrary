@@ -23,7 +23,7 @@ class AdminController < ApplicationController
   end
 
   def adminusers
-    @adminusers = User.where("admin = ?", "t")
+    @users = User.find(:all, :conditions => ["admin = ?", "t"], :order => 'last_name')
   end
 
   def user_update
