@@ -1,0 +1,21 @@
+<% @users.each do |user| %>
+    <li>
+        <%= form_tag("/admin/users/update", :method => "POST", :remote => true) do %>
+            <%= image_tag user.avatar.url(:thumb), :alt => "#{user.name}'s Photo", :class => "wl-left"%>
+            <%= link_to user.name, user_path(:id => user.id, :url_title => user.url_title), :class => "wl-bold wl-regular-link", :target => "_blank" %><br/>
+            <input type="hidden" name="user_id" value="<%= user.id %>">
+            <label class="label" for="chk_user_admin<%= user.id %>">Administrator:</label>
+            <% if user_signed_in? && current_user.id != user.id %>
+                <%= check_box_tag "chk_user_admin#{user.id}", 1, user.admin %>
+            <% else %>
+                <%= check_box_tag "chk_user_admin#{user.id}", 1, user.admin, :disabled => true %>
+            <% end %>
+            <label class="label" for="chk_user_reviewer<%= user.id %>">Reviewer:</label>
+            <% if user_signed_in? && current_user.id != user.id %>
+                <%= check_box_tag "chk_user_reviewer#{user.id}", 1, user.reviewer %>
+            <% else %>
+                <%= check_box_tag "chk_user_reviewer#{user.id}", 1, user.reviewer, :disabled => true %>
+            <% end %>
+        <% end %>
+    </li>
+<% end %>
