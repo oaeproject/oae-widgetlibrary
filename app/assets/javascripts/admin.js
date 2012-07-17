@@ -63,7 +63,7 @@ $(function() {
                     break;
             }
         });
-        $('ul.admin_userlist li input[type="checkbox"]').live('change', function() {
+        $('ul.admin_userlist li input[type="checkbox"]').on('change', function() {
             $(this).parents('form:first').submit();
             return false;
         });

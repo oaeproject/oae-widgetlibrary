@@ -9,6 +9,7 @@
                 <li><%= link_to "What kinds of technologies do I need to know to develop Sakai OAE widgets? How much experience will I need?", "#experience", :class => "wl-regular-link", :title => "What kinds of technologies do I need to know to develop Sakai OAE widgets? How much experience will I need?" %></li>
                 <li><%= link_to "How do I get and install Sakai OAE?", "#installation", :class => "wl-regular-link", :title => "How do I get and install Sakai OAE?" %></li>
                 <li><%= link_to "Where do I find detailed documentation on the services that are available for use in my widgets?", "#documentation", :class => "wl-regular-link", :title => "Where do I find detailed documentation on the services that are available for use in my widgets?" %></li>
+                <li><%= link_to "How can I use external JavaScript files and libraries within my widget?", "#requirejs", :class => "wl-regular-link", :title => "How can I use external JavaScript files and libraries within my widget?" %></li>
             </ul>
         </li>
         <li>
@@ -60,6 +61,21 @@
                 </ul>
             </li>
         </ul>
+
+        <h2 id="requirejs"><strong>Q: How can I use external JavaScript files and libraries within my widget?</strong></h2>
+        <p>A: We use <%= link_to "RequireJS", "http://requirejs.org/", :title => "RequireJS", :class => "wl-regular-link", :target => "_blank" %> to handle loading JavaScript modules and dependencies. You simply add the path to your file at the end of the array of modules. For example, if you want to pull in a JavaScript file from Twitter, you can change this line:  </p>
+
+        <div class="navigationalitems_codesnippit_container few_lines">
+<pre class="prettyprint">
+require(['jquery', 'sakai/sakai.api.core'], function($, sakai) {
+</pre>
+        </div>
+        <p>Into this:</p>
+        <div class="navigationalitems_codesnippit_container few_lines">
+<pre class="prettyprint">
+require(['jquery', 'sakai/sakai.api.core', 'http://widgets.twimg.com/j/2/widget.js'], function($, sakai) {
+</pre>
+        </div>
 
         <p>If you cannot find what you are looking for, please feel free to contact the Sakai OAE developers.</p>
     </div>

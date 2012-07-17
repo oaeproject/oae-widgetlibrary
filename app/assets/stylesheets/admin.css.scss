@@ -1,8 +1,5 @@
 @import "mixins.css.scss";
 
-.wl-content-container {
-  background: image-url("library_bg.png") repeat-x scroll center top transparent;
-}
 ul.admin_userlist {
     margin: 0;
     list-style: none;
@@ -55,10 +52,20 @@ ul.admin_userlist {
   .wl-page-container {
     padding: 0 22px;
   }
+  .wl-content-container {
+    background: image-url("library_bg.png") repeat-x scroll center top transparent;
+    padding-top: 0;
+    h3 {
+      padding-top: 10px;
+    }
+    ol {
+      margin: 0 20px;
+    }
+  }
   #admin_header {
-    font-size:26px;
-    font-weight:bold;
-    text-shadow:0 5px 5px #CCC;
+    font-size: 26px;
+    font-weight: bold;
+    text-shadow: 0 5px 5px #CCC;
   }
 
   #widgetlibrary_navigation ul li {
