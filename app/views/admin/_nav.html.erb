@@ -2,9 +2,9 @@
     <ul class="wl-bold">
         <li class="navigation_item<% if params[:action].eql?("widgets") %> selected<% end %>"><%= link_to "Widget Review", admin_path %></li>
         <% if is_admin? %>
-            <li class="navigation_item<% if params[:action].eql?("users") %> selected<% end %>"><%= link_to "Users", admin_users_path %></li>
+            <li class="navigation_item<% if ["users", "adminusers"].include?(params[:action]) %> selected<% end %>"><%= link_to "Users", admin_users_path %></li>
             <li class="navigation_item<% if params[:action].eql?("options")%> selected<% end %>"><%= link_to "Widget Options", admin_options_path %></li>
-            <li class="navigation_item<% if ["statistics", "widgetstatistics"].include?(params[:action])%> selected<% end %>"><%= link_to "Statistics", admin_statistics_path %></li>
+            <li class="navigation_item<% if params[:action].eql?("statistics")%> selected<% end %>"><%= link_to "Statistics", admin_statistics_path %></li>
         <% end %>
     </ul>
 </nav>
