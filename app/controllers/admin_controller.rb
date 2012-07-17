@@ -55,12 +55,12 @@ class AdminController < ApplicationController
   end
 
   def statistics
-    @totalUsers = User.count()
-    @mostLogins = User.last(:order => "sign_in_count")
-    @mostWidgets = User.find_by_sql("select *, Count(*) as total from widgets join users where widgets.user_id = users.id group by user_id order by total desc limit 5")
-    @numWidgets = Widget.count()
-    @avgWidgetRating = Widget.find_by_sql("select round(avg(average_rating), 2) average from widgets")
-    @numRatings = Rating.count()
+    @user_count = User.count()
+    @users_login_ranking = User.order("sign_in_count desc").limit(5)
+    @users_widget_ranking = User.joins(:widgets).select("users.id, users.name, users.url_title, count(*) as total").group("user_id").order("total desc").limit(5)
+    @widget_count = Widget.count()
+    @rating_average = Widget.average("average_rating").round(2)
+    @rating_count = Rating.count()
   end
 
   private

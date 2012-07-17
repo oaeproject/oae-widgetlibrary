@@ -24,7 +24,9 @@
   <% elsif params[:action].eql?"statistics" %>
   <h1 class="wl-bold">Statistics</h1>
   <ul>
-    <li <% if params[:action].eql?("statistics")%>class="selected" <% end %>><div><%= link_to "Users and widgets", admin_statistics_path %></div></li>
+    <li <% if params[:action].eql?("statistics")%>class="selected" <% end %>>
+      <div><%= link_to "Users and widgets", admin_statistics_path %></div>
+    </li>
   </ul>
   <% end %>
 </nav>

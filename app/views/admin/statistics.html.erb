@@ -1,22 +1,26 @@
-<h1>User and widget statistics</h1>
-<h5>Number of registered users</h5>
-=> <%= @totalUsers %> users registered in the system
+<h2>User and widget statistics</h2>
+<h3>Number of registered users</h3>
+<%= @user_count %> users registered in the system
 
-<h5>Most active user (most logins)</h5>
-=> <%= @mostLogins.name %> logged in <%= @mostLogins.sign_in_count %> times
-
-<h5>Top 5 users with most widgets</h5>
+<h3>Users with most logins</h3>
 <ol>
-<% @mostWidgets.each do |u| %>
-    <li><%= u.name %> submitted <%= u.total %> widgets</li>
-<% end %>
+  <% @users_login_ranking.each do |user| %>
+    <li><%= link_to user.name, user_path(:id => user.id, :url_title => user.url_title), :class => "wl-regular-link" %> logged in <%= user.sign_in_count %> times</li>
+  <% end %>
 </ol>
 
-<h5>Number of submitted widgets</h5>
-<%= @numWidgets %> widgets in the system
+<h3>Users with most widgets</h3>
+<ol>
+  <% @users_widget_ranking.each do |user| %>
+    <li><%= link_to user.name, user_path(:id => user.id, :url_title => user.url_title), :class => "wl-regular-link" %> submitted <%= user.total %> widgets</li>
+  <% end %>
+</ol>
 
-<h5>Average rating per widget</h5>
-Average rating of <%= @avgWidgetRating.first().average %> per widget
+<h3>Number of submitted widgets</h3>
+<%= @widget_count %> widgets in the system
 
-<h5>Number of reviews</h5>
-<%= @numRatings %> reviews submitted
+<h3>Average rating per widget</h3>
+Average rating of <%= @rating_average %> per widget
+
+<h3>Number of reviews</h3>
+<%= @rating_count %> reviews submitted
