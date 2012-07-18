@@ -76,4 +76,6 @@ end
 
 group :qa, :production do
   gem 'mysql2'
+  gem 'backup'
+  gem 'whenever'
 end

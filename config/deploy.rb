@@ -6,6 +6,7 @@ set :stages, %w(production qa)
 set :default_stage, "qa"
 require 'capistrano/ext/multistage'
 require 'bundler/capistrano'
+require "whenever/capistrano"
 
 $:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
 require "rvm/capistrano"                  # Load RVM's capistrano plugin.
@@ -62,12 +63,18 @@ namespace :deploy do
     run "touch #{current_release}/tmp/restart.txt"
   end
 
+  desc "Update the crontab file for scheduled backups"
+  task :update_crontab, :roles => :app do
+    run "cd #{current_release} && whenever --update-crontab backup"
+  end
+
 end
 
 # need to do this right after update_code or the precompile won't work
 after "deploy:update_code", "deploy:db_symlink"
 
 after "deploy:symlink", "deploy:binstubs"
+after "deploy:symlink", "deploy:update_crontab"
 after "deploy:binstubs", "deploy:recaptcha"
 after "deploy:recaptcha", "deploy:mailer_settings"
 
