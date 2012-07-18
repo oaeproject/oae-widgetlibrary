@@ -1,77 +1,88 @@
 @import "mixins.css.scss";
 
 .mywidgets {
-  h1 {
-    font-size: 24px;
-    font-weight: bold; }
-  #mywidgets_status {
-    width: 666px;
-    padding: 20px;
-    p {
-      font-size: 16px;
-      line-height: 18px; }
-    #mywidgets_status_icon {
-      height: 41px;
-      padding-top: 8px;
-      h1 {
-        display: block;
-        height: 24px;
-        width: 280px;
-        margin-left: 45px; } } }
-  .wl-page-container {
-    padding: 0 22px; }
-  .wl-content-container {
-    padding-top: 0;
-    background: image-url("library_bg.png") repeat-x scroll center top transparent; }
-  .wl-widget-item {
-    width: 148px; }
-  #submitwidget {
-    margin-left: 10px; } }
-  table {
-    border-collapse:collapse;
-    width:100%;
+    h1 {
+        font-size: 24px;
+        font-weight: bold;
+    }
+    #mywidgets_status {
+        padding: 20px;
+        width: 666px;
+        p {
+            line-height: 18px;
+            font-size: 16px;
+        }
+        #mywidgets_status_icon {
+            height: 41px;
+            padding-top: 8px;
+            h1 {
+                display: block;
+                margin-left: 45px;
+                height: 24px;
+                width: 280px;
+            }
+        }
+    }
+    .wl-page-container {
+        padding: 0 22px;
+    }
+    .wl-content-container {
+        background: image-url("library_bg.png") repeat-x scroll center top transparent;
+        padding-top: 0;
+    }
+    .wl-widget-item {
+        width: 148px;
+    }
+    #submitwidget {
+        margin-left: 10px;
+    }
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
     col {
-      &.mywidgets_submissions_title {
-        width:150px;
-      }
-      &.mywidgets_submissions_date{
-        width:150px;
-      }
-      &.mywidgets_submissions_version{
-        width:40px;
-      }
-      &.mywidgets_submissions_state{
-        width:50px;
-      }
-      &.mywidgets_submissions_notes{
-        width:250px;
-      }
-      &.mywidgets_submissions_actions{
-        width:120px;
-      }
+        &.mywidgets_submissions_title {
+            width: 150px;
+        }
+        &.mywidgets_submissions_date {
+            width: 150px;
+        }
+        &.mywidgets_submissions_version {
+            width: 40px;
+        }
+        &.mywidgets_submissions_state {
+            width: 50px;
+        }
+        &.mywidgets_submissions_notes {
+            width: 250px;
+        }
+        &.mywidgets_submissions_actions {
+            width: 120px;
+        }
     }
     tr {
-      td, th {
-        padding:4px;
-        border:1px solid #666;
-        vertical-align:top;
-        &.spacer {
-          border:none;
+        td, th {
+            border: 1px solid #666;
+            padding: 4px;
+            vertical-align: top;
+            &.spacer {
+                border: none;
+            }
+            .wl-link-button {
+                font-size: 13px;
+                font-weight: bold;
+            }
         }
-        .wl-link-button {
-          font-weight:bold;
-          font-size:13px;
-        }
-      }
     }
     thead {
-      tr {
-        background: image-url("navigation_item_bg.png") repeat-x scroll left top transparent;
-        color:white;
-        @include border-radius($topLeft: 5px, $topRight: 5px, $bottomRight: 5px, $bottomLeft: 5px);
-        th {
-          border-color:#888;
+        tr {
+            background: image-url("navigation_item_bg.png") repeat-x scroll left top transparent;
+            @include border-radius($topLeft: 5px, $topRight: 5px, $bottomRight: 5px, $bottomLeft: 5px);
+            color: white;
+            th {
+                border-color: #888;
+            }
         }
-      }
     }
-  }
+}

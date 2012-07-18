@@ -1,32 +1,40 @@
 #widget_list_header {
-  float: left;
-  margin: 0 10px 8px;
-  width: 685px; }
+    float: left;
+    margin: 0 10px 8px;
+    width: 685px;
+}
 
 #widget_list_sort_by {
-  float: right;
-  font-size: 11px; }
+    float: right;
+    font-size: 11px;
+}
 
 #widget_list_count {
-  color: #aaaaaa;
-  margin-top: 3px; }
+    color: #aaaaaa;
+    margin-top: 3px;
+}
 
 #widget_list_sort_down_arrow {
-  font-size: 9px; }
+    font-size: 9px;
+}
 
 .widget_review_status {
-  background: image-url("tick_icon_small.png") no-repeat scroll left top transparent;
-  height: 17px;
-  margin-left: -6px;
-  margin-top: -7px;
-  position: absolute;
-  width: 17px; }
+    background: image-url("tick_icon_small.png") no-repeat scroll left top transparent;
+    height: 17px;
+    margin-left: -6px;
+    margin-top: -7px;
+    position: absolute;
+    width: 17px;
+}
 
 .widget_review_status.widget_approved {
-  background: image-url("tick_icon_small.png") no-repeat scroll left top transparent; }
+    background: image-url("tick_icon_small.png") no-repeat scroll left top transparent;
+}
 
 .widget_review_status.widget_declined {
-  background: image-url("exclamation_icon_small.png") no-repeat scroll left top transparent; }
+    background: image-url("exclamation_icon_small.png") no-repeat scroll left top transparent;
+}
 
 .widget_review_status.widget_pending {
-  background: image-url("pending_icon_small.png") no-repeat scroll left top transparent; }
+    background: image-url("pending_icon_small.png") no-repeat scroll left top transparent;
+}
