@@ -53,6 +53,14 @@ namespace :deploy do
     run "ln -nfs #{shared_path}/config/database.yml #{current_release}/config/database.yml"
   end
 
+  desc "Symlink the backup config files"
+  task :backup_symlink, :roles => :app do
+    run "rm #{current_release}/db/backup/config.rb"
+    run "ln -nfs #{shared_path}/db/backup/config.rb #{current_release}/db/backup/config.rb"
+    run "rm #{current_release}/config/schedule.rb"
+    run "ln -nfs #{shared_path}/config/schedule.rb #{current_release}/db/schedule.rb"
+  end
+
   desc "Install binstubs"
   task :binstubs, :roles => :app do
     run "cd #{current_release} && bundle --binstubs bin/"
@@ -72,6 +80,7 @@ end
 
 # need to do this right after update_code or the precompile won't work
 after "deploy:update_code", "deploy:db_symlink"
+after "deploy:update_code", "deploy:backup_symlink"
 
 after "deploy:symlink", "deploy:binstubs"
 after "deploy:symlink", "deploy:update_crontab"
