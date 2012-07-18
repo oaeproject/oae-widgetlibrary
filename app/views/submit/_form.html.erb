@@ -22,9 +22,9 @@
         <%= f.file_field :bundle %>
     </div>
     <div class="register_column3">
-        <%= f.label :widget_repo, "Source code repository" %>
+        <%= f.label :widget_repo, "Source code repository (optional):" %>
         <%= f.text_field :widget_repo, :placeholder => "http://github.com/you/repository", :type => "url" %>
-        <%= f.label :widget_backend_repo, "Backend bundle source code repository" %>
+        <%= f.label :widget_backend_repo, "Backend bundle source code repository (optional):" %>
         <%= f.text_field :widget_backend_repo, :placeholder => "http://github.com/you/backend_repository", :type => "url" %>
     </div>
 
@@ -60,10 +60,10 @@
 
     <div class="register_column3 submit_details_column2">
         <h2>Details</h2>
-        <%= label_tag "version[category_ids][]", "Categories", :class => "submit_left_label" %>
+        <%= label_tag "version[category_ids][]", "Categories (optional)", :class => "submit_left_label" %>
         <%= select_tag "version[category_ids][]", options_from_collection_for_select(Category.all, :id, :title, @version.category_ids), :multiple => true %>
         <hr class="wl-hidden wl-push" />
-        <%= label_tag "version[language_ids][]", "Languages", :class => "submit_left_label" %>
+        <%= label_tag "version[language_ids][]", "Languages (optional)", :class => "submit_left_label" %>
         <%= select_tag "version[language_ids][]", options_from_collection_for_select(Language.all, :id, :title, @version.language_ids), :multiple => true %>
     </div>
 
