@@ -79,4 +79,31 @@
           margin-right: 60px;
       }
   }
+  #admin_widgets {
+    table { 
+      color: #333; 
+    }
+    tr { 
+      background: #f9f9f9;
+    }
+    tr:nth-child(2n+1) {
+      background-color: #f2f2f2;
+    }
+    th, td {
+      text-align: left;
+    }
+    th {
+      background: -moz-linear-gradient(top, #f5f5f5, #e2e2e2);
+      background: -webkit-linear-gradient(top, #f5f5f5, #e2e2e2);
+      border-bottom: 2px solid #ccc;
+      padding: 18px;
+    }
+    tbody tr:hover { 
+      background: -webkit-linear-gradient(top, #e5e5e5, #eaeaea);
+      background: -moz-linear-gradient(top, #e5e5e5, #eaeaea);
+    }
+    td {
+      padding: 10px;
+    }
+  }
 }
