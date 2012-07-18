@@ -58,7 +58,7 @@ namespace :deploy do
     run "rm #{current_release}/db/backup/config.rb"
     run "ln -nfs #{shared_path}/db/backup/config.rb #{current_release}/db/backup/config.rb"
     run "rm #{current_release}/config/schedule.rb"
-    run "ln -nfs #{shared_path}/config/schedule.rb #{current_release}/db/schedule.rb"
+    run "ln -nfs #{shared_path}/config/schedule.rb #{current_release}/config/schedule.rb"
   end
 
   desc "Install binstubs"
