@@ -1,77 +1,95 @@
 @import "mixins.css.scss";
 
 .browse {
-  /* Library */
-  .wl-content-right-container {
-    overflow:hidden; }
-  .wl-content-container {
-    background: image-url("library_bg.png") repeat-x scroll center top transparent;
-    padding-top: 0; }
-  .wl-page-container {
-    padding: 0 22px 0; }
-  #library_widgets {
-    border-left: 1px solid #c4c4c4;
-    @include box-shadow($h-shadow: -4px, $v-shadow: 4px, $blur: 7px, $spread: -4px, $color: #888888, $outerinner: "");
-    position: relative; }
-  #widget_list_container {
+    /* Library */
+    .wl-content-right-container {
+        overflow: hidden;
+    }
+    .wl-content-container {
+        background: image-url("library_bg.png") repeat-x scroll center top transparent;
+        padding-top: 0;
+    }
+    .wl-page-container {
+        padding: 0 22px 0;
+    }
+    #library_widgets {
+        border-left: 1px solid #c4c4c4;
+        @include box-shadow($h_shadow: -4px, $v_shadow: 4px, $blur: 7px, $spread: -4px, $color: #888888, $outerinner: "");
+        position: relative;
+    }
+    #widget_list_container {
+        .wl-widget-item {
+            position: relative;
+            .wl-rating-container {
+                bottom: 10px;
+                position: absolute;
+            }
+        }
+    }
+    .wl-widget-item .wl-rating-container {
+        clear: both;
+    }
     .wl-widget-item {
-      position: relative;
-      .wl-rating-container {
-        position: absolute;
-        bottom: 10px; } } }
-  .wl-widget-item .wl-rating-container {
-    clear: both; }
-  .wl-widget-item {
-    width: 148px;
-    p {
-      clear: both;
-      margin-top: 10px;
-      font-size: 12px; } }
-  .wl-widget-item-container .wl-widget-item {
-    width: 220px; }
-  #searchbox_container {
-    margin: 0 10px;
-    overflow: hidden;
-    label {
-      float: left;
-      margin: 5px 10px 0 0; }
-    input[type="text"] {
-      border: 1px solid #e9e9e9;
-      border-top: none;
-      border-bottom: 1px solid #d2d2d2;
-      @include border-radius($topLeft: 4px, $topRight: 4px, $bottomRight: 4px, $bottomLeft: 4px);
-      @include box-shadow($h-shadow: 0, $v-shadow: 1px, $blur: 1px, $spread: 0, $color: #eaeaea, $outerinner: "");
-      padding: 5px 35px 5px 10px;
-      width: 255px;
-      color: #666;
-      font-size: 12px;
-      height: 18px; }
-    #searchbox_container_input {
-      position: relative;
-      float: left;
-      .searchbox_remove{
-        background: image-url("input_remove_icon_20x20.png") no-repeat scroll 0 0 transparent;
-        display: inline;
-        float: right;
-        margin-top: 5px;
-        position: absolute;
-        right: 6px;
-        text-indent: -9999em;
-        height: 20px;
-        width: 20px; } } }
-  .searchbox_hr {
-    border: 0;
-    height: 0;
-    border-top: 1px solid #e0e0e0;
-    border-bottom: 1px solid #fefefe;
-    margin: 15px 10px 30px;
-  } }
+        width: 148px;
+        p {
+            clear: both;
+            margin-top: 10px;
+            font-size: 12px;
+        }
+    }
+    .wl-widget-item-container .wl-widget-item {
+        width: 220px;
+    }
+    #searchbox_container {
+        margin: 0 10px;
+        overflow: hidden;
+        label {
+            float: left;
+            margin: 5px 10px 0 0;
+        }
+        input[type="text"] {
+            border: 1px solid #e9e9e9;
+            border-bottom: 1px solid #d2d2d2;
+            @include border-radius($topLeft: 4px, $topRight: 4px, $bottomRight: 4px, $bottomLeft: 4px);
+            border-top: none;
+            @include box-shadow($h_shadow: 0, $v_shadow: 1px, $blur: 1px, $spread: 0, $color: #eaeaea, $outerinner: "");
+            color: #666;
+            padding: 5px 35px 5px 10px;
+            font-size: 12px;
+            height: 18px;
+            width: 255px;
+        }
+        #searchbox_container_input {
+            float: left;
+            position: relative;
+            .searchbox_remove {
+                background: image-url("input_remove_icon_20x20.png") no-repeat scroll 0 0 transparent;
+                display: inline;
+                float: right;
+                height: 20px;
+                margin-top: 5px;
+                position: absolute;
+                right: 6px;
+                text-indent: -9999em;
+                width: 20px;
+            }
+        }
+    }
+    .searchbox_hr {
+        border: 0;
+        border-top: 1px solid #e0e0e0;
+        border-bottom: 1px solid #fefefe;
+        height: 0;
+        margin: 15px 10px 30px;
+    }
+}
 
 #browse_overlay {
-  display:none;
-  position:absolute;
-  height:100%;
-  width:100%;
-  top:60px;
-  background-color:#fff;
-  opacity: 0.4; }
+    display: none;
+    background-color: #fff;
+    height: 100%;
+    opacity: 0.4;
+    position: absolute;
+    top: 60px;
+    width: 100%;
+}
