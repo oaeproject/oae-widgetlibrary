@@ -37,6 +37,32 @@ class AdminController < ApplicationController
   def options
   end
 
+  def languages
+      @languages = Language.find(:all)
+  end
+
+  def edit_language
+    @language = Language.find(params[:id])
+  end
+
+  def add_edit_language
+      if params[:add_new] ==  "true"
+        language = Language.new
+      else
+        language = Language.find(params[:id])
+      end
+      language.title = params[:language_title]
+      language.code = params[:language_code].downcase
+      language.region = params[:language_region].upcase
+      language.save
+      redirect_to :admin_languages
+  end
+
+  def remove_language
+      Language.find(params[:id]).destroy
+      redirect_to :admin_languages
+  end
+
   def reviewed
     version = Version.find(params[:version_id])
     new_state = State.where(:title => params[:review]).first

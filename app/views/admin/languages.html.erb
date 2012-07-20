@@ -1,0 +1,28 @@
+<h2>Available Languages</h2>
+<table class="admin-table">
+    <thead>
+        <th>Language</th>
+        <th>Code</th>
+        <th>Region</th>
+        <th>Actions</th>
+    </thead>
+    <tbody>
+        <% @languages.each do |language| %>
+            <tr>
+                <td><%= language.title %></td>
+                <td><%= language.code %></td>
+                <td><%= language.region %></td>
+                <td class="admin-language-actions">
+                    <a class="wl-button wl-overlay-button" href="/admin/languages/edit/<%= language.id %>">Edit</a>
+                    <%= form_tag "/admin/languages/remove", :method => "POST", :class => "language_remove_form" do %>
+                        <input type="hidden" name="id" value="<%= language.id %>" />
+                        <button class="wl-button wl-overlay-button" title="Remove <%= language.title %>" type="submit">Remove</button>
+                    <% end %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+<hr id="language_hr" />
+<h2>Add New Language</h2>
+<%= render :partial => "edit_add_language", :locals => { :add_new => true, :id => nil, :language => nil } %>

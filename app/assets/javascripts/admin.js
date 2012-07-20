@@ -67,6 +67,10 @@ $(function() {
             $(this).parents('form:first').submit();
             return false;
         });
+        $('.language_remove_form').on('submit', function(ev) {
+            var languageToRemove = $(ev.target).find('button').attr('title').replace('Remove ','');
+            return confirm('Are you sure you want to remove the language \''+languageToRemove+'\'?');
+        });
     };
 
     var init = function() {

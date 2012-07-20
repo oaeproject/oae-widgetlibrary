@@ -15,11 +15,11 @@
     <li class="navigation_item <% if params[:action].eql?("users") %> selected<% end %>"><div><%= link_to "All Users", admin_users_path %></div></li>
     <li class="navigation_item <% if params[:action].eql?("adminusers") %> selected<% end %>"><div><%= link_to "Admin Users", admin_admin_users_path %></div></li>
   </ul>
-  <% elsif params[:action].eql?"options" %>
+  <% elsif ["options", "languages"].include?(params[:action]) %>
   <h1 class="wl-bold">Widget Options</h1>
   <ul>
-    <li><div>Categories</div></li>
-    <li><div>Languages</div></li>
+    <li class="navigation_item <% if params[:action].eql?("languages") %> selected<% end %>"><div><%= link_to "Languages", admin_languages_path %></div></li>
+    <li class="navigation_item <% if params[:action].eql?("categories") %> selected<% end %>"><div><%= link_to "Categories", '#' %></div></li>
   </ul>
   <% elsif params[:action].eql?"statistics" %>
   <h1 class="wl-bold">Statistics</h1>

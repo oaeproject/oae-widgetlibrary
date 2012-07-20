@@ -78,4 +78,55 @@
             margin-right: 60px;
         }
     }
+    table.admin-table { 
+      color: #333; 
+        tr { 
+          background: #f9f9f9;
+        }
+        tr:nth-child(2n+1) {
+          background-color: #f2f2f2;
+        }
+        th, td {
+          text-align: left;
+        }
+        th {
+          @include linear-gradient($from: #f5f5f5, $to: #e2e2e2);
+          border-bottom: 2px solid #ccc;
+          padding: 18px;
+        }
+        tbody tr:hover {
+          @include linear-gradient($from: #e5e5e5, $to: #eaeaea);
+        }
+        td {
+          padding: 10px;
+        }
+    }
+    #language_hr {
+        border-color: #888;
+        border-width: 0 0 1px;
+        margin: 20px 0;
+    }
+    .admin-language-actions {
+        form, .wl-button.wl-overlay-button {
+            display: inline-block;
+        }
+    }
+
+    #language_add_edit_form {
+        /* General Fields */
+        .wl-field {
+            padding: 5px 2px;
+            display: inline-block;
+        }
+        .wl-field label {
+            display: block;
+            padding: 5px;
+            color: #666;
+        }
+    }
+    a.wl-button.wl-overlay-button {
+        display: inline-block;
+        height: 23px;
+        line-height: 2.18em;
+    }
 }
