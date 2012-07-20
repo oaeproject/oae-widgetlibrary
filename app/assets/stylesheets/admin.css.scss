@@ -78,9 +78,9 @@
             margin-right: 60px;
         }
     }
-    .admin-table { 
-        color: #333; 
-        tr { 
+    .admin-table {
+        color: #333;
+        tr {
             background: #f9f9f9;
         }
         tr:nth-child(2n+1) {
@@ -113,7 +113,6 @@
     }
 
     #language_add_edit_form {
-        /* General Fields */
         .wl-field {
             display: inline-block;
             padding: 5px 2px;      
