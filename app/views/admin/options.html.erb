@@ -1,1 +1,4 @@
-options
+<h2>Available Languages</h2>
+    <%= render :partial => 'languages', :languages => @languages, :langs_used => @langs_used %> <hr />
+<h2>Add New Language</h2>
+    <%= render :partial => "edit_add_language", :locals => { :add_new => true, :id => nil, :language => nil } %>

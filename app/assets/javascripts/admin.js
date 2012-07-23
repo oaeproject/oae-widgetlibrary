@@ -68,8 +68,30 @@ $(function() {
             return false;
         });
         $('.language_remove_form').on('submit', function(ev) {
-            var languageToRemove = $(ev.target).find('button').attr('title').replace('Remove ','');
-            return confirm('Are you sure you want to remove the language \''+languageToRemove+'\'?');
+            var target = $(ev.target);
+            var languageToRemove = target.find('button').attr('title').replace('Remove ','');
+            var languageUsed = target.find('.language-used').val();
+            var secondConfirmation = (languageUsed === 'true') ? true : false;
+            var response1 = false;
+            var response2 = true;
+            response1 = confirm('Are you sure you want to remove the language \''+languageToRemove+'\'?');
+            if (secondConfirmation === true) {
+                response2 = confirm('The language \'' + languageToRemove + '\' is being used by widgets that have been submitted to the Widget Library. Are you sure you want to remove this language?');
+            }
+            return (response1 && response2);
+        });
+        $('#language_add_edit_form').on('submit', function(ev) {
+            var fields = $(this).find('input[type=text]');
+            var errorMsg = $(this).find('.admin-error-box');
+            fields.removeClass('field-error');
+            errorMsg.hide();
+            fields.each(function() {
+                if (this.value == "" || !this.value) {
+                    $(this).addClass('field-error');
+                    errorMsg.show();
+                    ev.preventDefault();
+                }
+            });
         });
     };
 

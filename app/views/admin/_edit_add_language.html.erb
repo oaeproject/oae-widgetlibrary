@@ -1,4 +1,5 @@
 <%= form_tag "/admin/languages/save", :method => "POST", :id => 'language_add_edit_form' do %>
+    <p class="admin-error-box">Please fill in all fields</p>
     <input type="hidden" name="add_new" value="<%= add_new %>" />
     <input type="hidden" name="id" value="<%= id  %>" />
     <div class="wl-field">
@@ -15,6 +16,6 @@
     </div>
     <button class="wl-button wl-overlay-button" type="submit"><% if add_new == true %>Add Language<% else %>Save Changes<% end %></button>
     <% if add_new != true %>
-        <a class="wl-button wl-overlay-button" href="/admin/languages">Cancel</a>
+        <a class="wl-bold wl-regular-link" href="/admin/options">Cancel</a>
     <% end %>
 <% end %>
