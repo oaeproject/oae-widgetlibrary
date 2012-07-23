@@ -101,6 +101,11 @@
         td {
             padding: 10px;
         }
+        .admin-table-actions {
+            form, .wl-button.wl-overlay-button {
+                display: inline-block;
+            }
+        }
     }
     hr {
         border-color: #888;
@@ -119,12 +124,7 @@
     .field-error {
         border: 2px solid #e00;
     }
-    .admin-language-actions {
-        form, .wl-button.wl-overlay-button {
-            display: inline-block;
-        }
-    }
-    #language_add_edit_form {
+    #admin_item_add_edit_form {
         .wl-field {
             display: inline-block;
             padding: 5px 2px;      

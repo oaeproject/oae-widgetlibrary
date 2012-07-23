@@ -35,12 +35,20 @@ class AdminController < ApplicationController
   end
 
   def options
-    @languages = Language.find(:all, :order => 'title')
+    @results = Language.find(:all, :order => 'title')
     used_languages = Language.find_by_sql('SELECT language_id FROM languages_versions WHERE language_id = version_id') 
-    @langs_used = Array.new
+    @items_used = Array.new
     used_languages.each do |lang|
-      @langs_used.push lang.language_id
+      @items_used.push lang.language_id
     end
+    @config = {
+      :table_headings => ['Language', 'Code', 'Region'],
+      :db_properties => ['title', 'code', 'region'],
+      :urls => {
+        :edit => '/admin/languages/edit/',
+        :remove => '/admin/languages/remove/'
+      }
+    }
   end
 
   def edit_language
@@ -48,21 +56,59 @@ class AdminController < ApplicationController
   end
 
   def add_edit_language
-      if params[:add_new] ==  "true"
-        language = Language.new
-      else
-        language = Language.find(params[:id])
-      end
-      language.title = params[:language_title]
-      language.code = params[:language_code].downcase
-      language.region = params[:language_region].upcase
-      language.save
-      redirect_to :admin_options
+    if params[:add_new] ==  "true"
+      language = Language.new
+    else
+      language = Language.find(params[:id])
+    end
+    language.title = params[:language_title]
+    language.code = params[:language_code].downcase
+    language.region = params[:language_region].upcase
+    language.save
+    redirect_to :admin_options
   end
 
   def remove_language
-      Language.find(params[:id]).destroy
-      redirect_to :admin_options
+    Language.find(params[:id]).destroy
+    redirect_to :admin_options
+  end
+
+  def categories
+    @results = Category.find(:all, :order => 'title')
+    used_categories = Category.find_by_sql('SELECT category_id FROM categories_versions WHERE category_id = version_id')
+    @items_used = Array.new
+    used_categories.each do |cat|
+      @items_used.push cat.category_id
+    end
+    @config = {
+      :table_headings => ['Category', 'URL'],
+      :db_properties => ['title', 'url_title'],
+      :urls => {
+        :edit => '/admin/categories/edit/',
+        :remove => '/admin/categories/remove/'
+      }
+    }
+  end
+
+  def edit_category
+    @category = Category.find(params[:id])
+  end
+
+  def add_edit_category
+    if params[:add_new] ==  "true"
+      category = Category.new
+    else
+      category = Category.find(params[:id])
+    end
+    category.title = params[:category_title]
+    category.url_title = params[:category_url]
+    category.save
+    redirect_to :admin_categories
+  end
+
+  def remove_category
+    Category.find(params[:id]).destroy
+    redirect_to :admin_categories
   end
 
   def reviewed

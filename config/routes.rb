@@ -54,6 +54,10 @@ SakaiWidgetlibrary::Application.routes.draw do
   match '/admin/languages/edit/:id' => 'admin#edit_language', :as => :admin_edit_language
   post  '/admin/languages/save' => 'admin#add_edit_language', :as => :admin_add_edit_language
   post  '/admin/languages/remove' => 'admin#remove_language', :as => :admin_remove_language
+  match '/admin/categories' => 'admin#categories', :as => :admin_categories
+  match '/admin/categories/edit/:id' => 'admin#edit_category', :as => :admin_edit_category
+  post  '/admin/categories/save' => 'admin#add_edit_category', :as => :admin_add_edit_category
+  post  '/admin/categories/remove' => 'admin#remove_category', :as => :admin_remove_category
   match '/admin/statistics' => 'admin#statistics', :as => :admin_statistics
   match '/admin' => 'admin#widgets'
   match '/admin/widgets(/:state)' => 'admin#widgets', :as => :admin
