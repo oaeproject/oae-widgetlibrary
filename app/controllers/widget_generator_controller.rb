@@ -9,7 +9,7 @@ class WidgetGeneratorController < ApplicationController
 
   def zippedwidget
     # The six variables below are the parameters that should be changed for
-    # passing in to the widget generator.
+    # passing into the widget generator.
     appstyle = params[:widgetbuilder_skeletontype]
     myappname = params[:widgetbuilder_title]
     appdesc = params[:widgetbuilder_description]
