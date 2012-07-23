@@ -35,6 +35,34 @@ class AdminController < ApplicationController
   end
 
   def options
+    @languages = Language.find(:all, :order => 'title')
+    used_languages = Language.find_by_sql('SELECT language_id FROM languages_versions WHERE language_id = version_id') 
+    @langs_used = Array.new
+    used_languages.each do |lang|
+      @langs_used.push lang.language_id
+    end
+  end
+
+  def edit_language
+    @language = Language.find(params[:id])
+  end
+
+  def add_edit_language
+    if params[:add_new] ==  "true"
+      language = Language.new
+    else
+      language = Language.find(params[:id])
+    end
+    language.title = params[:language_title]
+    language.code = params[:language_code].downcase
+    language.region = params[:language_region].upcase
+    language.save
+    redirect_to :admin_options
+  end
+
+  def remove_language
+    Language.find(params[:id]).destroy
+    redirect_to :admin_options
   end
 
   def reviewed
