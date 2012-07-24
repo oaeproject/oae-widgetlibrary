@@ -67,33 +67,6 @@ $(function() {
             $(this).parents('form:first').submit();
             return false;
         });
-        $('.admin_item_remove_form').on('submit', function(ev) {
-            var target = $(ev.target);
-            var itemToRemove = target.find('button').attr('title').replace('Remove ','');
-            var itemUsed = target.find('.item-used').val();
-            var secondConfirmation = (itemUsed === 'true') ? true : false;
-            var response1 = false;
-            var response2 = true;
-            response1 = confirm('Are you sure you want to remove the entry \''+itemToRemove+'\'?');
-            if (secondConfirmation === true) {
-                response2 = confirm('The entry \'' + itemToRemove + '\' is being used by widgets that have been submitted to the Widget Library. Are you sure you want to remove this entry?');
-            }
-            return (response1 && response2);
-        });
-
-        $('#admin_item_add_edit_form').on('submit', function(ev) {
-            var fields = $(this).find('input[type=text]');
-            var errorMsg = $(this).find('.admin-error-box');
-            fields.removeClass('field-error');
-            errorMsg.hide();
-            fields.each(function() {
-                if (this.value === "" || !this.value) {
-                    $(this).addClass('field-error');
-                    errorMsg.show();
-                    ev.preventDefault();
-                }
-            });
-        });
     };
 
     var init = function() {

@@ -113,26 +113,23 @@
         margin: 20px 0;
     }
     .admin-error-box {
-        background: #fcc;
-        border: 2px solid #e00;
-        color: #900;
-        display: none;
-        font-weight: bold;
-        margin: 10px 0 0;
-        padding: 5px;
-    }
-    .field-error {
-        border: 2px solid #e00;
+        border: 4px solid #a00;
+        margin: 5px 0 0;
+        li {
+            list-style: none;
+        }
     }
     #admin_item_add_edit_form {
         .wl-field {
-            display: inline-block;
             padding: 5px 2px;      
         }
         .wl-field label {
             color: #666;
             display: block;
             padding: 5px;
+        }
+        .wl-button.wl-overlay-button {
+            margin: 10px 0 0 0;
         }
     }
     a.wl-button.wl-overlay-button {

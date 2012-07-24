@@ -16,7 +16,11 @@
                     <%= form_tag @config[:urls][:remove], :method => "POST", :class => "admin_item_remove_form" do %>
                         <input type="hidden" name="id" value="<%= result.id %>" />
                         <input class="item-used" type="hidden" name="item_used" value="<%= @items_used.include?(result.id) %>" />
-                        <button class="wl-button wl-overlay-button" title="Remove <%= result.title %>" type="submit">Remove</button>
+                        <% confirm_message = @items_used.include?(result.id) ?
+                            "This item is being used by widgets.\nAre you sure you want to remove this entry?" :
+                            "Are you sure you want to remove this entry?" 
+                        %>
+                        <%= link_to 'Remove', [@config[:urls][:remove], result.id].join, :confirm => confirm_message, :method => :delete, :class => "wl-button wl-overlay-button" %>
                     <% end %>
                 </td>
             </tr>

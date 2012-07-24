@@ -1,2 +1,2 @@
 <h2>Edit Language</h2>
-<%= render :partial => "edit_add_language", :locals => { :add_new => false, :id => params[:id], :language => @language } %>
+<%= render :partial => "add_edit_items", :config => @config, :locals => { :add_new => false, :id => params[:id], :existing_entry => @language } %>

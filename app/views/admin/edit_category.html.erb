@@ -1,2 +1,2 @@
 <h2>Edit Category</h2>
-<%= render :partial => "edit_add_category", :locals => { :add_new => false, :id => params[:id], :category => @category } %>
+<%= render :partial => "add_edit_items", :config => @config, :locals => { :add_new => false, :id => params[:id], :existing_entry => @category } %>
