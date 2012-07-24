@@ -72,7 +72,7 @@ class AdminController < ApplicationController
     @users_login_ranking = User.order("sign_in_count desc").limit(5)
     @users_widget_ranking = User.joins(:widgets).select("users.id, users.name, users.url_title, count(*) as total").group("user_id").order("total desc").limit(5)
     @widget_count = Widget.count()
-    @rating_average = Widget.average("average_rating").round(2)
+    @rating_average = Widget.average("average_rating", :conditions => ["average_rating != ?", 0]).round(2)
     @rating_count = Rating.count()
   end
 
