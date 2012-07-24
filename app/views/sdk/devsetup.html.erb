@@ -129,7 +129,7 @@ rake setup
 
             <li><%= link_to "Download", "http://source.sakaiproject.org/release/oae/1.3.0/webstart/lib/org.sakaiproject.nakamura.app-1.3.0.jar", :target => "_blank", :class => "wl-regular-link" %> the Sakai OAE back-end (nakamura) executable and save it as nakamura.jar in your sakaioae directory (this may take a couple of minutes depending on your Internet connection).</li>
 
-            <li>Start up the server using the following Java command:
+            <li>Start up the server using the following Java command:<br />(We currently support Java 6. Support for Java 7 is under way.)
                 <div class="navigationalitems_codesnippit_container few_lines">
         <pre class="prettyprint">$ java -Xms256m -Xmx1024m -XX:PermSize=64m -XX:MaxPermSize=512m -server -jar nakamura.jar -f -</pre>
                 </div>
