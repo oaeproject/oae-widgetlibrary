@@ -78,7 +78,7 @@ table {
     thead {
         tr {
             background: image-url("navigation_item_bg.png") repeat-x scroll left top transparent;
-            @include border-radius($topLeft: 5px, $topRight: 5px, $bottomRight: 5px, $bottomLeft: 5px);
+            @include border-radius(5px);
             color: white;
             th {
                 border-color: #888;
