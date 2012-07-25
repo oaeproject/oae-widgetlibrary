@@ -38,6 +38,11 @@ class AdminController < ApplicationController
     redirect_to request.referer
   end
 
+  def delete_user
+    User.find(params[:id]).destroy
+    redirect_to :admin_users
+  end
+
   def options
     @results = Language.find(:all, :order => "title")
     get_used_items(Language)

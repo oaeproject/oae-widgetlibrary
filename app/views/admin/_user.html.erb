@@ -18,6 +18,7 @@
             <label class="label" for="chk_user_reviewer<%= user.id %>">Reviewer:</label>
             <% if user_signed_in? && current_user.id != user.id %>
                 <%= check_box_tag "chk_user_reviewer#{user.id}", 1, user.reviewer %>
+                <%= link_to "Remove User", admin_delete_user_path(user), :confirm => "Are you sure you want to delete this user?", :class => "wl-button wl-overlay-button", :method => "delete" %>
             <% else %>
                 <%= check_box_tag "chk_user_reviewer#{user.id}", 1, user.reviewer, :disabled => true %>
             <% end %>
