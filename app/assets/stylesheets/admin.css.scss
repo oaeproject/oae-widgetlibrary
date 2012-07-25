@@ -100,7 +100,10 @@
             @include linear-gradient($from: #e5e5e5, $to: #eaeaea);
         }
         td {
+            max-width: 210px;
             padding: 10px;
+            white-space: pre-line;
+            word-wrap: break-word;
         }
     }
 }

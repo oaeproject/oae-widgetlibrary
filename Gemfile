@@ -33,6 +33,9 @@ gem 'therubyracer', :platforms => :ruby
 # Use will_paginate for query and view pagination
 gem 'will_paginate'
 
+# Autolink URLs in text
+gem 'rails_autolink'
+
 gem 'sass-rails', "  ~> 3.1.5"
 
 gem 'delayed_job_active_record'
