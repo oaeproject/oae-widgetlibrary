@@ -33,6 +33,7 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     addressable (2.3.1)
+    archive-tar-minitar (0.5.2)
     arel (3.0.2)
     backup (2.4.5.1)
       activerecord (>= 2.3.5)
@@ -69,6 +70,7 @@ GEM
     cloudfiles (1.5.0.1)
       json
     cocaine (0.2.1)
+    columnize (0.3.6)
     daemons (1.1.8)
     database_cleaner (0.8.0)
     delayed_job (3.0.3)
@@ -123,6 +125,8 @@ GEM
     libv8 (3.3.10.4)
     libwebsocket (0.1.4)
       addressable
+    linecache19 (0.5.13)
+      ruby_core_source (>= 0.1.4)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -189,7 +193,17 @@ GEM
       json (~> 1.4)
     recaptcha (0.3.4)
     remotipart (1.0.2)
+    ruby-debug-base19 (0.11.26)
+      columnize (>= 0.3.1)
+      linecache19 (>= 0.5.11)
+      ruby_core_source (>= 0.1.4)
+    ruby-debug19 (0.11.6)
+      columnize (>= 0.3.1)
+      linecache19 (>= 0.5.11)
+      ruby-debug-base19 (>= 0.11.19)
     ruby-hmac (0.4.0)
+    ruby_core_source (0.1.5)
+      archive-tar-minitar (>= 0.5.2)
     rubyzip (0.9.9)
     sass (3.1.20)
     sass-rails (3.2.5)
@@ -261,6 +275,7 @@ DEPENDENCIES
   flexmock
   guid
   jquery-rails
+  linecache19 (= 0.5.13)
   mailcatcher
   mysql2
   paperclip (~> 2.3)
@@ -268,6 +283,8 @@ DEPENDENCIES
   rails (= 3.2.6)
   recaptcha
   remotipart
+  ruby-debug-base19 (= 0.11.26)
+  ruby-debug19 (= 0.11.6)
   rubyzip
   sass-rails (~> 3.2.5)
   simplecov

@@ -47,6 +47,11 @@ group :test, :development do
   gem 'ffaker'
   # Use populator to populate the db with fake data
   gem 'populator'
+  # Installation instructions are on
+  # https://confluence.sakaiproject.org/display/3AK/Widget+Library+Development+Setup
+  gem "linecache19", "0.5.13"
+  gem 'ruby-debug-base19', "0.11.26"
+  gem 'ruby-debug19', "0.11.6"
 end
 
 group :development do
