@@ -3,7 +3,7 @@
 .devise_registrations, .registrations, .submit {
     #register_container {
         background: image-url("container_bg.png") no-repeat scroll center top transparent;
-        @include border-radius($topLeft: 12px, $topRight: 12px, $bottomRight: 0, $bottomLeft: 0);
+        @include border-radius(12px 12px 0 0);
         padding-left: 20px;
         padding-right: 20px;
     }

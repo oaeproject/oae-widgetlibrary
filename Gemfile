@@ -33,8 +33,6 @@ gem 'therubyracer', :platforms => :ruby
 # Use will_paginate for query and view pagination
 gem 'will_paginate'
 
-gem 'sass-rails', '~> 3.2.5'
-
 gem 'delayed_job_active_record'
 
 gem 'daemons'
@@ -72,6 +70,10 @@ end
 
 # Assets for Rails 3.1
 group :assets do
+  # Use compass for out of the box mixins
+  gem 'compass-rails'
+
+  gem 'sass-rails', '~> 3.2.5'
   gem 'uglifier', ">= 1.0.3"
   gem 'yui-compressor'
 end

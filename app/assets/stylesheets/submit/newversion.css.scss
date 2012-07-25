@@ -6,7 +6,7 @@
     font-size: 12px;
     margin: 25px 0 15px;
     padding: 20px;
-    @include border-radius($topLeft: 5px, $topRight: 5px, $bottomRight: 5px, $bottomLeft: 5px);
+    @include border-radius(5px);
     p {
         margin-top: 12px;
     }

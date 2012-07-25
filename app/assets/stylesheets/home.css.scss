@@ -4,7 +4,7 @@
     /* Index */
     .wl-content-container#index_container {
         background: image-url("container_bg.png") no-repeat scroll center top transparent;
-        @include border-radius($topLeft: 12px, $topRight: 12px, $bottomRight: 0, $bottomLeft: 0);
+        @include border-radius(12px 12px 0 0);
     }
     /************/
     /* CAROUSEL */
@@ -18,7 +18,7 @@
             width: 730px;
         }
         .widgetlibrary_homecarousel_pane {
-            @include border-radius($topLeft: 5px, $topRight: 5px, $bottomRight: 5px, $bottomLeft: 5px);
+            @include border-radius(5px);
             display: block;
             height: 318px;
             width: 730px;
