@@ -100,7 +100,10 @@
             @include background(linear-gradient(top center, #e5e5e5, #eaeaea));
         }
         td {
+            max-width: 210px;
             padding: 10px;
+            white-space: pre-line;
+            word-wrap: break-word;
         }
     }
 }
