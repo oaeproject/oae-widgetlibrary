@@ -8,6 +8,7 @@ require 'capistrano/ext/multistage'
 require 'bundler/capistrano'
 require "whenever/capistrano"
 
+$:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
 require "rvm/capistrano"                  # Load RVM's capistrano plugin.
 set :rvm_ruby_string, '1.9.3@sakai-widgetlibrary'        # Or whatever env you want it to run in.
 set :rvm_bin_path, "/usr/local/rvm/bin"

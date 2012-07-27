@@ -56,7 +56,7 @@ end
 
 group :development do
   # Deploy with Capistrano
-  gem 'rvm-capistrano'
+  gem 'capistrano'
   # Allow for multi-stage deploys with Capistrano
   gem 'capistrano-ext'
   # Mailcatcher allows debugging of outgoing mail
