@@ -16,7 +16,7 @@ gem "rubyzip"
 gem 'guid'
 
 # Use devise for user authentication
-gem 'devise'
+gem 'devise', '~> 1.5.3'
 
 # Use CanCan for user authorization
 gem 'cancan'
