@@ -34,6 +34,11 @@ class AdminController < ApplicationController
     head :ok
   end
 
+  def delete_user
+    User.find(params[:id]).destroy
+    redirect_to :admin_users
+  end
+
   def options
   end
 
