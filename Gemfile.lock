@@ -205,6 +205,8 @@ GEM
     ruby_core_source (0.1.5)
       archive-tar-minitar (>= 0.5.2)
     rubyzip (0.9.9)
+    rvm-capistrano (1.2.5)
+      capistrano (>= 2.0.0)
     sass (3.1.20)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -263,7 +265,6 @@ PLATFORMS
 DEPENDENCIES
   backup
   cancan
-  capistrano
   capistrano-ext
   capybara
   daemons
@@ -286,6 +287,7 @@ DEPENDENCIES
   ruby-debug-base19 (= 0.11.26)
   ruby-debug19 (= 0.11.6)
   rubyzip
+  rvm-capistrano
   sass-rails (~> 3.2.5)
   simplecov
   sqlite3
