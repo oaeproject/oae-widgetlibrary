@@ -127,7 +127,11 @@ rake setup
                 </div>
             </li>
 
-            <li><%= link_to "Download", "http://source.sakaiproject.org/release/oae/1.3.0/webstart/lib/org.sakaiproject.nakamura.app-1.3.0.jar", :target => "_blank", :class => "wl-regular-link" %> the Sakai OAE back-end (nakamura) executable and save it as nakamura.jar in your sakaioae directory (this may take a couple of minutes depending on your Internet connection).</li>
+            <li><%= link_to "Download", "http://source.sakaiproject.org/release/oae/1.3.0/webstart/lib/org.sakaiproject.nakamura.app-1.3.0.jar", :target => "_blank", :class => "wl-regular-link" %> the Sakai OAE back-end (nakamura) executable and save it as nakamura.jar in your sakaioae directory (this may take a couple of minutes depending on your Internet connection).
+                <div class="navigationalitems_codesnippit_container few_lines">
+        <pre class="prettyprint">$ curl -o nakamura.jar -L http://bit.ly/nakamura_latest</pre>
+                </div>
+            </li>
 
             <li>Start up the server using the following Java command:<br />(We currently support Java 6. Support for Java 7 is under way.)
                 <div class="navigationalitems_codesnippit_container few_lines">
@@ -137,9 +141,9 @@ rake setup
 
             <li>For about a minute, you will see Nakamura starting up and a number of logging statements go by. Once it stops, Nakamura is up and running and this terminal will continue to print the server's logging statements. You can test whether it is running by pointing your browser to <%= link_to "http://localhost:8080", "http://localhost:8080", :class => "wl-regular-link" %> - you should see the Sakai OAE homepage.</li>
 
-            <li>If you do have a GitHub account:
+            <li>Get the 3akai-ux code from GitHub:
                 <ol class="regular_list">
-                    <li>After logging into <%= link_to "GitHub", "http://github.com", :class => "wl-regular-link", :target => "_blank" %> click the 'Fork' button in the upper-right of the Sakai OAE front-end codebase's github repository, <%= link_to "3akai-ux", "http://github.com/sakaiproject/3akai-ux", :class => "wl-regular-link", :target => "_blank" %>. This will allow you to have a personal copy, or fork, of the 3akai-ux code that you can modify freely.</li>
+                    <li>After logging into <%= link_to "GitHub", "http://github.com", :class => "wl-regular-link", :target => "_blank" %> click the 'Fork' button in the upper-right of the Sakai OAE front-end codebase's GitHub repository, <%= link_to "3akai-ux", "http://github.com/sakaiproject/3akai-ux", :class => "wl-regular-link", :target => "_blank" %>. This will allow you to have a personal copy, or fork, of the 3akai-ux code that you can modify freely.</li>
                     <li>After the fork completes, use git to clone your very own 3akai-ux repository from your sakaioae directory:
                         <div class="navigationalitems_codesnippit_container few_lines">
                 <pre class="black">$ git clone git@github.com:YOUR_GIT_USERNAME/3akai-ux.git</pre>
@@ -149,34 +153,19 @@ rake setup
                 </ol>
             </li>
 
-            <li>If you do not have a GitHub account:
-                <ol class="regular_list">
-                    <li>Get the Sakai OAE front-end code (codenamed 3akai-ux) using git to clone the repository on your local machine:
-                        <div class="navigationalitems_codesnippit_container few_lines">
-                <pre class="black">$ git clone git://github.com/sakaiproject/3akai-ux.git</pre>
-                        </div>
-                    </li>
-                    <li>This will reach out to GitHub, download the 3akai-ux code and place it in a new 3akai-ux directory in your sakaioae directory. This is where you will do all of your widget development work.</li>
-                </ol>
+            <li>The UX code Nakamura is currently using is not from your local 3akai-ux repository. To change this, we'll create a load directory and add 2 files:
+
+            <div class="navigationalitems_codesnippit_container few_lines">
+        <pre class="prettyprint">sakai_oae=`pwd`
+
+echo "provider.roots=/dev
+provider.file=${sakai_oae}/3akai-ux/dev" > load/org.apache.sling.fsprovider.internal.FsResourceProvider-dev.cfg
+
+echo "provider.roots=/devwidgets
+provider.file=${sakai_oae}/3akai-ux/devwidgets" > load/org.apache.sling.fsprovider.internal.FsResourceProvider-devwidgets.cfg</pre>
+                </div>
+
             </li>
-
-            <li>The UX code Nakamura is currently using is not from your local 3akai-ux repository. To change this, navigate to <%= link_to "http://localhost:8080/system/console/configMgr", "http://localhost:8080/system/console/configMgr", :class => "wl-regular-link" %> and log in using admin for both the username and password.</li>
-
-            <li>Find the "Apache Sling Filesystem Resource Provider" and click the plus icon to the right of it and a modal dialog should appear.</li>
-
-            <li>Enter /dev in the "Provider Root" field</li>
-
-            <li>Enter the full path to your /FULL_PATH/sakaioae/3akai-ux/dev directory in the "Filesystem Root" field and click "Save"</li>
-
-            <li>If you do not see a new entry beneath the "Apache Sling Filesystem Resource Provider", reload the page and you should see it.</li>
-
-            <li>Click the plus icon to the right of the "Apache Sling Filesystem Resource Provider" again.</li>
-
-            <li>Enter /devwidgets in the "Provider Root" field</li>
-
-            <li>Enter the full path to your /FULL_PATH/sakaioae/3akai-ux/devwidgets directory in the "Filesystem Root" field and click "Save"</li>
-
-            <li>If you do not see a new entry beneath the "Apache Sling Filesystem Resource Provider", reload the page and you should now see two.</li>
 
             <li>Make sure your browser's cache is disabled so your browser is always fetching your latest local code. In Firefox, you can use <%= link_to "Firebug", "http://getfirebug.com/", :class => "wl-regular-link" %>'s Net Panel to disable the browser's cache.</li>
 
