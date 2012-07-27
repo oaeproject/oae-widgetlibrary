@@ -125,9 +125,6 @@
                 margin-top: 0;
             }
         }
-        #widgetbuilder_category_dropdown {
-            margin-left: 25px;
-        }
         #widgetbuilder_description {
             height: 70px;
             margin-bottom: 10px;
@@ -162,8 +159,14 @@
     .widgetsdk_split_container.last {
         margin-left: 20px;
     }
-    ul.inline_list {
+    .inline_list, .regular_list {
         margin-left: 20px;
+        ol li {
+            list-style-type: lower-alpha;
+        }
+    }
+    .regular_list li {
+        margin: 10px 0;
     }
     .twohundred_wide_column {
         margin-right: 15px;
