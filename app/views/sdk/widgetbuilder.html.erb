@@ -11,8 +11,7 @@
                 <input type="text" placeholder="(e.g. Grapher 202...)" id="widgetbuilder_title" name="widgetbuilder_title"/>
             </div>
             <div class="widgetsdk_split_container last">
-                <h1>Select a Widget type</h1>
-                <%= label_tag "widgetbuilder_category_dropdown", "Widget type:" %>
+                <h1><%= label_tag "widgetbuilder_category_dropdown", "Select a Widget type" %></h1>
                 <%= select_tag "widget_type", options_for_select(["Dashboard", "Page", "Both"], :selected => "Dashboard"), :id => "widgetbuilder_category_dropdown" %>
             </div>
             <h1 class="wl-push"><%= label_tag "widgetbuilder_description", "Add a description" %></h1>
