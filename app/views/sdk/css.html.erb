@@ -21,6 +21,7 @@
                 <li><a href="#accessibility" class="wl-regular-link" title="Accessibility">Accessibility</a></li>
                 <li><a href="#links" class="wl-regular-link" title="Links">Links</a></li>
                 <li><a href="#buttons" class="wl-regular-link" title="Buttons">Buttons</a></li>
+                <li><a href="#inpagetabs" class="wl-regular-link" title="In page tabs">In page tabs</a></li>
                 <li><a href="#dropdowns" class="wl-regular-link" title="Drop downs">Drop downs</a></li>
                 <li><a href="#draganddrop" class="wl-regular-link" title="Drag and drop">Drag and drop</a></li>
                 <li><a href="#listviewoptions" class="wl-regular-link" title="List view options">List view options</a></li>
@@ -348,6 +349,31 @@ a.s3d-button.s3d-large-button
 </pre>
         </div>
 
+        <!-- TABS -->
+        <h2 id="inpagetabs">In page tabs</h2>
+        <p>To separate information within the main content area of a widget.</p>
+        <p>Example:</p>
+        <%= image_tag "inpagetabs_example.png", :alt => "In page tabs example" %>
+        <div class="navigationalitems_codesnippit_container">
+            <div class="navigationalitems_codesnippit_header">
+                <h4>Code to create these tabs</h4>
+            </div>
+<pre class="prettyprint lang-css">
+.s3d-tab-container
+.s3d-tab-container .s3d-tab
+.s3d-tab-container .s3d-tab.selected
+<pre class="prettyprint">&lt;ul class="s3d-tab-container"&gt;
+    &lt;li class="s3d-tab selected"&gt;
+        &lt;button&gt;__MSG__SCREENSHOTS__&lt;/button&gt;
+    &lt;/li&gt;
+    &lt;li class="s3d-tab"&gt;
+        &lt;button&gt;__MSG__REVIEWS__&lt;/button&gt;
+    &lt;/li&gt;
+    &lt;li class="s3d-tab"&gt;
+        &lt;button&gt;__MSG__UPLOADED_VERSIONS__&lt;/button&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</pre></pre>
+        </div>
 
         <!-- DROP DOWNS -->
         <h2 id="dropdowns">Drop downs</h2>
