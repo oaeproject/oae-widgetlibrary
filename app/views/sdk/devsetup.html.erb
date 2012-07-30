@@ -1,22 +1,12 @@
-<% content_for :title do %> - SDK - Development setup<% end %>
+<% content_for :title do %> - SDK - OAE-Builder setup<% end %>
 <div class="widgetsdk_container">
-    <h1>Development setup</h1>
-    <p>We have 2 different ways of setting up a development environment:</p>
+    <h1>OAE-Builder setup</h1>
 
-    <ul class="inline_list">
-        <li>
-            <a href="#oaebuilder" class="wl-regular-link">OAE Builder setup</a>
-        </li>
-        <li>
-            <a href="#manual" class="wl-regular-link" title="General guidelines">Manual setup</a>
-        </li>
-    </ul>
+    <p>The OAE has a tool called OAE builder to help set up a development environment.<br />It will build the back-end, get the latest code and add test data.</p>
+
     <div class="wl-widget-item first">
-        <h2 id="oaebuilder">OAE Builder setup</h2>
-        <p>The OAE has a tool called OAE builder to help set up a development environment.<br />It will build the back-end, get the latest code and add test data.</p>
-
-    	<div class="widgetsdk_warning_box">
-            <h4>Note for Lion XCode Users</h4>   
+        <div class="widgetsdk_warning_box">
+            <h4>Note for Lion XCode Users</h4>
             <p>Please note that the third command in the section below ("<%= link_to "Install ruby via rvm", "#install_ruby_rvm", :class => "wl-regular-link" %>") won't work with Lion XCode due to an issue with the gcc that comes with it. If you're using Lion XCode, replace line 3 below with:</p>
             <div class="navigationalitems_codesnippit_container">
 <pre class="prettyprint">
@@ -110,94 +100,6 @@ rake setup
         </div>
 
         <p>To verify everything is working, go to <%= link_to "http://localhost:8080", "http://localhost:8080", :class => "wl-regular-link" %> in a web browser and log in with user1:test. During development, make sure you disable the cache in your browser to ensure you're always getting the latest code from the server</p>
-    </div>
-
-    <div class="wl-widget-item">
-        <h2 id="manual">Manual setup</h2>
-        <ol class="regular_list">
-            <li>Create a directory for Sakai OAE (we will use sakaioae in this documentation) anywhere you like:
-                <div class="navigationalitems_codesnippit_container few_lines">
-        <pre class="prettyprint">$ mkdir sakaioae</pre>
-                </div>
-            </li>
-
-            <li>Go into the new sakaioae directory:
-                <div class="navigationalitems_codesnippit_container few_lines">
-        <pre class="prettyprint">$ cd sakaioae</pre>
-                </div>
-            </li>
-
-            <li><%= link_to "Download", "http://source.sakaiproject.org/release/oae/1.3.0/webstart/lib/org.sakaiproject.nakamura.app-1.3.0.jar", :target => "_blank", :class => "wl-regular-link" %> the Sakai OAE back-end (nakamura) executable and save it as nakamura.jar in your sakaioae directory (this may take a couple of minutes depending on your Internet connection).</li>
-
-            <li>Start up the server using the following Java command:<br />(We currently support Java 6. Support for Java 7 is under way.)
-                <div class="navigationalitems_codesnippit_container few_lines">
-        <pre class="prettyprint">$ java -Xms256m -Xmx1024m -XX:PermSize=64m -XX:MaxPermSize=512m -server -jar nakamura.jar -f -</pre>
-                </div>
-            </li>
-
-            <li>For about a minute, you will see Nakamura starting up and a number of logging statements go by. Once it stops, Nakamura is up and running and this terminal will continue to print the server's logging statements. You can test whether it is running by pointing your browser to <%= link_to "http://localhost:8080", "http://localhost:8080", :class => "wl-regular-link" %> - you should see the Sakai OAE homepage.</li>
-
-            <li>If you do have a GitHub account:
-                <ol class="regular_list">
-                    <li>After logging into <%= link_to "GitHub", "http://github.com", :class => "wl-regular-link", :target => "_blank" %> click the 'Fork' button in the upper-right of the Sakai OAE front-end codebase's github repository, <%= link_to "3akai-ux", "http://github.com/sakaiproject/3akai-ux", :class => "wl-regular-link", :target => "_blank" %>. This will allow you to have a personal copy, or fork, of the 3akai-ux code that you can modify freely.</li>
-                    <li>After the fork completes, use git to clone your very own 3akai-ux repository from your sakaioae directory:
-                        <div class="navigationalitems_codesnippit_container few_lines">
-                <pre class="black">$ git clone git@github.com:YOUR_GIT_USERNAME/3akai-ux.git</pre>
-                        </div>
-                    </li>
-                    <li>This will reach out to GitHub, download the 3akai-ux code and place it in a new 3akai-ux directory in your sakaioae directory. This is where you will do all of your widget development work. Because you own this clone of the main Sakai OAE 3akai-ux repository, you can use git to read and write to this repository.</li>
-                </ol>
-            </li>
-
-            <li>If you do not have a GitHub account:
-                <ol class="regular_list">
-                    <li>Get the Sakai OAE front-end code (codenamed 3akai-ux) using git to clone the repository on your local machine:
-                        <div class="navigationalitems_codesnippit_container few_lines">
-                <pre class="black">$ git clone git://github.com/sakaiproject/3akai-ux.git</pre>
-                        </div>
-                    </li>
-                    <li>This will reach out to GitHub, download the 3akai-ux code and place it in a new 3akai-ux directory in your sakaioae directory. This is where you will do all of your widget development work.</li>
-                </ol>
-            </li>
-
-            <li>The UX code Nakamura is currently using is not from your local 3akai-ux repository. To change this, navigate to <%= link_to "http://localhost:8080/system/console/configMgr", "http://localhost:8080/system/console/configMgr", :class => "wl-regular-link" %> and log in using admin for both the username and password.</li>
-
-            <li>Find the "Apache Sling Filesystem Resource Provider" and click the plus icon to the right of it and a modal dialog should appear.</li>
-
-            <li>Enter /dev in the "Provider Root" field</li>
-
-            <li>Enter the full path to your /FULL_PATH/sakaioae/3akai-ux/dev directory in the "Filesystem Root" field and click "Save"</li>
-
-            <li>If you do not see a new entry beneath the "Apache Sling Filesystem Resource Provider", reload the page and you should see it.</li>
-
-            <li>Click the plus icon to the right of the "Apache Sling Filesystem Resource Provider" again.</li>
-
-            <li>Enter /devwidgets in the "Provider Root" field</li>
-
-            <li>Enter the full path to your /FULL_PATH/sakaioae/3akai-ux/devwidgets directory in the "Filesystem Root" field and click "Save"</li>
-
-            <li>If you do not see a new entry beneath the "Apache Sling Filesystem Resource Provider", reload the page and you should now see two.</li>
-
-            <li>Make sure your browser's cache is disabled so your browser is always fetching your latest local code. In Firefox, you can use <%= link_to "Firebug", "http://getfirebug.com/", :class => "wl-regular-link" %>'s Net Panel to disable the browser's cache.</li>
-
-            <li>Nakamura should now be using your UX code rather than the UX code it came with. To make sure, try saving the following HTML to sakaioae/3akai-ux/dev/testing.html and go to <%= link_to "http://localhost:8080/testing.html", "http://localhost:8080/testing.html", :class => "wl-regular-link" %></li>
-        </ol>
-        <div class="navigationalitems_codesnippit_container">
-<pre class="prettyprint">
-&lt;html&gt;
-    &lt;head&gt;
-        &lt;title&gt;Hello World&lt;/title&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        Hello World
-    &lt;/body&gt;
-&lt;/html&gt;
-</pre>
-        </div>
-
-        <p>You should see something like the following:</p>
-        <%= image_tag "developer_quickdev_example.png", :alt => "Hello World Quick Dev Example" %>
-        <p><b>Voila! You are up and running with Sakai OAE!</b> You should now be able to edit 3akai-ux code, save it and refresh your browser to see the changes right away. If you feel ready to dive in, have a look at the <%= link_to "'Hello World' Tutorial", "/sdk/developwidget/learnbasics", :title => "Hello World tutorial", :class => "wl-regular-link" %> or the <%= link_to "Widget designs", "/sdk/designguide/widgetdesigns", :class => "wl-regular-link" %>.</p>
     </div>
 
     <%= render :partial => "sdk/feedback" %>
