@@ -70,7 +70,7 @@ end
 group :assets do
   gem 'sass-rails', "  ~> 3.1.5"
 
-  # Use compass for get out of the box mixins
+  # Use compass for out of the box mixins
   gem 'compass-rails'
 
   gem 'uglifier'
