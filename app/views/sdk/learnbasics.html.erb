@@ -8,7 +8,7 @@
     <p>The My Hello World widget is identical to the Hello World widget (except the name and ID of the widget) included in the 3akai-UX code distribution at 3akai-ux/devwidgets/helloworld. For the purposes of this tutorial we are using My Hello World (and corresponding myhelloworld ID) so you can create a new widget while referencing the provided Hello World widget if necessary.</p>
 
     <h1>Step 1: <b>Development environment setup</b></h1>
-    <p>Make sure your development environment is <%= link_to "set up", "/sdk/developwidget/devsetup", :class => "wl-regular-link" %> so you can create the My Hello World widget and run it within Sakai OAE on your machine.</p>
+    <p>Make sure your development environment is <%= link_to "set up", "/sdk/developwidget/quicksetup", :class => "wl-regular-link" %> so you can create the My Hello World widget and run it within Sakai OAE on your machine.</p>
 
     <h1>Step 2: <b>Set up the widget file structure</b></h1>
     <p>You can generate the widget file &amp; folder structure with the <%= link_to "widget template builder", "/sdk/developwidget/widgetbuilder", :class => "wl-regular-link" %>. If you don't want to, follow the steps below. Either way, you should follow the widget file structure pattern so your widgets function properly.</p>
@@ -254,9 +254,9 @@ HELLO_WORLD = Hello World
     <p>Now that our widget is configured and the message keys have been defined, we can see My Hello World in Sakai OAE. Of course, since we have not defined our CSS or JavaScript yet, the widget will not do much, but we can test to make sure we have set up our widget properly. Follow these steps to see the My Hello World widget in action.</p>
 
         <h2>Log into Sakai OAE</h2>
-        <p>Make sure Sakai OAE is running on your machine. If you are unsure about how to do this, look at the <%= link_to "development setup", "/sdk/devsetup", :class => "wl-regular-link" %> page.</p>
+        <p>Make sure Sakai OAE is running on your machine. If you are unsure about how to do this, look at the <%= link_to "quick development setup", "/sdk/quicksetup", :class => "wl-regular-link" %> page.</p>
 
-        <p>Once Sakai OAE is running, you should be able to see the homepage at <%= link_to "http://localhost:8080/", "http://localhost:8080/", :class => "wl-regular-link" %>. If you have not already, create an account by clicking the 'Register here' link on this page.</p>
+        <p>Once Sakai OAE is running, you should be able to see the homepage at <%= link_to "http://localhost:8080/", "http://localhost:8080/", :class => "wl-regular-link" %>. If you have not already, create an account by clicking the 'Sign Up' link on this page.</p>
 
         <p>Once you have created an account, log in. You will automatically be taken to the user's personal dashboard and see something like the following:<p>
         <p><%= image_tag "developer_helloworld_dashboard_page.png", :alt => "" %></p>
@@ -468,12 +468,12 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
     <p>The overall structure of the sakai_global.myhelloworld function is also important. All widgets should try and follow the same overall structure to make it easier to read and debug widget JavaScript code:</p>
 
     <ul class="regular_list">
-    <li><strong>Configuration variables</strong> - shared variables this widget's code will need</li>
-    <li><strong>Utility functions</strong> - helper functions used by other widget functions</li>
-    <li><strong>Main functions</strong> - functions that play a major role in rendering the widget's main view</li>
-    <li><strong>Settings functions</strong> - functions that play a major role in rendering the widget's settings view</li>
-    <li><strong>Event handlers</strong> - functions and bindings that respond to interface events (clicks, form submissions, etc.)</li>
-    <li><strong>Initialization function</strong> - the function that will be run when the widget loads followed by a call to run it when the sakai.myhelloworld function is executed</li>
+        <li><strong>Configuration variables</strong> - shared variables this widget's code will need</li>
+        <li><strong>Utility functions</strong> - helper functions used by other widget functions</li>
+        <li><strong>Main functions</strong> - functions that play a major role in rendering the widget's main view</li>
+        <li><strong>Settings functions</strong> - functions that play a major role in rendering the widget's settings view</li>
+        <li><strong>Event handlers</strong> - functions and bindings that respond to interface events (clicks, form submissions, etc.)</li>
+        <li><strong>Initialization function</strong> - the function that will be run when the widget loads followed by a call to run it when the sakai.myhelloworld function is executed</li>
     </ul>
     <h1>Step 8: <b>What's next?</b></h1>
 
