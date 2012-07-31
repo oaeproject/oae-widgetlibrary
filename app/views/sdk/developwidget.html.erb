@@ -4,10 +4,19 @@
     <p>Join us in making some great OAE Widgets.</p>
 
     <div class="wl-widget-item">
-        <%= image_tag "developer_fulldev_icon.png", :alt => "Development setup", :class => "descriptive_icon" %>
+        <%= image_tag "developer_quickdev_icon.png", :alt => "Quick setup", :class => "descriptive_icon" %>
         <div class="descriptive_text">
-            <h2>Development setup</h2>
-            <p>Get Sakai OAE up and running for development. While doing that, you'll also learn about the separation between the front-end and back-end.</p>
+            <h2>Quick setup</h2>
+            <p>Get Sakai OAE up and running for front-end development.</p>
+            <%= link_to "View", "/sdk/developwidget/quicksetup", :class => "wl-button wl-link-button wl-header-button"%>
+        </div>
+    </div>
+
+    <div class="wl-widget-item">
+        <%= image_tag "developer_fulldev_icon.png", :alt => "OAE-Builder setup", :class => "descriptive_icon" %>
+        <div class="descriptive_text">
+            <h2>OAE-Builder setup</h2>
+            <p>While it's possible to quickly setup Sakai OAE, if you would like to be able to use the latest version of nakamura and add dummy data, we recommend the OAE-Builder.</p>
             <%= link_to "View", "/sdk/developwidget/devsetup", :class => "wl-button wl-link-button wl-header-button"%>
         </div>
     </div>

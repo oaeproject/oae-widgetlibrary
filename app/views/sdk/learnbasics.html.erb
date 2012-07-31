@@ -8,10 +8,10 @@
     <p>The My Hello World widget is identical to the Hello World widget (except the name and ID of the widget) included in the 3akai-UX code distribution at 3akai-ux/devwidgets/helloworld. For the purposes of this tutorial we are using My Hello World (and corresponding myhelloworld ID) so you can create a new widget while referencing the provided Hello World widget if necessary.</p>
 
     <h1>Step 1: <b>Development environment setup</b></h1>
-    <p>Make sure your development environment is <%= link_to "set up", "/sdk/developwidget/devsetup", :class => "wl-regular-link wl-bold" %> so you can create the My Hello World widget and run it within Sakai OAE on your machine:</p>
+    <p>Make sure your development environment is <%= link_to "set up", "/sdk/developwidget/devsetup", :class => "wl-regular-link" %> so you can create the My Hello World widget and run it within Sakai OAE on your machine.</p>
 
     <h1>Step 2: <b>Set up the widget file structure</b></h1>
-    <p>You can generate the widget file &amp; folder structure with the <%= link_to "widget template builder", "/sdk/developwidget/widgetbuilder", :class => "wl-regular-link wl-bold" %>. If you don't want to, follow the steps below. Either way, you should follow the widget file structure pattern so your widgets function properly.</p>
+    <p>You can generate the widget file &amp; folder structure with the <%= link_to "widget template builder", "/sdk/developwidget/widgetbuilder", :class => "wl-regular-link" %>. If you don't want to, follow the steps below. Either way, you should follow the widget file structure pattern so your widgets function properly.</p>
     <ul class="inline_list">
         <li>Create a <b><i>myhelloworld directory</i></b> within the 3akai-ux/devwidgets directory.</li>
         <li>Copy the contents of the <b><i>3akai-ux/devwidgets/_template</i></b> directory into your <i>myhelloworld</i> directory.</li>
@@ -27,7 +27,7 @@
     <p>All widgets should use this set of directories and files though some may be unnecessary (i.e. images, CSS). Of course, the names should match the ID of the widget. In this case, the ID for the My Hello World widget is <i>myhelloworld</i>. Let's take a look at the purpose of these directories and files:</p>
 
     <ul class="inline_list">
-        <li><strong>3akai-ux</strong>: contains all Sakai OAE frontend code
+        <li><strong>3akai-ux</strong>: contains all Sakai OAE front-end code
             <ul class="inline_list">
                 <li><strong>devwidgets</strong>: contains all Sakai OAE widgets
                     <ul class="inline_list">
@@ -100,7 +100,7 @@
 
     <p>Here is a quick description of the configuration options you see here:</p>
 
-    <ul class="inline_list">
+    <ul class="regular_list">
         <li><b>enabled</b> - true | false: sets whether or not this widget may be usable by Sakai OAE</li>
         <li><b>hasSettings</b> - true | false: sets whether or not this widget has a settings menu option to allow users to configure or change the widget's settings. Since we want the user to be able to change the color of the text, we set hasSettings to true.</li>
         <li><b>i18n</b> - JSON object: sets the location of internationalization (abbreviated as 'i18n') files for this widget. Since we have a default properties file, we list its location here.
@@ -111,7 +111,7 @@
             </ul>
         </li>
         <li><b>id</b> - string: a short, unique identifier for this widget. This ID should be used as the widget's directory name as well as the widget's main HTML template, CSS file and JavaScript file names. It should also be used throughout the widget code and other places in the Sakai OAE codebase to refer to this widget.</li>
-        <li><b>personalportal</b> - true | false: sets whether or not this widget may be used on a user's personal portal (more commonly known as 'My Sakai'). This is the page a user is taken to when they log in (/dev/my_sakai.html). This property is not included in the helloworld config.json because we do not want to include a demonstration widget in My Sakai by default. For the purposes of this tutorial, we will test My Hello World on the My Sakai page.</li>
+        <li><b>personalportal</b> - true | false: sets whether or not this widget may be used on a user's personal portal (more commonly known as 'My Sakai'). This is the page a user is taken to when they log in (/me.html). This property is not included in the helloworld config.json because we do not want to include a demonstration widget in My Sakai by default. For the purposes of this tutorial, we will test My Hello World on the My Sakai page.</li>
         <li><b>type</b> - "core" | "sakai" | "contrib": core widgets are essential for Sakai OAE to function properly (i.e. login, uploadcontent). sakai widgets are not essential for Sakai OAE to function properly, but are shipped with the main codebase (i.e. discussion, video). contrib widgets are written by individuals and institutions outside the core Sakai OAE team and contributed back to the Sakai OAE project.</li>
         <li><b>url</b> - string: the location of the main HTML template that should be loaded when Sakai OAE wants to display the widget</li>
     </ul>
@@ -477,7 +477,7 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
     </ul>
     <h1>Step 8: <b>What's next?</b></h1>
 
-    <p>It's always a good idea to look at the <%= link_to "coding standards", "/sdk/developwidget/codingstandards", :class => "wl-regular-link wl-bold" %> we use for Sakai OAE development.</p>
-    <p>When you make your own widget and want to show it to the world, feel free to <%= link_to "submit it", new_version_path, :class => "wl-regular-link wl-bold" %>.</p>
+    <p>It's always a good idea to look at the <%= link_to "coding standards", "/sdk/codestyleguide", :class => "wl-regular-link" %> we use for Sakai OAE development.</p>
+    <p>When you make your own widget and want to show it to the world, feel free to <%= link_to "submit it", new_version_path, :class => "wl-regular-link" %>.</p>
     <%= render :partial => "sdk/feedback" %>
 </div>

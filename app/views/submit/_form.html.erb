@@ -14,9 +14,9 @@
         <span id="version_code_error" class="wl-error submit_input_file_error" style="display:none"></span>
         <%= f.file_field :code %>
         <% if !@version.new_record? && !@version.bundle_file_name.blank? %>
-          <%= f.label :bundle, "Current backend bundle file: #{@version.bundle_file_name}" %>
+          <%= f.label :bundle, "Current back-end bundle file: #{@version.bundle_file_name}" %>
         <% else %>
-          <%= f.label :code, "Backend bundle file (optional):" %>
+          <%= f.label :code, "Back-end bundle file (optional):" %>
         <% end %>
         <span id="version_bundle_error" class="wl-error submit_input_file_error" style="display:none"></span>
         <%= f.file_field :bundle %>
@@ -24,7 +24,7 @@
     <div class="register_column3">
         <%= f.label :widget_repo, "Source code repository (optional):" %>
         <%= f.text_field :widget_repo, :placeholder => "http://github.com/you/repository", :type => "url" %>
-        <%= f.label :widget_backend_repo, "Backend bundle source code repository (optional):" %>
+        <%= f.label :widget_backend_repo, "Back-end bundle source code repository (optional):" %>
         <%= f.text_field :widget_backend_repo, :placeholder => "http://github.com/you/backend_repository", :type => "url" %>
     </div>
 

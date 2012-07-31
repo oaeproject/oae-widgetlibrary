@@ -1,21 +1,20 @@
 <% content_for :title do %> - SDK - Widget template builder<% end %>
 <div id="widgetbuilder" class="widgetsdk_container">
     <h1>Widget template builder</h1>
-    <p>With the widget template builder you can create a skeleton framework of a widget which you can add to Sakai OAE.</p>
+    <p>With the widget template builder you can create a skeleton framework of a widget.</p>
     <%= form_tag("/zippedwidget", :method => "post", :id => "widgetbuilder_form") do %>
         <div class="wl-widget-item first">
             <h1>Widget creator</h1>
             <p>Fill out the ‘name’ and a basic description of your widget below and select one of the pre-defined categories.</p>
             <div class="widgetsdk_split_container">
-                <h1>Widget name</h1>
+                <h1><%= label_tag "widgetbuilder_title", "Widget name" %></h1>
                 <input type="text" placeholder="(e.g. Grapher 202...)" id="widgetbuilder_title" name="widgetbuilder_title"/>
             </div>
             <div class="widgetsdk_split_container last">
-                <h1>Select a Widget type</h1>
-                <%= label_tag "widgetbuilder_category_dropdown", "Widget type:" %>
+                <h1><%= label_tag "widgetbuilder_category_dropdown", "Select a Widget type" %></h1>
                 <%= select_tag "widget_type", options_for_select(["Dashboard", "Page", "Both"], :selected => "Dashboard"), :id => "widgetbuilder_category_dropdown" %>
             </div>
-            <h1 class="wl-push">Add a description</h1>
+            <h1 class="wl-push"><%= label_tag "widgetbuilder_description", "Add a description" %></h1>
             <textarea placeholder="(e.g. Graph creation widget...)" id="widgetbuilder_description" name="widgetbuilder_description"></textarea>
             <h1>Options</h1>
             <div id="widgetbuilder_options">
