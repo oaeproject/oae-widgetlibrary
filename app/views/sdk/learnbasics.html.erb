@@ -8,7 +8,7 @@
     <p>The My Hello World widget is identical to the Hello World widget (except the name and ID of the widget) included in the 3akai-UX code distribution at 3akai-ux/devwidgets/helloworld. For the purposes of this tutorial we are using My Hello World (and corresponding myhelloworld ID) so you can create a new widget while referencing the provided Hello World widget if necessary.</p>
 
     <h1>Step 1: <b>Development environment setup</b></h1>
-    <p>Make sure your development environment is <%= link_to "set up", "/sdk/developwidget/devsetup", :class => "wl-regular-link" %> so you can create the My Hello World widget and run it within Sakai OAE on your machine.</p>
+    <p>Make sure your development environment is <%= link_to "set up", "/sdk/developwidget/quicksetup", :class => "wl-regular-link" %> so you can create the My Hello World widget and run it within Sakai OAE on your machine.</p>
 
     <h1>Step 2: <b>Set up the widget file structure</b></h1>
     <p>You can generate the widget file &amp; folder structure with the <%= link_to "widget template builder", "/sdk/developwidget/widgetbuilder", :class => "wl-regular-link" %>. If you don't want to, follow the steps below. Either way, you should follow the widget file structure pattern so your widgets function properly.</p>
@@ -69,7 +69,9 @@
     <p>Here is the <i>config.json</i> you will need for My Hello World (minus the comments from the template file for brevity):</p>
 
     <div class="navigationalitems_codesnippit_container">
-        <div class="navigationalitems_codesnippit_header"><h4>config.json</h4></div>
+        <div class="navigationalitems_codesnippit_header">
+            <h4>config.json</h4>
+        </div>
 <pre class="prettyprint lang-json">
 {
     "enabled": true,
@@ -92,7 +94,7 @@
     "url": "/devwidgets/myhelloworld/myhelloworld.html"
 }
 </pre>
-</div>
+    </div>
 
     <p>As you can see, the configuration options are listed in alphabetical order. When creating JSON or properties lists of key-value pairs, it is best to try and alphabetize the keys so the lists are easier to read and specific properties are easier to find.</p>
 
@@ -114,7 +116,366 @@
         <li><b>url</b> - string: the location of the main HTML template that should be loaded when Sakai OAE wants to display the widget</li>
     </ul>
 
-    <h1>Step 4: <b>What's next?</b></h1>
+    <h1>Step 4: <b>Create the HTML template</b></h1>
+
+    <p>In <i>config.json</i> we instructed Sakai OAE to load our widget from <i>/devwidgets/myhelloworld/myhelloworld.html</i>. The HTML template acts as the "home" of our widget where we define our widget's interface and link to any of the other content our widget uses (CSS, JavaScript, images).</p>
+    <p>Here is the <i>myhelloworld.html</i> you will need for My Hello World:</p>
+
+    <div class="navigationalitems_codesnippit_container">
+        <div class="navigationalitems_codesnippit_header">
+            <h4>config.json</h4>
+        </div>
+<pre class="prettyprint">
+&lt;!-- CSS --&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/devwidgets/helloworld/css/helloworld.css&quot; /&gt;
+
+&lt;!-- WIDGET CONTENT CONTAINER --&gt;
+&lt;div class=&quot;helloworld_widget&quot;&gt;
+    &lt;!-- MAIN VIEW --&gt;
+    &lt;div id=&quot;helloworld_main&quot; style=&quot;display:none;&quot;&gt;
+        &lt;p&gt;__MSG__HELLO_WORLD__, &lt;span id=&quot;helloworld_username&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;!-- SETTINGS VIEW --&gt;
+    &lt;div id=&quot;helloworld_settings&quot; style=&quot;display:none;&quot;&gt;
+        &lt;form id=&quot;helloworld_settings_form&quot; action=&quot;#&quot;&gt;
+            &lt;p&gt;__MSG__COLOR_TO_USE__:
+                &lt;select id=&quot;helloworld_color&quot;&gt;
+                    &lt;option value=&quot;#000000&quot;&gt;__MSG__BLACK__&lt;/option&gt;
+                    &lt;option value=&quot;#FF0000&quot;&gt;__MSG__RED__&lt;/option&gt;
+                    &lt;option value=&quot;#00FF00&quot;&gt;__MSG__GREEN__&lt;/option&gt;
+                    &lt;option value=&quot;#0000FF&quot;&gt;__MSG__BLUE__&lt;/option&gt;
+                &lt;/select&gt;
+            &lt;/p&gt;
+            &lt;div class=&quot;fl-force-right&quot;&gt;
+                &lt;button type=&quot;button&quot; class=&quot;s3d-button s3d-link-button&quot; id=&quot;helloworld_cancel_settings&quot;&gt;__MSG__CANCEL__&lt;/button&gt;
+                &lt;button type=&quot;submit&quot; class=&quot;s3d-button s3d-overlay-button&quot;&gt;__MSG__SAVE__&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;hr class=&quot;fl-hidden fl-push&quot;/&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- JAVASCRIPT --&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/devwidgets/helloworld/javascript/helloworld.js&quot;&gt;&lt;/script&gt;
+</pre>
+    </div>
+
+    <p>It is very important to remember that widgets are designed to be embedded within other pages. A page that includes this widget may contain other widgets and may even contain multiple instances of this same widget. Because widgets are embedded within a page, the HTML for the widget is a fragment instead of a full HTML document. When a widget is embedded in a page, the widget's HTML will be essentially be cut and pasted into the page. Notice that each HTML element <i>class</i> or <i>id</i> that is specific to this widget starts with the id of the widget. In this case, '<i>myhelloworld_</i>'. This is done to properly namespace this widget's content and prevent clashes with other widgets that may be on the same page. You will see a number of measures taken throughout the development of this widget to prevent clashes with other widgets.</p>
+    <p>Let's take a closer look at some of the important features of this HTML template:</p>
+
+    <div class="navigationalitems_codesnippit_container">
+        <div class="navigationalitems_codesnippit_header">
+            <h4>myhelloworld.html - include CSS</h4>
+        </div>
+<pre class="prettyprint">
+&lt;!-- CSS --&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/devwidgets/helloworld/css/helloworld.css&quot; /&gt;
+</pre>
+    </div>
+    <p>We will need to define our own CSS styles for this widget. At the very top of the HTML template we link to the CSS stylesheet we have created within the My Hello World widget's file structure.</p>
+
+    <div class="navigationalitems_codesnippit_container">
+        <div class="navigationalitems_codesnippit_header">
+            <h4>myhelloworld.html - root containers</h4>
+        </div>
+<pre class="prettyprint">
+&lt;!-- WIDGET CONTENT CONTAINER --&gt;
+&lt;div class=&quot;helloworld_widget&quot;&gt;
+</pre>
+    </div>
+    <p>The root container for the widget is given a <i>class</i> of <i>myhelloworld_widget</i> and has no <i>id</i>. This is important because the widget could appear multiple times within a page and we want to avoid top-level ids from clashing. Sakai OAE will automatically give each widget its own container with a unique id when it is loaded, even if it is an instance of the same widget.</p>
+
+    <div class="navigationalitems_codesnippit_container">
+        <div class="navigationalitems_codesnippit_header">
+            <h4>myhelloworld.html - sub containers</h4>
+        </div>
+<pre class="prettyprint">
+&lt;!-- MAIN VIEW --&gt;
+    &lt;div id=&quot;helloworld_main&quot; style=&quot;display:none;&quot;&gt;
+        ...
+    &lt;!-- SETTINGS VIEW --&gt;
+    &lt;div id=&quot;helloworld_settings&quot; style=&quot;display:none;&quot;&gt;
+        ...
+</pre>
+    </div>
+    <p>The My Hello World widget allows its user the ability to change the color of the text. These options appear in the Settings view of the widget. All widgets may have a Main view and a Settings view that should not be visible at the same time. The Settings view should replace the Main view when the user clicks to view the Settings of the widget:</p>
+
+    <p><b>Main view with settings menu option</b><br />
+        <%= image_tag "developer_helloworld_view_main.png", :alt => "" %></p>
+
+    <p><b>Settings view replaces the main view</b><br />
+        <%= image_tag "developer_helloworld_view_settings.png", :alt => "" %></p>
+
+    <p>Because Sakai OAE can choose to load a widget in either Main or Settings mode, both views are initially hidden in our HTML template. The <i>style="display:none;"</i> is the only CSS style Sakai OAE allows within HTML as there are a number of HTML elements that may need to be hidden upon initial load of a widget. All other CSS styles should be placed in a separate CSS file.</p>
+
+    <div class="navigationalitems_codesnippit_container">
+        <div class="navigationalitems_codesnippit_header">
+            <h4>myhelloworld.html - include JavaScript</h4>
+        </div>
+<pre class="prettyprint">
+&lt;!-- JAVASCRIPT --&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/devwidgets/helloworld/javascript/helloworld.js&quot;&gt;&lt;/script&gt;
+</pre>
+    </div>
+    <p>After our HTML template loads, we need to load the widget's JavaScript file to define this widget's dynamic behaviors. Because widgets are embedded in other pages, any work our widget does needs to be defined within the widget. Sakai OAE has a rich set of <%= link_to "JavaScript APIs", "/sdk/api/frontend", :class => "wl-regular-link" %> that our widget can use to get server data, save data to the server and many other common web application functions. For My Hello World, we will want to save the user's text color preference and be able to retrieve it again later.</p>
+
+    <h1>Step 5: <b>Create the default message bundle</b></h1>
+
+    <p>As described above, we want to avoid displaying any non-internationalized text to the user and have created message keys for all the text the user will see in our HTML template. These message keys follow the pattern:</p>
+
+<div class="navigationalitems_codesnippit_container">
+        <div class="navigationalitems_codesnippit_header">
+            <h4>Message key pattern</h4>
+        </div>
+<pre class="prettyprint">
+__MSG__ + KEY_NAME + __
+</pre>
+    </div>
+
+    <p>Key names should be written in only caps and underscores. Key names do not have to mimic their values, but should be a pretty close match. For example, <i>HELLO</i> could resolve to <i>Hello World</i>.</p>
+    <p>To define what will eventually be placed in our template where we see message keys (Sakai OAE's internationalization processor automatically does this for us), we need to complete the <i>default.properties</i> file.</p>
+
+<div class="navigationalitems_codesnippit_container">
+        <div class="navigationalitems_codesnippit_header">
+            <h4>helloworld/default.properties</h4>
+        </div>
+<pre class="prettyprint">
+COLOR_TO_USE = Color to use
+HELLO_WORLD = Hello World
+</pre>
+    </div>
+
+    <p>You may notice that our <i>default.properties</i> file does not contain the <i>SAVE</i> message key used on line 21 of <i>myhelloworld.html</i>. The <i>SAVE</i> message key is defined in the global properties file located at <i>3akai-ux/dev/bundle/default.properties</i>. Any message key in the global properties file can be used in any widget.</p>
+
+    <p>If you include a message key in your HTML template that is not defined in a properties file, you will see 'undefined' where the message should appear. If you see 'undefined' in your widget's interface, it's likely you are missing a message key and value pair in your <i>default.properties</i> file.</p>
+
+    <h1>Step 6: <b>Load My Hello World in Sakai OAE</b></h1>
+
+    <p>Now that our widget is configured and the message keys have been defined, we can see My Hello World in Sakai OAE. Of course, since we have not defined our CSS or JavaScript yet, the widget will not do much, but we can test to make sure we have set up our widget properly. Follow these steps to see the My Hello World widget in action.</p>
+
+        <h2>Log into Sakai OAE</h2>
+        <p>Make sure Sakai OAE is running on your machine. If you are unsure about how to do this, look at the <%= link_to "quick development setup", "/sdk/developwidget/quicksetup", :class => "wl-regular-link" %> page.</p>
+
+        <p>Once Sakai OAE is running, you should be able to see the homepage at <%= link_to "http://localhost:8080/", "http://localhost:8080/", :class => "wl-regular-link" %>. If you have not already, create an account by clicking the 'Sign Up' link on this page.</p>
+
+        <p>Once you have created an account, log in. You will automatically be taken to the user's personal dashboard and see something like the following:<p>
+        <p><%= image_tag "developer_helloworld_dashboard_page.png", :alt => "" %></p>
+        <p>Click on add widget and select the hello world widget.</p>
+        <p>The widget should now have been added to the page.</p>
+
+    <h1>Step 7: <b>Define widget behavior</b></h1>
+
+    <p>The My Hello World widget should display a message to the user along with their first name and allow the user to change the color of the text in which the message is displayed. We define all this behavior using the JavaScript that is loaded along with the widget's HTML template.</p>
+
+<div class="navigationalitems_codesnippit_container">
+        <div class="navigationalitems_codesnippit_header">
+            <h4>helloworld/javascript/helloworld.js</h4>
+        </div>
+<pre class="prettyprint">
+/*
+ * Licensed to the Sakai Foundation (SF) under one
+ * or more contributor license agreements. See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership. The SF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+
+// load the master sakai object to access all Sakai OAE API methods
+require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
+
+    /**
+     * @name sakai_global.helloworld
+     *
+     * @class helloworld
+     *
+     * @description
+     * My Hello World is a dashboard widget that says hello to the current user
+     * with text in the color of their choosing
+     *
+     * @version 0.0.1
+     * @param {String} tuid Unique id of the widget
+     * @param {Boolean} showSettings Show the settings of the widget or not
+     */
+    sakai_global.helloworld = function (tuid, showSettings) {
+
+        /////////////////////////////
+        // Configuration variables //
+        /////////////////////////////
+
+        var DEFAULT_COLOR = "#000000";  // default text color is black
+
+        // DOM jQuery Objects
+        var $rootel = $("#" + tuid);  // unique container for each widget instance
+        var $mainContainer = $("#helloworld_main", $rootel);
+        var $settingsContainer = $("#helloworld_settings", $rootel);
+        var $settingsForm = $("#helloworld_settings_form", $rootel);
+        var $cancelSettings = $("#helloworld_cancel_settings", $rootel);
+        var $colorPicker = $("#helloworld_color", $rootel);
+        var $usernameContainer = $("#helloworld_username", $rootel);
+
+
+        ///////////////////////
+        // Utility functions //
+        ///////////////////////
+
+        /**
+         * Checks if the provided color argument is non-empty and returns the color
+         * if not empty; if empty, returns the DEFAULT_COLOR
+         *
+         * @param {String} color The hex value of the color
+         */
+        var checkColorArgument = function (color) {
+            // check if color exists and is not an empty string
+            return (color && $.trim(color)) ? $.trim(color) : DEFAULT_COLOR;
+        };
+
+        /**
+         * Gets the preferred color from the server using an asynchronous request
+         *
+         * @param {Object} callback Function to call when the request returns. This
+         * function will be sent a String with the hex value of the preferred color.
+         */
+        var getPreferredColor = function (callback) {
+            // get the data associated with this widget
+            sakai.api.Widgets.loadWidgetData(tuid, function (success, data) {
+                if (success) {
+                    // fetching the data succeeded, send it to the callback function
+                    callback(checkColorArgument(data.color));
+                } else {
+                    // fetching the data failed, we use the DEFAULT_COLOR
+                    callback(DEFAULT_COLOR);
+                }
+            });
+        };
+
+
+        /////////////////////////
+        // Main View functions //
+        /////////////////////////
+
+        /**
+         * Shows the Main view that contains the Hello World text colored in the
+         * provided color argument
+         *
+         * @param {String} color The hex value of the color to set the text
+         * (i.e. "#00FF00")
+         */
+        var showMainView = function (color) {
+            // set the color of the text
+            $("p", $mainContainer).css("color", checkColorArgument(color));
+
+            // show the Main container
+            $mainContainer.show();
+        };
+
+
+        /////////////////////////////
+        // Settings View functions //
+        /////////////////////////////
+
+        /**
+         * Sets the color dropdown in the Settings view to the given color
+         *
+         * @param {String} color The hex value of the color
+         */
+        var setDropdownColor = function (color) {
+            // set the color dropdown to the given value
+            $colorPicker.val(checkColorArgument(color));
+        };
+
+
+        ////////////////////
+        // Event Handlers //
+        ////////////////////
+
+        /** Binds Settings form */
+        $settingsForm.bind("submit", function (ev) {
+            // get the selected color
+            var selectedColor = $colorPicker.val();
+
+            // save the selected color
+            sakai.api.Widgets.saveWidgetData(tuid, {color:selectedColor},
+                function (success, data) {
+                    if (success) {
+                        // Settings finished, switch to Main view
+                        sakai.api.Widgets.Container.informFinish(tuid, "helloworld");
+                    }
+                }
+            );
+            return false;
+        });
+
+        $cancelSettings.bind("click", function(){
+            sakai.api.Widgets.Container.informFinish(tuid, "helloworld");
+        });
+
+
+        /////////////////////////////
+        // Initialization function //
+        /////////////////////////////
+
+        /**
+         * Initialization function that is run when the widget is loaded. Determines
+         * which mode the widget is in (settings or main), loads the necessary data
+         * and shows the correct view.
+         */
+        var doInit = function () {
+            if (showSettings) {
+                // set up Settings view
+
+                // get the preferred color & set the color picker dropdown
+                getPreferredColor(setDropdownColor);
+
+                // show the Settings view
+                $settingsContainer.show();
+            } else {
+                // set up Main view
+
+                // get data about the current user
+                var me = sakai.data.me;
+
+                // set the text of the usernameContainer <span> element to
+                // the current user's first name
+                $usernameContainer.text(sakai.api.User.getFirstName(me.profile));
+
+                // get the preferred color and show the Main view
+                getPreferredColor(showMainView);
+            }
+        };
+
+        // run the initialization function when the widget object loads
+        doInit();
+    };
+
+    // inform Sakai OAE that this widget has loaded and is ready to run
+    sakai.api.Widgets.widgetLoader.informOnLoad("helloworld");
+});
+</pre>
+    </div>
+
+    <p>Notice that all the code that pertains to this widget is wrapped in a require statement and a <i>sakai_global.helloworld</i> function. This is another measure to prevent clashes with other widgets that may have similarly named variables or functions (i.e. many widgets have a <i>doInit()</i> function). It also provides other parts of the Sakai OAE framework a standard, convenient way to reference this widget's functionality: JavaScript for all widgets is encapsulated in a <i>sakai_global.WIDGET_ID</i> function.</p>
+
+    <p>The overall structure of the sakai_global.myhelloworld function is also important. All widgets should try and follow the same overall structure to make it easier to read and debug widget JavaScript code:</p>
+
+    <ul class="regular_list">
+        <li><strong>Configuration variables</strong> - shared variables this widget's code will need</li>
+        <li><strong>Utility functions</strong> - helper functions used by other widget functions</li>
+        <li><strong>Main functions</strong> - functions that play a major role in rendering the widget's main view</li>
+        <li><strong>Settings functions</strong> - functions that play a major role in rendering the widget's settings view</li>
+        <li><strong>Event handlers</strong> - functions and bindings that respond to interface events (clicks, form submissions, etc.)</li>
+        <li><strong>Initialization function</strong> - the function that will be run when the widget loads followed by a call to run it when the sakai.myhelloworld function is executed</li>
+    </ul>
+    <h1>Step 8: <b>What's next?</b></h1>
 
     <p>It's always a good idea to look at the <%= link_to "coding standards", "/sdk/codestyleguide", :class => "wl-regular-link" %> we use for Sakai OAE development.</p>
     <p>When you make your own widget and want to show it to the world, feel free to <%= link_to "submit it", new_version_path, :class => "wl-regular-link" %>.</p>
