@@ -1,7 +1,7 @@
 <% content_for :title do %> - SDK - Quick setup<% end %>
 <div class="widgetsdk_container">
     <h1>Quick setup</h1>
-    <p>This page will guide you through a quick setup of the Sakai OAE. If you would like to be able to add dummy data and use the latest nakamura, we recommend doing the <%= link_to "OAE-Builder setup", "/sdk/developwidget/devsetup", :class => "wl-regular-link" %> .</p>
+    <p>This page will guide you through a quick setup of the Sakai OAE. If you would like to be able to add dummy data and use the latest nakamura, we recommend doing the <%= link_to "OAE-Builder setup", "/sdk/developwidget/devsetup", :class => "wl-regular-link" %>. For video instructions, check out our <%= link_to "video walkthrough", "#video-walkthrough", :class => "wl-regular-link" %>.</p>
 
     <div class="wl-widget-item">
         <ol class="regular_list">
@@ -77,6 +77,9 @@ provider.file=${sakai_oae}/3akai-ux/devwidgets" > load/org.apache.sling.fsprovid
         <p>You should see something like the following:</p>
         <%= image_tag "developer_quickdev_example.png", :alt => "Hello World Quick Dev Example" %>
         <p><b>Voila! You are up and running with Sakai OAE!</b> You should now be able to edit 3akai-ux code, save it and refresh your browser to see the changes right away. If you feel ready to dive in, have a look at the <%= link_to "'Hello World' Tutorial", "/sdk/developwidget/learnbasics", :title => "Hello World tutorial", :class => "wl-regular-link" %> or the <%= link_to "Widget designs", "/sdk/designguide/widgetdesigns", :class => "wl-regular-link" %>.</p>
+        <hr />
+        <h2 id="video-walkthrough">Video Walkthrough</h2>
+        <iframe width="680" height="382" src="http://www.youtube.com/embed/VYa5VD3-E7I" frameborder="0" allowfullscreen></iframe>
     </div>
 
     <%= render :partial => "sdk/feedback" %>
