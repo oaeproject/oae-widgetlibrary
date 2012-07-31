@@ -5,16 +5,9 @@
     <p>If you are looking for API functions to build the interface of your widgets, check out the <%= link_to "front-end API", "/sdk/api/frontend", :class => "wl-regular-link" %>.</p>
 
     <div class="wl-widget-item">
-        <h2>Widgets</h2>
-        <p>Many widgets need to save and retrieve settings or data about the work that they do for the user. The following two functions allow any instance of a widget to save and load data about itself to and from the server.</p>
-    </div>
-    <div class="wl-widget-item">
-        <h2>Groups</h2>
-        <p>Many widgets run within the context of a Sakai OAE Group. Groups contain members and managers that your widget may want to know about. Your widgets may also want to limit the functionality or data available to these different types of users.</p>
-    </div>
-    <div class="wl-widget-item">
-        <h2>More back-end endpoints</h2>
-        <p>When nakamura is running, you can find a list of the back-end enpoints at <%= link_to "http://localhost:8080/system/doc", "http://localhost:8080/system/doc", :class => "wl-regular-link" %></p>
+        <h2>Back-end endpoints</h2>
+        <p>More documentation will be added in the future. For now we recommend to run nakamura and go to <%= link_to "http://localhost:8080/system/doc", "http://localhost:8080/system/doc", :class => "wl-regular-link" %>.</p>
+        <p>If you can't run nakamura locally, you can go to any of the <%= link_to "Sakai OAE QA servers", "https://confluence.sakaiproject.org/display/QA/QA+Servers+-+Sakai+OAE", :class => "wl-regular-link" %> and add <em>/system/doc</em> to the URL.</p>
     </div>
     <%= render :partial => "sdk/feedback" %>
 </div>
