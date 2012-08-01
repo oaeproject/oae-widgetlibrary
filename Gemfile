@@ -1,6 +1,6 @@
 source :rubygems
 
-gem 'rails', '3.1.3'
+gem 'rails', '3.2.6'
 
 # Use jQuery instead of Prototype
 gem 'jquery-rails'
@@ -16,7 +16,7 @@ gem "rubyzip"
 gem 'guid'
 
 # Use devise for user authentication
-gem 'devise'
+gem 'devise', '~> 1.5.3'
 
 # Use CanCan for user authorization
 gem 'cancan'
@@ -36,8 +36,6 @@ gem 'will_paginate'
 # Autolink URLs in text
 gem 'rails_autolink'
 
-gem 'sass-rails', "  ~> 3.1.5"
-
 gem 'delayed_job_active_record'
 
 gem 'daemons'
@@ -50,6 +48,8 @@ group :test, :development do
   gem 'ffaker'
   # Use populator to populate the db with fake data
   gem 'populator'
+  # Installation instructions are on
+  # https://confluence.sakaiproject.org/display/3AK/Widget+Library+Development+Setup
   gem "linecache19", "0.5.13"
   gem 'ruby-debug-base19', "0.11.26"
   gem 'ruby-debug19', "0.11.6"
@@ -57,7 +57,7 @@ end
 
 group :development do
   # Deploy with Capistrano
-  gem 'capistrano'
+  gem 'rvm-capistrano'
   # Allow for multi-stage deploys with Capistrano
   gem 'capistrano-ext'
   # Mailcatcher allows debugging of outgoing mail
@@ -73,7 +73,11 @@ end
 
 # Assets for Rails 3.1
 group :assets do
-  gem 'uglifier'
+  # Use compass for out of the box mixins
+  gem 'compass-rails'
+
+  gem 'sass-rails', '~> 3.2.5'
+  gem 'uglifier', ">= 1.0.3"
   gem 'yui-compressor'
 end
 
