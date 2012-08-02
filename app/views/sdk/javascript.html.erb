@@ -109,7 +109,7 @@ var convertToBoolean = function(num) {
         </div>
 
         <h2 id="editors">Editors</h2>
-        <p>Any editor can be used. However, it's recommended to use an editor that respects these guidelines (tabs vs spaces, etc.) and a little syntax highlighting never hurt anyone. Frequently used editors in the team are TextMate and Aptana Studio.</p>
+        <p>Any editor can be used. However, it's recommended to use an editor that respects these guidelines (tabs vs spaces, etc.) and a little syntax highlighting never hurt anyone. Frequently used editors in the team are <%= link_to "Textmate", "http://macromates.com/", :class => "wl-regular-link" %>, <%= link_to "Sublime", "http://www.sublimetext.com/", :class => "wl-regular-link" %> and <%= link_to "Aptana Studio", "http://www.aptana.com/", :class => "wl-regular-link" %>.</p>
 
         <h2 id="equality-operator">Equality operator</h2>
         <p>Don't take a guess at what you're comparing, use triple equality operators at all times.</p>
@@ -421,7 +421,7 @@ var shouldMakeMoreCoffee = numPeople &gt; 2 &amp;&amp; amountOfCoffeeLeft &lt; 1
         <p>Keeping code clean and simple starts with basics like whitespace. To keep your conscience clear have another look for extra spaces before committing your masterpiece.</p>
 
         <h2 id="typechecking">Type checking</h2>
-        <p>Never use typeof when there is a function that does the type checking for you. We include jQuery and underscore.js which provide all the type checking you should need.</p>
+        <p>Never use typeof when there is a function that does the type checking for you. We include <%= link_to "jQuery", "http://jquery.com/", :class => "wl-regular-link" %> and <%= link_to "Underscore.js", "http://underscorejs.org/", :class => "wl-regular-link" %> which provide all the type checking you should need.</p>
         <h4>Right:</h4>
         <div class="navigationalitems_codesnippit_container few_lines">
 <pre class="prettyprint">

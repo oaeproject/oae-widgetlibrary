@@ -10,7 +10,7 @@
             <li>follow the namespacing standards below and,</li>
             <li>follow the patterns mentioned in the <%= link_to "Hello World Tutorial", "/sdk/developwidget/learnbasics", :class => "wl-regular-link" %>,</li>
         </ul>
-        <p>you should be just fine. The guidelines in the above resources should be considered the most up-to-date, but you may reference the older Development Guidelines if you are looking for further information. If you have any questions about coding standards, please feel free to comment on this page or contact the Sakai OAE developers.</p>
+        <p>you should be just fine. The guidelines in the above resources should be considered the most up-to-date. If you have any questions about coding standards, please feel free to comment on this page or <%= link_to "contact", "/sdk/contact", :class => "wl-regular-link" %> the Sakai OAE developers.</p>
         <h2>Name spacing</h2>
         <p>It is very important to remember that widgets are designed to be embedded within other pages. A page that includes widget X may contain other widgets and may even contain multiple instances of widget X itself. For this reason, it is important to take certain measures to prevent naming clashes with other widgets. If you look at the Hello World Tutorial you will find that:</p>
 
@@ -21,7 +21,7 @@
         <div class="navigationalitems_codesnippit_container">
             <div class="navigationalitems_codesnippit_header"><h4>Properly namespacing HTML element classes and IDs</h4></div>
 
-<pre class="prettyprint" id="html">
+<pre class="prettyprint">
 &lt;div class="myhelloworld_widget"&gt;
     ...
     &lt;div id="myhelloworld_main"&gt;

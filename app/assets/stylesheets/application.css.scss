@@ -155,7 +155,7 @@ option {
 
 .wl-content-right-container {
     border-left: 1px solid #c4c4c4;
-    @include box-shadow($h_shadow: -4px, $v_shadow: 4px, $blur: 7px, $spread: -4px, $color: #888888, $outerinner: "");
+    @include box-shadow(#888888 -4px 4px 7px -4px);
     min-height: 515px;
     position: relative;
 }
@@ -267,8 +267,8 @@ option {
 /* Inset Shadow containers*/
 .wl-inset-shadow-container {
     background: image-url("inset_shadow_container_bg.png") repeat-x top left #fefefe;
-    @include border-radius($topLeft: 5px, $topRight: 5px, $bottomRight: 5px, $bottomLeft: 5px);
-    @include box-shadow($h_shadow: 0, $v_shadow: 0, $blur: 12px, $spread: -4px, $color: #888888, $outerinner: inset);
+    @include border-radius(5px);
+    @include box-shadow(#888888 0 0 12px -4px inset);
     margin-top: 20px;
     padding: 8px 10px 10px;
 }
@@ -276,7 +276,7 @@ option {
 /* No results */
 .wl-no-results-container {
     background: url("noresults_bg.png") repeat scroll left top transparent;
-    @include border-radius($topLeft: 5px, $topRight: 5px, $bottomRight: 5px, $bottomLeft: 5px);
+    @include border-radius(5px);
     margin: 30px 0px 0px;
     padding: 20px;
     .wl-no-results-arrow-up {
@@ -392,7 +392,7 @@ option {
     background: image-url("tab_bg.png") repeat-x scroll left top transparent;
     border: 1px solid #bebdbd;
     border-bottom: 0;
-    @include border-radius($topLeft: 3px, $topRight: 3px, $bottomRight: 0, $bottomLeft: 0);
+    @include border-radius(3px 3px 0 0);
     color: #2683bc;
     cursor: pointer;
     float: left;
@@ -418,8 +418,8 @@ option {
 .wl-widget-item, .wl-widget-item-container {
     background-color: #fff;
     color: #666;
-    @include border-radius($topLeft: 4px, $topRight: 4px, $bottomRight: 4px, $bottomLeft: 4px);
-    @include box-shadow($h_shadow: 0, $v_shadow: 1px, $blur: 1px, $spread: 0, $color: #bbbbbb, $outerinner: "");
+    @include border-radius(4px);
+    @include box-shadow(#bbbbbb 0 1px 1px 0);
     float: left;
     font-size: 11px;
     margin: 0 3px 3px 0;
@@ -433,7 +433,7 @@ option {
     width: 690px;
     .wl-widget-item {
         background: none;
-        @include box-shadow($h_shadow: "", $v_shadow: "", $blur: "", $spread: "", $color: "", $outerinner: "");
+        @include box-shadow(none);
         height: auto;
         margin: 0;
         padding: 0 5px;
@@ -476,7 +476,7 @@ a.wl-button {
 }
 
 .wl-button {
-    @include border-radius($topLeft: 5px, $topRight: 5px, $bottomRight: 5px, $bottomLeft: 5px);
+    @include border-radius(5px);
     border: none;
     color: #666;
     cursor: pointer;
@@ -551,7 +551,7 @@ a.wl-button {
     font-weight: bold;
     height: 24px;
     margin-left: 15px;
-    @include box-shadow($h_shadow: 0, $v_shadow: 1px, $blur: 1px, $spread: 0, $color: #999999, $outerinner: "");
+    @include box-shadow(#999999 0 1px 1px 0);
     text-shadow: 0 2px 3px #fff;
     color: #2683bc;
     &:hover, &:focus {
@@ -575,7 +575,7 @@ a.wl-button {
     padding: 0 7px;
     border: 1px solid #e0e3e5;
     color: #2683bc;
-    @include box-shadow($h_shadow: 0, $v_shadow: 1px, $blur: 1px, $spread: 0, $color: #999999, $outerinner: "");
+    @include box-shadow(#999999 0 1px 1px 0);
     text-shadow: 0 2px 3px #fff;
     font-size: 13px;
     &:hover, &:focus {
@@ -588,7 +588,7 @@ a.wl-button {
 .wl-button.wl-inpage-button {
     background: none repeat scroll 0 0 #FFFFFF;
     border: 1px solid #E0E3E5;
-    @include box-shadow($h_shadow: 0, $v_shadow: 0, $blur: 4px, $spread: -2px, $color: #a8a8a8, $outerinner: inset);
+    @include box-shadow(#a8a8a8 0 0 4px -2px inset);
     font-size: 10px;
     font-weight: bold;
     height: 23px;
@@ -613,11 +613,11 @@ a.wl-button {
 .wl-button.wl-header-button {
     background: #fff;
     border: 1px solid #e0e3e5;
-    @include box-shadow($h_shadow: 0, $v_shadow: 0, $blur: 4px, $spread: -2px, $color: #a8a8a8, $outerinner: inset);
+    @include box-shadow(#a8a8a8 0 0 4px -2px inset);
     &:hover, &:focus {
         background: image-url("button_header_hover.png") repeat-x scroll left -1px transparent;
         border: 1px solid #E0E3E5;
-        @include box-shadow($h_shadow: "", $v_shadow: "", $blur: "", $spread: "", $color: "", $outerinner: "");
+        @include box-shadow(none);
     }
 }
 
@@ -627,7 +627,7 @@ a.wl-button {
     cursor: auto;
     &:hover, &:focus {
         background: #fff;
-        @include box-shadow($h_shadow: 0, $v_shadow: 0, $blur: 6px, $spread: -2px, $color: #a8a8a8, $outerinner: inset);
+        @include box-shadow(#a8a8a8 0 0 6px -2px inset);
         border: 1px solid #e0e3e5;
     }
 }
@@ -706,9 +706,7 @@ a.wl-button.wl-header-button {
     background-color: #fff;
     border: 1px solid #a9a9a9;
     border-radius: 5px;
-    box-shadow: 0 0 10px #000;
-    -moz-box-shadow: 0 0 10px #000;
-    -webkit-box-shadow: 0 0 10px #000;
+    @include box-shadow(#000 0 0 10px 0);
     color: #333;
     font-size: 12px;
     padding: 7px 20px 12px;
@@ -755,8 +753,8 @@ a.wl-button.wl-header-button {
 /* Video overlay */
 #videocontent_overlay_container {
     background-color: #efefef;
-    @include border-radius($topLeft: 3px, $topRight: 3px, $bottomRight: 3px, $bottomLeft: 3px);
-    @include box-shadow($h_shadow: 0, $v_shadow: 0, $blur: 40px, $spread: 0, $color: #222222, $outerinner: "");
+    @include border-radius(3px);
+    @include box-shadow(#222222 0 0 40px 0);
     height: 375px;
     margin: 0pt auto;
     position: fixed;
@@ -845,7 +843,7 @@ textarea {
     z-index: 2;
     #useractions_container {
         background-color: #333;
-        @include border-radius($topLeft: 0, $topRight: 0, $bottomRight: 5px, $bottomLeft: 5px);
+        @include border-radius(0 0 5px 5px);
         margin-right: 24px;
         padding: 0 10px 0;
         position: absolute;
@@ -889,7 +887,7 @@ textarea {
             width: 10px;
         }
         #useractions_login_fields {
-            @include border-radius($topLeft: 0, $topRight: 0, $bottomRight: 5px, $bottomLeft: 5px);
+            @include border-radius(0 0 5px 5px);
             margin-left: -112px;
             margin-top: 0;
             position: absolute;
@@ -929,7 +927,7 @@ textarea {
     display: block;
     margin: 0;
     padding: 2px 7px 10px;
-    @include border-radius($topLeft: 2px, $topRight: 2px, $bottomRight: 2px, $bottomLeft: 2px);
+    @include border-radius(2px);
     input[type=text], input[type=password] {
         width: 94%;
     }
@@ -949,7 +947,7 @@ textarea {
 
 .wl-dropdown-container {
     background: image-url("dropdown_list_bg.png") repeat-x scroll left top #0c4e79;
-    @include box-shadow($h_shadow: 0, $v_shadow: 10px, $blur: 10px, $spread: -3px, $color: #333333, $outerinner: "");
+    @include box-shadow(#333333 0 10px 10px -3px);
     cursor: auto;
     min-width: 140px;
     padding: 5px;
@@ -1008,7 +1006,7 @@ textarea {
     #search_widgets {
         background: image-url("search_icon.png") no-repeat scroll 6px center white;
         border: 1px solid #D6D4D4;
-        @include border-radius($topLeft: 4px, $topRight: 4px, $bottomRight: 4px, $bottomLeft: 4px);
+        @include border-radius(4px);
         color: #666;
         float: right;
         font-size: 12px;
@@ -1017,7 +1015,7 @@ textarea {
         width: 232px;
     }
     #search_widgets_search_results {
-        @include border-radius($topLeft: 0, $topRight: 0, $bottomRight: 5px, $bottomLeft: 5px);
+        @include border-radius(0 0 5px 5px);
         margin-left: 635px;
         margin-top: 5px;
         position: absolute;
@@ -1027,7 +1025,7 @@ textarea {
             background: image-url("search_bg.png") repeat-x scroll left bottom #f3f3f3;
             border: 1px solid #D6D4D4;
             border-bottom: none;
-            @include box-shadow($h_shadow: 0, $v_shadow: 8px, $blur: 15px, $spread: -2px, $color: #555555, $outerinner: "");
+            @include box-shadow(#555555 0 8px 15px -2px);
             margin-top: 22px;
             padding: 12px 3px 5px;
         }
@@ -1035,8 +1033,8 @@ textarea {
             background-color: #F3F3F3;
             border: 1px solid #D6D4D4;
             border-top: none;
-            @include border-radius($topLeft: 0, $topRight: 0, $bottomRight: 5px, $bottomLeft: 5px);
-            @include box-shadow($h_shadow: 0, $v_shadow: 8px, $blur: 15px, $spread: -2px, $color: #555555, $outerinner: "");
+            @include border-radius(0 0 5px 5px);
+            @include box-shadow(#555555 0 8px 15px -2px);
             height: 32px;
             padding: 4px 3px 0 12px;
         }

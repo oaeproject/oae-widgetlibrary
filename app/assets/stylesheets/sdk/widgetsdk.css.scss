@@ -125,9 +125,6 @@
                 margin-top: 0;
             }
         }
-        #widgetbuilder_category_dropdown {
-            margin-left: 25px;
-        }
         #widgetbuilder_description {
             height: 70px;
             margin-bottom: 10px;
@@ -162,8 +159,14 @@
     .widgetsdk_split_container.last {
         margin-left: 20px;
     }
-    ul.inline_list {
+    .inline_list, .regular_list {
         margin-left: 20px;
+        ol li {
+            list-style-type: lower-alpha;
+        }
+    }
+    .regular_list li {
+        margin: 10px 0;
     }
     .twohundred_wide_column {
         margin-right: 15px;
@@ -569,7 +572,7 @@
         .wl-header-button.hover {
             background: image-url("button_header_hover.png") repeat-x scroll left -1px transparent;
             border: 1px solid #E0E3E5;
-            @include box-shadow($h_shadow: "", $v_shadow: "", $blur: "", $spread: "", $color: "", $outerinner: "");
+            @include box-shadow(none);
         }
         .wl-inpage-button[disabled] {
             color: #bdbdbd;
@@ -667,7 +670,7 @@
         .form_container {
             background-color: #F8F8FA;
             border-radius: 2px;
-            box-shadow: 0 1px 1px 0 #BBBBBB;
+            @include box-shadow(#BBBBBB 0 1px 1px 0);
             margin-bottom: 20px;
             padding: 20px;
         }

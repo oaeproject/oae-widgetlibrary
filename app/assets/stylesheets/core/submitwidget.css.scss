@@ -2,7 +2,7 @@
 
 #submitwidget {
     background: image-url("submit_widget_bg.jpg") repeat-x top left transparent;
-    @include border-radius($topLeft: 5px, $topRight: 5px, $bottomRight: 5px, $bottomLeft: 5px);
+    @include border-radius(5px);
     display: inline-block;
     height: 217px;
     margin: 20px 0px;

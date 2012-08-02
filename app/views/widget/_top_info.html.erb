@@ -30,7 +30,7 @@
       <%= image_tag @widget.icon.url(:medium), :alt => "#{@widget.title} preview" %>
       <%= link_to "Download", widget_download_path(:title => @widget.url_title, :version => @widget.version.id), :class => "wl-button wl-header-button", :id => "widget_download_button" %>
       <% if @widget.bundle.file? %>
-        <%= link_to "Download Backend Bundle", widget_download_backend_path(:title => @widget.url_title, :version => @widget.version.id), :class => "wl-button wl-header-button"%>
+        <%= link_to "Download Back-end Bundle", widget_download_backend_path(:title => @widget.url_title, :version => @widget.version.id), :class => "wl-button wl-header-button"%>
       <% end %>
   </div>
   <div id="widget_description">

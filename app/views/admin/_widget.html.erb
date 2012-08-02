@@ -6,6 +6,6 @@
   <td><%= version.version_number %></td>
   <% if params[:state].to_s.eql? State.declined.to_s %>
   <td><%= version.reviewer.name %></td>
-  <td><%= version.notes %></td>
+  <td><%= auto_link(version.notes, :html => {:class => 'wl-regular-link'}) %></td>
   <% end %>
 </tr>

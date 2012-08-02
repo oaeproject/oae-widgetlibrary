@@ -37,27 +37,27 @@
     <div class="wl-widget-item">
         <h1 class="wl-regular-link no_decoration wl-normal" id="developmentquestions">Development Questions</h1>
         <h2 id="experience"><strong>Q: What kinds of technologies do I need to know to develop Sakai OAE widgets? How much experience will I need?</strong></h2>
-        <p>A: Sakai OAE widgets use frontend web technologies such as HTML (for widget layout), CSS (for widget styling), JavaScript (for widget behavior) and JSON (for widget data management). jQuery is a major JavaScript library used throughout Sakai OAE widgets. Sakai OAE has been designed to make widget development very easy and the architecture of a Sakai OAE widget is relatively simple.</p>
+        <p>A: Sakai OAE widgets use front-end web technologies such as HTML (for widget layout), CSS (for widget styling), JavaScript (for widget behavior) and JSON (for widget data management). jQuery is a major JavaScript library used throughout Sakai OAE widgets. Sakai OAE has been designed to make widget development very easy and the architecture of a Sakai OAE widget is relatively simple.</p>
         <p>If you are comfortable (but by no means an expert) with HTML, CSS, JavaScript/jQuery and JSON, you should have no problem at all in developing Sakai OAE widgets.</p>
         <p>If you are new to any of the above technologies, you can expect a bit of a ramp up period to get up-to-speed, but because Sakai OAE widgets have a relatively simple architecture, you will be able to quickly learn from other simple widgets within the codebase as examples.</p>
-        <p>For example widgets that have been heavily documented in this Widget SDK documentation, see the Widget Examples page.</p>
+        <p>For example widgets that have been heavily documented in this Widget SDK documentation, see the <%= link_to "Widget designs", "/sdk/designguide/widgetdesigns", :class => "wl-regular-link" %> page.</p>
 
         <h2 id="installation"><strong>Q: How do I get and install Sakai OAE?</strong></h2>
         <p>A: Depending on what you want to do with Sakai OAE, there are different methods for getting and installing Sakai OAE:</p>
         <ul class="inline_list">
-            <li>for building, deploying and developing for Sakai OAE on your own machine, follow the instructions on the Quick development environment set up page.</li>
-            <li>for simply running and experimenting with the latest Sakai OAE release on your own machine, you can download a one-click installer from the Sakai OAE release page. This will not allow you to see or change any of the Sakai OAE code.</li>
-            <li>if you have trouble with the one-click installer, you may also download the binary package from the Sakai OAE release page and run the server yourself. This option will also not allow you to see or change any of the Sakai OAE code.</li>
+            <li>For building, deploying and developing for Sakai OAE on your own machine, follow the instructions on the <%= link_to "quick development setup", "/sdk/developwidget/quicksetup", :class => "wl-regular-link" %> page.</li>
+            <li>For simply running and experimenting with the latest Sakai OAE release on your own machine, you can download a one-click installer from the <%= link_to "Sakai OAE release page", "http://www.sakaiproject.org/node/2307", :class => "wl-regular-link" %>. This will not allow you to see or change any of the Sakai OAE code.</li>
+            <li>If you have trouble with the one-click installer, you may also download the binary package from the <%= link_to "Sakai OAE release page", "http://www.sakaiproject.org/node/2307", :class => "wl-regular-link" %> and run the server yourself. This option will not allow you to see or change any of the Sakai OAE code.</li>
         </ul>
 
         <h2 id="documentation"><strong>Q: Where do I find detailed documentation on the services that are available for use in my widgets?</strong></h2>
-        <p>A: The Widget API section of this documentation contains information on front-end api, back-end endpoints and 3rd Party Services available to Sakai OAE widgets. If you are unable to find information on the service you are looking for, there may be additional locations that would be worthwhile to search:</p>
+        <p>A: <%= link_to "The Widget API section", "/sdk/api", :class => "wl-regular-link" %> of this documentation contains information on <%= link_to "front-end API", "/sdk/api/frontend", :class => "wl-regular-link" %>, <%= link_to "back-end endpoints", "/sdk/api/backend", :class => "wl-regular-link" %> and <%= link_to "3rd party libraries", "/sdk/api/thirdparty", :class => "wl-regular-link" %> available to Sakai OAE widgets. If you are unable to find information on the service you are looking for, there may be additional locations that would be worthwhile to search:</p>
         <ul class="inline_list">
             <li>All Sakai OAE Widget API functions can be found in the various sakai.api JavaScript files located in the /dev/lib/sakai directory</li>
             <li>For information on services provided directly by the Sakai OAE server, check out these locations:
                 <ul class="inline_list">
-                    <li>Nakamura Documentation Wiki</li>
-                    <li>Your local Sakai OAE server's built in documentation: <%= link_to "localhost:8080/system/doc", "http://localhost:8080/system/doc", :class => "wl-regular-link" %></li>
+                    <li><%= link_to "Nakamura Documentation Wiki", "https://confluence.sakaiproject.org/display/KERNDOC/Nakamura+Documentation", :class => "wl-regular-link" %></li>
+                    <li>Your local Sakai OAE server's built in documentation: <%= link_to "http://localhost:8080/system/doc", "http://localhost:8080/system/doc", :class => "wl-regular-link" %></li>
                 </ul>
             </li>
         </ul>
@@ -77,7 +77,7 @@ require(['jquery', 'sakai/sakai.api.core', 'http://widgets.twimg.com/j/2/widget.
 </pre>
         </div>
 
-        <p>If you cannot find what you are looking for, please feel free to contact the Sakai OAE developers.</p>
+        <p>If you cannot find what you are looking for, please feel free to <%= link_to "contact", "/sdk/contact", :class => "wl-regular-link" %> the Sakai OAE developers.</p>
     </div>
 
     <div class="wl-widget-item">
@@ -85,15 +85,15 @@ require(['jquery', 'sakai/sakai.api.core', 'http://widgets.twimg.com/j/2/widget.
         <h2 id="reportbugs"><strong>Q: How do I report a bug?</strong></h2>
         <p>A: Bugs can be reported in <%= link_to "our bug tracking system JIRA", "http://jira.sakaiproject.org", :title => "Sakai OAE bug tracking system JIRA", :class => "wl-regular-link", :target => "_blank" %> by Atlassian.</p>
         <h2 id="suggestfeature"><strong>Q: How do I suggest a feature?</strong></h2>
-        <p>A: We encourage the community to post and vote ideas on the <%= link_to "Sakai OAE Idea Informer", "http://sakaioae.idea.informer.com/", :title => "Sakai OAE Idea Informer", :class => "wl-regular-link", :target => "_blank" %> page. The Idea Informer is taken into account when setting up goals for the future.</p> 
+        <p>A: We encourage the community to post and vote ideas on the <%= link_to "Sakai OAE Idea Informer", "http://sakaioae.idea.informer.com/", :title => "Sakai OAE Idea Informer", :class => "wl-regular-link", :target => "_blank" %> page. The Idea Informer is taken into account when setting up goals for the future.</p>
         <h2 id="gitworkflow"><strong>Q: What is the best git workflow to use?</strong></h2>
-        <p>A: If you're looking for a detailed workflow for setting up your environment, take a look at the Full Dev Setup.</p>
+        <p>A: If you're looking for a detailed workflow for setting up your environment, take a look at the <%= link_to "quick development setup", "/sdk/developwidget/quicksetup", :class => "wl-regular-link" %> page.</p>
         <p>There's a few ways of doing the same tasks with GIT, the following list has a few 'best practices' to take into account while developing for the OAE using the GIT version control system.</p>
         <ul class="inline_list">
             <li>Always start work on a new branch based on the master branch (keeps master clean and tidy + allows you to work on multiple widgets at once on different branches);</li>
             <li>Committing and pushing up your work regularly is always a good idea, you don't want to lose precious code and time by having to do it over because your machine failed;</li>
-            <li>Use self-explanatory commit messages. OAE developers adopted the following commit message style: "JIRA_ID DESCRIPTION_OF_WORK". (e.g. "SAKIII-2849 Implement visual design for top navigation");</li>
-            <li>Merge your code with the master branch on a regular basis. If merge conflicts occur you can take care of them immediately instead of having to go through your code again after you've submitted a widget;</li>
+            <li>Use self-explanatory commit messages. OAE developers adopted the following commit message style: "JIRA_ID - DESCRIPTION_OF_WORK". (e.g. "SAKIII-2849 - Implement visual design for top navigation");</li>
+            <li>Merge your code with the master branch on a regular basis. If merge conflicts occur you can take care of them immediately instead of having to go through your code again after you've submitted a patch.</li>
         </ul>
         <p>If you're looking for a guide to the most useful git commands take a look at the '<%= link_to "Git Basics", "/sdk/developwidget/gitbasics", :title => "Git Basics", :class => "wl-regular-link" %>' section.</p>
     </div>
