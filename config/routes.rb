@@ -51,6 +51,13 @@ SakaiWidgetlibrary::Application.routes.draw do
   match '/admin/users' => 'admin#users', :as => :admin_users
   match '/admin/users/admin' => 'admin#adminusers', :as => :admin_admin_users
   match '/admin/options' => 'admin#options', :as => :admin_options
+  match '/admin/languages/update/:id' => 'admin#edit_language', :as => :admin_edit_language
+  post  '/admin/languages/save' => 'admin#save_language', :as => :admin_add_edit_language
+  delete  '/admin/languages/remove/:id' => 'admin#remove_language', :as => :admin_remove_language
+  match '/admin/categories' => 'admin#categories', :as => :admin_categories
+  match '/admin/categories/update/:id' => 'admin#edit_category', :as => :admin_edit_category
+  post  '/admin/categories/save' => 'admin#save_category', :as => :admin_add_edit_category
+  delete '/admin/categories/remove/:id' => 'admin#remove_category', :as => :admin_remove_category
   match '/admin/statistics' => 'admin#statistics', :as => :admin_statistics
   match '/admin' => 'admin#widgets'
   match '/admin/widgets(/:state)' => 'admin#widgets', :as => :admin
