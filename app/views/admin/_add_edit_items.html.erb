@@ -1,0 +1,24 @@
+<%= form_for(@item, :url => @config[:urls][:save], :method => "POST", :html => { :class => "wl-form-field-wrapper", :id => "admin_item_add_edit_form" }) do |f| %>
+    <% if @item.errors.any? %>
+        <ul class="admin-error-box">
+            <% @item.errors.full_messages.each do |message| %>
+                <li><span class="wl-error"><%= message %></li>
+            <% end %>
+        </ul>
+    <% end %>
+    <input type="hidden" name="add_new" value="<%= add_new %>" />
+    <input type="hidden" name="id" value="<%= id  %>" />
+    <% @config[:db_properties].zip(@config[:table_headings]) do |property, display_name| %>
+        <div class="wl-field">
+            <%= f.label property %>
+            <%= f.text_field property %>
+        </div>
+    <% end %>
+    <div class="admin-submit-buttons">
+        <% if add_new != true %>
+            <%= link_to 'Cancel', @config[:urls][:base], :class => "wl-regular-link" %>
+        <% end %>
+        <% submit_msg = (add_new == true) ? "Add Entry" : "Save Changes" %>
+        <%= f.submit submit_msg, :class => "wl-button wl-overlay-button" %>
+    </div>
+<% end %>

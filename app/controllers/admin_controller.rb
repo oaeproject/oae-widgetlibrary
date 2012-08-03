@@ -2,6 +2,10 @@ class AdminController < ApplicationController
   before_filter :authenticate
   layout 'admin'
   WillPaginate.per_page = 24
+  include AdminHelper
+
+  before_filter :get_language_config, :only => [:options, :edit_language]
+  before_filter :get_category_config, :only => [:categories, :edit_category]
 
   def widgets
     state = params[:state] ? params[:state] : State.pending
@@ -35,6 +39,43 @@ class AdminController < ApplicationController
   end
 
   def options
+    @results = Language.find(:all, :order => "title")
+    get_used_items(Language)
+    @item = Language.new
+  end
+
+  def edit_language
+    @item = Language.find(params[:id])
+  end
+
+  def save_language
+    fail_render = params[:add_new] == "true" ? "options" : "edit_language"
+    save_item(Language, ["title", "code", "region"], :admin_options, fail_render, get_language_config)
+  end
+
+  def remove_language
+    Language.find(params[:id]).destroy
+    redirect_to :admin_options
+  end
+
+  def categories
+    @results = Category.find(:all, :order => "title")
+    get_used_items(Category)
+    @item = Category.new
+  end
+
+  def edit_category
+    @item = Category.find(params[:id])
+  end
+
+  def save_category
+    fail_render = params[:add_new] == "true" ? "categories" : "edit_category"
+    save_item(Category, ["title", "url_title"], :admin_categories, fail_render, get_category_config)
+  end
+
+  def remove_category
+    Category.find(params[:id]).destroy
+    redirect_to :admin_categories
   end
 
   def reviewed

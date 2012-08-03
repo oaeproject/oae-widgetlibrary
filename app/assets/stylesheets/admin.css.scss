@@ -35,6 +35,7 @@
     }
     .wl-content-container {
         background: image-url("library_bg.png") repeat-x scroll center top transparent;
+        overflow: hidden;
         padding-top: 0;
         h3 {
             padding-top: 10px;
@@ -42,6 +43,9 @@
         ol {
             margin: 0 20px;
         }
+    }
+    .admin-submit-buttons {
+        margin-top: 10px;
     }
     #admin_header {
         font-size: 26px;
@@ -78,11 +82,9 @@
             margin-right: 60px;
         }
     }
-    #admin_widgets {
-        table { 
-            color: #333; 
-        }
-        tr { 
+    .admin-table {
+        color: #333;
+        tr {
             background: #f9f9f9;
         }
         tr:nth-child(2n+1) {
@@ -100,7 +102,41 @@
             @include background(linear-gradient(top center, #e5e5e5, #eaeaea));
         }
         td {
+            max-width: 210px;
             padding: 10px;
+            white-space: pre-line;
+            word-wrap: break-word;
         }
+        .admin-table-actions {
+            white-space: normal;
+            form {
+                display: inline-block;
+            }
+        }
+    }
+    .admin-error-box {
+        border: 4px solid #a00;
+        margin: 5px 0 0;
+        li {
+            list-style: none;
+        }
+    }
+    #admin_item_add_edit_form {
+        .wl-field {
+            padding: 3px 0;
+            label {
+                color: #666;
+                line-height: 30px;
+                display: block;
+            }
+        }
+    }
+    a.wl-button.wl-overlay-button {
+        display: inline-block;
+        height: 23px;
+        line-height: 2.18em;
+    }
+    .wl-button.wl-overlay-button:first-child {
+        margin-left: 0;
     }
 }
