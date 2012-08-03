@@ -1,0 +1,53 @@
+<% content_for :title do %> - SDK - Widget Submission Process<% end %>
+<div class="widgetsdk_container">
+    <h1>Widget Submission and Review</h1>
+    <p>This tutorial guides you through the process of submitting your widget, and the widget review process. For video instructions see our <%= link_to "video walkthrough", "#video", :class => "wl-regular-link" %>.</p>
+
+    <div class="wl-widget-item">
+        <h2 id="review-process">Submit Your Widget</h2>
+        <p>Once you've developed your widget, you can submit it to the Sakai OAE Widget Library and the general public via the <%= link_to "Widget Submit page", "/submit/new", :class => "wl-regular-link" %>. </p>
+
+        <p>The form for submitting a widget is fairly concise. Here is a description of some of the key fields in the Submit Widget form:</p>
+
+        <ul class="inline_list">
+            <li>
+                <p><strong>Widget Zip File</strong> - 
+                The main zip file of the UI components of your widget. The directory structure inside of this zip file will be a single directory with your widget's name (e.g. helloworld). Inside of that directory, there will be a helloworld.html file, a config.json file, and 4 sub-directories: javascript, css, images, and bundles for localization. For more information about the structure of a widget, see our <%= link_to "Hello World tutorial", "/sdk/developwidget/learnbasics", :class => "wl-regular-link" %>.</p>
+            </li>
+            <li>
+                <p><strong>Back-end Bundle File</strong> - You can also upload another zip file containing any back end-related functionality to make the widget work. This could be an OSGi bundle or a proxy to retrieve data from another server.</p>
+            </li>
+            <li>
+                <p><strong>Source Code Repository</strong> - 
+                For both the UI widget and the back-end bundle source code, you have the option to specify a URL for your repository in <%= link_to "Git", "/sdk/developwidget/gitbasics", :class => "wl-regular-link" %>. We highly recommend that you manage your widget's source code in git as it makes the review process much easier. Making the code versionable makes it much easier to keep track of exactly what changes were made and where, and <%= link_to "GitHub", "http://github.com", :class => "wl-regular-link" %> has many tools to facilitate very efficient code sharing, review, and discussion.</p>
+            </li>
+            <li>
+                <p><strong>Version Number</strong> - If this is your first time submitting this widget, you should go with the suggested version number of 0.0.1. Once your widget is reviewed, if there are any modifications that need to be made, the next iteration will be 0.0.2.</p>
+            </li>
+            <li>
+                <p><strong>Widget Sumarry</strong> - The summary is a quick overview of what the widget is and why it's useful. For example, a helloworld widget might say "Displays a friendly greeting to a user"</p>
+            </li>
+            <li>
+                <p><strong>Functional Breakdown</strong> - The functional break-down is where you break down the steps of how to use the widget. Also, you can provide some configuration or technical details here if you'd like. (e.g. "Users can change colors in the setting panel. Appends user's login name to a string.")</p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="wl-widget-item">
+        <h2 id="review-process">Widget Review Process</h2>
+        <p>When you submit your widget, the core team is notified that there's been a new widget submission. It will then be reviewed by a member of the core team. The review insures proper functionality and code quality. Some of the things that we look for are:</p>
+        <ul class="inline_list">
+            <li>Integration issues, and making sure that the widget doesn't break any other functionality or layouts.</li>
+            <li>For consistency, cleanliness, and organization; we make sure that the widget utilizes libraries and functionality (such as our <%= link_to "front-end API", "/sdk/api/frontend", :class => "wl-regular-link" %>) that we already have where possible.</li>
+            <li>We also aim to maximize code quality, performance, and user experience.</li>
+        </ul>
+        <p>If there are improvements that can be made to your widget, the reviewer will reach out to you via email. The reviewer will provide details as to why the widget submission wasn't accepted and suggest improvements that can be made. As stated before, GitHub is a great way to facilitate easy code review and discussion, and makes it very easy to see what changes have been made between initial submission and after making changes.</p>
+        <p>Once your widget is approved, it will be added to the Widget Library for everyone to use!</p>
+    </div>
+
+    <div class="wl-widget-item">
+        <h2 id="video">Video walkthrough</h2>
+        <iframe width="680" height="382" src="http://www.youtube.com/embed/SV0FnJJ2pNY" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <%= render :partial => "sdk/feedback" %>
+</div>
