@@ -2,8 +2,8 @@
 <div id="codingstandards" class="widgetsdk_container">
     <h1>HTML</h1>
     <p>Follow these simple few rules and you will be creating your own widgets for others to use on their Sakai platform.</p>
-    <div class="wl-widget-item first">
-        <h3>A more in-depth guide on Sakai OAE Widget SDK coding standards will be coming soon.</h3>
+    <div class="wl-widget-item">
+        <h2>A more in-depth guide on Sakai OAE Widget SDK coding standards is coming soon.</h2>
         <p>If you:</p>
         <ul class="inline_list">
             <li>start all your widgets using the template files provided in the <i>3akai-ux/devwidgets/_template</i> directory,</li>
@@ -11,6 +11,8 @@
             <li>follow the patterns mentioned in the <%= link_to "Hello World Tutorial", "/sdk/developwidget/learnbasics", :class => "wl-regular-link" %>,</li>
         </ul>
         <p>you should be just fine. The guidelines in the above resources should be considered the most up-to-date. If you have any questions about coding standards, please feel free to comment on this page or <%= link_to "contact", "/sdk/contact", :class => "wl-regular-link" %> the Sakai OAE developers.</p>
+    </div>
+    <div class="wl-widget-item">
         <h2>Name spacing</h2>
         <p>It is very important to remember that widgets are designed to be embedded within other pages. A page that includes widget X may contain other widgets and may even contain multiple instances of widget X itself. For this reason, it is important to take certain measures to prevent naming clashes with other widgets. If you look at the Hello World Tutorial you will find that:</p>
 
@@ -37,7 +39,7 @@
         </div>
 
         <ul class="inline_list">
-            <li>all JavaScript references to HTML elements are constrained to the unique container of the widget (all instances of a widget, even instances of the same widget, are provided with unique ids):</li>
+            <li>All JavaScript references to HTML elements are constrained to the unique container of the widget (all instances of a widget, even instances of the same widget, are provided with unique ids):</li>
         </ul>
 
         <div class="navigationalitems_codesnippit_container">

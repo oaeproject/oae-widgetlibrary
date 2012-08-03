@@ -35,14 +35,14 @@
     </ul>
 
     <div class="wl-widget-item">
-        <h1 class="wl-regular-link no_decoration wl-normal" id="developmentquestions">Development Questions</h1>
-        <h2 id="experience"><strong>Q: What kinds of technologies do I need to know to develop Sakai OAE widgets? How much experience will I need?</strong></h2>
+        <h2 class="wl-regular-link no_decoration wl-normal" id="developmentquestions">Development Questions</h2>
+        <h3 id="experience">Q: What kinds of technologies do I need to know to develop Sakai OAE widgets? How much experience will I need?</h3>
         <p>A: Sakai OAE widgets use front-end web technologies such as HTML (for widget layout), CSS (for widget styling), JavaScript (for widget behavior) and JSON (for widget data management). jQuery is a major JavaScript library used throughout Sakai OAE widgets. Sakai OAE has been designed to make widget development very easy and the architecture of a Sakai OAE widget is relatively simple.</p>
         <p>If you are comfortable (but by no means an expert) with HTML, CSS, JavaScript/jQuery and JSON, you should have no problem at all in developing Sakai OAE widgets.</p>
         <p>If you are new to any of the above technologies, you can expect a bit of a ramp up period to get up-to-speed, but because Sakai OAE widgets have a relatively simple architecture, you will be able to quickly learn from other simple widgets within the codebase as examples.</p>
         <p>For example widgets that have been heavily documented in this Widget SDK documentation, see the <%= link_to "Widget designs", "/sdk/designguide/widgetdesigns", :class => "wl-regular-link" %> page.</p>
 
-        <h2 id="installation"><strong>Q: How do I get and install Sakai OAE?</strong></h2>
+        <h3 id="installation">Q: How do I get and install Sakai OAE?</h3>
         <p>A: Depending on what you want to do with Sakai OAE, there are different methods for getting and installing Sakai OAE:</p>
         <ul class="inline_list">
             <li>For building, deploying and developing for Sakai OAE on your own machine, follow the instructions on the <%= link_to "quick development setup", "/sdk/developwidget/quicksetup", :class => "wl-regular-link" %> page.</li>
@@ -50,7 +50,7 @@
             <li>If you have trouble with the one-click installer, you may also download the binary package from the <%= link_to "Sakai OAE release page", "http://www.sakaiproject.org/node/2307", :class => "wl-regular-link" %> and run the server yourself. This option will not allow you to see or change any of the Sakai OAE code.</li>
         </ul>
 
-        <h2 id="documentation"><strong>Q: Where do I find detailed documentation on the services that are available for use in my widgets?</strong></h2>
+        <h3 id="documentation">Q: Where do I find detailed documentation on the services that are available for use in my widgets?</h3>
         <p>A: <%= link_to "The Widget API section", "/sdk/api", :class => "wl-regular-link" %> of this documentation contains information on <%= link_to "front-end API", "/sdk/api/frontend", :class => "wl-regular-link" %>, <%= link_to "back-end endpoints", "/sdk/api/backend", :class => "wl-regular-link" %> and <%= link_to "3rd party libraries", "/sdk/api/thirdparty", :class => "wl-regular-link" %> available to Sakai OAE widgets. If you are unable to find information on the service you are looking for, there may be additional locations that would be worthwhile to search:</p>
         <ul class="inline_list">
             <li>All Sakai OAE Widget API functions can be found in the various sakai.api JavaScript files located in the /dev/lib/sakai directory</li>
@@ -62,7 +62,7 @@
             </li>
         </ul>
 
-        <h2 id="requirejs"><strong>Q: How can I use external JavaScript files and libraries within my widget?</strong></h2>
+        <h3 id="requirejs">Q: How can I use external JavaScript files and libraries within my widget?</h3>
         <p>A: We use <%= link_to "RequireJS", "http://requirejs.org/", :title => "RequireJS", :class => "wl-regular-link", :target => "_blank" %> to handle loading JavaScript modules and dependencies. You simply add the path to your file at the end of the array of modules. For example, if you want to pull in a JavaScript file from Twitter, you can change this line:  </p>
 
         <div class="navigationalitems_codesnippit_container few_lines">
@@ -81,12 +81,12 @@ require(['jquery', 'sakai/sakai.api.core', 'http://widgets.twimg.com/j/2/widget.
     </div>
 
     <div class="wl-widget-item">
-        <h1 id="contributing" class="wl-regular-link no_decoration wl-normal">Contributing to Sakai OAE</h1>
-        <h2 id="reportbugs"><strong>Q: How do I report a bug?</strong></h2>
+        <h2 id="contributing" class="wl-regular-link no_decoration wl-normal">Contributing to Sakai OAE</h2>
+        <h3 id="reportbugs">Q: How do I report a bug?</h3>
         <p>A: Bugs can be reported in <%= link_to "our bug tracking system JIRA", "http://jira.sakaiproject.org", :title => "Sakai OAE bug tracking system JIRA", :class => "wl-regular-link", :target => "_blank" %> by Atlassian.</p>
-        <h2 id="suggestfeature"><strong>Q: How do I suggest a feature?</strong></h2>
+        <h3 id="suggestfeature">Q: How do I suggest a feature?</h3>
         <p>A: We encourage the community to post and vote ideas on the <%= link_to "Sakai OAE Idea Informer", "http://sakaioae.idea.informer.com/", :title => "Sakai OAE Idea Informer", :class => "wl-regular-link", :target => "_blank" %> page. The Idea Informer is taken into account when setting up goals for the future.</p>
-        <h2 id="gitworkflow"><strong>Q: What is the best git workflow to use?</strong></h2>
+        <h3 id="gitworkflow">Q: What is the best git workflow to use?</h3>
         <p>A: If you're looking for a detailed workflow for setting up your environment, take a look at the <%= link_to "quick development setup", "/sdk/developwidget/quicksetup", :class => "wl-regular-link" %> page.</p>
         <p>There's a few ways of doing the same tasks with GIT, the following list has a few 'best practices' to take into account while developing for the OAE using the GIT version control system.</p>
         <ul class="inline_list">
@@ -99,11 +99,11 @@ require(['jquery', 'sakai/sakai.api.core', 'http://widgets.twimg.com/j/2/widget.
     </div>
 
     <div class="wl-widget-item">
-        <h1 id="backgroundinformation" class="wl-regular-link no_decoration wl-normal">Sakai OAE Background information</h1>
-        <h2 id="clerelation"><strong>Q: How does Sakai OAE relate to Sakai CLE (the previous version of Sakai)?</strong></h2>
-        <h2 id="releases"><strong>Q: What releases of Sakai OAE are currently available?</strong></h2>
-        <h2 id="platforms"><strong>Q: What platform(s) does Sakai OAE run on?</strong></h2>
-        <h2 id="browsers"><strong>Q: What browsers does the OAE support?</strong></h2>
+        <h2 id="backgroundinformation" class="wl-regular-link no_decoration wl-normal">Sakai OAE Background information</h2>
+        <h3 id="clerelation">Q: How does Sakai OAE relate to Sakai CLE (the previous version of Sakai)?</h3>
+        <h3 id="releases">Q: What releases of Sakai OAE are currently available?</h3>
+        <h3 id="platforms">Q: What platform(s) does Sakai OAE run on?</h3>
+        <h3 id="browsers">Q: What browsers does the OAE support?</h3>
         <p>A: The OAE tries to support as many browsers as possible. However, due to the vast amount of browsers out there we support the 2 latest versions of the most popular browsers.</p>
         <ul class="inline_list">
             <li><%= link_to "Mozilla Firefox", "http://www.mozilla.org/firefox", :title => "Mozilla Firefox", :class => "wl-regular-link", :target => "_blank" %></li>
@@ -113,11 +113,11 @@ require(['jquery', 'sakai/sakai.api.core', 'http://widgets.twimg.com/j/2/widget.
         </ul>
 
         <p>For users to fully enjoy your widgets it's best to test them in these browsers before submitting them to the Widget Library.</p>
-        <h2 id="license"><strong>Q: How is Sakai OAE licensed?</strong></h2>
+        <h3 id="license">Q: How is Sakai OAE licensed?</h3>
         <p>A: Sakai OAE is released under the <%= link_to "Educational Community License version 2.0", "http://sakaiproject.org/foundation-licenses", :title => "Educational Community License version 2.0", :class => "wl-regular-link", :target => "blank" %>.</p>
-        <h2 id="cost"><strong>Q: Do I need to buy or pay anything to create Sakai OAE widgets?</strong></h2>
+        <h3 id="cost">Q: Do I need to buy or pay anything to create Sakai OAE widgets?</h3>
         <p>A: Developing for Sakai OAE is free and we encourage everyone to participate and create widgets. Take a look at the '<%= link_to "Learn the basics, 'Hello World' tutorial", "/sdk/developwidget/learnbasics", :class => "wl-regular-link" %>' section to get started on your widget.</p>
-        <h2 id="experiment"><strong>Q: Where can I find working versions of Sakai OAE to experiment with or share with colleagues?</strong></h2>
+        <h3 id="experiment">Q: Where can I find working versions of Sakai OAE to experiment with or share with colleagues?</h3>
         <p>A: All latest versions will be announced on the <%= link_to "Sakai OAE release page", "http://sakaiproject.org/oae-release", :title => "Sakai OAE release page", :class => "wl-regular-link", :target => "blank" %>. This page has binaries, web start packages and links to the source code to get you started with the latest version of the Open Academic Environment.</p>
     </div>
 </div>

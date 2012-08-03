@@ -36,8 +36,8 @@
     
 
     <div class="wl-widget-item">
-        <h1 id="generalguidelines">General guidelines</h1></a>
-        <h2 id="stylesheetlayout">Stylesheet layout</h2>
+        <h2 id="generalguidelines">General guidelines</h2>
+        <h3 id="stylesheetlayout">Stylesheet layout</h3>
         <p>A stylesheet in the OAE starts of with license information that is identical in every file followed by the styles applied to the widget elements. There should only be one stylesheet per widget (external libraries not included).</p>
         <div class="navigationalitems_codesnippit_container">
             <div class="navigationalitems_codesnippit_header"><h4>A basic stylesheet layout</h4></div>
@@ -86,7 +86,7 @@
             <li>Alphabetize the CSS properties to improve readability</li>
         </ul>
 
-        <h2 id="overriding">Overriding core stylesheets</h2>
+        <h3 id="overriding">Overriding core stylesheets</h3>
         <p>Overriding core stylesheets is something that can be done and might be necessary from time to time. There are a few guidelines in this area as well to make sure that the UI remains consistent (colors, font sizes,...) and maintenance time stays optimized. Let's look at an example of an override:</p>
         <div class="navigationalitems_codesnippit_container">
             <div class="navigationalitems_codesnippit_header"><h4>Example of an override in CSS</h4></div>
@@ -104,7 +104,7 @@
         </div>
         <p>The example describes the sharecontent widget and a type of list that we want to modify. The rule of thumb is that we use <span class="red">!important</span> when a normal override doesn't work for any reason but keep the general appearance (fonts, colors, etc.) intact. <span class="red">!important</span> should be avoided where possible.</p>
 
-        <h2 id="namingconventions">Naming conventions</h2>
+        <h3 id="namingconventions">Naming conventions</h3>
         <p>Choosing the right name for classes and IDs is almost as important as the style you are going to apply since it identifies what the element is and possibly what it should be doing. The naming convention for a classname in the OAE is "<strong>WIDGETNAME_relevant_classname</strong>". Let's take the sharecontent widget as an example:</p>
 
         <div class="navigationalitems_codesnippit_container">
@@ -122,11 +122,11 @@
     </div>
 
     <div class="wl-widget-item">
-        <h1 id="reusablecss">Reusable CSS</h1></a>
+        <h2 id="reusablecss">Reusable CSS</h2>
         <!-- UTILITY CLASSES -->
-        <h2 id="utility">Utility classes</h2>
+        <h3 id="utility">Utility classes</h3>
         <p>Utility classes don't necessarily show on the page but aid other classes to achieve a specific style. Most of these can be used on their own as well as in combination with other classes.</p>
-        <h3>Dotted line</h3>
+        <h4>Dotted line</h4>
         <p>Example:</p>
         <%= image_tag "dotted_line_example.png", :alt => "Dotted line example" %>
         <div class="navigationalitems_codesnippit_container few_lines">
@@ -137,7 +137,7 @@
 .s3d-split-line
 </pre>
         </div>
-        <h3>Margin</h3>
+        <h4>Margin</h4>
         <div class="navigationalitems_codesnippit_container few_lines">
             <div class="navigationalitems_codesnippit_header">
                 <h4>Adds or removes some margin</h4>
@@ -152,7 +152,7 @@
 .s3d-button.s3d-no-margin-top
 </pre>
         </div>
-        <h3>Hide elements</h3>
+        <h4>Hide elements</h4>
         <div class="navigationalitems_codesnippit_container few_lines">
             <div class="navigationalitems_codesnippit_header">
                 <h4>Hide an element</h4>
@@ -161,7 +161,7 @@
 .s3d-hidden
 </pre>
         </div>
-        <h3>Bold text</h3>
+        <h4>Bold text</h4>
         <div class="navigationalitems_codesnippit_container few_lines">
             <div class="navigationalitems_codesnippit_header">
                 <h4>Make text bold</h4>
@@ -170,7 +170,7 @@
 .s3d-bold
 </pre>
         </div>
-        <h3>Floats</h3>
+        <h4>Floats</h4>
         <div class="navigationalitems_codesnippit_container few_lines">
             <div class="navigationalitems_codesnippit_header">
                 <h4>Create floating elements</h4>
@@ -183,7 +183,7 @@
 
 
         <!-- ACCESSIBILITY -->
-        <h2 id="accessibility">Accessibility</h2>
+        <h3 id="accessibility">Accessibility</h3>
         <div class="navigationalitems_codesnippit_container few_lines">
             <div class="navigationalitems_codesnippit_header">
                 <h4>Apply to containers that need to be rendered off-screen but visible to screen readers</h4>
@@ -195,8 +195,8 @@
 
 
         <!-- LINKS -->
-        <h2 id="links">Links</h2>
-        <h3>Regular links</h3>
+        <h3 id="links">Links</h3>
+        <h4>Regular links</h4>
         <p>Example:</p>
         <%= image_tag "regular_links_example.png", :alt => "Regular links example" %>
         <div class="navigationalitems_codesnippit_container few_lines">
@@ -207,7 +207,7 @@
 &lt;a href="http://www.google.co.uk" class="s3d-regular-links"&gt;www.google.co.uk&lt;/a&gt;
 </pre>
         </div>
-        <h3>Button links</h3>
+        <h4>Button links</h4>
         <p>Button links are regular links that have a button style applied</p>
         <p>Example:</p>
         <%= image_tag "button_link_example.png", :alt => "Button link example" %>
@@ -222,8 +222,8 @@
 
 
         <!-- BUTTONS -->
-        <h2 id="buttons">Buttons</h2>
-        <h3>General</h3>
+        <h3 id="buttons">Buttons</h3>
+        <h4>General</h4>
         <p>This class has to be applied to all buttons as it contains some overrides for the browser's default button style.</p>
         <div class="navigationalitems_codesnippit_container few_lines">
             <div class="navigationalitems_codesnippit_header">
@@ -233,7 +233,7 @@
 .s3d-button
 </pre>
         </div>
-        <h3>Link buttons</h3>
+        <h4>Link buttons</h4>
         <p>Link buttons are buttons that are styled as regular links. They are often used in situations where a pop up is invoked on click instead of browsing to another page.</p>
         <p>Example:</p>
         <%= image_tag "link_button_example.png", :alt => "Link button example" %>
@@ -245,7 +245,7 @@
 .s3d-button.s3d-link-button
 </pre>
         </div>
-        <h3>Header buttons</h3>
+        <h4>Header buttons</h4>
         <p>Example:</p>
         <%= image_tag "header_button_example.png", :alt => "Header button example" %>
         <div class="navigationalitems_codesnippit_container few_lines">
@@ -256,7 +256,7 @@
 .s3d-button.s3d-header-button
 </pre>
         </div>
-        <h3>Header buttons (smaller)</h3>
+        <h4>Header buttons (smaller)</h4>
         <p>Example:</p>
         <%= image_tag "smaller_header_button_example.png", :alt => "Smaller header button example" %>
         <div class="navigationalitems_codesnippit_container few_lines">
@@ -267,7 +267,7 @@
 .s3d-button.s3d-header-button.s3d-header-smaller-button
 </pre>
         </div>
-        <h3>Pop out buttons</h3>
+        <h4>Pop out buttons</h4>
         <p>A 'pop out' button is a button that's based on the default header button. A typical use case would be a button that's floating right on the edge of a container. It's style is different from a normal button as it only has one side of rounded borders in order to make it float on the edge.</p>
         <p>Example pop out button:</p>
         <%= image_tag "popout_button_example.png", :alt => "Pop out button" %>
@@ -285,7 +285,7 @@
     &lt;/button&gt;
 &lt;/div&gt;</pre></pre>
         </div>
-        <h3>Large in-page buttons</h3>
+        <h4>Large in-page buttons</h4>
         <p>Large in-page buttons are used to emphasize an action in the UI. An example of this is a 'show more' button to show more results for a search.</p>
         <p>Example:</p>
         <%= image_tag "large_button_example.png", :alt => "Large in-page button example" %>
@@ -298,7 +298,7 @@
 a.s3d-button.s3d-large-button
 </pre>
         </div>
-        <h3>Overlay buttons</h3>
+        <h4>Overlay buttons</h4>
         <p>This type of button is typically used in overlays invoked in the UI but can be used inside of a page as well. They define a 'submit' or 'complete' action (e.g. share content, update profile).</p>
         <p>Example:</p>
         <%= image_tag "overlay_button_example.png", :alt => "Overlay button example" %>
@@ -310,7 +310,7 @@ a.s3d-button.s3d-large-button
 .s3d-button.s3d-overlay-button
 </pre>
         </div>
-        <h3>Overlay action buttons</h3>
+        <h4>Overlay action buttons</h4>
         <p>This overlay action buttons are only used in overlays to define a 'complete' or 'submit' action.</p>
         <p>Example:</p>
         <%= image_tag "overlay_action_button_example.png", :alt => "Overlay action button example" %>
@@ -322,7 +322,7 @@ a.s3d-button.s3d-large-button
 .s3d-button.s3d-overlay-action-button
 </pre>
         </div>
-        <h3>Button without text</h3>
+        <h4>Button without text</h4>
         <p>You can create buttons without text to hold an icon.</p>
         <p>Example:</p>
         <%= image_tag "no_text_button_example.png", :alt => "Button without text example" %>
@@ -334,7 +334,7 @@ a.s3d-button.s3d-large-button
 .s3d-button.s3d-button-no-text
 </pre>
         </div>
-        <h3>Button in a button</h3>
+        <h4>Button in a button</h4>
         <p>Buttons inside of buttons can be useful when you want to apply a style to the counters that looks like a button and bind actions to buttons inside of that container.</p>
         <p>Example:</p>
         <%= image_tag "button_in_button_example.png", :alt => "Button in a button example" %>
@@ -350,7 +350,7 @@ a.s3d-button.s3d-large-button
         </div>
 
         <!-- TABS -->
-        <h2 id="inpagetabs">In page tabs</h2>
+        <h3 id="inpagetabs">In page tabs</h3>
         <p>To separate information within the main content area of a widget.</p>
         <p>Example:</p>
         <%= image_tag "inpagetabs_example.png", :alt => "In page tabs example" %>
@@ -376,8 +376,8 @@ a.s3d-button.s3d-large-button
         </div>
 
         <!-- DROP DOWNS -->
-        <h2 id="dropdowns">Drop downs</h2>
-        <h3>Drop down lists</h3>
+        <h3 id="dropdowns">Drop downs</h3>
+        <h4>Drop down lists</h4>
         <p>Example:</p>
         <%= image_tag "dropdown_list_example.png", :alt => "Drop down list example" %>
         <div class="navigationalitems_codesnippit_container">
@@ -400,7 +400,7 @@ a.s3d-button.s3d-large-button
     &lt;/ul&gt;
 &lt;/div&gt;</pre></pre>
         </div>
-        <h3>Drop down menu</h3>
+        <h4>Drop down menu</h4>
         <p>Example:</p>
         <%= image_tag "dropdown_menu_example.png", :alt => "Drop down menu example" %>
         <div class="navigationalitems_codesnippit_container">
@@ -426,7 +426,7 @@ a.s3d-button.s3d-large-button
 
 
         <!-- DRAG AND DROP -->
-        <h2 id="draganddrop">Drag and Drop</h2>
+        <h3 id="draganddrop">Drag and Drop</h3>
         <p>Example:</p>
         <%= image_tag "drag_and_drop_example.png", :alt => "Drag and drop example" %>
         <div class="navigationalitems_codesnippit_container">
@@ -451,7 +451,7 @@ a.s3d-button.s3d-large-button
 
 
         <!-- LIST VIEW OPTIONS -->
-        <h2 id="listviewoptions">List view options</h2></a>
+        <h3 id="listviewoptions">List view options</h3>
         <p>Example:</p>
         <%= image_tag "list_view_options_example.png", :alt => "List view options example" %>
         <div class="navigationalitems_codesnippit_container">
@@ -480,7 +480,7 @@ a.s3d-button.s3d-large-button
 
 
         <!-- LISTS -->
-        <h2 id="lists">Search Lists</h2>
+        <h3 id="lists">Search Lists</h3>
         <p>Search can deliver a wide variety of results including people, content and courses. There are a few classes that can be applied to cope with different situations.</p>
         <p>Example:</p>
         <%= image_tag "search_list_example.png", :alt => "Search list example" %>
@@ -528,8 +528,8 @@ ul.s3d-search-results-grid
 
 
         <!-- CONTAINERS -->
-        <h2 id="containers">Containers</h2>
-        <h3>Container with inner shadow</h3>
+        <h3 id="containers">Containers</h3>
+        <h4>Container with inner shadow</h4>
         <p>Example:</p>
         <%= image_tag "inner_shadow_container_example.png", :alt => "Inner shadow container example" %>
         <div class="navigationalitems_codesnippit_container few_lines">
@@ -540,7 +540,7 @@ ul.s3d-search-results-grid
 .s3d-inset-shadow-container
 </pre>
         </div>
-        <h3>Container with outer shadow</h3>
+        <h4>Container with outer shadow</h4>
         <p>Example:</p>
         <%= image_tag "outer_shadow_container_example.png", :alt => "Outer shadow container example" %>
         <div class="navigationalitems_codesnippit_container few_lines">
@@ -551,7 +551,7 @@ ul.s3d-search-results-grid
 .s3d-outer-shadow-container
 </pre>
         </div>
-        <h3>Search container</h3>
+        <h4>Search container</h4>
         <p>Search containers, containing an input field and a submit button, are standardized.</p>
         <p>Example:</p>
         <%= image_tag "search_container_example.png", :alt => "Search container example" %>
@@ -571,7 +571,7 @@ ul.s3d-search-results-grid
     &lt;/button&gt;
 &lt;/span&gt;</pre></pre>
         </div>
-        <h3>'No results' container</h3>
+        <h4>'No results' container</h4>
         <p>A 'No results' container is used when, for example, a search result doesn't return anything or your inbox is empty and a default message should be shown.</p>
         <p>Example:</p>
         <%= image_tag "no_results_container_example.png", :alt => "No results container example" %>
@@ -612,8 +612,8 @@ ul.s3d-search-results-grid
 
 
         <!-- ICONS -->
-        <h2 id="icons">Icons</h2>
-        <h3>Action icons</h3>
+        <h3 id="icons">Icons</h3>
+        <h4>Action icons</h4>
         <p>Action icons are all icons that can define an action like deleting content, sharing content, uploading content,...</p>
         <div class="navigationalitems_codesnippit_container">
             <div class="navigationalitems_codesnippit_header">
@@ -639,7 +639,7 @@ ul.s3d-search-results-grid
 .s3d-actions-message:hover
 </pre>
         </div>
-        <h3>Mime type icons</h3>
+        <h4>Mime type icons</h4>
         <p>Mime type icons are generally accessed by the API's handling content items. Here is a list of mime type icons available. For an up to date way of displaying mime type icons check the front end getMimeTypeData function.</p>
         <div class="navigationalitems_codesnippit_container">
             <div class="navigationalitems_codesnippit_header">
@@ -671,7 +671,7 @@ ul.s3d-search-results-grid
 
 
         <!-- OVERLAY DIALOGS -->
-        <h2 id="dialogs">Overlay dialogs</h2>
+        <h3 id="dialogs">Overlay dialogs</h3>
         <p>Example:</p>
         <%= image_tag "dialog_overlay_example.png", :alt => "Overlay dialog example" %>
         <div class="navigationalitems_codesnippit_container">
@@ -696,7 +696,7 @@ ul.s3d-search-results-grid
 
 
         <!-- FORMS -->
-        <h2 id="forms">Forms</h2>
+        <h3 id="forms">Forms</h3>
         <p>Forms are validated using the validation plugin provided by jQuery. See the forms section in the SDK for implementation of the Javascript.</p>
         <p>Example:</p>
         <%= image_tag "form_example.png", :alt => "Form example" %>
