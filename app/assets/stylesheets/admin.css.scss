@@ -69,7 +69,8 @@
             display: inline-block;
             float: left;
             margin: 12px 0;
-            width: 33%;
+            min-height: 80px;
+            width: 32%;
         }
         img {
             height: 50px;
@@ -79,6 +80,9 @@
         input[type="checkbox"] {
             float: right;
             margin-right: 60px;
+        }
+        a.wl-button {
+            margin: 5px auto 0;
         }
     }
     .admin-table {
