@@ -67,7 +67,6 @@
         margin: 0;
         li {
             display: inline-block;
-            float: left;
             margin: 12px 0;
             width: 33%;
         }
@@ -79,6 +78,9 @@
         input[type="checkbox"] {
             float: right;
             margin-right: 60px;
+        }
+        a.wl-button {
+            margin: auto;
         }
     }
     .admin-table {
