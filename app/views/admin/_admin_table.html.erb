@@ -1,0 +1,28 @@
+<table class="admin-table">
+    <thead>
+        <% @config[:table_headings].each do |heading| %>
+            <th><%= heading %></th>
+        <% end %>
+        <th>Actions</th>
+    </thead>
+    <tbody>
+        <% @results.each do |result| %>
+            <tr>
+                <% @config[:db_properties].each do |property| %>
+                    <td><%= result[property] %></td>
+                <% end %>
+                <td class="admin-table-actions">
+                    <%= link_to "Edit", "#{@config[:urls][:edit]}#{result.id}", :class => "wl-button wl-overlay-button" %>
+                    <%= form_tag @config[:urls][:remove], :method => "POST", :class => "admin_item_remove_form" do %>
+                        <input type="hidden" name="id" value="<%= result.id %>" />
+                        <% confirm_message = @items_used.include?(result.id) ?
+                            "This item is being used by widgets.\nAre you sure you want to remove this entry?" :
+                            "Are you sure you want to remove this entry?"
+                        %>
+                        <%= link_to 'Remove', [@config[:urls][:remove], result.id].join, :confirm => confirm_message, :method => :delete, :class => "wl-button wl-overlay-button" %>
+                    <% end %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
