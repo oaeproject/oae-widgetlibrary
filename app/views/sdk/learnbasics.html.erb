@@ -3,23 +3,43 @@
     <h1>'Hello World' tutorial</h1>
     <p>This tutorial will walk you through building a relatively simple widget called 'My Hello World'. My Hello World is a dashboard widget that says hello to the current user with text in the colour of their choosing.</p>
 
-    <ul class="inline_list">
-        <li><%= link_to "Automatic quick setup", "#automatic", :class => "wl-regular-link" %></li>
-        <li><%= link_to "Manual quick setup", "#manual", :class => "wl-regular-link" %></li>
-        <li><%= link_to "Video walkthrough", "#video", :class => "wl-regular-link" %></li>
-    </ul>
-
     <%= image_tag "developer_helloworld_example.png", :alt => "My Hello World" %>
 
     <p>The My Hello World widget is identical to the Hello World widget (except the name and ID of the widget) included in the 3akai-UX code distribution at 3akai-ux/devwidgets/helloworld. For the purposes of this tutorial we are using My Hello World (and corresponding myhelloworld ID) so you can create a new widget while referencing the provided Hello World widget if necessary.</p>
 
+    <ul class="inline_list">
+        <li><%= link_to "Video walkthrough", "#video", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Step 1: Development environment setup", "#devenvsetup", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Step 2: Set up the widget file structure", "#widgetstructure", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Step 3: Configure the widget", "#configurewidget", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Step 4: Create the HTML template", "#htmltemplate", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Step 5: Create the default message bundle", "#messagebundle", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Step 6: Load My Hello World in Sakai OAE", "#loadwidget", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Step 7: Define widget behavior", "#widgetbehavior", :class => "wl-regular-link" %></li>
+        <li><%= link_to "Step 8: What's next?", "#next", :class => "wl-regular-link" %></li>
+    </ul>
+
     <div class="wl-widget-item">
-        <h2>Step 1: Development environment setup</h2>
+        <h2 id="video">Video walkthrough</h2>
+        <iframe class="wl-centered" width="680" height="382" src="http://www.youtube.com/embed/GUQQcexCKPU?vq=hd720" frameborder="0" allowfullscreen></iframe>
+        <p>A complete walkthrough on how to develop your first widget in OAE. This video inlcudes many useful hints &amp; tricks when developing a widget.</p>
+        <p>These are some of the highlights:
+        <ul class="inline_list">
+            <li>Using the <%= link_to "widget template builder", "/sdk/developwidget/widgetbuilder", :class => "wl-regular-link" %></li>
+            <li>Adding a different language to your widget</li>
+            <li>How to use the <%= link_to "Trimpath", "http://code.google.com/p/trimpath/", :class => "wl-regular-link" %> templates</li>
+            <li>Loading and saving widget data</li>
+            <li>Doing some basic troubleshooting</li>
+        </ul>
+    </div>
+
+    <div class="wl-widget-item">
+        <h2 id="devenvsetup">Step 1: Development environment setup</h2>
         <p>Make sure your development environment is <%= link_to "set up", "/sdk/developwidget/quicksetup", :class => "wl-regular-link" %> so you can create the My Hello World widget and run it within Sakai OAE on your machine.</p>
     </div>
 
     <div class="wl-widget-item">
-        <h2>Step 2: Set up the widget file structure</h2>
+        <h2 id="widgetstructure">Step 2: Set up the widget file structure</h2>
         <p>You can generate the widget file &amp; folder structure with the <%= link_to "widget template builder", "/sdk/developwidget/widgetbuilder", :class => "wl-regular-link" %>. If you don't want to, follow the steps below. Either way, you should follow the widget file structure pattern so your widgets function properly.</p>
         <ul class="inline_list">
             <li>Create a <b><i>myhelloworld directory</i></b> within the 3akai-ux/devwidgets directory.</li>
@@ -74,7 +94,7 @@
     </div>
 
     <div class="wl-widget-item">
-        <h2>Step 3: Configure the widget</h2>
+        <h2 id="configurewidget">Step 3: Configure the widget</h2>
         <p>To let Sakai OAE know about our new widget, we need to set certain configuration parameters.</p>
         <p>This is done by editing the widget's <i>config.json</i> file that the Sakai OAE frontend code reads to know which widgets are available (you can see all registered Sakai OAE widgets at http://localhost:8080/var/widgets.json). All widgets must have a <i>config.json</i> file.</p>
         <p>Here is the <i>config.json</i> you will need for My Hello World (minus the comments from the template file for brevity):</p>
@@ -129,7 +149,7 @@
     </div>
 
     <div class="wl-widget-item">
-        <h2>Step 4: Create the HTML template</h2>
+        <h2 id="htmltemplate">Step 4: Create the HTML template</h2>
 
         <p>In <i>config.json</i> we instructed Sakai OAE to load our widget from <i>/devwidgets/myhelloworld/myhelloworld.html</i>. The HTML template acts as the "home" of our widget where we define our widget's interface and link to any of the other content our widget uses (CSS, JavaScript, images).</p>
         <p>Here is the <i>myhelloworld.html</i> you will need for My Hello World:</p>
@@ -234,7 +254,7 @@
 
     </div>
     <div class="wl-widget-item">
-        <h2>Step 5: Create the default message bundle</h2>
+        <h2 id="messagebundle">Step 5: Create the default message bundle</h2>
 
         <p>As described above, we want to avoid displaying any non-internationalized text to the user and have created message keys for all the text the user will see in our HTML template. These message keys follow the pattern:</p>
 
@@ -266,7 +286,7 @@ HELLO_WORLD = Hello World
     </div>
 
     <div class="wl-widget-item">
-        <h2>Step 6: Load My Hello World in Sakai OAE</h2>
+        <h2 id="loadwidget">Step 6: Load My Hello World in Sakai OAE</h2>
 
         <p>Now that our widget is configured and the message keys have been defined, we can see My Hello World in Sakai OAE. Of course, since we have not defined our CSS or JavaScript yet, the widget will not do much, but we can test to make sure we have set up our widget properly. Follow these steps to see the My Hello World widget in action.</p>
 
@@ -282,7 +302,7 @@ HELLO_WORLD = Hello World
     </div>
 
     <div class="wl-widget-item">
-        <h2>Step 7: Define widget behavior</h2>
+        <h2 id="widgetbehavior">Step 7: Define widget behavior</h2>
 
         <p>The My Hello World widget should display a message to the user along with their first name and allow the user to change the color of the text in which the message is displayed. We define all this behavior using the JavaScript that is loaded along with the widget's HTML template.</p>
 
@@ -496,7 +516,7 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
         </ul>
     </div>
     <div class="wl-widget-item">
-        <h2>Step 8: What's next?</h2>
+        <h2 id="next">Step 8: What's next?</h2>
 
         <p>It's always a good idea to look at the <%= link_to "coding standards", "/sdk/codestyleguide", :class => "wl-regular-link" %> we use for Sakai OAE development.</p>
         <p>When you make your own widget and want to show it to the world, feel free to <%= link_to "submit it", new_version_path, :class => "wl-regular-link" %>.</p>
