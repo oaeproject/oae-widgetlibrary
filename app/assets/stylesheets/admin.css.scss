@@ -67,8 +67,10 @@
         margin: 0;
         li {
             display: inline-block;
+            float: left;
             margin: 12px 0;
-            width: 33%;
+            min-height: 80px;
+            width: 32%;
         }
         img {
             height: 50px;
@@ -80,7 +82,7 @@
             margin-right: 60px;
         }
         a.wl-button {
-            margin: auto;
+            margin: 5px auto 0;
         }
     }
     .admin-table {
