@@ -50,6 +50,7 @@ SakaiWidgetlibrary::Application.routes.draw do
   # Admin section
   match '/admin/users' => 'admin#users', :as => :admin_users
   match '/admin/users/admin' => 'admin#adminusers', :as => :admin_admin_users
+  delete '/admin/users/delete/:id' => 'admin#delete_user', :as => :admin_delete_user
   match '/admin/options' => 'admin#options', :as => :admin_options
   match '/admin/languages/edit/:id' => 'admin#edit_language', :as => :admin_edit_language
   post  '/admin/languages/save' => 'admin#save_language', :as => :admin_add_edit_language
