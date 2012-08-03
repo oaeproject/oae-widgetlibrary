@@ -54,10 +54,12 @@ if (true)
 </pre>
         </div>
         <p>Also notice the use of whitespace before and after the condition statement.</p>
-
+    </div>
+    <div class="wl-widget-item">
         <h2 id="callbacks">Callbacks</h2>
         <p>Functions often return data by using callbacks. All API functions that return data do this through a callback function and it's recommended you use them.</p>
-
+    </div>
+    <div class="wl-widget-item">
         <h2 id="conditions">Conditions</h2>
         <p>Any non-trivial conditions should be assigned to a descriptive variable. This improves code readability.</p>
         <h4>Right:</h4>
@@ -77,7 +79,8 @@ if (user.isAdmin() || user.isModerator()) {
 }
 </pre>
         </div>
-
+    </div>
+    <div class="wl-widget-item">
         <h2 id="constants">Constants</h2>
         <p>Constants should be declared as regular variables or static class properties, using all capital letters.</p>
         <h4>Right:</h4>
@@ -93,6 +96,8 @@ const second = 1 * 1000;
 </pre>
         </div>
 
+    </div>
+    <div class="wl-widget-item">
         <h2 id="documentation">Documentation</h2>
         <p>Use JSDoc to document functions.</p>
         <div class="navigationalitems_codesnippit_container few_lines">
@@ -108,9 +113,13 @@ var convertToBoolean = function(num) {
 </pre>
         </div>
 
+    </div>
+    <div class="wl-widget-item">
         <h2 id="editors">Editors</h2>
         <p>Any editor can be used. However, it's recommended to use an editor that respects these guidelines (tabs vs spaces, etc.) and a little syntax highlighting never hurt anyone. Frequently used editors in the team are <%= link_to "Textmate", "http://macromates.com/", :class => "wl-regular-link" %>, <%= link_to "Sublime", "http://www.sublimetext.com/", :class => "wl-regular-link" %> and <%= link_to "Aptana Studio", "http://www.aptana.com/", :class => "wl-regular-link" %>.</p>
 
+    </div>
+    <div class="wl-widget-item">
         <h2 id="equality-operator">Equality operator</h2>
         <p>Don't take a guess at what you're comparing, use triple equality operators at all times.</p>
         <h4>Right:</h4>
@@ -132,6 +141,8 @@ if (a == '') {
 </pre>
         </div>
 
+    </div>
+    <div class="wl-widget-item">
         <h2 id="eventhandling">Event handling</h2>
         <p>As of jQuery 1.7 the .live(), .die(), .bind() and .unbind() methods are deprecated, instead use .on() to attach event handlers and .off() to remove them.</p>
         <div class="navigationalitems_codesnippit_container">
@@ -164,6 +175,8 @@ $(window).on('updatedTitle.worldsettings.sakai', function(ev, title) {
 </pre>
         </div>
 
+    </div>
+    <div class="wl-widget-item">
         <h2 id="extending-prototypes">Extending prototypes</h2>
         <p>Don't extend the prototypes of any objects.</p>
         <h4>Right:</h4>
@@ -189,6 +202,8 @@ if (a.empty()) {
 </pre>
         </div>
 
+    </div>
+    <div class="wl-widget-item">
         <h2 id="function-declaration">Function declaration</h2>
         <p>Functions should be assigned to a variable instead of declared inline.</p>
         <h4>Right:</h4>
@@ -208,12 +223,18 @@ function myFunction() {
 </pre>
         </div>
 
+    </div>
+    <div class="wl-widget-item">
         <h2 id="function-length">Function length</h2>
         <p>Functions that are short are often easier to read. Splitting up your big functions into multiple smaller functions often helps. Try to keep function length between 10-15 lines.</p>
 
+    </div>
+    <div class="wl-widget-item">
         <h2 id="line-length">Line Length</h2>
         <p>Limiting line length to about 80 characters will improve readability. Especially in complex statements where you want to remember what you were thinking in a few weeks from now (you do comment your code, right?).</p>
 
+    </div>
+    <div class="wl-widget-item">
         <h2 id="literal-notation">Literal notation</h2>
         <p>Use the literal notation.</p>
         <h4>Right:</h4>
@@ -237,6 +258,8 @@ var myBoolean = new Boolean(1);
 </pre>
         </div>
 
+    </div>
+    <div class="wl-widget-item">
         <h2 id="loops">Loops</h2>
         <p>The body of every <em>for in</em> statement should be wrapped in an if statement that does filtering. If you're able to use $.each, use that instead.</p>
         <h4>Right:</h4>
@@ -282,6 +305,8 @@ $.each(items, function(index, item) {
 </pre>
         </div>
 
+    </div>
+    <div class="wl-widget-item">
         <h2 id="nested-closures">Nested closures</h2>
         <p>Don't nest closures as it makes a mess out of your code.</p>
         <h4>Right:</h4>
@@ -307,9 +332,13 @@ setTimeout(function() {
 </pre>
         </div>
 
+    </div>
+    <div class="wl-widget-item">
         <h2 id="eval">Object.freeze, Object.preventExtensions, Object.seal, with, eval</h2>
         <p>Evil! Please avoid these.</p>
 
+    </div>
+    <div class="wl-widget-item">
         <h2 id="object-array-creation">Object / Array creation</h2>
         <p>Put short declarations on a single line, and avoid using trailing commas.</p>
         <h4>Right:</h4>
@@ -334,6 +363,8 @@ var b = {"good": 'code'
 </pre>
         </div>
 
+    </div>
+    <div class="wl-widget-item">
         <h2 id="quotes">Quotes</h2>
         <p>Use single quotes at all times, unless you are writing JSON.</p>
         <h4>Right:</h4>
@@ -349,6 +380,8 @@ var foo = "bar";
 </pre>
         </div>
 
+    </div>
+    <div class="wl-widget-item">
         <h2 id="return-statements">Return statements</h2>
         <p>Always try to return a function's value as soon as possible to avoid deep nesting of if-statements.</p>
         <h4>Right:</h4>
@@ -393,15 +426,23 @@ var isPercentage = function(val) {
 </pre>
         </div>
 
+    </div>
+    <div class="wl-widget-item">
         <h2 id="scope">Scope</h2>
         <p>Don't create globally scoped objects. We use RequireJS to handle our dependency management and this removes the need for global variables.</p>
 
+    </div>
+    <div class="wl-widget-item">
         <h2 id="semicolons">Semicolons</h2>
         <p>Following standard coding practices, semicolons are used where appropriate.</p>
 
+    </div>
+    <div class="wl-widget-item">
         <h2 id="tabs-vs-spaces">Tabs vs Spaces</h2>
         <p>4 spaces are used to indent lines of code. Any respectable editor will have the option of replacing tabs with spaces.</p>
 
+    </div>
+    <div class="wl-widget-item">
         <h2 id="ternaryoperations">Ternary operations</h2>
         <p>Only use ternary operations where the benefits are substantial. If a ternary conditional requires sub-operations, then it should be an if statement for readability.</p>
         <h4>Right:</h4>
@@ -417,9 +458,13 @@ var shouldMakeMoreCoffee = numPeople &gt; 2 &amp;&amp; amountOfCoffeeLeft &lt; 1
 </pre>
         </div>
 
+    </div>
+    <div class="wl-widget-item">
         <h2 id="trailing-whitespace">Trailing whitespace</h2>
         <p>Keeping code clean and simple starts with basics like whitespace. To keep your conscience clear have another look for extra spaces before committing your masterpiece.</p>
 
+    </div>
+    <div class="wl-widget-item">
         <h2 id="typechecking">Type checking</h2>
         <p>Never use typeof when there is a function that does the type checking for you. We include <%= link_to "jQuery", "http://jquery.com/", :class => "wl-regular-link" %> and <%= link_to "Underscore.js", "http://underscorejs.org/", :class => "wl-regular-link" %> which provide all the type checking you should need.</p>
         <h4>Right:</h4>
@@ -437,6 +482,8 @@ typeof myFunction === 'function'
 </pre>
         </div>
 
+    </div>
+    <div class="wl-widget-item">
         <h2 id="variable-and-property-names">Variable and property names</h2>
         <p>Variables and properties should use lower camel case. It's also nice to have a variable that explains what it's used for. jQuery objects should be prepended with '$' for readability.</p>
         <h4>Right:</h4>
@@ -454,6 +501,8 @@ var commentBox = $('.comment_box', rootel);
 </pre>
         </div>
 
+    </div>
+    <div class="wl-widget-item">
         <h2 id="variable-declarations">Variable declarations</h2>
         <p>Declare one variable per statement and consolidate them at the top of your file, this improves readability and maintenance of the code.</p>
         <h4>Right:</h4>

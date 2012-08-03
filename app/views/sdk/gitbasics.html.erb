@@ -18,7 +18,7 @@
         <li><%= link_to "Cheat sheets", "#cheatsheets", :class => "wl-regular-link" %></li>
     </ul>
 
-    <div class="wl-widget-item first">
+    <div class="wl-widget-item">
         <h2 id="gitsetup">Setup git</h2>
         <p>Setting up git for Sakai OAE is pretty easy.</p>
         <ul class="inline_list">
@@ -38,6 +38,8 @@ $ git clone git://github.com/sakaiproject/3akai-ux.git
 $ git clone git://github.com/sakaiproject/nakamura.git
 </pre>
         </div>
+    </div>
+    <div class="wl-widget-item">
         <h2 id="remotes">Remotes</h2>
         <p>Remotes in git are repository aliases that allow you to do various tasks. You can have some remotes with write or read access, or both. To access a list of aliases on your project simply run git remote.</p>
         <div class="navigationalitems_codesnippit_container few_lines">
@@ -64,7 +66,8 @@ sakaiproject	https://github.com/sakaiproject/3akai-ux.git (fetch)
 </pre>
         </div>
         <p>Now that we have some remotes in there we can start fetching and pushing our codes.</p>
-
+    </div>
+    <div class="wl-widget-item">
         <h2 id="managingbranches">Managing branches</h2>
         <p>There's a few best practices for managing your local and remote branches but let's start off with fetching the most recent version of the 3akai-ux code and merging it in our local branch. Merging code from one branch in another is basically making sure that the branch you're merging in has all codes/history/... that the other branch has. This is one of the advantages of git, every repository is the same and you simple synchronize between them.</p>
         <p>In the following example, I take a look at what branches I have and update my local master branch with the latest 3akai-ux code.</p>
@@ -137,7 +140,8 @@ nothing to commit (working directory clean)
 <strong>$ git push bp323 :branchtodelete</strong> -> Deletes remote branch
 </pre>
         </div>
-
+    </div>
+    <div class="wl-widget-item">
         <h2 id="commit">Committing changes</h2>
         <p>Committing changes on a regular basis is best practice. Not only does it allow you to easily look back at fixes you did a few days (or weeks/months) ago but it also avoids losing your work when something goes horribly wrong. Also, when debugging your code it's easier to track down and remove patches if they're split up into manageable chunks. Before committing it can be useful to take a last look at the files you've edited. A handful of external applications like <%= link_to "GitX (Mac)", "http://gitx.frim.nl/", :title => "GitX homepage", :class => "wl-regular-link", :target => "_blank" %> or <%= link_to "SmartGit (Windows)", "http://www.syntevo.com/smartgit/index.html", :title => "SmartGit homepage", :class => "wl-regular-link", :target => "_blank" %> make this a graphical experience. Committing and pushing your changes is easy:</p>
         <div class="navigationalitems_codesnippit_container">
@@ -157,7 +161,8 @@ To git@github.com:bp323/sakai-widgetlibrary.git
  * [new branch]      OAEWDGT-152 -> OAEWDGT-152
 </pre>
         </div>
-
+    </div>
+    <div class="wl-widget-item">
         <h2 id="cheatsheets">Cheat sheets</h2>
         <p>If you're starting out with git the <%= link_to "Git cheat sheet", "http://help.github.com/git-cheat-sheets/", :title => "GitHub cheat sheet", :class => "wl-regular-link", :target => "_blank" %> hosted on GitHub is a recommended source of information. It contains all of the functionality described above in a nutshell and provides a good overview of some advanced commands as well. Similar to the jQuery cheat sheets there are various other user-created cheat sheets to be found on the web.</p>
 

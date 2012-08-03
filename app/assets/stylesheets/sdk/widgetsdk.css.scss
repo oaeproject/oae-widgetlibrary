@@ -33,50 +33,16 @@
     border: 1px solid #dcc;
     color: #444;
     padding: 10px;
-    h1, h2, h3, h4, h5, h6 {
+    .widgetsdk_warning_box_title {
         color: #a33;
+        font-size: 14px;
+        font-weight: bold;
     }
 }
 
-.navigationalitems_codesnippit_container.few_lines {
-    background: image-url("codesnippet_bg.png") repeat-x left center #f1f5f9;
-}
-
-.navigationalitems_codesnippit_container {
-    background: image-url("codesnippet_bg.png") repeat-x left top #f1f5f9;
-    border: 1px solid #c7cfd5;
-    margin: 15px 0;
-    overflow-x: auto;
-    padding-bottom: 15px;
-    pre {
-        list-style: none;
-        margin: 15px 0 0 15px;
-        pre {
-            margin: 0;
-        }
-    }
-    .navigationalitems_codesnippit_header {
-        background: image-url("codesnippet_bg.png") repeat-x left -30px #f1f5f9;
-        border-bottom: 1px solid #c7cfd5;
-        min-height: 20px;
-        padding-left: 15px;
-        h4 {
-            font-size: 13px;
-            line-height: 18px;
-            margin: 6px 0px;
-        }
-    }
-}
-
-.navigationalitems_codesnippit_container_intended {
-    margin-left: 15px;
-}
-
-#examples {
-    .descriptive_text {
-        h2 {
-            margin-top: 0;
-        }
+.descriptive_text {
+    h2 {
+        border: none !important;
     }
 }
 
@@ -88,12 +54,15 @@
     color: #666;
     font-size: 14px;
     padding-top: 0;
-    h1, .wl-widget-item h2 {
+    h1, .wl-widget-item h2, .wl-widget-item h3, .wl-widget-item h4 {
         border-bottom: 1px solid #E2E2E2;
         color: #666666;
         font-size: 20px;
         padding-bottom: 5px;
         margin-bottom: 17px;
+        margin-top: 20px;
+    }
+    h1 {
         margin-top: 10px;
     }
     p {
@@ -105,13 +74,31 @@
         margin-top: 5px;
         width: 96%;
         h2 {
-            border-bottom: medium none;
             font-weight: normal;
             font-size: 18px;
             margin-bottom: 5px;
         }
+        >h2:first-of-type {
+            margin-top: 0;
+        }
+        h3 {
+            font-weight: normal;
+            font-size: 16px;
+        }
+        h4 {
+            font-weight: normal;
+            font-size: 14px;
+            font-style: italic;
+        }
         p {
             font-size: 13px;
+        }
+        .widgetsdk_header_icon_text {
+            border: none;
+            display: inline-block;
+            font-size: 14px;
+            font-weight: normal;
+            margin: 10px 0 0 12px;
         }
         .descriptive_icon {
             float: left;
@@ -144,8 +131,45 @@
                 margin: 20px 0 15px;
             }
         }
+        .navigationalitems_codesnippit_container.few_lines {
+            background: image-url("codesnippet_bg.png") repeat-x left center #f1f5f9;
+        }
+
+        .navigationalitems_codesnippit_container {
+            background: image-url("codesnippet_bg.png") repeat-x left top #f1f5f9;
+            border: 1px solid #c7cfd5;
+            margin: 15px 0;
+            overflow-x: auto;
+            padding-bottom: 15px;
+            pre {
+                list-style: none;
+                margin: 15px 0 0 15px;
+                pre {
+                    margin: 0;
+                }
+            }
+            .navigationalitems_codesnippit_header {
+                background: image-url("codesnippet_bg.png") repeat-x left -30px #f1f5f9;
+                border-bottom: 1px solid #c7cfd5;
+                min-height: 20px;
+                padding-left: 15px;
+                h4 {
+                    border: none;
+                    font-size: 13px;
+                    font-style: normal;
+                    font-weight: bold;
+                    line-height: 18px;
+                    margin: 6px 0;
+                    padding: 0;
+                }
+            }
+        }
+
+        .navigationalitems_codesnippit_container_intended {
+            margin-left: 15px;
+        }
     }
-    .wl-widget-item.first {
+    >.wl-widget-item:first-of-type {
         margin-top: 20px;
     }
     .widgetsdk_split_container {
@@ -180,16 +204,6 @@
     }
 }
 
-.acknowledgement_list {
-    p {
-        margin-top: 0 !important;
-    }
-    h2 {
-        margin-bottom: 0 !important;
-        padding-bottom: 0 !important;
-    }
-}
-
 #widgetbuilder_create {
     float: right;
     margin-bottom: 10px;
@@ -204,13 +218,6 @@
             padding-left: 0;
         }
     }
-}
-
-.widgetsdk_header_icon_text {
-    display: inline-block;
-    font-size: 14px;
-    font-weight: normal;
-    margin: 10px 0 0 12px;
 }
 
 #widgetbuilder_downloadwidget {
@@ -394,9 +401,6 @@
         h1 {
             margin-top: 30px;
         }
-        h1.first {
-            margin-top: 10px;
-        }
         #iconography_container {
             background-color: #F8F8FA;
             padding: 20px;
@@ -474,7 +478,7 @@
         margin-bottom: 220px !important;
     }
     #widgetexamples02, #widgetexamples01 {
-        h2 {
+        h3 {
             border-bottom: 1px dotted #E2E2E2;
             color: #666;
             font-size: 17px;
@@ -483,16 +487,16 @@
             margin-top: 10px;
             padding-bottom: 5px;
         }
-        h2.halfpage_float {
+        h3.halfpage_float {
             display: inline;
             float: left;
             margin-top: 25px;
             width: 325px;
         }
-        h2.halfpage_float {
+        h3.halfpage_float {
             font-size: 15px;
         }
-        h2.halfpage_float.first {
+        h3.halfpage_float.first {
             margin-right: 20px;
         }
         #dashboard_widgets_screenshot {
@@ -508,31 +512,28 @@
         }
     }
     #widgetexamples01 {
-        h2.halfpage_float {
+        h3.halfpage_float {
             display: inline;
             float: left;
             font-size: 15px;
             margin-top: 25px;
             width: 275px;
         }
-        h2.halfpage_float.first {
+        h3.halfpage_float.first {
             margin-right: 20px;
             width: 385px;
         }
     }
     #interactionmodels {
-        img {
-            margin-bottom: 25px;
-        }
         h4 {
             margin-bottom: 12px;
         }
-        h4.halfpage_float {
+        h3.halfpage_float {
             display: inline;
             float: left;
-            width: 325px;
+            width: 430px;
         }
-        h4.halfpage_float.first {
+        h3.halfpage_float.first {
             width: 250px;
         }
         #interactionmodels_userlibrary, #interactionmodels_basicmessagedropdown {
@@ -551,16 +552,6 @@
         }
     }
     #navigationalitems {
-        h2 {
-            border-bottom: 1px solid #E2E2E2;
-            font-size: 17px;
-            font-weight: bold;
-            margin-bottom: 17px;
-            margin-top: 25px;
-        }
-        h2.first {
-            margin-top: 10px;
-        }
         button {
             display: block;
             margin: 5px 0;

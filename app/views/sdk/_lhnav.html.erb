@@ -28,8 +28,8 @@
           <li <% if params[:section].eql?("designguide/widgetdesigns")%>class="selected"<% end %>><div><%= link_to "Widget designs", "/sdk/designguide/widgetdesigns" %></div></li>
       </ul>
 
-      <li <% if params[:section].eql?("api")%>class="selected" <% elsif ["api/frontend", "api/backend"].include?(params[:section]) %>class="selected_parent"<% end %>><div><%= link_to "API & endpoints", "/sdk/api" %></div></li>
-      <ul class="subnav" <% if !["api", "api/frontend", "api/backend"].include?(params[:section]) %> style="display:none;"<% end %>>
+      <li <% if params[:section].eql?("api")%>class="selected" <% elsif ["api/frontend", "api/backend", "api/thirdparty"].include?(params[:section]) %>class="selected_parent"<% end %>><div><%= link_to "API & endpoints", "/sdk/api" %></div></li>
+      <ul class="subnav" <% if !["api", "api/frontend", "api/backend", "api/thirdparty"].include?(params[:section]) %> style="display:none;"<% end %>>
           <li <% if params[:section].eql?("api/frontend")%>class="selected"<% end %>><div><%= link_to "Front-end API", "/sdk/api/frontend" %></div></li>
           <li <% if params[:section].eql?("api/backend")%>class="selected"<% end %>><div><%= link_to "Back-end endpoints", "/sdk/api/backend" %></div></li>
           <li <% if params[:section].eql?("api/thirdparty")%>class="selected"<% end %>><div><%= link_to "3rd party libraries", "/sdk/api/thirdparty" %></div></li>
