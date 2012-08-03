@@ -14,9 +14,11 @@
             <%= f.text_field property %>
         </div>
     <% end %>
-    <% submit_msg = (add_new == true) ? "Add Entry" : "Save Changes" %>
-    <%= f.submit submit_msg, :class => "wl-button wl-overlay-button" %>
-    <% if add_new != true %>
-        <a class="wl-bold wl-regular-link" href="<%= @config[:urls][:base] %>">Cancel</a>
-    <% end %>
+    <div class="admin-submit-buttons">
+        <% if add_new != true %>
+            <%= link_to 'Cancel', @config[:urls][:base], :class => "wl-regular-link" %>
+        <% end %>
+        <% submit_msg = (add_new == true) ? "Add Entry" : "Save Changes" %>
+        <%= f.submit submit_msg, :class => "wl-button wl-overlay-button" %>
+    </div>
 <% end %>

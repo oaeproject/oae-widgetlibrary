@@ -28,7 +28,7 @@ module AdminHelper
           :db_properties => ["title", "code", "region"],
           :urls => {
             :base => "/admin/options",
-            :edit => "/admin/languages/update/",
+            :edit => "/admin/languages/edit/",
             :remove => "/admin/languages/remove/",
             :save => "/admin/languages/save/"
           }
@@ -42,7 +42,7 @@ module AdminHelper
           :db_properties => ["title", "url_title"],
           :urls => {
             :base => "/admin/categories/",
-            :edit => "/admin/categories/update/",
+            :edit => "/admin/categories/edit/",
             :remove => "/admin/categories/remove/",
             :save => "/admin/categories/save/"
           }

@@ -1,4 +1,6 @@
 <h2>Available Categories</h2>
-<%= render :partial => 'admin_table', :results => @results, :items_used => @items_used, :config => @config %> <hr />
+<%= render :partial => 'admin_table', :results => @results, :items_used => @items_used, :config => @config %>
+<hr class="wl-split-line" />
 <h2>Add New Category</h2>
     <%= render :partial => "add_edit_items", :config => @config, :locals => { :add_new => true, :id => nil, :existing_entry => nil } %>
+<hr class="wl-push wl-hidden" />
