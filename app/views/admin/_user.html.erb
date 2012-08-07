@@ -1,8 +1,13 @@
-<% @users.each do |user| %>
+<% @users.each_with_index do |user, index| %>
+    <% if index % 3 == 0 %>
+        <div class="wl-push">
+    <% end %>
     <li>
-        <%= form_tag("/admin/users/update", :method => "POST", :remote => true) do %>
+        <%= form_for user, :url => "/admin/users/update", :method => "POST", :remote => true do |f| %>
+            <%= button_tag "Save", :class => "wl-no-script wl-button wl-link-button wl-save-fallback wl-right" %>
             <%= image_tag user.avatar.url(:thumb), :alt => "#{user.name}'s Photo", :class => "wl-left"%>
-            <%= link_to user.name, user_path(:id => user.id, :url_title => user.url_title), :class => "wl-bold wl-regular-link", :target => "_blank" %><br/>
+            <%= link_to user.name, user_path(:id => user.id, :url_title => user.url_title), :class => "wl-bold wl-regular-link", :target => "_blank" %>
+            <br/>
             <input type="hidden" name="user_id" value="<%= user.id %>">
             <label class="label" for="chk_user_admin<%= user.id %>">Administrator:</label>
             <% if user_signed_in? && current_user.id != user.id %>
@@ -18,4 +23,7 @@
             <% end %>
         <% end %>
     </li>
+    <% if (index + 1) % 3 == 0 %>
+        </div>
+    <% end %>
 <% end %>
