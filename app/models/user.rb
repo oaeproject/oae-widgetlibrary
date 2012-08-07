@@ -65,5 +65,6 @@ class User < ActiveRecord::Base
   end
   def destroy_inactive_widgets
     Widget.where("user_id = ?", self.id).destroy_all
+    Rating.where("user_id = ?", self.id).destroy_all
   end
 end

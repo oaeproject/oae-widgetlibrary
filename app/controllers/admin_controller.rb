@@ -40,7 +40,7 @@ class AdminController < ApplicationController
 
   def delete_user
     User.find(params[:id]).destroy
-    redirect_to :admin_users
+    redirect_to request.referer
   end
 
   def options
