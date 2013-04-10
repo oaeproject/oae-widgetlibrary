@@ -6,14 +6,8 @@
         <div class="wl-widget-item">
             <h2>Widget creator</h2>
             <p>Fill out the ‘name’ and a basic description of your widget below and select one of the pre-defined categories.</p>
-            <div class="widgetsdk_split_container">
-                <h3><%= label_tag "widgetbuilder_title", "Widget name" %></h3>
-                <input type="text" placeholder="(e.g. Grapher 202...)" id="widgetbuilder_title" name="widgetbuilder_title"/>
-            </div>
-            <div class="widgetsdk_split_container last">
-                <h3><%= label_tag "widgetbuilder_category_dropdown", "Select a Widget type" %></h3>
-                <%= select_tag "widget_type", options_for_select(["Dashboard", "Page", "Both"], :selected => "Dashboard"), :id => "widgetbuilder_category_dropdown" %>
-            </div>
+            <h3><%= label_tag "widgetbuilder_title", "Widget name" %></h3>
+            <input type="text" placeholder="(e.g. Grapher 202...)" id="widgetbuilder_title" name="widgetbuilder_title"/>
             <h3 class="wl-push"><%= label_tag "widgetbuilder_description", "Add a description" %></h3>
             <textarea placeholder="(e.g. Graph creation widget...)" id="widgetbuilder_description" name="widgetbuilder_description"></textarea>
             <h3>Options</h3>
