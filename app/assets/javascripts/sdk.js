@@ -60,6 +60,8 @@ $(function() {
 
     var addClassesToMDText = function() {
         $('#development-environment-setup').find('ul').addClass('inline_list');
+        $('#development-environment-setup').find('ol').addClass('inline_list');
+        $('#development-environment-setup').find('a').addClass('wl-regular-link');
     };
 
     var addBinding = function(){
