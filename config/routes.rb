@@ -46,7 +46,6 @@ SakaiWidgetlibrary::Application.routes.draw do
   match '/sdk/*section' => 'sdk#sdk_section'
   match '/zippedwidget' => 'widget_generator#zippedwidget'
 
-
   # Admin section
   match '/admin/users' => 'admin#users', :as => :admin_users
   match '/admin/users/admin' => 'admin#adminusers', :as => :admin_admin_users
