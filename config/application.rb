@@ -51,5 +51,8 @@ module SakaiWidgetlibrary
 
     # Precompile everything that isn't prefixed with an underscore
     config.assets.precompile = [/^[^_]/]
+
+    # The path to the Hilary README.md file
+    config.constants.paths.readme = 'https://raw.github.com/sakaiproject/Hilary/master/README.md'
   end
 end

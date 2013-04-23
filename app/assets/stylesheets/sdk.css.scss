@@ -4,6 +4,9 @@
     p {
         line-height: 1.4em;
     }
+    code{
+        word-wrap: break-word;
+    }
     .wl-content-container#developer_container {
         background: image-url("container_bg.png") no-repeat scroll center top transparent;
         @include border-radius(12px 12px 0 0);

@@ -58,6 +58,10 @@ $(function() {
         });
     });
 
+    var addClassesToMDText = function() {
+        $('#development-environment-setup').find('ul').addClass('inline_list');
+    };
+
     var addBinding = function(){
         // $("#developer_videocontent_container").live("click", showVideoOverlay);
         // $("#videocontent_overlay").live("click", hideVideoOverlay);
@@ -111,6 +115,7 @@ $(function() {
     };
 
     var init = function(){
+        addClassesToMDText();
         addBinding();
     };
 
