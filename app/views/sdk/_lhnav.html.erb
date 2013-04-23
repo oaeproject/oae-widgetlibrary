@@ -1,43 +1,33 @@
 <nav id="lhnavigation_container">
-  <h1 class="wl-bold">Sakai OAE Widget SDK</h1>
-  <ul>
-      <li <% if params[:section].eql?("developwidget")%>class="selected" <% elsif ["developwidget/quicksetup", "developwidget/devsetup", "developwidget/widgetbuilder", "developwidget/widgetsubmission", "developwidget/learnbasics", "developwidget/gitbasics"].include?(params[:section])%>class="selected_parent"<% end %>><div><%= link_to "Develop a widget", "/sdk/developwidget" %></div></li>
-      <ul class="subnav" <% if !["developwidget", "developwidget/quicksetup", "developwidget/devsetup", "developwidget/learnbasics", "developwidget/widgetbuilder", "developwidget/widgetsubmission", "developwidget/gitbasics"].include?(params[:section]) %> style="display:none;"<% end %>>
-          <li <% if params[:section].eql?("developwidget/quicksetup")%>class="selected"<% end %>><div><%= link_to "Quick setup", "/sdk/developwidget/quicksetup" %></div></li>
-          <li <% if params[:section].eql?("developwidget/devsetup")%>class="selected"<% end %>><div><%= link_to "OAE-Builder setup", "/sdk/developwidget/devsetup" %></div></li>
-          <li <% if params[:section].eql?("developwidget/learnbasics")%>class="selected"<% end %>><div><%= link_to "'Hello World' tutorial", "/sdk/developwidget/learnbasics" %></div></li>
-          <li <% if params[:section].eql?("developwidget/widgetbuilder")%>class="selected"<% end %>><div><%= link_to "Widget template builder", "/sdk/developwidget/widgetbuilder" %></div></li>
-          <li <% if params[:section].eql?("developwidget/widgetsubmission")%>class="selected"<% end %>><div><%= link_to "Widget submission", "/sdk/developwidget/widgetsubmission" %></div></li>
-          <li <% if params[:section].eql?("developwidget/gitbasics")%>class="selected"<% end %>><div><%= link_to "Git basics", "/sdk/developwidget/gitbasics" %></div></li>
-      </ul>
+    <h1 class="wl-bold">Sakai OAE Widget SDK</h1>
+    <ul>
+        <li <% if params[:section].eql?("setup")%>class="selected"<% end %>><div><%= link_to "Environment setup", "/sdk/setup" %></div></li>
 
-      <li <% if params[:section].eql?("codestyleguide")%>class="selected" <% elsif ["codestyleguide/css", "codestyleguide/html", "codestyleguide/javascript"].include?(params[:section])%>class="selected_parent"<% end %>><div><%= link_to "Code style guide", "/sdk/codestyleguide" %></div></li>
-      <ul class="subnav" <% if !["codestyleguide", "codestyleguide/javascript", "codestyleguide/css", "codestyleguide/html", "codestyleguide/javascript"].include?(params[:section]) %> style="display:none;"<% end %>>
-          <li <% if params[:section].eql?("codestyleguide/javascript")%>class="selected"<% end %>><div><%= link_to "JavaScript", "/sdk/codestyleguide/javascript" %></div></li>
-          <li <% if params[:section].eql?("codestyleguide/html")%>class="selected"<% end %>><div><%= link_to "HTML", "/sdk/codestyleguide/html" %></div></li>
-          <li <% if params[:section].eql?("codestyleguide/css")%>class="selected"<% end %>><div><%= link_to "CSS", "/sdk/codestyleguide/css" %></div></li>
-      </ul>
+        <li <% if params[:section].eql?("develop-a-widget")%>class="selected" <% elsif ["develop-a-widget/what-is-a-widget", "develop-a-widget/widget-structure", "develop-a-widget/widget-configuration", "develop-a-widget/html-css", "develop-a-widget/js", "develop-a-widget/more"].include?(params[:section])%>class="selected_parent"<% end %>><div><%= link_to "Develop a widget", "/sdk/develop-a-widget" %></div></li>
+        <ul class="subnav" <% if !["develop-a-widget", "develop-a-widget/what-is-a-widget", "develop-a-widget/widget-structure", "develop-a-widget/widget-configuration", "develop-a-widget/html-css", "develop-a-widget/js", "develop-a-widget/more"].include?(params[:section]) %> style="display: none;"<% end %>>
+            <li <% if params[:section].eql?("develop-a-widget/what-is-a-widget")%>class="selected"<% end %>><div><%= link_to "What is a widget", "/sdk/develop-a-widget/what-is-a-widget" %></div></li>
+            <li <% if params[:section].eql?("develop-a-widget/widget-structure")%>class="selected"<% end %>><div><%= link_to "Widget structure", "/sdk/develop-a-widget/widget-structure" %></div></li>
+            <li <% if params[:section].eql?("develop-a-widget/widget-configuration")%>class="selected"<% end %>><div><%= link_to "Widget configuration", "/sdk/develop-a-widget/widget-configuration" %></div></li>
+            <li <% if params[:section].eql?("develop-a-widget/html-css")%>class="selected"<% end %>><div><%= link_to "HTML/CSS", "/sdk/develop-a-widget/html-css" %></div></li>
+            <li <% if params[:section].eql?("develop-a-widget/js")%>class="selected"<% end %>><div><%= link_to "JS (require)", "/sdk/develop-a-widget/js" %></div></li>
+            <li <% if params[:section].eql?("develop-a-widget/more")%>class="selected"<% end %>><div><%= link_to "More (skinning, accessibility...)", "/sdk/develop-a-widget/more" %></div></li>
+        </ul>
 
-      <li <% if params[:section].eql?("designguide")%>class="selected" <% elsif ["designguide/colorpalette", "designguide/forms", "designguide/iconography", "designguide/interactionmodels", "designguide/navigationalitems", "designguide/typography", "designguide/widgetdesigns"].include?(params[:section])%>class="selected_parent"<% end %>><div><%= link_to "Design guide", "/sdk/designguide" %></div></li>
-      <ul class="subnav" <% if !["designguide", "designguide/colorpalette", "designguide/forms", "designguide/iconography", "designguide/interactionmodels", "designguide/navigationalitems", "designguide/typography", "designguide/widgetdesigns"].include?(params[:section]) %> style="display:none;"<% end %>>
-          <li <% if params[:section].eql?("designguide/colorpalette")%>class="selected"<% end %>><div><%= link_to "Color palette", "/sdk/designguide/colorpalette" %></div></li>
-          <li <% if params[:section].eql?("designguide/forms")%>class="selected"<% end %>><div><%= link_to "Forms", "/sdk/designguide/forms" %></div></li>
-          <li <% if params[:section].eql?("designguide/iconography")%>class="selected"<% end %>><div><%= link_to "Iconography", "/sdk/designguide/iconography" %></div></li>
-          <li <% if params[:section].eql?("designguide/interactionmodels")%>class="selected"<% end %>><div><%= link_to "Interaction models", "/sdk/designguide/interactionmodels" %></div></li>
-          <li <% if params[:section].eql?("designguide/navigationalitems")%>class="selected"<% end %>><div><%= link_to "Links & buttons", "/sdk/designguide/navigationalitems" %></div></li>
-          <li <% if params[:section].eql?("designguide/typography")%>class="selected"<% end %>><div><%= link_to "Typography", "/sdk/designguide/typography" %></div></li>
-          <li <% if params[:section].eql?("designguide/widgetdesigns")%>class="selected"<% end %>><div><%= link_to "Widget designs", "/sdk/designguide/widgetdesigns" %></div></li>
-      </ul>
+        <li <% if params[:section].eql?("development-guide")%>class="selected" <% elsif ["development-guide/dashes-instead-of-underscore", "development-guide/remove-reusable-css"].include?(params[:section])%>class="selected_parent"<% end %>><div><%= link_to "Development guide", "/sdk/development-guide" %></div></li>
+        <ul class="subnav" <% if !["development-guide", "devguide/dashes-instead-of-underscore", "development-guide/remove-reusable-css"].include?(params[:section]) %> style="display: none;"<% end %>>
+            <li <% if params[:section].eql?("development-guide/dashes-instead-of-underscore")%>class="selected"<% end %>><div><%= link_to "Dashes instead of underscore", "/sdk/development-guide/dashes-instead-of-underscore" %></div></li>
+            <li <% if params[:section].eql?("development-guide/remove-reusable-css")%>class="selected"<% end %>><div><%= link_to "Remove re-usable css", "/sdk/development-guide/remove-reusable-css" %></div></li>
+        </ul>
 
-      <li <% if params[:section].eql?("api")%>class="selected" <% elsif ["api/frontend", "api/backend", "api/thirdparty"].include?(params[:section]) %>class="selected_parent"<% end %>><div><%= link_to "API & endpoints", "/sdk/api" %></div></li>
-      <ul class="subnav" <% if !["api", "api/frontend", "api/backend", "api/thirdparty"].include?(params[:section]) %> style="display:none;"<% end %>>
-          <li <% if params[:section].eql?("api/frontend")%>class="selected"<% end %>><div><%= link_to "Front-end API", "/sdk/api/frontend" %></div></li>
-          <li <% if params[:section].eql?("api/backend")%>class="selected"<% end %>><div><%= link_to "Back-end endpoints", "/sdk/api/backend" %></div></li>
-          <li <% if params[:section].eql?("api/thirdparty")%>class="selected"<% end %>><div><%= link_to "3rd party libraries", "/sdk/api/thirdparty" %></div></li>
-      </ul>
+        <li <% if params[:section].eql?("style-guide")%>class="selected" <% elsif ["style-guide/bootstrap-reference", "style-guide/reusable-css"].include?(params[:section])%>class="selected_parent"<% end %>><div><%= link_to "Style guide", "/sdk/style-guide" %></div></li>
+        <ul class="subnav" <% if !["style-guide", "style-guide/bootstrap-reference", "style-guide/reusable-css"].include?(params[:section]) %> style="display: none;"<% end %>>
+            <li <% if params[:section].eql?("style-guide/bootstrap-reference")%>class="selected"<% end %>><div><%= link_to "Bootstrap reference", "/sdk/style-guide/bootstrap-reference" %></div></li>
+            <li <% if params[:section].eql?("style-guide/reusable-css")%>class="selected"<% end %>><div><%= link_to "Reusable CSS pieces/templates", "/sdk/style-guide/reusable-css" %></div></li>
+        </ul>
 
-      <li <% if params[:section].eql?("faq")%>class="selected"<% end %>><div><%= link_to "FAQ", "/sdk/faq" %></div></li>
-      <li <% if params[:section].eql?("contact")%>class="selected"<% end %>><div><%= link_to "Getting help", "/sdk/contact" %></div></li>
-  </ul>
+        <li <% if params[:section].eql?("api")%>class="selected"<% end %>><div><%= link_to "API", "/sdk/api" %></div></li>
+        <li <% if params[:section].eql?("faq")%>class="selected"<% end %>><div><%= link_to "FAQ", "/sdk/faq" %></div></li>
+        <li <% if params[:section].eql?("getting-help")%>class="selected"<% end %>><div><%= link_to "Getting help", "/sdk/getting-help" %></div></li>
+    </ul>
 </nav>
 <hr class="wl-push wl-hidden"/>
