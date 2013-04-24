@@ -25,7 +25,7 @@ class SdkController < ApplicationController
         @content = nil
         @module_title = nil
         # The requested template
-        pad = params[:section].split('/').last   
+        pad = params[:section]   
         # Put the template in a temporary variable
         template = pad
               
@@ -43,8 +43,13 @@ class SdkController < ApplicationController
         # If section is 'development-environment-setup', load the parse the markdown file
         elsif pad == 'development-environment-setup'
             @content = parse_markdown
+        else
+            template = params[:section]
+            if !params[:subsection].blank?
+                template = params[:subsection]
+            end
         end
-        
+                                             
         # Render template
         render template, :layout => request.xhr? ? 'sdkxhr' : 'lhnavigation', :locals => { :content => @content, :title => @module_title }
     end
