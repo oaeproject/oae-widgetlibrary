@@ -23,6 +23,7 @@ class SdkController < ApplicationController
         
         # The content that will be passed to the template
         @content = nil
+        @module_title = nil
         # The requested template
         pad = params[:section].split('/').last   
         # Put the template in a temporary variable
@@ -34,8 +35,9 @@ class SdkController < ApplicationController
             if params[:subsection] == nil
                 @content = get_docs_from_rest_api
             # If a module is selected, load the module details
-            else
-                @content = get_doc_details('oae-logger')
+            else                
+                @module_title = params[:subsection]
+                @content = get_doc_details(@module_title)
                 template = 'api-oae-module'
             end
         # If section is 'development-environment-setup', load the parse the markdown file
@@ -44,7 +46,7 @@ class SdkController < ApplicationController
         end
         
         # Render template
-        render template, :layout => request.xhr? ? 'sdkxhr' : 'lhnavigation', :locals => { :content => @content }
+        render template, :layout => request.xhr? ? 'sdkxhr' : 'lhnavigation', :locals => { :content => @content, :title => @module_title }
     end
     
     # Parse the markdown file

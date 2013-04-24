@@ -3,7 +3,7 @@
     <% if !@content.blank? %>
     
         <!-- (name of the module) -->
-        <h2>Test</h2>      
+        <h2><%= raw @module_title %></h2>      
         
         <!-- (init.js, api.js...) -->
         <div class="wl-widget-item">
@@ -16,19 +16,23 @@
                 <!-- skip current if node is private or ignored -->
                 <% next unless !x["isPrivate"] == true && x["ignore"] == false %>                                      
                 <div class="bs-docs-public">
-                    <h4><%= raw x["ctx"]["name"] %></h4>                    
+                    <% if !x["ctx"].blank? %>  
+                    <h4><%= raw x["ctx"]["name"] %></h4>   
                     <p>
                         <small><%= raw x["ctx"]["value"] %></small>
                     </p>
+                    <% end %>
                     <blockquote>
                         <p><%= raw x["description"]["full"] %></p>
                     </blockquote>
                     <table class="table table-striped">
+                        <% if !x["ctx"].blank? %>  
                         <thead>
                             <tr>
                                 <th>Parameters for <%= raw x["ctx"]["name"] %></th>
                             </tr>
                         </thead>
+                        <% end %>
                         <tbody>
                             
                             <!-- TR for each parameter-->
@@ -36,31 +40,42 @@
                             <tr>
                                 <% if tag["type"] == "param" %>
                                 <td class="bs-docs-param-tag"> 
-                                    <strong><%= raw tag["name"] %>: 
-                                    <% tag["types"].each do |type| %>
-                                        <%= raw type %>
+                                    <strong><%= raw tag["name"] %>
+                                    <% if !tag["types"].blank? && tag["types"].length %>: 
+                                        <% tag["types"].each do |type| %>
+                                            <%= raw type %>
+                                        <% end %>
                                     <% end %>
                                     </strong>
                                     <br /><%= raw tag["description"] %>
                                 </td>                             
                                 <% else %>
                                 <td class="bs-docs-return-tag"> 
-                                    <strong>Returns: 
-                                    <% tag["types"].each do |type| %>
-                                        <%= raw type %>
-                                    <% end %>    
+                                    <strong>Returns
+                                    <% if !tag["types"].blank? && tag["types"].length %>: 
+                                        <% tag["types"].each do |type| %>
+                                            <%= raw type %>
+                                        <% end %>  
+                                    <% end %>  
                                     </strong>                                
                                     <br /><%= raw tag["description"] %>
                                 </td>                           
                                 <% end %>                
                             </tr>                            
-                            <% end %>                        
+                            <% end %>  
+                            <!-- TR end-->       
+                                           
                         </tbody>
                     </table>
-                </div>      
-            <% end %>                     
+                </div>     
+                 
+            <% end %>  
+            <!-- end method name, properties, return value...-->
+                               
         <% end %>
         </div>   
+        <!-- end widget item -->
+        
     <% elsif %>
         <h1>API</h1>
         <p>No results</p>
