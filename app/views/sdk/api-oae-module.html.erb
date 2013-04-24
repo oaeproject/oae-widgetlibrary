@@ -1,9 +1,68 @@
 <% content_for :title do %> - SDK - API &amp; endpoints<% end %>
-<div class="widgetsdk_container">
-    <h1>API</h1>
+<div class="widgetsdk_container" id="doc_docs_container">
     <% if !@content.blank? %>
-        <%= @content %>
+    
+        <!-- (name of the module) -->
+        <h2>Test</h2>      
+        
+        <!-- (init.js, api.js...) -->
+        <div class="wl-widget-item">
+        <% @content.each do |k, v| %>
+            <h3><%= k %></h3>
+
+            <!-- (method name, properties, return value...) -->
+            <% v.each do |x| %>
+            
+                <!-- skip current if node is private or ignored -->
+                <% next unless !x["isPrivate"] == true && x["ignore"] == false %>                                      
+                <div class="bs-docs-public">
+                    <h4><%= raw x["ctx"]["name"] %></h4>                    
+                    <p>
+                        <small><%= raw x["ctx"]["value"] %></small>
+                    </p>
+                    <blockquote>
+                        <p><%= raw x["description"]["full"] %></p>
+                    </blockquote>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Parameters for <%= raw x["ctx"]["name"] %></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <!-- TR for each parameter-->
+                            <% x["tags"].each do |tag| %>
+                            <tr>
+                                <% if tag["type"] == "param" %>
+                                <td class="bs-docs-param-tag"> 
+                                    <strong><%= raw tag["name"] %>: 
+                                    <% tag["types"].each do |type| %>
+                                        <%= raw type %>
+                                    <% end %>
+                                    </strong>
+                                    <br /><%= raw tag["description"] %>
+                                </td>                             
+                                <% else %>
+                                <td class="bs-docs-return-tag"> 
+                                    <strong>Returns: 
+                                    <% tag["types"].each do |type| %>
+                                        <%= raw type %>
+                                    <% end %>    
+                                    </strong>                                
+                                    <br /><%= raw tag["description"] %>
+                                </td>                           
+                                <% end %>                
+                            </tr>                            
+                            <% end %>                        
+                        </tbody>
+                    </table>
+                </div>      
+            <% end %>                     
+        <% end %>
+        </div>   
     <% elsif %>
+        <h1>API</h1>
         <p>No results</p>
     <% end %>
     <hr class="wl-push wl-hidden"/>

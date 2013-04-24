@@ -2,6 +2,7 @@ class SdkController < ApplicationController
     require 'net/http'
     require 'open-uri'
     require 'redcarpet'
+    require 'yajl'
 
     # Properties
 
@@ -58,13 +59,13 @@ class SdkController < ApplicationController
 
     # Get all the modules from the REST API
     #
-    # @return   {Array} data          The array containing all the module names
+    # @return   {Array} arrData       The array containing all the module names
 
     def get_docs_from_rest_api
         resp = Net::HTTP.get_response(URI.parse(@@url_rest_modules))
         data = resp.body        
         if !resp.body.is_a?(Net::HTTPSuccess)
-          data = ActiveSupport::JSON.decode(resp.body)
+            data = ActiveSupport::JSON.decode(resp.body).sort
         end        
         return data
     end
@@ -73,14 +74,10 @@ class SdkController < ApplicationController
     # Get the module details from the REST API
     #
     # @param    {String} m            The requested module
-    # @return   {Object} data         The data object containing the module details
+    # @return   {Hash} *              The hash containing the module details
 
     def get_doc_details(m)
-        resp = Net::HTTP.get_response(URI.parse(@@url_rest_module + m))
-        data = resp.body
-        if !resp.body.instance_of?(Object)
-            data = ActiveSupport::JSON.decode(resp.body)
-        end          
-        return data
+        resp = Net::HTTP.get_response(URI.parse(@@url_rest_module + m))                     
+        return Yajl::Parser.parse(resp.body)
     end
 end

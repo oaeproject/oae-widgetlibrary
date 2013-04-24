@@ -21,6 +21,9 @@ gem 'devise', '~> 1.5.3'
 # Use CanCan for user authorization
 gem 'cancan'
 
+# Use for decode json strings to object
+gem 'yajl-ruby'
+
 #Use Markdown for parsing Markdown files
 gem 'markdown'
 
