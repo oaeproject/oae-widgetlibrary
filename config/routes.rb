@@ -43,7 +43,7 @@ SakaiWidgetlibrary::Application.routes.draw do
 
   # SDK
   match '/sdk' => 'sdk#index', :as => :sdk
-  match '/sdk/*section' => 'sdk#sdk_section'
+  match '/sdk/:section(/:subsection)' => 'sdk#sdk_section'  
   match '/zippedwidget' => 'widget_generator#zippedwidget'
 
   # Admin section

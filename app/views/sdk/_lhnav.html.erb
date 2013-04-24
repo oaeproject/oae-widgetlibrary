@@ -70,9 +70,9 @@
             <li <% if params[:section].eql?("style-guide/reusable-css")%>class="selected"<% end %>><div><%= link_to "Reusable CSS pieces/templates", "/sdk/style-guide/reusable-css" %></div></li>
         </ul>
 
-        <li <% if params[:section].eql?("api")%>class="selected"<% end %>><div><%= link_to "API", "/sdk/api" %></div></li>
-        <li <% if params[:section].eql?("faq")%>class="selected"<% end %>><div><%= link_to "FAQ", "/sdk/faq" %></div></li>
-        <li <% if params[:section].eql?("getting-help")%>class="selected"<% end %>><div><%= link_to "Getting help", "/sdk/getting-help" %></div></li>
+        <li <% if params[:section].eql?("api") %>class="selected"<% end %>><div><%= link_to "API", "/sdk/api" %></div></li>
+        <li <% if params[:section].eql?("faq") %>class="selected"<% end %>><div><%= link_to "FAQ", "/sdk/faq" %></div></li>
+        <li <% if params[:section].eql?("getting-help") %>class="selected"<% end %>><div><%= link_to "Getting help", "/sdk/getting-help" %></div></li>
 
 
     </ul>
