@@ -26,16 +26,18 @@ class SdkController < ApplicationController
                       
         # If section is 'api'
         if template == 'api'
-            # If no module selected, load all the module names
+            # Load the module names
+            @modules = get_doc_module_names
+            # Show the first module by default
             if params[:subsection] == nil
-                @content = get_docs_from_rest_api
+                @module_title = @modules.first
+                @content = get_doc_details(@modules.first)
             # If a module is selected, load the module details
             else                
                 @module_title = params[:subsection]
                 @content = get_doc_details(@module_title)
-                template = 'api-oae-module'
             end
-            locals = { :content => @content, :title => @module_title }
+            locals = { :modules => @modules, :content => @content, :title => @module_title }
         # If section is 'development-environment-setup', load the parse the markdown file
         elsif template == 'development-environment-setup'
             @content = parse_markdown
@@ -66,7 +68,7 @@ class SdkController < ApplicationController
     #
     # @return   {Array}     arrData       The array containing all the module names
 
-    def get_docs_from_rest_api
+    def get_doc_module_names
         resp = Net::HTTP.get_response(URI.parse(@@url_rest_modules))
         data = resp.body        
         if !resp.body.is_a?(Net::HTTPSuccess)

@@ -1,3 +1,73 @@
-<% @content.each do |mod| %>
-  <p><%= link_to(mod, '/sdk/api/' + mod, :title => mod) %></p>
+<!-- (name of the module) -->
+<h1><%= raw @module_title %></h1>  
+
+<!-- (init.js, api.js...) -->
+<div class="wl-widget-item">
+<% @content.each do |k, v| %>
+    <h2><%= k %></h2>
+
+    <!-- (method name, properties, return value...) -->
+    <% v.each do |x| %>
+    
+        <!-- skip current if node is private or ignored -->
+        <% next unless !x["isPrivate"] == true && x["ignore"] == false %>                                      
+        <div class="bs-docs-public">
+            <% if !x["ctx"].blank? %>  
+            <h3><%= raw x["ctx"]["name"] %></h3>   
+            <p>
+                <small><%= raw x["ctx"]["value"] %></small>
+            </p>
+            <% end %>
+            <blockquote>
+                <p><%= raw x["description"]["full"] %></p>
+            </blockquote>
+            <table class="table table-striped">
+                <% if !x["ctx"].blank? %>  
+                <thead>
+                    <tr>
+                        <th>Parameters for <%= raw x["ctx"]["name"] %></th>
+                    </tr>
+                </thead>
+                <% end %>
+                <tbody>
+                    
+                    <!-- TR for each parameter-->
+                    <% x["tags"].each do |tag| %>
+                    <tr>
+                        <% if tag["type"] == "param" %>
+                        <td class="bs-docs-param-tag"> 
+                            <strong><%= raw tag["name"] %>
+                            <% if !tag["types"].blank? && tag["types"].length %>: 
+                                <% tag["types"].each do |type| %>
+                                    <%= raw type %>
+                                <% end %>
+                            <% end %>
+                            </strong>
+                            <br /><%= raw tag["description"] %>
+                        </td>                             
+                        <% else %>
+                        <td class="bs-docs-return-tag"> 
+                            <strong>Returns
+                            <% if !tag["types"].blank? && tag["types"].length %>: 
+                                <% tag["types"].each do |type| %>
+                                    <%= raw type %>
+                                <% end %>  
+                            <% end %>  
+                            </strong>                                
+                            <br /><%= raw tag["description"] %>
+                        </td>                           
+                        <% end %>                
+                    </tr>                            
+                    <% end %>  
+                    <!-- TR end-->       
+                                   
+                </tbody>
+            </table>
+        </div>     
+         
+    <% end %>  
+    <!-- end method name, properties, return value...-->
+                       
 <% end %>
+</div>   
+<!-- end widget item -->

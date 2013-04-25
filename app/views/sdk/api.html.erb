@@ -1,10 +1,17 @@
 <% content_for :title do %> - SDK - API &amp; endpoints<% end %>
 <div class="widgetsdk_container">
-    <h1>API</h1>
-    <% if !@content.blank? %>
-        <%= render :partial => "apimodulesnav",  :locals => { :content => @content }%>
-    <% elsif %>
-        <p>No results</p>
-    <% end %>
+    <div id="api_docs_modules_navigation">
+        <% if !@modules.blank? %>
+            <%= render :partial => "apimodulesnav",  :locals => { :modules => @modules }%>
+        <% end %>        
+    </div>
+
+    <div id="api_docs_modules_detail">
+        <% if !@content.blank? %>   
+            <%= render :partial => "apimoduledetails",  :locals => { :content => @content }%>
+        <% else %>
+            <p>No results</p>
+        <% end %>
+    </div>
     <hr class="wl-push wl-hidden"/>
 </div>
