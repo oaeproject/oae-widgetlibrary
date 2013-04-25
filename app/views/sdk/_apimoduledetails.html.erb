@@ -12,7 +12,13 @@
         <% next unless !x["isPrivate"] == true && x["ignore"] == false %>                                      
         <div class="bs-docs-public">
             <% if !x["ctx"].blank? %>  
-            <h3><%= raw x["ctx"]["name"] %></h3>   
+                        
+            <% if params[:module].blank? %>
+            <h3><%= link_to(x["ctx"]["name"], @subsection + '/' + @module_title + '#' + x["ctx"]["name"], :name => x["ctx"]["name"]) %></h3>   
+            <% else %>    
+            <h3><%= link_to(x["ctx"]["name"], @module_title + '#' + x["ctx"]["name"], :name => x["ctx"]["name"]) %></h3>   
+            <% end %>
+                  
             <p>
                 <small><%= raw x["ctx"]["value"] %></small>
             </p>

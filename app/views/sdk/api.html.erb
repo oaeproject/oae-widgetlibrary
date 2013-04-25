@@ -8,7 +8,7 @@
         <!-- Navigation -->
         <div id="api_docs_modules_navigation" class="wl-left wl-content-175">
             <% if !@modules.blank? %>
-                <%= render :partial => "apimodulesnav",  :locals => { :modules => @modules }%>
+                <%= render :partial => "apimodulesnav",  :locals => { :modules => @modules, :subsection => @subsection }%>
             <% end %>        
         </div>
     

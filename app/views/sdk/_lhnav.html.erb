@@ -70,7 +70,12 @@
             <li <% if params[:section].eql?("style-guide/reusable-css")%>class="selected"<% end %>><div><%= link_to "Reusable CSS pieces/templates", "/sdk/style-guide/reusable-css" %></div></li>
         </ul>
 
-        <li <% if params[:section].eql?("api") %>class="selected"<% end %>><div><%= link_to "API", "/sdk/api" %></div></li>
+        <li <% if params[:section].eql?("api") %>class="selected" <% elsif ["api/frontend", "api/backend"].include?(params[:section])%>class="selected_parent"<% end %>><div><%= link_to "API", "/sdk/api" %></div></li>
+        <ul class="subnav" <% if !["api", "api/frontend", "api/backend"].include?(params[:section]) %> style="display: none;"<% end %>>
+            <li <% if params[:section].eql?("api/frontend")%>class="selected"<% end %>><div><%= link_to "Front-end", "/sdk/api/frontend" %></div></li>
+            <li <% if params[:section].eql?("api/backend")%>class="selected"<% end %>><div><%= link_to "Back-end", "/sdk/api/backend" %></div></li>
+        </ul>
+        
         <li <% if params[:section].eql?("faq") %>class="selected"<% end %>><div><%= link_to "FAQ", "/sdk/faq" %></div></li>
         <li <% if params[:section].eql?("getting-help") %>class="selected"<% end %>><div><%= link_to "Getting help", "/sdk/getting-help" %></div></li>
 
