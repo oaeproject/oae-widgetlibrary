@@ -21,16 +21,11 @@ class SdkController < ApplicationController
 
     def sdk_section
         
-        # The content that will be passed to the template
-        @content = nil
-        @module_title = nil
         # The requested template
-        pad = params[:section]   
-        # Put the template in a temporary variable
-        template = pad
-              
+        template = params[:section]   
+                      
         # If section is 'api'
-        if pad == 'api'
+        if template == 'api'
             # If no module selected, load all the module names
             if params[:subsection] == nil
                 @content = get_docs_from_rest_api
@@ -40,18 +35,21 @@ class SdkController < ApplicationController
                 @content = get_doc_details(@module_title)
                 template = 'api-oae-module'
             end
+            locals = { :content => @content, :title => @module_title }
         # If section is 'development-environment-setup', load the parse the markdown file
-        elsif pad == 'development-environment-setup'
+        elsif template == 'development-environment-setup'
             @content = parse_markdown
+            locals = { :content => @content }
         else
             template = params[:section]
             if !params[:subsection].blank?
                 template = params[:subsection]
-            end
-        end
-                                             
-        # Render template
-        render template, :layout => request.xhr? ? 'sdkxhr' : 'lhnavigation', :locals => { :content => @content, :title => @module_title }
+            end  
+        locals = nil          
+        end         
+        
+        # Render the template
+        render template, :layout => request.xhr? ? 'sdkxhr' : 'lhnavigation', :locals => locals                            
     end
     
     # Parse the markdown file
@@ -66,7 +64,7 @@ class SdkController < ApplicationController
 
     # Get all the modules from the REST API
     #
-    # @return   {Array} arrData       The array containing all the module names
+    # @return   {Array}     arrData       The array containing all the module names
 
     def get_docs_from_rest_api
         resp = Net::HTTP.get_response(URI.parse(@@url_rest_modules))
@@ -80,8 +78,8 @@ class SdkController < ApplicationController
 
     # Get the module details from the REST API
     #
-    # @param    {String} m            The requested module
-    # @return   {Hash} *              The hash containing the module details
+    # @param    {String}    m              The requested module
+    # @return   {Hash}      *              The hash containing the module details
 
     def get_doc_details(m)
         resp = Net::HTTP.get_response(URI.parse(@@url_rest_module + m))                     

@@ -2,9 +2,7 @@
 <div class="widgetsdk_container">
     <h1>API</h1>
     <% if !@content.blank? %>
-        <% @content.each do |mod| %>
-          <p><%= link_to(mod, '/sdk/api/' + mod, :title => mod) %></p>
-        <% end %>
+        <%= render :partial => "apimodulesnav",  :locals => { :content => @content }%>
     <% elsif %>
         <p>No results</p>
     <% end %>

@@ -3,12 +3,12 @@
     <% if !@content.blank? %>
     
         <!-- (name of the module) -->
-        <h2><%= raw @module_title %></h2>      
+        <h1><%= raw @module_title %></h1>  
         
         <!-- (init.js, api.js...) -->
         <div class="wl-widget-item">
         <% @content.each do |k, v| %>
-            <h3><%= k %></h3>
+            <h2><%= k %></h2>
 
             <!-- (method name, properties, return value...) -->
             <% v.each do |x| %>
@@ -17,7 +17,7 @@
                 <% next unless !x["isPrivate"] == true && x["ignore"] == false %>                                      
                 <div class="bs-docs-public">
                     <% if !x["ctx"].blank? %>  
-                    <h4><%= raw x["ctx"]["name"] %></h4>   
+                    <h3><%= raw x["ctx"]["name"] %></h3>   
                     <p>
                         <small><%= raw x["ctx"]["value"] %></small>
                     </p>
