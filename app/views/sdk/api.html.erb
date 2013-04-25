@@ -1,17 +1,29 @@
 <% content_for :title do %> - SDK - API &amp; endpoints<% end %>
 <div class="widgetsdk_container">
-    <div id="api_docs_modules_navigation">
-        <% if !@modules.blank? %>
-            <%= render :partial => "apimodulesnav",  :locals => { :modules => @modules }%>
-        <% end %>        
-    </div>
+    
+    <h1>API</h1>
 
-    <div id="api_docs_modules_detail">
-        <% if !@content.blank? %>   
-            <%= render :partial => "apimoduledetails",  :locals => { :content => @content }%>
-        <% else %>
-            <p>No results</p>
-        <% end %>
+    <div class="wl-widget-item wl-margin-top-0">
+               
+        <!-- Navigation -->
+        <div id="api_docs_modules_navigation" class="wl-left wl-content-175">
+            <% if !@modules.blank? %>
+                <%= render :partial => "apimodulesnav",  :locals => { :modules => @modules }%>
+            <% end %>        
+        </div>
+    
+        <!-- Content -->
+        <div id="api_docs_modules_detail" class="wl-left wl-content-505">
+            <% if !@content.blank? %>   
+                <%= render :partial => "apimoduledetails",  :locals => { :content => @content }%>
+            <% else %>
+                <p>No results</p>
+            <% end %>
+        </div>
+        
+        <!-- Clearer -->
+        <hr class="wl-push wl-hidden"/>
     </div>
-    <hr class="wl-push wl-hidden"/>
+    
+    <br style="clear: both;"/>
 </div>

@@ -124,6 +124,50 @@
             padding-right: 0;
         }
     }
+    #api_docs_modules_navigation {
+        a {
+            font-size: 1.1em;
+        }
+    }
+    #api_docs_modules_detail{
+        h1, h2, h3, h4 {
+            color: #2683BC;
+        }
+        h1 {
+            font-size: 1.8em;
+        }
+        h2 {
+            font-size: 1.6em;
+        }
+        h3 {
+            font-size: 1.4em;
+        }
+        h4 {
+            font-size: 1.2em;
+        }
+        blockquote {
+            font-size: 1.2em;
+            padding-left: 1em;
+            margin-top: 10px;
+            margin-bottom: 25px;
+            
+            br {
+                display: none;
+            }
+        }
+        table, tr, td, th {
+            text-align: left;
+        }
+        th {
+            font-size: 1.2em;
+        }
+        td {
+            padding: 5px 0;  
+            strong {
+                padding: 3px 0;
+            }
+        }
+    }
 }
 
 @import "sdk/widgetsdk.css.scss";
