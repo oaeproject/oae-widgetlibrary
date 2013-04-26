@@ -79,15 +79,6 @@
         
         <li <% if params[:section].eql?("faq") %>class="selected"<% end %>><div><%= link_to "FAQ", "/sdk/faq" %></div></li>
         <li <% if params[:section].eql?("getting-help") %>class="selected"<% end %>><div><%= link_to "Getting help", "/sdk/getting-help" %></div></li>
-        
-
-        <% puts params[:controller] %>
-
-        <% puts params[:section] %>
-        <% puts params[:subsection] %>
-        <% puts params[:module] %>
-
-
     </ul>
 </nav>
 <hr class="wl-push wl-hidden"/>

@@ -26,6 +26,8 @@
             <blockquote>
                 <p><%= raw x["description"]["full"] %></p>
             </blockquote>
+            
+            <% if !x["tags"].blank? %>
             <table class="table table-striped">
                 <% if !x["ctx"].blank? %>  
                 <thead>
@@ -68,6 +70,8 @@
                                    
                 </tbody>
             </table>
+            <% end %>
+          
         </div>     
          
     <% end %>  

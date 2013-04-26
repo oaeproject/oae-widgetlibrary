@@ -25,12 +25,7 @@ class SdkController < ApplicationController
         
         # The requested template
         template = params[:section]  
-        
-        # Render the lhnavigation
-        if request.xhr? && !params[:module].blank? 
-            render template, :layout => 'lhnavigation'     
-        end 
-                              
+                                      
         # If section is 'api'
         if template == 'api'
                            
@@ -50,6 +45,10 @@ class SdkController < ApplicationController
                     if !params[:module].blank? 
                         url = params[:module]
                         @module_title = params[:module]
+                        
+                        # Re-render the lhnavigation
+                        render template, :layout => 'lhnavigation' if request.xhr?
+                              
                     else 
                         url = @modules.first
                         @module_title = @modules.first 
@@ -75,8 +74,7 @@ class SdkController < ApplicationController
         end         
         
         # Render the template
-        type = request.xhr? ? 'sdkxhr' : 'lhnavigation'         
-        render template, :layout => type, :locals => locals      
+        render template, :layout => request.xhr? ? 'sdkxhr' : 'lhnavigation' , :locals => locals      
                 
     end
     
