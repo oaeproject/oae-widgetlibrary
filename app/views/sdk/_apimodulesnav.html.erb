@@ -1,3 +1,11 @@
-<% @modules.each do |mod| %>
-  <p><%= link_to(mod, '/sdk/api/' + @subsection + '/' + mod, :title => mod, :class => 'wl-regular-link') %></p>
+<% @modules.each do |mod| %> 
+    <% 
+        classname = "wl-regular-link"
+        if params[:module].eql?(mod) 
+            classname += " selected" 
+        elsif params[:module].blank? && mod == @modules.first 
+            classname += " selected" 
+        end
+    %>
+    <p><%= link_to(mod, '/sdk/api/' + @subsection + '/' + mod, :title => mod, :class => classname) %></p>
 <% end %>

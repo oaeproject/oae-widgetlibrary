@@ -124,6 +124,21 @@
             padding-right: 0;
         }
     }
+    #development-environment-setup {
+        code:not(.well) {
+            color: red;
+        }
+        code.well {
+            padding: 10px;
+            display: block;
+            background-color: #FEFEFE;
+            border: 1px solid #EEEEEE;
+            
+            br:first-child{
+                display: none;
+            }
+        }
+    }
     #api_docs_modules_navigation {
         width: 163px;
         overflow: hidden;
@@ -201,9 +216,6 @@
         }
         h4 {
             font-size: 1.2em;
-        }
-        p code {
-
         }
         small {
             font-size: .9em;

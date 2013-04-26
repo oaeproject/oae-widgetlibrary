@@ -3,7 +3,8 @@
     <ul>
 
         <!-- CURRENT NAVIGATION -->
-        <!--
+        <li <% if params[:section].eql?("development-environment-setup")%>class="selected"<% end %>><div><%= link_to "Development environment setup", "/sdk/development-environment-setup" %></div></li>
+        
         <li <% if params[:section].eql?("developwidget")%>class="selected" <% elsif ["developwidget/quicksetup", "developwidget/devsetup", "developwidget/widgetbuilder", "developwidget/widgetsubmission", "developwidget/learnbasics", "developwidget/gitbasics"].include?(params[:section])%>class="selected_parent"<% end %>><div><%= link_to "Develop a widget", "/sdk/developwidget" %></div></li>
         <ul class="subnav" <% if !["developwidget", "developwidget/quicksetup", "developwidget/devsetup", "developwidget/learnbasics", "developwidget/widgetbuilder", "developwidget/widgetsubmission", "developwidget/gitbasics"].include?(params[:section]) %> style="display:none;"<% end %>>
             <li <% if params[:section].eql?("developwidget/quicksetup")%>class="selected"<% end %>><div><%= link_to "Quick setup", "/sdk/developwidget/quicksetup" %></div></li>
@@ -32,21 +33,20 @@
             <li <% if params[:section].eql?("designguide/widgetdesigns")%>class="selected"<% end %>><div><%= link_to "Widget designs", "/sdk/designguide/widgetdesigns" %></div></li>
         </ul>
 
-        <li <% if params[:section].eql?("api")%>class="selected" <% elsif ["api/frontend", "api/backend", "api/thirdparty"].include?(params[:section]) %>class="selected_parent"<% end %>><div><%= link_to "API & endpoints", "/sdk/api" %></div></li>
-        <ul class="subnav" <% if !["api", "api/frontend", "api/backend", "api/thirdparty"].include?(params[:section]) %> style="display:none;"<% end %>>
-            <li <% if params[:section].eql?("api/frontend")%>class="selected"<% end %>><div><%= link_to "Front-end API", "/sdk/api/frontend" %></div></li>
-            <li <% if params[:section].eql?("api/backend")%>class="selected"<% end %>><div><%= link_to "Back-end endpoints", "/sdk/api/backend" %></div></li>
-            <li <% if params[:section].eql?("api/thirdparty")%>class="selected"<% end %>><div><%= link_to "3rd party libraries", "/sdk/api/thirdparty" %></div></li>
+        <li 
+        <% if params[:section].eql?("api") && params[:subsection].blank? && params[:module].blank? %>class="selected" <% elsif ["frontend", "backend"].include?(params[:subsection]) && !params[:section].blank? %>class="selected_parent" <% end %>><div><%= link_to "API", "/sdk/api/frontend" %></div></li>
+        <ul class="subnav" <% if !["api"].include?(params[:section]) || !["frontend", "backend"].include?(params[:subsection]) %> style="display: none;"<% end %>>
+            <li <% if params[:subsection].eql?("frontend")%>class="selected"<% end %>><div><%= link_to "Front-end", "/sdk/api/frontend" %></div></li>
+            <li <% if params[:subsection].eql?("backend")%>class="selected"<% end %>><div><%= link_to "Back-end", "/sdk/api/backend" %></div></li>
         </ul>
-
+        
         <li <% if params[:section].eql?("faq")%>class="selected"<% end %>><div><%= link_to "FAQ", "/sdk/faq" %></div></li>
         <li <% if params[:section].eql?("contact")%>class="selected"<% end %>><div><%= link_to "Getting help", "/sdk/contact" %></div></li>
-        -->
+        
 
 
         <!-- UPDATED NAVIGATION -->
-
-        <li <% if params[:section].eql?("development-environment-setup")%>class="selected"<% end %>><div><%= link_to "Development environment setup", "/sdk/development-environment-setup" %></div></li>
+        <!--
 
         <li <% if params[:section].eql?("develop-a-widget")%>class="selected" <% elsif ["develop-a-widget/what-is-a-widget", "develop-a-widget/widget-structure", "develop-a-widget/widget-configuration", "develop-a-widget/html-css", "develop-a-widget/js", "develop-a-widget/more"].include?(params[:section])%>class="selected_parent"<% end %>><div><%= link_to "Develop a widget", "/sdk/develop-a-widget" %></div></li>
         <ul class="subnav" <% if !["develop-a-widget", "develop-a-widget/what-is-a-widget", "develop-a-widget/widget-structure", "develop-a-widget/widget-configuration", "develop-a-widget/html-css", "develop-a-widget/js", "develop-a-widget/more"].include?(params[:section]) %> style="display: none;"<% end %>>
@@ -70,15 +70,11 @@
             <li <% if params[:section].eql?("style-guide/reusable-css")%>class="selected"<% end %>><div><%= link_to "Reusable CSS pieces/templates", "/sdk/style-guide/reusable-css" %></div></li>
         </ul>
 
-        <li 
-        <% if params[:section].eql?("api") && params[:subsection].blank? && params[:module].blank? %>class="selected" <% elsif ["frontend", "backend"].include?(params[:subsection]) && !params[:section].blank? %>class="selected_parent" <% end %>><div><%= link_to "API", "/sdk/api/frontend" %></div></li>
-        <ul class="subnav" <% if !["api"].include?(params[:section]) || !["frontend", "backend"].include?(params[:subsection]) %> style="display: none;"<% end %>>
-            <li <% if params[:subsection].eql?("frontend")%>class="selected"<% end %>><div><%= link_to "Front-end", "/sdk/api/frontend" %></div></li>
-            <li <% if params[:subsection].eql?("backend")%>class="selected"<% end %>><div><%= link_to "Back-end", "/sdk/api/backend" %></div></li>
-        </ul>
+
         
         <li <% if params[:section].eql?("faq") %>class="selected"<% end %>><div><%= link_to "FAQ", "/sdk/faq" %></div></li>
         <li <% if params[:section].eql?("getting-help") %>class="selected"<% end %>><div><%= link_to "Getting help", "/sdk/getting-help" %></div></li>
+        -->
     </ul>
 </nav>
 <hr class="wl-push wl-hidden"/>

@@ -3,7 +3,7 @@
     <div id="development-environment-setup">
         <div class="wl-widget-item">
         <% if !@content.blank? %>    
-            <%= @content %>
+            <%= raw @content.gsub(/\r/, '<br />') %>
         <% else %>
             <h1>Open Academic Environment (OAE Project)</h1>
             <p>No results</p>       
