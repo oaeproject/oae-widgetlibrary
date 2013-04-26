@@ -125,6 +125,8 @@
         }
     }
     #api_docs_modules_navigation {
+        width: 165px;
+        margin-right: 10px;
         a {
             font-size: 1.1em;
         }
@@ -132,6 +134,9 @@
     #api_docs_modules_detail{
         h1, h2, h3, h4 {
             color: #2683BC;
+            a {
+                color: #2683BC;
+            }
         }
         h1 {
             font-size: 1.8em;
@@ -165,6 +170,12 @@
             padding: 5px 0;  
             strong {
                 padding: 3px 0;
+            }
+        }
+        a {
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
             }
         }
     }

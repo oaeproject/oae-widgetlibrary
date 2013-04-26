@@ -6,7 +6,7 @@
     <div class="wl-widget-item wl-margin-top-0">
                
         <!-- Navigation -->
-        <div id="api_docs_modules_navigation" class="wl-left wl-content-175">
+        <div id="api_docs_modules_navigation" class="wl-left">
             <% if !@modules.blank? %>
                 <%= render :partial => "apimodulesnav",  :locals => { :modules => @modules, :subsection => @subsection }%>
             <% end %>        
@@ -26,4 +26,5 @@
     </div>
     
     <br style="clear: both;"/>
+
 </div>

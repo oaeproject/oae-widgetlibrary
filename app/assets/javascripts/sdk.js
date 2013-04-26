@@ -112,11 +112,10 @@ $(function() {
                 section: url
             };
             History.pushState(state, title, url);
-        });
-
+        });        
     };
 
-    var init = function(){
+    var init = function(){ 
         addClassesToMDText();
         addBinding();
     };
