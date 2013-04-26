@@ -43,11 +43,8 @@
         <li <% if params[:section].eql?("faq")%>class="selected"<% end %>><div><%= link_to "FAQ", "/sdk/faq" %></div></li>
         <li <% if params[:section].eql?("contact")%>class="selected"<% end %>><div><%= link_to "Getting help", "/sdk/contact" %></div></li>
         
-
-
-        <!-- UPDATED NAVIGATION -->
+        <!-- UPDATED NAVIGATION => Contains the new items, in comments until all the views are ready -->
         <!--
-
         <li <% if params[:section].eql?("develop-a-widget")%>class="selected" <% elsif ["develop-a-widget/what-is-a-widget", "develop-a-widget/widget-structure", "develop-a-widget/widget-configuration", "develop-a-widget/html-css", "develop-a-widget/js", "develop-a-widget/more"].include?(params[:section])%>class="selected_parent"<% end %>><div><%= link_to "Develop a widget", "/sdk/develop-a-widget" %></div></li>
         <ul class="subnav" <% if !["develop-a-widget", "develop-a-widget/what-is-a-widget", "develop-a-widget/widget-structure", "develop-a-widget/widget-configuration", "develop-a-widget/html-css", "develop-a-widget/js", "develop-a-widget/more"].include?(params[:section]) %> style="display: none;"<% end %>>
             <li <% if params[:section].eql?("develop-a-widget/what-is-a-widget")%>class="selected"<% end %>><div><%= link_to "What is a widget", "/sdk/develop-a-widget/what-is-a-widget" %></div></li>
@@ -69,8 +66,6 @@
             <li <% if params[:section].eql?("style-guide/bootstrap-reference")%>class="selected"<% end %>><div><%= link_to "Bootstrap reference", "/sdk/style-guide/bootstrap-reference" %></div></li>
             <li <% if params[:section].eql?("style-guide/reusable-css")%>class="selected"<% end %>><div><%= link_to "Reusable CSS pieces/templates", "/sdk/style-guide/reusable-css" %></div></li>
         </ul>
-
-
         
         <li <% if params[:section].eql?("faq") %>class="selected"<% end %>><div><%= link_to "FAQ", "/sdk/faq" %></div></li>
         <li <% if params[:section].eql?("getting-help") %>class="selected"<% end %>><div><%= link_to "Getting help", "/sdk/getting-help" %></div></li>
