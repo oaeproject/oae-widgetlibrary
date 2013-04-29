@@ -8,6 +8,12 @@ class SdkController < ApplicationController
 
     @@url_readme_file = 'https://raw.github.com/sakaiproject/Hilary/master/README.md'
     @@url_rest_api_doc = 'http://tenant1.oae.com/api/doc/'
+    @@url_css_file = 'http://tenant1.oae.com/shared/oae/css/oae.components.css'
+    
+    # Regular expressions
+    #regex_cat = /(\/\*{3,}\s*.*\s*\*+\/\s*.*(\s*.**))/
+    @@regex_cat_title = /\/\*{3,}\s*.*\s*\*+\//
+    @@regex_description = /\/\*{1,2}\s*.*\s*\*+\//
 
     # Show index page of SDK
 
@@ -28,6 +34,9 @@ class SdkController < ApplicationController
                                       
         # If section is 'api'
         if template == 'api'
+            
+            # Path to the template
+            template = "sdk/api/index"
                            
             # Show front or back end               
             if !params[:subsection].blank? 
@@ -63,7 +72,19 @@ class SdkController < ApplicationController
                 end     
                                                                            
             end
-                                                                            
+                    
+        # If section is 'style-guide' & subsection is 'reusable-css'
+        elsif template == 'style-guide' && params[:subsection] == 'reusable-css'
+            
+            # Path to the template
+            template = "sdk/style-guide/reusable-css"
+            
+            # Parse the CSS file
+            @content = parse_css_file(@@url_css_file)
+                        
+            # Pass the content as a parameter for the view variables
+            locals = { :content => @content }            
+                                                           
         # If section is 'development-environment-setup', load the parse the markdown file
         elsif template == 'development-environment-setup'
             @content = parse_markdown
@@ -96,7 +117,7 @@ class SdkController < ApplicationController
 
     # Get all the modules from the REST API
     #
-    # @params   {String}    url             The endpoint of the documentation api
+    # @param    {String}    url             The endpoint of the documentation api
     # @return   {Array}     data            The array containing all the module names
 
     def get_doc_module_names(url)
@@ -120,10 +141,71 @@ class SdkController < ApplicationController
 
     def get_doc_details(url)  
         begin 
-            resp = Net::HTTP.get_response(URI.parse(url))                             
+            resp = Net::HTTP.get_response(URI.parse(url))           
             return Yajl::Parser.parse(resp.body)
         rescue
             return nil
         end
     end
+    
+    
+    # Parse a css file
+    #
+    # @param    {String}    url             The endpoint of the documentation api
+    # @return   {String}    the css dump    The hash containing the module details
+
+    def parse_css_file(url)   
+        output = nil     
+        begin
+            resp = Net::HTTP.get_response(URI.parse(url))            
+            if resp.body.class == String
+                                    
+                # Create an array to store the categories 
+                categories = []    
+                resp.body.scan(@@regex_cat_title).collect{|x| categories.push(x)}   
+                    
+                # Loop the categories to get their selectors
+                i = 1
+                arrCategories = []    
+                categories.each do |cat| 
+                                             
+                    # Create an object for each category     
+                    obj = {}
+                    obj['title'] = remove_all_dirty_chars_from_string(cat) 
+                    obj['content'] = nil
+                    
+                    # To get the content, split on a regex of the type 'title'
+                    splitted = []
+                    resp.body.split(@@regex_cat_title).each do |item|
+                       splitted.push(item)
+                    end 
+                    
+                    # Check for subsections in each category
+                    obj['content'] = splitted[i]
+                    
+                    arrCategories.push(obj)
+                    i = i + 1
+                    
+                end 
+                
+                output = arrCategories                                                
+            end
+            return output
+        rescue
+            return nil
+        end        
+    end
+    
+    # Remove all the characters from a string (to create a clean title)
+    #
+    # @param    {String} string             The given string that needs to be cleaned up
+    #
+    # @return   {String} string             The cleaned up string
+    
+    def remove_all_dirty_chars_from_string(string)                
+        replacements = [ ["*", ""], ["/", ""] ]
+        replacements.each {|replacement| string.gsub!(replacement[0], replacement[1])}
+        return string
+    end
+    
 end

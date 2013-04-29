@@ -1,0 +1,17 @@
+<% content_for :title do %> - SDK - Style guide &amp; endpoints<% end %>
+<div class="widgetsdk_container">
+    <h1>Reusable CSS pieces/templates</h1>
+    <% if !@content.blank? %>
+        
+        <% @content.each do |cat| %>
+        <div class="wl-widget-item">
+            <h3><%= cat['title'] %></h3>
+            <p><%= cat['content'] %></p>
+        </div>
+        <% end %>
+              
+    <% else %>
+        <p>No results</p>
+    <% end %>   
+    <hr class="wl-push wl-hidden"/>
+</div>
