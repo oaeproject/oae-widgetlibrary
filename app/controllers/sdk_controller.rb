@@ -13,14 +13,14 @@ class SdkController < ApplicationController
     # Regular expressions
     #regex_cat = /(\/\*{3,}\s*.*\s*\*+\/\s*.*(\s*.**))/
     @@regex_cat_title = /\/\*{3,}\s*.*\s*\*+\//
-    @@regex_description = /\/\*{1,2}\s*.*\s*\*+\//
-
+    @@regex_description = /\/{1}\*{2}\s*(\*?\s.*\s*)*\*{1}\/{1}/
+    @@regex_selector = /([a-zA-Z]*\.?\#?[^\s]+\s{1}\{(\s*[^\;]*;+)*\s*\}{1})/
+   
     # Show index page of SDK
 
     def index
         render :layout => 'application'
     end
-
 
     # Show section of SDK (e.g. api, faq...)
 
@@ -160,11 +160,11 @@ class SdkController < ApplicationController
             resp = Net::HTTP.get_response(URI.parse(url))            
             if resp.body.class == String
                                     
-                # Create an array to store the categories 
+                # Create an array to store the categories => create item for each category
                 categories = []    
                 resp.body.scan(@@regex_cat_title).collect{|x| categories.push(x)}   
                     
-                # Loop the categories to get their selectors
+                # Loop the categories to get their content
                 i = 1
                 arrCategories = []    
                 categories.each do |cat| 
@@ -172,23 +172,39 @@ class SdkController < ApplicationController
                     # Create an object for each category     
                     obj = {}
                     obj['title'] = remove_all_dirty_chars_from_string(cat) 
-                    obj['content'] = nil
+                    obj['content'] = {}
                     
                     # To get the content, split on a regex of the type 'title'
+                    # Returns a string with the description and selectors of the 'category'
+                    # Puts each string in an array
                     splitted = []
                     resp.body.split(@@regex_cat_title).each do |item|
-                       splitted.push(item)
+                        splitted.push(item)
                     end 
-                    
-                    # Check for subsections in each category
-                    obj['content'] = splitted[i]
-                    
-                    arrCategories.push(obj)
-                    i = i + 1
-                    
-                end 
+                                        
+                    # Loop the content for the category and look for other codeblocks
+                    # Splits the string on empty lines
+                    selectors = []
+                    splitted[i].split(/\n\n/).each do |paragraph|       
+                        if !paragraph.empty?      
+                            
+                            # Check if the paragraph starts with css comment characters
+                            #selectors.push(paragraph) if paragraph.start_with?('/*')
+             
+                            # Check if the paragraph contains a CSS selector (class or id)               
+                            paragraph.scan(@@regex_selector).collect{
+                                |comment| selectors.push(comment.first)
+                            }                                                                                    
+                        end                 
+                    end              
                 
-                output = arrCategories                                                
+                    obj['content']['selectors'] = selectors
+                                                                                                                                                                   
+                    arrCategories.push(obj)
+                    i += 1          
+                end             
+                output = arrCategories   
+                                                                             
             end
             return output
         rescue

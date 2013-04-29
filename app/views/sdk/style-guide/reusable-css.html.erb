@@ -1,15 +1,28 @@
 <% content_for :title do %> - SDK - Style guide &amp; endpoints<% end %>
 <div class="widgetsdk_container">
     <h1>Reusable CSS pieces/templates</h1>
+    
+    <!-- Check if object isn't emtpy -->
     <% if !@content.blank? %>
         
+        <!-- Loop the categories -->
         <% @content.each do |cat| %>
         <div class="wl-widget-item">
             <h3><%= cat['title'] %></h3>
-            <p><%= cat['content'] %></p>
+            
+            <!-- Loop the items in a category -->
+            <% if !cat['content']['selectors'].empty? %>
+                
+                <h4><%= cat['content']['selectors'].length %> selectors</h4>
+                
+                <!-- Each selector / category -->
+                <% cat['content']['selectors'].each do |selector| %>
+                    <p><pre><%= selector.gsub(/\n/,'<br />').html_safe %></pre></p>               
+                <% end %>     
+                        
+            <% end %>
         </div>
-        <% end %>
-              
+        <% end %>         
     <% else %>
         <p>No results</p>
     <% end %>   
