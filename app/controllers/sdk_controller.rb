@@ -14,7 +14,7 @@ class SdkController < ApplicationController
     #regex_cat = /(\/\*{3,}\s*.*\s*\*+\/\s*.*(\s*.**))/
     @@regex_cat_title = /\/\*{3,}\s*.*\s*\*+\//
     @@regex_description = /\/{1}\*{2}\s*(\*?\s.*\s*)*\*{1}\/{1}/
-    @@regex_selector = /([a-zA-Z]*\.?\#?[^\s]+\s{1}\{(\s*[^\;]*;+)*\s*\}{1})/
+    @@regex_selector = /(\S*\.?\#?[^\s]+\s{1}\{(\s*[^\;]*;+)*\s*\}{1})/
    
     # Show index page of SDK
 
@@ -184,28 +184,34 @@ class SdkController < ApplicationController
                                         
                     # Loop the content for the category and look for other codeblocks
                     # Splits the string on empty lines
-                    selectors = []
-                    splitted[i].split(/\n\n/).each do |paragraph|       
-                        if !paragraph.empty?      
-                            
-                            # Check if the paragraph starts with css comment characters
-                            #selectors.push(paragraph) if paragraph.start_with?('/*')
-             
-                            # Check if the paragraph contains a CSS selector (class or id)               
-                            paragraph.scan(@@regex_selector).collect{
-                                |comment| selectors.push(comment.first)
-                            }                                                                                    
-                        end                 
-                    end              
-                
+                    selectors = []                    
+                    splitted[i].split(/\n\n/).each do |paragraph|    
+
+                        # Split the paragraph                                                     
+                        if !paragraph.blank?
+                            arrParagraph = paragraph.split('*/')                                                                                 
+                            arrParagraph.each do |item| 
+                                objItem = {}
+                                objItem['value'] = item                                                           
+                                objItem['type'] = "selector"
+                                if item.match(/^\/\*/)
+                                    objItem['type'] = "description"
+                                    
+                                    #TODO: make cleanup function dynamic...                                
+                                    objItem['value'] = remove_all_dirty_chars_from_string(item)
+                                end                       
+                                selectors.push(objItem)
+                            end
+                        end                                      
+                    end           
+                    
+                    # Add the selectors to the content object
                     obj['content']['selectors'] = selectors
-                                                                                                                                                                   
                     arrCategories.push(obj)
                     i += 1          
                 end             
-                output = arrCategories   
-                                                                             
-            end
+                output = arrCategories                                                                 
+            end                               
             return output
         rescue
             return nil
@@ -215,7 +221,6 @@ class SdkController < ApplicationController
     # Remove all the characters from a string (to create a clean title)
     #
     # @param    {String} string             The given string that needs to be cleaned up
-    #
     # @return   {String} string             The cleaned up string
     
     def remove_all_dirty_chars_from_string(string)                
