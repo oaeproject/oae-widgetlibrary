@@ -154,7 +154,7 @@ class SdkController < ApplicationController
     # @param    {String}    url             The endpoint of the documentation api
     # @return   {String}    the css dump    The hash containing the module details
 
-    def parse_css_file(url)   
+    def parse_css_file(url)           
         output = nil     
         begin
             resp = Net::HTTP.get_response(URI.parse(url))            
@@ -171,7 +171,7 @@ class SdkController < ApplicationController
                                              
                     # Create an object for each category     
                     obj = {}
-                    obj['title'] = remove_all_dirty_chars_from_string(cat) 
+                    obj['title'] = remove_all_dirty_chars_from_string([["*", ""], ["/", ""]], cat)
                     obj['content'] = {}
                     
                     # To get the content, split on a regex of the type 'title'
@@ -198,7 +198,7 @@ class SdkController < ApplicationController
                                     objItem['type'] = "description"
                                     
                                     #TODO: make cleanup function dynamic...                                
-                                    objItem['value'] = remove_all_dirty_chars_from_string(item)
+                                    objItem['value'] = remove_all_dirty_chars_from_string([["*", ""]], item)
                                 end                       
                                 selectors.push(objItem)
                             end
@@ -217,15 +217,15 @@ class SdkController < ApplicationController
             return nil
         end        
     end
-    
+          
     # Remove all the characters from a string (to create a clean title)
     #
+    # @param    {Array}  chars              The characters that need to be replaced
     # @param    {String} string             The given string that needs to be cleaned up
     # @return   {String} string             The cleaned up string
     
-    def remove_all_dirty_chars_from_string(string)                
-        replacements = [ ["*", ""], ["/", ""] ]
-        replacements.each {|replacement| string.gsub!(replacement[0], replacement[1])}
+    def remove_all_dirty_chars_from_string(chars, string)
+        chars.each {|char| string.gsub!(char[0], char[1])}
         return string
     end
     
