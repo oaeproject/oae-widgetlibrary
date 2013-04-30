@@ -11,7 +11,6 @@ class SdkController < ApplicationController
     @@url_css_file = 'http://tenant1.oae.com/shared/oae/css/oae.components.css'
     
     # Regular expressions
-    #regex_cat = /(\/\*{3,}\s*.*\s*\*+\/\s*.*(\s*.**))/
     @@regex_cat_title = /\/\*{3,}\s*.*\s*\*+\//
     @@regex_description = /\/{1}\*{2}\s*(\*?\s.*\s*)*\*{1}\/{1}/
     @@regex_selector = /(\S*\.?\#?[^\s]+\s{1}\{(\s*[^\;]*;+)*\s*\}{1})/
@@ -195,10 +194,26 @@ class SdkController < ApplicationController
                                 objItem['value'] = item                                                           
                                 objItem['type'] = "selector"
                                 if item.match(/^\/\*/)
-                                    objItem['type'] = "description"
                                     
-                                    #TODO: make cleanup function dynamic...                                
-                                    objItem['value'] = replace_all_dirty_chars_from_string([/\*/, /^\//], item)
+                                    objItem['examples'] = []
+                                    objItem['snippets'] = []
+                                    objItem['explanations'] = []
+                                    
+                                    objItem['type'] = "description"                          
+                                    val = replace_all_dirty_chars_from_string([/\*/, /^\//], item)                                                                                               
+                                    val = val.gsub(/\s</,"<pre><").gsub(/>$/,"></pre>").gsub(/\se.g./, "")
+                                    objItem['value'] = val  
+                                            
+                                    # Parse snippets                             
+                                    val.scan(/<pre>.*<\/pre>/).collect{|i| objItem['snippets'].push(i)}
+                                            
+                                    # Parse comment blocks                         
+                                    val.split(/<pre>.*<\/pre>/).each do |i|
+                                        stripped = i.gsub(/\n/,"")                                        
+                                        if !stripped.blank? && stripped != ""  
+                                            objItem['explanations'].push(stripped) 
+                                        end
+                                    end                                    
                                 end                       
                                 selectors.push(objItem)
                             end

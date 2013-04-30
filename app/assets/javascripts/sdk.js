@@ -120,7 +120,7 @@ $(function(){
         $("body").on("click", '#lhnavigation_container a, .wl-content-container .wl-content-right-container a[href^="/sdk/"]',
         function(evt){
             // Disable the default click behavior
-            evt.preventDefault();
+            // evt.preventDefault();
             // Cache the this selector
             var $this = $(this);
             var url = $this.attr("href");
@@ -130,15 +130,19 @@ $(function(){
             };d
             History.pushState(state, title, url);
         });
-        
+                
         $('#reusable-css').find('.wl-widget-item h3').bind('click', function(e){
             hideCSSContentContainers();
-            console.log($(e.currentTarget).next().slideDown());
-        });
+            $(e.currentTarget).next().slideDown();
+        }) 
     };
     
     var hideCSSContentContainers = function(){
         $('#reusable-css').find('.wl-widget-item .css-content').hide();          
+    };
+    
+    var showFirstCSSContentContainer = function(){
+        $('#reusable-css').find('.wl-widget-item .css-content').first().show();        
     };
 
     var splitCodeTagsOnLinebreaks = function(){
@@ -156,6 +160,7 @@ $(function(){
     var init = function(){
         splitCodeTagsOnLinebreaks();
         hideCSSContentContainers();
+        showFirstCSSContentContainer();
         addClassesToMarkdownText();
         addBinding();
     };

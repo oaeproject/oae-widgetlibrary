@@ -127,26 +127,50 @@
     #reusable-css {
         .wl-widget-item {
             h3 {
+                margin-top: 0;
                 cursor: pointer;
+                padding-bottom: 15px;
+                text-transform: lowercase;              
+                &:first-letter {
+                    text-transform: uppercase;
+                }
+                a {
+                    color: #2683BC;
+                    text-decoration: none;
+                }
             }
             .css-content {
-                p.description, pre.selector {
-                    margin-bottom: 10px;
+                p.description, pre.selector, ul.snippets{
+                    display: block;
                 }
                 p.description {
-                
+                    line-height: 1.4em;
+                    margin-bottom: 10px;
+                }
+                pre.selector, ul.snippets {
+                    padding: 10px;
+                    margin-bottom: 20px;
+                    border: 1px solid #EEEEEE;                
                 }
                 pre.selector{
-                    padding: 10px;
-                    background-color: #FEFEFE;
-                    border: 1px solid #EEEEEE;
-                    
+                    background-color: #FEFEFE;                 
                     br:first-child{
                         display: none;
                     }    
                 }
+                ul.snippets {
+                    background-color: #EFEFEF;
+                    li {
+                        font-size: .9em;
+                        line-height: 1.5em;
+                        list-style-type: none;
+                    }
+                }
             }
-        }
+            &:first-of-type {
+                margin-top: 0 !important;
+            } 
+        } 
     }
     #development-environment-setup {
         code:not(.well) {
