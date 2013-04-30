@@ -124,6 +124,30 @@
             padding-right: 0;
         }
     }
+    #reusable-css {
+        .wl-widget-item {
+            h3 {
+                cursor: pointer;
+            }
+            .css-content {
+                p.description, pre.selector {
+                    margin-bottom: 10px;
+                }
+                p.description {
+                
+                }
+                pre.selector{
+                    padding: 10px;
+                    background-color: #FEFEFE;
+                    border: 1px solid #EEEEEE;
+                    
+                    br:first-child{
+                        display: none;
+                    }    
+                }
+            }
+        }
+    }
     #development-environment-setup {
         code:not(.well) {
             color: red;

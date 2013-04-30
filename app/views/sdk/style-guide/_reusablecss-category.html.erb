@@ -3,17 +3,18 @@
 
     <div class="wl-widget-item">
     
-    <h3><%= cat['title'] %></h3>     
-    
-    <% cat['content']['selectors'].each do |selector| %>
-    
-        <% if selector['type'] == "description" %>
-            <p><%= selector['value'] %></p>
-        <% else %>
-            <pre><%= selector['value'] %></pre>
-        <% end %>
-            
-    <% end %>       
-    
+        <h3><%= cat['title'] %></h3>     
+        <div class="css-content">
+        <% cat['content']['selectors'].each do |selector| %>
+        
+            <% if selector['type'] == "description" %>
+                <p class="description"><%= selector['value'] %></p>
+            <% else %>
+                <pre class="selector"><%= selector['value'] %></pre>
+            <% end %>
+                
+        <% end %>            
+        </div>
+          
     </div>
 <% end %>       
