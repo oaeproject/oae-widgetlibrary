@@ -171,7 +171,7 @@ class SdkController < ApplicationController
                                              
                     # Create an object for each category     
                     obj = {}
-                    obj['title'] = remove_all_dirty_chars_from_string([["*", ""], ["/", ""]], cat)
+                    obj['title'] = replace_all_dirty_chars_from_string([/\*/, /\//], cat)
                     obj['content'] = {}
                     
                     # To get the content, split on a regex of the type 'title'
@@ -198,7 +198,7 @@ class SdkController < ApplicationController
                                     objItem['type'] = "description"
                                     
                                     #TODO: make cleanup function dynamic...                                
-                                    objItem['value'] = remove_all_dirty_chars_from_string([["*", ""]], item)
+                                    objItem['value'] = replace_all_dirty_chars_from_string([/\*/, /^\//], item)
                                 end                       
                                 selectors.push(objItem)
                             end
@@ -224,8 +224,8 @@ class SdkController < ApplicationController
     # @param    {String} string             The given string that needs to be cleaned up
     # @return   {String} string             The cleaned up string
     
-    def remove_all_dirty_chars_from_string(chars, string)
-        chars.each {|char| string.gsub!(char[0], char[1])}
+    def replace_all_dirty_chars_from_string(chars, string)
+        chars.each {|char| string.gsub!(char, "")}
         return string
     end
     

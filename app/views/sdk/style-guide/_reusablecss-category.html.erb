@@ -1,1 +1,19 @@
-<p>Category</p>
+<!-- Loop the categories -->
+<% @content.each do |cat| %>
+
+    <div class="wl-widget-item">
+    
+    <h3><%= cat['title'] %></h3>     
+    
+    <% cat['content']['selectors'].each do |selector| %>
+    
+        <% if selector['type'] == "description" %>
+            <p><%= selector['value'] %></p>
+        <% else %>
+            <pre><%= selector['value'] %></pre>
+        <% end %>
+            
+    <% end %>       
+    
+    </div>
+<% end %>       
