@@ -147,8 +147,10 @@
                     line-height: 1.4em;
                     margin-bottom: 10px;
                 }
-                pre.selector, ul.snippets {
-                    padding: 10px;
+                pre.selector, ul.snippets, div.snippet-demo {
+                    padding: 10px;                
+                }
+                pre.selector, ul.snippets, div.snippet-demo {
                     margin-bottom: 20px;
                     border: 1px solid #EEEEEE;                
                 }
@@ -165,6 +167,9 @@
                         line-height: 1.5em;
                         list-style-type: none;
                     }
+                }
+                div.snippet-demo {
+                    overflow: hidden;
                 }
             }
             &:first-of-type {

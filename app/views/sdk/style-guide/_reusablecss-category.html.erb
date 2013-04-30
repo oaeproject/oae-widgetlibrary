@@ -3,21 +3,20 @@
     <div class="wl-widget-item">   
         <h3><a href="<%= '#' + cat['title'].gsub(/\s/,'').downcase %>" name="<%= '#' + cat['title'].gsub(/\s/,'').downcase %>"><%= cat['title'] %></a></h3>     
         <div class="css-content">
-        <% cat['content']['selectors'].each do |selector| %> 
-                       
+        <% cat['content']['selectors'].each do |selector| %>                     
             <% if selector['type'] == "description" %>     
                 <% if !selector['explanations'].empty? %>     
                     <% selector["explanations"].each do |example| %>
                         <p raw class="description"><%= example.gsub(/\s-/,'<br /><br /> -').gsub(/\n/,"<br />").html_safe %></p>
                     <% end%>         
-                <% end %>
-                
-                <% if !selector['snippets'].empty? %>  
+                <% end %>         
+                <% if !selector['snippets'].empty? %> 
+                    <iframe seamless src="http://localhost:3000/examples/style-guide/clips.html" style="width: 100%; height: 150px"></iframe>                 
                     <ul class="snippets">
                     <% selector['snippets'].each do |snippet| %>
                         <li><%= snippet.gsub(/<\/pre>/,"").gsub(/<pre>/,"") %></li>
                     <% end %> 
-                    </ul>                                             
+                    </ul>                                        
                 <% end %>                                
             <% else %>
                 <pre class="selector"><%= selector['value'] %></pre>
