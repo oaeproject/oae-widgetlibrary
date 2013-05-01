@@ -1,27 +1,46 @@
 <!-- Loop the categories -->
 <% @content.each do |cat| %>
-    <div class="wl-widget-item">   
-        <h3><a href="<%= '#' + cat['title'].gsub(/\s/,'').downcase %>" name="<%= '#' + cat['title'].gsub(/\s/,'').downcase %>"><%= cat['title'] %></a></h3>     
+    <div class="wl-widget-item">  
+         
+        <h3><a href="<%= '#' + cat['title'].gsub(/\s/,'').downcase %>" name="<%= '#' + cat['title'].gsub(/\s/,'').downcase %>"><%= cat['title'] %></a></h3>   
+          
         <div class="css-content">
-        <% cat['content']['selectors'].each do |selector| %>                     
-            <% if selector['type'] == "description" %>     
+        <% cat['content']['selectors'].each do |selector| %>
+                
+            <!-- If type is description (comment block in css) -->
+            <% if selector['type'] == "description" %>    
+                 
+                <!-- Loop explanations -->
                 <% if !selector['explanations'].empty? %>     
-                    <% selector["explanations"].each do |example| %>
-                        <p raw class="description"><%= example.gsub(/\s-/,'<br /><br /> -').gsub(/\n/,"<br />").html_safe %></p>
+                    <% selector["explanations"].each do |explanation| %>
+                        <p raw class="description"><%= explanation.gsub(/\s-/,'<br /><br /> -').gsub(/\n/,"<br />").html_safe %></p>
                     <% end%>         
-                <% end %>         
-                <% if !selector['snippets'].empty? %> 
-                    <iframe scrolling="no" seamless src="http://localhost:3000/examples/style-guide/tiles.html"></iframe>                 
-                    <ul class="snippets">
+                <% end %>  
+               
+                <!-- Loop the examples -->
+                <% if !selector['examples'].empty? %>     
+                    <% selector['examples'].each do |example| %>
+                        <iframe scrolling="no" seamless src="<%= example %>"></iframe>           
+                    <% end%>         
+                <% end %> 
+                
+                <!-- Loop the code snippets --> 
+                <!-- Loop the examples -->
+                <% if !selector['snippets'].empty? %>
+                <ul class="snippets">     
                     <% selector['snippets'].each do |snippet| %>
-                        <li><%= snippet.gsub(/<\/pre>/,"").gsub(/<pre>/,"") %></li>
-                    <% end %> 
-                    </ul>                                        
-                <% end %>                                
+                        <li><%= snippet %></li>
+                    <% end%>
+                </ul>         
+                <% end %> 
+     
+            <!-- If type is css selector -->
             <% else %>
                 <pre class="selector"><%= selector['value'] %></pre>
             <% end %>  
+            
         <% end %>            
-        </div>       
+        </div>  
+             
     </div>
 <% end %>       

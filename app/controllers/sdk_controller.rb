@@ -184,32 +184,45 @@ class SdkController < ApplicationController
                     # Loop the content for the category and look for other codeblocks
                     # Splits the string on empty lines
                     selectors = []                    
-                    splitted[i].split(/\n\n/).each do |paragraph|    
+                    splitted[i].split(/\n\n/).each do |paragraph|  
 
                         # Split the paragraph                                                     
                         if !paragraph.blank?
                             arrParagraph = paragraph.split('*/')                                                                                 
                             arrParagraph.each do |item| 
+                                
+                                # Create new item object and set as selector by default
                                 objItem = {}
                                 objItem['value'] = item                                                           
                                 objItem['type'] = "selector"
+                                
+                                # If the item matches ' /*'
                                 if item.match(/^\/\*/)
+
+                                    # Override type and set as description
+                                    objItem['type'] = "description"     
                                     
+                                    # Create some arrays for other elements
                                     objItem['examples'] = []
                                     objItem['snippets'] = []
                                     objItem['explanations'] = []
-                                    
-                                    objItem['type'] = "description"                          
-                                    val = replace_all_dirty_chars_from_string([/\*/, /^\//], item)                                                                                               
+                                                                   
+                                    # First remove all the '*' and the ' \' from the string                         
+                                    val = replace_all_dirty_chars_from_string([/\*/, /^\//], item)  
                                     val = val.gsub(/\s</,"<pre><").gsub(/>$/,"></pre>").gsub(/\se.g./, "")
-                                    objItem['value'] = val  
                                             
-                                    # Parse snippets                             
+                                    # EXAMPLES: Get all the examples out of the string and remove 'example: '
+                                    val.scan(/example.*\.html/).collect{|example| 
+                                        example = example.gsub(/example:\s/,"")
+                                        objItem['examples'].push(example)
+                                    }                           
+                                              
+                                    # SNIPPETS: Get all the html snippets out of the string               
                                     val.scan(/<pre>.*<\/pre>/).collect{|i| objItem['snippets'].push(i)}
                                             
-                                    # Parse comment blocks                         
+                                    # EXPLANATIONS: Parse comment blocks and remove the examples                        
                                     val.split(/<pre>.*<\/pre>/).each do |i|
-                                        stripped = i.gsub(/\n/,"")                                        
+                                        stripped = i.gsub(/\n/,"").gsub(/example:.*\.html/,"")                                        
                                         if !stripped.blank? && stripped != ""  
                                             objItem['explanations'].push(stripped) 
                                         end
