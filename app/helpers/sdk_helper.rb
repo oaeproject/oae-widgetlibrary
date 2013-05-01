@@ -1,11 +1,11 @@
-# encoding: utf-8
-
 module SdkHelper
     
     # Regular expressions
+    
     @@regex_cat_title = /\/\*{3,}\s*.*\s*\*+\//
     @@regex_description = /\/{1}\*{2}\s*(\*?\s.*\s*)*\*{1}\/{1}/
     @@regex_selector = /(\S*\.?\#?[^\s]+\s{1}\{(\s*[^\;]*;+)*\s*\}{1})/
+    
     
     # Parse the markdown file
     #
