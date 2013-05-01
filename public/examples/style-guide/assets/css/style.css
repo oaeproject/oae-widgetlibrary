@@ -7,5 +7,6 @@ body {
 
 .example-container{
     height: 150px;
-    width: 682px;
+    width: 662px;
+    padding: 10px;
 }
