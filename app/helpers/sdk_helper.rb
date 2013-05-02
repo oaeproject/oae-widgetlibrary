@@ -155,6 +155,7 @@ module SdkHelper
                                 selectors.push(objItem)
                             end
                         end                                      
+        
                     end           
                     
                     # Add the selectors to the content object

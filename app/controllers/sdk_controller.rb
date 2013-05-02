@@ -77,8 +77,7 @@ class SdkController < ApplicationController
             # Parse the CSS file
             if !@content_css
                 @content_css = parse_css_file(@@url_css_file)
-            end
-            
+            end           
             @content = @content_css
                         
             # Pass the content as a parameter for the view variables
