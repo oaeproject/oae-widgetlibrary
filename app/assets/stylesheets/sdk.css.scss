@@ -125,6 +125,24 @@
         }
     }
     #reusable-css {
+        .top{
+            height: 50px;
+            position: relative;
+            h1, #frmVersions{
+                width: 100%;
+                position: absolute !important;
+            }
+            h1{
+                left: 0;
+                z-index: 500 !important;
+            }
+            #frmVersions{
+                right: 0;
+                z-index: 1000 !important;       
+                text-align: right;
+                line-height: 25px;
+            }
+        }
         .wl-widget-item {
             h3 {
                 margin-top: 0;

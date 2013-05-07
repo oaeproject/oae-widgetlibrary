@@ -2,19 +2,24 @@
 
 <% content_for :title do %> - SDK - Style guide &amp; endpoints<% end %>
 <div id="reusable-css" class="widgetsdk_container">
-    <h1>Reusable CSS pieces/templates</h1>
+    
+    <div class="top">
+        <h1>Reusable CSS pieces/templates</h1>       
+        <% if !@versions.blank? %>
+        <form id="frmVersions">
+            <label for="dpdVersions">version: </label>
+            <select name="versions" id="dpdVersions">
+                <% @versions.each do |version| %>
+                <option value="<%= version %>"<% if version == @version %> selected="selected"<% end %>><%= version %></option>
+                <% end %>
+            </select>            
+        </form>
+        <% end %> 
+    </div>
     
     <!-- Versions -->
     <% if !@versions.blank? %>
-        <select name="versions" id="dpdVersions">
-        <% @versions.each do |version| %>
-            <option value="<%= version %>"<% if version == @version %> selected="selected"<% end %>><%= version %></option>
-        <% end %>
-        </select>
-        
-        <!-- Render the categories -->    
-        <%= render :partial => "sdk/style-guide/versions/" + @version,  :locals => { :content => @content }%>
-                       
+        <%= render :partial => "sdk/style-guide/versions/" + @version,  :locals => { :content => @content }%>                       
     <% else %>
         <p>No results</p>
     <% end %>   

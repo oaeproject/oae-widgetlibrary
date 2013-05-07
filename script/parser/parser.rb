@@ -3,16 +3,12 @@ require 'net/http'
 require 'open-uri'
 require 'timeout'
 
-# Examples for testing
-# http://tenant1.oae.com/shared/oae/css/oae.components.css
-# public/examples/style-guide/assets/css/style.css
-
 # Properties
 @regex_cat_title = /\/\*{3,}\s*.*\s*\*+\//
 
 @dir_public = "../../public/"
-@dir_examples = "examples/"
-@dir_template_target = "../../app/views/sdk/style-guide/"
+@dir_examples = "examples/versions/"
+@dir_template_target = "../../app/views/sdk/style-guide/versions/"
 
 @url_remote_css_file_components = nil
 @url_remote_css_file_ui = nil
@@ -55,15 +51,13 @@ end
 
 # Write the HTML to a file
 #
+# @param    {String}    foldername      The name that will be used for the new skin file
 # @param    {String}    directory       The target directory for the new file
 # @param    {String}    dump            The HTML dump
 
-def prepare_file(directory, dump)
-    #print "Please enter the name for the HTML file: \n"
-    #filename = gets.chomp
-    filename = "_reusable-css-categories" 
-    if filename != ""
-        file = filename + ".html.erb"
+def prepare_file(foldername, directory, dump)
+    if foldername != ""
+        file = "_" + foldername + ".html.erb"
         begin
             save_file(directory, file, dump)
         rescue
@@ -96,7 +90,7 @@ def prepare_example_file(directory, filename, lines)
         dump << "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\" />"
         dump << "<link type=\"text/css\" rel=\"stylesheet\" href=\"https://raw.github.com/sakaiproject/3akai-ux/newframework/shared/oae/css/oae.core.css\"></link>"
         dump << "<link type=\"text/css\" rel=\"stylesheet\" href=\"http://tenant1.oae.com/api/ui/skin\"></link>"
-        dump << "<link type=\"text/css\" rel=\"stylesheet\" href=\"../assets/css/style.css\"></link>"
+        dump << "<link type=\"text/css\" rel=\"stylesheet\" href=\"../../assets/css/style.css\"></link>"
         dump << "</head><body>"
         dump << "<div class=\"example-container\" id=\"#{filename}\">"
         lines.each{ |line|
@@ -252,10 +246,10 @@ def create_html_output(categories)
         }   
         
         # Prepare the main HTML file         
-        prepare_file(@dir_template_target, dump)
+        prepare_file(foldername, @dir_template_target, dump)
         
     else
-        create_html_output(categories)
+        create_html_output(foldername, categories)
     end    
 end
 
