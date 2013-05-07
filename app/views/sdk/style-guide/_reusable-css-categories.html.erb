@@ -3,7 +3,7 @@
 <div class="css-content">
 <p class="description">  Used for accessibility purposes as it allows to put text content  for items that might not have text content (e.g. icons) or create  additional clues for screenreader users   </p>
 <p class="description"> </p>
-<iframe seamless scrolling="no" src="/examples/v1/accessibility1.html"></iframe>
+<iframe seamless scrolling="no" src="/examples/v3/accessibility1.html"></iframe>
 <ul class="snippets">
 <li>&lt;button class="oae-icon oae-icon-home"&gt;&lt;span class="oae-aural-text"&gt;Additional information&lt;/span&gt;&lt;/button&gt;</li>
 </ul>
@@ -21,7 +21,7 @@
 </pre>
 <p class="description">  Style that can be used for links if we just want them to have the same color as the  text. These links will be underlined when hovering over them.   </p>
 <p class="description"> </p>
-<iframe seamless scrolling="no" src="/examples/v1/accessibility2.html"></iframe>
+<iframe seamless scrolling="no" src="/examples/v3/accessibility2.html"></iframe>
 <ul class="snippets">
 <li>&lt;a href="http://www.google.co.uk" class="oae-plain-link"&gt;Google&lt;/a&gt;</li>
 </ul>
@@ -37,7 +37,7 @@ a.oae-plain-link:hover {
 <div class="css-content">
 <p class="description">  Style that can be applied to text elements to make sure that the text in a text element   doesn't use more than the space it has available. If the text is shorter than the   available space, this will leave the text unchanged. If the text is longer than the available  space, it will be cut off at its maximum length and will be appended with `...`. In order for  this to work, the text element will need to have a maximum width set.    </p>
 <p class="description"> </p>
-<iframe seamless scrolling="no" src="/examples/v1/threedots1.html"></iframe>
+<iframe seamless scrolling="no" src="/examples/v3/threedots1.html"></iframe>
 <ul class="snippets">
 <li>&lt;span class="oae-threedots"&gt;Some very very long text&lt;/span&gt;</li>
 </ul>
@@ -55,7 +55,7 @@ a.oae-plain-link:hover {
 <div class="css-content">
 <p class="description">  Panels that can be used to show HTML content on top of a background  color or background image. Three different panels can be used   - `oae-panel-primary`: Panel that contains content that should really stand out   - `oae-panel-secondary`: Panel that contains the secondary content   - `oae-panel-tertiary`: Other panel content (e.g. search box on the landing page)   </p>
 <p class="description"> </p>
-<iframe seamless scrolling="no" src="/examples/v1/panels1.html"></iframe>
+<iframe seamless scrolling="no" src="/examples/v3/panels1.html"></iframe>
 <ul class="snippets">
 <li>&lt;div class="oae-panel-primary"&gt;...&lt;/div&gt;</li>
 </ul>
@@ -79,7 +79,7 @@ a.oae-plain-link:hover {
 <p class="description">        </p>
 <p class="description">        </p>
 <p class="description">   Note:   - The `oae-aural-text` span is added in for accessibility purposes, but can be left out when necessary. </p>
-<iframe seamless scrolling="no" src="/examples/v1/visibilityicons1.html"></iframe>
+<iframe seamless scrolling="no" src="/examples/v3/visibilityicons1.html"></iframe>
 <ul class="snippets">
 <li>&lt;i class="icon-oae-private"&gt;&lt;span class="oae-aural-text"&gt;__MSG__PRIVATE__&lt;/span&gt;&lt;/i&gt;</li>
 <li>&lt;i class="icon-oae-loggedin"&gt;&lt;span class="oae-aural-text"&gt;__MSG__LOGGED_IN__&lt;/span&gt;&lt;/i&gt;</li>
@@ -170,7 +170,7 @@ i.icon-oae-public.large:before {
 <p class="description">          </p>
 <p class="description">      </p>
 <p class="description"> </p>
-<iframe seamless scrolling="no" src="/examples/v1/visibilitytoggles1.html"></iframe>
+<iframe seamless scrolling="no" src="/examples/v3/visibilitytoggles1.html"></iframe>
 <ul class="snippets">
 <li>&lt;div class="oae-visibility-choice-container row-fluid"&gt;</li>
 <li>&lt;label for="oae-visibility-private" class="span4 text-center"&gt;</li>
@@ -288,7 +288,7 @@ i.icon-oae-public.large:before {
 <p class="description">            </p>
 <p class="description">        </p>
 <p class="description">   Next to using the HTML structure, there is also a Trimpath macro that can be used  instead from all Trimpath templates:     `${renderThumbnail(entityData, [addVisibilityIcon], [large])}`   - `entityData` is a standard object representing a user, group or content item or a search result for a user, group     or content item as returned by Hilary. Alternatively, a string representing the resourceType or resourceSubType      (i.e., 'user', 'group', 'content', 'file', 'link', 'collabdoc') can be passed in for an empty/anonymous      entity thumbnail.  - `addVisibilityIcon` (optional) will determine whether or not the visibility icon should be shown. By default,      the visibility icon will be shown. However, users will not never show a visibility icon.  - `large` (optional) determines whether or not a large default thumbnail icon should used. By default, a small icon will be used.   Notes:   - The actual thumbnail image is optional, and if no image is specified the    thumbnail will show a default entity thumbnail. In order to do this,    `icon-oae-user` should be added to the `oae-thumbnail` div for users,    `icon-oae-group` should be added to the `oae-thumbnail` div for groups,    `icon-oae-discussion` should be added to the `oae-thumbnail` div for discussions,    `icon-oae-content` should be added to the `oae-thumbnail` div for generic content,    `icon-oae-file` should be added to the `oae-thumbnail` div for uploaded files,    `icon-oae-link` should be added to the `oae-thumbnail` div for links and    `icon-oae-collabdoc` should be added to the `oae-thumbnail` div for collaborative documents.    Even when an image is provided, the entity icon class can still be added as    it will be used when the image cannot be downloaded.  - For large thumbnails (> 100px width/height), the `oae-thumbnail-large` class    should be added to the `oae-thumbnail` container. It will cause the default    thumbnail to be larger.  - An optional visibility icon can be added to the thumbnail as well and will    automatically be positioned correctly. The available visibility icons are     `icon-oae-private`, `icon-oae-loggedin` and `icon-oae-public` (See Visibility    icons section).  - The link inside of the thumbnail can be used to link to the entity's profile page.    This link is optional and can be left out. </p>
-<iframe seamless scrolling="no" src="/examples/v1/thumbnails1.html"></iframe>
+<iframe seamless scrolling="no" src="/examples/v3/thumbnails1.html"></iframe>
 <ul class="snippets">
 <li>&lt;div class="oae-thumbnail icon-oae-user"&gt;</li>
 <li>&lt;a href="${entityData.profilePath}" title="${entityData.displayName|encodeForHTMLAttribute}"&gt;</li>
@@ -402,7 +402,7 @@ div.oae-thumbnail img {
 <p class="description">      </p>
 <p class="description">  </p>
 <p class="description">   Notes:    - A clip needs to be inside of an `oae-clip-container` div. Inside of this container, you can specify the    clips that should go on the left by adding them to a `oae-clip-container-left` div. You can specify the    clips that should go on the right by adding them to a `oae-clip-container-right div inside of this container.  - The fold on a clip can be on the left of the clip or on the right of the clip. By default, the    fold will be on the right. When a fold on the left is required, an `oae-clip-flipped` class should    be added to the .`oae-clip` element.  - Clips are available in two different skinnable styles. By default, the primary style will be used. If    the secundary style is needed, this can be done by adding an 'oae-clip-secondary' class to the    `.oae-clip` element.  - A thumbnail image can be added to the clip by adding an `oae-thumbnail` div as the first element of the    main button. This can also show a default entity picture (in case no image is provided) as well as a    visibility icon (See the `Thumbnail` section for details on how to create a thumbnail).    The thumbnail image is optional and can be left out as well.  - The `icon-caret-down` element is optional. If it is not provided, the clip will be shown in view    only mode. If it is provided, the clip will be toggleable and the action menu will be shown when clicked.  - The `small` tag is used to show some additional clip metadata and is optional.  - When a clip should not be clickable (e.g. in non-manager mode of a page), the `disabled` attribute     should be added to the button. This will hide any caret icons and will make the clip unclickable. </p>
-<iframe seamless scrolling="no" src="/examples/v1/clips1.html"></iframe>
+<iframe seamless scrolling="no" src="/examples/v3/clips1.html"></iframe>
 <ul class="snippets">
 <li>&lt;div class="oae-clip-container"&gt;</li>
 <li>&lt;div class="oae-clip-container-left"&gt;</li>
@@ -626,7 +626,7 @@ div.oae-thumbnail img {
 <p class="description">      </p>
 <p class="description">  </p>
 <p class="description">    Notes:    - The `oae-thumbnail` element, containing the preview image, is a standard    `oae-thumbnail` element (See Thumbnail section for full overview).  - The `oae-threedots` class should be added to metadata elements if you want    to make sure that `...` is shown when the metadata is longer than the available    space in the tile.  - The actual content of the metadata div can be pretty much anything, although an    h3 should be used for the tile title.  - The `small` element used to add some additional metadata is optional.  - The visibility icon can be used as defined in the Visibility icon section, and    can be floated on the left or right. </p>
-<iframe seamless scrolling="no" src="/examples/v1/tiles1.html"></iframe>
+<iframe seamless scrolling="no" src="/examples/v3/tiles1.html"></iframe>
 <ul class="snippets">
 <li>&lt;div class="oae-tile"&gt;</li>
 <li>&lt;a href="/user/u:cambridge:PPTBPgxSdf" title="John Librarian"&gt;</li>
@@ -712,7 +712,7 @@ div.oae-thumbnail img {
 <p class="description">      </p>
 <p class="description">  </p>
 <p class="description">    Notes:    - A list item is available in an expanded size and a compact size. By default, the larger expanded     view will be used. In order to use the smaller compact view, the class `oae-listitem-compact`     should be added to the `oae-listitem` element.  - A checkbox can be added to the list item for management purposes. This checkbox should have an    accompanying `oae-aural-text` label for accessibility purposes.  - An action bar can be added to the list item by adding an `oae-listitem-actions` div to the list    item. This action bar can contain one or multiple action buttons.  - The `oae-thumbnail`, `oae-listitem-actions` and checkbox are all optional.  - The `small` element used to add some additional metadata is optional as well.  - The `oae-thumbnail` element, containing the preview image, is a standard    `oae-thumbnail` element (See Thumbnail section for full overview). </p>
-<iframe seamless scrolling="no" src="/examples/v1/listitems1.html"></iframe>
+<iframe seamless scrolling="no" src="/examples/v3/listitems1.html"></iframe>
 <ul class="snippets">
 <li>&lt;div class="oae-listitem oae-listitem-compact"&gt;</li>
 <li>&lt;input type="checkbox" class="pull-left" id="oae-list-details-u:cambridge:PPTBPgxSdf" data-id="u:cambridge:PPTBPgxSdf" /&gt;</li>
@@ -826,7 +826,7 @@ div.oae-thumbnail img {
 <p class="description">          </p>
 <p class="description">       </p>
 <p class="description"> </p>
-<iframe seamless scrolling="no" src="/examples/v1/lists1.html"></iframe>
+<iframe seamless scrolling="no" src="/examples/v3/lists1.html"></iframe>
 <ul class="snippets">
 <li>&lt;ul class="oae-list oae-list-grid"&gt;</li>
 <li>&lt;Generated list items&gt;</li>
@@ -908,7 +908,7 @@ ul.oae-list li .oae-list-compact-item  {
 <p class="description">      </p>
 <p class="description">  </p>
 <p class="description">    Notes:    - The `oae-list-options-toggle` item is used to show the title of the list, and will also be used to toggle    the actions bar. This will be enabled automatically by the system. If a list needs to be shown in view-only    mode, this element should be set to disabled, in which case the dropdown icon will disappear and the toggle    will no longer work.  - The `oae-list-options-actions` div represents the action bar that will be toggled when the `oae-list-options-toggle`    element is clicked. This bar contains all of the action that can be done on the selected list items, and    can basically be anything.  - An `oae-list-selectall` class can be applied to the element that should be used to select/deselect all list    items. This will be enabled automatically by the system. </p>
-<iframe seamless scrolling="no" src="/examples/v1/listoptions1.html"></iframe>
+<iframe seamless scrolling="no" src="/examples/v3/listoptions1.html"></iframe>
 <ul class="snippets">
 <li>&lt;div class="oae-list-options"&gt;</li>
 <li>&lt;div&gt;</li>

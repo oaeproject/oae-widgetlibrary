@@ -74,14 +74,20 @@ class SdkController < ApplicationController
             # Path to the template
             template = "sdk/style-guide/reusable-css"
             
-            # Parse the CSS file
-            if !@content_css
-                @content_css = parse_css_file(@@url_css_file)
-            end           
-            @content = @content_css
-                        
+            # Get the versions
+            @versions = get_skins_from_directory                    
+            if @versions.length > 0
+
+                # Check if version is set in the querystring
+                @version = @versions.first()
+                if !params[:module].blank?
+                    @version = params[:module]
+                end
+            
+            end
+                                                
             # Pass the content as a parameter for the view variables
-            locals = { :content => @content }            
+            locals = { :version => @version, :versions => @versions }            
                                                            
         # If section is 'development-environment-setup', load the parse the markdown file
         elsif template == 'development-environment-setup'

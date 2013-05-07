@@ -135,6 +135,11 @@ $(function(){
             $(e.currentTarget).next().slideToggle();
             return false;
         }) 
+        
+        $('#dpdVersions').change(function(e){
+            var version = $(e.currentTarget).val();
+            document.location = "/sdk/style-guide/reusable-css/" + version
+        })
     };
     
     var hideCSSContentContainers = function(){

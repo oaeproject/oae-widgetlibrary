@@ -172,82 +172,91 @@ end
 # @param    {Array}     categories      The categories
 
 def create_html_output(categories)  
-        
-    dump = ""
+            
+    # Create a foldername
+    puts "Please enter the name of the skin: "
+    foldername = gets.chomp
     
-    # Loop the categories 
-    categories.each{ |category| 
-        
-        # wl-widget-item
-        dump << "<div class=\"wl-widget-item\">\n"
-        
-            # Category title
-            dump << "<h3>#{category['title']}</h3>\n"
+    # Check if foldername is set
+    if(foldername && foldername != "")
+    
+        # Stores the HTML
+        dump = ""
+    
+        # Loop the categories 
+        categories.each{ |category| 
             
-            # Category content      
-            if category['content']
+            # wl-widget-item
+            dump << "<div class=\"wl-widget-item\">\n"
             
-                dump << "<div class=\"css-content\">\n"
+                # Category title
+                dump << "<h3>#{category['title']}</h3>\n"
                 
-                # Loop the category content items
-                counter = 1
-                category['content'].each{ |item|
-                                    
-                    # If item is not a selector
-                    if item["type"] != "selector"
-                        
-                        # Create a foldername
-                        foldername = "v1"
-                        
-                        # Create a filename for the example page
-                        filename = category['title'] + counter.to_s
-                        filename = filename.gsub(/\s/,"")
-                        
-                        # If the item has an explanation
-                        if item["explanations"].length > 0
-                            item["explanations"].each{ |explanation|
-                                dump << "<p class=\"description\">#{explanation}</p>\n"
-                            }                    
-                        end
-                        
-                        # If the item has examples
-                        if item["examples"].length > 0
-                            dir = @dir_examples + foldername                                                      
-                            dump << "<iframe seamless scrolling=\"no\" src=\"/#{dir + "/" + filename + ".html"}\"></iframe>\n"
-                        end
-                        
-                        # If the item has snippets
-                        if item["snippets"].length > 0
-                            arrLines = []
-                            dump << "<ul class=\"snippets\">\n"
-                            item["snippets"].each{ |snippet|
-                                arrLines.push(snippet)
-                                dump << "<li>#{snippet.gsub(/</,'&lt;').gsub(/>/,'&gt;')}</li>\n"
-                            }
-                            dump << "</ul>\n"
-                                                
-                            directory = @dir_public + @dir_examples + foldername + "/"                                                                                               
-                            prepare_example_file(directory, filename, arrLines)
-                            
-                            counter += 1
-                        end
+                # Category content      
+                if category['content']
+                
+                    dump << "<div class=\"css-content\">\n"
+                    
+                    # Loop the category content items
+                    counter = 1
+                    category['content'].each{ |item|
                                         
-                    # If item is a selector
-                    else
-                        dump << "<pre class=\"selector\">#{item['value']}\n</pre>\n"               
-                    end         
-                }
+                        # If item is not a selector
+                        if item["type"] != "selector"
+                                                    
+                            # Create a filename for the example page
+                            filename = category['title'] + counter.to_s
+                            filename = filename.gsub(/\s/,"")
+                            
+                            # If the item has an explanation
+                            if item["explanations"].length > 0
+                                item["explanations"].each{ |explanation|
+                                    dump << "<p class=\"description\">#{explanation}</p>\n"
+                                }                    
+                            end
+                            
+                            # If the item has examples
+                            if item["examples"].length > 0
+                                dir = @dir_examples + foldername                                                      
+                                dump << "<iframe seamless scrolling=\"no\" src=\"/#{dir + "/" + filename + ".html"}\"></iframe>\n"
+                            end
+                            
+                            # If the item has snippets
+                            if item["snippets"].length > 0
+                                arrLines = []
+                                dump << "<ul class=\"snippets\">\n"
+                                item["snippets"].each{ |snippet|
+                                    arrLines.push(snippet)
+                                    dump << "<li>#{snippet.gsub(/</,'&lt;').gsub(/>/,'&gt;')}</li>\n"
+                                }
+                                dump << "</ul>\n"
+                                                    
+                                directory = @dir_public + @dir_examples + foldername + "/"                                                                                               
+                                prepare_example_file(directory, filename, arrLines)
+                                
+                                counter += 1
+                            end
+                                            
+                        # If item is a selector
+                        else
+                            dump << "<pre class=\"selector\">#{item['value']}\n</pre>\n"               
+                        end         
+                    }
+                    
+                    dump << "</div>\n"
                 
-                dump << "</div>\n"
-            
-            end          
-           
-        # close wl-widget-item        
-        dump << "</div>\n"
-    }   
-    
-    # Prepare the main HTML file         
-    prepare_file(@dir_template_target, dump)
+                end          
+               
+            # close wl-widget-item        
+            dump << "</div>\n"
+        }   
+        
+        # Prepare the main HTML file         
+        prepare_file(@dir_template_target, dump)
+        
+    else
+        create_html_output(categories)
+    end    
 end
 
 

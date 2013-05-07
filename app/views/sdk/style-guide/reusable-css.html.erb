@@ -4,11 +4,16 @@
 <div id="reusable-css" class="widgetsdk_container">
     <h1>Reusable CSS pieces/templates</h1>
     
-    <!-- Check if object isn't emtpy -->
-    <% if !@content.blank? %>
-
+    <!-- Versions -->
+    <% if !@versions.blank? %>
+        <select name="versions" id="dpdVersions">
+        <% @versions.each do |version| %>
+            <option value="<%= version %>"<% if version == @version %> selected="selected"<% end %>><%= version %></option>
+        <% end %>
+        </select>
+        
         <!-- Render the categories -->    
-        <%= render :partial => "sdk/style-guide/reusable-css-categories",  :locals => { :content => @content }%>
+        <%= render :partial => "sdk/style-guide/versions/" + @version,  :locals => { :content => @content }%>
                        
     <% else %>
         <p>No results</p>

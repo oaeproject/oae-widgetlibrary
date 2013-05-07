@@ -1,10 +1,14 @@
 module SdkHelper
     
+    # Properties
+    @@dir_templates = 'public/examples/versions/*'
+    
     # Regular expressions
     
     @@regex_cat_title = /\/\*{3,}\s*.*\s*\*+\//
     @@regex_description = /\/{1}\*{2}\s*(\*?\s.*\s*)*\*{1}\/{1}/
     @@regex_selector = /(\S*\.?\#?[^\s]+\s{1}\{(\s*[^\;]*;+)*\s*\}{1})/
+    
     
     
     # Parse the markdown file
@@ -20,6 +24,23 @@ module SdkHelper
         rescue
             return nil
         end
+    end
+    
+    
+    
+    # Reads the skins directory and returns all the versions
+    #
+    # @return   {Array}     versions        Array containing all the skin versions
+    
+    def get_skins_from_directory
+        versions = []
+        dirs = Dir.glob(@@dir_templates)
+        dirs.each{|dir|
+            dir = dir.split('/').last()
+            versions.push(dir)
+        }
+        versions = versions.sort.reverse       
+        return versions
     end
 
 
