@@ -1,0 +1,45 @@
+body {
+    background-color: #F5F5F5;
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+.example-container{
+    width: 662px;
+    padding: 10px;
+    overflow: visible;
+}
+
+/* ACCESSIBILITY */
+
+#accessibility1, #accessibility2{
+    height: auto;    
+}
+
+/* THREEDOTS */
+
+#threedots1 span.oae-threedots{
+    width: 150px;
+    height: auto;
+}  
+
+/* THUMBNAILS */
+
+#thumbnails1 .oae-thumbnail{
+    width: 30px;
+    height: 30px;
+}
+
+/* TILES */
+
+#tiles1 .oae-tile{
+    width: 150px;
+    height: 150px;
+}
+
+/* CLIPS */
+
+#clips1{
+    margin-top: 20px;
+}

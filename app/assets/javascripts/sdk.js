@@ -1,6 +1,5 @@
 //= require sdk/widgetbuilder
-
-$(function() {
+$(function(){
 
     // Disabling these for now
     // var showVideoOverlay = function(){
@@ -16,7 +15,6 @@ $(function() {
     //         $("#videocontent_overlay").animate({opacity:'toggle'}, 300);
     //     });
     // };
-
     var TITLE_BASE = 'Sakai OAE Widget Library - SDK';
     var History = window.History;
     var $lhnav = $(".wl-content-container #lhnavigation_container ul");
@@ -30,22 +28,23 @@ $(function() {
         var $parentElement = $toSelectElement.closest(".subnav");
 
         // Check whether the element is a parent element or not
-        if($parentElement.length){
+        if ($parentElement.length){
             // it is a child element
             $toSelectElement.closest("li").addClass("selected");
             $parentElement.show().prev().addClass("selected_parent");
-        } else {
+        } else{
             $toSelectElement.closest("li").addClass("selected").next().show();
         }
     };
 
-    $(window).on('statechange', function() {
+    $(window).on('statechange',
+    function(){
         var state = History.getState();
         // Update the left hand navigation
         updateLhnav(state);
         $.ajax({
             url: state.url,
-            success: function(data) {
+            success: function(data){
                 var $containerResponse = $("<div />").html(data);
                 var $sdkxhrContent = $containerResponse.find("#sdkxhr_content");
                 $(".wl-content-container .widgetsdk_container").html($sdkxhrContent);
@@ -58,59 +57,116 @@ $(function() {
         });
     });
 
+    var addClassesToMarkdownText = function(){
+        $('#development-environment-setup').find('ul').addClass('inline_list');
+        $('#development-environment-setup').find('ol').addClass('inline_list');
+        $('#development-environment-setup').find('a').addClass('wl-regular-link');
+    };
+
     var addBinding = function(){
         // $("#developer_videocontent_container").live("click", showVideoOverlay);
         // $("#videocontent_overlay").live("click", hideVideoOverlay);
-        $(".expand_all_link").live("click", function(){
+        $(".expand_all_link").live("click",
+        function(){
             var expanded = $(".expand_all_link").attr("data-expanded");
-            if(expanded === "true"){
+            if (expanded === "true"){
                 $(".expand_all_link").attr("data-expanded", "false");
-            }else{
+            } else{
                 $(".expand_all_link").attr("data-expanded", "true");
             }
             $(this).children("span").toggle();
-            $.each($(".expandable_container"), function(i, container){
+            $.each($(".expandable_container"),
+            function(i, container){
                 container = $(container);
-                if(container.is(":visible") && expanded === "true"){
-                    container.animate({'height': 'toggle', 'opacity': 'toggle'}, 500);
+                if (container.is(":visible") && expanded === "true"){
+                    container.animate({
+                        'height': 'toggle',
+                        'opacity': 'toggle'
+                    },
+                    500);
                     container.prevAll("h3").children("a").attr("data-expanded", false);
                     container.prevAll("h3").find("span").toggle();
-                } else if(!container.is(":visible")  && expanded !== "true"){
-                    container.animate({'height': 'toggle', 'opacity': 'toggle'}, 500);
+                } else if (!container.is(":visible") && expanded !== "true"){
+                    container.animate({
+                        'height': 'toggle',
+                        'opacity': 'toggle'
+                    },
+                    500);
                     container.prevAll("h3").children("a").attr("data-expanded", true);
                     container.prevAll("h3").find("span").toggle();
                 }
             });
         });
 
-        $(".expand_link").live("click", function(){
+        $(".expand_link").live("click",
+        function(){
             $(this).children("span").toggle();
             var $container = $(this).parents(".wl-widget-item").children(".expandable_container");
             if ($container.is(":visible")){
                 $container.prevAll("h3").children("a").attr("data-expanded", false);
-                $container.animate({'height': 'toggle'}, 500);
-            } else {
+                $container.animate({
+                    'height': 'toggle'
+                },
+                500);
+            } else{
                 $container.prevAll("h3").children("a").attr("data-expanded", true);
-                $container.animate({'height': 'toggle'}, 500);
+                $container.animate({
+                    'height': 'toggle'
+                },
+                500);
             }
         });
 
-        $("body").on("click", '#lhnavigation_container a, .wl-content-container .wl-content-right-container a[href^="/sdk/"]', function(evt){
+        $("body").on("click", '#lhnavigation_container a, .wl-content-container .wl-content-right-container a[href^="/sdk/"]',
+        function(evt){
             // Disable the default click behavior
-            evt.preventDefault();
+            // evt.preventDefault();
             // Cache the this selector
             var $this = $(this);
             var url = $this.attr("href");
             var title = TITLE_BASE + ' - ' + $this.text();
             var state = {
                 section: url
-            };
+            };d
             History.pushState(state, title, url);
         });
+                
+        $('#reusable-css').find('.wl-widget-item h3').bind('click', function(e){
+            $(e.currentTarget).next().slideToggle();
+            return false;
+        }) 
+        
+        $('#dpdVersions').change(function(e){
+            var version = $(e.currentTarget).val();
+            document.location = "/sdk/style-guide/reusable-css/" + version
+        })
+    };
+    
+    var hideCSSContentContainers = function(){
+        $('#reusable-css').find('.wl-widget-item .css-content').hide();          
+    };
+    
+    var showFirstCSSContentContainer = function(){
+        $('#reusable-css').find('.wl-widget-item .css-content').first().show();        
+    };
 
+    var splitCodeTagsOnLinebreaks = function(){
+        var arrParagraphs = $("#development-environment-setup").find('p');
+        $.each(arrParagraphs,
+        function(i){
+            if (arrParagraphs[i].firstChild.tagName == "CODE"){
+                var child = $(arrParagraphs[i]).find('code');
+                $(child).addClass('well');
+                $(child).html($(child).html().replace(/\n/g, '<br />'));
+            }
+        })
     };
 
     var init = function(){
+        splitCodeTagsOnLinebreaks();
+        hideCSSContentContainers();
+        showFirstCSSContentContainer();
+        addClassesToMarkdownText();
         addBinding();
     };
 

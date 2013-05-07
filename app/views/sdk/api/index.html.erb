@@ -1,0 +1,30 @@
+<% content_for :title do %> - SDK - API &amp; endpoints<% end %>
+<div class="widgetsdk_container">
+    
+    <h1>API</h1>
+
+    <div class="wl-widget-item wl-margin-top-0">
+               
+        <!-- Navigation -->
+        <div id="api_docs_modules_navigation" class="wl-left">
+            <% if !@modules.blank? %>
+                <%= render :partial => "sdk/api/apimodulesnav",  :locals => { :modules => @modules, :subsection => @subsection }%>
+            <% end %>        
+        </div>
+    
+        <!-- Content -->
+        <div id="api_docs_modules_detail" class="wl-left wl-content-505">
+            <% if !@content.blank? %>   
+                <%= render :partial => "sdk/api/apimoduledetails",  :locals => { :content => @content }%>
+            <% else %>
+                <p>No results</p>
+            <% end %>
+        </div>
+        
+        <!-- Clearer -->
+        <hr class="wl-push wl-hidden"/>
+    </div>
+    
+    <br style="clear: both;"/>
+
+</div>
