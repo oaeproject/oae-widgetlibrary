@@ -132,8 +132,8 @@ $(function(){
         });
                 
         $('#reusable-css').find('.wl-widget-item h3').bind('click', function(e){
-            hideCSSContentContainers();
-            $(e.currentTarget).next().slideDown();
+            $(e.currentTarget).next().slideToggle();
+            return false;
         }) 
     };
     
