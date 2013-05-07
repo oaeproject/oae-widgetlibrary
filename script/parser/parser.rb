@@ -10,9 +10,9 @@ require 'timeout'
 # Properties
 @regex_cat_title = /\/\*{3,}\s*.*\s*\*+\//
 
-@dir_public = "public/"
+@dir_public = "../../public/"
 @dir_examples = "examples/"
-@dir_template_target = "app/views/sdk/style-guide/"
+@dir_template_target = "../../app/views/sdk/style-guide/"
 
 @url_remote_css_file_components = nil
 @url_remote_css_file_ui = nil
@@ -39,16 +39,16 @@ end
 def save_file(directory, filename, dump)
     
     # First check if directory exists => create directory if not
-    if !File.directory?("../../" + directory)
-        Dir::mkdir("../../" + directory)
+    if !File.directory?(directory)
+        Dir::mkdir(directory)
     end
    
     # Create a new file object and write content
-    file = File.new("../../" + directory + filename, "w")
+    file = File.new(directory + filename, "w")
     file.write(dump)
     file.close
            
-    puts '../../' + directory + filename + ' was created successfully!'
+    puts '-' + directory + filename + ' was created successfully!'
 end
 
 
@@ -103,6 +103,8 @@ def prepare_example_file(directory, filename, lines)
             dump << line
         }
         dump << "</div>"
+        dump << "<script type=\"text/javascript\" src=\"http://code.jquery.com/jquery-2.0.0.min.js\"></script>"
+        dump << "<script type=\"text/javascript\" src=\"../assets/js/style.js\"></script>"
         dump << "</body></html>"
         save_file(directory, filename + ".html", dump)
     end
