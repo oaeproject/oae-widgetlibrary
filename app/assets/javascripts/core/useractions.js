@@ -64,22 +64,22 @@ $(function() {
      * Add binding to various elements
      */
     var addBinding = function(){
-        $(loginForm).live("submit", function(){
+        $(loginForm).on("submit", function(){
             removeErrors();
             toggleLoginButtons(true);
         });
 
-        $(loginForm).live('ajax:success', function() {
+        $(loginForm).on('ajax:success', function() {
             removeErrors();
             document.location = document.location;
         });
 
-        $(loginForm).live('ajax:error', function() {
+        $(loginForm).on('ajax:error', function() {
             showErrors();
             toggleLoginButtons(false);
         });
 
-        $(dropdownMenu).live("hover", function(ev){
+        $(dropdownMenu).on("hover", function(ev){
             if (ev.type === "mouseenter"){
                 $(this).children(loginFieldsContainer).show();
                 $(this).addClass("opened");
@@ -91,12 +91,12 @@ $(function() {
             }
         });
 
-        $(loginFieldsContainerInput).live("focus", function(){
+        $(loginFieldsContainerInput).on("focus", function(){
             $(dropdownMenu).addClass(formHasFocus);
             formOpened = true;
         });
 
-        $(loginFieldsContainerInput).live("blur", function(){
+        $(loginFieldsContainerInput).on("blur", function(){
             $(dropdownMenu).removeClass(formHasFocus);
             if(!formOpened){
                 $(loginFieldsContainer).hide();
@@ -105,7 +105,7 @@ $(function() {
             formOpened = false;
         });
 
-        $("html").click(function(ev){ 
+        $("html").click(function(ev){
             if (!formOpened && !$(ev.target).parents(".wl-dropdown-menu").length) {
                 formOpened = false;
                 $(loginFieldsContainer).hide();

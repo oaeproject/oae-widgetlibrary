@@ -81,7 +81,7 @@ $(function() {
      * Add binding to various elements
      */
     var addBinding = function(){
-        $(searchInput).live("keyup", function(ev){
+        $(searchInput).on("keyup", function(ev){
             var val = $.trim($(this).val());
             if (val !== "" && ev.which !== $.ui.keyCode.SHIFT && val !== lastSearchVal) {
                 if (searchTimeout) {
@@ -98,7 +98,7 @@ $(function() {
             }
         });
 
-        $(searchInput).live("keydown", function(ev){
+        $(searchInput).on("keydown", function(ev){
             var val = $.trim($(this).val());
             // 40 is down, 38 is up, 13 is enter
             if (ev.which === $.ui.keyCode.DOWN || ev.which === $.ui.keyCode.UP) {

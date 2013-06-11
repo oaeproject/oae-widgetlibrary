@@ -1,9 +1,10 @@
 source :rubygems
 
-gem 'rails', '3.2.6'
+gem 'rails', '3.2.13'
 
 # Use jQuery instead of Prototype
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # Use Paperclip for image dependency management
 gem "paperclip", "~> 2.3"
@@ -50,9 +51,9 @@ group :test, :development do
   gem 'populator'
   # Installation instructions are on
   # https://confluence.sakaiproject.org/display/3AK/Widget+Library+Development+Setup
-  gem "linecache19", "0.5.13"
-  gem 'ruby-debug-base19', "0.11.26"
-  gem 'ruby-debug19', "0.11.6"
+  #gem "linecache19", "0.5.13"
+  #gem 'ruby-debug-base19', "0.11.26"
+  #gem 'ruby-debug19', "0.11.6"
 end
 
 group :development do
@@ -72,14 +73,14 @@ group :test do
 end
 
 # Assets for Rails 3.1
-group :assets do
-  # Use compass for out of the box mixins
-  gem 'compass-rails'
-
+#group :assets do
   gem 'sass-rails', '~> 3.2.5'
+  # Use compass for out of the box mixins
+  gem 'compass'
+  gem 'compass-rails'
   gem 'uglifier', ">= 1.0.3"
   gem 'yui-compressor'
-end
+#end
 
 group :qa, :production do
   gem 'mysql2'

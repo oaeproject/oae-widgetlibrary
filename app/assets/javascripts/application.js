@@ -1,14 +1,9 @@
 //= require jquery
-//= require jquery-ui
 //= require jquery_ujs
-//= require history.js/history.js
-//= require history.js/history.adapter.jquery.js
-//= require history.js/history.html4.js
-//= require history.js/json2.js
+//= require jquery.ui.all
 //= require jquery.remotipart
 //= require jquery.autoellipsis
 //= require modernizr
-//= require jqmodal
 //= require_self
 //= require core/navigation
 //= require core/useractions
