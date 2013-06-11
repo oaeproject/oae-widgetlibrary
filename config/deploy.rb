@@ -22,7 +22,7 @@ set :copy_compression, :bz2
 
 # Deploy from our github repository
 set :scm, :git
-set :repository, "git://github.com/sakaiproject/sakai-widgetlibrary.git"
+set :repository, "git://github.com/oaeproject/oae-widgetlibrary.git"
 set :branch, "master"
 set :deploy_via, :remote_cache
 set :scm_verbose, true

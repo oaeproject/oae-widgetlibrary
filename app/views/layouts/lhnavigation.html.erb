@@ -10,6 +10,7 @@
         <%= javascript_include_tag "prettify" %>
         <%= javascript_include_tag "lang-css" %>
         <%= csrf_meta_tag %>
+        <%= render :partial => "core/tracking" %>
         <%= yield :head %>
     </head>
     <body class="<%= "#{params[:controller].gsub("/", "_")} #{params[:action]}" %>">
