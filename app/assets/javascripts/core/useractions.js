@@ -79,7 +79,7 @@ $(function() {
             toggleLoginButtons(false);
         });
 
-        $(dropdownMenu).on("hover", function(ev){
+        $(dropdownMenu).hover(function(ev){
             if (ev.type === "mouseenter"){
                 $(this).children(loginFieldsContainer).show();
                 $(this).addClass("opened");
@@ -91,12 +91,12 @@ $(function() {
             }
         });
 
-        $(loginFieldsContainerInput).on("focus", function(){
+        $(loginFieldsContainerInput).focus(function(){
             $(dropdownMenu).addClass(formHasFocus);
             formOpened = true;
         });
 
-        $(loginFieldsContainerInput).on("blur", function(){
+        $(loginFieldsContainerInput).blur(function(){
             $(dropdownMenu).removeClass(formHasFocus);
             if(!formOpened){
                 $(loginFieldsContainer).hide();

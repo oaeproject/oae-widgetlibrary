@@ -10,7 +10,7 @@ require "whenever/capistrano"
 
 require "rvm/capistrano"                  # Load RVM's capistrano plugin.
 set :rvm_type, :system
-set :rvm_ruby_string, '1.9.3@sakai-widgetlibrary'        # Or whatever env you want it to run in.
+set :rvm_ruby_string, '1.9.3-p429@sakai-widgetlibrary'        # Or whatever env you want it to run in.
 set :rvm_bin_path, "/usr/local/rvm/bin"
 set :rvm_path, "/usr/local/rvm"
 
