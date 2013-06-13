@@ -1,6 +1,6 @@
 $(function() {
 
-    var TITLE_BASE = 'Sakai OAE Widget Library - Browse';
+    var TITLE_BASE = 'Apereo OAE Widget Library - Browse';
     var DEFAULT_SORT = 'average_rating';
     var DEFAULT_DIR = 'desc';
 

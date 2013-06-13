@@ -1,8 +1,8 @@
 <% content_for :title do %> - SDK - Front-end API<% end %>
 <div id="frontend" class="widgetsdk_container">
     <h1>Front-end API</h1>
-    <p>Sakai OAE has a number of API functions available that should be used to build the interface of your widgets. A full list of API functions will be coming soon, but documentation on some of the most used front-end Widget API functions are provided below.</p>
-    <p>If you are looking for URLs to communicate with the Sakai OAE server, check out the <%= link_to "back-end endpoints", "/sdk/api/backend", :class => "wl-regular-link" %>.</p>
+    <p>Apereo OAE has a number of API functions available that should be used to build the interface of your widgets. A full list of API functions will be coming soon, but documentation on some of the most used front-end Widget API functions are provided below.</p>
+    <p>If you are looking for URLs to communicate with the Apereo OAE server, check out the <%= link_to "back-end endpoints", "/sdk/api/backend", :class => "wl-regular-link" %>.</p>
 
 <ul class="inline_list">
     <li><%= link_to "Utility functions (sakai.api.Util.*)", "#utility", :class => "wl-regular-link", :title => "Utility functions (sakai.api.Util.*)" %>
@@ -180,7 +180,7 @@ sakai.api.Util.AutoSuggest.setup($('autosuggest_box'), {
             :description => "Convert a file's size to a human readable size",
             :parameters => "@param {Integer} <strong>filesize</strong> The file's size to convert",
             :callback => "{String} <strong>size</strong> Filesize in readable format and localized
-            
+
 e.g. return '4.5 MB';",
             :example => "sakai.api.Util.convertToHumanReadableFileSize(result['_length']);"
             }%>
@@ -191,7 +191,7 @@ e.g. return '4.5 MB';",
             :function => "sakai.api.Util.Draggable.setupDraggable(params, $container)",
             :description => "Sets up draggables across the page or given container",
             :parameters => "@param {Object} <strong>params</strong> Optional parameters that override defaults
-@param {Object} <strong>$container</strong> container element to add draggables, defaults to 
+@param {Object} <strong>$container</strong> container element to add draggables, defaults to
                            $('html') if not set",
             :callback => "None",
             :example => "sakai.api.Util.Draggable.setupDraggable({
@@ -216,7 +216,7 @@ e.g. return '4.5 MB';",
             :function => "sakai.api.Util.Droppable.setupDroppable(params, $container)",
             :description => "Sets up containers that allow dropping of elements on them across the page or given container",
             :parameters => "@param {Object} <strong>params</strong> Optional parameters that override defaults
-@param {Object} <strong>$container</strong> container element to add droppable containers, defaults 
+@param {Object} <strong>$container</strong> container element to add droppable containers, defaults
                            to $('html') if not set",
             :callback => "None",
             :example => "sakai.api.Util.Droppable.setupDroppable({
@@ -256,7 +256,7 @@ debug.log(formattedTags);
         <h3 id="validate">validate</h3>
         <%= render :partial => "sdk/apifunction", :locals => {
             :function => "sakai.api.Util.formatTags(inputTags)",
-            :description => "A wrapper for jquery.validate with a custom Sakai OAE styling.",
+            :description => "A wrapper for jquery.validate with a custom Apereo OAE styling.",
             :parameters => "@param {Object} <strong>$form</strong> $form the jQuery element of the form in question
 @param {Object} <strong>opts</strong> options to pass through to jquery.validate
                      NOTE: There is one additional option you can pass in

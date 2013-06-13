@@ -17,7 +17,7 @@ $(function() {
     //     });
     // };
 
-    var TITLE_BASE = 'Sakai OAE Widget Library - SDK';
+    var TITLE_BASE = 'Apereo OAE Widget Library - SDK';
     var History = window.History;
     var $lhnav = $(".wl-content-container #lhnavigation_container ul");
 
@@ -59,9 +59,7 @@ $(function() {
     });
 
     var addBinding = function(){
-        // $("#developer_videocontent_container").live("click", showVideoOverlay);
-        // $("#videocontent_overlay").live("click", hideVideoOverlay);
-        $(".expand_all_link").live("click", function(){
+        $(".expand_all_link").on("click", function(){
             var expanded = $(".expand_all_link").attr("data-expanded");
             if(expanded === "true"){
                 $(".expand_all_link").attr("data-expanded", "false");
@@ -83,7 +81,7 @@ $(function() {
             });
         });
 
-        $(".expand_link").live("click", function(){
+        $(".expand_link").on("click", function(){
             $(this).children("span").toggle();
             var $container = $(this).parents(".wl-widget-item").children(".expandable_container");
             if ($container.is(":visible")){

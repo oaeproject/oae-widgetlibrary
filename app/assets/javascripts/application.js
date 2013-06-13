@@ -1,8 +1,9 @@
-//= require jquery
-//= require jquery_ujs
+//= require jquery-2.0.2
 //= require jquery.ui.all
 //= require jquery.remotipart
 //= require jquery.autoellipsis
+//= require jquery.validate
+//= require jquery.history
 //= require modernizr
 //= require_self
 //= require core/navigation

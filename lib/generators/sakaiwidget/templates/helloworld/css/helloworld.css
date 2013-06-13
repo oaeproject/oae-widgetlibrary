@@ -13,19 +13,3 @@
  * permissions and limitations under the License.
  */
 
-#<%= @file_name %>-container {
-margin-left: 50px;
-}
-#<%= @file_name %>-container .tab-content, #<%= @file_name %>-container .nav-tabs {
-	max-width:600px;
-}
-#<%= @file_name %>-container h1 {
-	margin-bottom: 40px;
-}
-#<%= @file_name %>-container .nav > li.active > a {
-	background-color: #ffffff;
-}
-#<%= @file_name %>-container div.oae-thumbnail {
-	height: 75px;
-	width: 75px;
-}

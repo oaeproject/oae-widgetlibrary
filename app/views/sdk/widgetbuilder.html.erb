@@ -7,9 +7,7 @@
             <h2>Widget creator</h2>
             <p>Fill out the ‘name’ and a basic description of your widget below and select one of the pre-defined categories.</p>
             <h3><%= label_tag "widgetbuilder_title", "Widget name" %></h3>
-            <input type="text" placeholder="(e.g. Grapher 202...)" id="widgetbuilder_title" name="widgetbuilder_title"/>
-            <h3 class="wl-push"><%= label_tag "widgetbuilder_description", "Add a description" %></h3>
-            <textarea placeholder="(e.g. Graph creation widget...)" id="widgetbuilder_description" name="widgetbuilder_description"></textarea>
+            <input type="text" placeholder="(e.g. Grapher 202...)" id="widgetbuilder_title" class="required" name="widgetbuilder_title"/>
             <h3>Options</h3>
             <div id="widgetbuilder_options">
                 <input type="radio" name="widgetbuilder_skeletontype" id="widgetbuild_skeleton" value="skeleton" checked/><%= label_tag "widgetbuild_skeleton", "Create a skeleton framework (no code, just the correct file structure)" %>
@@ -20,21 +18,4 @@
          </div>
     <% end %>
     <hr class="wl-push wl-hidden"/>
-
-    <%= render :partial => "core/loading", :locals => {:id => "widgetbuilder_widgetloading", :message => "Widget construction in progress"} %>
-
-    <div id="widgetbuilder_downloadwidget" class="wl-dialog wl-dialog-container">
-        <div class="wl-dialog-close jqmClose"></div>
-        <h1 class="wl-dialog-header">Widget construction completed</h1>
-
-        <p>Your widget framework is ready for you to download</p>
-
-        <div id="widgetbuilder_built" class="wl-inset-shadow-container">
-            <p id="widgetbuilder_built_name"></p>
-        </div>
-        <div class="dialog_actions">
-            <button class="wl-link-button jqmClose" type="button">Cancel</button>
-            <button class="wl-button wl-overlay-button" type="button" id="widgetbuilder_dodownloadwidget">Download</button>
-        </div>
-    </div>
 </div>

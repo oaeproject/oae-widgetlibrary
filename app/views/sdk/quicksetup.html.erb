@@ -1,7 +1,7 @@
 <% content_for :title do %> - SDK - Quick setup<% end %>
 <div class="widgetsdk_container">
     <h1>Quick setup</h1>
-    <p>This page will guide you through a quick setup of the Sakai OAE. If you would like to be able to add dummy data and use the latest nakamura, we recommend doing the <%= link_to "OAE-Builder setup", "/sdk/developwidget/devsetup", :class => "wl-regular-link" %> .</p>
+    <p>This page will guide you through a quick setup of the Apereo OAE. If you would like to be able to add dummy data and use the latest nakamura, we recommend doing the <%= link_to "OAE-Builder setup", "/sdk/developwidget/devsetup", :class => "wl-regular-link" %> .</p>
 
     <ul class="inline_list">
         <li><%= link_to "Automatic quick setup", "#automatic", :class => "wl-regular-link" %></li>
@@ -23,7 +23,7 @@ curl -L http://bit.ly/oae_quickdev | bash -s GITHUB_USERNAME
     <div class="wl-widget-item">
         <h2 id="manual">Manual quick setup</h2>
         <ol class="regular_list">
-            <li>Create a directory for Sakai OAE (we will use sakaioae in this documentation) anywhere you like:
+            <li>Create a directory for Apereo OAE (we will use sakaioae in this documentation) anywhere you like:
                 <div class="navigationalitems_codesnippit_container few_lines">
         <pre class="prettyprint">$ mkdir sakaioae</pre>
                 </div>
@@ -35,7 +35,7 @@ curl -L http://bit.ly/oae_quickdev | bash -s GITHUB_USERNAME
                 </div>
             </li>
 
-            <li>Download the Sakai OAE back-end (nakamura) executable and save it as nakamura.jar in your sakaioae directory (this may take a couple of minutes).
+            <li>Download the Apereo OAE back-end (nakamura) executable and save it as nakamura.jar in your sakaioae directory (this may take a couple of minutes).
                 <div class="navigationalitems_codesnippit_container few_lines">
         <pre class="prettyprint">$ curl -o nakamura.jar -L http://bit.ly/oae_nakamura_latest</pre>
                 </div>
@@ -47,17 +47,17 @@ curl -L http://bit.ly/oae_quickdev | bash -s GITHUB_USERNAME
                 </div>
             </li>
 
-            <li>For about a minute, you will see Nakamura starting up and a number of logging statements go by. Once it stops, Nakamura is up and running and this terminal will continue to print the server's logging statements. You can test whether it is running by pointing your browser to <%= link_to "http://localhost:8080", "http://localhost:8080", :class => "wl-regular-link" %> - you should see the Sakai OAE homepage.</li>
+            <li>For about a minute, you will see Nakamura starting up and a number of logging statements go by. Once it stops, Nakamura is up and running and this terminal will continue to print the server's logging statements. You can test whether it is running by pointing your browser to <%= link_to "http://localhost:8080", "http://localhost:8080", :class => "wl-regular-link" %> - you should see the Apereo OAE homepage.</li>
 
             <li>Get the 3akai-ux code from GitHub:
                 <ol class="regular_list">
-                    <li>After logging into <%= link_to "GitHub", "http://github.com", :class => "wl-regular-link", :target => "_blank" %> click the 'Fork' button in the upper-right of the Sakai OAE front-end codebase's GitHub repository, <%= link_to "3akai-ux", "http://github.com/sakaiproject/3akai-ux", :class => "wl-regular-link", :target => "_blank" %>. This will allow you to have a personal copy, or fork, of the 3akai-ux code that you can modify freely.</li>
+                    <li>After logging into <%= link_to "GitHub", "http://github.com", :class => "wl-regular-link", :target => "_blank" %> click the 'Fork' button in the upper-right of the Apereo OAE front-end codebase's GitHub repository, <%= link_to "3akai-ux", "http://github.com/sakaiproject/3akai-ux", :class => "wl-regular-link", :target => "_blank" %>. This will allow you to have a personal copy, or fork, of the 3akai-ux code that you can modify freely.</li>
                     <li>After the fork completes, use git to clone your very own 3akai-ux repository from your sakaioae directory:
                         <div class="navigationalitems_codesnippit_container few_lines">
                 <pre class="black">$ git clone git@github.com:GITHUB_USERNAME/3akai-ux.git</pre>
                         </div>
                     </li>
-                    <li>This will reach out to GitHub, download the 3akai-ux code and place it in a new 3akai-ux directory in your sakaioae directory. This is where you will do all of your widget development work. Because you own this clone of the main Sakai OAE 3akai-ux repository, you can use git to read and write to this repository.</li>
+                    <li>This will reach out to GitHub, download the 3akai-ux code and place it in a new 3akai-ux directory in your sakaioae directory. This is where you will do all of your widget development work. Because you own this clone of the main Apereo OAE 3akai-ux repository, you can use git to read and write to this repository.</li>
                 </ol>
             </li>
 
@@ -94,7 +94,7 @@ provider.file=${sakai_oae}/3akai-ux/devwidgets" > load/org.apache.sling.fsprovid
 
         <p>You should see something like the following:</p>
         <%= image_tag "developer_quickdev_example.png", :alt => "Hello World Quick Dev Example" %>
-        <p><b>Voila! You are up and running with Sakai OAE!</b> You should now be able to edit 3akai-ux code, save it and refresh your browser to see the changes right away. If you feel ready to dive in, have a look at the <%= link_to "'Hello World' Tutorial", "/sdk/developwidget/learnbasics", :title => "Hello World tutorial", :class => "wl-regular-link" %> or the <%= link_to "Widget designs", "/sdk/designguide/widgetdesigns", :class => "wl-regular-link" %>.</p>
+        <p><b>Voila! You are up and running with Apereo OAE!</b> You should now be able to edit 3akai-ux code, save it and refresh your browser to see the changes right away. If you feel ready to dive in, have a look at the <%= link_to "'Hello World' Tutorial", "/sdk/developwidget/learnbasics", :title => "Hello World tutorial", :class => "wl-regular-link" %> or the <%= link_to "Widget designs", "/sdk/designguide/widgetdesigns", :class => "wl-regular-link" %>.</p>
     </div>
     <div class="wl-widget-item">
         <h2 id="video">Video walkthrough</h2>

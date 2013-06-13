@@ -239,7 +239,6 @@ DEPENDENCIES
   ffaker
   flexmock
   guid
-  jquery-rails
   jquery-ui-rails
   mailcatcher
   mysql2

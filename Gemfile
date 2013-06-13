@@ -3,7 +3,6 @@ source :rubygems
 gem 'rails', '3.2.13'
 
 # Use jQuery instead of Prototype
-gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
 # Use Paperclip for image dependency management

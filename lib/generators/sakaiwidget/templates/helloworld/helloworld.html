@@ -1,50 +1,18 @@
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="css/<%= @file_name %>.css" />
 
-<!-- WIDGET CONTENT CONTAINER -->
-<div id="<%= @file_name %>-container">
-
+<!-- MODAL -->
+<div id="<%= @file_name %>-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="<%= @file_name %>-modal-title" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&#215;</button>
+        <h3 id="<%= @file_name %>-modal-title">__MSG__HELLO_WORLD__</h3>
+    </div>
+    <div class="modal-body"><!-- --></div>
 </div>
 
-<div id="<%= @file_name %>-template" class="hide"><!--
-	<h1>__MSG__HELLO_WORLD__, ${oae.data.me.displayName|safeUserInput}</h1>
-	<ul class="nav nav-tabs" id="<%= @file_name %>-tab">
-	  	<li class="active"><a href="#male" data-toggle="tab">__MSG__MALE__</a></li>
-	  	<li><a href="#female" data-toggle="tab">__MSG__FEMALE__</a></li>
-	</ul>
-
-	<div class="tab-content">
-	  	<div class="tab-pane active" id="male">
-	  		<table class="table">
-				<tr><th>__MSG__PICTURE__</th><th>__MSG__FIRST_NAME__</th><th>__MSG__LAST_NAME__</th><th>__MSG__EMAIL__</th></tr>
-				{for profile in profiles}
-					{if profile.gender == "male"}
-						<tr>
-							<td>${renderThumbnail(profile)}</td>
-							<td>${profile.firstname}</td>
-							<td>${profile.lastname}</td>
-							<td>${profile.email}</td>
-						</tr>
-					{/if}
-				{/for}
-			</table>
-	  	</div>
-	  	<div class="tab-pane" id="female">
-	  		<table class="table">
-				<tr><th>__MSG__PICTURE__</th><th>__MSG__FIRST_NAME__</th><th>__MSG__LAST_NAME__</th><th>__MSG__EMAIL__</th></tr>
-				{for profile in profiles}
-					{if profile.gender == "female"}
-						<tr>
-							<td>${renderThumbnail(profile)}</td>
-							<td>${profile.firstname}</td>
-							<td>${profile.lastname}</td>
-							<td>${profile.email}</td>
-						</tr>
-					{/if}
-				{/for}
-			</table>
-	  	</div>
-	</div>
+<div id="<%= @file_name %>-template"><!--
+    {var displayName = oae.data.me.displayName}
+    <p>__MSG__HI_NAME__</p>
 --></div>
 
 <!-- JAVASCRIPT -->

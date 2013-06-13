@@ -1,9 +1,7 @@
 {
     "i18n": {
         "default": {
-            "bundle": "bundles/default.properties",
-            "description": "<%= @appdesc %>",
-            "name": "<%= @apptitle %>"
+            "bundle": "bundles/default.properties"
         }
     },
     "src": "<%= @file_name %>.html"

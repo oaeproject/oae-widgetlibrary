@@ -1140,5 +1140,14 @@ input:-moz-placeholder, textarea:-moz-placeholder {
     }
 }
 
+input.error {
+    border-color: #b94a48;
+}
+
+label.error {
+    color: #b94a48;
+    margin: 7px;
+}
+
 @import "core/widget_list.css.scss";
 @import "core/submitwidget.css.scss";

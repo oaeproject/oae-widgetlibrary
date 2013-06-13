@@ -1,5 +1,5 @@
 <nav id="lhnavigation_container">
-  <h1 class="wl-bold">Sakai OAE Widget SDK</h1>
+  <h1 class="wl-bold">Apereo OAE Widget SDK</h1>
   <ul>
       <li <% if params[:section].eql?("developwidget")%>class="selected" <% elsif ["developwidget/quicksetup", "developwidget/devsetup", "developwidget/widgetbuilder", "developwidget/widgetsubmission", "developwidget/learnbasics", "developwidget/gitbasics"].include?(params[:section])%>class="selected_parent"<% end %>><div><%= link_to "Develop a widget", "/sdk/developwidget" %></div></li>
       <ul class="subnav" <% if !["developwidget", "developwidget/quicksetup", "developwidget/devsetup", "developwidget/learnbasics", "developwidget/widgetbuilder", "developwidget/widgetsubmission", "developwidget/gitbasics"].include?(params[:section]) %> style="display:none;"<% end %>>
