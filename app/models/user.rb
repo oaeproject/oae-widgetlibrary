@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   include ValidatesAsImage
   before_save :calculate_fields
+  after_destroy :destroy_inactive_widgets
 
   has_attached_file :avatar,
                     :styles => {
@@ -8,8 +9,8 @@ class User < ActiveRecord::Base
                       :medium => ["100x100!", :png],
                       :large => ["800x800", :png] },
                     :default_url => "register_default_image.jpg"
-  has_many :widgets
-  has_many :downloads
+  has_many :widgets, :dependent => :destroy
+  has_many :downloads, :dependent => :destroy
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable,
@@ -62,5 +63,8 @@ class User < ActiveRecord::Base
     self.name = "#{self.first_name} #{self.last_name}"
     self.url_title = "#{self.first_name.to_s.downcase}-#{self.last_name.to_s.downcase}"
   end
-
+  def destroy_inactive_widgets
+    Widget.where("user_id = ?", self.id).destroy_all
+    Rating.where("user_id = ?", self.id).destroy_all
+  end
 end

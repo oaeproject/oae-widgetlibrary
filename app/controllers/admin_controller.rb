@@ -35,7 +35,12 @@ class AdminController < ApplicationController
     user.admin = params["chk_user_admin" + params[:user_id]]
     user.reviewer = params["chk_user_reviewer" + params[:user_id]]
     user.save
-    head :ok
+    redirect_to request.referer
+  end
+
+  def delete_user
+    User.find(params[:id]).destroy
+    redirect_to request.referer
   end
 
   def options

@@ -1,9 +1,11 @@
 $(function() {
 
+    $('.wl-no-script').hide();
+
     var reject_widget = function() {
-        $( "#admin_action_buttons" ).hide();
-        $(".widget_confirmation").hide();
-        $("#reject_confirm").show();
+        $('#admin_action_buttons').hide();
+        $('.widget_confirmation').hide();
+        $('#reject_confirm').show();
     };
 
     var finalize_rejection = function( versionid ) {
