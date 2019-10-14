@@ -6,7 +6,7 @@ gem 'rails', '3.2.13'
 gem 'jquery-ui-rails'
 
 # Use Paperclip for image dependency management
-gem "paperclip", "~> 2.3"
+gem "paperclip", "~> 4.3"
 
 # Use rubyzip for serving zipped up widget files
 gem "rubyzip"
