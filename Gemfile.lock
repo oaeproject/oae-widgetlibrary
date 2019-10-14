@@ -137,10 +137,10 @@ GEM
       mime-types
     polyglot (0.3.3)
     populator (1.0.0)
-    rack (1.4.5)
+    rack (1.4.7)
     rack-cache (1.2)
       rack (>= 0.4)
-    rack-protection (1.5.0)
+    rack-protection (1.5.5)
       rack
     rack-ssl (1.3.3)
       rack
