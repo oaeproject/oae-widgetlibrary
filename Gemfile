@@ -1,6 +1,6 @@
 source :rubygems
 
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.17'
 
 # Use jQuery instead of Prototype
 gem 'jquery-ui-rails'
